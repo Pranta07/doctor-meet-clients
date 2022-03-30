@@ -101,7 +101,7 @@ const useFirebase = (): firebase => {
                 setIsLoading(false)
             });
     }
-    const createUsingEmail = (email: string, password: string, name: string, AccountType: string) => {
+    const createUsingEmail = (email: string, password: string, name: string) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 setNewUserName(name);
