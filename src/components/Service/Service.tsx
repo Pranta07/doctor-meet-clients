@@ -12,7 +12,7 @@ const Service = (props: { key: number; service: service_if }) => {
     const { service } = props;
 
     return (
-        <div className="col-6">
+        <div className="col-10">
             <div className="card h-100 border-0 p-4">
                 <img src={service.img} className="mx-auto mt-3" alt="..." />
                 <div className="card-body">
