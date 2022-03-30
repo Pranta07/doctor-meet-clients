@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import Login from "../../components/security/Login/Login";
 
 const Home = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <>
+      <Login></Login>
+    </>
+  );
 };
 
 export default Home;
