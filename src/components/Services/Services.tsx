@@ -9,6 +9,7 @@ import medicine from "../../Assets/services/medicine.png";
 import info from "../../Assets/services/info.png";
 import Service from "../Service/Service";
 import { Container } from "react-bootstrap";
+import "./Services.css";
 
 interface service_if {
     id: number;
@@ -77,29 +78,32 @@ const services: service_if[] = [
 
 const Services = () => {
     return (
-        <Container className="my-4 text-center">
-            <h1 className="fw-bold">Our Services</h1>
-            <hr className="w-25 mx-auto" />
-            <p className="text-secondary w-75 mx-auto pt-2 pb-4">
-                <small>
-                    We provide to you the best choiches for you. Adjust it to
-                    your health needs and make sure your undergo treatment with
-                    our highly qualified doctors you can consult with us which
-                    type of service is suitable for your health.
-                </small>
-            </p>
-            <div
-                className="
+        <div className="services-section">
+            <Container className="my-4 text-center">
+                <h1 className="fw-bold">Our Services</h1>
+                <hr className="w-25 mx-auto" />
+                <p className="text-secondary w-75 mx-auto pt-2 pb-4">
+                    <small>
+                        We provide to you the best choiches for you. Adjust it
+                        to your health needs and make sure your undergo
+                        treatment with our highly qualified doctors you can
+                        consult with us which type of service is suitable for
+                        your health.
+                    </small>
+                </p>
+                <div
+                    className="
                             row row-cols-1 row-cols-md-2 row-cols-lg-3
                             g-5
                             justify-content-center
                         "
-            >
-                {services.map((service) => (
-                    <Service key={service.id} service={service}></Service>
-                ))}
-            </div>
-        </Container>
+                >
+                    {services.map((service) => (
+                        <Service key={service.id} service={service}></Service>
+                    ))}
+                </div>
+            </Container>
+        </div>
     );
 };
 
