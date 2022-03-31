@@ -36,17 +36,19 @@ const articles: Article_If[] = [
 const Articles = () => {
   return (
     <>
-      <div className="artical-section">
-        <h2 className="text-center fw-bold mt-5">
-          Checkout Our Latest Articles
-        </h2>
-        <hr className="w-25 mx-auto" />
+      <div className="dot-b-section" >
+        <div className="artical-section">
+          <h2 className="text-center fw-bold mt-5">
+            Checkout Our Latest Articles
+          </h2>
+          <hr className="hr-w mx-auto" />
 
-        <div className="container my-5">
-          <div className="row mx-auto ">
-            {articles.map((article) => (
-              <Article key={article.id} article={article}></Article>
-            ))}
+          <div className="container my-5 dot-section p-3">
+            <div className="row mx-auto  ">
+              {articles.map((article) => (
+                <Article key={article.id} article={article}></Article>
+              ))}
+            </div>
           </div>
         </div>
       </div>

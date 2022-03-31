@@ -9,3 +9,6 @@
     margin-top: 26px;
     margin-bottom: 33px;
 }
+.service-dot{
+    background: url("../../Assets/img/elementdot.png") no-repeat right;
+}
