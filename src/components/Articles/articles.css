@@ -6,7 +6,15 @@
 } */
 .artical-section{
   background: url("../../Assets/img/artical.png") no-repeat right;
+
 }
+.dot-section{
+  background: url("../../Assets/img/elementdot.png") no-repeat top left;
+}
+.dot-b-section{
+  background: url("../../Assets/img/elementdot.png") no-repeat bottom right;
+}
+
 /* .hr-w{
   width: 7%;
   height: 2px !important;
