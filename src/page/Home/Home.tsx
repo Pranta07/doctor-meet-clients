@@ -2,6 +2,7 @@ import React from "react";
 import Articles from "../../components/Articles/Articles";
 import Banner from "../../components/Banner/Banner";
 
+import HealthCareProvider from "../../components/HealthCareProvider/HealthCareProvider";
 import Login from "../../components/security/Login/Login";
 import Registation from "../../components/security/Registation/Registation";
 import Services from "../../components/Services/Services";
@@ -40,9 +41,19 @@ const Home = () => {
 
 
 
-
             {/* mahim */}
+            {/* ridoy */}
 
+        <HealthCareProvider></HealthCareProvider>
+
+
+
+
+
+
+
+
+         {/* ridoy */}
             {/* mostofa */}
             <Articles></Articles>
 
@@ -68,6 +79,8 @@ const Home = () => {
 
 
             {/* ridoy */}
+            
+            
         </>
     );
 };
