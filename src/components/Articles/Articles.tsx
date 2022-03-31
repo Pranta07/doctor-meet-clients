@@ -40,7 +40,7 @@ const Articles = () => {
         <h2 className="text-center fw-bold mt-5">
           Checkout Our Latest Articles
         </h2>
-        <hr className="w-25 mx-auto" />
+        <hr className="hr-w mx-auto"/>
 
         <div className="container my-5">
           <div className="row mx-auto ">
