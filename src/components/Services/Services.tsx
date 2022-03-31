@@ -81,7 +81,7 @@ const Services = () => {
         <div className="services-section">
             <Container className="my-4 text-center">
                 <h1 className="fw-bold">Our Services</h1>
-                <hr className="w-25 mx-auto" />
+                <hr className="hr-w mx-auto" />
                 <p className="text-secondary w-75 mx-auto pt-2 pb-4">
                     <small>
                         We provide to you the best choiches for you. Adjust it

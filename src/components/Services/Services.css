@@ -1,3 +1,11 @@
 .services-section {
     background: url("../../Assets/services/servicesBG.png") no-repeat left;
 }
+.hr-w{
+    width: 7%;
+    height: 2px !important;
+    background-color: black !important;
+    border-radius: 5px !important;
+    margin-top: 26px;
+    margin-bottom: 33px;
+}
