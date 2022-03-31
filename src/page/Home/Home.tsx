@@ -29,9 +29,19 @@ const Home = () => {
 
 
 
-
             {/* mahim */}
+            {/* ridoy */}
 
+        <HealthCareProvider></HealthCareProvider>
+
+
+
+
+
+
+
+
+         {/* ridoy */}
             {/* mostofa */}
             <Articles></Articles>
 
@@ -46,18 +56,8 @@ const Home = () => {
 
 
             {/* mostofa */}
-            {/* ridoy */}
-
-
-
-
-
-
-
-
-
-         {/* ridoy */}
-            <HealthCareProvider></HealthCareProvider>
+            
+            
         </>
     );
 };
