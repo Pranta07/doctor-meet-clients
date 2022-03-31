@@ -1,5 +1,6 @@
 import React from "react";
 import Login from "../../components/security/Login/Login";
+import Registation from "../../components/security/Registation/Registation";
 import Services from "../../components/Services/Services";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <>
             <Login></Login>
             <Services></Services>
+            <Registation></Registation>
         </>
     );
 };
