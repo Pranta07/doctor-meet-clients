@@ -102,7 +102,6 @@ const useFirebase = (): firebase => {
             });
     }
 
-    
     const createUsingEmail = (email: string, password: string, name: string) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {

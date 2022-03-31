@@ -6,12 +6,6 @@ import useFirebase from "../../../firebase/useFirebase/useFirebase";
 import "./Login.css";
 
 const Login = () => {
-
-
-
-
-
-
   let { signUsingGoogle, signUsingEmail } = useFirebase();
   const mail = useRef<HTMLInputElement>(null!);
   const pass = useRef<HTMLInputElement>(null!);
