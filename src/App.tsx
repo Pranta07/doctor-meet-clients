@@ -1,10 +1,16 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Home from './page/Home/Home';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Home from "./page/Home/Home";
 
 function App() {
   return (
+
+
+
+
+
+    
     <div className="">
       <Home></Home>
     </div>
