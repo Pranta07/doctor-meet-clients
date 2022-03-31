@@ -7,14 +7,6 @@ import Services from "../../components/Services/Services";
 const Home = () => {
     return (
         <>
-         {/* mahadi */}
-
-
-
-
-
-
-         {/* mahadi */}
             <Login></Login>
             <Services></Services>
             {/* PRANTHA */}
