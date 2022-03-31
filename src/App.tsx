@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import AuthProvider from "./context/AuthProvider";
 import Registation from "./components/security/Registation/Registation";
 import Login from "./components/security/Login/Login";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
     <>
       <AuthProvider>
         {/* mdmahim shariar */}
+        
         <Routes>
 
 
@@ -140,6 +142,7 @@ function App() {
 
 
          </Routes>
+         <Footer></Footer>
       </AuthProvider>
     </>
   );

@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../../components/Footer/Footer";
 import Login from "../../components/security/Login/Login";
 import Registation from "../../components/security/Registation/Registation";
 import Services from "../../components/Services/Services";
@@ -18,8 +17,6 @@ const Home = () => {
             <Login></Login>
             <Services></Services>
             {/* PRANTHA */}
-
-            <Footer></Footer>
 
 
 
