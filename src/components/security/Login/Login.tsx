@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import useFirebase from "../../../firebase/useFirebase/useFirebase";
 import "./Login.css";
 
@@ -13,10 +14,8 @@ const Login = () => {
     const passE: string = pass.current.value;
     signUsingEmail(mailE, passE);
     // console.log(mailE,passE);
-    const field1: any = document.getElementById("field1");
-    const field2: any = document.getElementById("field2");
-    field1.value = "";
-    field2.value = "";
+    mail.current.value = "";
+    pass.current.value = "";
   };
   return (
     <div className="container">
@@ -49,6 +48,15 @@ const Login = () => {
             <Button onClick={handelSubmit} variant="primary px-4" type="submit">
               Login
             </Button>
+            <div className="row my-3">
+              {" "}
+              <small className="font-weight-bold">
+                Don't have an account?{" "}
+                <span className="text-danger ">
+                  <NavLink to="/signUp">Register</NavLink>
+                </span>
+              </small>{" "}
+            </div>
           </Form>
           <div className="row px-3 mt-4 mb-2 ">
             <div className="line"></div>{" "}
@@ -56,7 +64,9 @@ const Login = () => {
             <div className="line"></div>
           </div>
           <div className="mb-4 d-flex px-3">
-            <h6 className="mb-0 d-flex align-items-center mr-4">Sign in with: </h6>
+            <h6 className="mb-0 d-flex align-items-center mr-4">
+              Sign in with:{" "}
+            </h6>
             <div className="d-flex my-2">
               <button className="btn p-0">
                 <img
