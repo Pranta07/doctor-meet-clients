@@ -1,0 +1,28 @@
+/* ----------footer styles------------ */
+footer {
+    background: linear-gradient(183.41deg, #67c3f3 -8.57%, #5a98f2 82.96%);
+}
+.list {
+    font-size: 13px;
+    list-style: none;
+    padding: 0;
+}
+.list li {
+    line-height: 1.8;
+}
+.list li:hover {
+    color: black;
+    cursor: pointer;
+}
+.radius {
+    border-radius: 10px;
+}
+.case:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out;
+}
+
+.icons i {
+    font-size: 24px;
+    padding: 4px 8px;
+}
