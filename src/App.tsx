@@ -18,6 +18,11 @@ function App() {
       <AuthProvider>
         {/* mdmahim shariar */}
         <Routes>
+
+
+
+
+          
           <Route  path="/" element={<Home />} ></Route>
           <Route  path="/signUp" element={<Registation/>} ></Route>
           <Route  path="/login" element={<Login/>} ></Route>

@@ -14,6 +14,9 @@ const Login = () => {
     const passE: string = pass.current.value;
     signUsingEmail(mailE, passE);
     // console.log(mailE,passE);
+
+
+
     mail.current.value = "";
     pass.current.value = "";
   };
