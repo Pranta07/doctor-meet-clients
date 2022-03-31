@@ -4,3 +4,6 @@ hr {
   text-align: center;
   color: blue;
 }
+.artical-section{
+  background: url("../../Assets/img/artical.png") no-repeat right;
+}
