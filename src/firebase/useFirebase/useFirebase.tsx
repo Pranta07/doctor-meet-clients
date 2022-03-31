@@ -11,10 +11,6 @@ type firebase = {
     isLoading: boolean;
     admin: boolean;
     signUsingGoogle: () => void;
-
-
-
-
     createUsingEmail: (email: string, password: string, Firstname: string,LastName:string) => void;
     signUsingEmail: (email: string, password: string) => void;
     resetPassword: (email: string) => void;
@@ -51,12 +47,6 @@ const useFirebase = (): firebase => {
     //     }).then();
 
     // };
-
-
-
-
-
-
 
 
     const auth: any = getAuth();
@@ -110,7 +100,7 @@ const useFirebase = (): firebase => {
 
 
 
-    
+
     const createUsingEmail = (email: string, password: string, Firstname: string,LastName:string) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
