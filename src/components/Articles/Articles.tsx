@@ -33,7 +33,7 @@ const articles: Article_If[] = [
 const Articles = () => {
     return (
         <>
-            <h2 className='text-center mt-5'>Checkout Our Latest Articles</h2>
+            <h2 className='text-center fw-bold mt-5'>Checkout Our Latest Articles</h2>
             <hr className="w-25 mx-auto" />
 
             <div className="container d-flex justify-content-center my-5">
