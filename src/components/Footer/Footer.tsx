@@ -5,7 +5,7 @@ import brand from "../../Assets/brand-logo.png";
 const Footer = () => {
     return (
         <footer>
-            <section className="container text-white text-center">
+            <section className="container text-white text-start">
                 <div
                     className="
                         row row-cols-1 row-cols-md-4 row-cols-lg-4
