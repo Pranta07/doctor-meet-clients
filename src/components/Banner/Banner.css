@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.carousel-img {
+    position: relative;
+}
+
+
+.carousel-img-transparent-banner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+
+    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(131, 149, 167,0.5);  */
+
+}
+
+/* background-color: rgba(84, 160, 255, 0.5); */
+.carousel-img-transparent-banner :hover {
+    cursor: pointer;
+}
+
+.carousel-caption-para {
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+}

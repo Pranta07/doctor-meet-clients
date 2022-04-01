@@ -1,5 +1,7 @@
 import React from "react";
 import Articles from "../../components/Articles/Articles";
+import Banner from "../../components/Banner/Banner";
+
 import HealthCareProvider from "../../components/HealthCareProvider/HealthCareProvider";
 import Login from "../../components/security/Login/Login";
 import Registation from "../../components/security/Registation/Registation";
@@ -8,6 +10,16 @@ import Services from "../../components/Services/Services";
 const Home = () => {
     return (
         <>
+            {/* alamin */}
+            <Banner></Banner>
+            {/* mahadi */}
+
+
+
+
+
+
+            {/* mahadi */}
             <Login></Login>
             <Services></Services>
             {/* PRANTHA */}
@@ -21,7 +33,7 @@ const Home = () => {
             {/* PRANTHA */}
             {/* mahim */}
 
-        <Registation></Registation>
+            <Registation></Registation>
 
 
 
@@ -56,6 +68,17 @@ const Home = () => {
 
 
             {/* mostofa */}
+            {/* ridoy */}
+
+
+
+
+
+
+
+
+
+            {/* ridoy */}
             
             
         </>
