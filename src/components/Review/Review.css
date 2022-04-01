@@ -3,6 +3,7 @@
     color: white;
     padding: 60px;
     border-radius: 24px;
+    margin-top: 250px;
     
 }
 .border-rev{
@@ -12,4 +13,11 @@
     width: 7%;
     height: 3px !important;
     background-color: white;
+}
+
+.re-dot{
+    background: url("../../Assets/img/elementdot.png") no-repeat bottom left;
+}
+.dot-rev{
+    background: url("../../Assets/img/elementdot.png") no-repeat right;
 }

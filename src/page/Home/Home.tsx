@@ -32,8 +32,20 @@ const Home = () => {
 
 
             {/* PRANTHA */}
-            {/* mahim */}
+            {/* ridoy */}
 
+
+
+
+
+
+            <HealthCareProvider></HealthCareProvider>
+
+
+
+            {/* ridoy */}
+
+            {/* mahim */}
             <Registation></Registation>
 
 
@@ -43,18 +55,7 @@ const Home = () => {
 
 
             {/* mahim */}
-            {/* ridoy */}
-
-            <HealthCareProvider></HealthCareProvider>
-
-
-
-
-
-
-
-
-            {/* ridoy */}
+            
             {/* mostofa */}
             <Articles></Articles>
 
