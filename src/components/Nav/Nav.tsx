@@ -2,6 +2,7 @@ import "bootstrap";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 // import { HashLink } from "react-router-hash-link";
+import logo from './../../Assets/img/logo.png';
 const Nav = () => {
   const [offset, setOffset] = useState(0);
   const parallaxNav =
@@ -19,7 +20,7 @@ const Nav = () => {
       <nav className={parallaxNav}>
         <div className="container">
           <NavLink className="navbar-brand fs-2 ps-md-5 ms-md-5" to="/">
-            <span>Doctors Meet</span>
+            {/* <span>Doctors Meet</span> */} <img className="img-fluid" src={logo} alt="" height='70px' />
           </NavLink>
           <button
             className="navbar-toggler"
