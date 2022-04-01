@@ -4,7 +4,7 @@ import "./Just_Banner.css";
 
 const Just_Banner = () => {
   return (
-    <div className="container">
+    <div className="container margin-top-banner ">
       <div className="row">
         <div className="col-lg-6 col-sm-12 col-md-6 custom-bot my-auto mx-auto">
           <h1 className="just-width"> Virtual healthcare for you </h1>
