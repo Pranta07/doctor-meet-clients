@@ -1,6 +1,7 @@
-.btn-color{
+.btn-color-b{
     background-color: #458FF6 ;
     color: white;
+    font-weight: 500;
 }
 .just-width{
     width: 60%;
