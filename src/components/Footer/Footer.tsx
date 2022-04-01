@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 
-import brand from "../../Assets/brand-logo.png";
+import brand from "./../../Assets/img/logo.png";
 const Footer = () => {
   return (
     <div className="footer-bc-color" >
@@ -11,8 +11,8 @@ const Footer = () => {
             className=" row row-cols-1 row-cols-md-4 row-cols-lg-4 mx-auto pt-5"
           >
             <div className="col">
-              <img src={brand} alt="" width="30" height="30" />
-              <span className="fw-bold ps-2">Doctors Meet Up</span>
+              <img src={brand} alt="" className="img-fluid" />
+              {/* <span className="fw-bold ps-2">Doctors Meet Up</span> */}
               <p className="mt-2">
                 <small>
                   Doctors Meet Up provides progressive, and affordable
