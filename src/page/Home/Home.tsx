@@ -21,7 +21,7 @@ const Home = () => {
 
 
             {/* mahadi */}
-            <Login></Login>
+            {/* <Login></Login> */}
             <Services></Services>
             {/* PRANTHA */}
 
@@ -46,7 +46,7 @@ const Home = () => {
             {/* ridoy */}
 
             {/* mahim */}
-            <Registation></Registation>
+            {/* <Registation></Registation> */}
 
 
 
