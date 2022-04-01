@@ -1,7 +1,6 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-// import "./Nav.css";
 // import { HashLink } from "react-router-hash-link";
 const Nav = () => {
   const [offset, setOffset] = useState(0);
