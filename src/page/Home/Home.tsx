@@ -1,21 +1,22 @@
 import React from "react";
 import Articles from "../../components/Articles/Articles";
-import Banner from "../../components/Banner/Banner";
+// import Banner from "../../components/Banner/Banner";
 import HealthCareProvider from "../../components/HealthCareProvider/HealthCareProvider";
+import Just_Banner from "../../components/just-banner/Just_Banner";
 import Review from "../../components/Review/Review";
 
-import Login from "../../components/security/Login/Login";
-import Registation from "../../components/security/Registation/Registation";
+// import Login from "../../components/security/Login/Login";
+// import Registation from "../../components/security/Registation/Registation";
 import Services from "../../components/Services/Services";
 
 const Home = () => {
     return (
         <>
             {/* alamin */}
-            <Banner></Banner>
+            {/* <Banner></Banner> */}
             {/* mahadi */}
-
-
+            
+            <Just_Banner></Just_Banner>
 
 
 
