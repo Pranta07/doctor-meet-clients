@@ -11,7 +11,7 @@ const Just_Banner = () => {
             <p className="text-muted just-width">
               Trafalgar provides progressive, and affordable healthcare,
               accessible on mobile and online for everyone <br />
-            <button className="btn btn-color rounded-pill my-5 ">
+            <button className="btn btn-color-b rounded-pill my-5 ">
               Consult today
             </button>
             </p>
