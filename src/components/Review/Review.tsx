@@ -6,10 +6,10 @@ import review_img from "./../../Assets/img/review-img.png";
 const Review = () => {
   return (
     <div className="container">
-      <div className="review-bg" >
-        <h3 className="text-center"> What our customer are saying </h3>
+      <div className="review-bg">
+        <h3 className="text-center "> What our customer are saying </h3>
         <hr className="hr-re mx-auto " />
-        <div className="row container p-5 ">
+        <div className="row container re-dot p-5">
           <div className="d-flex col-6 ">
             <img
               className="rounded-circle img-fluid border-rev "
