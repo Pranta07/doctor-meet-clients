@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
-
+import { Card } from 'react-bootstrap';
+import './Article.css'
 interface Article_If {
     id: number;
     img: string;
@@ -10,15 +12,17 @@ interface Article_If {
 
 const Article = ({ article }: any) => {
     return (
-        <div className="mx-3">
-            <Card style={{ width: '18rem', borderRadius: '5px', boxShadow: '0px -3px 3px 3px whitesmoke' }}>
+        <div className="col-lg-4 col-md-6 col-sm-12 my-3 d-flex justify-content-center">
+            <Card style={{ width: '18rem', borderRadius: '5px' }}>
                 <Card.Img variant="top" src={article.img} />
                 <Card.Body>
                     <Card.Title>{article.title}</Card.Title>
                     <Card.Text>
                         {article.description}
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <button className='btn btn-color' >
+                        Read more <FontAwesomeIcon className='mx-1' icon={faArrowRight} />
+                    </button>
                 </Card.Body>
             </Card>
         </div>
