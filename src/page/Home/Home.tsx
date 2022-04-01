@@ -1,63 +1,54 @@
 import React from "react";
 import Articles from "../../components/Articles/Articles";
-import Login from "../../components/security/Login/Login";
-import Registation from "../../components/security/Registation/Registation";
+// import Banner from "../../components/Banner/Banner";
+import HealthCareProvider from "../../components/HealthCareProvider/HealthCareProvider";
+import Just_Banner from "../../components/just-banner/Just_Banner";
+import Nav from "../../components/Nav/Nav";
+import Review from "../../components/Review/Review";
+// import Login from "../../components/security/Login/Login";
+// import Registation from "../../components/security/Registation/Registation";
 import Services from "../../components/Services/Services";
 
 const Home = () => {
-    return (
-        <>
-            <Login></Login>
-            <Services></Services>
-            {/* PRANTHA */}
+  return (
+    <>
+      {/* alamin */}
+      {/* <Banner></Banner> */}
+      {/* mahadi */}
+      <Nav />
+      <Just_Banner></Just_Banner>
 
+      {/* mahadi */}
+      {/* <Login></Login> */}
+      <Services></Services>
+      {/* PRANTHA */}
 
+      {/* PRANTHA */}
+      {/* ridoy */}
 
+      <HealthCareProvider></HealthCareProvider>
 
+      {/* ridoy */}
 
+      {/* mahim */}
+      {/* <Registation></Registation> */}
 
+      <Review></Review>
 
-            {/* PRANTHA */}
-            {/* mahim */}
+      {/* mahim */}
 
-        <Registation></Registation>
+      {/* mostofa */}
+      <Articles></Articles>
 
+      {/* ridoy */}
+      {/* mostofa */}
 
+      {/* mostofa */}
+      {/* ridoy */}
 
-
-
-
-
-
-            {/* mahim */}
-
-            {/* mostofa */}
-            <Articles></Articles>
-
-
-
-
-
-
-
-
-
-
-
-            {/* mostofa */}
-            {/* ridoy */}
-
-
-
-
-
-
-
-
-
-         {/* ridoy */}
-        </>
-    );
+      {/* ridoy */}
+    </>
+  );
 };
 
 export default Home;

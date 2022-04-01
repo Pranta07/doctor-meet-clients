@@ -1,5 +1,7 @@
 .services-section {
     background: url("../../Assets/services/servicesBG.png") no-repeat left;
+    margin-bottom: 400px;
+    margin-top: 250px;
 }
 .hr-w{
     width: 7%;

@@ -18,18 +18,16 @@ function App() {
     <>
       <AuthProvider>
         {/* mdmahim shariar */}
-        
+
         <Routes>
 
 
 
 
-          
-          <Route  path="/" element={<Home />} ></Route>
-          <Route  path="/signUp" element={<Registation/>} ></Route>
-          <Route  path="/login" element={<Login/>} ></Route>
-        
 
+          <Route path="/" element={<Home />} ></Route>
+          <Route path="/signUp" element={<Registation />} ></Route>
+          <Route path="/login" element={<Login />} ></Route>
 
 
 
@@ -39,11 +37,11 @@ function App() {
 
 
 
-        {/* md mahim shariar  */}
 
-        {/* Suresh Pal Pranta */}
 
+          {/* md mahim shariar  */}
 
+          {/* Suresh Pal Pranta */}
 
 
 
@@ -58,12 +56,12 @@ function App() {
 
 
 
-        {/* Suresh Pal Pranta */}
 
 
-        {/* Mostofa Reza */}
+          {/* Suresh Pal Pranta */}
 
 
+          {/* Mostofa Reza */}
 
 
 
@@ -78,11 +76,11 @@ function App() {
 
 
 
-        {/* Mostofa Reza */}
 
-        {/* AKTARUZZAMAN RIDOY */}
 
+          {/* Mostofa Reza */}
 
+          {/* AKTARUZZAMAN RIDOY */}
 
 
 
@@ -98,11 +96,11 @@ function App() {
 
 
 
-        {/* AKTARUZZAMAN RIDOY */}
 
-        {/* Alamin */}
 
+          {/* AKTARUZZAMAN RIDOY */}
 
+          {/* Alamin */}
 
 
 
@@ -118,11 +116,11 @@ function App() {
 
 
 
-         {/* Alamin */}
 
-         {/* Mahadi */}
 
+          {/* Alamin */}
 
+          {/* Mahadi */}
 
 
 
@@ -138,11 +136,13 @@ function App() {
 
 
 
-         {/* Mahadi */}
 
 
-         </Routes>
-         <Footer></Footer>
+          {/* Mahadi */}
+
+
+        </Routes>
+        <Footer></Footer>
       </AuthProvider>
     </>
   );
