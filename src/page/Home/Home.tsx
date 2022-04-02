@@ -15,7 +15,7 @@ const Home = () => {
       {/* alamin */}
       {/* <Banner></Banner> */}
       {/* mahadi */}
-      <Nav />
+      {/* <Nav /> */}
       <Just_Banner></Just_Banner>
 
       {/* mahadi */}
