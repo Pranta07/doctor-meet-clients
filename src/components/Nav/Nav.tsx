@@ -1,10 +1,12 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import useFirebase from "../../firebase/useFirebase/useFirebase";
 // import { HashLink } from "react-router-hash-link";
 import logo from './../../Assets/img/logo.png';
 const Nav = () => {
   const [offset, setOffset] = useState(0);
+  let {user,logOut} = useFirebase();
   const parallaxNav =
     offset < 50
       ? "navbar navbar-expand-lg navbar-light fw-bold"
@@ -61,6 +63,11 @@ const Nav = () => {
                   About us
                 </NavLink>
               </li>
+              { user ? <button className="btn btn-primary " onClick={logOut} > LogOut </button> : <li className="nav-item">
+                <NavLink className="nav-link" to="/login">
+                  Login
+                </NavLink>
+              </li>}
             </ul>
           </div>
         </div>
