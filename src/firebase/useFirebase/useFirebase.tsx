@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification, sendPasswordResetEmail, onAuthStateChanged, UserCredential, User, updatePassword } from "firebase/auth";
 import initializationAuth from '../firebase.initialize';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 type firebase = {
     user: User | null;
@@ -28,7 +28,7 @@ const useFirebase = (): firebase => {
     const [isLoading, setIsLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
-    // const nevigate = useNavigate();
+    const nevigate = useNavigate();
 
 
 
@@ -86,7 +86,7 @@ const useFirebase = (): firebase => {
                 setUser(result.user);
                 // console.log(history);   
                 // saveUser(result.user.email, result.user.displayName, "PUT", "customer");
-                // nevigate("/");
+                nevigate("/");
 
             }).catch((error) => {
                 setMessage(error.message)
@@ -109,7 +109,7 @@ const useFirebase = (): firebase => {
                 setUser(result.user);
                 // saveUser(email, name, "POST", AccountType);
                 setIsLogged(true);
-                // nevigate("/");
+                nevigate("/");
                 console.log(result, "jjj");
             })
             .catch((error) => {
@@ -124,7 +124,7 @@ const useFirebase = (): firebase => {
                 // verification();
                 console.log(result);
                 setUser(result.user);
-                // nevigate("/");
+                nevigate("/");
                 setIsLogged(true);
             })
             .catch((error) => {
