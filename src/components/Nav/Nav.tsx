@@ -9,6 +9,7 @@ import './Nav.css'
 const Nav = () => {
   const [offset, setOffset] = useState(0);
   let { user, logOut } = useFirebase();
+
   const parallaxNav =
     offset < 50
       ? "navbar navbar-expand-lg navbar-light fw-bold"
