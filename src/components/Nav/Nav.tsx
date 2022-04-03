@@ -59,6 +59,11 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link" to="/ContactUs">
+                  Contact Us
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink className="nav-link" to="/manage-bookings">
                   About us
                 </NavLink>
