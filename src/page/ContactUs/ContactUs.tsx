@@ -1,7 +1,7 @@
 import React from 'react';
 import emailjs from "emailjs-com";
 import { Container } from "react-bootstrap";
-import bgImg from '../../Assets/ContactUs/bgImg.jpg';
+import ContactUsImg from '../../Assets/ContactUs/ContactUs.jpg';
 
 const ContactUs = () => {
     const sendEmail = (e: any) => {
@@ -51,7 +51,7 @@ const ContactUs = () => {
                         </div>
 
                         <div className="col-lg-6">
-                            <img src={bgImg} alt="" />
+                            <img src={ContactUsImg} alt="" />
 
                         </div>
                     </div>
