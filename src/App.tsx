@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import './Assets/main.css';
 import "./App.css";
 
 import { Route, Routes } from "react-router-dom";
@@ -14,6 +13,7 @@ import ContactUs from "./page/ContactUs/ContactUs";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
 // import ContactUs from "./page/ContactUs/ContactUs";
+import CovidPortal from "./page/CovidPortal/CovidPortal";
 
 function App() {
   return (
@@ -23,9 +23,13 @@ function App() {
           <Nav></Nav>
         <Routes>
 
+                    {/* Mostofa Reza */}
 
+                    {/* AKTARUZZAMAN RIDOY */}
 
+                    {/* AKTARUZZAMAN RIDOY */}
 
+                    {/* Alamin */}
 
           <Route path="/" element={<Home />} ></Route>
           <Route path="/signUp" element={<Registation />} ></Route>
@@ -43,6 +47,7 @@ function App() {
           {/* md mahim shariar  */}
 
           {/* Suresh Pal Pranta */}
+          <Route path="/covid" element={<CovidPortal/>} ></Route>
 
 
 
