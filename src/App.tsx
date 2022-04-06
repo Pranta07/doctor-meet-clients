@@ -12,6 +12,7 @@ import Nav from "./components/Nav/Nav";
 import ContactUs from "./page/ContactUs/ContactUs";
 // import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
 import Home from "./page/Home/Home";
+import Profile from "./page/Profile/Profile";
 // import ContactUs from "./page/ContactUs/ContactUs";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/signUp" element={<Registation />} ></Route>
           <Route path="/login" element={<Login />} ></Route>
           <Route path="/ContactUs" element={<ContactUs/>} ></Route>
+          <Route path="/profile" element={<Profile/>} ></Route>
 
 
 
