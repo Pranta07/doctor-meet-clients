@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification, sendPasswordResetEmail, onAuthStateChanged, UserCredential, User, updatePassword } from "firebase/auth";
 import initializationAuth from '../firebase.initialize';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 type firebase = {
     user: User | null;
@@ -11,7 +11,7 @@ type firebase = {
     isLoading: boolean;
     admin: boolean;
     signUsingGoogle: () => void;
-    createUsingEmail: (email: string, password: string, Firstname: string,LastName:string) => void;
+    createUsingEmail: (email: string, password: string, Firstname: string, LastName: string) => void;
     signUsingEmail: (email: string, password: string) => void;
     resetPassword: (email: string) => void;
     isLogged: boolean;
@@ -28,7 +28,7 @@ const useFirebase = (): firebase => {
     const [isLoading, setIsLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
-    // const nevigate = useNavigate();
+    const nevigate = useNavigate();
 
 
 
@@ -50,9 +50,9 @@ const useFirebase = (): firebase => {
 
 
     const auth: any = getAuth();
-    const setNewUserName = (Firstname: string,LastName:string) => {
+    const setNewUserName = (Firstname: string, LastName: string) => {
         updateProfile(auth.currentUser, {
-            displayName: Firstname + LastName , photoURL: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+            displayName: Firstname + LastName, photoURL: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
         }).then(() => {
         }).catch((error) => {
             setMessage(error.message)
@@ -86,7 +86,7 @@ const useFirebase = (): firebase => {
                 setUser(result.user);
                 // console.log(history);   
                 // saveUser(result.user.email, result.user.displayName, "PUT", "customer");
-                // nevigate("/");
+                nevigate("/");
 
             }).catch((error) => {
                 setMessage(error.message)
@@ -101,15 +101,15 @@ const useFirebase = (): firebase => {
 
 
 
-    const createUsingEmail = (email: string, password: string, Firstname: string,LastName:string) => {
+    const createUsingEmail = (email: string, password: string, Firstname: string, LastName: string) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                setNewUserName(Firstname,LastName);
+                setNewUserName(Firstname, LastName);
                 verification();
                 setUser(result.user);
                 // saveUser(email, name, "POST", AccountType);
                 setIsLogged(true);
-                // nevigate("/");
+                nevigate("/");
                 console.log(result, "jjj");
             })
             .catch((error) => {
@@ -124,7 +124,7 @@ const useFirebase = (): firebase => {
                 // verification();
                 console.log(result);
                 setUser(result.user);
-                // nevigate("/");
+                nevigate("/");
                 setIsLogged(true);
             })
             .catch((error) => {
