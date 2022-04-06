@@ -58,6 +58,10 @@ const useFirebase = (): firebase => {
             setMessage(error.message)
         });
     }
+
+    const updateProfilePic=(img:string)=>{
+
+    }
     const updateUserName = (name: string) => {
         updateProfile(auth.currentUser, {
             displayName: name,
