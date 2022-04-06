@@ -8,13 +8,13 @@ const ContactUs = () => {
         e.preventDefault();
 
         emailjs.sendForm('service_429c7ul', 'template_dr9cfyd', e.target, 'M9AHQR1dWtEHnJG3q')
-            .then((result) => {
+            .then((result: any) => {
                 if (result.text === "OK") {
                     alert("Your Message Was Successfully Sent. Thank You !");
                     console.log(result.text);
                 }
 
-            }, (error) => {
+            }, (error: any) => {
                 console.log(error.text);
 
             });
@@ -38,12 +38,10 @@ const ContactUs = () => {
                                     <input className='form-control' type="text" name="subject" placeholder='Subject' id="" />
 
                                 </div>
-
                                 <div className="col-10 form-group pt-3 mx-auto">
                                     <textarea placeholder='Your Message' className='form-control' name="message" id="" cols={30} rows={8}></textarea>
 
                                 </div>
-
                                 <div className="col-12  pt-3 text-center">
                                     <input className="btn btn-info bg-primary text-light fw-bold" type="submit" value="Send Message"></input>
                                 </div>

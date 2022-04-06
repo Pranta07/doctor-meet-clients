@@ -11,7 +11,7 @@ type firebase = {
     isLoading: boolean;
     admin: boolean;
     signUsingGoogle: () => void;
-    createUsingEmail: (email: string, password: string, Firstname: string,LastName:string) => void;
+    createUsingEmail: (email: string, password: string, Firstname: string, LastName: string) => void;
     signUsingEmail: (email: string, password: string) => void;
     resetPassword: (email: string) => void;
     isLogged: boolean;
@@ -50,9 +50,9 @@ const useFirebase = (): firebase => {
 
 
     const auth: any = getAuth();
-    const setNewUserName = (Firstname: string,LastName:string) => {
+    const setNewUserName = (Firstname: string, LastName: string) => {
         updateProfile(auth.currentUser, {
-            displayName: Firstname + LastName , photoURL: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+            displayName: Firstname + LastName, photoURL: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
         }).then(() => {
         }).catch((error) => {
             setMessage(error.message)
@@ -101,10 +101,10 @@ const useFirebase = (): firebase => {
 
 
 
-    const createUsingEmail = (email: string, password: string, Firstname: string,LastName:string) => {
+    const createUsingEmail = (email: string, password: string, Firstname: string, LastName: string) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                setNewUserName(Firstname,LastName);
+                setNewUserName(Firstname, LastName);
                 verification();
                 setUser(result.user);
                 // saveUser(email, name, "POST", AccountType);

@@ -1,11 +1,11 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-import { PersonCircle, PersonFill } from "react-bootstrap-icons";
+import { PersonCircle } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
 // import { HashLink } from "react-router-hash-link";
 import logo from "./../../Assets/img/logo.png";
-import './Nav.css'
+import "./Nav.css";
 const Nav = () => {
   const [offset, setOffset] = useState(0);
   let { user, logOut } = useFirebase();
@@ -73,14 +73,21 @@ const Nav = () => {
                 </NavLink>
               </li>
               {user ? (
-                <ul className="dropdown nav-item my-auto mx-2 ">
-                <button className="dropbtn"> <PersonCircle/> </button>
-                <li className="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a className="btn" onClick={logOut} > Sign Out </a>
-                </li>
-              </ul>
+                <div className="dropdown">
+                  <PersonCircle className="dropbtn ms-2" />
+                  <div className="dropdown-content">
+                    <a href="#">
+                      <NavLink to="/Profile">Profile</NavLink>
+                    </a>
+                    <a>
+                      <NavLink to="/deshboard">Deshboard</NavLink>
+                    </a>
+                    <a className="btn" onClick={logOut}>
+                      {" "}
+                      Sign Out
+                    </a>
+                  </div>
+                </div>
               ) : (
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/login">
