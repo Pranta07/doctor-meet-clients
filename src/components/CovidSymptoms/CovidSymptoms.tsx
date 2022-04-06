@@ -5,7 +5,7 @@ import "./CovidSymptoms.css";
 const CovidSymptoms = () => {
     return (
         <>
-            <section className="symptoms-section mb-5" id="symptoms">
+            <section className="symptoms-section mb-5 pb-5" id="symptoms">
                 <div className="container">
                     <div className="text-center mt-5 pt-5">
                         <h1 className="fw-bold">Symptoms</h1>
