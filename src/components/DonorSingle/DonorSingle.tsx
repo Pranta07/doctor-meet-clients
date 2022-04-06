@@ -2,12 +2,22 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
-const DonorSingle = () => {
+interface Idonor {
+    img: string;
+    name: string;
+    email: string;
+    phone: string;
+    group: string;
+}
+
+const DonorSingle = (props: { key: number; donor: Idonor }) => {
+    const { img, name, email, phone, group } = props.donor;
+
     return (
         <div className="col">
             <div className="card h-100 border-danger">
                 <img
-                    src="https://randomuser.me/api/portraits/men/57.jpg"
+                    src={img}
                     className="rounded-circle mt-2 p-3 mx-auto alert-danger"
                     alt="..."
                     width="200"
@@ -15,27 +25,24 @@ const DonorSingle = () => {
                 />
                 <div className="card-body text-center">
                     <p className="text-secondary m-0">Hi, My name is</p>
-                    <h5 className="card-title">Random Donor</h5>
-                    <p className="card-text m-0">
-                        <i className="far fa-envelope text-danger"></i>
-                        <span className="text-danger">
-                            Email:
-                            <br />{" "}
-                        </span>
-                        random@gmail.com
-                        <br />
-                        <i className="fas fa-phone-alt text-danger"></i>
-                        <span className="text-danger">
-                            Phone: <br />
-                        </span>
-                        093633......
-                        <br />
-                        <i className="far fa-plus-square text-danger"></i>
-                        <span className="text-danger">
-                            Blood Group: <br />
-                        </span>
-                        B+
-                    </p>
+                    <h5 className="card-title">{name}</h5>
+                    <div className="card-text m-0">
+                        <p className="my-2">
+                            <i className="far fa-envelope text-danger"></i>
+                            <span className="text-danger"> Email: </span>
+                            {email}
+                        </p>
+                        <p className="mb-2">
+                            <i className="fas fa-phone-alt text-danger"></i>
+                            <span className="text-danger"> Phone: </span>
+                            {phone}
+                        </p>
+                        <p>
+                            <i className="far fa-plus-square text-danger"></i>
+                            <span className="text-danger"> Blood Group: </span>
+                            {group}
+                        </p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <button className="btn btn-outline-danger w-100">
