@@ -21,7 +21,10 @@ const ContactUs = () => {
         e.target.reset();
     };
     return (
-        <div className='ContactUs-section'>
+        <div className='ContactUs-section my-5'>
+            <div>
+                
+            </div>
             <Container>
                 <h1 className='text-center fw-bold fs-4' >Please Feel Free To Contact Us</h1>
                 <form onSubmit={sendEmail}>
@@ -38,20 +41,18 @@ const ContactUs = () => {
                                     <input className='form-control' type="text" name="subject" placeholder='Subject' id="" />
 
                                 </div>
-
                                 <div className="col-10 form-group pt-3 mx-auto">
                                     <textarea placeholder='Your Message' className='form-control' name="message" id="" cols={30} rows={8}></textarea>
 
                                 </div>
-
                                 <div className="col-12  pt-3 text-center">
                                     <input className="btn btn-info bg-primary text-light fw-bold" type="submit" value="Send Message"></input>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="col-lg-6">
-                            <img src={ContactUsImg} alt="" />
+                        <div className="col-lg-6 col-md-12 col-sm-12">
+                            <img className='img-fluid' src={ContactUsImg} alt="" />
 
                         </div>
                     </div>
