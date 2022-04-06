@@ -74,9 +74,7 @@ const Nav = () => {
               </li>
               {user ? (
                 <div className="dropdown">
-                  <button className="dropbtn ms-2 my-auto">
-                    <PersonCircle />
-                  </button>
+                  <PersonCircle className="dropbtn ms-2" />
                   <div className="dropdown-content">
                     <a href="#">
                       <NavLink to="/Profile">Profile</NavLink>
@@ -84,7 +82,10 @@ const Nav = () => {
                     <a>
                       <NavLink to="/deshboard">Deshboard</NavLink>
                     </a>
-                    <a className="btn" onClick={logOut} > Sign Out</a>
+                    <a className="btn" onClick={logOut}>
+                      {" "}
+                      Sign Out
+                    </a>
                   </div>
                 </div>
               ) : (
