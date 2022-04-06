@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
 const DonorSingle = () => {
     return (
@@ -37,7 +39,7 @@ const DonorSingle = () => {
                 </div>
                 <div className="card-footer">
                     <button className="btn btn-outline-danger w-100">
-                        Contact
+                        <FontAwesomeIcon icon={faPhone} /> Contact
                     </button>
                 </div>
             </div>
