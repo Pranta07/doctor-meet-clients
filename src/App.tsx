@@ -38,7 +38,10 @@ function App() {
                     {/* md mahim shariar  */}
 
                     {/* Suresh Pal Pranta */}
-                    <Route path="/covid" element={<CovidPortal />}></Route>
+                    <Route
+                        path="/CovidPortal"
+                        element={<CovidPortal />}
+                    ></Route>
 
                     {/* Suresh Pal Pranta */}
 
