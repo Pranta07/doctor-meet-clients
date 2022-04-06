@@ -11,7 +11,7 @@ const CovidPreventions = () => {
                 <div className="container mb-5">
                     <div className="text-center mt-5">
                         <h1 className="fw-bold">Preventions</h1>
-                        <hr className="w-25 mx-auto" />
+                        <hr className="w-25 hr-hight mx-auto" />
                         <p className="text-secondary w-75 mx-auto">
                             <small>
                                 Protect yourself and others around you by

@@ -9,7 +9,7 @@ const CovidSymptoms = () => {
                 <div className="container">
                     <div className="text-center mt-5 pt-5">
                         <h1 className="fw-bold">Symptoms</h1>
-                        <hr className="w-25 mx-auto" />
+                        <hr className="w-25 hr-hight mx-auto" />
                         <p className="text-secondary w-75 mx-auto my-3">
                             <small>
                                 COVID-19 affects different people in different
