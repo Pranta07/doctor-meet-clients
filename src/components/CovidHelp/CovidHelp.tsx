@@ -31,7 +31,10 @@ const Help = () => {
                     </div>
 
                     <div className="my-3">
-                        <Button variant="primary" onClick={handleShow}>
+                        <Button
+                            variant="outline-primary rounded-pill"
+                            onClick={handleShow}
+                        >
                             Contact us{" "}
                             <FontAwesomeIcon icon={faArrowAltCircleRight} />
                         </Button>
