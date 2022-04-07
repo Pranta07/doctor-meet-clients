@@ -13,8 +13,8 @@ const VideoChatRoute = () => {
 
 
     return (
-        <div>
-            <h1>This is video chat route</h1>
+        <div className='container'>
+            <h1 className='text-center'>This is video chat route</h1>
             <VideoPlayer />
             <Sidebar>
                 <Notifications />
