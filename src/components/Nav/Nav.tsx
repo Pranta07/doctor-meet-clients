@@ -72,6 +72,11 @@ const Nav = () => {
                   About us
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/videoRoute">
+                  Video Route
+                </NavLink>
+              </li>
               {user ? (
                 <div className="dropdown">
                   <PersonCircle className="dropbtn ms-2" />
