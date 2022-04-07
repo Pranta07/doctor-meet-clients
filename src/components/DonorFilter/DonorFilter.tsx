@@ -7,15 +7,130 @@ interface IFormInput {
     district: string;
 }
 
+interface Idonor {
+    _id: number;
+    img: string;
+    name: string;
+    email: string;
+    phone: string;
+    district: string;
+    group: string;
+}
+
+const donorData: Idonor[] = [
+    {
+        _id: 1,
+        img: "https://randomuser.me/api/portraits/men/1.jpg",
+        name: "Random Donor1",
+        email: "random1@gmail.com",
+        phone: "02297335397",
+        district: "Dhaka",
+        group: "B+",
+    },
+    {
+        _id: 2,
+        img: "https://randomuser.me/api/portraits/men/29.jpg",
+        name: "Random Donor1",
+        email: "random1@gmail.com",
+        phone: "02297331753",
+        district: "Chittagong",
+        group: "B+",
+    },
+    {
+        _id: 3,
+        img: "https://randomuser.me/api/portraits/men/28.jpg",
+        name: "Random Donor1",
+        email: "random1@gmail.com",
+        phone: "02297331753",
+        district: "Khulna",
+        group: "B+",
+    },
+    {
+        _id: 4,
+        img: "https://randomuser.me/api/portraits/men/10.jpg",
+        name: "Random Donor2",
+        email: "random2@gmail.com",
+        phone: "02297331753",
+        district: "Dhaka",
+        group: "A+",
+    },
+    {
+        _id: 5,
+        img: "https://randomuser.me/api/portraits/men/7.jpg",
+        name: "Random Donor3",
+        email: "random3@gmail.com",
+        phone: "02297331753",
+        district: "Dhaka",
+        group: "O+",
+    },
+    {
+        _id: 6,
+        img: "https://randomuser.me/api/portraits/men/4.jpg",
+        name: "Random Donor4",
+        email: "random4@gmail.com",
+        phone: "02297331753",
+        district: "Dhaka",
+        group: "AB+",
+    },
+    {
+        _id: 7,
+        img: "https://randomuser.me/api/portraits/men/9.jpg",
+        name: "Random Donor5",
+        email: "random5@gmail.com",
+        phone: "02297331753",
+        district: "Dhaka",
+        group: "O-",
+    },
+    {
+        _id: 8,
+        img: "https://randomuser.me/api/portraits/men/17.jpg",
+        name: "Random Donor2",
+        email: "random2@gmail.com",
+        phone: "02297331753",
+        district: "Chittagong",
+        group: "A+",
+    },
+    {
+        _id: 9,
+        img: "https://randomuser.me/api/portraits/men/18.jpg",
+        name: "Random Donor2",
+        email: "random2@gmail.com",
+        phone: "02297331753",
+        district: "Khulna",
+        group: "A+",
+    },
+    {
+        _id: 10,
+        img: "https://randomuser.me/api/portraits/men/31.jpg",
+        name: "Random Donor3",
+        email: "random3@gmail.com",
+        phone: "02297331753",
+        district: "Chittagong",
+        group: "O+",
+    },
+    {
+        _id: 11,
+        img: "https://randomuser.me/api/portraits/men/32.jpg",
+        name: "Random Donor3",
+        email: "random3@gmail.com",
+        phone: "02297331753",
+        district: "Khulna",
+        group: "O+",
+    },
+];
+
 const DonorFilter = () => {
-    const [data, setData] = useState<IFormInput>({ group: "", district: "" });
+    const [displayDonors, setDisplayDonors] = useState<Idonor[]>(donorData);
 
     const { register, handleSubmit } = useForm<IFormInput>();
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
         // console.log(data);
-        setData(data);
+        const filterDonors = donorData.filter(
+            (donor) => donor.group === data.group
+        );
+        console.log(filterDonors);
+        setDisplayDonors(filterDonors);
     };
-    // console.log(data);
 
     return (
         <>
@@ -82,7 +197,7 @@ const DonorFilter = () => {
                         </button>
                     </div>
                 </form>
-                <Donors data={data}></Donors>
+                <Donors donors={displayDonors}></Donors>
             </section>
         </>
     );
