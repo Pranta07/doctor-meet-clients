@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Container } from "react-bootstrap";
-import DonorPagination from "../DonorPagination/DonorPagination";
+import DonorPagination from "../../DonorPagination/DonorPagination";
 import DonorSingle from "../DonorSingle/DonorSingle";
 
 const Donors = (props: any) => {
