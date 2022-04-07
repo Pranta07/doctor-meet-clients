@@ -2,19 +2,19 @@ import React, { useState, useContext } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { SocketContext } from '../../context/Context';
 
-const Sidebar = ({ children }) => {
+const Sidebar = ({ children }:any) => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');
   return (
     <div>
-      <div elevation={10}>
+      <div>
         <form noValidate autoComplete="off">
           <div>
             <div style={{ width: "600px" }}>
               <h1 className=''>Account Info</h1>
-              <div class="input-group input-group-sm mb-3">
+              <div className="input-group input-group-sm mb-3">
 
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => setName(e.target.value)} />
+                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => setName(e.target.value)} />
                 <CopyToClipboard text={me}>
                   <button className='btn btn-warning'>Copy Your ID</button>
                 </CopyToClipboard>
@@ -24,10 +24,10 @@ const Sidebar = ({ children }) => {
             </div>
             <div>
               <h1>Make a call</h1>
-              <div class="input-group input-group-sm mb-3" style={{ width: "600px" }}>
+              <div className="input-group input-group-sm mb-3" style={{ width: "600px" }}>
 
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => setName(e.target.value)}
-                  label="ID to call" value={idToCall} onChange={(e) => setIdToCall(e.target.value)}
+                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => setName(e.target.value)}
+                  placeholder="ID to call" value={idToCall} onBlur={(e) => setIdToCall(e.target.value)}
                 />
                 {callAccepted && !callEnded ? (
                   <button className='btn btn-warning' onClick={leaveCall}>Hang Up</button>
