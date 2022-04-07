@@ -7,12 +7,12 @@ const VideoPlayer = () => {
   const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
   console.log(userVideo, myVideo);
   return (
-    <div>
+    <div className='d-flex justify-content-between'>
       {stream && (
         <div>
           <div>
             <h1>{name || 'Name'}</h1>
-            <video playsInline muted ref={myVideo} autoPlay />
+            <video playsInline muted ref={myVideo} autoPlay style={{ width: "500px" }} />
           </div>
         </div>
       )}
@@ -20,7 +20,7 @@ const VideoPlayer = () => {
         <div>
           <div>
             <h1>{call.name || 'Name'}</h1>
-            <video playsInline ref={userVideo} autoPlay />
+            <video playsInline ref={userVideo} autoPlay style={{ width: "500px" }} />
           </div>
         </div>
       )}
