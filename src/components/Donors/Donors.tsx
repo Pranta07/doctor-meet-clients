@@ -1,15 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 import DonorSingle from "../DonorSingle/DonorSingle";
-
-interface Idonor {
-    img: string;
-    name: string;
-    email: string;
-    phone: string;
-    district: string;
-    group: string;
-}
 
 const Donors = (props: any) => {
     const { donors } = props;
