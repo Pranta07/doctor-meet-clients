@@ -3,8 +3,8 @@ import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Container, Modal } from "react-bootstrap";
 import helpImg from "../../Assets/img/need-help.svg";
-import "./CovidHelp.css";
 import useAuth from "../Hooks/useAuth";
+import "./CovidHelp.css";
 
 const Help = () => {
     const { user } = useAuth();
@@ -69,9 +69,8 @@ const Help = () => {
                                     <input
                                         type="text"
                                         className="border-0 form-control bg-light rounded-3"
-                                        id="recipient-name"
-                                        placeholder="Email"
-                                        // value={user?.email}
+                                        id="recipient-email"
+                                        placeholder={user?.email || ""}
                                         disabled
                                     />
                                 </div>
@@ -80,8 +79,7 @@ const Help = () => {
                                         type="text"
                                         className="border-0 form-control bg-light rounded-3"
                                         id="recipient-name"
-                                        placeholder="Name"
-                                        // value={user?.displayName}
+                                        placeholder={user?.displayName || ""}
                                         disabled
                                     />
                                 </div>
