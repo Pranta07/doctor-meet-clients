@@ -12,6 +12,7 @@ import Home from "./page/Home/Home";
 import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
 import Profile from "./page/Profile/Profile";
 import CovidPortal from "./page/CovidPortal/CovidPortal";
+import FindDonors from "./page/FindDonors/FindDonors";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
                         path="/CovidPortal"
                         element={<CovidPortal />}
                     ></Route>
+                    <Route path="/FindDonors" element={<FindDonors />}></Route>
 
                     {/* Suresh Pal Pranta */}
 
