@@ -22,7 +22,7 @@ const Profile = () => {
                 />
               ) : (
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                  src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
                   alt=""
                 />
               )}
@@ -35,7 +35,6 @@ const Profile = () => {
           <div className="col-md-6">
             <div className="profile-head">
               <h5>{user?.displayName}</h5>
-              <h6>Web Developer and Designer</h6>
               <p className="proile-rating">
                 RANKINGS : <span>8/10</span>
               </p>

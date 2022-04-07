@@ -35,9 +35,9 @@ const CovidTop = () => {
     // console.log(data);
 
     return (
-        <div className="covid-header">
+        <div className="covid-header my-5">
             <h1 className="text-center fw-bold">Covid Portal</h1>
-            <hr className="mx-auto w-25" />
+            <hr className="mx-auto hr-hight w-25" />
             <p className="text-center text-secondary">
                 <small>Be Aware, Stay Healthy!</small>
             </p>
@@ -66,7 +66,7 @@ const CovidTop = () => {
                                     }}
                                 >
                                     <div style={{ color: "maroon" }}>
-                                        <h3>Confirmed</h3>
+                                        <h3>Positive</h3>
                                         {loading ? (
                                             <div className="text-center">
                                                 <Spinner

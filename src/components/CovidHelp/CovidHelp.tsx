@@ -2,34 +2,35 @@ import React, { useState } from "react";
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Container, Modal } from "react-bootstrap";
-// import useFirebase from "../../firebase/useFirebase/useFirebase";
 import helpImg from "../../Assets/img/need-help.svg";
 import "./CovidHelp.css";
+import useAuth from "../Hooks/useAuth";
 
 const Help = () => {
-    // const { user: any } = useFirebase();
-    const [show, setShow] = useState(false);
+  const { user } = useAuth();
+  const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    return (
-        <div className="help-section" id="help">
-            <Container>
-                <div className="my-5 pt-5 text-center">
-                    <h1 className="fw-bold">Need Help!</h1>
-                    <hr className="mx-auto w-25" />
-                    <p className="mx-auto my-3 text-secondary w-75">
-                        <small>
-                            Protect yourself and others around you by knowing
-                            the facts and taking appropriate precautions. Floow
-                            advice provided by your local health authority.
-                        </small>
-                    </p>
-                    <div>
-                        <img src={helpImg} alt="" className="w-50 mx-auto" />
-                    </div>
+  return (
+    <div className="help-section container" id="help">
+      <Container>
+        <h1 className="fw-bold text-center ">Need Help!</h1>
+        <hr className="mx-auto hr-hight w-25" />
+        <p className="mx-auto my-3 text-secondary w-75">
+          <small>
+            Protect yourself and others around you by knowing the facts and
+            taking appropriate precautions. Floow advice provided by your local
+            health authority.
+          </small>
+        </p>
+        <div className="my-5 pt-5 text-center row ">
+          <div className="col-lg-6">
+            <img src={helpImg} alt="" className=" img-fluid mx-auto" />
+          </div>
 
+<<<<<<< HEAD
                     <div className="my-3">
                         <Button
                             variant="outline-primary rounded-pill"
@@ -39,72 +40,88 @@ const Help = () => {
                             <FontAwesomeIcon icon={faArrowAltCircleRight} />
                         </Button>
                     </div>
+=======
+          <div className=" col-lg-6 my-3 p-5">
+            <div className="p-3" >
+              <h2 className="text-start p-1" >COVID-19 enquiry form</h2>
+              <p className="text-start p-2" >
+                Completing the form online has been made simpler. It should take
+                no more than 20 minutes to complete. Once you have received the
+                text message, you can submit the form anytime within 24 hours.
+                If you do not submit the form within 72 hours, someone may call
+                you and complete the case interview over the phone.
+              </p>
+            </div>
+            <Button variant="success" className="d-block ms-4" onClick={handleShow}>
+              Fill From <FontAwesomeIcon icon={faArrowAltCircleRight} />
+            </Button>
+          </div>
+>>>>>>> ccf721414ad40ab7cf2d0be70a90d41b2ed2202c
 
-                    <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Ask for help!</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <form className="covid-contact">
-                                <div className="mb-3">
-                                    <input
-                                        type="text"
-                                        className="border-0 form-control bg-light rounded-3"
-                                        id="recipient-name"
-                                        placeholder="Email"
-                                        // value={user.email}
-                                        disabled
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <input
-                                        type="text"
-                                        className="border-0 form-control bg-light rounded-3"
-                                        id="recipient-name"
-                                        placeholder="Name"
-                                        // value={user.displayName}
-                                        disabled
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <input
-                                        type="text"
-                                        className="border-0 form-control bg-light rounded-3"
-                                        id="recipient-phone"
-                                        placeholder="Phone"
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <input
-                                        type="text"
-                                        className="border-0 form-control bg-light rounded-3"
-                                        id="recipient-symptoms"
-                                        placeholder="Symptoms"
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <textarea
-                                        className="border-0 form-control bg-light rounded-3"
-                                        id="message-text"
-                                        placeholder="Message in details"
-                                    ></textarea>
-                                </div>
-                            </form>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Close
-                            </Button>
-                            <Button variant="primary" onClick={handleClose}>
-                                Send Message{" "}
-                                <FontAwesomeIcon icon={faArrowAltCircleRight} />
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>COVID-19 enquiry form</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <form className="covid-contact">
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="border-0 form-control bg-light rounded-3"
+                    id="recipient-name"
+                    placeholder="Email"
+                    value={user?.email}
+                    disabled
+                  />
                 </div>
-            </Container>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="border-0 form-control bg-light rounded-3"
+                    id="recipient-name"
+                    placeholder="Name"
+                    value={user?.displayName}
+                    disabled
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="border-0 form-control bg-light rounded-3"
+                    id="recipient-phone"
+                    placeholder="Phone"
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="border-0 form-control bg-light rounded-3"
+                    id="recipient-symptoms"
+                    placeholder="Symptoms"
+                  />
+                </div>
+                <div className="mb-3">
+                  <textarea
+                    className="border-0 form-control bg-light rounded-3"
+                    id="message-text"
+                    placeholder="Message in details"
+                  ></textarea>
+                </div>
+              </form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleClose}>
+                Send Message <FontAwesomeIcon icon={faArrowAltCircleRight} />
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
-    );
+      </Container>
+    </div>
+  );
 };
 
 export default Help;
