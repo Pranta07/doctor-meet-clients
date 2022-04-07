@@ -1,6 +1,6 @@
 import React from "react";
-import DonorFilter from "../../components/DonorFilter/DonorFilter";
-import DonorHeader from "../../components/DonorHeader/DonorHeader";
+import DonorFilter from "../../components/Blood_Dooner/DonorFilter/DonorFilter";
+import DonorHeader from "../../components/Blood_Dooner/DonorHeader/DonorHeader";
 
 const FindDonors = () => {
     return (
