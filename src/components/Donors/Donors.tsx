@@ -1,10 +1,12 @@
+import React, { useEffect, useState } from "react";
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
 import { Container } from "react-bootstrap";
+import DonorPagination from "../DonorPagination/DonorPagination";
 import DonorSingle from "../DonorSingle/DonorSingle";
 
 const Donors = (props: any) => {
+    const [currentPage, setCurrentPage] = useState(1);
     const { donors } = props;
 
     return (
@@ -35,6 +37,11 @@ const Donors = (props: any) => {
                         ></DonorSingle>
                     ))}
                 </div>
+                <DonorPagination
+                    count={donors.length}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                ></DonorPagination>
             </Container>
         </>
     );
