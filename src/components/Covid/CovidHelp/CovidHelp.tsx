@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Container, Modal } from "react-bootstrap";
-import helpImg from "../../Assets/img/need-help.svg";
-import useAuth from "../Hooks/useAuth";
+import helpImg from "../../../Assets/img/need-help.svg";
 import "./CovidHelp.css";
+import useAuth from "../../Hooks/useAuth";
 
 const Help = () => {
     const { user } = useAuth();
