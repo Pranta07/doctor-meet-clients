@@ -54,14 +54,14 @@ const Help = () => {
                             className="d-block"
                             onClick={handleShow}
                         >
-                            Fill From{" "}
+                            Fill Form{" "}
                             <FontAwesomeIcon icon={faArrowAltCircleRight} />
                         </Button>
                     </div>
 
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
-                            <Modal.Title>COVID-19 enquiry form</Modal.Title>
+                            <Modal.Title>COVID-19 Enquiry Form</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <form className="covid-contact">
