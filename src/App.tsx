@@ -8,12 +8,12 @@ import Login from "./components/security/Login/Login";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
 import ContactUs from "./page/ContactUs/ContactUs";
-// import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
 import Home from "./page/Home/Home";
+import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
 import Profile from "./page/Profile/Profile";
-// import ContactUs from "./page/ContactUs/ContactUs";
 import CovidPortal from "./page/CovidPortal/CovidPortal";
 import FindDonors from "./page/FindDonors/FindDonors";
+
 
 function App() {
     return (
@@ -36,6 +36,7 @@ function App() {
                     <Route path="/ContactUs" element={<ContactUs />}></Route>
                     <Route path="/profile" element={<Profile />}></Route>
 
+                    <Route path="/videoRoute" element={<VideoChatRoute />} ></Route>
                     {/* md mahim shariar  */}
 
                     {/* Suresh Pal Pranta */}
@@ -57,11 +58,108 @@ function App() {
 
                     {/* Alamin */}
 
+                    {/* md mahim shariar  */}
+
+                    {/* Suresh Pal Pranta */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    {/* Suresh Pal Pranta */}
+
+
+                    {/* Mostofa Reza */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    {/* Mostofa Reza */}
+
+                    {/* AKTARUZZAMAN RIDOY */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    {/* AKTARUZZAMAN RIDOY */}
+
+                    {/* Alamin */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     {/* Alamin */}
 
                     {/* Mahadi */}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     {/* Mahadi */}
+
+
                 </Routes>
                 <Footer></Footer>
             </AuthProvider>
