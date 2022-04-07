@@ -1,3 +1,5 @@
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Container } from "react-bootstrap";
 import DonorSingle from "../DonorSingle/DonorSingle";
@@ -18,6 +20,14 @@ const Donors = (props: any) => {
                         justify-content-center
                     "
                 >
+                    {donors.length === 0 && (
+                        <p className="alert alert-danger p-2 mt-2 text-center">
+                            <FontAwesomeIcon
+                                icon={faExclamationCircle}
+                            ></FontAwesomeIcon>{" "}
+                            Ooops! No donors matches!
+                        </p>
+                    )}
                     {donors.map((donor: any) => (
                         <DonorSingle
                             key={donor._id}

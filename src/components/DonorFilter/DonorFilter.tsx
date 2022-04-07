@@ -30,6 +30,15 @@ const donorData: Idonor[] = [
         group: "B+",
     },
     {
+        _id: 162,
+        img: "https://randomuser.me/api/portraits/men/40.jpg",
+        name: "Random Donor1",
+        email: "random1@gmail.com",
+        phone: "02297335397",
+        district: "Dhaka",
+        group: "B+",
+    },
+    {
         _id: 2,
         img: "https://randomuser.me/api/portraits/men/29.jpg",
         name: "Random Donor1",
