@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import Donors from "../Donors/Donors";
+
+interface IFormInput {
+    group: string;
+    district: string;
+}
 
 const DonorFilter = () => {
-    const handleSearch = () => {
-        console.log("clicked");
+    const [data, setData] = useState<IFormInput>({ group: "", district: "" });
+
+    const { register, handleSubmit } = useForm<IFormInput>();
+    const onSubmit: SubmitHandler<IFormInput> = (data) => {
+        // console.log(data);
+        setData(data);
     };
+    // console.log(data);
 
     return (
         <>
@@ -20,53 +32,57 @@ const DonorFilter = () => {
                         rounded
                     "
                 />
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row justify-content-center gy-2">
                         <div className="col-10 col-md-4">
                             <h5 className="text-danger fw-bold">
                                 Blood group:
                             </h5>
                             <select
+                                {...register("group")}
                                 className="form-select"
                                 aria-label="Default select example"
                             >
-                                <option selected>Select Blood Group</option>
-                                <option value="1">A+</option>
-                                <option value="2">A-</option>
-                                <option value="3">B+</option>
-                                <option value="3">B-</option>
-                                <option value="3">O+</option>
-                                <option value="3">O-</option>
-                                <option value="3">AB+</option>
-                                <option value="3">AB-</option>
+                                <option value="">Select Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
                             </select>
                         </div>
                         <div className="col-10 col-md-4">
                             <h5 className="text-danger fw-bold">District:</h5>
                             <select
+                                {...register("district")}
                                 className="form-select"
                                 aria-label="Default select example"
                             >
-                                <option selected>Select District</option>
-                                <option value="1">Dhaka</option>
-                                <option value="2">Chittagong</option>
-                                <option value="3">Comilla</option>
-                                <option value="3">Rajshahi</option>
-                                <option value="3">Khulna</option>
-                                <option value="3">Jessore</option>
-                                <option value="3">Sylhet</option>
+                                <option value="">Select District</option>
+                                <option value="Dhaka">Dhaka</option>
+                                <option value="Chittagong">Chittagong</option>
+                                <option value="Comilla">Comilla</option>
+                                <option value="Rajshahi">Rajshahi</option>
+                                <option value="Khulna">Khulna</option>
+                                <option value="Jessore">Jessore</option>
+                                <option value="Sylhet">Sylhet</option>
                             </select>
                         </div>
                     </div>
                     <div className="d-flex justify-content-center">
                         <button
-                            onClick={handleSearch}
+                            type="submit"
+                            // onClick={handleSearch}
                             className="btn btn-danger mt-3 px-4"
                         >
                             Search
                         </button>
                     </div>
                 </form>
+                <Donors data={data}></Donors>
             </section>
         </>
     );

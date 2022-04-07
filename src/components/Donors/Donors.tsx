@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import DonorSingle from "../DonorSingle/DonorSingle";
 
@@ -7,6 +7,7 @@ interface Idonor {
     name: string;
     email: string;
     phone: string;
+    district: string;
     group: string;
 }
 
@@ -16,6 +17,7 @@ const donorData: Idonor[] = [
         name: "Random Donor1",
         email: "random1@gmail.com",
         phone: "02297331753",
+        district: "Dhaka",
         group: "B+",
     },
     {
@@ -23,6 +25,7 @@ const donorData: Idonor[] = [
         name: "Random Donor2",
         email: "random2@gmail.com",
         phone: "02297331753",
+        district: "Dhaka",
         group: "A+",
     },
     {
@@ -30,6 +33,7 @@ const donorData: Idonor[] = [
         name: "Random Donor3",
         email: "random3@gmail.com",
         phone: "02297331753",
+        district: "Dhaka",
         group: "O+",
     },
     {
@@ -37,6 +41,7 @@ const donorData: Idonor[] = [
         name: "Random Donor4",
         email: "random4@gmail.com",
         phone: "02297331753",
+        district: "Dhaka",
         group: "AB+",
     },
     {
@@ -44,17 +49,23 @@ const donorData: Idonor[] = [
         name: "Random Donor5",
         email: "random5@gmail.com",
         phone: "02297331753",
+        district: "Dhaka",
         group: "O-",
     },
 ];
 
-const Donors = () => {
+const Donors = (props: any) => {
+    const { group, district } = props.data;
+    const [displayDonors, setDisplayDonors] = useState({});
+
+    console.log(group, " ", district);
+
     return (
         <>
             <Container>
                 <div
                     className="
-                        row row-cols-1 row-cols-md-3
+                        row row-cols-1 row-cols-md-2 row-cols-lg-3
                         gx-4
                         gy-5
                         my-4
