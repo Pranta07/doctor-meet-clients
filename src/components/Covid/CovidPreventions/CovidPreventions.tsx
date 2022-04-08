@@ -1,7 +1,7 @@
 import React from "react";
-import mask from "../../Assets/img/using-mask.svg";
-import wash from "../../Assets/img/hand-wash.svg";
-import distance from "../../Assets/img/social-distance.svg";
+import mask from "../../../Assets/img/using-mask.svg";
+import wash from "../../../Assets/img/hand-wash.svg";
+import distance from "../../../Assets/img/social-distance.svg";
 import "./CovidPreventions.css";
 
 const CovidPreventions = () => {

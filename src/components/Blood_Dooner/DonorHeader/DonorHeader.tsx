@@ -1,7 +1,7 @@
 import React from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import vector1 from "../../Assets/blood donation/vector1.jpg";
+import vector1 from "../../../Assets/blood donation/vector1.jpg";
 
 const DonorHeader = () => {
     return (
@@ -26,7 +26,7 @@ const DonorHeader = () => {
                                 happiness.
                             </small>
                         </p>
-                        <button className="button btn btn-outline-primary mb-2 rounded-pill">
+                        <button className="button btn btn-outline-danger fw-bold mb-2 rounded-pill">
                             Join Us <FontAwesomeIcon icon={faArrowRight} />
                         </button>
                     </div>
