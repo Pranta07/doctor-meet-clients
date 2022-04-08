@@ -16,6 +16,7 @@ interface service_if {
   img: string;
   name: string;
   description: string;
+  route: string;
 }
 
 const services: service_if[] = [
@@ -25,6 +26,7 @@ const services: service_if[] = [
     name: "Search Doctor",
     description:
       "Choose your doctor from thousands of specialist, general, and trusted hospitals.",
+    route: "",
   },
   {
     id: 2,
@@ -32,12 +34,14 @@ const services: service_if[] = [
     name: "Free Consultation",
     description:
       "Free consultation with our trusted doctors and get the best recomendations.",
+    route: "",
   },
   {
     id: 3,
     img: reports,
     name: "Reports Feedback",
     description: "Get reports feedback from doctors with prescribed medicine.",
+    route: "",
   },
   {
     id: 4,
@@ -45,6 +49,7 @@ const services: service_if[] = [
     name: "COVID-19 Update",
     description:
       "Get update about covid information everyday. Consult Covid Specialist from available doctors.",
+    route: "/CovidPortal",
   },
   {
     id: 5,
@@ -52,6 +57,7 @@ const services: service_if[] = [
     name: "Find Blood Donors",
     description:
       "No need to worry for your patients. We will manage blood donors for you.",
+    route: "/FindDonors",
   },
   {
     id: 6,
@@ -59,12 +65,14 @@ const services: service_if[] = [
     name: "Online Pharmacy",
     description:
       "Buy  your medicines with our mobile application with a simple delivery system",
+    route: "",
   },
   {
     id: 7,
     img: info,
     name: "Tracking",
     description: "Track and save your medical history and health data ",
+    route: "",
   },
   {
     id: 8,
@@ -72,6 +80,7 @@ const services: service_if[] = [
     name: "Emergency Care",
     description:
       "You can get 24/7 urgent care for yourself or your children and your lovely family.",
+    route: "",
   },
 ];
 
@@ -89,9 +98,7 @@ const Services = () => {
             suitable for your health.
           </small>
         </p>
-        <div
-          className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5 justify-content-center p-4 "
-        >
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5 justify-content-center p-4 ">
           {services.map((service) => (
             <Service key={service.id} service={service}></Service>
           ))}
