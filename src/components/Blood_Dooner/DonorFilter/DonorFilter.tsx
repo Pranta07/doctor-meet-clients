@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Donors from "../Donors/Donors";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 
 interface IFormInput {
     group: string;
@@ -21,6 +23,15 @@ const donorData: Idonor[] = [
     {
         _id: 1,
         img: "https://randomuser.me/api/portraits/men/1.jpg",
+        name: "Random Donor1",
+        email: "random1@gmail.com",
+        phone: "02297335397",
+        district: "Dhaka",
+        group: "B+",
+    },
+    {
+        _id: 162,
+        img: "https://randomuser.me/api/portraits/men/40.jpg",
         name: "Random Donor1",
         email: "random1@gmail.com",
         phone: "02297335397",
@@ -122,13 +133,18 @@ const donorData: Idonor[] = [
 const DonorFilter = () => {
     const [displayDonors, setDisplayDonors] = useState<Idonor[]>(donorData);
 
-    const { register, handleSubmit } = useForm<IFormInput>();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<IFormInput>();
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
         // console.log(data);
         const filterDonors = donorData.filter(
-            (donor) => donor.group === data.group
+            (donor) =>
+                donor.group === data.group && donor.district === data.district
         );
-        console.log(filterDonors);
+        // console.log(filterDonors);
         setDisplayDonors(filterDonors);
     };
 
@@ -154,7 +170,7 @@ const DonorFilter = () => {
                                 Blood group:
                             </h5>
                             <select
-                                {...register("group")}
+                                {...register("group", { required: true })}
                                 className="form-select"
                                 aria-label="Default select example"
                             >
@@ -168,11 +184,19 @@ const DonorFilter = () => {
                                 <option value="AB+">AB+</option>
                                 <option value="AB-">AB-</option>
                             </select>
+                            {errors.group && (
+                                <p className="alert alert-danger p-1 mt-2">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                    ></FontAwesomeIcon>{" "}
+                                    This field is required
+                                </p>
+                            )}
                         </div>
                         <div className="col-10 col-md-4">
                             <h5 className="text-danger fw-bold">District:</h5>
                             <select
-                                {...register("district")}
+                                {...register("district", { required: true })}
                                 className="form-select"
                                 aria-label="Default select example"
                             >
@@ -185,6 +209,14 @@ const DonorFilter = () => {
                                 <option value="Jessore">Jessore</option>
                                 <option value="Sylhet">Sylhet</option>
                             </select>
+                            {errors.district && (
+                                <p className="alert alert-danger p-1 mt-2">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                    ></FontAwesomeIcon>{" "}
+                                    This field is required
+                                </p>
+                            )}
                         </div>
                     </div>
                     <div className="d-flex justify-content-center">
