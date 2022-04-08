@@ -1,6 +1,5 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-import { PersonCircle } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
 // import { HashLink } from "react-router-hash-link";
@@ -79,7 +78,7 @@ const Nav = () => {
               </li>
               {user ? (
                 <div className="dropdown">
-                  <PersonCircle className="dropbtn ms-2" />
+                  <div className="dropbtn ms-2" />
                   <div className="dropdown-content">
                     <a href="#">
                       <NavLink to="/Profile">Profile</NavLink>
