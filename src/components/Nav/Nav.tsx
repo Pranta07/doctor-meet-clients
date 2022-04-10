@@ -1,9 +1,6 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { ArrowDown, ArrowDownCircle, ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
-=======
->>>>>>> dmu-22
+// import { ArrowDown, ArrowDownCircle, ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
 // import { HashLink } from "react-router-hash-link";
@@ -55,18 +52,18 @@ const Nav = () => {
                 </NavLink>
               </li>
               <div className="dropdown my-auto nav-item ">
-                  <li className="dropbtn-more  my-auto ms-2">
-                    More Service's <ArrowDownCircleFill/>
-                  </li>
-                  <div className="dropdown-content">
-                    <a href="#">
-                      <NavLink to="/CovidPortal">Covid Portal</NavLink>
-                    </a>
-                    <a>
-                      <NavLink to="/FindDonors">Blood Donors</NavLink>
-                    </a>
-                  </div>
+                <li className="dropbtn-more  my-auto ms-2">
+                  {/* More Service's <ArrowDownCircleFill/> */}
+                </li>
+                <div className="dropdown-content">
+                  <a href="#">
+                    <NavLink to="/CovidPortal">Covid Portal</NavLink>
+                  </a>
+                  <a>
+                    <NavLink to="/FindDonors">Blood Donors</NavLink>
+                  </a>
                 </div>
+              </div>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/adding-tour-plan">
                   Testimonials
@@ -82,8 +79,7 @@ const Nav = () => {
                   About us
                 </NavLink>
               </li>
-              <li className="nav-item">
-              </li>
+              <li className="nav-item"></li>
               {user ? (
                 <div className="dropdown">
                   <div className="dropbtn ms-2" />
