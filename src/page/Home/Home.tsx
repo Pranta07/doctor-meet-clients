@@ -1,57 +1,55 @@
-import React from "react";
-import Articles from "../../components/Articles/Articles";
+import React from 'react';
+import Articles from '../../components/Articles/Articles';
 // import Banner from "../../components/Banner/Banner";
-import HealthCareProvider from "../../components/HealthCareProvider/HealthCareProvider";
-import Just_Banner from "../../components/just-banner/Just_Banner";
-import Review from "../../components/Review/Review";
+import HealthCareProvider from '../../components/HealthCareProvider/HealthCareProvider';
+import Just_Banner from '../../components/just-banner/Just_Banner';
+import Review from '../../components/Review/Review';
 // import Login from "../../components/security/Login/Login";
 // import Registation from "../../components/security/Registation/Registation";
-import Services from "../../components/Services/Services";
-
-
+import Services from '../../components/Services/Services';
 
 const Home = () => {
-    return (
-        <>
-            {/* alamin */}
-            {/* <Banner></Banner> */}
-            {/* mahadi */}
-            {/* <Nav /> */}
-            <Just_Banner></Just_Banner>
-            {/* mahadi */}
-            {/* <Login></Login> */}
-            <Services></Services>
-            {/* PRANTHA */}
+  return (
+    <>
+      {/* alamin */}
+      {/* <Banner></Banner> */}
+      {/* mahadi */}
+      {/* <Nav /> */}
+      <Just_Banner></Just_Banner>
+      {/* mahadi */}
+      {/* <Login></Login> */}
+      <Services></Services>
+      {/* PRANTHA */}
 
-            {/* PRANTHA */}
-            {/* ridoy */}
+      {/* PRANTHA */}
+      {/* ridoy */}
 
-            <HealthCareProvider></HealthCareProvider>
+      <HealthCareProvider></HealthCareProvider>
 
-            {/* ridoy */}
+      {/* ridoy */}
 
-            {/* mahim */}
-            {/* <Registation></Registation> */}
+      {/* mahim */}
+      {/* <Registation></Registation> */}
 
-            <Review></Review>
+      <Review></Review>
 
-            {/* alamin */}
-            {/* <VideoChatRoute></VideoChatRoute> */}
+      {/* alamin */}
+      {/* <VideoChatRoute></VideoChatRoute> */}
 
-            {/* mahim */}
+      {/* mahim */}
 
-            {/* mostofa */}
-            <Articles></Articles>
+      {/* mostofa */}
+      <Articles></Articles>
 
-            {/* ridoy */}
-            {/* mostofa */}
+      {/* ridoy */}
+      {/* mostofa */}
 
-            {/* mostofa */}
-            {/* ridoy */}
+      {/* mostofa */}
+      {/* ridoy */}
 
-            {/* ridoy */}
-        </>
-    );
+      {/* ridoy */}
+    </>
+  );
 };
 
 export default Home;

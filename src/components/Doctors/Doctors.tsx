@@ -1,12 +1,12 @@
-import axios, { AxiosResponse } from "axios";
-import React, { useEffect, useState } from "react";
-import Doctor from "./Doctor";
+import axios, { AxiosResponse } from 'axios';
+import React, { useEffect, useState } from 'react';
+import Doctor from './Doctor';
 
 type Props = {};
 const Doctors: React.FC<Props> = () => {
   const [doctorsData, setDoctorsData] = useState([]);
   const uri =
-    "https://raw.githubusercontent.com/mhasancy/doctorsData/main/doctorsData.json";
+    'https://raw.githubusercontent.com/mhasancy/doctorsData/main/doctorsData.json';
   const fetchData = async () => {
     try {
       const response: AxiosResponse = await axios.get(uri);

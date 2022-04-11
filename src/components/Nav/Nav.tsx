@@ -1,19 +1,19 @@
-import "bootstrap";
-import React, { useEffect, useState } from "react";
+import 'bootstrap';
+import React, { useEffect, useState } from 'react';
 // import { ArrowDown, ArrowDownCircle, ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
-import { NavLink } from "react-router-dom";
-import useFirebase from "../../firebase/useFirebase/useFirebase";
+import { NavLink } from 'react-router-dom';
+import useFirebase from '../../firebase/useFirebase/useFirebase';
 // import { HashLink } from "react-router-hash-link";
-import logo from "./../../Assets/img/logo.png";
-import "./Nav.css";
+import logo from './../../Assets/img/logo.png';
+import './Nav.css';
 const Nav = () => {
   const [offset, setOffset] = useState(0);
   let { user, logOut } = useFirebase();
 
   const parallaxNav =
     offset < 50
-      ? "navbar navbar-expand-lg navbar-light fw-bold"
-      : "sticky-top navbar navbar-expand-lg shadow navbar-light bg-light fw-bold";
+      ? 'navbar navbar-expand-lg navbar-light fw-bold'
+      : 'sticky-top navbar navbar-expand-lg shadow navbar-light bg-light fw-bold';
   useEffect(() => {
     window.onscroll = () => {
       setOffset(window.pageYOffset);
@@ -25,7 +25,7 @@ const Nav = () => {
       <nav className={parallaxNav}>
         <div className="container">
           <NavLink className="navbar-brand fs-2 ps-md-5 ms-md-5" to="/">
-            {/* <span>Doctors Meet</span> */}{" "}
+            {/* <span>Doctors Meet</span> */}{' '}
             <img className="img-fluid" src={logo} alt="" height="70px" />
           </NavLink>
           <button
@@ -91,7 +91,7 @@ const Nav = () => {
                       <NavLink to="/deshboard">Deshboard</NavLink>
                     </a>
                     <a className="btn" onClick={logOut}>
-                      {" "}
+                      {' '}
                       Sign Out
                     </a>
                   </div>

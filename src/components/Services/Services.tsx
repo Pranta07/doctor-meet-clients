@@ -1,15 +1,15 @@
-import React from "react";
-import search from "../../Assets/services/search.png";
-import consultation from "../../Assets/services/consultation.png";
-import reports from "../../Assets/services/reports.png";
-import emergency from "../../Assets/services/emergency.png";
-import covid from "../../Assets/services/covid.jpg";
-import blood from "../../Assets/services/blood.jpg";
-import medicine from "../../Assets/services/medicine.png";
-import info from "../../Assets/services/info.png";
-import Service from "../Service/Service";
-import { Container } from "react-bootstrap";
-import "./Services.css";
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import blood from '../../Assets/services/blood.jpg';
+import consultation from '../../Assets/services/consultation.png';
+import covid from '../../Assets/services/covid.jpg';
+import emergency from '../../Assets/services/emergency.png';
+import info from '../../Assets/services/info.png';
+import medicine from '../../Assets/services/medicine.png';
+import reports from '../../Assets/services/reports.png';
+import search from '../../Assets/services/search.png';
+import Service from '../Service/Service';
+import './Services.css';
 
 interface service_if {
   id: number;
@@ -23,64 +23,64 @@ const services: service_if[] = [
   {
     id: 1,
     img: search,
-    name: "Search Doctor",
+    name: 'Search Doctor',
     description:
-      "Choose your doctor from thousands of specialist, general, and trusted hospitals.",
-    route: "",
+      'Choose your doctor from thousands of specialist, general, and trusted hospitals.',
+    route: '',
   },
   {
     id: 2,
     img: consultation,
-    name: "Free Consultation",
+    name: 'Free Consultation',
     description:
-      "Free consultation with our trusted doctors and get the best recomendations.",
-    route: "",
+      'Free consultation with our trusted doctors and get the best recomendations.',
+    route: '',
   },
   {
     id: 3,
     img: reports,
-    name: "Reports Feedback",
-    description: "Get reports feedback from doctors with prescribed medicine.",
-    route: "",
+    name: 'Reports Feedback',
+    description: 'Get reports feedback from doctors with prescribed medicine.',
+    route: '',
   },
   {
     id: 4,
     img: covid,
-    name: "COVID-19 Update",
+    name: 'COVID-19 Update',
     description:
-      "Get update about covid information everyday. Consult Covid Specialist from available doctors.",
-    route: "/CovidPortal",
+      'Get update about covid information everyday. Consult Covid Specialist from available doctors.',
+    route: '/CovidPortal',
   },
   {
     id: 5,
     img: blood,
-    name: "Find Blood Donors",
+    name: 'Find Blood Donors',
     description:
-      "No need to worry for your patients. We will manage blood donors for you.",
-    route: "/FindDonors",
+      'No need to worry for your patients. We will manage blood donors for you.',
+    route: '/FindDonors',
   },
   {
     id: 6,
     img: medicine,
-    name: "Online Pharmacy",
+    name: 'Online Pharmacy',
     description:
-      "Buy  your medicines with our mobile application with a simple delivery system",
-    route: "",
+      'Buy  your medicines with our mobile application with a simple delivery system',
+    route: '',
   },
   {
     id: 7,
     img: info,
-    name: "Tracking",
-    description: "Track and save your medical history and health data ",
-    route: "",
+    name: 'Tracking',
+    description: 'Track and save your medical history and health data ',
+    route: '',
   },
   {
     id: 8,
     img: emergency,
-    name: "Emergency Care",
+    name: 'Emergency Care',
     description:
-      "You can get 24/7 urgent care for yourself or your children and your lovely family.",
-    route: "",
+      'You can get 24/7 urgent care for yourself or your children and your lovely family.',
+    route: '',
   },
 ];
 

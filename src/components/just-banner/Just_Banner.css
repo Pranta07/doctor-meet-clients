@@ -1,17 +1,17 @@
-.btn-color-b{
-    background-color: #458FF6 ;
-    color: white;
-    font-weight: 500;
+.btn-color-b {
+  background-color: #458ff6;
+  color: white;
+  font-weight: 500;
 }
-.just-width{
-    width: 60%;
+.just-width {
+  width: 60%;
 }
 
-.custom-bot{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.custom-bot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.margin-top-banner{
-    margin-top: 100px;
+.margin-top-banner {
+  margin-top: 100px;
 }
