@@ -6,11 +6,10 @@ import VideoPlayer from './VideoPlayer';
 const VideoChatRoute = () => {
     useEffect(() => {
         if (!window.location.hash) {
-            window.location = window.location + '#loaded';
+            window.location.href = window.location + '#loaded' ;
             window.location.reload();
         }
     }, [])
-
 
     return (
         <div className='container'>
