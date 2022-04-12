@@ -1,15 +1,15 @@
-import React, { createContext, useState, useRef, useEffect } from 'react';
-import { io, Socket } from 'socket.io-client';
+import React, { createContext, useEffect, useRef, useState } from 'react';
 import Peer from 'simple-peer';
+import { io, Socket } from 'socket.io-client';
 
 
-const SocketContext = createContext<any>();
+const SocketContext = createContext<any>("");
 
 // const socket = io('http://localhost:5000');
 
-const socket:Socket = io('http://localhost:5000');
+const socket: Socket = io('http://localhost:5000');
 
-const ContextProvider = ({ children }:any) => {
+const ContextProvider = ({ children }: any) => {
   const [callAccepted, setCallAccepted] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
   const [stream, setStream] = useState<any | null>(null);
@@ -54,7 +54,7 @@ const ContextProvider = ({ children }:any) => {
     connectionRef.current = peer;
   };
 
-  const callUser = (id:any) => {
+  const callUser = (id: any) => {
     const peer = new Peer({ initiator: true, trickle: false, stream });
 
     peer.on('signal', (data) => {
@@ -104,3 +104,4 @@ const ContextProvider = ({ children }:any) => {
 };
 
 export { ContextProvider, SocketContext };
+
