@@ -16,8 +16,4 @@ const CovidPortal = () => {
     );
 };
 
-<<<<<<< HEAD
 export default CovidPortal;
-=======
-export default CovidPortal;
->>>>>>> f595fe4c2fee2e005b9122267cfa04338f89e0b6
