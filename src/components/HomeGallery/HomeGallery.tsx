@@ -45,7 +45,7 @@ function HomeGallery() {
     })
     // Render the grid
     return (
-        <>
+        <div className='container' >
         <h1 className="text-center text-primary my-4">Our Gallery</h1>
          <div ref={ref} className={styles.list} style={{ height: Math.max(...heights) }}>
             {transitions((style, item) => (
@@ -54,7 +54,7 @@ function HomeGallery() {
                 </a.div>
             ))}
         </div>
-        </>
+        </div>
        
     )
 }

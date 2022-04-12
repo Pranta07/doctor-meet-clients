@@ -10,7 +10,8 @@ import Registation from "./components/security/Registation/Registation";
 import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
 import AuthProvider from "./context/AuthProvider";
 import ContactUs from "./page/ContactUs/ContactUs";
-
+import CovidPortal from "./page/CovidPortal/CovidPortal";
+import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
 
@@ -39,7 +40,8 @@ function App() {
           {/* md mahim shariar  */}
 
           {/* Suresh Pal Pranta */}
-          
+          <Route path="/CovidPortal" element={<CovidPortal />}></Route>
+          <Route path="/FindDonors" element={<FindDonors />}></Route>
 
           {/* Suresh Pal Pranta */}
 
