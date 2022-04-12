@@ -1,0 +1,44 @@
+.slider-1{
+    position: relative;
+    z-index: 1;
+}
+.slider-1-bg{
+    position: absolute;
+    top:0;
+    left: 0;
+    
+    height: 500px;
+    z-index: 0;
+   
+
+}
+.slider-1-bg-2{
+    position: absolute;
+    top:0;
+    left: 400px;
+    
+    height: 500px;
+    z-index: 0;
+   
+
+}
+
+.btn-consult {background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%)}
+.btn-consult {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+.btn-consult:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
