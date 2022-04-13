@@ -1,4 +1,3 @@
-import { AnyKindOfDictionary } from 'lodash';
 import React, { useState, useContext } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { SocketContext } from '../../context/Context';
