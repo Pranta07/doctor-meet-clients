@@ -1,6 +1,6 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-import { PersonCircle } from "react-bootstrap-icons";
+import { ArrowDown, ArrowDownCircle, ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
 // import { HashLink } from "react-router-hash-link";
@@ -51,12 +51,19 @@ const Nav = () => {
                   Find a doctor
                 </NavLink>
               </li>
-
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/my-bookings">
-                  Apps
-                </NavLink>
-              </li>
+              <div className="dropdown my-auto nav-item ">
+                  <li className="dropbtn-more  my-auto ms-2">
+                    More Service's <ArrowDownCircleFill/>
+                  </li>
+                  <div className="dropdown-content">
+                    <a href="#">
+                      <NavLink to="/CovidPortal">Covid Portal</NavLink>
+                    </a>
+                    <a>
+                      <NavLink to="/FindDonors">Blood Donors</NavLink>
+                    </a>
+                  </div>
+                </div>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/adding-tour-plan">
                   Testimonials
@@ -73,13 +80,11 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/videoRoute">
-                  Video Route
-                </NavLink>
               </li>
               {user ? (
                 <div className="dropdown">
-                  <PersonCircle className="dropbtn ms-2" />
+                  <div className="dropbtn ms-2" />
+                  <PersonCircle className="dropbtn ms-2" ></PersonCircle>
                   <div className="dropdown-content">
                     <a href="#">
                       <NavLink to="/Profile">Profile</NavLink>

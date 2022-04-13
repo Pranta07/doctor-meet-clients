@@ -10,3 +10,10 @@
 .card-title {
     font-weight: bold;
 }
+.text-d{
+    text-decoration: none;
+    color: black;
+}
+.text-d:hover{
+    color: black !important;
+}

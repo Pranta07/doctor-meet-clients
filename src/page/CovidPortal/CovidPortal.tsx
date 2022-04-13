@@ -1,8 +1,9 @@
 import React from "react";
-// import CovidHelp from "../../components/CovidHelp/CovidHelp";
-import CovidPreventions from "../../components/CovidPreventions/CovidPreventions";
-import CovidSymptoms from "../../components/CovidSymptoms/CovidSymptoms";
-import CovidTop from "../../components/CovidTop/CovidTop";
+import Help from "../../components/Covid/CovidHelp/CovidHelp";
+import CovidPreventions from "../../components/Covid/CovidPreventions/CovidPreventions";
+import CovidSymptoms from "../../components/Covid/CovidSymptoms/CovidSymptoms";
+import CovidTop from "../../components/Covid/CovidTop/CovidTop";
+
 
 const CovidPortal = () => {
     return (
@@ -10,7 +11,7 @@ const CovidPortal = () => {
             <CovidTop></CovidTop>
             <CovidPreventions></CovidPreventions>
             <CovidSymptoms></CovidSymptoms>
-            {/* <CovidHelp></CovidHelp> */}
+            <Help></Help>
         </>
     );
 };
