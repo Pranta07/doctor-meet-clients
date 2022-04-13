@@ -14,7 +14,6 @@ import Profile from "./page/Profile/Profile";
 import CovidPortal from "./page/CovidPortal/CovidPortal";
 import FindDonors from "./page/FindDonors/FindDonors";
 
-
 function App() {
     return (
         <>
@@ -36,7 +35,10 @@ function App() {
                     <Route path="/ContactUs" element={<ContactUs />}></Route>
                     <Route path="/profile" element={<Profile />}></Route>
 
-                    <Route path="/videoRoute" element={<VideoChatRoute />} ></Route>
+                    <Route
+                        path="/videoRoute"
+                        element={<VideoChatRoute />}
+                    ></Route>
                     {/* md mahim shariar  */}
 
                     {/* Suresh Pal Pranta */}
@@ -62,104 +64,23 @@ function App() {
 
                     {/* Suresh Pal Pranta */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     {/* Suresh Pal Pranta */}
 
-
                     {/* Mostofa Reza */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     {/* Mostofa Reza */}
 
                     {/* AKTARUZZAMAN RIDOY */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     {/* AKTARUZZAMAN RIDOY */}
 
                     {/* Alamin */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     {/* Alamin */}
 
                     {/* Mahadi */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     {/* Mahadi */}
-
-
                 </Routes>
                 <Footer></Footer>
             </AuthProvider>
