@@ -83,7 +83,8 @@ const Nav = () => {
               </li>
               {user ? (
                 <div className="dropdown">
-                  <PersonCircle className="dropbtn ms-2" />
+                  <div className="dropbtn ms-2" />
+                  <PersonCircle className="dropbtn ms-2" ></PersonCircle>
                   <div className="dropdown-content">
                     <a href="#">
                       <NavLink to="/Profile">Profile</NavLink>
