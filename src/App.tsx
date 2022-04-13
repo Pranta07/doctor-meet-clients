@@ -14,6 +14,7 @@ import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
 import "./App.css";
+import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
 
 function App() {
     return (
@@ -37,6 +38,10 @@ function App() {
                         element={<CovidPortal />}
                     ></Route>
                     <Route path="/FindDonors" element={<FindDonors />}></Route>
+                    <Route
+                        path="/singleDoctor"
+                        element={<SingleDoctor />}
+                    ></Route>
 
                     <Route path="/doctors" element={<Doctors />}></Route>
                 </Routes>
