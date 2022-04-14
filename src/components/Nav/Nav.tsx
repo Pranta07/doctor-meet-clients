@@ -1,7 +1,7 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
 import { ArrowDown, ArrowDownCircle, ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
 // import { HashLink } from "react-router-hash-link";
 import logo from "./../../Assets/img/logo.png";
@@ -90,7 +90,7 @@ const Nav = () => {
                       <NavLink to="/Profile">Profile</NavLink>
                     </a>
                     <a>
-                      <NavLink to="/deshboard">Deshboard</NavLink>
+                      <Link to="/dashboard/dashboarHome">Dashboard</Link>
                     </a>
                     <a className="btn" onClick={logOut}>
                       {" "}
