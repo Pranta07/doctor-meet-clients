@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <Nav></Nav>
+        {window.location.pathname === "/dashboard/dashboarHome" ? <div></div>  : <Nav></Nav>}
         <Routes>
 
           <Route path="/" element={<Home />}></Route>
@@ -38,10 +38,7 @@ function App() {
           <Route path="/videoRoute" element={<VideoChatRoute />}></Route>
           
           <Route path="/CovidPortal" element={<CovidPortal />}></Route>
-          <Route path="/FindDonors" element={<FindDonors />}></Route>
-
-
-
+          <Route path="/FindDonors" element={<Doctors />}></Route>
 
 
 
