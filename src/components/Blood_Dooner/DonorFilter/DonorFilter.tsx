@@ -21,14 +21,29 @@ interface Idonor {
 }
 
 const DonorFilter = () => {
-    const [donorData, setDonorData] = useState<Idonor[]>([])
+    const [donorData, setDonorData] = useState<Idonor[]>([]);
     const [displayDonors, setDisplayDonors] = useState<Idonor[]>(donorData);
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pageCount, setPageCount] = useState(0);
+    const [group, setGroup] = useState("All");
+    const [district, setDistrict] = useState("All");
+
+    const url = `https://immense-beyond-64415.herokuapp.com/donor/all/${group}?district=${district}&&page=${currentPage}`;
 
     useEffect(() => {
-        fetch('https://immense-beyond-64415.herokuapp.com/donor/all')
+        setLoading(true)
+        fetch(url)
             .then(res => res.json())
-            .then(data => setDisplayDonors(data.result))
-    }, [donorData])
+            .then(data => {
+                setPageCount(Math.ceil(data.total / 6))
+                setDonorData(data.result)
+                setDisplayDonors(data.result)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+    }, [url]);
 
     const {
         register,
@@ -36,14 +51,9 @@ const DonorFilter = () => {
         formState: { errors },
     } = useForm<IFormInput>();
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
-        // console.log(data);
-        const filterDonors = donorData.filter(
-            (donor) =>
-                donor.group === data.group && donor.district === data.district
-        );
-        // console.log(filterDonors);
-        setDonorData(filterDonors)
-        setDisplayDonors(filterDonors);
+
+        setGroup(data.group);
+        setDistrict(data.district);
     };
 
     return (
@@ -72,7 +82,7 @@ const DonorFilter = () => {
                                 className="form-select"
                                 aria-label="Default select example"
                             >
-                                <option value="">Select Blood Group</option>
+                                <option value="All">Blood Groups</option>
                                 <option value="A+">A+</option>
                                 <option value="A-">A-</option>
                                 <option value="B+">B+</option>
@@ -98,7 +108,7 @@ const DonorFilter = () => {
                                 className="form-select"
                                 aria-label="Default select example"
                             >
-                                <option value="">Select District</option>
+                                <option value="All">All District</option>
                                 <option value="Dhaka">Dhaka</option>
                                 <option value="Chittagong">Chittagong</option>
                                 <option value="Comilla">Comilla</option>
@@ -127,7 +137,15 @@ const DonorFilter = () => {
                         </button>
                     </div>
                 </form>
-                <Donors donors={displayDonors}></Donors>
+                {
+                    donorData.length !== 0 && !loading &&
+                    <Donors
+                        donors={displayDonors}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                        pageCount={pageCount}
+                    ></Donors>
+                }
             </section>
         </>
     );

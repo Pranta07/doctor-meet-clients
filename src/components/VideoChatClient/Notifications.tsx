@@ -1,22 +1,21 @@
-export { };
-// import React, { useContext } from 'react';
-// import { SocketContext } from '../../context/Context';
+import React, { useContext } from 'react';
+import { SocketContext } from '../../context/Context';
 
-// const Notifications = () => {
-//   const { answerCall, call, callAccepted } = useContext(SocketContext);
+const Notifications = () => {
+    const { answerCall, call, callAccepted } = useContext(SocketContext);
 
-//   return (
-//     <>
-//       {call.isReceivingCall && !callAccepted && (
-//         <div>
-//           <h1>{call.name} is calling:</h1>
-//           <button className='btn btn-success' onClick={answerCall}>
-//             Answer
-//           </button>
-//         </div>
-//       )}
-//     </>
-//   );
-// };
+    return (
+        <>
+            {call.isReceivingCall && !callAccepted && (
+                <div>
+                    <h1>{call.name} is calling:</h1>
+                    <button className='btn btn-success' onClick={answerCall}>
+                        Answer
+                    </button>
+                </div>
+            )}
+        </>
+    );
+};
 
-// export default Notifications;
+export default Notifications;
