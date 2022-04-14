@@ -44,7 +44,6 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/pharma" element={<PharmecyHome />}></Route>
           <Route path="/videoRoute" element={<VideoChatRoute />}></Route>
-          <Route path="/pharma" element={<PharmecyHome />}></Route>
           {/* md mahim shariar  */}
 
           {/* Suresh Pal Pranta */}

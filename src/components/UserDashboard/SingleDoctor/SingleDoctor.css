@@ -1,0 +1,79 @@
+.doctorImg:hover {
+    transform: scale(1.06);
+    transition: 0.2s ease-in-out;
+}
+
+.d-name {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgb(69, 142, 167);
+}
+
+.d-spec {
+    padding: 10px 0px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgb(69, 142, 167);
+}
+
+.d-add {
+    padding-bottom: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: rgb(83, 83, 83);
+}
+
+.btn-grad1 {
+    margin-right: 10px;
+    border: 0;
+    background-image: linear-gradient(
+        to right,
+        /* #085078 0%, */ rgb(69, 142, 167) 51%,
+        #085078 100%
+    );
+}
+.btn-grad2 {
+    margin-right: 10px;
+    border: 0;
+    background-image: linear-gradient(
+        to right,
+        /* #085078 0%, */ rgb(221, 222, 240) 51%,
+        #085078 100%
+    );
+}
+.btn-grad1,
+.btn-grad2 {
+    padding: 12px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+.btn-grad2 {
+    color: rgb(69, 142, 167);
+}
+
+.btn-grad1:hover,
+.btn-grad2:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.info p {
+    color: rgb(69, 142, 167);
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: rgb(83, 83, 83);
+}
+
+.info .icon {
+    padding-right: 8px;
+    color: rgb(69, 142, 167);
+}
