@@ -8,7 +8,9 @@ const SideBar = () => {
     const firstPath = pathname.split("/dashboard/")[1];
     return (
         <div className="sidebar">
-            <img src={logo} alt="" />
+            <div>
+                <img className="img-fluid" src={logo} alt="" />
+            </div>
             <div className="nav-content">
                 <Link
                     to="/dashboard/dashboarHome"

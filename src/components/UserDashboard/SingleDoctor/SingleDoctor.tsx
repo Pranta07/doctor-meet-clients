@@ -85,14 +85,14 @@ const SingleDoctor = (props: any) => {
             style={{ maxWidth: "740px" }}
         >
             <div className="row">
-                <div className="col-12 col-md-3 border-end overflow-hidden pe-0">
+                <div className="col-12 col-lg-3 border-end overflow-hidden pe-0">
                     <img
                         src={img}
                         className="doctorImg w-100 rounded-start h-100"
                         alt="..."
                     />
                 </div>
-                <div className="col-7 col-md-5 border-end p-4">
+                <div className="col-7 col-lg-5 border-end p-4">
                     <h4 className="d-name">{name}</h4>
                     <h5 className="d-spec">{specialist}</h5>
                     <p className="d-add">
