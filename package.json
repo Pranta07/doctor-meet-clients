@@ -46,11 +46,8 @@
         "recharts": "^2.1.9",
         "simple-peer": "^9.11.1",
         "socket.io-client": "^4.4.1",
-<<<<<<< HEAD
         "swiper": "^8.1.0",
-=======
         "sweetalert2": "^11.4.8",
->>>>>>> ab70c68f5c6d81f37d09eb62c4614d5f99d792a9
         "typescript": "^4.6.3",
         "web-vitals": "^2.1.4"
     },
