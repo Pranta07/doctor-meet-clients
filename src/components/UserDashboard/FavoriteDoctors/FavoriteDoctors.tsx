@@ -25,6 +25,14 @@ const FavoriteDoctors = () => {
             >
                 Favorite Doctors
             </h2>
+            {!loading && favoriteDoctors.length === 0 && (
+                <div
+                    className="alert alert-info text-center w-50 mt-5 mx-auto"
+                    role="alert"
+                >
+                    Ooops! No Favorite Doctors!
+                </div>
+            )}
             {favoriteDoctors.map((doctor) => (
                 <SingleDoctor
                     key={doctor._id}
