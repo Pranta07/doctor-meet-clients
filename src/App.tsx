@@ -26,16 +26,8 @@ function App() {
   return (
     <>
       <AuthProvider>
-        {/* mdmahim shariar */}
         <Nav></Nav>
         <Routes>
-          {/* Mostofa Reza */}
-
-          {/* AKTARUZZAMAN RIDOY */}
-
-          {/* AKTARUZZAMAN RIDOY */}
-
-          {/* Alamin */}
 
           <Route path="/" element={<Home />}></Route>
           <Route path="/signUp" element={<Registation />}></Route>
@@ -44,52 +36,41 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/pharma" element={<PharmecyHome />}></Route>
           <Route path="/videoRoute" element={<VideoChatRoute />}></Route>
-          {/* md mahim shariar  */}
-
-          {/* Suresh Pal Pranta */}
+          
           <Route path="/CovidPortal" element={<CovidPortal />}></Route>
           <Route path="/FindDonors" element={<FindDonors />}></Route>
 
-          {/* Suresh Pal Pranta */}
 
-          {/* Mostofa Reza */}
 
-          {/* Mostofa Reza */}
 
-          {/* AKTARUZZAMAN RIDOY */}
+
+
+
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="dashboarHome" element={<DashboardHome />} />
             <Route path="doctor" element={<Doctor />} />
             <Route path="admin" element={<Admin />} />
           </Route>
 
-          {/* AKTARUZZAMAN RIDOY */}
 
-          {/* Alamin */}
 
-          {/* md mahim shariar  */}
 
-          {/* Suresh Pal Pranta */}
 
-          {/* Suresh Pal Pranta */}
 
-          {/* Mostofa Reza */}
-
-          {/* Mostofa Reza */}
-
-          {/* AKTARUZZAMAN RIDOY */}
-
-          {/* AKTARUZZAMAN RIDOY */}
-
-          {/* Alamin */}
-
-          {/* Alamin */}
-
-          {/* Mahadi */}
+          
 
           <Route path="/doctors" element={<Doctors />}></Route>
 
-          {/* Mahadi */}
+
+
+
+
+
+
+
+
+
+
         </Routes>
         <Footer></Footer>
       </AuthProvider>
