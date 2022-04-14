@@ -25,7 +25,7 @@
     color: rgb(83, 83, 83);
 }
 
-.btn-grad {
+.btn-grad1 {
     margin-right: 10px;
     border: 0;
     background-image: linear-gradient(
@@ -34,7 +34,17 @@
         #085078 100%
     );
 }
-.btn-grad {
+.btn-grad2 {
+    margin-right: 10px;
+    border: 0;
+    background-image: linear-gradient(
+        to right,
+        /* #085078 0%, */ rgb(221, 222, 240) 51%,
+        #085078 100%
+    );
+}
+.btn-grad1,
+.btn-grad2 {
     padding: 12px 20px;
     text-align: center;
     text-transform: uppercase;
@@ -45,8 +55,12 @@
     border-radius: 10px;
     display: block;
 }
+.btn-grad2 {
+    color: rgb(69, 142, 167);
+}
 
-.btn-grad:hover {
+.btn-grad1:hover,
+.btn-grad2:hover {
     background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
