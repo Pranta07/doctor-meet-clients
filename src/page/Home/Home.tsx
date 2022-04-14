@@ -10,6 +10,7 @@ import HomeGallery from '../../components/HomeGallery/HomeGallery'
 import Services from "../../components/Services/Services";
 import HomeBanner from "../../components/HomeBanner/HomeBanner";
 import Banner from "../../components/Banner/Banner";
+import Pharmecy_Banner from "../../components/Pharmecy/Pharmecy_Banner/Pharmecy_Banner";
 
 
 const Home = () => {
@@ -47,7 +48,6 @@ const Home = () => {
 
             {/* mostofa */}
             <Articles></Articles>
-
             {/* ridoy */}
             {/* mostofa */}
 
