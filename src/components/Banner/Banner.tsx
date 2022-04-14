@@ -1,67 +1,80 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel'
-import bannerImage1 from '../../Assets/Carousel/undraw_community.svg'
-import bannerImage2 from '../../Assets/Carousel/undraw_doctors.svg'
-import bannerImage3 from '../../Assets/Carousel/undraw_monitoring.svg'
-import bannerImage4 from '../../Assets/Carousel/undraw_Online_information.svg'
+import TextAnimation from '../HomeBanner/HomeBannerAnimations/TextAnimation';
 import './Banner.css';
+
 const Banner = () => {
     return (
         <div>
-            <Carousel fade={true} controls={false} indicators={false}>
-                <Carousel.Item interval={2000}>
-                    <img
-                        className="d-block w-100 carousel-img"
+            <Carousel fade={true} controls={true} indicators={false}>
+                <Carousel.Item interval={3000}>
+                    
+                    <div className="d-flex justify-content-between align-items-center container">
+                        <div className="w-50">
+                        <TextAnimation></TextAnimation>
+                        </div>
+                       <div className='w-50'>
+                       
+                       <img
+                        className="d-block w-75 carousel-img"
                         style={{ height: "400px" }}
-                        src={bannerImage1}
+                        src="https://i.ibb.co/gP4vTSD/handdrawn-vector-60.jpg"
                         alt="First slide"
                     />
-                    <div className="carousel-img-transparent-banner"></div>
+                           </div> 
+                    
+                    </div>
 
-                    <Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                   
+                <div className="d-flex justify-content-between align-items-center container">
+                        <div className="w-50">
+                        <h1 className="text-start font-open-sens">Fight Covid-19</h1>
+                        <h4 className="text-start font-lora my-5">From 2020 we start a mission to provide free medical consultation to those who are affected with Covid-19 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, ducimus!</h4>
+                        <button className="btn-consult-banner">Contact Now</button>
 
-                        <p className='carousel-caption-para'>We have a team of specialists</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={2000}>
-                    <img
-                        className="d-block w-100 carousel-img"
+                        </div>
+                       <div className='w-50'>
+                      
+                       <img
+                        className="d-block w-75 carousel-img"
                         style={{ height: "400px" }}
-                        src={bannerImage2}
-                        alt="Second slide"
+                        src="https://i.ibb.co/Wg8LFP0/istockphoto-1215660193-170667a-removebg-preview.png"
+                        alt="second slide"
                     />
-                    <div className="carousel-img-transparent-banner"></div>
+                           </div> 
+                    
+                    </div>
+                
                     <Carousel.Caption>
-                        <p className='carousel-caption-para'>A lot of guidence</p>
+                    
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={2000}>
-                    <img
-                        className="d-block w-100 carousel-img"
+                <Carousel.Item interval={3000}>
+                <div className="d-flex justify-content-between align-items-center container">
+                        <div className='w-50'>
+                            <h1 className="text-start font-open-sens">Emergency Consultant</h1>
+                            <h4 className="text-start font-lora my-5">We Provide An Emergency Health Consultant Within 1 Hour to Our Premium Member</h4>
+                            <button className="btn-consult-banner">Get Premium Membership</button>
+                        </div>
+                       
+                       
+                       <div className="w-50">
+ <img
+                        className="d-block w-75 carousel-img"
                         style={{ height: "400px" }}
-                        src={bannerImage3}
-                        alt="Third slide"
+                        src="https://i.ibb.co/ZJbmKTM/images-croped-removebg-preview.png"
+                        alt="third slide"
                     />
-                    <div className="carousel-img-transparent-banner"
-                        style={{ backgroundColor: "rgba(131, 149, 167,0.5)" }}
-                    ></div>
-                    <Carousel.Caption>
-
-                        <p className='carousel-caption-para'>We are your friends</p>
-                    </Carousel.Caption>
+                        </div>
+                      
+                
+                
+                    </div>
+                    
                 </Carousel.Item>
-                <Carousel.Item interval={2000}>
-                    <img
-                        className="d-block w-100 carousel-img"
-                        style={{ height: "400px" }}
-                        src={bannerImage4}
-                        alt="Third slide"
-                    />
-                    <div className="carousel-img-transparent-banner"></div>
-                    <Carousel.Caption>
-                        <p className='carousel-caption-para'>You can always monitor your records</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
+               
             </Carousel>
         </div>
     );
