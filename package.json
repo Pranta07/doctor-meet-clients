@@ -42,6 +42,7 @@
         "react-swipeable-views": "^0.14.0",
         "react-timer-hook": "^3.0.5",
         "react-use-measure": "^2.1.1",
+        "recharts": "^2.1.9",
         "simple-peer": "^9.11.1",
         "socket.io-client": "^4.4.1",
         "swiper": "^8.1.0",

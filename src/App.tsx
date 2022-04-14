@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import path from "path";
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import "./App.css";
 import Doctors from "./components/Doctors/Doctors";
 import Footer from "./components/Footer/Footer";
@@ -22,11 +23,12 @@ import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
 
 function App() {
+  let parmas = useParams();
   return (
     <>
       <AuthProvider>
         {/* mdmahim shariar */}
-        <Nav></Nav>
+        {parmas && "/dashboard/dashboarHome"? <div></div> : <Nav></Nav>}
         <Routes>
           {/* Mostofa Reza */}
 
