@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 import SingleDoctor from "../SingleDoctor/SingleDoctor";
 
 const AllDoctors = () => {
@@ -11,11 +12,11 @@ const AllDoctors = () => {
     }, []);
 
     return (
-        <>
+        <Container>
             {doctors.map((doctor) => (
                 <SingleDoctor key={doctor._id} doctor={doctor}></SingleDoctor>
             ))}
-        </>
+        </Container>
     );
 };
 

@@ -14,7 +14,6 @@ import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
 import "./App.css";
-import SingleDoctor from "./components/UserDashboard/SingleDoctor/SingleDoctor";
 import FavoriteDoctors from "./components/UserDashboard/FavoriteDoctors/FavoriteDoctors";
 import AllDoctors from "./components/UserDashboard/AllDoctors/AllDoctors";
 

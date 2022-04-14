@@ -27,7 +27,7 @@ const SingleDoctor = (props: any) => {
                         alt="..."
                     />
                 </div>
-                <div className="col-6 col-md-5 border-end p-4">
+                <div className="col-7 col-md-5 border-end p-4">
                     <h4 className="d-name">{name}</h4>
                     <h5 className="d-spec">{specialist}</h5>
                     <p className="d-add">
@@ -57,7 +57,7 @@ const SingleDoctor = (props: any) => {
                         </OverlayTrigger>
                     </div>
                 </div>
-                <div className="col-6 col-md-4 info p-4">
+                <div className="col-5 col-md-4 info p-4">
                     <p>
                         <FontAwesomeIcon
                             className="icon"
