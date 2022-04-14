@@ -33,14 +33,22 @@ const FavoriteDoctors = () => {
                     Ooops! No Favorite Doctors!
                 </div>
             )}
-            {favoriteDoctors.map((doctor) => (
-                <SingleDoctor
-                    key={doctor._id}
-                    doctor={doctor}
-                    remove={remove}
-                    setRemove={setRemove}
-                ></SingleDoctor>
-            ))}
+            {loading ? (
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border text-primary" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            ) : (
+                favoriteDoctors.map((doctor) => (
+                    <SingleDoctor
+                        key={doctor._id}
+                        doctor={doctor}
+                        remove={remove}
+                        setRemove={setRemove}
+                    ></SingleDoctor>
+                ))
+            )}
         </Container>
     );
 };
