@@ -5,6 +5,7 @@ import "./App.css";
 import Doctors from "./components/Doctors/Doctors";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
+import PharmecyHome from "./components/Pharmecy/PharmecyHome/PharmecyHome";
 import Login from "./components/security/Login/Login";
 import Registation from "./components/security/Registation/Registation";
 import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
@@ -35,8 +36,9 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/ContactUs" element={<ContactUs />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
-
+          <Route path="/pharma" element={<PharmecyHome/>}></Route>
           <Route path="/videoRoute" element={<VideoChatRoute />}></Route>
+          <Route path="/pharma" element={<PharmecyHome />}></Route>
           {/* md mahim shariar  */}
 
           {/* Suresh Pal Pranta */}
