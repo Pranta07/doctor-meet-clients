@@ -1,8 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import path from "path";
-import React, { useEffect, useState } from "react";
-import { Route, Routes, useParams } from "react-router-dom";
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
 import Doctors from "./components/Doctors/Doctors";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
@@ -18,11 +15,10 @@ import CovidPortal from "./page/CovidPortal/CovidPortal";
 import Admin from "./page/Dashboards/Admin/Admin";
 import Dashboard from "./page/Dashboards/Dashboard/Dashboard";
 import DashboardHome from "./page/Dashboards/DashboardHome/DashboardHome";
-import Doctor from "./page/Dashboards/Doctor/Doctor";
-
 import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
+import "./App.css";
 
 function App() {
     return (
