@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     faCalendar,
     faCertificate,
@@ -7,11 +7,77 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Rating } from "react-simple-star-rating";
-import "./SingleDoctor.css";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import Swal from "sweetalert2";
+import "./SingleDoctor.css";
 
 const SingleDoctor = (props: any) => {
-    const { name, specialist, img, review } = props.doctor;
+    const { _id, name, specialist, img, review } = props.doctor;
+    const { remove, setRemove } = props;
+    const [favorite, setFavorite] = useState(true);
+
+    useEffect(() => {
+        const favoriteList = localStorage.getItem("favdoc");
+
+        if (favoriteList) {
+            const listItems: any[] = JSON.parse(favoriteList);
+            const authorId = listItems.find((author) => author._id === _id);
+
+            if (authorId) setFavorite(false);
+            else setFavorite(true);
+        }
+    }, [_id]);
+
+    const addFavorite = (id: string) => {
+        Swal.fire(
+            "Great!",
+            `${name} has been added to your Favorite list!`,
+            "success"
+        );
+        setFavorite(false);
+
+        //save the doctor to local storage
+        const favorite = localStorage.getItem("favdoc");
+
+        let items;
+        if (favorite) items = JSON.parse(favorite);
+        else items = [];
+
+        const newItems = [...items, props.doctor];
+        // console.log(newItems);
+
+        localStorage.setItem("favdoc", JSON.stringify([...newItems]));
+    };
+
+    const removeFavorite = (id: string) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: `${name} will be removed from your Favorite list!`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, remove it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire("Great!", "Removed Successfully!", "success");
+                setFavorite(true);
+                setRemove(!remove);
+
+                //remove the doctor from local storage
+                const favorite = localStorage.getItem("favdoc");
+
+                let items: any[];
+                if (favorite) items = JSON.parse(favorite);
+                else items = [];
+
+                const newItems = items.filter((author) => author._id !== id);
+                // console.log(newItems);
+
+                localStorage.setItem("favdoc", JSON.stringify([...newItems]));
+            }
+        });
+    };
 
     return (
         <div
@@ -20,7 +86,6 @@ const SingleDoctor = (props: any) => {
         >
             <div className="row">
                 <div className="col-12 col-md-3 border-end overflow-hidden pe-0">
-                    {/* https://metropolitanhost.com/themes/themeforest/react/docfind/assets/img/doctors-grid/348x350-0.jpg */}
                     <img
                         src={img}
                         className="doctorImg w-100 rounded-start h-100"
@@ -35,26 +100,51 @@ const SingleDoctor = (props: any) => {
                     </p>
                     <div className="d-flex">
                         <button className="btn-grad1">VIEW MORE</button>
-                        <OverlayTrigger
-                            key="top"
-                            placement="top"
-                            overlay={
-                                <Tooltip id={`tooltip-top`}>
-                                    Add to <strong>Favorite</strong>.
-                                </Tooltip>
-                            }
-                        >
-                            <button
-                                className="btn-grad2"
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="top"
-                                title="Tooltip on top"
+                        {favorite ? (
+                            <OverlayTrigger
+                                key="top"
+                                placement="top"
+                                overlay={
+                                    <Tooltip id={`tooltip-top`}>
+                                        Add to <strong>Favorite</strong>.
+                                    </Tooltip>
+                                }
                             >
-                                <FontAwesomeIcon
-                                    icon={faHeart}
-                                ></FontAwesomeIcon>
-                            </button>
-                        </OverlayTrigger>
+                                <button
+                                    onClick={() => addFavorite(_id)}
+                                    className="btn-grad2"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    title="Tooltip on top"
+                                >
+                                    <FontAwesomeIcon
+                                        icon={faHeart}
+                                    ></FontAwesomeIcon>
+                                </button>
+                            </OverlayTrigger>
+                        ) : (
+                            <OverlayTrigger
+                                key="top"
+                                placement="top"
+                                overlay={
+                                    <Tooltip id={`tooltip-top`}>
+                                        Remove from <strong>Favorite</strong>.
+                                    </Tooltip>
+                                }
+                            >
+                                <button
+                                    onClick={() => removeFavorite(_id)}
+                                    className="btn-grad1"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    title="Tooltip on top"
+                                >
+                                    <FontAwesomeIcon
+                                        icon={faHeart}
+                                    ></FontAwesomeIcon>
+                                </button>
+                            </OverlayTrigger>
+                        )}
                     </div>
                 </div>
                 <div className="col-5 col-md-4 info p-4">

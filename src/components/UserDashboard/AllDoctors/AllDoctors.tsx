@@ -4,6 +4,7 @@ import SingleDoctor from "../SingleDoctor/SingleDoctor";
 
 const AllDoctors = () => {
     const [doctors, setDoctors] = useState<any[]>([]);
+    const [remove, setRemove] = useState(false);
 
     useEffect(() => {
         fetch("https://immense-beyond-64415.herokuapp.com/doctors/all")
@@ -14,7 +15,12 @@ const AllDoctors = () => {
     return (
         <Container>
             {doctors.map((doctor) => (
-                <SingleDoctor key={doctor._id} doctor={doctor}></SingleDoctor>
+                <SingleDoctor
+                    key={doctor._id}
+                    doctor={doctor}
+                    remove={remove}
+                    setRemove={setRemove}
+                ></SingleDoctor>
             ))}
         </Container>
     );
