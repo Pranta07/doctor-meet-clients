@@ -48,7 +48,6 @@ const Home = () => {
 
             {/* mostofa */}
             <Articles></Articles>
-            <Pharmecy_Banner></Pharmecy_Banner>
             {/* ridoy */}
             {/* mostofa */}
 
