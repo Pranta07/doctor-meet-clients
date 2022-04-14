@@ -80,6 +80,11 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link" to="/premiumMembership">
+                  Premium Membership
+                </NavLink>
+              </li>
+              <li className="nav-item">
               </li>
               {user ? (
                 <div className="dropdown">

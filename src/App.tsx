@@ -5,6 +5,8 @@ import "./App.css";
 import Doctors from "./components/Doctors/Doctors";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
+import PremiumMembership from "./components/PremiumMembership/PremiumMembership";
+import PremiumPayment from "./components/PremiumMembership/PremiumPayment";
 import Login from "./components/security/Login/Login";
 import Registation from "./components/security/Registation/Registation";
 import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
@@ -54,6 +56,8 @@ function App() {
           {/* AKTARUZZAMAN RIDOY */}
 
           {/* Alamin */}
+          <Route path="/premiumMembership" element={<PremiumMembership />}></Route>
+          <Route path="/premiumPayment" element={<PremiumPayment />}></Route>
 
           {/* md mahim shariar  */}
 
