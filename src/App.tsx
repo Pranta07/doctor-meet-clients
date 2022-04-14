@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import path from "path";
+import React, { useEffect, useState } from "react";
+import { Route, Routes, useParams } from "react-router-dom";
 import "./App.css";
 import Doctors from "./components/Doctors/Doctors";
 import Footer from "./components/Footer/Footer";
@@ -41,9 +42,8 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/ContactUs" element={<ContactUs />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/pharma" element={<PharmecyHome/>}></Route>
-          <Route path="/videoRoute" element={<VideoChatRoute />}></Route>
           <Route path="/pharma" element={<PharmecyHome />}></Route>
+          <Route path="/videoRoute" element={<VideoChatRoute />}></Route>
           {/* md mahim shariar  */}
 
           {/* Suresh Pal Pranta */}
@@ -57,7 +57,7 @@ function App() {
           {/* Mostofa Reza */}
 
           {/* AKTARUZZAMAN RIDOY */}
-          <Route path="/dashboard" element={<Dashboard />} >
+          <Route path="/dashboard" element={<Dashboard />}>
             <Route path="dashboarHome" element={<DashboardHome />} />
             <Route path="doctor" element={<Doctor />} />
             <Route path="admin" element={<Admin />} />
