@@ -10,7 +10,7 @@ import { Rating } from "react-simple-star-rating";
 import "./SingleDoctor.css";
 
 const SingleDoctor = (props: any) => {
-    const { name, specialist, img } = props.doctor;
+    const { name, specialist, img, review } = props.doctor;
 
     return (
         <div
@@ -61,7 +61,7 @@ const SingleDoctor = (props: any) => {
                         ></FontAwesomeIcon>
                         Tue, Wed, Thu, Fri,
                     </p>
-                    <Rating size={20} ratingValue={80} readonly />
+                    <Rating size={20} ratingValue={review * 20} readonly />
                 </div>
             </div>
         </div>
