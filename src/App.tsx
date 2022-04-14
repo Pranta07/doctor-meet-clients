@@ -14,7 +14,9 @@ import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
 import "./App.css";
-import SingleDoctor from "./components/SingleDoctor/SingleDoctor";
+import SingleDoctor from "./components/UserDashboard/SingleDoctor/SingleDoctor";
+import FavoriteDoctors from "./components/UserDashboard/FavoriteDoctors/FavoriteDoctors";
+import AllDoctors from "./components/UserDashboard/AllDoctors/AllDoctors";
 
 function App() {
     return (
@@ -39,8 +41,12 @@ function App() {
                     ></Route>
                     <Route path="/FindDonors" element={<FindDonors />}></Route>
                     <Route
-                        path="/singleDoctor"
-                        element={<SingleDoctor />}
+                        path="/favdoc"
+                        element={<FavoriteDoctors></FavoriteDoctors>}
+                    ></Route>
+                    <Route
+                        path="/alldoc"
+                        element={<AllDoctors></AllDoctors>}
                     ></Route>
 
                     <Route path="/doctors" element={<Doctors />}></Route>

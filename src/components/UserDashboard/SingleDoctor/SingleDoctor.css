@@ -30,8 +30,7 @@
     border: 0;
     background-image: linear-gradient(
         to right,
-        #085078 0%,
-        #85d8ce 51%,
+        /* #085078 0%, */ rgb(69, 142, 167) 51%,
         #085078 100%
     );
 }
