@@ -16,7 +16,10 @@ const DonorHeader = () => {
             "
                 >
                     <div className="section-intro col-10 col-md-6 col-lg-6">
-                        <h1 className="fw-bold">Donate Blood & Save Life</h1>
+                        <h1 className="fw-bold">
+                            Donate <span className="text-danger">Blood</span> &
+                            Save Life
+                        </h1>
                         <p className="text-secondary">
                             <small>
                                 Roll up your sleeves and contribute proactively
