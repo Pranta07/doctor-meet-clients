@@ -19,9 +19,9 @@ const Home = () => {
             {/* <Banner></Banner> */}
             {/* mahadi */}
             {/* <Nav /> */}
-            <Just_Banner></Just_Banner>
+            {/* <Just_Banner></Just_Banner> */}
             {/* <HomeBanner></HomeBanner> */}
-             {/* <Banner></Banner> */}
+             <Banner></Banner>
             {/* mahadi */}
             {/* <Login></Login> */}
             <Services></Services>
