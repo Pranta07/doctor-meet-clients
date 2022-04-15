@@ -16,7 +16,7 @@ const Banner = () => {
                        <div className='w-50'>
                        
                        <img
-                        className="d-block w-75 carousel-img"
+                        className="d-block mx-auto img-fluid carousel-img"
                         style={{ height: "400px" }}
                         src="https://i.ibb.co/gP4vTSD/handdrawn-vector-60.jpg"
                         alt="First slide"
@@ -30,7 +30,7 @@ const Banner = () => {
                    
                 <div className="d-flex justify-content-between align-items-center container">
                         <div className="w-50">
-                        <h1 className="text-start font-open-sens">Fight Covid-19</h1>
+                        <h1 className="text-start font-open-sens">Fight <br /> <span style={{color:"#e3376e"}} > Covid-19 </span> </h1>
                         <h4 className="text-start font-lora my-5">From 2020 we start a mission to provide free medical consultation to those who are affected with Covid-19 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, ducimus!</h4>
                         <button className="btn-consult-banner">Contact Now</button>
 
@@ -38,7 +38,7 @@ const Banner = () => {
                        <div className='w-50'>
                       
                        <img
-                        className="d-block w-75 carousel-img"
+                        className="d-block mx-auto img-fluid carousel-img"
                         style={{ height: "400px" }}
                         src="https://i.ibb.co/Wg8LFP0/istockphoto-1215660193-170667a-removebg-preview.png"
                         alt="second slide"
@@ -54,17 +54,17 @@ const Banner = () => {
                 <Carousel.Item interval={3000}>
                 <div className="d-flex justify-content-between align-items-center container">
                         <div className='w-50'>
-                            <h1 className="text-start font-open-sens">Emergency Consultant</h1>
-                            <h4 className="text-start font-lora my-5">We Provide An Emergency Health Consultant Within 1 Hour to Our Premium Member</h4>
+                            <h1 className="text-start font-open-sens">Emergency <br /> <span style={{color:"#e3376e"}} > Consultant </span></h1>
+                            <h4 className="text-start font-lora my-5 ">We Provide An Emergency Health Consultant Within 1 Hour to Our Premium Member</h4>
                             <button className="btn-consult-banner">Get Premium Membership</button>
                         </div>
                        
                        
                        <div className="w-50">
  <img
-                        className="d-block w-75 carousel-img"
+                        className="d-block mx-auto img-fluid carousel-img"
                         style={{ height: "400px" }}
-                        src="https://i.ibb.co/ZJbmKTM/images-croped-removebg-preview.png"
+                        src="https://i.ibb.co/ZzsNLrc/4162622-1-removebg-preview.png"
                         alt="third slide"
                     />
                         </div>

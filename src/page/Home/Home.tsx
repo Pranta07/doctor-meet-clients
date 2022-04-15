@@ -4,59 +4,30 @@ import Articles from "../../components/Articles/Articles";
 import HealthCareProvider from "../../components/HealthCareProvider/HealthCareProvider";
 import Just_Banner from "../../components/just-banner/Just_Banner";
 import Review from "../../components/Review/Review";
-import HomeGallery from '../../components/HomeGallery/HomeGallery'
+import HomeGallery from "../../components/HomeGallery/HomeGallery";
 // import Login from "../../components/security/Login/Login";
 // import Registation from "../../components/security/Registation/Registation";
 import Services from "../../components/Services/Services";
 import HomeBanner from "../../components/HomeBanner/HomeBanner";
 import Banner from "../../components/Banner/Banner";
-
+import Pharmecy_Banner from "../../components/Pharmecy/Pharmecy_Banner/Pharmecy_Banner";
 
 const Home = () => {
-    return (
-        <>
-            {/* alamin */}
-            {/* <Banner></Banner> */}
-            {/* mahadi */}
-            {/* <Nav /> */}
-            {/* <Just_Banner></Just_Banner> */}
-            {/* <HomeBanner></HomeBanner> */}
-             <Banner></Banner>
-            {/* mahadi */}
-            {/* <Login></Login> */}
-            <Services></Services>
-            {/* PRANTHA */}
+  return (
+    <>
+      <Banner></Banner>
 
-            {/* PRANTHA */}
-            {/* ridoy */}
+      <Services></Services>
 
-            <HealthCareProvider></HealthCareProvider>
+      <HealthCareProvider></HealthCareProvider>
 
-            {/* ridoy */}
+      <Review></Review>
 
-            {/* mahim */}
-            {/* <Registation></Registation> */}
+      <HomeGallery></HomeGallery>
 
-            <Review></Review>
-
-            {/* alamin */}
-            {/* <VideoChatRoute></VideoChatRoute> */}
-            <HomeGallery></HomeGallery>
-            
-            {/* mahim */}
-
-            {/* mostofa */}
-            <Articles></Articles>
-
-            {/* ridoy */}
-            {/* mostofa */}
-
-            {/* mostofa */}
-            {/* ridoy */}
-
-            {/* ridoy */}
-        </>
-    );
+      <Articles></Articles>
+    </>
+  );
 };
 
 export default Home;
