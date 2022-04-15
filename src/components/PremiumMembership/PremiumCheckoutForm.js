@@ -1,7 +1,9 @@
 import React from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
-const PremiumCheckoutForm = () => {
+const PremiumCheckoutForm = ({choosenCategory}) => {
+  
+  
     const stripe = useStripe();
   const elements = useElements();
 
@@ -20,7 +22,6 @@ const PremiumCheckoutForm = () => {
     // to find your CardElement because there can only ever be one of
     // each type of element.
     const card = elements.getElement(CardElement);
-
     if (card == null) {
       return;
     }
@@ -38,7 +39,7 @@ const PremiumCheckoutForm = () => {
     }
   };
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="mt-5">
       <CardElement
         options={{
           style: {
@@ -55,7 +56,7 @@ const PremiumCheckoutForm = () => {
           },
         }}
       />
-      <button type="submit" disabled={!stripe}  className="btn btn-danger">
+      <button type="submit" disabled={!stripe}  className="btn btn-danger mt-4">
         Pay
       </button>
     </form>
