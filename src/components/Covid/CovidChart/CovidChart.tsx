@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { Container } from "react-bootstrap";
-import { PieChart, Pie, Sector, Cell } from "recharts";
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
 
 const COLORS = [/* "lightpink", */ "lightblue", "lightgreen", "lightgray"];
 
@@ -123,29 +123,34 @@ const CovidChart = (props: any) => {
                     </div>
                 </div>
                 <div className="col-12 col-lg-6">
-                    <div className="d-flex justify-content-center">
-                        <PieChart className="piechart" width={600} height={400}>
-                            <Pie
-                                activeIndex={activeIndex}
-                                activeShape={renderActiveShape}
-                                data={data}
-                                cx={300}
-                                cy={200}
-                                innerRadius={80}
-                                outerRadius={100}
-                                fill="#8884d8"
-                                paddingAngle={5}
-                                dataKey="value"
-                                onMouseEnter={onPieEnter}
-                            >
-                                {data.map((entry, index) => (
-                                    <Cell
-                                        key={`cell-${index}`}
-                                        fill={COLORS[index % COLORS.length]}
-                                    />
-                                ))}
-                            </Pie>
-                        </PieChart>
+                    <div
+                        className="d-flex justify-content-center"
+                        style={{ width: "100%", height: 300 }}
+                    >
+                        <ResponsiveContainer>
+                            <PieChart width={600} height={400}>
+                                <Pie
+                                    activeIndex={activeIndex}
+                                    activeShape={renderActiveShape}
+                                    data={data}
+                                    cx="50%"
+                                    cy="50%"
+                                    innerRadius={80}
+                                    outerRadius={100}
+                                    fill="#8884d8"
+                                    paddingAngle={5}
+                                    dataKey="value"
+                                    onMouseEnter={onPieEnter}
+                                >
+                                    {data.map((entry, index) => (
+                                        <Cell
+                                            key={`cell-${index}`}
+                                            fill={COLORS[index % COLORS.length]}
+                                        />
+                                    ))}
+                                </Pie>
+                            </PieChart>
+                        </ResponsiveContainer>
                     </div>
                 </div>
             </div>
