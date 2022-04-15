@@ -23,7 +23,7 @@ const DonorSingle = (props: { key: number; donor: Idonor }) => {
                     width="200"
                     height="200"
                 />
-                <span className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle text-white">
+                <span className="position-absolute top-0 start-100 translate-middle p-2 alert-danger border border-light rounded-circle text-danger">
                     {group}
                     <span className="visually-hidden">New alerts</span>
                 </span>
