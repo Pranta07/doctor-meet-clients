@@ -125,7 +125,7 @@ const CovidChart = (props: any) => {
                 <div className="col-12 col-lg-6">
                     <div
                         className="d-flex justify-content-center"
-                        style={{ width: "100%", height: 300 }}
+                        style={{ width: "100%", height: 400 }}
                     >
                         <ResponsiveContainer>
                             <PieChart width={600} height={400}>
