@@ -1,12 +1,17 @@
 .Header {
-    width: 81vw;
+    width: 79.7vw;
     background-color: #FFFFFF;
     height: 65px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
+    padding-left: 15px;
     box-shadow: 0 0 3px #ddd;
+    position: absolute;
+    left: 19vw;
+    z-index: 5;
+    position: fixed;
+
 }
 
 .toggle_button {
@@ -57,12 +62,17 @@
     outline: none;
     font-size: 18px;
     background-color: #F7F6F4;
+    width: 70%;
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1020px) {
     .Header {
         width: 100vw;
+        position: absolute;
+        left: 0;
+        z-index: 5;
+
     }
 
     .box {
@@ -72,7 +82,7 @@
 
 }
 
-@media(min-width:601px) {
+@media(min-width:1020px) {
     .drawerToggleButton {
         display: none;
     }

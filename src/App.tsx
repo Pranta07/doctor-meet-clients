@@ -11,10 +11,10 @@ import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
 import AuthProvider from "./context/AuthProvider";
 import ContactUs from "./page/ContactUs/ContactUs";
 import CovidPortal from "./page/CovidPortal/CovidPortal";
-import Admin from "./page/Dashboards/Admin/Admin";
+import Admin from "./page/Dashboards/AdminDashboard/AdminDashboard";
 import Dashboard from "./page/Dashboards/Dashboard/Dashboard";
 import DashboardHome from "./page/Dashboards/DashboardHome/DashboardHome";
-import Doctor from "./page/Dashboards/Doctor/Doctor";
+import Doctor from "./page/Dashboards/DoctorDashboard/DoctorDashboard";
 
 import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";

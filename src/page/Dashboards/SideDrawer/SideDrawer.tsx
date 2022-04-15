@@ -15,6 +15,9 @@ const SideDrawer = (props: { show: boolean, backDropClickHandler: any }) => {
             <Link to="/dashboard/dashboarHome" onClick={props.backDropClickHandler}>Dashboard</Link>
             <Link to="/dashboard/doctor" onClick={props.backDropClickHandler}>Doctors</Link>
             <Link to="/dashboard/admin" onClick={props.backDropClickHandler}>Admin</Link>
+            <Link to="/" >
+                Back To Home
+            </Link>
         </div>
     );
 };

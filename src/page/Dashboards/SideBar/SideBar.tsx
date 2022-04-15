@@ -7,7 +7,7 @@ const SideBar = () => {
     const { pathname } = useLocation();
     const firstPath = pathname.split("/dashboard/")[1];
     return (
-        
+
         <div className='sidebar'>
             <img src={logo} alt="" />
             <div className="nav-content">
@@ -19,6 +19,9 @@ const SideBar = () => {
                 </Link>
                 <Link to="/dashboard/admin" className={firstPath === "admin" ? "active" : ""}>
                     Admin
+                </Link>
+                <Link to="/" >
+                    Back To Home
                 </Link>
             </div>
         </div>

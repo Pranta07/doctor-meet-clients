@@ -6,6 +6,7 @@ import useFirebase from "../../firebase/useFirebase/useFirebase";
 // import { HashLink } from "react-router-hash-link";
 import logo from "./../../Assets/img/logo.png";
 import "./Nav.css";
+import { useLocation } from "react-router-dom";
 const Nav = () => {
   const [offset, setOffset] = useState(0);
   let { user, logOut } = useFirebase();
@@ -19,6 +20,11 @@ const Nav = () => {
       setOffset(window.pageYOffset);
     };
   }, []);
+
+  const { pathname } = useLocation();
+  if (pathname === "/dashboard/dashboarHome") return null;
+  else if (pathname === "/dashboard/doctor") return null;
+  else if (pathname === "/dashboard/admin") return null;
 
   return (
     <>
@@ -52,18 +58,18 @@ const Nav = () => {
                 </NavLink>
               </li>
               <div className="dropdown my-auto nav-item ">
-                  <li className="dropbtn-more  my-auto ms-2">
-                    More Service's <ArrowDownCircleFill/>
-                  </li>
-                  <div className="dropdown-content">
-                    <a href="#">
-                      <NavLink to="/CovidPortal">Covid Portal</NavLink>
-                    </a>
-                    <a>
-                      <NavLink to="/FindDonors">Blood Donors</NavLink>
-                    </a>
-                  </div>
+                <li className="dropbtn-more  my-auto ms-2">
+                  More Service's <ArrowDownCircleFill />
+                </li>
+                <div className="dropdown-content">
+                  <a href="#">
+                    <NavLink to="/CovidPortal">Covid Portal</NavLink>
+                  </a>
+                  <a>
+                    <NavLink to="/FindDonors">Blood Donors</NavLink>
+                  </a>
                 </div>
+              </div>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/adding-tour-plan">
                   Testimonials

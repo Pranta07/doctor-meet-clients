@@ -1,8 +1,15 @@
 import React from "react";
 import "./Footer.css";
+import { useLocation } from "react-router-dom";
 
 import brand from "./../../Assets/img/logo.png";
 const Footer = () => {
+  const { pathname } = useLocation();
+  if (pathname === "/dashboard/dashboarHome") return null;
+  else if (pathname === "/dashboard/doctor") return null;
+  else if (pathname === "/dashboard/admin") return null;
+
+
   return (
     <div className="footer-bc-color" >
       <footer>
