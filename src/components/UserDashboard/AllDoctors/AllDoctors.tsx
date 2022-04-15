@@ -5,8 +5,22 @@ import Departments from "../Departments/Departments";
 import Gender from "../Gender/Gender";
 import SingleDoctor from "../SingleDoctor/SingleDoctor";
 
+interface doctorData {
+    _id: string;
+    name: string;
+    email: string;
+    img: string;
+    specialist: string;
+    review: number;
+    address: {
+        city: string;
+        suite: string;
+        street: string;
+    };
+}
+
 const AllDoctors = () => {
-    const [doctors, setDoctors] = useState<any[]>([]);
+    const [doctors, setDoctors] = useState<doctorData[]>([]);
     const [remove, setRemove] = useState(false);
     const [loading, setLoading] = useState(true);
 
