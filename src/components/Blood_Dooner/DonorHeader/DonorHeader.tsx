@@ -2,6 +2,7 @@ import React from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import vector1 from "../../../Assets/blood donation/vector1.jpg";
+import DonorChart from "../DonorChart/DonorChart";
 
 const DonorHeader = () => {
     return (
@@ -38,6 +39,7 @@ const DonorHeader = () => {
                     </div>
                 </div>
             </section>
+            <DonorChart></DonorChart>
         </>
     );
 };
