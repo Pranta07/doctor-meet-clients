@@ -62,6 +62,9 @@ const Nav = () => {
                     <a>
                       <NavLink to="/FindDonors">Blood Donors</NavLink>
                     </a>
+                    <a>
+                      <NavLink to="/Pharma"> Pharmecy </NavLink>
+                    </a>
                   </div>
                 </div>
               <li className="nav-item">
