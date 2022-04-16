@@ -1,11 +1,6 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-import {
-    ArrowDown,
-    ArrowDownCircle,
-    ArrowDownCircleFill,
-    PersonCircle,
-} from "react-bootstrap-icons";
+import { ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
 import { Link, NavLink } from "react-router-dom";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
 // import { HashLink } from "react-router-hash-link";
@@ -64,7 +59,7 @@ const Nav = () => {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/FindDonors">
+                                <NavLink className="nav-link" to="/FindDoctors">
                                     Find a doctor
                                 </NavLink>
                             </li>
@@ -122,9 +117,8 @@ const Nav = () => {
                                                 Dashboard
                                             </Link>
                                         </a>
-                                        <a className="btn" onClick={logOut}>
-                                            {" "}
-                                            Sign Out
+                                        <a onClick={logOut}>
+                                            <Link to="/">Sign Out</Link>
                                         </a>
                                     </div>
                                 </div>
