@@ -1,6 +1,11 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-import { ArrowDown, ArrowDownCircle, ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
+import {
+  ArrowDown,
+  ArrowDownCircle,
+  ArrowDownCircleFill,
+  PersonCircle,
+} from "react-bootstrap-icons";
 import { Link, NavLink } from "react-router-dom";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
 // import { HashLink } from "react-router-hash-link";
@@ -22,38 +27,48 @@ const Nav = () => {
 
   return (
     <>
-      { window.location.pathname === "/dashboard/dashboarHome" || window.location.pathname === "/dashboard/doctor" ||window.location.pathname === "/dashboard/admin" ? <div></div>  :<nav className={parallaxNav}>
-        <div className="container">
-          <NavLink className="navbar-brand fs-2 ps-md-5 ms-md-5" to="/">
-            {/* <span>Doctors Meet</span> */}{" "}
-            <img className="img-fluid" src={logo} alt="" height="70px" />
-          </NavLink>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink aria-current="page" className="nav-link active" to="/">
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/doctors">
-                  Find a doctor
-                </NavLink>
-              </li>
-              <div className="dropdown my-auto nav-item ">
+      {window.location.pathname === "/dashboard/dashboarHome" ||
+      window.location.pathname === "/dashboard/doctors" ||
+      window.location.pathname === "/dashboard/admin" ||
+      window.location.pathname === "/dashboard/favdoc" ? (
+        <div></div>
+      ) : (
+        <nav className={parallaxNav}>
+          <div className="container">
+            <NavLink className="navbar-brand fs-2 ps-md-5 ms-md-5" to="/">
+              {/* <span>Doctors Meet</span> */}{" "}
+              <img className="img-fluid" src={logo} alt="" height="70px" />
+            </NavLink>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarTogglerDemo02"
+              aria-controls="navbarTogglerDemo02"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <NavLink
+                    aria-current="page"
+                    className="nav-link active"
+                    to="/"
+                  >
+                    Home
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/doctors">
+                    Find a doctor
+                  </NavLink>
+                </li>
+                <div className="dropdown my-auto nav-item ">
                   <li className="dropbtn-more  my-auto ms-2">
-                    More Service's <ArrowDownCircleFill/>
+                    More Service's <ArrowDownCircleFill />
                   </li>
                   <div className="dropdown-content">
                     <a href="#">
@@ -67,51 +82,51 @@ const Nav = () => {
                     </a>
                   </div>
                 </div>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/adding-tour-plan">
-                  Testimonials
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/ContactUs">
-                  Contact Us
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/manage-bookings">
-                  About us
-                </NavLink>
-              </li>
-              <li className="nav-item">
-              </li>
-              {user ? (
-                <div className="dropdown">
-                  <div className="dropbtn ms-2" />
-                  <PersonCircle className="dropbtn ms-2" ></PersonCircle>
-                  <div className="dropdown-content">
-                    <a href="#">
-                      <NavLink to="/Profile">Profile</NavLink>
-                    </a>
-                    <a href="/dashboard/dashboarHome" >
-                      <p className="p-2" >Dashboard</p>
-                    </a>
-                    <a className="btn" onClick={logOut}>
-                      {" "}
-                      Sign Out
-                    </a>
-                  </div>
-                </div>
-              ) : (
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/login">
-                    Login
+                  <NavLink className="nav-link" to="/adding-tour-plan">
+                    Testimonials
                   </NavLink>
                 </li>
-              )}
-            </ul>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/ContactUs">
+                    Contact Us
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/manage-bookings">
+                    About us
+                  </NavLink>
+                </li>
+                <li className="nav-item"></li>
+                {user ? (
+                  <div className="dropdown">
+                    <div className="dropbtn ms-2" />
+                    <PersonCircle className="dropbtn ms-2"></PersonCircle>
+                    <div className="dropdown-content">
+                      <a href="#">
+                        <NavLink to="/Profile">Profile</NavLink>
+                      </a>
+                      <a href="/dashboard/dashboarHome">
+                        <p className="p-2">Dashboard</p>
+                      </a>
+                      <a className="btn" onClick={logOut}>
+                        {" "}
+                        Sign Out
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/login">
+                      Login
+                    </NavLink>
+                  </li>
+                )}
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>}
+        </nav>
+      )}
       {/* {" "}
       <nav className={parallaxNav}>
         {/* <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top"> *
