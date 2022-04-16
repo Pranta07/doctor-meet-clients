@@ -15,25 +15,24 @@ const headerObj: HIF = {
 }; */
 
 const CovidTop = () => {
-    const [data, setData] = useState<any>();
-    const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<any>();
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        setLoading(true);
-        fetch("https://covid-19-statistics.p.rapidapi.com/reports?iso=BGD", {
-            method: "GET",
-            headers: {
-                "x-rapidapi-host": "covid-19-statistics.p.rapidapi.com",
-                "x-rapidapi-key":
-                    "a6c4d3b95cmsh9785bfec94cc0dbp1c63dejsn1bc770ceab86",
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => setData(data?.data[0]))
-            .finally(() => setLoading(false));
-    }, []);
+  useEffect(() => {
+    setLoading(true);
+    fetch('https://covid-19-statistics.p.rapidapi.com/reports?iso=BGD', {
+      method: 'GET',
+      headers: {
+        'x-rapidapi-host': 'covid-19-statistics.p.rapidapi.com',
+        'x-rapidapi-key': 'a6c4d3b95cmsh9785bfec94cc0dbp1c63dejsn1bc770ceab86',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setData(data?.data[0]))
+      .finally(() => setLoading(false));
+  }, []);
 
-    // console.log(data);
+  // console.log(data);
 
     return (
         <>
