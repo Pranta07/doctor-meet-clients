@@ -46,7 +46,7 @@ const Doctors: React.FC<Props> = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [doctorsData]);
 
   // const myOrderedItems = ordersData?.filter(
   //   (myOrderedItem) => myOrderedItem.email === user.email
