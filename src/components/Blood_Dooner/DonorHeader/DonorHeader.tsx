@@ -5,11 +5,11 @@ import vector1 from "../../../Assets/blood donation/vector1.jpg";
 import DonorChart from "../DonorChart/DonorChart";
 
 const DonorHeader = () => {
-    return (
-        <>
-            <section className="container">
-                <div
-                    className="
+  return (
+    <>
+      <section className="container">
+        <div
+          className="
                 row
                 justify-content-center
                 align-items-center

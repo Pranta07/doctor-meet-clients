@@ -67,13 +67,13 @@ const Nav = () => {
                   </li>
                   <div className="dropdown-content">
                     <a href="#">
-                      <NavLink to="/CovidPortal">Covid Portal</NavLink>
+                      <NavLink className="nav-link" to="/CovidPortal">Covid Portal</NavLink>
                     </a>
                     <a>
-                      <NavLink to="/FindDonors">Blood Donors</NavLink>
+                      <NavLink className="nav-link" to="/FindDonors">Blood Donors</NavLink>
                     </a>
                     <a>
-                      <NavLink to="/Pharma">Pharmacy</NavLink>
+                      <NavLink className="nav-link" to="/Pharma">Pharmacy</NavLink>
                     </a>
                     <a
                       href="

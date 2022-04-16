@@ -1,7 +1,7 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import useAuth from "../../components/Hooks/useAuth";
-import "./Profile.css";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import useAuth from '../../components/Hooks/useAuth';
+import './Profile.css';
 
 const Profile = () => {
   let { user } = useAuth();
@@ -91,7 +91,8 @@ const Profile = () => {
               <br />
               <a href="">
                 <NavLink to="/Blood_Dooner">Blood Doner Info</NavLink>
-              </a><br />
+              </a>
+              <br />
               <a href="">
                 <NavLink to="/delivery">Delivery Tracking</NavLink>
               </a>
@@ -101,9 +102,7 @@ const Profile = () => {
               </a>
               <br />
               <a href="">
-                  <NavLink to='/report' >
-                      My Report
-                  </NavLink>
+                <NavLink to="/report">My Report</NavLink>
               </a>
               <br />
             </div>
@@ -121,7 +120,9 @@ const Profile = () => {
                     <label>User Id</label>
                   </div>
                   <div className="col-md-6">
-                    <p>{user?.displayName}#{user?.displayName?.length}</p>
+                    <p>
+                      {user?.displayName}#{user?.displayName?.length}
+                    </p>
                   </div>
                 </div>
                 <div className="row">
