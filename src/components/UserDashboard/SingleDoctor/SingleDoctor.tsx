@@ -11,7 +11,28 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "./SingleDoctor.css";
 
-const SingleDoctor = (props: any) => {
+interface doctorData {
+    _id: string;
+    name: string;
+    email: string;
+    img: string;
+    specialist: string;
+    review: number;
+    address: {
+        city: string;
+        suite: string;
+        street: string;
+    };
+}
+
+interface Iprops {
+    key: string;
+    doctor: doctorData;
+    remove: boolean;
+    setRemove: (value: boolean) => void;
+}
+
+const SingleDoctor = (props: Iprops) => {
     const { _id, name, specialist, img, review } = props.doctor;
     const { remove, setRemove } = props;
     const [favorite, setFavorite] = useState(true);
