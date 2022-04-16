@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
-import Doctor, { doctorData } from "./Doctor";
+import Doctor from "./Doctor";
 const borderColFilter = {
   backgroundColor: "#ebf2f3",
   color: "#005963",
@@ -29,9 +29,7 @@ const btnStyle = {
   borderRadius: "5px",
   fontWeight: "bold",
 };
-type Props = {
-  doctorData: doctorData;
-};
+type Props = {};
 const Doctors: React.FC<Props> = () => {
   const [doctorsData, setDoctorsData] = useState([]);
   const uri =
