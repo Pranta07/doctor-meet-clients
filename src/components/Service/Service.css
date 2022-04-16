@@ -9,6 +9,7 @@
 }
 .card-title {
     font-weight: bold;
+    font-size: 24px !important;
 }
 .text-d{
     text-decoration: none;

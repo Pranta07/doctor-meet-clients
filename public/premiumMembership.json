@@ -1,0 +1,5 @@
+[
+    {"id":1,"category":"Silver","duration":3,"amount":10,"pharmacyDiscount":10,"appointmentDiscount":12,"labTestDiscount":3,"img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf93PuZaF4oQB--lg-XERMAHSupMamtHe9yg&usqp=CAU"}
+    ,{"id":2,"category":"Gold","duration":6,"amount":20,"pharmacyDiscount":14,"appointmentDiscount":18,"labTestDiscount":5,"img":"https://images.pexels.com/photos/47047/gold-ingots-golden-treasure-47047.jpeg"}
+    ,{"id":3,"category":"Diamond","duration":12,"amount":30,"pharmacyDiscount":20,"appointmentDiscount":20,"labTestDiscount":10,"img":"https://img.freepik.com/free-photo/big-beautiful-jewel_144627-28865.jpg?w=900&t=st=1649953331~exp=1649953931~hmac=c28388f3e71d80a1c699c75fe17193a8fe9e6023434628022c886d528f195d3d"}
+]

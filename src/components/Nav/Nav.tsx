@@ -92,6 +92,11 @@ const Nav = () => {
                                                 Pharmacy
                                             </NavLink>
                                         </a>
+                                        <a>
+                                            <NavLink to="/premiumMembership">
+                                                Premium Membership
+                                            </NavLink>
+                                        </a>
                                     </div>
                                 </div>
                                 <li className="nav-item">
