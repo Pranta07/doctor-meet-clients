@@ -10,9 +10,9 @@
 .dot-section {
   background: url('../../Assets/img/elementdot.png') no-repeat top left;
 }
-.dot-b-section {
-  background: url('../../Assets/img/elementdot.png') no-repeat bottom right;
-  margin-top: 400px;
+.dot-b-section{
+  background: url("../../Assets/img/elementdot.png") no-repeat bottom right;
+  margin-top: 270px;
 }
 
 /* .hr-w{

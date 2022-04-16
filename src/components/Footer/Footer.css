@@ -2,13 +2,9 @@
 footer {
   background: url('../../Assets/img/elementdot.png') no-repeat bottom left;
 }
-.footer-bc-color {
-  background: linear-gradient(
-    183.41deg,
-    #67c3f3 -8.57%,
-    #5a98f2 82.96%
-  ) !important;
-  margin-top: 320px;
+.footer-bc-color{
+    background: linear-gradient(183.41deg, #67c3f3 -8.57%, #5a98f2 82.96%) !important;
+
 }
 .list {
   font-size: 13px;

@@ -8,9 +8,13 @@
   cursor: pointer;
 }
 .card-title {
-  font-weight: bold;
+    font-weight: bold;
+    font-size: 24px !important;
 }
-.text-d {
-  text-decoration: none;
-  color: black;
+.text-d{
+    text-decoration: none;
+    color: black;
+}
+.text-d:hover{
+    color: black !important;
 }

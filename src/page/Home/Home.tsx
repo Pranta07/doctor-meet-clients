@@ -1,53 +1,25 @@
-import React from 'react';
-import Articles from '../../components/Articles/Articles';
-// import Banner from "../../components/Banner/Banner";
-import HealthCareProvider from '../../components/HealthCareProvider/HealthCareProvider';
-import Just_Banner from '../../components/just-banner/Just_Banner';
-import Review from '../../components/Review/Review';
-// import Login from "../../components/security/Login/Login";
-// import Registation from "../../components/security/Registation/Registation";
-import Services from '../../components/Services/Services';
+import React from "react";
+import Articles from "../../components/Articles/Articles";
+import HealthCareProvider from "../../components/HealthCareProvider/HealthCareProvider";
+import Review from "../../components/Review/Review";
+import HomeGallery from "../../components/HomeGallery/HomeGallery";
+import Services from "../../components/Services/Services";
+import Banner from "../../components/Banner/Banner";
 
 const Home = () => {
   return (
     <>
-      {/* alamin */}
-      {/* <Banner></Banner> */}
-      {/* mahadi */}
-      {/* <Nav /> */}
-      <Just_Banner></Just_Banner>
-      {/* mahadi */}
-      {/* <Login></Login> */}
-      <Services></Services>
-      {/* PRANTHA */}
+      <Banner></Banner>
 
-      {/* PRANTHA */}
-      {/* ridoy */}
+      <Services></Services>
 
       <HealthCareProvider></HealthCareProvider>
 
-      {/* ridoy */}
-
-      {/* mahim */}
-      {/* <Registation></Registation> */}
-
       <Review></Review>
 
-      {/* alamin */}
-      {/* <VideoChatRoute></VideoChatRoute> */}
+      <HomeGallery></HomeGallery>
 
-      {/* mahim */}
-
-      {/* mostofa */}
       <Articles></Articles>
-
-      {/* ridoy */}
-      {/* mostofa */}
-
-      {/* mostofa */}
-      {/* ridoy */}
-
-      {/* ridoy */}
     </>
   );
 };

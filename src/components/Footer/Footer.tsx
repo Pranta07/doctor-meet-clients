@@ -4,8 +4,11 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <div className="footer-bc-color">
-      <footer>
+    <div className="footer-bc-color" >
+      { window.location.pathname === "/dashboard/dashboarHome" ||
+      window.location.pathname === "/dashboard/doctors" ||
+      window.location.pathname === "/dashboard/admin" ||
+      window.location.pathname === "/dashboard/favdoc"? <div></div>  :<footer>
         <section className="container text-white text-start">
           <div className=" row row-cols-1 row-cols-md-4 row-cols-lg-4 mx-auto pt-5">
             <div className="col">
@@ -63,7 +66,7 @@ const Footer = () => {
             </p>
           </div>
         </section>
-      </footer>
+      </footer>}
     </div>
   );
 };

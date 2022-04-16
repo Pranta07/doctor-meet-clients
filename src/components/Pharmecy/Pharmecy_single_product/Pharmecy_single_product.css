@@ -1,0 +1,73 @@
+.product{
+    background-color: #fff;
+    overflow: hidden;
+    transition: -webkit-box-shadow 0.4s ease-out;
+    -o-transition: box-shadow 0.4s ease-out;
+    transition: box-shadow 0.4s ease-out;
+    transition: box-shadow 0.4s ease-out, -webkit-box-shadow 0.4s ease-out;
+    position: relative;
+    border: 1px solid rgb(243, 241, 241);
+}
+.product-img img{
+    width: 100%;
+}
+.product-img .rear-img{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    -webkit-transition: opacity 0.4s ease-out;
+    -o-transition: opacity 0.4s ease-out;
+    transition: opacity 0.4s ease-out;
+}
+.product:hover .rear-img{
+    opacity: 1;
+    z-index: 0;
+}
+
+.product-name{
+    font-weight: 400;
+    color: gray;
+}
+.product:hover .product-name{
+    color: rgba(255,127,35,1);
+}
+.product-name:hover{
+    color: #5a98f2 !important;
+    cursor: pointer !important;
+}
+
+.product-price{
+    color: rgba(51,51,51,1);
+}
+
+.overlay{
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 10%;
+    margin-right: 0;
+    width: 70px;
+    transition: 0.5s ease-out;
+}
+
+
+
+.product-img:hover .overlay{
+    opacity: 1;
+    margin-left: 5%;
+    transition: 0.5s ease;
+}
+
+@media screen and (max-width: 1200px){
+    
+}
+
+@media (min-width: 767px) and (max-width: 992px){
+    
+}
+
+@media (min-width: 359px) and (max-width: 663px){
+    
+}

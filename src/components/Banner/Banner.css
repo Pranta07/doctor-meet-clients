@@ -1,9 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-
-.carousel-img {
-  position: relative;
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Open+Sans&family=Roboto&display=swap');
+/* .carousel-img {
+    width: 50%;
+} */
+.font-roboto{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color:#BA8A7D;
 }
+.font-lora{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color:#576574;
+}
+.font-open-sens{
+    font-family: 'Open Sans', sans-serif;
+    color:#2C90B9;
+    font-weight: 1000;
+    font-size: 52px;
+}
+@media only screen and (max-width: 500px) {
+    .font-open-sens {
+      font-size: 38px;
+    }
+  }
+.carousel-background{
+     /* The image used */
+  /* background-image: url("photographer.jpg"); */
 
+  /* Add the blur effect */
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+
+  /* Full height */
+  
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .carousel-img-transparent-banner {
   width: 100%;
   height: 100%;
@@ -21,7 +57,73 @@
 }
 
 .carousel-caption-para {
-  font-size: 24px;
-  font-family: 'Oswald', sans-serif;
-  color: white;
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    color: white;
 }
+.btn-consult {background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%)}
+.btn-consult {
+            margin: 10px 0px;
+            padding: 10px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            /* box-shadow: 0 0 20px #eee; */
+            border-radius: 10px;
+            display: block;
+            border:0px;
+          }
+.btn-consult:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+
+          
+         
+          .btn-consult-covid-banner {background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%)}
+          .btn-consult-covid-banner {
+             margin: 10px 0px;
+             padding: 8px 45px;
+             text-align: center;
+             text-transform: uppercase;
+             transition: 0.5s;
+             background-size: 200% auto;
+             color: white;            
+             font-family: 'Roboto', sans-serif;
+            border: 0px;
+             border-radius: 40px;
+             display: block;
+           }
+ 
+           .btn-consult-covid-banner:hover {
+             background-position: right center; /* change the direction of the change here */
+             color: #fff;
+             text-decoration: none;
+           }
+          
+         
+           
+         .btn-consult-banner {background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%)}
+         .btn-consult-banner {
+            margin: 10px 0px;
+            padding: 8px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 40px;
+            display: block;
+            border:0px;
+          }
+
+          .btn-consult-banner:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         

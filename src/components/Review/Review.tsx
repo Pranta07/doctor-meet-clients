@@ -4,7 +4,7 @@ import './Review.css';
 
 const Review = () => {
   return (
-    <div className="container">
+    <div className="container mb-for-r">
       <div className="review-bg">
         <h3 className="text-center mb-4 "> What our customer are saying </h3>
         <hr className="hr-re mx-auto " />

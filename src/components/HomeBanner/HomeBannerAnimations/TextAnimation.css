@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&display=swap');
+.font-tamil{
+    font-family: 'Anek Tamil', sans-serif;
+}
+.font-roboto{
+    font-family: 'Roboto', sans-serif;
+}
+.font-anek-bangla{
+    font-family: 'Anek Bangla', sans-serif;
+}

@@ -1,0 +1,19 @@
+.dashboarCommonDivStyle {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-radius: 8px;
+}
+
+.commonIconStyle {
+    font-size: 3.5rem;
+    color: #97B3FB;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .dashboarCommonDivStyle {
+        margin: 10px auto;
+    }
+
+
+
+}
