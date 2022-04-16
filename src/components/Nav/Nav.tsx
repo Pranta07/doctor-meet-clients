@@ -1,16 +1,11 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-import {
-  ArrowDown,
-  ArrowDownCircle,
-  ArrowDownCircleFill,
-  PersonCircle,
-} from "react-bootstrap-icons";
-import { Link, NavLink } from "react-router-dom";
+import { ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
+import { NavLink } from "react-router-dom";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
-// import { HashLink } from "react-router-hash-link";
 import logo from "./../../Assets/img/logo.png";
 import "./Nav.css";
+
 const Nav = () => {
   const [offset, setOffset] = useState(0);
   let { user, logOut } = useFirebase();
@@ -72,13 +67,21 @@ const Nav = () => {
                   </li>
                   <div className="dropdown-content">
                     <a href="#">
-                      <NavLink to="/CovidPortal">Covid Portal</NavLink>
+                      <NavLink className="nav-link" to="/CovidPortal">Covid Portal</NavLink>
                     </a>
                     <a>
-                      <NavLink to="/FindDonors">Blood Donors</NavLink>
+                      <NavLink className="nav-link" to="/FindDonors">Blood Donors</NavLink>
                     </a>
                     <a>
-                      <NavLink to="/Pharma"> Pharmecy </NavLink>
+                      <NavLink className="nav-link" to="/Pharma">Pharmacy</NavLink>
+                    </a>
+                    <a
+                      href="
+                    "
+                    >
+                      <NavLink className="nav-link" to="/premiumMembership">
+                        Premium Membership
+                      </NavLink>
                     </a>
                   </div>
                 </div>
@@ -103,15 +106,16 @@ const Nav = () => {
                     <div className="dropbtn ms-2" />
                     <PersonCircle className="dropbtn ms-2"></PersonCircle>
                     <div className="dropdown-content">
-                      <a href="#">
+                      <a>
                         <NavLink to="/Profile">Profile</NavLink>
                       </a>
-                      <a href="/dashboard/dashboarHome">
-                        <p className="p-2">Dashboard</p>
+                      <a>
+                        <NavLink to="/dashboard/dashboarHome">
+                          Dashboard
+                        </NavLink>
                       </a>
-                      <a className="btn" onClick={logOut}>
-                        {" "}
-                        Sign Out
+                      <a onClick={logOut}>
+                        <NavLink to="/">Sign Out</NavLink>
                       </a>
                     </div>
                   </div>
@@ -127,58 +131,6 @@ const Nav = () => {
           </div>
         </nav>
       )}
-      {/* {" "}
-      <nav className={parallaxNav}>
-        {/* <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top"> *
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            Navbar
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <NavLink aria-current="page" className="nav-link" to="/#home">
-                    Home
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/#about">
-                    About
-                  </NavLink>
-                </li>
-
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/#projects">
-                    Projects
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/#contact">
-                    Contact
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/blogs">
-                    Blogs
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav> */}
     </>
   );
 };

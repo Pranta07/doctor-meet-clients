@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import Doctors from "./components/Doctors/Doctors";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
+import PremiumMembership from "./components/PremiumMembership/PremiumMembership";
+import PremiumMemberships from "./components/PremiumMembership/PremiumMemberships";
+import PremiumPayment from "./components/PremiumMembership/PremiumPayment";
 import Pharmecy_product_view from "./components/Pharmecy/Phamecy_product_view/Pharmecy_product_view";
 import PharmecyHome from "./components/Pharmecy/PharmecyHome/PharmecyHome";
 import Login from "./components/security/Login/Login";
@@ -39,6 +42,9 @@ function App() {
 
           <Route path="/CovidPortal" element={<CovidPortal />}></Route>
           <Route path="/FindDonors" element={<FindDonors />}></Route>
+          <Route path="/premiumMembership" element={<PremiumMemberships />}>
+          </Route>
+          <Route path="/premiumPayment/:id" element={<PremiumPayment />}></Route>
 
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="dashboarHome" element={<DashboardHome />} />
@@ -47,13 +53,14 @@ function App() {
             <Route path="admin" element={<Admin />} />
           </Route>
 
-          <Route path="/doctors" element={<Doctors />}></Route>
+        <Route path="/doctors" element={<Doctors />} />
 
         </Routes>
         <Footer></Footer>
       </AuthProvider>
     </>
   );
+    
 }
 
 export default App;

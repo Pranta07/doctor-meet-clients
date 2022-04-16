@@ -1,7 +1,7 @@
-import React from "react";
-import "./Footer.css";
+import React from 'react';
+import brand from './../../Assets/img/logo.png';
+import './Footer.css';
 
-import brand from "./../../Assets/img/logo.png";
 const Footer = () => {
   return (
     <div className="footer-bc-color" >
@@ -10,9 +10,7 @@ const Footer = () => {
       window.location.pathname === "/dashboard/admin" ||
       window.location.pathname === "/dashboard/favdoc"? <div></div>  :<footer>
         <section className="container text-white text-start">
-          <div
-            className=" row row-cols-1 row-cols-md-4 row-cols-lg-4 mx-auto pt-5"
-          >
+          <div className=" row row-cols-1 row-cols-md-4 row-cols-lg-4 mx-auto pt-5">
             <div className="col">
               <img src={brand} alt="" className="img-fluid" />
               {/* <span className="fw-bold ps-2">Doctors Meet Up</span> */}
