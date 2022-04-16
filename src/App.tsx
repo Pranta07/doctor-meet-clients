@@ -6,6 +6,7 @@ import "./App.css";
 import Doctors from "./components/Doctors/Doctors";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
+import Pharmecy_product_view from "./components/Pharmecy/Phamecy_product_view/Pharmecy_product_view";
 import PharmecyHome from "./components/Pharmecy/PharmecyHome/PharmecyHome";
 import Login from "./components/security/Login/Login";
 import Registation from "./components/security/Registation/Registation";
@@ -26,22 +27,20 @@ function App() {
   return (
     <>
       <AuthProvider>
-        {window.location.pathname === "/dashboard/dashboarHome" ? <div></div>  : <Nav></Nav>}
+        <Nav></Nav>
         <Routes>
-
           <Route path="/" element={<Home />}></Route>
+          <Route path="/home" element={<Home />}></Route>
           <Route path="/signUp" element={<Registation />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/ContactUs" element={<ContactUs />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/pharma" element={<PharmecyHome />}></Route>
+          <Route path="/medicine/:id" element={<Pharmecy_product_view />} />
           <Route path="/videoRoute" element={<VideoChatRoute />}></Route>
-          
+
           <Route path="/CovidPortal" element={<CovidPortal />}></Route>
-          <Route path="/FindDonors" element={<Doctors />}></Route>
-
-
-
+          <Route path="/FindDonors" element={<FindDonors />}></Route>
 
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="dashboarHome" element={<DashboardHome />} />
@@ -49,25 +48,7 @@ function App() {
             <Route path="admin" element={<Admin />} />
           </Route>
 
-
-
-
-
-
-          
-
           <Route path="/doctors" element={<Doctors />}></Route>
-
-
-
-
-
-
-
-
-
-
-
         </Routes>
         <Footer></Footer>
       </AuthProvider>

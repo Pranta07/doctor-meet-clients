@@ -22,7 +22,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className={parallaxNav}>
+      { window.location.pathname === "/dashboard/dashboarHome" || window.location.pathname === "/dashboard/doctor" ||window.location.pathname === "/dashboard/admin" ? <div></div>  :<nav className={parallaxNav}>
         <div className="container">
           <NavLink className="navbar-brand fs-2 ps-md-5 ms-md-5" to="/">
             {/* <span>Doctors Meet</span> */}{" "}
@@ -47,7 +47,7 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/FindDonors">
+                <NavLink className="nav-link" to="/doctors">
                   Find a doctor
                 </NavLink>
               </li>
@@ -89,8 +89,8 @@ const Nav = () => {
                     <a href="#">
                       <NavLink to="/Profile">Profile</NavLink>
                     </a>
-                    <a>
-                      <Link to="/dashboard/dashboarHome">Dashboard</Link>
+                    <a href="/dashboard/dashboarHome" >
+                      <p className="p-2" >Dashboard</p>
                     </a>
                     <a className="btn" onClick={logOut}>
                       {" "}
@@ -108,7 +108,7 @@ const Nav = () => {
             </ul>
           </div>
         </div>
-      </nav>
+      </nav>}
       {/* {" "}
       <nav className={parallaxNav}>
         {/* <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top"> *
