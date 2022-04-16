@@ -22,7 +22,10 @@ const Nav = () => {
 
     return (
         <>
-            <nav className={parallaxNav}>
+            {window.location.pathname === "/dashboard/dashboarHome" ||
+      window.location.pathname === "/dashboard/doctors" ||
+      window.location.pathname === "/dashboard/admin" ||
+      window.location.pathname === "/dashboard/favdoc" ? <div></div> :<nav className={parallaxNav}>
                 <div className="container">
                     <NavLink className="navbar-brand fs-2" to="/">
                         {/* <span>Doctors Meet</span> */}{" "}
@@ -132,7 +135,7 @@ const Nav = () => {
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </nav>}
             {/* {" "}
       <nav className={parallaxNav}>
         {/* <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top"> *
