@@ -1,16 +1,11 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-import {
-    ArrowDown,
-    ArrowDownCircle,
-    ArrowDownCircleFill,
-    PersonCircle,
-} from "react-bootstrap-icons";
-import { Link, NavLink } from "react-router-dom";
+import { ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
+import { NavLink } from "react-router-dom";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
-// import { HashLink } from "react-router-hash-link";
 import logo from "./../../Assets/img/logo.png";
 import "./Nav.css";
+
 const Nav = () => {
     const [offset, setOffset] = useState(0);
     let { user, logOut } = useFirebase();
