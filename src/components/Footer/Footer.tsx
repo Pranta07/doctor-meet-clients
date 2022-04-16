@@ -5,7 +5,7 @@ import brand from "./../../Assets/img/logo.png";
 const Footer = () => {
   return (
     <div className="footer-bc-color" >
-      <footer>
+      { window.location.pathname === "/dashboard/dashboarHome" || window.location.pathname === "/dashboard/doctor" ||window.location.pathname === "/dashboard/admin" ? <div></div>  :<footer>
         <section className="container text-white text-start">
           <div
             className=" row row-cols-1 row-cols-md-4 row-cols-lg-4 mx-auto pt-5"
@@ -65,7 +65,7 @@ const Footer = () => {
             </p>
           </div>
         </section>
-      </footer>
+      </footer>}
     </div>
   );
 };

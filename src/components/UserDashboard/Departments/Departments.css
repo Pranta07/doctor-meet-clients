@@ -1,0 +1,13 @@
+.dep p {
+    font-size: 15px;
+    color: rgb(97, 97, 97);
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+.dep p:hover {
+    cursor: pointer;
+    color: #40a1be;
+    letter-spacing: 1px;
+    transform: translate(8px, 0px);
+    transition: 0.3s ease-in-out;
+}
