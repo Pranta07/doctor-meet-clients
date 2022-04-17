@@ -1,11 +1,7 @@
-import React, { useState } from "react";
-import {
-    faArrowRight,
-    faEarthAsia,
-    faPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Form, Modal, Button } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import useAuth from "../../Hooks/useAuth";
 import "react-phone-number-input/style.css";
 import { useForm, SubmitHandler } from "react-hook-form";
