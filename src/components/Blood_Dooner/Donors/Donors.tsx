@@ -7,9 +7,8 @@ import DonorPagination from "../DonorPagination/DonorPagination";
 import { Idonor } from "../DonorFilter/DonorFilter";
 
 const Donors = (props: any) => {
-    // const [currentPage, setCurrentPage] = useState(1);
     const { donors, page, setPage, total } = props;
-    console.log(donors);
+    // console.log(donors);
 
     return (
         <>

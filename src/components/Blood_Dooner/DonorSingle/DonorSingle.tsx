@@ -1,5 +1,5 @@
 import React from "react";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEarthAsia, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Idonor } from "../DonorFilter/DonorFilter";
 
@@ -40,7 +40,10 @@ const DonorSingle = (props: { key: string; donor: Idonor }) => {
                             {group}
                         </p>
                         <p>
-                            <i className="far fa-plus-square text-danger"></i>
+                            <FontAwesomeIcon
+                                icon={faEarthAsia}
+                                className="text-danger"
+                            />
                             <span className="text-danger"> District: </span>
                             {district}
                         </p>
