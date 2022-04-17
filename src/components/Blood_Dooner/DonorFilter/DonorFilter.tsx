@@ -19,122 +19,15 @@ export interface Idonor {
     district: string;
 }
 
-/* const donorData: Idonor[] = [
-    {
-        _id: 1,
-        img: "https://randomuser.me/api/portraits/men/1.jpg",
-        name: "Random Donor1",
-        email: "random1@gmail.com",
-        phone: "02297335397",
-        district: "Dhaka",
-        group: "B+",
-    },
-    {
-        _id: 162,
-        img: "https://randomuser.me/api/portraits/men/40.jpg",
-        name: "Random Donor1",
-        email: "random1@gmail.com",
-        phone: "02297335397",
-        district: "Dhaka",
-        group: "B+",
-    },
-    {
-        _id: 2,
-        img: "https://randomuser.me/api/portraits/men/29.jpg",
-        name: "Random Donor1",
-        email: "random1@gmail.com",
-        phone: "02297331753",
-        district: "Chittagong",
-        group: "B+",
-    },
-    {
-        _id: 3,
-        img: "https://randomuser.me/api/portraits/men/28.jpg",
-        name: "Random Donor1",
-        email: "random1@gmail.com",
-        phone: "02297331753",
-        district: "Khulna",
-        group: "B+",
-    },
-    {
-        _id: 4,
-        img: "https://randomuser.me/api/portraits/men/10.jpg",
-        name: "Random Donor2",
-        email: "random2@gmail.com",
-        phone: "02297331753",
-        district: "Dhaka",
-        group: "A+",
-    },
-    {
-        _id: 5,
-        img: "https://randomuser.me/api/portraits/men/7.jpg",
-        name: "Random Donor3",
-        email: "random3@gmail.com",
-        phone: "02297331753",
-        district: "Dhaka",
-        group: "O+",
-    },
-    {
-        _id: 6,
-        img: "https://randomuser.me/api/portraits/men/4.jpg",
-        name: "Random Donor4",
-        email: "random4@gmail.com",
-        phone: "02297331753",
-        district: "Dhaka",
-        group: "AB+",
-    },
-    {
-        _id: 7,
-        img: "https://randomuser.me/api/portraits/men/9.jpg",
-        name: "Random Donor5",
-        email: "random5@gmail.com",
-        phone: "02297331753",
-        district: "Dhaka",
-        group: "O-",
-    },
-    {
-        _id: 8,
-        img: "https://randomuser.me/api/portraits/men/17.jpg",
-        name: "Random Donor2",
-        email: "random2@gmail.com",
-        phone: "02297331753",
-        district: "Chittagong",
-        group: "A+",
-    },
-    {
-        _id: 9,
-        img: "https://randomuser.me/api/portraits/men/18.jpg",
-        name: "Random Donor2",
-        email: "random2@gmail.com",
-        phone: "02297331753",
-        district: "Khulna",
-        group: "A+",
-    },
-    {
-        _id: 10,
-        img: "https://randomuser.me/api/portraits/men/31.jpg",
-        name: "Random Donor3",
-        email: "random3@gmail.com",
-        phone: "02297331753",
-        district: "Chittagong",
-        group: "O+",
-    },
-    {
-        _id: 11,
-        img: "https://randomuser.me/api/portraits/men/32.jpg",
-        name: "Random Donor3",
-        email: "random3@gmail.com",
-        phone: "02297331753",
-        district: "Khulna",
-        group: "O+",
-    },
-]; */
-
 const DonorFilter = () => {
     const [displayDonors, setDisplayDonors] = useState<Idonor[]>([]);
     const [page, setPage] = useState<number>(1);
     const [total, setTotal] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(true);
+    const [query, setQuery] = useState({
+        group: "All",
+        district: "All",
+    });
 
     const {
         register,
@@ -144,7 +37,9 @@ const DonorFilter = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:5000/donor?page=${page}`)
+        const url = `http://localhost:5000/donor?group=${query.group}&&district=${query.district}&&page=${page}`;
+        // console.log(url);
+        fetch(url)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
@@ -152,16 +47,13 @@ const DonorFilter = () => {
                 setTotal(data.total);
             })
             .finally(() => setLoading(false));
-    }, [page]);
+    }, [page, query]);
 
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
-        // console.log(data);
-        /* const filterDonors = donorData.filter(
-            (donor) =>
-                donor.group === data.group && donor.district === data.district
-        ); */
-        // console.log(filterDonors);
-        // setDisplayDonors(filterDonors);
+        const { group, district } = data;
+
+        setPage(1);
+        setQuery({ group, district });
     };
 
     return (
@@ -191,14 +83,15 @@ const DonorFilter = () => {
                                 className="form-select"
                                 aria-label="Default select example"
                             >
-                                <option value="All">All Blood Group</option>
-                                <option value="A+">A+</option>
+                                <option value="">Select Blood Group</option>
+                                <option value="All">All Group</option>
+                                <option value="A%2B">A+</option>
                                 <option value="A-">A-</option>
-                                <option value="B+">B+</option>
+                                <option value="B%2B">B+</option>
                                 <option value="B-">B-</option>
-                                <option value="O+">O+</option>
+                                <option value="O%2B">O+</option>
                                 <option value="O-">O-</option>
-                                <option value="AB+">AB+</option>
+                                <option value="AB%2B">AB+</option>
                                 <option value="AB-">AB-</option>
                             </select>
                             {errors.group && (
@@ -217,6 +110,7 @@ const DonorFilter = () => {
                                 className="form-select"
                                 aria-label="Default select example"
                             >
+                                <option value="">Select District</option>
                                 <option value="All">All District</option>
                                 <option value="Dhaka">Dhaka</option>
                                 <option value="Chittagong">Chittagong</option>
@@ -239,7 +133,6 @@ const DonorFilter = () => {
                     <div className="d-flex justify-content-center">
                         <button
                             type="submit"
-                            // onClick={handleSearch}
                             className="btn btn-danger mt-4 px-4"
                         >
                             Search

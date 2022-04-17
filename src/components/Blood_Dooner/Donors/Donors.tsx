@@ -15,11 +15,11 @@ const Donors = (props: any) => {
         <>
             <Container>
                 {donors.length === 0 && (
-                    <p className="alert alert-danger p-2 mt-2 text-center">
+                    <p className="alert alert-danger p-2 mt-5 text-center">
                         <FontAwesomeIcon
                             icon={faExclamationCircle}
                         ></FontAwesomeIcon>{" "}
-                        Ooops! No donors matches!
+                        Ooops! No donors matched! Try Again!
                     </p>
                 )}
                 <div
