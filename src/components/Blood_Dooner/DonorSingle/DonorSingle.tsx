@@ -50,9 +50,11 @@ const DonorSingle = (props: { key: string; donor: Idonor }) => {
                     </div>
                 </div>
                 <div className="card-footer">
-                    <button className="btn btn-outline-danger w-100">
-                        <FontAwesomeIcon icon={faPhone} /> Contact
-                    </button>
+                    <a href={`tel:${phone}`}>
+                        <button className="btn btn-outline-danger w-100">
+                            <FontAwesomeIcon icon={faPhone} /> Contact
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
