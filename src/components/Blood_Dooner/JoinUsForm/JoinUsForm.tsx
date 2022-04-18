@@ -6,6 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import "react-phone-number-input/style.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
+import "./JoinUsForm.css";
 
 interface IFormInputs {
     name: string;
@@ -65,7 +66,7 @@ const JoinUsForm = (props: any) => {
                         <div
                             className="
                             reg-div
-                            col-10 col-md-8 col-lg-10
+                            col-10 col-md-10
                             mx-auto
                             rounded
                             my-5
@@ -75,7 +76,7 @@ const JoinUsForm = (props: any) => {
                             <div id="donor-reg-box" className="p-5">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="row gx-2">
-                                        <div className="col-6">
+                                        <div className="col-12 col-lg-6">
                                             <input
                                                 className="form-control border-danger mb-3"
                                                 defaultValue={
@@ -92,7 +93,7 @@ const JoinUsForm = (props: any) => {
                                             )}
                                         </div>
 
-                                        <div className="col-6 mb-3">
+                                        <div className="col-12 col-lg-6 mb-3">
                                             <input
                                                 className="form-control border-danger"
                                                 defaultValue={user?.email || ""}
@@ -109,7 +110,7 @@ const JoinUsForm = (props: any) => {
                                     </div>
 
                                     <div className="row gx-2">
-                                        <div className="col-6 mb-3">
+                                        <div className="col-12 col-lg-6 mb-3">
                                             <input
                                                 className="form-control border-danger"
                                                 {...register("phone", {
@@ -123,7 +124,7 @@ const JoinUsForm = (props: any) => {
                                                 </span>
                                             )}
                                         </div>
-                                        <div className="col-6 mb-3">
+                                        <div className="col-12 col-lg-6 mb-3">
                                             <select
                                                 {...register("group", {
                                                     required: true,
@@ -150,7 +151,7 @@ const JoinUsForm = (props: any) => {
                                         </div>
                                     </div>
                                     <div className="row gx-2">
-                                        <div className="col-6 mb-3">
+                                        <div className="col-12 col-lg-6 mb-3">
                                             <select
                                                 {...register("district", {
                                                     required: true,
@@ -188,7 +189,7 @@ const JoinUsForm = (props: any) => {
                                                 </span>
                                             )}
                                         </div>
-                                        <div className="col-6 mb-3">
+                                        <div className="col-12 col-lg-6 mb-3">
                                             <select
                                                 className="form-select border-danger"
                                                 {...register("gender")}
