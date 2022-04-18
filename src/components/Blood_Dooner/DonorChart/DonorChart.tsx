@@ -41,7 +41,7 @@ const renderActiveShape = (props: any) => {
     return (
         <g>
             <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-                {payload.group}
+                {payload._id}
             </text>
             <Sector
                 cx={cx}
@@ -96,20 +96,10 @@ const DonorChart = () => {
         [setActiveIndex]
     );
 
-    /* const data = [
-        { group: "B+", count: 11 },
-        { group: "B-", count: 8 },
-        { group: "A+", count: 3 },
-        { group: "A-", count: 7 },
-        { group: "O+", count: 13 },
-        { group: "O-", count: 2 },
-        { group: "AB+", count: 3 },
-        { group: "AB-", count: 1 },
-    ]; */
     useEffect(() => {
         fetch("http://localhost:5000/donor/statistics")
             .then((res) => res.json())
-            .then((data) => setData(data.result));
+            .then((data) => setData(data.result.groupData));
     }, []);
 
     return (
