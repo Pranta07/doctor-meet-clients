@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
 
@@ -26,7 +26,7 @@ const renderActiveShape = (props: any) => {
         fill,
         payload,
         percent,
-        value,
+        count,
     } = props;
     const sin = Math.sin(-RADIAN * midAngle);
     const cos = Math.cos(-RADIAN * midAngle);
@@ -41,7 +41,7 @@ const renderActiveShape = (props: any) => {
     return (
         <g>
             <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-                {payload.name}
+                {payload.group}
             </text>
             <Sector
                 cx={cx}
@@ -72,7 +72,7 @@ const renderActiveShape = (props: any) => {
                 y={ey}
                 textAnchor={textAnchor}
                 fill="#333"
-            >{`Donors ${value}`}</text>
+            >{`Donors ${count}`}</text>
             <text
                 x={ex + (cos >= 0 ? 1 : -1) * 12}
                 y={ey}
@@ -87,6 +87,7 @@ const renderActiveShape = (props: any) => {
 };
 
 const DonorChart = () => {
+    const [data, setData] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
     const onPieEnter = useCallback(
         (_, index) => {
@@ -95,16 +96,21 @@ const DonorChart = () => {
         [setActiveIndex]
     );
 
-    const data = [
-        { name: "B+", value: 11 },
-        { name: "B-", value: 8 },
-        { name: "A+", value: 3 },
-        { name: "A-", value: 7 },
-        { name: "O+", value: 13 },
-        { name: "O-", value: 2 },
-        { name: "AB+", value: 3 },
-        { name: "AB-", value: 1 },
-    ];
+    /* const data = [
+        { group: "B+", count: 11 },
+        { group: "B-", count: 8 },
+        { group: "A+", count: 3 },
+        { group: "A-", count: 7 },
+        { group: "O+", count: 13 },
+        { group: "O-", count: 2 },
+        { group: "AB+", count: 3 },
+        { group: "AB-", count: 1 },
+    ]; */
+    useEffect(() => {
+        fetch("http://localhost:5000/donor/statistics")
+            .then((res) => res.json())
+            .then((data) => setData(data.result));
+    }, []);
 
     return (
         <Container className="py-5 my-5">
@@ -144,7 +150,7 @@ const DonorChart = () => {
                                     outerRadius={100}
                                     fill="#8884d8"
                                     paddingAngle={5}
-                                    dataKey="value"
+                                    dataKey="count"
                                     onMouseEnter={onPieEnter}
                                 >
                                     {data.map((entry, index) => (
