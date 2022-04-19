@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { SocketContext } from '../../context/Context';
 
@@ -15,17 +15,20 @@ const Sidebar = ({ children }: any) => {
       <div>
         <form noValidate autoComplete="off">
           <div>
-            <div style={{ width: "600px" }}>
-              <h1 className=''>Account Info</h1>
+            <div style={{ width: '600px' }}>
+              <h1 className="">Account Info</h1>
               <div className="input-group input-group-sm mb-3">
-
-                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onChange={(e) => setName(e.target.value)} />
+                <input
+                  type="text"
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                  onChange={(e) => setName(e.target.value)}
+                />
                 <CopyToClipboard text={me}>
                   <button className='btn btn-warning' onClick={(e)=>e.preventDefault()}>Copy Your ID</button>
                 </CopyToClipboard>
               </div>
-
-
             </div>
             <div>
               <h1>Make a call</h1>

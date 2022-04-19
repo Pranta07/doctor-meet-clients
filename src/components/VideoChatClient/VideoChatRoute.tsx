@@ -5,12 +5,12 @@ import Sidebar from './Sidebar';
 import VideoPlayer from './VideoPlayer';
 
 const VideoChatRoute = () => {
-    useEffect(() => {
-        if (!window.location.hash) {
-            window.location.href = window.location + '#loaded' ;
-            window.location.reload();
-        }
-    }, [])
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.location.href = window.location + '#loaded';
+      window.location.reload();
+    }
+  }, []);
 
     return (
         <ContextProvider>
