@@ -52,19 +52,17 @@ const DonorsTable = () => {
     };
 
     const handleEdit = (id: string) => {
-        steIsUpdate(false);
+        /* steIsUpdate(false);
         fetch(`http://localhost:5000/donor/${id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
             },
-        })
-            .then((res) => res.json())
-            .then((result) => {
-                if (result.modifiedCount) {
-                    steIsUpdate(true);
-                }
-            });
+        }).then((res) => {
+            if (res.status === 200) {
+                steIsUpdate(true);
+            }
+        }); */
     };
 
     const handleDelete = (id: string) => {
@@ -82,19 +80,16 @@ const DonorsTable = () => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:5000/donor/${id}`, {
                     method: "DELETE",
-                })
-                    .then((res) => res.json())
-                    .then((result) => {
-                        // console.log(result);
-                        if (result.deletedCount) {
-                            steIsUpdate(true);
-                            Swal.fire(
-                                "Deleted!",
-                                "Your order has been deleted.",
-                                "success"
-                            );
-                        }
-                    });
+                }).then((res) => {
+                    if (res.status === 200) {
+                        steIsUpdate(true);
+                        Swal.fire(
+                            "Deleted!",
+                            "The donor has been deleted.",
+                            "success"
+                        );
+                    }
+                });
             }
         });
     };
@@ -243,7 +238,6 @@ const DonorsTable = () => {
                             </Table>
                         </TableContainer>
                         <TablePagination
-                            // className="pagination"
                             rowsPerPageOptions={[10, 25, 50, 100]}
                             component="div"
                             count={count}
