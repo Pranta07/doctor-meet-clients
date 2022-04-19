@@ -3,7 +3,7 @@ import Pagination from "react-responsive-pagination";
 
 const DonorPagination = (props: any) => {
     const { currentPage, setCurrentPage } = props;
-    const totalPages = Math.ceil(props.total / 4);
+    const totalPages = Math.ceil(props.total / 6);
     // console.log(currentPage);
 
     return (
