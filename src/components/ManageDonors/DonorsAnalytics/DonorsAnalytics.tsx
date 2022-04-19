@@ -1,7 +1,7 @@
 import React from "react";
 import DistrictChart from "../DistrictChart/DistrictChart";
 import GenderChart from "../GenderChart/GenderChart";
-import GroupChart from "../GroupChart/GroupChart";
+import GroupChart from "../GrouoChart/GroupChart";
 
 const DonorsAnalytics = () => {
     return (
