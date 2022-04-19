@@ -151,7 +151,7 @@ const GenderChart = () => {
                 </div>
                 <div className="col-12 col-md-4 d-flex align-items-center">
                     <div>
-                        <p className="fs-5">
+                        <p className="fs-5 pe-5">
                             <span className="text-primary">Genders</span>
                         </p>
                         {data.map((item, index) => (

@@ -171,7 +171,7 @@ const GroupChart = () => {
                         <p className="fs-5">
                             <span className="text-danger">Blood</span> Groups
                         </p>
-                        {data.map((item, index) => (
+                        {data?.map((item, index) => (
                             <p
                                 className="d-flex justify-content-between"
                                 key={item._id}
