@@ -9,7 +9,7 @@ const Sidebar = ({ children }: any) => {
    e.preventDefault();
    callUser(idToCall)
  }
-  
+  console.log(me);
   return (
     <div>
       <div>

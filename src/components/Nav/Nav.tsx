@@ -80,6 +80,11 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link" to="/videoRoute">
+                  Video Route
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink className="nav-link" to="/premiumMembership">
                   Premium Membership
                 </NavLink>
