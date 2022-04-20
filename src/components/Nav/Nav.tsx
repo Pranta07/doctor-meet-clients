@@ -70,7 +70,7 @@ const Nav = () => {
                                 </li>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/doctors">
-                                        Find a doctor
+                                        Find Doctors
                                     </NavLink>
                                 </li>
                                 <div className="dropdown my-auto nav-item ">
@@ -121,7 +121,7 @@ const Nav = () => {
                                         className="nav-link"
                                         to="/manage-bookings"
                                     >
-                                        About us
+                                        About Us
                                     </NavLink>
                                 </li>
                             </ul>
