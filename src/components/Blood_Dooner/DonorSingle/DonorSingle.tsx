@@ -1,8 +1,9 @@
 import React from "react";
 import { faEarthAsia, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Idonor } from "../DonorFilter/DonorFilter";
 import { Avatar } from "@mui/material";
+import Badge from "@mui/material/Badge";
+import { Idonor } from "../DonorFilter/DonorFilter";
 
 const DonorSingle = (props: { key: string; donor: Idonor }) => {
     const { img, name, email, phone, group, district } = props.donor;
@@ -11,30 +12,34 @@ const DonorSingle = (props: { key: string; donor: Idonor }) => {
         <div className="col">
             <div className="card h-100 border-danger">
                 {img.length > 0 ? (
-                    <img
-                        src={img}
-                        className="rounded-circle m-3 p-3 mx-auto alert-danger"
-                        alt="..."
-                        width="180"
-                        height="180"
-                    />
+                    <Badge badgeContent={group} color="primary">
+                        <img
+                            src={img}
+                            className="rounded-circle m-3 p-3 mx-auto alert-danger"
+                            alt="..."
+                            width="180"
+                            height="180"
+                        />
+                    </Badge>
                 ) : (
-                    <Avatar
-                        className="mx-auto"
-                        alt="donor-img"
-                        sx={{
-                            width: 180,
-                            height: 180,
-                            p: 3,
-                            m: 2,
-                            backgroundColor: "#fce3e3",
-                        }}
-                    />
+                    <Badge badgeContent={group} color="primary">
+                        <Avatar
+                            className="mx-auto"
+                            alt="donor-img"
+                            sx={{
+                                width: 180,
+                                height: 180,
+                                p: 3,
+                                m: 2,
+                                backgroundColor: "#fce3e3",
+                            }}
+                        />
+                    </Badge>
                 )}
-                <span className="position-absolute top-0 start-100 translate-middle p-2 alert-danger border border-light rounded-circle text-danger">
-                    {group}
-                    <span className="visually-hidden">New alerts</span>
-                </span>
+                {/* <span className="position-absolute top-0 start-100 translate-middle p-2 alert-danger border border-light rounded-circle text-danger">
+                        {group}
+                        <span className="visually-hidden">New alerts</span>
+                    </span> */}
                 <div className="card-body text-center">
                     <p className="text-secondary m-0">Hi, My name is</p>
                     <h5 className="card-title">{name}</h5>
