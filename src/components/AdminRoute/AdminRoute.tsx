@@ -4,7 +4,6 @@ import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 
 const AdminRoute = ({ children }: { children: JSX.Element }) => {
-    // const { children }: any = props;
     const { user, isLoading } = useAuth();
     const [admin, setAdmin] = useState(false);
     const [done, setDone] = useState(false);
