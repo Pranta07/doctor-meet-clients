@@ -2,8 +2,8 @@ import "bootstrap";
 import React, { useEffect, useState } from "react";
 import {
     CaretDownFill,
-    ArrowRight,
     BoxArrowInLeft,
+    BoxArrowRight,
 } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
@@ -146,7 +146,10 @@ const Nav = () => {
                                             </NavLink>
                                         </a>
                                         <a onClick={logOut}>
-                                            <NavLink to="/">Sign Out</NavLink>
+                                            <NavLink to="/">
+                                                Sign Out{" "}
+                                                <BoxArrowRight className="fs-6"></BoxArrowRight>
+                                            </NavLink>
                                         </a>
                                     </div>
                                 </div>
