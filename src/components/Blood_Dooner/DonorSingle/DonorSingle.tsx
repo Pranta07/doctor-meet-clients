@@ -2,6 +2,7 @@ import React from "react";
 import { faEarthAsia, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Idonor } from "../DonorFilter/DonorFilter";
+import { Avatar } from "@mui/material";
 
 const DonorSingle = (props: { key: string; donor: Idonor }) => {
     const { img, name, email, phone, group, district } = props.donor;
@@ -9,13 +10,27 @@ const DonorSingle = (props: { key: string; donor: Idonor }) => {
     return (
         <div className="col">
             <div className="card h-100 border-danger">
-                <img
-                    src={img}
-                    className="rounded-circle mt-2 p-3 mx-auto alert-danger"
-                    alt="..."
-                    width="200"
-                    height="200"
-                />
+                {img.length > 0 ? (
+                    <img
+                        src={img}
+                        className="rounded-circle m-3 p-3 mx-auto alert-danger"
+                        alt="..."
+                        width="180"
+                        height="180"
+                    />
+                ) : (
+                    <Avatar
+                        className="mx-auto"
+                        alt="donor-img"
+                        sx={{
+                            width: 180,
+                            height: 180,
+                            p: 3,
+                            m: 2,
+                            backgroundColor: "#fce3e3",
+                        }}
+                    />
+                )}
                 <span className="position-absolute top-0 start-100 translate-middle p-2 alert-danger border border-light rounded-circle text-danger">
                     {group}
                     <span className="visually-hidden">New alerts</span>
