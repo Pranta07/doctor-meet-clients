@@ -32,9 +32,9 @@ const DonorEditModal = (props: {
     } = useForm<IFormInputs>();
 
     const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-        // console.log(data);
+        console.log(data);
         // send data to server and store in database
-        fetch(`http://localhost:5000/donor/${donor._id}`, {
+        /* fetch(`http://localhost:5000/donor/${donor._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -50,7 +50,7 @@ const DonorEditModal = (props: {
                     "success"
                 );
             }
-        });
+        }); */
     };
 
     return (
@@ -82,7 +82,7 @@ const DonorEditModal = (props: {
                                         <div className="col-12 col-lg-6">
                                             <input
                                                 className="form-control border-danger mb-3"
-                                                defaultValue={donor?.name}
+                                                defaultValue={donor.name}
                                                 {...register("name", {
                                                     required: true,
                                                 })}
@@ -97,9 +97,7 @@ const DonorEditModal = (props: {
                                         <div className="col-12 col-lg-6 mb-3">
                                             <input
                                                 className="form-control border-danger"
-                                                defaultValue={
-                                                    donor?.email || ""
-                                                }
+                                                defaultValue={donor.email}
                                                 {...register("email", {
                                                     required: true,
                                                 })}
@@ -120,6 +118,7 @@ const DonorEditModal = (props: {
                                                     required: true,
                                                 })}
                                                 placeholder="Phone Number"
+                                                defaultValue={donor.phone}
                                             />
                                             {errors.phone && (
                                                 <span className="fw-bold">
@@ -127,12 +126,14 @@ const DonorEditModal = (props: {
                                                 </span>
                                             )}
                                         </div>
+
                                         <div className="col-12 col-lg-6 mb-3">
                                             <select
                                                 {...register("group", {
                                                     required: true,
                                                 })}
                                                 className="form-select border-danger"
+                                                defaultValue={donor.group}
                                             >
                                                 <option value="">
                                                     Select Blood Group
@@ -160,6 +161,7 @@ const DonorEditModal = (props: {
                                                     required: true,
                                                 })}
                                                 className="form-select border-danger"
+                                                defaultValue={donor.district}
                                             >
                                                 <option value="">
                                                     Select District
@@ -192,10 +194,12 @@ const DonorEditModal = (props: {
                                                 </span>
                                             )}
                                         </div>
+
                                         <div className="col-12 col-lg-6 mb-3">
                                             <select
                                                 className="form-select border-danger"
                                                 {...register("gender")}
+                                                defaultValue={donor.gender}
                                             >
                                                 <option value="">
                                                     Select Gender
@@ -216,6 +220,7 @@ const DonorEditModal = (props: {
                                         className="form-control border-danger mb-3"
                                         {...register("img")}
                                         placeholder="Put Your Image URL Here..."
+                                        defaultValue={donor.img}
                                     />
                                     <button
                                         className="btn btn-outline-danger fw-bold"

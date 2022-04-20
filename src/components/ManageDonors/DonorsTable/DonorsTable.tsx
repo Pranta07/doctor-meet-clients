@@ -16,16 +16,7 @@ import {
 } from "@mui/material";
 import "./DonorsTable.css";
 import SingleRow from "../SingleRow/SingleRow";
-
-interface Idonor {
-    _id: string;
-    img: string;
-    name: string;
-    email: string;
-    phone: string;
-    group: string;
-    district: string;
-}
+import { Idonor } from "../../Blood_Dooner/DonorFilter/DonorFilter";
 
 const DonorsTable = () => {
     const [donors, setDonors] = useState<Idonor[]>([]);
@@ -110,21 +101,24 @@ const DonorsTable = () => {
                                     <TableHead>
                                         <TableRow>
                                             <TableCell>#ID</TableCell>
-                                            <TableCell>Name</TableCell>
                                             <TableCell>Avatar</TableCell>
-                                            <TableCell align="right">
+                                            <TableCell>Name</TableCell>
+                                            <TableCell align="left">
                                                 Group
                                             </TableCell>
-                                            <TableCell align="right">
+                                            <TableCell align="left">
                                                 District
                                             </TableCell>
-                                            <TableCell align="right">
+                                            <TableCell align="left">
+                                                Gender
+                                            </TableCell>
+                                            <TableCell align="left">
                                                 Phone
                                             </TableCell>
-                                            <TableCell align="right">
+                                            <TableCell align="left">
                                                 Email
                                             </TableCell>
-                                            <TableCell align="right">
+                                            <TableCell align="center">
                                                 Actions
                                             </TableCell>
                                         </TableRow>

@@ -64,15 +64,16 @@ const SingleRow = (props: {
                 }}
             >
                 <TableCell>{index + 1 + page * rowsPerPage}</TableCell>
-                <TableCell>{donor?.name}</TableCell>
                 <TableCell component="th" scope="row">
                     <Avatar alt="Remy Sharp" src={donor?.img} />
                 </TableCell>
-                <TableCell align="right">{donor?.group}</TableCell>
-                <TableCell align="right">{donor?.district}</TableCell>
-                <TableCell align="right">{donor?.phone}</TableCell>
-                <TableCell align="right">{donor?.email}</TableCell>
-                <TableCell align="right">
+                <TableCell>{donor?.name}</TableCell>
+                <TableCell align="left">{donor?.group}</TableCell>
+                <TableCell align="left">{donor?.district}</TableCell>
+                <TableCell align="left">{donor?.gender}</TableCell>
+                <TableCell align="left">{donor?.phone}</TableCell>
+                <TableCell align="left">{donor?.email}</TableCell>
+                <TableCell align="left">
                     <Tooltip title="Edit">
                         <IconButton onClick={() => handleEdit(donor._id)}>
                             <Edit></Edit>

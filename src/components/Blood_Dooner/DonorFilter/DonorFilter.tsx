@@ -17,6 +17,7 @@ export interface Idonor {
     phone: string;
     group: string;
     district: string;
+    gender: string;
 }
 
 const DonorFilter = () => {
