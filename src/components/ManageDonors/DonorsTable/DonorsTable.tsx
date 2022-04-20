@@ -7,19 +7,15 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Box } from "@mui/system";
-import { Delete, Edit } from "@mui/icons-material";
-import Swal from "sweetalert2";
 import {
-    Avatar,
     Grid,
     IconButton,
     LinearProgress,
     TablePagination,
-    Tooltip,
     Typography,
 } from "@mui/material";
-// import useAuth from "../../Hooks/useAuth";
 import "./DonorsTable.css";
+import SingleRow from "../SingleRow/SingleRow";
 
 interface Idonor {
     _id: string;
@@ -32,9 +28,8 @@ interface Idonor {
 }
 
 const DonorsTable = () => {
-    // const { user } = useAuth();
     const [donors, setDonors] = useState<Idonor[]>([]);
-    const [isUpdate, steIsUpdate] = useState(false);
+    const [isUpdate, setIsUpdate] = useState(false);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -49,49 +44,6 @@ const DonorsTable = () => {
     ) => {
         setRowsPerPage(parseInt(event.target.value));
         setPage(0);
-    };
-
-    const handleEdit = (id: string) => {
-        /* steIsUpdate(false);
-        fetch(`http://localhost:5000/donor/${id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json",
-            },
-        }).then((res) => {
-            if (res.status === 200) {
-                steIsUpdate(true);
-            }
-        }); */
-    };
-
-    const handleDelete = (id: string) => {
-        // console.log(id);
-        steIsUpdate(false);
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/donor/${id}`, {
-                    method: "DELETE",
-                }).then((res) => {
-                    if (res.status === 200) {
-                        steIsUpdate(true);
-                        Swal.fire(
-                            "Deleted!",
-                            "The donor has been deleted.",
-                            "success"
-                        );
-                    }
-                });
-            }
-        });
     };
 
     useEffect(() => {
@@ -110,146 +62,101 @@ const DonorsTable = () => {
     }, [isUpdate, page, rowsPerPage]);
 
     return (
-        <Grid sx={{ display: "flex", justifyContent: "center" }}>
-            <Box
-                sx={{
-                    margin: "26px",
-                    border: "1px solid gray",
-                    borderRadius: "5px",
-                    backgroundColor: "#FAEEEC",
-                    opacity: 0.93,
-                    overflowX: "scroll",
-                    width: {
-                        xs: "315px!important",
-                        sm: "500px!important",
-                        md: "100%!important",
-                    },
-                }}
-            >
-                <Typography
-                    variant="h4"
-                    sx={{ fontFamily: "Monospace", py: 1, textAlign: "center" }}
+        <>
+            <Grid sx={{ display: "flex", justifyContent: "center" }}>
+                <Box
+                    sx={{
+                        margin: "26px",
+                        border: "1px solid gray",
+                        borderRadius: "5px",
+                        backgroundColor: "#FAEEEC",
+                        opacity: 0.93,
+                        overflowX: "scroll",
+                        width: {
+                            xs: "315px!important",
+                            sm: "500px!important",
+                            md: "100%!important",
+                        },
+                    }}
                 >
-                    Manage Donors
-                </Typography>
-                <hr />
-                {loading && (
-                    <Box sx={{ width: "100%" }}>
-                        <LinearProgress />
-                    </Box>
-                )}
-
-                {donors?.length === 0 && !loading ? (
-                    <Typography variant="h3" sx={{ my: 2 }}>
-                        No Orders Done Yet!
+                    <Typography
+                        variant="h4"
+                        sx={{
+                            fontFamily: "Monospace",
+                            py: 1,
+                            textAlign: "center",
+                        }}
+                    >
+                        Manage Donors
                     </Typography>
-                ) : (
-                    <>
-                        <TableContainer
-                            component={Paper}
-                            sx={{ maxHeight: 424 }}
-                        >
-                            <Table stickyHeader aria-label="sticky table">
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>#ID</TableCell>
-                                        <TableCell>Name</TableCell>
-                                        <TableCell>Avatar</TableCell>
-                                        <TableCell align="right">
-                                            Group
-                                        </TableCell>
-                                        <TableCell align="right">
-                                            District
-                                        </TableCell>
-                                        <TableCell align="right">
-                                            Phone
-                                        </TableCell>
-                                        <TableCell align="right">
-                                            Email
-                                        </TableCell>
-                                        <TableCell align="right">
-                                            Actions
-                                        </TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {donors?.map((donor, index) => (
-                                        <TableRow
-                                            key={donor?._id}
-                                            sx={{
-                                                "&:last-child td, &:last-child th":
-                                                    {
-                                                        border: 0,
-                                                    },
-                                            }}
-                                        >
-                                            <TableCell>
-                                                {index + 1 + page * rowsPerPage}
-                                            </TableCell>
-                                            <TableCell>{donor?.name}</TableCell>
-                                            <TableCell
-                                                component="th"
-                                                scope="row"
-                                            >
-                                                <Avatar
-                                                    alt="Remy Sharp"
-                                                    src={donor?.img}
-                                                />
+                    <hr />
+                    {loading && (
+                        <Box sx={{ width: "100%" }}>
+                            <LinearProgress />
+                        </Box>
+                    )}
+
+                    {donors?.length === 0 && !loading ? (
+                        <Typography variant="h3" sx={{ my: 2 }}>
+                            No Orders Done Yet!
+                        </Typography>
+                    ) : (
+                        <>
+                            <TableContainer
+                                component={Paper}
+                                sx={{ maxHeight: 424 }}
+                            >
+                                <Table stickyHeader aria-label="sticky table">
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>#ID</TableCell>
+                                            <TableCell>Name</TableCell>
+                                            <TableCell>Avatar</TableCell>
+                                            <TableCell align="right">
+                                                Group
                                             </TableCell>
                                             <TableCell align="right">
-                                                {donor?.group}
+                                                District
                                             </TableCell>
                                             <TableCell align="right">
-                                                {donor?.district}
+                                                Phone
                                             </TableCell>
                                             <TableCell align="right">
-                                                {donor?.phone}
+                                                Email
                                             </TableCell>
                                             <TableCell align="right">
-                                                {donor?.email}
-                                            </TableCell>
-                                            <TableCell align="right">
-                                                <Tooltip title="Edit">
-                                                    <IconButton
-                                                        onClick={() =>
-                                                            handleEdit(
-                                                                donor._id
-                                                            )
-                                                        }
-                                                    >
-                                                        <Edit></Edit>
-                                                    </IconButton>
-                                                </Tooltip>
-                                                <Tooltip title="Delete">
-                                                    <IconButton
-                                                        onClick={() =>
-                                                            handleDelete(
-                                                                donor._id
-                                                            )
-                                                        }
-                                                    >
-                                                        <Delete></Delete>
-                                                    </IconButton>
-                                                </Tooltip>
+                                                Actions
                                             </TableCell>
                                         </TableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                        <TablePagination
-                            rowsPerPageOptions={[10, 25, 50, 100]}
-                            component="div"
-                            count={count}
-                            rowsPerPage={rowsPerPage}
-                            page={page}
-                            onPageChange={handleChangePage}
-                            onRowsPerPageChange={handleChangeRowsPerPage}
-                        />
-                    </>
-                )}
-            </Box>
-        </Grid>
+                                    </TableHead>
+                                    <TableBody>
+                                        {donors?.map((donor, index) => (
+                                            <SingleRow
+                                                key={donor._id}
+                                                donor={donor}
+                                                setIsUpdate={setIsUpdate}
+                                                page={page}
+                                                rowsPerPage={rowsPerPage}
+                                                index={index}
+                                            ></SingleRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                            <TablePagination
+                                rowsPerPageOptions={[10, 25, 50, 100]}
+                                component="div"
+                                count={count}
+                                rowsPerPage={rowsPerPage}
+                                page={page}
+                                onPageChange={handleChangePage}
+                                onRowsPerPageChange={handleChangeRowsPerPage}
+                            />
+                        </>
+                    )}
+                </Box>
+            </Grid>
+        </>
     );
 };
 

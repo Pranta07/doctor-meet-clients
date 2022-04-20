@@ -3,10 +3,10 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal, Button } from "react-bootstrap";
 import useAuth from "../../Hooks/useAuth";
-import "react-phone-number-input/style.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
 import "./DonorEditModal.css";
+import { Idonor } from "../../Blood_Dooner/DonorFilter/DonorFilter";
 
 interface IFormInputs {
     name: string;
@@ -18,9 +18,13 @@ interface IFormInputs {
     img: string;
 }
 
-const DonorEditModal = (props: any) => {
-    const { show, handleClose } = props;
-    const { user } = useAuth();
+const DonorEditModal = (props: {
+    show: boolean;
+    handleClose: any;
+    donor: Idonor;
+    setIsUpdate: any;
+}) => {
+    const { show, handleClose, donor, setIsUpdate } = props;
     const {
         register,
         handleSubmit,
@@ -30,15 +34,15 @@ const DonorEditModal = (props: any) => {
     const onSubmit: SubmitHandler<IFormInputs> = (data) => {
         // console.log(data);
         // send data to server and store in database
-        fetch("http://localhost:5000/donor/add", {
-            method: "POST",
+        fetch(`http://localhost:5000/donor/${donor._id}`, {
+            method: "PUT",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(data),
         }).then((res) => {
             // console.log(res.status);
             if (res.status === 200) {
+                setIsUpdate(true);
                 handleClose();
                 Swal.fire(
                     "Congratulations!",
@@ -55,9 +59,8 @@ const DonorEditModal = (props: any) => {
                 <Modal.Header closeButton>
                     <Modal.Title>
                         <h4 className="text-center fw-bold">
-                            Join us in{" "}
-                            <span className="text-danger">Blood </span> Donors
-                            Community
+                            Edit <span className="text-danger">Blood </span>
+                            Donor Information
                         </h4>
                     </Modal.Title>
                 </Modal.Header>
@@ -79,9 +82,7 @@ const DonorEditModal = (props: any) => {
                                         <div className="col-12 col-lg-6">
                                             <input
                                                 className="form-control border-danger mb-3"
-                                                defaultValue={
-                                                    user?.displayName || ""
-                                                }
+                                                defaultValue={donor?.name}
                                                 {...register("name", {
                                                     required: true,
                                                 })}
@@ -96,7 +97,9 @@ const DonorEditModal = (props: any) => {
                                         <div className="col-12 col-lg-6 mb-3">
                                             <input
                                                 className="form-control border-danger"
-                                                defaultValue={user?.email || ""}
+                                                defaultValue={
+                                                    donor?.email || ""
+                                                }
                                                 {...register("email", {
                                                     required: true,
                                                 })}
@@ -218,7 +221,7 @@ const DonorEditModal = (props: any) => {
                                         className="btn btn-outline-danger fw-bold"
                                         type="submit"
                                     >
-                                        Join Us{" "}
+                                        Save Changes{" "}
                                         <FontAwesomeIcon icon={faArrowRight} />
                                     </button>
                                 </form>
