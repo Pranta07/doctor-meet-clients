@@ -30,6 +30,10 @@ const DonorFilter = () => {
         district: "All",
     });
 
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        setPage(value);
+    };
+
     const {
         register,
         handleSubmit,
@@ -146,7 +150,7 @@ const DonorFilter = () => {
                     <Donors
                         donors={displayDonors}
                         page={page}
-                        setPage={setPage}
+                        handleChange={handleChange}
                         total={total}
                     ></Donors>
                 ) : (
