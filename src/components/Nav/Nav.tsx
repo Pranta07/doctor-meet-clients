@@ -1,6 +1,6 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-import { ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
+import { ArrowDown, PersonCircle, ArrowRight } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
 import logo from "./../../Assets/img/logo.png";
@@ -30,11 +30,7 @@ const Nav = () => {
             ) : (
                 <nav className={parallaxNav}>
                     <div className="container">
-                        <NavLink
-                            className="navbar-brand fs-2 ps-md-5 ms-md-5"
-                            to="/"
-                        >
-                            {/* <span>Doctors Meet</span> */}{" "}
+                        <NavLink className="navbar-brand" to="/">
                             <img
                                 className="img-fluid"
                                 src={logo}
@@ -57,7 +53,7 @@ const Nav = () => {
                             className="collapse navbar-collapse"
                             id="navbarTogglerDemo02"
                         >
-                            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
                                     <NavLink
                                         aria-current="page"
@@ -73,8 +69,8 @@ const Nav = () => {
                                     </NavLink>
                                 </li>
                                 <div className="dropdown my-auto nav-item ">
-                                    <li className="dropbtn-more  my-auto ms-2">
-                                        More Service's <ArrowDownCircleFill />
+                                    <li className="dropbtn-more nav-link my-auto">
+                                        More Service's <ArrowDown />
                                     </li>
                                     <div className="dropdown-content">
                                         <a href="#">
@@ -102,9 +98,9 @@ const Nav = () => {
                                 <li className="nav-item">
                                     <NavLink
                                         className="nav-link"
-                                        to="/adding-tour-plan"
+                                        to="/VideoConsultation"
                                     >
-                                        Testimonials
+                                        Virtual Meet
                                     </NavLink>
                                 </li>
                                 <li className="nav-item">
@@ -123,40 +119,39 @@ const Nav = () => {
                                         About us
                                     </NavLink>
                                 </li>
-                                <li className="nav-item"></li>
-                                {user ? (
-                                    <div className="dropdown">
-                                        <div className="dropbtn ms-2" />
-                                        <PersonCircle className="dropbtn ms-2"></PersonCircle>
-                                        <div className="dropdown-content">
-                                            <a>
-                                                <NavLink to="/Profile">
-                                                    Profile
-                                                </NavLink>
-                                            </a>
-                                            <a>
-                                                <NavLink to="/dashboard/dashboarHome">
-                                                    Dashboard
-                                                </NavLink>
-                                            </a>
-                                            <a onClick={logOut}>
-                                                <NavLink to="/">
-                                                    Sign Out
-                                                </NavLink>
-                                            </a>
-                                        </div>
+                            </ul>
+                            {user ? (
+                                <div className="dropdown ms-auto">
+                                    <div className="dropbtn ms-2" />
+                                    <PersonCircle className="dropbtn ms-2"></PersonCircle>
+                                    <div className="dropdown-content">
+                                        <a>
+                                            <NavLink to="/Profile">
+                                                Profile
+                                            </NavLink>
+                                        </a>
+                                        <a>
+                                            <NavLink to="/dashboard/dashboarHome">
+                                                Dashboard
+                                            </NavLink>
+                                        </a>
+                                        <a onClick={logOut}>
+                                            <NavLink to="/">Sign Out</NavLink>
+                                        </a>
                                     </div>
-                                ) : (
+                                </div>
+                            ) : (
+                                <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                                     <li className="nav-item">
                                         <NavLink
                                             className="nav-link"
                                             to="/login"
                                         >
-                                            Login
+                                            Login <ArrowRight></ArrowRight>
                                         </NavLink>
                                     </li>
-                                )}
-                            </ul>
+                                </ul>
+                            )}
                         </div>
                     </div>
                 </nav>
