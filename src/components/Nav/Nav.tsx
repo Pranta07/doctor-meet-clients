@@ -1,14 +1,19 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-import { ArrowDown, PersonCircle, ArrowRight } from "react-bootstrap-icons";
+import {
+    CaretDownFill,
+    ArrowRight,
+    BoxArrowInLeft,
+} from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
-import useFirebase from "../../firebase/useFirebase/useFirebase";
+import useAuth from "../Hooks/useAuth";
 import logo from "./../../Assets/img/logo.png";
+import { Avatar } from "@mui/material";
 import "./Nav.css";
 
 const Nav = () => {
     const [offset, setOffset] = useState(0);
-    let { user, logOut } = useFirebase();
+    let { user, logOut } = useAuth();
 
     const parallaxNav =
         offset < 50
@@ -70,7 +75,7 @@ const Nav = () => {
                                 </li>
                                 <div className="dropdown my-auto nav-item ">
                                     <li className="dropbtn-more nav-link my-auto">
-                                        More Service's <ArrowDown />
+                                        More Service's <CaretDownFill />
                                     </li>
                                     <div className="dropdown-content">
                                         <a href="#">
@@ -122,8 +127,13 @@ const Nav = () => {
                             </ul>
                             {user ? (
                                 <div className="dropdown ms-auto">
-                                    <div className="dropbtn ms-2" />
-                                    <PersonCircle className="dropbtn ms-2"></PersonCircle>
+                                    <Avatar
+                                        src={user.photoURL || ""}
+                                        alt="user-img"
+                                        sx={{
+                                            backgroundColor: "skyblue",
+                                        }}
+                                    />
                                     <div className="dropdown-content">
                                         <a>
                                             <NavLink to="/Profile">
@@ -147,7 +157,8 @@ const Nav = () => {
                                             className="nav-link"
                                             to="/login"
                                         >
-                                            Login <ArrowRight></ArrowRight>
+                                            Login{" "}
+                                            <BoxArrowInLeft className="fs-5"></BoxArrowInLeft>
                                         </NavLink>
                                     </li>
                                 </ul>
