@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 
-const AdminRoute = ({ children }) => {
+const AdminRoute = ({ children }: { children: JSX.Element }) => {
+    // const { children }: any = props;
     const { user, isLoading } = useAuth();
     const [admin, setAdmin] = useState(false);
     const [done, setDone] = useState(false);
@@ -14,7 +15,7 @@ const AdminRoute = ({ children }) => {
         if (!isLoading) {
             setDone(false);
             setAdmin(false);
-            fetch(`http://localhost:5000/user/${user.email}`)
+            fetch(`http://localhost:5000/user/${user?.email}`)
                 .then((res) => res.json())
                 .then((user) => {
                     if (user?.role === "admin") {
