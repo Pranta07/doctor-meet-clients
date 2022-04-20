@@ -21,7 +21,12 @@ import DashboardHome from "./page/Dashboards/DashboardHome/DashboardHome";
 import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
+
 import "./App.css";
+import AppointmentDoctors from "./components/GetAppointmentFolder/AppointmentDoctors/AppointmentDoctors";
+import GetAppointmentForm from "./components/GetAppointmentFolder/GetAppointmentForm/GetAppointmentForm";
+import PayAppointmentFee from "./components/GetAppointmentFolder/PayAppointmentFee/PayAppointmentFee";
+import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointments";
 
 function App() {
     return (
@@ -58,7 +63,15 @@ function App() {
                         path="/premiumPayment/:id"
                         element={<PremiumPayment />}
                     ></Route>
-
+                    <Route path="/appointmentDoctors" element={<AppointmentDoctors />} />
+                    <Route
+                        path="/getAppointmentForm/:id"
+                        element={<GetAppointmentForm />}
+                    ></Route>
+                    <Route
+                        path="/payAppointmentFee/:id"
+                        element={<PayAppointmentFee/>}
+                    ></Route>
                     <Route path="/dashboard" element={<Dashboard />}>
                         <Route
                             path="dashboarHome"
@@ -67,10 +80,13 @@ function App() {
                         <Route path="doctors" element={<AllDoctors />} />
                         <Route path="favdoc" element={<FavoriteDoctors />} />
                         <Route path="admin" element={<Admin />} />
+                        <Route path="myappointments" element={<MyAppointments />} />
                     </Route>
 
                     <Route path="/doctors" element={<Doctors />} />
                 </Routes>
+
+
                 <Footer></Footer>
             </AuthProvider>
         </>

@@ -123,6 +123,14 @@ const Nav = () => {
                                         About us
                                     </NavLink>
                                 </li>
+                                <li className="nav-item">
+                                    <NavLink
+                                        className="nav-link"
+                                        to="/appointmentDoctors"
+                                    >
+                                        Get Appointment
+                                    </NavLink>
+                                </li>
                                 <li className="nav-item"></li>
                                 {user ? (
                                     <div className="dropdown">
@@ -157,6 +165,7 @@ const Nav = () => {
                                     </li>
                                 )}
                             </ul>
+                            
                         </div>
                     </div>
                 </nav>

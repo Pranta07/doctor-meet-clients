@@ -21,6 +21,7 @@ const Home = () => {
       <HomeGallery></HomeGallery>
 
       <Articles></Articles>
+     
     </>
   );
 };

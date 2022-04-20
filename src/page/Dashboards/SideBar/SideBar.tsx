@@ -36,6 +36,12 @@ const SideBar = () => {
                 >
                     Admin
                 </Link>
+                <Link
+                    to="/dashboard/myappointments"
+                    className={firstPath === "myappointments" ? "active" : ""}
+                >
+                    My Appointments
+                </Link>
             </div>
         </div>
     );
