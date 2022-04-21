@@ -1,10 +1,10 @@
-import React, { useState } from "react";
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
 import helpImg from "../../../Assets/img/need-help.svg";
-import "./CovidHelp.css";
 import useAuth from "../../Hooks/useAuth";
+import "./CovidHelp.css";
 
 const Help = () => {
     const { user } = useAuth();
@@ -18,7 +18,7 @@ const Help = () => {
             <Container>
                 <h1 className="fw-bold text-center ">Need Help!</h1>
                 <hr className="mx-auto hr-hight w-25" />
-                <p className="mx-auto my-3 text-secondary w-75">
+                <p className="text-center text-secondary w-75 my-3 mx-auto">
                     <small>
                         Protect yourself and others around you by knowing the
                         facts and taking appropriate precautions. Floow advice

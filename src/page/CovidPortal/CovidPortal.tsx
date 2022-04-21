@@ -4,16 +4,15 @@ import CovidPreventions from "../../components/Covid/CovidPreventions/CovidPreve
 import CovidSymptoms from "../../components/Covid/CovidSymptoms/CovidSymptoms";
 import CovidTop from "../../components/Covid/CovidTop/CovidTop";
 
-
 const CovidPortal = () => {
-    return (
-        <>
-            <CovidTop></CovidTop>
-            <CovidPreventions></CovidPreventions>
-            <CovidSymptoms></CovidSymptoms>
-            <Help></Help>
-        </>
-    );
+  return (
+    <>
+      <CovidTop></CovidTop>
+      <CovidPreventions></CovidPreventions>
+      <CovidSymptoms></CovidSymptoms>
+      <Help></Help>
+    </>
+  );
 };
 
 export default CovidPortal;

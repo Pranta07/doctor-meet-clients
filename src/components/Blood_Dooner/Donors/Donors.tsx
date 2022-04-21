@@ -1,16 +1,26 @@
+import React from "react";
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
 import { Container } from "react-bootstrap";
-import DonorPagination from "../../DonorPagination/DonorPagination";
 import DonorSingle from "../DonorSingle/DonorSingle";
+import DonorPagination from "../DonorPagination/DonorPagination";
+import { Idonor } from "../DonorFilter/DonorFilter";
 
 const Donors = (props: any) => {
-    const { donors, currentPage, setCurrentPage, pageCount } = props;
-    // console.log(pageCount)
+    const { donors, page, handleChange, total } = props;
+    // console.log(donors);
+
     return (
         <>
             <Container>
+                {donors.length === 0 && (
+                    <p className="alert alert-danger p-2 mt-5 text-center">
+                        <FontAwesomeIcon
+                            icon={faExclamationCircle}
+                        ></FontAwesomeIcon>{" "}
+                        Ooops! No donors matched! Try Again!
+                    </p>
+                )}
                 <div
                     className="
                         row row-cols-1 row-cols-md-2 row-cols-lg-3
@@ -21,15 +31,7 @@ const Donors = (props: any) => {
                         justify-content-center
                     "
                 >
-                    {donors.length === 0 && (
-                        <p className="alert alert-danger p-2 mt-2 text-center">
-                            <FontAwesomeIcon
-                                icon={faExclamationCircle}
-                            ></FontAwesomeIcon>{" "}
-                            Ooops! No donors matches!
-                        </p>
-                    )}
-                    {donors.map((donor: any) => (
+                    {donors?.map((donor: Idonor) => (
                         <DonorSingle
                             key={donor._id}
                             donor={donor}
@@ -37,10 +39,9 @@ const Donors = (props: any) => {
                     ))}
                 </div>
                 <DonorPagination
-                    count={donors.length}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    pageCount={pageCount}
+                    total={total}
+                    page={page}
+                    handleChange={handleChange}
                 ></DonorPagination>
             </Container>
         </>

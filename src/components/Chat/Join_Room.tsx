@@ -1,24 +1,25 @@
-import { useState } from "react";
-import { io } from "socket.io-client";
-import "./App.css";
-import Chat from "./Chat";
+import { useState } from 'react';
+import { io } from 'socket.io-client';
+import './App.css';
+import Chat from './Chat';
 
-const socket = io("http://localhost:8888");
+
+const socket = io('http://localhost:8888');
 
 function Join_room() {
-    const [username, setUsername] = useState("");
-    const [room, setRoom] = useState("");
-    const [showChat, setShowChat] = useState<boolean>(false);
+  const [username, setUsername] = useState('');
+  const [room, setRoom] = useState('');
+  const [showChat, setShowChat] = useState<boolean>(false);
 
-    const joinRoom = () => {
-        if (username !== "" && room !== "") {
-            socket.emit("join_room", room);
-            localStorage.setItem("showChart", JSON.stringify(showChat))
-            localStorage.setItem('roomid', room)
-            localStorage.setItem('userName', username)
-            setShowChat(true)
-        }
-    };
+  const joinRoom = () => {
+    if (username !== '' && room !== '') {
+      socket.emit('join_room', room);
+      localStorage.setItem('showChart', JSON.stringify(showChat));
+      localStorage.setItem('roomid', room);
+      localStorage.setItem('userName', username);
+      setShowChat(true);
+    }
+  };
 
     return (
         <div className="App">

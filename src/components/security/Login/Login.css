@@ -1,11 +1,11 @@
 .line {
-    height: 1px;
-    width: 45%;
-    background-color: #E0E0E0;
-    margin-top: 10px
+  height: 1px;
+  width: 45%;
+  background-color: #e0e0e0;
+  margin-top: 10px;
 }
 
 .or {
-    width: 10%;
-    font-weight: bold
+  width: 10%;
+  font-weight: bold;
 }

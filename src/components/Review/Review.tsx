@@ -1,11 +1,10 @@
-import React from "react";
-import "./Review.css";
-
-import review_img from "./../../Assets/img/review-img.png";
+import React from 'react';
+import review_img from './../../Assets/img/review-img.png';
+import './Review.css';
 
 const Review = () => {
   return (
-    <div className="container">
+    <div className="container mb-for-r">
       <div className="review-bg">
         <h3 className="text-center mb-4 "> What our customer are saying </h3>
         <hr className="hr-re mx-auto " />
@@ -22,7 +21,7 @@ const Review = () => {
             </div>
           </div>
           <div className="col-lg-6 col-sm-12 col-md-12 mt-4">
-            <p className=" my-auto" >
+            <p className=" my-auto">
               “Our dedicated patient engagement app and web portal allow you to
               access information instantaneously (no tedeous form, long calls,
               or administrative hassle) and securely”

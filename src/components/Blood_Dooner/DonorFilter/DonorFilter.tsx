@@ -4,56 +4,63 @@ import React, { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Donors from "../Donors/Donors";
 
-
 interface IFormInput {
     group: string;
     district: string;
 }
 
-interface Idonor {
-    _id: number;
+export interface Idonor {
+    _id: string;
     img: string;
     name: string;
     email: string;
     phone: string;
-    district: string;
     group: string;
+    district: string;
+    gender: string;
 }
 
 const DonorFilter = () => {
-    const [donorData, setDonorData] = useState<Idonor[]>([]);
-    const [displayDonors, setDisplayDonors] = useState<Idonor[]>(donorData);
-    const [loading, setLoading] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [pageCount, setPageCount] = useState(0);
-    const [group, setGroup] = useState("All");
-    const [district, setDistrict] = useState("All");
+    const [displayDonors, setDisplayDonors] = useState<Idonor[]>([]);
+    const [page, setPage] = useState<number>(1);
+    const [total, setTotal] = useState<number>(0);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [query, setQuery] = useState({
+        group: "All",
+        district: "All",
+    });
 
-    const url = `https://immense-beyond-64415.herokuapp.com/donor/all/${group}?district=${district}&&page=${currentPage}`;
-
-    useEffect(() => {
-        setLoading(true)
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                setPageCount(Math.ceil(data.total / 6))
-                setDonorData(data.result)
-                setDisplayDonors(data.result)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
-    }, [url]);
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        setPage(value);
+    };
 
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<IFormInput>();
-    const onSubmit: SubmitHandler<IFormInput> = (data) => {
 
-        setGroup(data.group);
-        setDistrict(data.district);
+    useEffect(() => {
+        setLoading(true);
+        const url = `http://localhost:5000/donor?group=${
+            query.group
+        }&&district=${query.district}&&page=${page}&&rows=${6}`;
+        // console.log(url);
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+                // console.log(data);
+                setDisplayDonors(data.result);
+                setTotal(data.total);
+            })
+            .finally(() => setLoading(false));
+    }, [page, query]);
+
+    const onSubmit: SubmitHandler<IFormInput> = (data) => {
+        const { group, district } = data;
+
+        setPage(1);
+        setQuery({ group, district });
     };
 
     return (
@@ -69,6 +76,7 @@ const DonorFilter = () => {
                         text-danger
                         border border-2 border-danger
                         rounded
+                        my-3
                     "
                 />
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -82,14 +90,15 @@ const DonorFilter = () => {
                                 className="form-select"
                                 aria-label="Default select example"
                             >
-                                <option value="All">Blood Groups</option>
-                                <option value="A+">A+</option>
+                                <option value="">Select Blood Group</option>
+                                <option value="All">All Group</option>
+                                <option value="A%2B">A+</option>
                                 <option value="A-">A-</option>
-                                <option value="B+">B+</option>
+                                <option value="B%2B">B+</option>
                                 <option value="B-">B-</option>
-                                <option value="O+">O+</option>
+                                <option value="O%2B">O+</option>
                                 <option value="O-">O-</option>
-                                <option value="AB+">AB+</option>
+                                <option value="AB%2B">AB+</option>
                                 <option value="AB-">AB-</option>
                             </select>
                             {errors.group && (
@@ -108,6 +117,7 @@ const DonorFilter = () => {
                                 className="form-select"
                                 aria-label="Default select example"
                             >
+                                <option value="">Select District</option>
                                 <option value="All">All District</option>
                                 <option value="Dhaka">Dhaka</option>
                                 <option value="Chittagong">Chittagong</option>
@@ -130,22 +140,29 @@ const DonorFilter = () => {
                     <div className="d-flex justify-content-center">
                         <button
                             type="submit"
-                            // onClick={handleSearch}
-                            className="btn btn-danger mt-3 px-4"
+                            className="btn btn-danger mt-4 px-4"
                         >
                             Search
                         </button>
                     </div>
                 </form>
-                {
-                    donorData.length !== 0 && !loading &&
+                {!loading ? (
                     <Donors
                         donors={displayDonors}
-                        currentPage={currentPage}
-                        setCurrentPage={setCurrentPage}
-                        pageCount={pageCount}
+                        page={page}
+                        handleChange={handleChange}
+                        total={total}
                     ></Donors>
-                }
+                ) : (
+                    <div className="d-flex justify-content-center py-5">
+                        <div
+                            className="spinner-border text-primary"
+                            role="status"
+                        >
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                )}
             </section>
         </>
     );
