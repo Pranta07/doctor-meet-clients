@@ -5,8 +5,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
+    padding-left: 15px;
     box-shadow: 0 0 3px #ddd;
+    position: absolute;
+    left: 19vw;
+    z-index: 5;
+    position: fixed;
+
 }
 
 .toggle_button {
@@ -54,9 +59,24 @@
     color: #1a5686;
 }
 
+.box>input {
+    flex: 1;
+    height: 25px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #F7F6F4;
+    width: 70%;
+}
+
+
 @media only screen and (max-width: 768px) {
     .Header {
         width: 100vw;
+        position: absolute;
+        left: 0;
+        z-index: 5;
+
     }
 
     .box {

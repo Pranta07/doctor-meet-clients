@@ -1,24 +1,33 @@
 .Dashboard-Home {
     display: flex;
 }
-
+/* 
 .main-content {
     width: 80vw;
     background-color: #FFFFFF;
     margin: 8px;
-    /* border-radius: 2px; */
-    /* box-shadow: 0 0 5px #16161687; */
     overflow: auto;
     padding: 20px;
-    /* padding-bottom: 10px; */
+    position: absolute;
+    left: 18vw;
+    top: 10vh;
 
-}
+    border-radius: 2px;
+    box-shadow: 0 0 5px #16161687;
+    overflow: auto;
+    padding: 20px;
+    padding-bottom: 10px;
+
+} */
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1020px) {
     .main-content {
         width: 95vw;
         margin: 10px auto;
+        position: absolute;
+        left: 0;
+        top: 10vh;
 
     }
 }

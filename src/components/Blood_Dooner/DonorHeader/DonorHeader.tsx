@@ -3,7 +3,6 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import vector1 from "../../../Assets/blood donation/vector1.jpg";
 import DonorChart from "../DonorChart/DonorChart";
-import { Modal, Button } from "react-bootstrap";
 import JoinUsForm from "../JoinUsForm/JoinUsForm";
 
 const DonorHeader = () => {

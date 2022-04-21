@@ -1,10 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RatingStar } from "rating-star";
 import { Cart, Heart, Search } from "react-bootstrap-icons";
+import { NavLink } from 'react-router-dom';
 
+
+let getData = () => {
+  let data = localStorage.getItem("item");
+  if (data) {
+    return JSON.parse(data);
+  } else {
+    return [];
+  }
+};
 
 const Pharmecy_Best_Product = (props:any) => {
-    let { name, price, rating, img1, img2 } = props.products;
+  let [itemData, setItemData] = useState(getData());
+
+  let { name, price, rating, img1, img2, _id } = props.products;
+
+  useEffect(() => {
+    const ItemList = localStorage.getItem("item");
+
+    if (ItemList) {
+      const listItems: any[] = JSON.parse(ItemList);
+      const authorId = listItems.find((author) => author._id === _id);
+    }
+  }, [_id]);
+
+  const addDoctor = (id: string) => {
+    //save the doctor to local storage
+    const doctor = localStorage.getItem("item");
+
+    let items;
+    if (doctor) items = JSON.parse(doctor);
+    else items = [];
+
+    const newItems = [...items, props.products];
+    // console.log(newItems);
+
+    localStorage.setItem("item", JSON.stringify([...newItems]));
+  };
+
   return (
     <div className="col-lg-2 col-md-3 col-sm-6 p-0">
       <div className="product p-4">
@@ -34,19 +70,21 @@ const Pharmecy_Best_Product = (props:any) => {
             </button>
           </div>
         </div>
-        <div className="product-info my-4">
-          <div>
-            <p className="product-name">{name}</p>
-            <h5 className="product-price">${price}</h5>
-            <RatingStar
-              size={16}
-              maxScore={5}
-              colors={{ mask: "#ff7f23" }}
-              id="123"
-              rating={rating}
-            />
+        <NavLink style={{ textDecoration: "none" }} to={`/medicine/${_id}`}>
+          <div className="product-info my-4">
+            <div>
+              <p className="product-name">{name}</p>
+              <h5 className="product-price">${price}</h5>
+              <RatingStar
+                size={16}
+                maxScore={5}
+                colors={{ mask: "#ff7f23" }}
+                id="123"
+                rating={rating}
+              />
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
     </div>
   );

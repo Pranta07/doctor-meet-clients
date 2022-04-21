@@ -17,6 +17,7 @@ export interface Idonor {
     phone: string;
     group: string;
     district: string;
+    gender: string;
 }
 
 const DonorFilter = () => {
@@ -29,6 +30,10 @@ const DonorFilter = () => {
         district: "All",
     });
 
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        setPage(value);
+    };
+
     const {
         register,
         handleSubmit,
@@ -37,7 +42,9 @@ const DonorFilter = () => {
 
     useEffect(() => {
         setLoading(true);
-        const url = `http://localhost:5000/donor?group=${query.group}&&district=${query.district}&&page=${page}`;
+        const url = `http://localhost:5000/donor?group=${
+            query.group
+        }&&district=${query.district}&&page=${page}&&rows=${6}`;
         // console.log(url);
         fetch(url)
             .then((res) => res.json())
@@ -143,7 +150,7 @@ const DonorFilter = () => {
                     <Donors
                         donors={displayDonors}
                         page={page}
-                        setPage={setPage}
+                        handleChange={handleChange}
                         total={total}
                     ></Donors>
                 ) : (
