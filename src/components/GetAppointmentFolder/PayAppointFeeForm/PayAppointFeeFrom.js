@@ -37,7 +37,11 @@ const PayAppointmentFeeFrom = ({appointment}) => {
     } else {
       console.log('[PaymentMethod]', paymentMethod);
       if(paymentMethod.id){
-        console.log("Payment is Successful");
+        fetch(`http://localhost:5000/allAppointments/${appointment._id}`,{
+          method:"PUT"
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
        
       }
     }

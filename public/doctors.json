@@ -34,6 +34,7 @@
         "img": "https://i.ibb.co/7VbWbw4/Portrait-of-smiling-doctor-standing-in-hospital-premises.jpg",
         "specialist": "Cardiologist",
         "timeSlot":"3.00 pm - 5.00 pm",
+        "visit":"15",
         "address": {
             "street": "Victor Plains",
             "suite": "Suite 879",
@@ -60,6 +61,7 @@
         "img": "https://i.ibb.co/fXSS20N/doctor-standing-with-folder-stethoscope.jpg",
         "specialist": "Cancer Specialist",
         "timeSlot":"3.30 pm - 4.30 pm",
+        "visit":"12",
         "address": {
             "street": "Douglas Extension",
             "suite": "Suite 847",
@@ -86,6 +88,7 @@
         "img": "https://i.ibb.co/KV0Cx3K/Portrait-of-smiling-doctor-looking-at-camera-on-background-of-his-working-colleagues.jpg",
         "specialist": "Nephrologist",
         "timeSlot":"5.00 pm - 6.00 pm",
+        "visit":"20",
         "address": {
             "street": "Hoeger Mall",
             "suite": "Apt. 692",
@@ -112,6 +115,7 @@
         "img": "https://i.ibb.co/tCCSnB9/Happy-young-male-doctor-using-tablet-computer-Guy-wearing-white-coat-and-standing-Medicine-and-techn.jpg",
         "specialist": "Nephrologist",
         "timeSlot":"8.00 pm - 9.00 pm",
+        "visit":"25",
         "address": {
             "street": "Skiles Walks",
             "suite": "Suite 351",
@@ -138,6 +142,7 @@
         "img": "https://i.ibb.co/3f1t87f/Hospital-healthcare-workers-covid-19-treatment-concept-Young-doctor-in-scrubs-making-daily-errands-c.jpg",
         "specialist": "Orthopedics",
         "timeSlot":"9.30 pm - 10.30 pm",
+        "visit":"18",
         "address": {
             "street": "Norberto Crossing",
             "suite": "Apt. 950",
@@ -164,6 +169,7 @@
         "img": "https://i.ibb.co/G7tfS0C/Japanese-doctor-with-short-grey-hair-and-glasses-smiling-towards-camera-in-hospital-corridor-confide.jpg",
         "specialist": "Psychiartist",
         "timeSlot":"5.30 pm - 6.30 pm",
+        "visit":"10",
         "address": {
             "street": "Rex Trail",
             "suite": "Suite 280",
@@ -190,6 +196,7 @@
         "img": "https://i.ibb.co/WDjXRPZ/Digital-composition-of-a-confident-male-doctor-standing-against-blue-background.jpg",
         "specialist": "Dermatologist",
         "timeSlot":"2.30 pm - 4.00 pm",
+        "visit":"12",
         "address": {
             "street": "Ellsworth Summit",
             "suite": "Suite 729",
@@ -216,6 +223,7 @@
         "img": "https://i.ibb.co/QK0jNvt/mike.jpg",
         "specialist": "Orthopedics",
         "timeSlot":"4.40 pm - 6.00 pm",
+        "visit":"16",
         "address": {
             "street": "Dayna Park",
             "suite": "Suite 449",
@@ -242,6 +250,7 @@
         "img": "https://i.ibb.co/980rCdF/Portrait-of-successful-young-doctor-with-folder-and-stethoscope-African-American-general-practitione.jpg",
         "specialist": "Gynochologist",
         "timeSlot":"4.00 pm - 6.00 pm",
+        "visit":"30",
         "address": {
             "street": "Kattie Turnpike",
             "suite": "Suite 198",
