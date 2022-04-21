@@ -3,7 +3,7 @@ import React from 'react';
 const Doctor = () => {
     return (
         <div>
-            This is Doctor
+            <h2 className='text-center'>This is Doctor Dashboard</h2>
         </div>
     );
 };

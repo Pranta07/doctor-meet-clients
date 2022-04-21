@@ -1,12 +1,15 @@
 import React from 'react';
 import './DashboardHome.css';
+import LastAppoinments from './LastAppoinments/LastAppoinments';
+import PatientAgeDemoGraphic from './PatientDemoGraphic/PatientAgeDemoGraphic';
+import PateintGenderDemoGraphic from './PatientDemoGraphic/PateintGenderDemoGraphic';
 import Survey from './Survey/Survey';
 
 const DashboardHome = () => {
     return (
-        <div>
-            <div className="row">
-                <div className="col-lg-3">
+        <div className='DashboardHome'>
+            <div className="row mx-auto ps-2">
+                <div className="col-lg-3 col-12 col-md-6">
                     <div className='dashboarCommonDivStyle d-flex justify-content-between bg-light p-3  align-items-center'>
                         <i className="fas commonIconStyle fa-briefcase-medical"></i>
                         <div>
@@ -16,7 +19,7 @@ const DashboardHome = () => {
                     </div>
 
                 </div>
-                <div className="col-lg-3">
+                <div className="col-lg-3 col-12 col-md-6">
                     <div className='dashboarCommonDivStyle d-flex justify-content-between bg-light p-3  align-items-center'>
                         <i className="fas  commonIconStyle fa-bed"></i>
                         <div>
@@ -26,7 +29,7 @@ const DashboardHome = () => {
                     </div>
 
                 </div>
-                <div className="col-lg-3">
+                <div className="col-lg-3 col-12 col-md-6">
                     <div className='dashboarCommonDivStyle d-flex justify-content-between bg-light p-3  align-items-center'>
                         <i className="fas  commonIconStyle fa-bed"></i>
                         <div>
@@ -36,7 +39,7 @@ const DashboardHome = () => {
                     </div>
 
                 </div>
-                <div className="col-lg-3">
+                <div className="col-lg-3 col-12 col-md-6">
                     <div className='dashboarCommonDivStyle d-flex justify-content-between bg-light p-3  align-items-center'>
 
                         <i className="fas commonIconStyle  fa-dollar-sign"></i>
@@ -54,6 +57,24 @@ const DashboardHome = () => {
                 <Survey></Survey>
             </div>
 
+            <div className='px-4'>
+                {/* Last Appoinments Section */}
+                <LastAppoinments></LastAppoinments>
+
+            </div>
+
+            <div className='row'>
+                {/* Patient Demographic */}
+                <div className="col-lg-6">
+                    <PatientAgeDemoGraphic></PatientAgeDemoGraphic>
+                </div>
+                <div className="col-lg-6">
+                    <PateintGenderDemoGraphic></PateintGenderDemoGraphic>
+                </div>
+
+
+
+            </div>
         </div>
     );
 };

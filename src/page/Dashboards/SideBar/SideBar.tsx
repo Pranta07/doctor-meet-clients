@@ -36,6 +36,9 @@ const SideBar = () => {
                 >
                     Admin
                 </Link>
+                <Link to="/" >
+                    Back To Home
+                </Link>
             </div>
         </div>
     );
