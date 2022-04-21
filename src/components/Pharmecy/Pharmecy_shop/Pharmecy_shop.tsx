@@ -1,9 +1,8 @@
 import { RatingStar } from "rating-star";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
-import "../PharmecyProducts/Pharmecy_product.css";
-import "./Pharmecy_single_product.css";
+
 
 let getData = () => {
   let data = localStorage.getItem("item");
@@ -14,10 +13,10 @@ let getData = () => {
   }
 };
 
-const Phamecy_single_product = (props: any) => {
+const Pharmecy_shop = (props: any) => {
   let [itemData, setItemData] = useState(getData());
 
-  let { name, price, rating, img1, img2, _id } = props.products;
+  let { name, price, rating, img1, img2, _id } = props.product;
 
   useEffect(() => {
     const ItemList = localStorage.getItem("item");
@@ -42,23 +41,10 @@ const Phamecy_single_product = (props: any) => {
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
 
-  const removeDoctor = (id: string) => {
-    //remove the doctor from local storage
-    const doctor = localStorage.getItem("item");
-
-    let items: any[];
-    if (doctor) items = JSON.parse(doctor);
-    else items = [];
-
-    const newItems = items.filter((author) => author._id !== id);
-    // console.log(newItems);
-
-    localStorage.setItem("favdoc", JSON.stringify([...newItems]));
-  };
-
   return (
-    <div className="col-lg-2 col-md-3 col-sm-6 p-0">
-      <div className="product p-4">
+
+    <div className="col-lg-4">
+      <div className="product mt-3 p-4">
         <div className="product-img">
           <img
             className="img-fluid"
@@ -75,7 +61,7 @@ const Phamecy_single_product = (props: any) => {
               {" "}
               <Heart></Heart>{" "}
             </button>
-            <button onClick={() => addDoctor(_id)} className="btn" title="Add to Cart">
+            <button onClick={()=>addDoctor(_id)} className="btn" title="Add to Cart">
               {" "}
               <Cart></Cart>{" "}
             </button>
@@ -105,4 +91,4 @@ const Phamecy_single_product = (props: any) => {
   );
 };
 
-export default Phamecy_single_product;
+export default Pharmecy_shop;

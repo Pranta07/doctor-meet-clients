@@ -10,7 +10,7 @@ const Footer = () => {
       window.location.pathname === "/dashboard/admin" ||
       window.location.pathname === "/dashboard/favdoc" ? 
         <div></div>
-       : (
+       : 
         <footer>
           <section className="container text-white text-start">
             <div className=" row row-cols-1 row-cols-md-4 row-cols-lg-4 mx-auto pt-5">
@@ -70,7 +70,7 @@ const Footer = () => {
             </div>
           </section>
         </footer>
-      )}
+      }
     </div>
   );
 };

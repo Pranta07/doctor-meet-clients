@@ -83,6 +83,7 @@ const useFirebase = (): firebase => {
         setMessage(error.message);
       });
   };
+
   const verification = () => {
     sendEmailVerification(auth.currentUser)
       .then(() => {
@@ -165,6 +166,7 @@ const useFirebase = (): firebase => {
         setIsLoading(false);
       });
   };
+  
   const logOut = () => {
     signOut(auth)
       .then(() => {

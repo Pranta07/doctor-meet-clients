@@ -134,10 +134,10 @@ const Nav = () => {
                                                     Profile
                                                 </NavLink>
                                             </a>
-                                            <a>
-                                                <NavLink to="/dashboard/dashboarHome">
+                                            <a href="/dashboard">
+                    
                                                     Dashboard
-                                                </NavLink>
+                                                
                                             </a>
                                             <a onClick={logOut}>
                                                 <NavLink to="/">
