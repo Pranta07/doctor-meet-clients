@@ -5,7 +5,6 @@ import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
 import PremiumMemberships from "./components/PremiumMembership/PremiumMemberships";
 import PremiumPayment from "./components/PremiumMembership/PremiumPayment";
-import Pharmecy_product_view from "./components/Pharmecy/Phamecy_product_view/Pharmecy_product_view";
 import PharmecyHome from "./components/Pharmecy/PharmecyHome/PharmecyHome";
 import Login from "./components/security/Login/Login";
 import Registation from "./components/security/Registation/Registation";
@@ -21,13 +20,13 @@ import DashboardHome from "./page/Dashboards/DashboardHome/DashboardHome";
 import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
-
-import "./App.css";
+// import Pharmecy_product_view from "./components/Pharmecy/Phamecy_product_view/Pharmecy_product_view";
 import AppointmentDoctors from "./components/GetAppointmentFolder/AppointmentDoctors/AppointmentDoctors";
 import GetAppointmentForm from "./components/GetAppointmentFolder/GetAppointmentForm/GetAppointmentForm";
 import PayAppointmentFee from "./components/GetAppointmentFolder/PayAppointmentFee/PayAppointmentFee";
 import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointments";
 import ManageDonors from "./components/ManageDonors/ManageDonors/ManageDonors";
+import "./App.css";
 
 function App() {
     return (
@@ -42,10 +41,10 @@ function App() {
                     <Route path="/ContactUs" element={<ContactUs />}></Route>
                     <Route path="/profile" element={<Profile />}></Route>
                     <Route path="/pharma" element={<PharmecyHome />}></Route>
-                    <Route
+                    {/* <Route
                         path="/medicine/:id"
                         element={<Pharmecy_product_view />}
-                    />
+                    /> */}
                     <Route
                         path="/videoRoute"
                         element={<VideoChatRoute />}
