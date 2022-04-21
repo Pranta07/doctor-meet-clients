@@ -2,9 +2,8 @@ import React, { useContext } from 'react';
 import { SocketContext } from '../../context/Context';
 
 const VideoPlayer = () => {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } =
-    useContext(SocketContext);
-  console.log(userVideo, myVideo);
+  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
+
   return (
     <div className="d-flex justify-content-between">
       {stream && (

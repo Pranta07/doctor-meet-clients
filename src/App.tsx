@@ -21,7 +21,12 @@ import DashboardHome from "./page/Dashboards/DashboardHome/DashboardHome";
 import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
+
 import "./App.css";
+import AppointmentDoctors from "./components/GetAppointmentFolder/AppointmentDoctors/AppointmentDoctors";
+import GetAppointmentForm from "./components/GetAppointmentFolder/GetAppointmentForm/GetAppointmentForm";
+import PayAppointmentFee from "./components/GetAppointmentFolder/PayAppointmentFee/PayAppointmentFee";
+import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointments";
 import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
 import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pharmecy_all_Product";
 
@@ -43,17 +48,10 @@ function App() {
 
           <Route path="/CovidPortal" element={<CovidPortal />}></Route>
           <Route path="/FindDonors" element={<FindDonors />}></Route>
-          <Route
-            path="/premiumMembership"
-            element={<PremiumMemberships />}
-          ></Route>
-          <Route
-            path="/premiumPayment/:id"
-            element={<PremiumPayment />}
-          ></Route>
+         
 
-          <Route path='/cart' element={<Pharmecy_cart/>} />
-          <Route path='/shop' element={<Pharmecy_all_Product/>} />
+          <Route path="/cart" element={<Pharmecy_cart />} />
+          <Route path="/shop" element={<Pharmecy_all_Product />} />
 
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="dashboarHome" element={<DashboardHome />} />
@@ -62,6 +60,23 @@ function App() {
             <Route path="admin" element={<Admin />} />
           </Route>
           <Route path="/doctors" element={<Doctors />} />
+          <Route
+            path="/premiumMembership"
+            element={<PremiumMemberships />}
+          ></Route>
+          <Route
+            path="/premiumPayment/:id"
+            element={<PremiumPayment />}
+          ></Route>
+          <Route path="/appointmentDoctors" element={<AppointmentDoctors />} />
+          <Route
+            path="/getAppointmentForm/:id"
+            element={<GetAppointmentForm />}
+          ></Route>
+          <Route
+            path="/payAppointmentFee/:id"
+            element={<PayAppointmentFee />}
+          ></Route>
         </Routes>
         <Footer></Footer>
       </AuthProvider>
@@ -70,4 +85,3 @@ function App() {
 }
 
 export default App;
-

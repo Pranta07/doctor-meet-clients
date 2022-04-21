@@ -1,8 +1,8 @@
 import React from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useNavigate } from 'react-router-dom';
 
-const PremiumCheckoutForm = ({choosenCategory}) => {
-  
+const PayAppointmentFeeFrom = ({appointment}) => {
   
     const stripe = useStripe();
   const elements = useElements();
@@ -37,7 +37,12 @@ const PremiumCheckoutForm = ({choosenCategory}) => {
     } else {
       console.log('[PaymentMethod]', paymentMethod);
       if(paymentMethod.id){
-        console.log("Payment is Successful");
+        fetch(`http://localhost:5000/allAppointments/${appointment._id}`,{
+          method:"PUT"
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
+       
       }
     }
 
@@ -67,4 +72,4 @@ const PremiumCheckoutForm = ({choosenCategory}) => {
     ); 
 };
 
-export default PremiumCheckoutForm;
+export default PayAppointmentFeeFrom;
