@@ -22,6 +22,7 @@ import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
 import "./App.css";
+import ManageDonors from "./components/ManageDonors/ManageDonors/ManageDonors";
 
 function App() {
     return (
@@ -67,6 +68,7 @@ function App() {
                         <Route path="doctors" element={<AllDoctors />} />
                         <Route path="favdoc" element={<FavoriteDoctors />} />
                         <Route path="admin" element={<Admin />} />
+                        <Route path="donors" element={<ManageDonors />} />
                     </Route>
 
                     <Route path="/doctors" element={<Doctors />} />
