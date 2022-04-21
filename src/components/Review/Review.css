@@ -15,12 +15,12 @@
 }
 
 .re-dot {
-  background: url('../../Assets/img/elementdot.png') no-repeat bottom left;
+  background: url("../../assets/img/elementdot.png") no-repeat bottom left;
 }
 .dot-rev {
-  background: url('../../Assets/img/elementdot.png') no-repeat right;
+  background: url("../../assets/img/elementdot.png") no-repeat right;
 }
 
-.mb-for-r{
-    margin-bottom: 200px;
+.mb-for-r {
+  margin-bottom: 200px;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import brand from "./../../Assets/img/logo.png";
+import brand from "./../../assets/img/logo.png";
 import "./Footer.css";
 import { useLocation } from "react-router-dom";
 
@@ -9,15 +9,14 @@ const Footer = () => {
   else if (pathname === "/dashboard/doctor") return null;
   else if (pathname === "/dashboard/admin") return null;
 
-
   return (
     <div className="footer-bc-color">
       {window.location.pathname === "/dashboard/dashboarHome" ||
       window.location.pathname === "/dashboard/doctors" ||
       window.location.pathname === "/dashboard/admin" ||
-      window.location.pathname === "/dashboard/favdoc" ? 
+      window.location.pathname === "/dashboard/favdoc" ? (
         <div></div>
-       : 
+      ) : (
         <footer>
           <section className="container text-white text-start">
             <div className=" row row-cols-1 row-cols-md-4 row-cols-lg-4 mx-auto pt-5">
@@ -77,7 +76,7 @@ const Footer = () => {
             </div>
           </section>
         </footer>
-      }
+      )}
     </div>
   );
 };

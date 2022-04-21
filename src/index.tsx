@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import { ContextProvider } from "./context/Context";
+import { ContextProvider } from "./contexts/Context";
 import "simplebar/src/simplebar.css";
 
 // lazy image
@@ -17,13 +17,13 @@ import { CartProvider } from "react-use-cart";
 
 ReactDOM.render(
   <React.StrictMode>
-      <CartProvider>
-        <ContextProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ContextProvider>
-      </CartProvider>
+    <CartProvider>
+      <ContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ContextProvider>
+    </CartProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,12 +1,14 @@
 /* ----------footer styles------------ */
 footer {
-    background: url("../../Assets/img/elementdot.png") no-repeat bottom left;
-
+  background: url("../../assets/img/elementdot.png") no-repeat bottom left;
 }
 
 .footer-bc-color {
-    background: linear-gradient(183.41deg, #67c3f3 -8.57%, #5a98f2 82.96%) !important;
-
+  background: linear-gradient(
+    183.41deg,
+    #67c3f3 -8.57%,
+    #5a98f2 82.96%
+  ) !important;
 }
 
 .list {
@@ -39,5 +41,5 @@ footer {
 }
 
 /* .footer-dot{
-    background: url("../../Assets/img/elementdot.png") no-repeat left;
+    background: url("../../assets/img/elementdot.png") no-repeat left;
 } */

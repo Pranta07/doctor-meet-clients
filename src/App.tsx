@@ -1,34 +1,34 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
-import Doctors from "./components/Doctors/Doctors";
-import Footer from "./components/Footer/Footer";
-import Nav from "./components/Nav/Nav";
-import PremiumMemberships from "./components/PremiumMembership/PremiumMemberships";
-import PremiumPayment from "./components/PremiumMembership/PremiumPayment";
-import Pharmecy_product_view from "./components/Pharmecy/Phamecy_product_view/Pharmecy_product_view";
-import PharmecyHome from "./components/Pharmecy/PharmecyHome/PharmecyHome";
-import Login from "./components/security/Login/Login";
-import Registation from "./components/security/Registation/Registation";
-import AllDoctors from "./components/UserDashboard/AllDoctors/AllDoctors";
-import FavoriteDoctors from "./components/UserDashboard/FavoriteDoctors/FavoriteDoctors";
-import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
-import AuthProvider from "./context/AuthProvider";
-import ContactUs from "./page/ContactUs/ContactUs";
-import CovidPortal from "./page/CovidPortal/CovidPortal";
-import Admin from "./page/Dashboards/AdminDashboard/AdminDashboard";
-import Dashboard from "./page/Dashboards/Dashboard/Dashboard";
-import DashboardHome from "./page/Dashboards/DashboardHome/DashboardHome";
-import FindDonors from "./page/FindDonors/FindDonors";
-import Home from "./page/Home/Home";
-import Profile from "./page/Profile/Profile";
+import Doctors from "./components/doctors/Doctors";
+import Footer from "./components/footer/Footer";
+import Nav from "./components/nav/Nav";
+import PremiumMemberships from "./components/premium-membership/PremiumMemberships";
+import PremiumPayment from "./components/premium-membership/PremiumPayment";
+import Pharmecy_product_view from "./components/pharmacy/Phamecy_product_view/Pharmecy_product_view";
+import PharmecyHome from "./components/pharmacy/PharmacyHome";
+import Login from "./components/security/login/Login";
+import Registation from "./components/security/registation/Registation";
+import AllDoctors from "./components/user-dashboard/AllDoctors";
+import FavoriteDoctors from "./components/user-dashboard/FavoriteDoctors";
+import VideoChatRoute from "./components/video-chat-client/VideoChatRoute";
+import AuthProvider from "./contexts/AuthProvider";
+import ContactUs from "./pages/contact-us/ContactUs";
+import CovidPortal from "./pages/covid-portal/CovidPortal";
+import Admin from "./pages/dashboards/admin-dashboard/AdminDashboard";
+import Dashboard from "./pages/dashboards/dashboard/Dashboard";
+import DashboardHome from "./pages/dashboards/dashboard-home/DashboardHome";
+import FindDonors from "./pages/find-donors/FindDonors";
+import Home from "./pages/home/Home";
+import Profile from "./pages/profile/Profile";
 
 import "./App.css";
-import AppointmentDoctors from "./components/GetAppointmentFolder/AppointmentDoctors/AppointmentDoctors";
-import GetAppointmentForm from "./components/GetAppointmentFolder/GetAppointmentForm/GetAppointmentForm";
-import PayAppointmentFee from "./components/GetAppointmentFolder/PayAppointmentFee/PayAppointmentFee";
-import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointments";
-import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
-import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pharmecy_all_Product";
+import AppointmentDoctors from "./components/appointment/AppointmentDoctors/AppointmentDoctors";
+import GetAppointmentForm from "./components/appointment/GetAppointmentForm/GetAppointmentForm";
+import PayAppointmentFee from "./components/appointment/PayAppointmentFee";
+import MyAppointments from "./components/user-dashboard/MyAppointments";
+import Pharmecy_cart from "./components/pharmacy/Pharmecy_cart/Pharmecy_cart";
+import Pharmecy_all_Product from "./components/pharmacy/Pharmecy_all_Product/Pharmecy_all_Product";
 
 function App() {
   return (
@@ -48,7 +48,6 @@ function App() {
 
           <Route path="/CovidPortal" element={<CovidPortal />}></Route>
           <Route path="/FindDonors" element={<FindDonors />}></Route>
-         
 
           <Route path="/cart" element={<Pharmecy_cart />} />
           <Route path="/shop" element={<Pharmecy_all_Product />} />

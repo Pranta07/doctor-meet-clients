@@ -1,0 +1,25 @@
+/* hr {
+  width: 25px;
+  height: 7px;
+  text-align: center;
+  color: blue;
+} */
+.artical-section {
+  background: url("../../assets/img/artical.png") no-repeat right;
+}
+.dot-section {
+  background: url("../../assets/img/elementdot.png") no-repeat top left;
+}
+.dot-b-section {
+  background: url("../../assets/img/elementdot.png") no-repeat bottom right;
+  margin-top: 270px;
+}
+
+/* .hr-w{
+  width: 7%;
+  height: 2px !important;
+  background-color: black !important;
+  border-radius: 5px !important;
+  margin-top: 26px;
+  margin-bottom: 33px;
+} */
