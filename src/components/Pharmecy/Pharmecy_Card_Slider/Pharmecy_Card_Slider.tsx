@@ -27,12 +27,12 @@ const Phamecy_Card_slider = (props: any) => {
     }
   }, [_id]);
 
-  const addDoctor = (id: string) => {
-    //save the doctor to local storage
-    const doctor = localStorage.getItem("item");
+  const addmedicine = (id: string) => {
+    //save the medicine to local storage
+    const medicine = localStorage.getItem("item");
 
     let items;
-    if (doctor) items = JSON.parse(doctor);
+    if (medicine) items = JSON.parse(medicine);
     else items = [];
 
     const newItems = [...items, props.products];
@@ -60,7 +60,7 @@ const Phamecy_Card_slider = (props: any) => {
               {" "}
               <Heart></Heart>{" "}
             </button>
-            <button className="btn" title="Add to Cart">
+            <button onClick={()=>addmedicine(_id)} className="btn" title="Add to Cart">
               {" "}
               <Cart></Cart>{" "}
             </button>

@@ -2,7 +2,7 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import React from 'react';
 
 const containerStyle = {
-    width: '100vw',
+    width: '100%',
     height: '500px'
 };
 
@@ -14,10 +14,6 @@ const center = {
 const Maps = () => {
     return (
         <>
-            <div className="text-center mb-5">
-                <h4>Also Fell Free To Visit Our Head Office.</h4>
-                <h6>Mothijhil Dhaka,Bangladesh.</h6>
-            </div>
             <div>
                 <LoadScript
                     googleMapsApiKey="AIzaSyDJQ4yWraj-fLhxanSAF2ol0lq96yQiCRo"

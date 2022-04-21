@@ -10,6 +10,15 @@
 }
 
 .position-set{
+    position:absolute;
+    top: 0px;
+    right: 16px;
+    
+}
+.position-style{
     position: relative;
-    bottom: 340px;
+}
+
+.my-all{
+    margin-bottom: 350px;
 }

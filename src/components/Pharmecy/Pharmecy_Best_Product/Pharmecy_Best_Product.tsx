@@ -27,12 +27,12 @@ const Pharmecy_Best_Product = (props:any) => {
     }
   }, [_id]);
 
-  const addDoctor = (id: string) => {
-    //save the doctor to local storage
-    const doctor = localStorage.getItem("item");
+  const addmedicine = (id: string) => {
+    //save the medicine to local storage
+    const medicine = localStorage.getItem("item");
 
     let items;
-    if (doctor) items = JSON.parse(doctor);
+    if (medicine) items = JSON.parse(medicine);
     else items = [];
 
     const newItems = [...items, props.products];
@@ -56,7 +56,7 @@ const Pharmecy_Best_Product = (props:any) => {
             className="rear-img img-fluid "
           />
           <div className="overlay">
-            <button className="btn" title="Wishlit">
+            <button onClick={()=>addmedicine(_id)} className="btn" title="Wishlit">
               {" "}
               <Heart></Heart>{" "}
             </button>
