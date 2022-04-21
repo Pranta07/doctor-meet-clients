@@ -86,8 +86,13 @@ const renderActiveShape = (props: any) => {
     );
 };
 
-const DonorChart = () => {
-    const [data, setData] = useState([]);
+interface Idata {
+    _id: string;
+    count: number;
+}
+
+const GroupChart = () => {
+    const [data, setData] = useState<Idata[]>([]);
     const [activeIndex, setActiveIndex] = useState(0);
     const onPieEnter = useCallback(
         (_, index) => {
@@ -103,32 +108,39 @@ const DonorChart = () => {
     }, []);
 
     return (
-        <Container className="py-5 my-5">
-            <div className="row">
-                <div className="col-12 col-lg-6 d-flex align-items-center">
-                    <div>
-                        <h1 className="fw-bold pt-3">
-                            <span className="text-danger">Blood</span> Donors
-                            Statistics
-                        </h1>
-                        <span className="text-success fs-5">Bangladesh</span>
-                        <p className="text-secondary my-3">
-                            <small>
-                                Roll up your sleeves and contribute proactively
-                                in this noble cause. A drop of blood can save a
-                                life! Donate blood and get real blessings. Your
-                                droplets of blood may create an ocean of
-                                happiness.
-                            </small>
-                        </p>
-                    </div>
+        <Container className="">
+            <div className="text-center">
+                <div>
+                    <h1 className="fw-bold">
+                        <span className="text-danger">Blood</span> Donors
+                        Analytics
+                    </h1>
+                    <span className="text-success fs-5">Bangladesh</span>
+                    <p className="text-secondary my-3">
+                        <small>
+                            Roll up your sleeves and contribute proactively in
+                            this noble cause. A drop of blood can save a life!
+                            Donate blood and get real blessings. Your droplets
+                            of blood may create an ocean of happiness.
+                        </small>
+                    </p>
                 </div>
-                <div className="col-12 col-lg-6">
+            </div>
+            <div
+                className="row border p-2 m-3"
+                style={{
+                    borderRadius: "10px",
+                }}
+            >
+                <div className="col-12 col-md-8">
                     <div
                         className="d-flex justify-content-center"
-                        style={{ width: "100%", height: 400 }}
+                        style={{
+                            width: "100%",
+                            height: 400,
+                        }}
                     >
-                        <ResponsiveContainer>
+                        <ResponsiveContainer className="">
                             <PieChart width={600} height={400}>
                                 <Pie
                                     activeIndex={activeIndex}
@@ -154,9 +166,26 @@ const DonorChart = () => {
                         </ResponsiveContainer>
                     </div>
                 </div>
+                <div className="col-12 col-md-4 d-flex align-items-center">
+                    <div>
+                        <p className="fs-5">
+                            <span className="text-danger">Blood</span> Groups
+                        </p>
+                        {data?.map((item, index) => (
+                            <p
+                                className="d-flex justify-content-between"
+                                key={item._id}
+                                style={{ color: COLORS[index], margin: "2px" }}
+                            >
+                                <span>{item._id}</span>
+                                <span>{item.count}</span>
+                            </p>
+                        ))}
+                    </div>
+                </div>
             </div>
         </Container>
     );
 };
 
-export default DonorChart;
+export default GroupChart;
