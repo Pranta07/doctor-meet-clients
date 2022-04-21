@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useRef, useState } from 'react';
 import Peer from 'simple-peer';
 import { io, Socket } from 'socket.io-client';
-
+// "build": "react-scripts build",
+        // "test": "react-scripts test",
 const SocketContext = createContext<any>('');
 
 // const socket = io('http://localhost:5000');
