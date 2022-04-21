@@ -2,9 +2,9 @@ import emailjs from "emailjs-com";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import ContactUsImg from "../../Assets/ContactUs/ContactUs.jpg";
 import Maps from "../../components/maps/Maps";
 import "./ContactUs.css";
+import { Icon } from "@iconify/react";
 
 const ContactUs = () => {
   const sendEmail = (e: any) => {
@@ -48,7 +48,7 @@ const ContactUs = () => {
           <h5> Email us with ease </h5>
           <hr className="hr-blue" />
           <div>
-            <h1 className="h1-hight" >
+            <h1 className="h1-hight">
               {" "}
               Get in <span className="contact-color">Touch</span>
             </h1>
@@ -68,7 +68,9 @@ const ContactUs = () => {
             <div className="col-lg-6">
               <div className="row pt-2 mx-auto ">
                 <div className="col-10 form-group ">
-                  <label className="all-label" htmlFor="nameId">Your Name (required)</label>
+                  <label className="all-label" htmlFor="nameId">
+                    Your Name (required)
+                  </label>
                   <input
                     className="form-control"
                     type="text"
@@ -77,15 +79,16 @@ const ContactUs = () => {
                   />
                 </div>
                 <div className="col-10 form-group pt-3 ">
-                <label className="all-label" htmlFor="emailId">Your Email (required)</label>
-                  <input
-                    className="form-control"
-                    type="email"
-                    id="emailId"
-                  />
+                  <label className="all-label" htmlFor="emailId">
+                    Your Email (required)
+                  </label>
+                  <input className="form-control" type="email" id="emailId" />
                 </div>
                 <div className="col-10 form-group pt-3 ">
-                  <label className="all-label" htmlFor="subjectId"> Subject </label>
+                  <label className="all-label" htmlFor="subjectId">
+                    {" "}
+                    Subject{" "}
+                  </label>
                   <input
                     className="form-control"
                     type="text"
@@ -94,7 +97,10 @@ const ContactUs = () => {
                   />
                 </div>
                 <div className="col-10 form-group pt-3 ">
-                  <label className="all-label" htmlFor="messageID"> Your Message </label>
+                  <label className="all-label" htmlFor="messageID">
+                    {" "}
+                    Your Message{" "}
+                  </label>
                   <textarea
                     className="form-control"
                     name="message"
@@ -115,6 +121,71 @@ const ContactUs = () => {
           </div>
         </form>
       </Container>
+      <div className="bg-style-for-footer my-5">
+        <div className="container">
+          <div className="row p-5 my-auto">
+            <div className="col-lg-3 text-light">
+              <div className="d-flex" >
+                <div className="contact-us-btn mx-3">
+                  <span  className="text-center">
+                    {" "}
+                    <Icon icon="cil:hospital" />{" "}
+                  </span>
+                </div>
+                <div>
+                  <h6> ADDRESS </h6>
+                  <p>House No#1, 8 Satmasjid Road, Dhaka 1207</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="d-flex text-light">
+                <div className="contact-us-btn mx-3">
+                  <span className="text-center" >
+                    {" "}
+                    <Icon icon="fluent:call-add-24-regular" />
+                  </span>
+                </div>
+                <div>
+                  <h6> CALL US </h6>
+                  <p>+8809003439 <br />
+                     +8809003440</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="d-flex text-light">
+                <div className="contact-us-btn-write mx-3" >
+                  <span  className="text-center">
+                    {" "}
+                    <Icon icon="fontisto:prescription" />
+                  </span>
+                </div>
+                <div>
+                  <h6> WRITE TO US </h6>
+                  <p>office@medicare.com
+                  book@medicare.com
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="d-flex text-light">
+                <div  className="contact-us-btn mx-3" >
+                  <span  className="text-center">
+                    {" "}
+                    <Icon icon="iconoir:healthcare" />
+                  </span>
+                </div>
+                <div>
+                  <h6> BOOK AN APPOINTMENT </h6>
+                  <p>Click here to book an appointment at Medicare.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

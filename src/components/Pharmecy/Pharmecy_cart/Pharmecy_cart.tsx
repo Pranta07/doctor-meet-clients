@@ -27,7 +27,7 @@ const Pharmecy_cart = () => {
 
     const newItems = items.filter((author) => author._id !== id);
     // console.log(newItems);
-
+    setItemData(newItems)
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
 
@@ -54,8 +54,8 @@ const Pharmecy_cart = () => {
         <h1> Cart </h1>
         <span> Home </span> <span> {">"} </span> <span> Cart </span>
       </div>
-      <div className="container my-5">
-        <div className="row ">
+      <div className="container position-style my-5">
+        <div className="row my-all">
         <h3> Order </h3>
           {itemData.map((item) => (
             <div className="col-lg-8">
