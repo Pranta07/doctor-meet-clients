@@ -13,15 +13,18 @@ import { HelmetProvider } from "react-helmet-async";
 // contexts
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+import { CartProvider } from "react-use-cart";
 
 ReactDOM.render(
   <React.StrictMode>
     <HelmetProvider>
-      <ContextProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ContextProvider>
+      <CartProvider>
+        <ContextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ContextProvider>
+      </CartProvider>
     </HelmetProvider>
   </React.StrictMode>,
   document.getElementById("root")

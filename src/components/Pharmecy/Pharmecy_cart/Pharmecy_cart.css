@@ -9,3 +9,7 @@
     line-height: 34px;
 }
 
+.position-set{
+    position: relative;
+    bottom: 340px;
+}

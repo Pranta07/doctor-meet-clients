@@ -1,9 +1,9 @@
-import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
-import DonorPagination from '../../DonorPagination/DonorPagination';
-import DonorSingle from '../DonorSingle/DonorSingle';
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import { Container } from "react-bootstrap";
+import DonorPagination from "../../DonorPagination/DonorPagination";
+import DonorSingle from "../DonorSingle/DonorSingle";
 
 const Donors = (props: any) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +24,7 @@ const Donors = (props: any) => {
         >
           {donors.length === 0 && (
             <p className="alert alert-danger p-2 mt-2 text-center">
-              <FontAwesomeIcon icon={faExclamationCircle}></FontAwesomeIcon>{' '}
+              <FontAwesomeIcon icon={faExclamationCircle}></FontAwesomeIcon>{" "}
               Ooops! No donors matches!
             </p>
           )}

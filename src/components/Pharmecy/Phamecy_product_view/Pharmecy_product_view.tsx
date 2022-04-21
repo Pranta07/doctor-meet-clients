@@ -4,18 +4,15 @@ import { Cart } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 import "./Pharmecy_product_view.css";
 import banner_img from "../../../Assets/Pharmecy/banner-sidebar.png";
-// import required modules
-// import { Autoplay, Navigation, Pagination } from "swiper";
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import "swiper/css/pagination";
-// // import "swiper/modules/navigation/navigation.min.css";
-// // import "swiper/modules/pagination/pagination.min.css";
-// import { Swiper, SwiperSlide } from "swiper/react";
+
+
 
 const Pharmecy_product_view = () => {
   let [products, setProducts] = useState<any>({});
   let [count, setCount] = useState(1);
+
+
+
   let { id } = useParams();
   useEffect(() => {
     fetch(`https://immense-beyond-64415.herokuapp.com/medicine/${id}`)
@@ -54,12 +51,36 @@ const Pharmecy_product_view = () => {
     power,
     shopAddress,
     weight,
+    _id
   } = products;
   let [allimg, setAllimg] = useState("");
   const getImage = (image: string) => {
     setAllimg(image);
   };
   let [rating1, setRating1] = useState(0);
+
+  useEffect(() => {
+    const ItemList = localStorage.getItem("item");
+
+    if (ItemList) {
+      const listItems: any[] = JSON.parse(ItemList);
+      const authorId = listItems.find((author) => author._id === _id);
+    }
+  }, [_id]);
+
+  const addDoctor = (id: string) => {
+    //save the doctor to local storage
+    const doctor = localStorage.getItem("item");
+
+    let items;
+    if (doctor) items = JSON.parse(doctor);
+    else items = [];
+
+    const newItems = [...items, products];
+    // console.log(newItems);
+
+    localStorage.setItem("item", JSON.stringify([...newItems]));
+  };
 
   let onRatingChange = () => {};
 
@@ -152,7 +173,7 @@ const Pharmecy_product_view = () => {
                 +{" "}
               </button>{" "}
             </div>
-            <button className="btn-style">
+            <button onClick={()=>addDoctor(_id)} className="btn-style">
               {" "}
               <Cart></Cart> Add to cart
             </button>

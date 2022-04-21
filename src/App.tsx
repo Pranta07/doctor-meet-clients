@@ -23,6 +23,7 @@ import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
 import "./App.css";
 import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
+import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pharmecy_all_Product";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           ></Route>
 
           <Route path='/cart' element={<Pharmecy_cart/>} />
+          <Route path='/shop' element={<Pharmecy_all_Product/>} />
 
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="dashboarHome" element={<DashboardHome />} />
