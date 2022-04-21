@@ -7,7 +7,7 @@ import DonorPagination from "../DonorPagination/DonorPagination";
 import { Idonor } from "../DonorFilter/DonorFilter";
 
 const Donors = (props: any) => {
-    const { donors, page, setPage, total } = props;
+    const { donors, page, handleChange, total } = props;
     // console.log(donors);
 
     return (
@@ -40,8 +40,8 @@ const Donors = (props: any) => {
                 </div>
                 <DonorPagination
                     total={total}
-                    currentPage={page}
-                    setCurrentPage={setPage}
+                    page={page}
+                    handleChange={handleChange}
                 ></DonorPagination>
             </Container>
         </>

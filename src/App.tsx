@@ -27,6 +27,7 @@ import AppointmentDoctors from "./components/GetAppointmentFolder/AppointmentDoc
 import GetAppointmentForm from "./components/GetAppointmentFolder/GetAppointmentForm/GetAppointmentForm";
 import PayAppointmentFee from "./components/GetAppointmentFolder/PayAppointmentFee/PayAppointmentFee";
 import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointments";
+import ManageDonors from "./components/ManageDonors/ManageDonors/ManageDonors";
 
 function App() {
     return (
@@ -81,6 +82,7 @@ function App() {
                         <Route path="favdoc" element={<FavoriteDoctors />} />
                         <Route path="admin" element={<Admin />} />
                         <Route path="myappointments" element={<MyAppointments />} />
+                        <Route path="donors" element={<ManageDonors />} />
                     </Route>
 
                     <Route path="/doctors" element={<Doctors />} />
