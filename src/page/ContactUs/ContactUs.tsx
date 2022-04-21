@@ -1,7 +1,8 @@
-import emailjs from 'emailjs-com';
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import ContactUsImg from '../../Assets/ContactUs/ContactUs.jpg';
+import emailjs from "emailjs-com";
+import React from "react";
+import { Container } from "react-bootstrap";
+import ContactUsImg from "../../Assets/ContactUs/ContactUs.jpg";
+import Maps from "../../components/maps/Maps";
 
 const ContactUs = () => {
   const sendEmail = (e: any) => {
@@ -9,15 +10,15 @@ const ContactUs = () => {
 
     emailjs
       .sendForm(
-        'service_429c7ul',
-        'template_dr9cfyd',
+        "service_429c7ul",
+        "template_dr9cfyd",
         e.target,
-        'M9AHQR1dWtEHnJG3q'
+        "M9AHQR1dWtEHnJG3q"
       )
       .then(
         (result: any) => {
-          if (result.text === 'OK') {
-            alert('Your Message Was Successfully Sent. Thank You !');
+          if (result.text === "OK") {
+            alert("Your Message Was Successfully Sent. Thank You !");
             console.log(result.text);
           }
         },
@@ -83,13 +84,13 @@ const ContactUs = () => {
                 </div>
               </div>
             </div>
-
             <div className="col-lg-6">
               <img className="img-fluid" src={ContactUsImg} alt="" />
             </div>
           </div>
         </form>
       </Container>
+      <Maps></Maps>
     </div>
   );
 };
