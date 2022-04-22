@@ -9,7 +9,7 @@ import "simplebar/src/simplebar.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "react-lazy-load-image-component/src/effects/opacity.css";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
-import { HelmetProvider } from "react-helmet-async";
+
 // contexts
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
@@ -17,7 +17,6 @@ import { CartProvider } from "react-use-cart";
 
 ReactDOM.render(
   <React.StrictMode>
-    <HelmetProvider>
       <CartProvider>
         <ContextProvider>
           <BrowserRouter>
@@ -25,7 +24,6 @@ ReactDOM.render(
           </BrowserRouter>
         </ContextProvider>
       </CartProvider>
-    </HelmetProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,26 +1,33 @@
 /* ----------footer styles------------ */
 footer {
-  background: url('../../Assets/img/elementdot.png') no-repeat bottom left;
+    background: url("../../Assets/img/elementdot.png") no-repeat bottom left;
+
 }
-.footer-bc-color{
+
+.footer-bc-color {
     background: linear-gradient(183.41deg, #67c3f3 -8.57%, #5a98f2 82.96%) !important;
 
 }
+
 .list {
   font-size: 13px;
   list-style: none;
   padding: 0;
 }
+
 .list li {
   line-height: 2;
 }
+
 .list li:hover {
   color: black;
   cursor: pointer;
 }
+
 .radius {
   border-radius: 10px;
 }
+
 .case:hover {
   transform: scale(1.05);
   transition: transform 0.5s ease-in-out;
@@ -30,6 +37,7 @@ footer {
   font-size: 24px;
   padding: 4px 8px;
 }
+
 /* .footer-dot{
     background: url("../../Assets/img/elementdot.png") no-repeat left;
 } */

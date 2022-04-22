@@ -15,13 +15,18 @@ import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
 import AuthProvider from "./context/AuthProvider";
 import ContactUs from "./page/ContactUs/ContactUs";
 import CovidPortal from "./page/CovidPortal/CovidPortal";
-import Admin from "./page/Dashboards/Admin/Admin";
+import Admin from "./page/Dashboards/AdminDashboard/AdminDashboard";
 import Dashboard from "./page/Dashboards/Dashboard/Dashboard";
 import DashboardHome from "./page/Dashboards/DashboardHome/DashboardHome";
 import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
+
 import "./App.css";
+import AppointmentDoctors from "./components/GetAppointmentFolder/AppointmentDoctors/AppointmentDoctors";
+import GetAppointmentForm from "./components/GetAppointmentFolder/GetAppointmentForm/GetAppointmentForm";
+import PayAppointmentFee from "./components/GetAppointmentFolder/PayAppointmentFee/PayAppointmentFee";
+import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointments";
 import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
 import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pharmecy_all_Product";
 
@@ -52,14 +57,6 @@ function App() {
                         element={<CovidPortal />}
                     ></Route>
                     <Route path="/FindDonors" element={<FindDonors />}></Route>
-                    <Route
-                        path="/premiumMembership"
-                        element={<PremiumMemberships />}
-                    ></Route>
-                    <Route
-                        path="/premiumPayment/:id"
-                        element={<PremiumPayment />}
-                    ></Route>
 
                     <Route path="/cart" element={<Pharmecy_cart />} />
                     <Route path="/shop" element={<Pharmecy_all_Product />} />
@@ -74,6 +71,26 @@ function App() {
                         <Route path="admin" element={<Admin />} />
                     </Route>
                     <Route path="/doctors" element={<Doctors />} />
+                    <Route
+                        path="/premiumMembership"
+                        element={<PremiumMemberships />}
+                    ></Route>
+                    <Route
+                        path="/premiumPayment/:id"
+                        element={<PremiumPayment />}
+                    ></Route>
+                    <Route
+                        path="/appointmentDoctors"
+                        element={<AppointmentDoctors />}
+                    />
+                    <Route
+                        path="/getAppointmentForm/:id"
+                        element={<GetAppointmentForm />}
+                    ></Route>
+                    <Route
+                        path="/payAppointmentFee/:id"
+                        element={<PayAppointmentFee />}
+                    ></Route>
                 </Routes>
                 <Footer></Footer>
             </AuthProvider>

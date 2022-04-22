@@ -1,7 +1,10 @@
-import emailjs from 'emailjs-com';
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import ContactUsImg from '../../Assets/ContactUs/ContactUs.jpg';
+import emailjs from "emailjs-com";
+import React from "react";
+import { Container } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import Maps from "../../components/maps/Maps";
+import "./ContactUs.css";
+import { Icon } from "@iconify/react";
 
 const ContactUs = () => {
   const sendEmail = (e: any) => {
@@ -9,15 +12,15 @@ const ContactUs = () => {
 
     emailjs
       .sendForm(
-        'service_429c7ul',
-        'template_dr9cfyd',
+        "service_429c7ul",
+        "template_dr9cfyd",
         e.target,
-        'M9AHQR1dWtEHnJG3q'
+        "M9AHQR1dWtEHnJG3q"
       )
       .then(
         (result: any) => {
-          if (result.text === 'OK') {
-            alert('Your Message Was Successfully Sent. Thank You !');
+          if (result.text === "OK") {
+            alert("Your Message Was Successfully Sent. Thank You !");
             console.log(result.text);
           }
         },
@@ -28,68 +31,161 @@ const ContactUs = () => {
     e.target.reset();
   };
   return (
-    <div className="ContactUs-section">
+    <div className="ContactUs-section my-5">
+      <div
+        className="my-5 text-center "
+        style={{ backgroundColor: "#f5f5f5", padding: "100px", margin: 0 }}
+      >
+        <h1> Contact us </h1>
+        <span>
+          {" "}
+          <NavLink to="/">Home</NavLink>{" "}
+        </span>{" "}
+        <span> {">"} </span> <span> Contact us </span>
+      </div>
       <Container>
-        <h1 className="text-center fw-bold fs-4">
-          Please Feel Free To Contact Us
-        </h1>
+        <div className="p-3">
+          <h5> Email us with ease </h5>
+          <hr className="hr-blue" />
+          <div>
+            <h1 className="h1-hight">
+              {" "}
+              Get in <span className="contact-color">Touch</span>
+            </h1>
+            <h6 className="w-50 p-style-con">
+              {" "}
+              Proactively envisioned multimedia based expertise and cross-media
+              growth strategies. Seamlessly visualize quality intellectual
+              capital.{" "}
+            </h6>
+          </div>
+        </div>
         <form onSubmit={sendEmail}>
           <div className="row d-flex flex-sm-row-reverse">
             <div className="col-lg-6">
-              <div className="row pt-5 mx-auto">
-                <div className="col-10 form-group mx-auto">
+              <Maps></Maps>
+            </div>
+            <div className="col-lg-6">
+              <div className="row pt-2 mx-auto ">
+                <div className="col-10 form-group ">
+                  <label className="all-label" htmlFor="nameId">
+                    Your Name (required)
+                  </label>
                   <input
                     className="form-control"
                     type="text"
                     name="name"
-                    placeholder="Name"
-                    id=""
+                    id="nameId"
                   />
                 </div>
-                <div className="col-10 form-group pt-3 mx-auto">
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="email"
-                    placeholder="Email Address"
-                    id=""
-                  />
+                <div className="col-10 form-group pt-3 ">
+                  <label className="all-label" htmlFor="emailId">
+                    Your Email (required)
+                  </label>
+                  <input className="form-control" type="email" id="emailId" />
                 </div>
-                <div className="col-10 form-group pt-3 mx-auto">
+                <div className="col-10 form-group pt-3 ">
+                  <label className="all-label" htmlFor="subjectId">
+                    {" "}
+                    Subject{" "}
+                  </label>
                   <input
                     className="form-control"
                     type="text"
                     name="subject"
-                    placeholder="Subject"
-                    id=""
+                    id="subjectId"
                   />
                 </div>
-                <div className="col-10 form-group pt-3 mx-auto">
+                <div className="col-10 form-group pt-3 ">
+                  <label className="all-label" htmlFor="messageID">
+                    {" "}
+                    Your Message{" "}
+                  </label>
                   <textarea
-                    placeholder="Your Message"
                     className="form-control"
                     name="message"
-                    id=""
+                    id="messageID"
                     cols={30}
                     rows={8}
                   ></textarea>
                 </div>
-                <div className="col-12  pt-3 text-center">
+                <div className="col-10 form-group pt-3 ">
                   <input
-                    className="btn btn-info bg-primary text-light fw-bold"
+                    className="btn btn-outline-info fw-bold"
                     type="submit"
                     value="Send Message"
                   ></input>
                 </div>
               </div>
             </div>
-
-            <div className="col-lg-6">
-              <img className="img-fluid" src={ContactUsImg} alt="" />
-            </div>
           </div>
         </form>
       </Container>
+      <div className="bg-style-for-contact my-5">
+        <div className="container">
+          <div className="row p-5 my-auto">
+            <div className="col-lg-3 text-light">
+              <div className="d-flex" >
+                <div className="contact-us-btn mx-3">
+                  <span  className="text-center">
+                    {" "}
+                    <Icon icon="cil:hospital" />{" "}
+                  </span>
+                </div>
+                <div>
+                  <h6> ADDRESS </h6>
+                  <p>House No#1, 8 Satmasjid Road, Dhaka 1207</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="d-flex text-light">
+                <div className="contact-us-btn mx-3">
+                  <span className="text-center" >
+                    {" "}
+                    <Icon icon="fluent:call-add-24-regular" />
+                  </span>
+                </div>
+                <div>
+                  <h6> CALL US </h6>
+                  <p>+8809003439 <br />
+                     +8809003440</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="d-flex text-light">
+                <div className="contact-us-btn-write mx-3" >
+                  <span  className="text-center">
+                    {" "}
+                    <Icon icon="fontisto:prescription" />
+                  </span>
+                </div>
+                <div>
+                  <h6> WRITE TO US </h6>
+                  <p>office@medicare.com
+                  book@medicare.com
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="d-flex text-light">
+                <div  className="contact-us-btn mx-3" >
+                  <span  className="text-center">
+                    {" "}
+                    <Icon icon="iconoir:healthcare" />
+                  </span>
+                </div>
+                <div>
+                  <h6> BOOK AN APPOINTMENT </h6>
+                  <p>Click here to book an appointment at Medicare.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

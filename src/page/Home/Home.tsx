@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Articles from "../../components/Articles/Articles";
 import HealthCareProvider from "../../components/HealthCareProvider/HealthCareProvider";
 import Review from "../../components/Review/Review";
@@ -7,6 +7,7 @@ import Services from "../../components/Services/Services";
 import Banner from "../../components/Banner/Banner";
 
 const Home = () => {
+ 
   return (
     <>
       <Banner></Banner>
@@ -20,6 +21,7 @@ const Home = () => {
       <HomeGallery></HomeGallery>
 
       <Articles></Articles>
+     
     </>
   );
 };

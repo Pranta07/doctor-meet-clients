@@ -48,8 +48,8 @@ const Survey = () => {
     ];
     return (
         <div>
-            <h3 className='text-center my-3'>Hospital Patients Survey</h3>
-            <ResponsiveContainer width="95%" aspect={3}>
+            <h3 className='text-center my-4'>Hospital Patients Survey</h3>
+            <ResponsiveContainer width="98%" aspect={3}>
                 <LineChart
                     width={500}
                     height={300}

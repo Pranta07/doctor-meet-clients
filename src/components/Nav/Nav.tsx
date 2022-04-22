@@ -1,16 +1,11 @@
 import "bootstrap";
 import React, { useEffect, useState } from "react";
-import {
-    CaretDownFill,
-    BoxArrowInLeft,
-    BoxArrowRight,
-} from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
-import logo from "./../../Assets/img/logo.png";
+import logo from "../../Assets/img/logo.png";
 import { Avatar } from "@mui/material";
 import "./Nav.css";
-
+import { BoxArrowInLeft, BoxArrowRight, CaretDownFill } from "react-bootstrap-icons";
 const Nav = () => {
     const [offset, setOffset] = useState(0);
     let { user, logOut } = useAuth();
@@ -75,7 +70,7 @@ const Nav = () => {
                                 </li>
                                 <div className="dropdown my-auto nav-item ">
                                     <li className="dropbtn-more nav-link my-auto">
-                                        More Service's <CaretDownFill />
+                                        More Service's <CaretDownFill  />
                                     </li>
                                     <div className="dropdown-content">
                                         <a href="#">
