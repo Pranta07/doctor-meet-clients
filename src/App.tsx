@@ -30,6 +30,8 @@ import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointm
 import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
 import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pharmecy_all_Product";
 import NotFound from "./page/NotFound/NotFound";
+import ManageDoctors from "./components/ManageDoctors/ManageDoctors/ManageDoctors";
+import ManageDonors from "./components/ManageDonors/ManageDonors/ManageDonors";
 
 function App() {
     return (
@@ -71,6 +73,8 @@ function App() {
                         <Route path="favdoc" element={<FavoriteDoctors />} />
                         <Route path="admin" element={<Admin />} />
                     </Route>
+                    <Route path="manageDoctors" element={<ManageDoctors />} />
+                    <Route path="manageDonors" element={<ManageDonors />} />
                     <Route path="/doctors" element={<Doctors />} />
                     <Route
                         path="/premiumMembership"

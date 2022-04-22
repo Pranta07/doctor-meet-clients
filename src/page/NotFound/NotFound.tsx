@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowForwardTwoTone } from "@mui/icons-material";
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const NotFound = () => {

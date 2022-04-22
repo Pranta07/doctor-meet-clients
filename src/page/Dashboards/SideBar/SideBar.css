@@ -11,7 +11,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     user-select: none;
-    position: fixed;
+    /* position: fixed; */
     z-index: 10;
     box-shadow: 0 0 3px #ddd;
 }
