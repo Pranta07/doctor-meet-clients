@@ -121,7 +121,7 @@ const ContactUs = () => {
           </div>
         </form>
       </Container>
-      <div className="bg-style-for-footer my-5">
+      <div className="bg-style-for-contact my-5">
         <div className="container">
           <div className="row p-5 my-auto">
             <div className="col-lg-3 text-light">
