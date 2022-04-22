@@ -13,3 +13,7 @@
 .mapboxgl-ctrl-attrib-inner {
     display: none !important;
 }
+.mt-for-home-map{
+    margin-top: 300px;
+
+}

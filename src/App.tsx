@@ -31,71 +31,56 @@ import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
 import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pharmecy_all_Product";
 
 function App() {
-    return (
-        <>
-            <AuthProvider>
-                <Nav></Nav>
-                <Routes>
-                    <Route path="/" element={<Home />}></Route>
-                    <Route path="/home" element={<Home />}></Route>
-                    <Route path="/signUp" element={<Registation />}></Route>
-                    <Route path="/login" element={<Login />}></Route>
-                    <Route path="/ContactUs" element={<ContactUs />}></Route>
-                    <Route path="/profile" element={<Profile />}></Route>
-                    <Route path="/pharma" element={<PharmecyHome />}></Route>
-                    <Route
-                        path="/medicine/:id"
-                        element={<Pharmecy_product_view />}
-                    />
-                    <Route
-                        path="/videoRoute"
-                        element={<VideoChatRoute />}
-                    ></Route>
+  return (
+    <>
+      <AuthProvider>
+        <Nav></Nav>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/signUp" element={<Registation />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/ContactUs" element={<ContactUs />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/pharma" element={<PharmecyHome />}></Route>
+          <Route path="/medicine/:id" element={<Pharmecy_product_view />} />
+          <Route path="/videoRoute" element={<VideoChatRoute />}></Route>
 
-                    <Route
-                        path="/CovidPortal"
-                        element={<CovidPortal />}
-                    ></Route>
-                    <Route path="/FindDonors" element={<FindDonors />}></Route>
+          <Route path="/CovidPortal" element={<CovidPortal />}></Route>
+          <Route path="/FindDonors" element={<FindDonors />}></Route>
 
-                    <Route path="/cart" element={<Pharmecy_cart />} />
-                    <Route path="/shop" element={<Pharmecy_all_Product />} />
+          <Route path="/cart" element={<Pharmecy_cart />} />
+          <Route path="/shop" element={<Pharmecy_all_Product />} />
 
-                    <Route path="/dashboard" element={<Dashboard />}>
-                        <Route
-                            path="dashboarHome"
-                            element={<DashboardHome />}
-                        />
-                        <Route path="doctors" element={<AllDoctors />} />
-                        <Route path="favdoc" element={<FavoriteDoctors />} />
-                        <Route path="admin" element={<Admin />} />
-                    </Route>
-                    <Route path="/doctors" element={<Doctors />} />
-                    <Route
-                        path="/premiumMembership"
-                        element={<PremiumMemberships />}
-                    ></Route>
-                    <Route
-                        path="/premiumPayment/:id"
-                        element={<PremiumPayment />}
-                    ></Route>
-                    <Route
-                        path="/appointmentDoctors"
-                        element={<AppointmentDoctors />}
-                    />
-                    <Route
-                        path="/getAppointmentForm/:id"
-                        element={<GetAppointmentForm />}
-                    ></Route>
-                    <Route
-                        path="/payAppointmentFee/:id"
-                        element={<PayAppointmentFee />}
-                    ></Route>
-                </Routes>
-                <Footer></Footer>
-            </AuthProvider>
-        </>
-    );
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="dashboarHome" element={<DashboardHome />} />
+            <Route path="doctors" element={<AllDoctors />} />
+            <Route path="favdoc" element={<FavoriteDoctors />} />
+            <Route path="admin" element={<Admin />} />
+          </Route>
+          <Route path="/doctors" element={<Doctors />} />
+          <Route
+            path="/premiumMembership"
+            element={<PremiumMemberships />}
+          ></Route>
+          <Route
+            path="/premiumPayment/:id"
+            element={<PremiumPayment />}
+          ></Route>
+          <Route path="/appointmentDoctors" element={<AppointmentDoctors />} />
+          <Route
+            path="/getAppointmentForm/:id"
+            element={<GetAppointmentForm />}
+          ></Route>
+          <Route
+            path="/payAppointmentFee/:id"
+            element={<PayAppointmentFee />}
+          ></Route>
+        </Routes>
+        <Footer></Footer>
+      </AuthProvider>
+    </>
+  );
 }
 
 export default App;
