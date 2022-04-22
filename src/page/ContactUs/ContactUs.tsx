@@ -34,7 +34,7 @@ const ContactUs = () => {
         e.target.reset();
     };
     return (
-        <div className="ContactUs-section my-5">
+        <div className="ContactUs-section mt-5">
             <div
                 className="my-5 text-center "
                 style={{
@@ -145,11 +145,11 @@ const ContactUs = () => {
                     </div>
                 </form>
             </Container>
-            <div className="bg-style-for-contact my-5">
+            <div className="bg-style-for-contact">
                 <div className="container">
-                    <div className="row p-5 my-auto">
+                    <div className="row p-5 my-auto d-flex align-items-center">
                         <div className="col-lg-3 text-light">
-                            <div className="d-flex">
+                            <div className="d-flex align-items-center">
                                 <div className="contact-us-btn mx-3">
                                     <span className="text-center">
                                         {" "}
@@ -157,15 +157,18 @@ const ContactUs = () => {
                                     </span>
                                 </div>
                                 <div>
-                                    <h6> ADDRESS </h6>
-                                    <p>
-                                        House No#1, 8 Satmasjid Road, Dhaka 1207
-                                    </p>
+                                    <h6 className="fw-bold"> ADDRESS </h6>
+                                    <small>
+                                        <p className="m-0">
+                                            House No#1, 8 Satmasjid Road, Dhaka
+                                            1207
+                                        </p>
+                                    </small>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3">
-                            <div className="d-flex text-light">
+                            <div className="d-flex text-light align-items-center">
                                 <div className="contact-us-btn mx-3">
                                     <span className="text-center">
                                         {" "}
@@ -173,16 +176,18 @@ const ContactUs = () => {
                                     </span>
                                 </div>
                                 <div>
-                                    <h6> CALL US </h6>
-                                    <p>
-                                        +8809003439 <br />
-                                        +8809003440
-                                    </p>
+                                    <h6 className="fw-bold"> CALL US </h6>
+                                    <small>
+                                        <p className="m-0">
+                                            +8809003439 <br />
+                                            +8809003440
+                                        </p>
+                                    </small>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3">
-                            <div className="d-flex text-light">
+                            <div className="d-flex text-light align-items-center">
                                 <div className="contact-us-btn-write mx-3">
                                     <span className="text-center">
                                         {" "}
@@ -190,13 +195,18 @@ const ContactUs = () => {
                                     </span>
                                 </div>
                                 <div>
-                                    <h6> WRITE TO US </h6>
-                                    <p>office@medicare.com book@medicare.com</p>
+                                    <h6 className="fw-bold"> WRITE TO US </h6>
+                                    <small>
+                                        <p className="m-0">
+                                            office@medicare.com
+                                            book@medicare.com
+                                        </p>
+                                    </small>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3">
-                            <div className="d-flex text-light">
+                            <div className="d-flex text-light align-items-center">
                                 <div className="contact-us-btn mx-3">
                                     <span className="text-center">
                                         {" "}
@@ -204,11 +214,16 @@ const ContactUs = () => {
                                     </span>
                                 </div>
                                 <div>
-                                    <h6> BOOK AN APPOINTMENT </h6>
-                                    <p>
-                                        Click here to book an appointment at
-                                        Medicare.
-                                    </p>
+                                    <h6 className="fw-bold">
+                                        {" "}
+                                        BOOK AN APPOINTMENT{" "}
+                                    </h6>
+                                    <small>
+                                        <p className="m-0">
+                                            Click here to book an appointment at
+                                            Medicare.
+                                        </p>
+                                    </small>
                                 </div>
                             </div>
                         </div>

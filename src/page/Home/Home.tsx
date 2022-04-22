@@ -20,7 +20,9 @@ const Home = () => {
 
             <HomeGallery></HomeGallery>
 
-            <MapDirection></MapDirection>
+            <div className="py-5">
+                <MapDirection></MapDirection>
+            </div>
 
             <Articles></Articles>
         </>
