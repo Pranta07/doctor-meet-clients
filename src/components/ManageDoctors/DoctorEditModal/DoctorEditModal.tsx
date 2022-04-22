@@ -11,10 +11,12 @@ interface IFormInputs {
     name: string;
     email: string;
     phone: string;
-    group: string;
-    district: string;
+    specialist: string;
+    review: number;
     gender: string;
     img: string;
+    experience: number;
+    visit: number;
 }
 
 const DoctorEditModal = (props: {
@@ -88,7 +90,7 @@ const DoctorEditModal = (props: {
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6">
                                         <input
-                                            className="form-control border-danger mb-3"
+                                            className="form-control border-info mb-3"
                                             defaultValue={doctor.name}
                                             {...register("name", {
                                                 required: true,
@@ -103,7 +105,7 @@ const DoctorEditModal = (props: {
 
                                     <div className="col-12 col-lg-6 mb-3">
                                         <input
-                                            className="form-control border-danger"
+                                            className="form-control border-info"
                                             defaultValue={doctor.email}
                                             {...register("email", {
                                                 required: true,
@@ -120,7 +122,7 @@ const DoctorEditModal = (props: {
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
                                         <input
-                                            className="form-control border-danger"
+                                            className="form-control border-info"
                                             {...register("phone", {
                                                 required: true,
                                             })}
@@ -136,10 +138,10 @@ const DoctorEditModal = (props: {
 
                                     <div className="col-12 col-lg-6 mb-3">
                                         <select
-                                            {...register("group", {
+                                            {...register("specialist", {
                                                 required: true,
                                             })}
-                                            className="form-select border-danger"
+                                            className="form-select border-info"
                                             defaultValue={doctor.specialist}
                                         >
                                             <option value="">
@@ -168,7 +170,7 @@ const DoctorEditModal = (props: {
                                                 Others
                                             </option>
                                         </select>
-                                        {errors.group && (
+                                        {errors.specialist && (
                                             <span className="fw-bold">
                                                 *Required
                                             </span>
@@ -178,38 +180,33 @@ const DoctorEditModal = (props: {
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
                                         <select
-                                            {...register("district", {
-                                                required: true,
-                                            })}
-                                            className="form-select border-danger"
+                                            {...register("review")}
+                                            className="form-select border-info"
                                             defaultValue={doctor.review}
                                         >
                                             <option value="">
                                                 Select Rating
                                             </option>
-                                            <option value="0">0</option>
-                                            <option value="0.5">0.5</option>
-                                            <option value="1">1</option>
-                                            <option value="1.5">1.5</option>
-                                            <option value="2">2</option>
-                                            <option value="2.5">2.5</option>
-                                            <option value="3">3</option>
-                                            <option value="3.5">3.5</option>
-                                            <option value="4">4</option>
-                                            <option value="4.5">4.5</option>
-                                            <option value="5">5</option>
+                                            <option value={0}>0</option>
+                                            <option value={0.5}>0.5</option>
+                                            <option value={1}>1</option>
+                                            <option value={1.5}>1.5</option>
+                                            <option value={2}>2</option>
+                                            <option value={2.5}>2.5</option>
+                                            <option value={3}>3</option>
+                                            <option value={3.5}>3.5</option>
+                                            <option value={4}>4</option>
+                                            <option value={4.5}>4.5</option>
+                                            <option value={5}>5</option>
                                         </select>
-                                        {errors.district && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
                                         <select
-                                            className="form-select border-danger"
-                                            {...register("gender")}
+                                            className="form-select border-info"
+                                            {...register("gender", {
+                                                required: true,
+                                            })}
                                             defaultValue={doctor.gender}
                                         >
                                             <option value="">
@@ -221,14 +218,65 @@ const DoctorEditModal = (props: {
                                             </option>
                                             <option value="Other">Other</option>
                                         </select>
+                                        {errors.gender && (
+                                            <span className="fw-bold">
+                                                *Required
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+                                <div className="row gx-2">
+                                    <div className="col-12 col-lg-6 mb-3">
+                                        <select
+                                            {...register("experience")}
+                                            className="form-select border-info"
+                                            defaultValue={doctor.experience}
+                                        >
+                                            <option value="">
+                                                Choose Experience
+                                            </option>
+                                            <option value={0}>0</option>
+                                            <option value={0.5}>0.5</option>
+                                            <option value={1}>1</option>
+                                            <option value={1.5}>1.5</option>
+                                            <option value={2}>2</option>
+                                            <option value={2.5}>2.5</option>
+                                            <option value={3}>3</option>
+                                            <option value={3.5}>3.5</option>
+                                            <option value={4}>4</option>
+                                            <option value={4.5}>4.5</option>
+                                            <option value={5}>5</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="col-12 col-lg-6 mb-3">
+                                        <input
+                                            type="number"
+                                            className="form-control border-info mb-3"
+                                            {...register("visit", {
+                                                required: true,
+                                            })}
+                                            placeholder="Total Visit Count"
+                                            defaultValue={doctor.visit}
+                                        />
+                                        {errors.visit && (
+                                            <span className="fw-bold">
+                                                *Required
+                                            </span>
+                                        )}
                                     </div>
                                 </div>
                                 <input
-                                    className="form-control border-danger mb-3"
-                                    {...register("img")}
+                                    className="form-control border-info mb-3"
+                                    {...register("img", {
+                                        required: true,
+                                    })}
                                     placeholder="Put Your Image URL Here..."
                                     defaultValue={doctor.img}
                                 />
+                                {errors.img && (
+                                    <span className="fw-bold">*Required</span>
+                                )}
                                 <button
                                     className="btn btn-outline-info fw-bold"
                                     type="submit"

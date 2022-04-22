@@ -19,6 +19,7 @@ export interface Idoctor {
     free: boolean;
     appointmentDay: string[];
     phone: string;
+    visit: number;
 }
 
 const FavoriteDoctors = () => {
