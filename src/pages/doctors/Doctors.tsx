@@ -38,11 +38,8 @@ const Doctors: React.FC<Props> = () => {
     try {
       const response: AxiosResponse = await axios.get(uri);
       setDoctorsData(response.data);
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
-  console.log(doctorsData);
 
   useEffect(() => {
     fetchData();

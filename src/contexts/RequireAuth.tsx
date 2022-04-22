@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 
 const RequireAuth = ({ children }: { children: JSX.Element }) => {
   const { user, isLoading } = useAuth();

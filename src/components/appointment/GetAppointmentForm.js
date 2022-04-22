@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
-import useFirebase from '../../../firebase/useFirebase/useFirebase';
+import useFirebase from '../../firebase/useFirebase/useFirebase';
 import './GetAppointmentForm.css'
 const GetAppointmentForm = () => {
     const {user}=useFirebase();

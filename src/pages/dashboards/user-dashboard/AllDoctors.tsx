@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import Availability from "./Availability/Availability";
-import Departments from "./Departments/Departments";
-import Gender from "./Gender/Gender";
-import SingleDoctor from "./SingleDoctor/SingleDoctor";
+import { Availability, Departments, Gender, SingleDoctor } from "./index";
 
 interface doctorData {
   _id: string;

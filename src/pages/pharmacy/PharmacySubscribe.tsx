@@ -1,8 +1,8 @@
 import React from "react";
-import "./Pharmecy_subscribe.css";
-import blog_img from "../../../assets/Pharmecy/blog13.jpg";
+import "./PharmacySubscribe.css";
+import blog_img from "../../assets/pharmacy/blog13.jpg";
 
-const Pharmecy_subscribe = () => {
+const PharmacySubscribe = () => {
   return (
     <div className="container margin-Y ">
       <div className="">
@@ -52,4 +52,4 @@ const Pharmecy_subscribe = () => {
   );
 };
 
-export default Pharmecy_subscribe;
+export default PharmacySubscribe;

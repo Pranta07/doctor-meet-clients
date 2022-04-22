@@ -1,25 +1,26 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useEffect, useState } from "react";
-import Phamecy_single_product from "../Phamecy_single_product";
-import Pharmecy_timar from "../Pharmecy_timar/Pharmecy_timar";
-import "./Pharmecy_product.css";
-import Pharma_3 from "../../../assets/Pharmecy/banner-6.png";
-import Pharma_4 from "../../../assets/Pharmecy/banner-7-1.jpg";
-import Pharma_5 from "../../../assets/Pharmecy/banner-8-1.jpg";
-import Pharma_6 from "../../../assets/Pharmecy/banner-9.jpg";
-import Pharma_7 from "../../../assets/Pharmecy/banner-10.jpg";
-import Pharma_8 from "../../../assets/Pharmecy/banner-11.jpg";
-import Pharma_9 from "../../../assets/Pharmecy/banner-12.jpg";
-import pharma_text_2 from "../../../assets/Pharmecy/banner-6-text.png";
-import pharma_text_3 from "../../../assets/Pharmecy/banner-7-text.png";
-import pharma_text_4 from "../../../assets/Pharmecy/banner-8-text.png";
-import pharma_text_5 from "../../../assets/Pharmecy/banner-9-text.png";
-import pharma_text_6 from "../../../assets/Pharmecy/banner-10-text.png";
-import pharma_text_7 from "../../../assets/Pharmecy/banner-11-text.png";
-import pharma_text_8 from "../../../assets/Pharmecy/banner-12-text.png";
-import Phamecy_Card_slider from "../Pharmecy_Card_Slider/Pharmecy_Card_Slider";
-import Pharmecy_Best_Product from "../Pharmecy_Best_Product";
-
+import "./PharmacyProduct.css";
+import Pharma_3 from "../../assets/pharmacy/banner-6.png";
+import Pharma_4 from "../../assets/pharmacy/banner-7-1.jpg";
+import Pharma_5 from "../../assets/pharmacy/banner-8-1.jpg";
+import Pharma_6 from "../../assets/pharmacy/banner-9.jpg";
+import Pharma_7 from "../../assets/pharmacy/banner-10.jpg";
+import Pharma_8 from "../../assets/pharmacy/banner-11.jpg";
+import Pharma_9 from "../../assets/pharmacy/banner-12.jpg";
+import pharma_text_2 from "../../assets/pharmacy/banner-6-text.png";
+import pharma_text_3 from "../../assets/pharmacy/banner-7-text.png";
+import pharma_text_4 from "../../assets/pharmacy/banner-8-text.png";
+import pharma_text_5 from "../../assets/pharmacy/banner-9-text.png";
+import pharma_text_6 from "../../assets/pharmacy/banner-10-text.png";
+import pharma_text_7 from "../../assets/pharmacy/banner-11-text.png";
+import pharma_text_8 from "../../assets/pharmacy/banner-12-text.png";
+import {
+  PharmacyCardSlider,
+  PharmacyBestProduct,
+  PharmacyTimer,
+  PharmacySingleProduct,
+} from "./index";
 export interface productsType {
   Sku: string;
   category: string;
@@ -38,7 +39,7 @@ export interface productsType {
   _id: string;
 }
 
-const Pharmecy_Products = () => {
+const PharmacyProducts = () => {
   let [products, setProducts] = useState<productsType[]>([]);
   const time = new Date();
   time.setSeconds(time.getMonth() + 19890);
@@ -57,10 +58,10 @@ const Pharmecy_Products = () => {
       <h1 className=" text-center my-5"> Latest products </h1>
       <div className="row">
         {products.slice(0, 12).map((product) => (
-          <Phamecy_single_product
+          <PharmacySingleProduct
             key={product._id}
             products={product}
-          ></Phamecy_single_product>
+          ></PharmacySingleProduct>
         ))}
       </div>
       <div>
@@ -155,14 +156,14 @@ const Pharmecy_Products = () => {
         </div>
       </div>
       <div>
-        <Pharmecy_timar expiryTimestamp={time}></Pharmecy_timar>
+        <PharmacyTimer expiryTimestamp={time}></PharmacyTimer>
       </div>
       <div className="row">
         {products.slice(0, 6).map((product) => (
-          <Phamecy_Card_slider
+          <PharmacyCardSlider
             key={product._id}
             products={product}
-          ></Phamecy_Card_slider>
+          ></PharmacyCardSlider>
         ))}
       </div>
       <div>
@@ -170,14 +171,14 @@ const Pharmecy_Products = () => {
       </div>
       <div className="row">
         {products.slice(0, 6).map((product) => (
-          <Pharmecy_Best_Product
+          <PharmacyBestProduct
             key={product._id}
             products={product}
-          ></Pharmecy_Best_Product>
+          ></PharmacyBestProduct>
         ))}
       </div>
     </div>
   );
 };
 
-export default Pharmecy_Products;
+export default PharmacyProducts;

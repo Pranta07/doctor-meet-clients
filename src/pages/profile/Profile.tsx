@@ -1,7 +1,7 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import useAuth from '../../components/Hooks/useAuth';
-import './Profile.css';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import "./Profile.css";
 
 const Profile = () => {
   let { user } = useAuth();

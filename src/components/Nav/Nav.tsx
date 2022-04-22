@@ -26,10 +26,10 @@ const Nav = () => {
 
   return (
     <>
-      {window.location.pathname === "/dashboard/dashboarHome" ||
+      {window.location.pathname === "/dashboard/dashboard-home" ||
       window.location.pathname === "/dashboard/doctors" ||
       window.location.pathname === "/dashboard/admin" ||
-      window.location.pathname === "/dashboard/favdoc" ? (
+      window.location.pathname === "/dashboard/favorite-doctor" ? (
         <div></div>
       ) : (
         <nav className={parallaxNav}>
@@ -69,34 +69,34 @@ const Nav = () => {
                     More Service's
                   </li>
                   <div className="dropdown-content">
-                    <a href="/">
-                      <NavLink to="/CovidPortal">Covid Portal</NavLink>
-                    </a>
-                    <a>
-                      <NavLink to="/FindDonors">Blood Donors</NavLink>
-                    </a>
-                    <a>
-                      <NavLink to="/Pharma">Pharmacy</NavLink>
-                    </a>
-                    <a>
-                      <NavLink to="/premiumMembership">
+                    <p>
+                      <NavLink to="/covid-portal">Covid Portal</NavLink>
+                    </p>
+                    <p>
+                      <NavLink to="/find-donors">Blood Donors</NavLink>
+                    </p>
+                    <p>
+                      <NavLink to="/pharmacy">Pharmacy</NavLink>
+                    </p>
+                    <p>
+                      <NavLink to="/premium-membership">
                         Premium Membership
                       </NavLink>
-                    </a>
+                    </p>
                   </div>
                 </div>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/VideoConsultation">
+                  <NavLink className="nav-link" to="/video-route">
                     Virtual Meet
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/ContactUs">
+                  <NavLink className="nav-link" to="/contact-us">
                     Contact Us
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/manage-bookings">
+                  <NavLink className="nav-link" to="/about-us">
                     About Us
                   </NavLink>
                 </li>
@@ -111,15 +111,17 @@ const Nav = () => {
                     }}
                   />
                   <div className="dropdown-content">
-                    <a>
-                      <NavLink to="/Profile">Profile</NavLink>
-                    </a>
-                    <a>
-                      <NavLink to="/dashboard/dashboarHome">Dashboard</NavLink>
-                    </a>
-                    <a onClick={logOut}>
+                    <p>
+                      <NavLink to="/profile">Profile</NavLink>
+                    </p>
+                    <p>
+                      <NavLink to="/dashboard/dashboard-home">
+                        Dashboard
+                      </NavLink>
+                    </p>
+                    <p onClick={logOut}>
                       <NavLink to="/">Sign Out </NavLink>
-                    </a>
+                    </p>
                   </div>
                 </div>
               ) : (

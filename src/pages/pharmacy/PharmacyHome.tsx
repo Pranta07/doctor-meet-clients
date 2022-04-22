@@ -1,16 +1,14 @@
 import React from "react";
-import Pharmecy_Products from "./PharmecyProducts/Pharmecy_Products";
-import Pharmecy_Banner from "../Pharmecy_Banner/Pharmecy_Banner";
-import Pharmecy_subscribe from "../Pharmecy_subscribe/Pharmecy_subscribe";
+import { PharmacyProducts, PharmacyBanner, PharmacySubscribe } from "./index";
 
-const PharmecyHome = () => {
+const PharmacyHome = () => {
   return (
     <>
-      <Pharmecy_Banner />
-      <Pharmecy_Products />
-      <Pharmecy_subscribe />
+      <PharmacyBanner />
+      <PharmacyProducts />
+      <PharmacySubscribe />
     </>
   );
 };
 
-export default PharmecyHome;
+export default PharmacyHome;

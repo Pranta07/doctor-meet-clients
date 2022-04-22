@@ -12,7 +12,7 @@ let getData = () => {
   }
 };
 
-const Phamecy_Card_slider = (props: any) => {
+const PharmacyCardSlider = (props: any) => {
   let [itemData, setItemData] = useState(getData());
 
   let { name, price, rating, img1, img2, _id } = props.products;
@@ -86,4 +86,4 @@ const Phamecy_Card_slider = (props: any) => {
   );
 };
 
-export default Phamecy_Card_slider;
+export default PharmacyCardSlider;

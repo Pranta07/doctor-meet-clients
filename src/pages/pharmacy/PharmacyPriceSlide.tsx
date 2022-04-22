@@ -4,7 +4,7 @@ import { useNumberFormatter } from "@react-aria/i18n";
 import React from "react";
 import Thumb from "./Thumb";
 
-function RangeSlider(props: any) {
+function PharmacyPriceSlide(props: any) {
   let trackRef = React.useRef(null);
   let numberFormatter = useNumberFormatter(props.formatOptions);
   let state = useSliderState({ ...props, numberFormatter });
@@ -59,4 +59,4 @@ function RangeSlider(props: any) {
   );
 }
 
-export default RangeSlider;
+export default PharmacyPriceSlide;

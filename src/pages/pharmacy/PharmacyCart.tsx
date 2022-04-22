@@ -1,9 +1,9 @@
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import "./Pharmecy_cart.css";
+import "./PharmacyCart.css";
 
-const Pharmecy_cart = () => {
+const PharmacyCart = () => {
   let [count, setCount] = useState(1);
   let [tax, setTax] = useState(0);
   let [itemData, setItemData] = useState<any[]>([]);
@@ -31,12 +31,12 @@ const Pharmecy_cart = () => {
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
 
-  let handleOnClikplus = () => {
+  let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
   };
 
-  let handleONClickMinas = () => {
+  let handleOnClickMinus = () => {
     if (count < 1) {
       return;
     } else {
@@ -56,7 +56,7 @@ const Pharmecy_cart = () => {
       </div>
       <div className="container my-5">
         <div className="row ">
-        <h3> Order </h3>
+          <h3> Order </h3>
           {itemData.map((item) => (
             <div className="col-lg-8">
               <div className=" p-3">
@@ -66,7 +66,7 @@ const Pharmecy_cart = () => {
                       className="img-fluid"
                       width="60px"
                       height="60px"
-                      src={item.img1+'.jpg'}
+                      src={item.img1 + ".jpg"}
                       alt=""
                     />
                     <p className="my-auto d-block"> {item.name}</p>
@@ -76,7 +76,7 @@ const Pharmecy_cart = () => {
                     <div className="btn-group me-2">
                       <button
                         className="btn fw-bold text-size "
-                        onClick={handleONClickMinas}
+                        onClick={handleOnClickMinus}
                       >
                         {" "}
                         -{" "}
@@ -84,12 +84,15 @@ const Pharmecy_cart = () => {
                       <p className="my-auto px-2"> {count} </p>
                       <button
                         className="btn fw-bold text-size "
-                        onClick={handleOnClikplus}
+                        onClick={handleOnClickPlus}
                       >
                         {" "}
                         +{" "}
                       </button>{" "}
-                      <button onClick={()=>removeDoctor(item._id)} className="btn fw-bold text-danger px-4">
+                      <button
+                        onClick={() => removeDoctor(item._id)}
+                        className="btn fw-bold text-danger px-4"
+                      >
                         {" "}
                         <FontAwesomeIcon icon={faTrashCan} />{" "}
                       </button>
@@ -134,4 +137,4 @@ const Pharmecy_cart = () => {
   );
 };
 
-export default Pharmecy_cart;
+export default PharmacyCart;

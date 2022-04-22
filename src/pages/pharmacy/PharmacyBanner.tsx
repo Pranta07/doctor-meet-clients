@@ -1,20 +1,20 @@
 import React from "react";
-import "./Pharmecy_Banner.css";
-import Pharma_3 from "../../../assets/Pharmecy/banner-3-1.jpg";
-import Pharma_4 from "../../../assets/Pharmecy/banner-4.jpg";
-import Pharma_5 from "../../../assets/Pharmecy/banner-5-1.jpg";
-import pharma_Txt_1 from "../../../assets/Pharmecy/heart-rate.png";
-import pharma_text_2 from "../../../assets/Pharmecy/banner-3-text.png";
-import pharma_text_3 from "../../../assets/Pharmecy/banner-4-text.png";
-import pharma_text_4 from "../../../assets/Pharmecy/banner-5-text.png";
-import pro_1 from "../../../assets/Pharmecy/creams.png";
-import pro_2 from "../../../assets/Pharmecy/pills.png";
-import pro_3 from "../../../assets/Pharmecy/herbs.png";
-import pro_4 from "../../../assets/Pharmecy/capsules.png";
-import pro_5 from "../../../assets/Pharmecy/prescription.png";
-import pro_6 from "../../../assets/Pharmecy/drops.png";
+import "./PharmacyBanner.css";
+import Pharma_3 from "../../assets/pharmacy/banner-3-1.jpg";
+import Pharma_4 from "../../assets/pharmacy/banner-4.jpg";
+import Pharma_5 from "../../assets/pharmacy/banner-5-1.jpg";
+import pharma_Txt_1 from "../../assets/pharmacy/heart-rate.png";
+import pharma_text_2 from "../../assets/pharmacy/banner-3-text.png";
+import pharma_text_3 from "../../assets/pharmacy/banner-4-text.png";
+import pharma_text_4 from "../../assets/pharmacy/banner-5-text.png";
+import pro_1 from "../../assets/pharmacy/creams.png";
+import pro_2 from "../../assets/pharmacy/pills.png";
+import pro_3 from "../../assets/pharmacy/herbs.png";
+import pro_4 from "../../assets/pharmacy/capsules.png";
+import pro_5 from "../../assets/pharmacy/prescription.png";
+import pro_6 from "../../assets/pharmacy/drops.png";
 
-const Pharmecy_Banner = () => {
+const PharmacyBanner = () => {
   return (
     <div className="container">
       <div className="row">
@@ -133,4 +133,4 @@ const Pharmecy_Banner = () => {
   );
 };
 
-export default Pharmecy_Banner;
+export default PharmacyBanner;

@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import useFirebase from '../../../firebase/useFirebase/useFirebase';
+import React, { useRef } from "react";
+import { Button, Form } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import useFirebase from "../../../firebase/useFirebase/useFirebase";
 // import useAuth from "../../Hooks/useAuth";
 
-const Registation = () => {
+const Registration = () => {
   let { createUsingEmail, signUsingGoogle, setMessage, message } =
     useFirebase();
 
@@ -22,16 +22,16 @@ const Registation = () => {
     const LName: string = LastName.current.value;
 
     if (passE !== passC) {
-      setMessage('Confirm Password doest Matched');
+      setMessage("Confirm Password doest Matched");
     } else {
       createUsingEmail(mailE, passE, fName, LName);
       console.log(mailE, passE, fName, LName);
-      mail.current.value = '';
-      pass.current.value = '';
-      Cpass.current.value = '';
-      FirstName.current.value = '';
-      LastName.current.value = '';
-      setMessage('');
+      mail.current.value = "";
+      pass.current.value = "";
+      Cpass.current.value = "";
+      FirstName.current.value = "";
+      LastName.current.value = "";
+      setMessage("");
     }
   };
   return (
@@ -91,23 +91,23 @@ const Registation = () => {
               SignUp
             </Button>
             <div className="row my-3">
-              {' '}
+              {" "}
               <small className="font-weight-bold">
-                Already have an account?{' '}
+                Already have an account?{" "}
                 <span className="text-danger ">
                   <NavLink to="/login">Login</NavLink>
                 </span>
-              </small>{' '}
+              </small>{" "}
             </div>
           </Form>
           <div className="row px-3 mt-4 mb-2 ">
-            <div className="line"></div>{' '}
+            <div className="line"></div>{" "}
             <small className="or text-center">Or</small>
             <div className="line"></div>
           </div>
           <div className="mb-4 d-flex px-3">
             <h6 className="mb-0 d-flex align-items-center mr-4">
-              Sign in with:{' '}
+              Sign in with:{" "}
             </h6>
             <div className="d-flex my-2">
               <button className="btn p-0">
@@ -134,4 +134,4 @@ const Registation = () => {
   );
 };
 
-export default Registation;
+export default Registration;

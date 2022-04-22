@@ -1,16 +1,24 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
-import Doctors from "./components/doctors/Doctors";
+import Doctors from "./pages/doctors/Doctors";
 import Footer from "./components/footer/Footer";
 import Nav from "./components/nav/Nav";
-import PremiumMemberships from "./components/premium-membership/PremiumMemberships";
-import PremiumPayment from "./components/premium-membership/PremiumPayment";
-import Pharmecy_product_view from "./components/pharmacy/Phamecy_product_view/Pharmecy_product_view";
-import PharmecyHome from "./components/pharmacy/PharmacyHome";
-import Login from "./components/security/login/Login";
-import Registation from "./components/security/registation/Registation";
-import AllDoctors from "./components/user-dashboard/AllDoctors";
-import FavoriteDoctors from "./components/user-dashboard/FavoriteDoctors";
+import {
+  PremiumMemberships,
+  PremiumPayment,
+} from "./components/premium-membership/index";
+import {
+  PharmacyProductView,
+  PharmacyHome,
+  PharmacyCart,
+  PharmacyAllProduct,
+} from "./pages/pharmacy/index";
+import Login from "./pages/security/login/Login";
+import Registration from "./pages/security/registration/Registration";
+import {
+  AllDoctors,
+  FavoriteDoctors,
+} from "./pages/dashboards/user-dashboard/index";
 import VideoChatRoute from "./components/video-chat-client/VideoChatRoute";
 import AuthProvider from "./contexts/AuthProvider";
 import ContactUs from "./pages/contact-us/ContactUs";
@@ -21,59 +29,56 @@ import DashboardHome from "./pages/dashboards/dashboard-home/DashboardHome";
 import FindDonors from "./pages/find-donors/FindDonors";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
-
-import "./App.css";
-import AppointmentDoctors from "./components/appointment/AppointmentDoctors/AppointmentDoctors";
-import GetAppointmentForm from "./components/appointment/GetAppointmentForm/GetAppointmentForm";
-import PayAppointmentFee from "./components/appointment/PayAppointmentFee";
-import MyAppointments from "./components/user-dashboard/MyAppointments";
-import Pharmecy_cart from "./components/pharmacy/Pharmecy_cart/Pharmecy_cart";
-import Pharmecy_all_Product from "./components/pharmacy/Pharmecy_all_Product/Pharmecy_all_Product";
-
+import {
+  AppointmentDoctors,
+  GetAppointmentForm,
+  PayAppointmentFee,
+} from "./components/appointment/index";
+import MyAppointments from "./pages/dashboards/user-dashboard/MyAppointments";
 function App() {
   return (
     <>
       <AuthProvider>
-        <Nav></Nav>
+        <Nav />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/home" element={<Home />}></Route>
-          <Route path="/signUp" element={<Registation />}></Route>
+          <Route path="/sign-up" element={<Registration />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/ContactUs" element={<ContactUs />}></Route>
+          <Route path="/contact-us" element={<ContactUs />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/pharma" element={<PharmecyHome />}></Route>
-          <Route path="/medicine/:id" element={<Pharmecy_product_view />} />
-          <Route path="/videoRoute" element={<VideoChatRoute />}></Route>
+          <Route path="/pharmacy" element={<PharmacyHome />}></Route>
+          <Route path="/medicine/:id" element={<PharmacyProductView />} />
+          <Route path="/video-route" element={<VideoChatRoute />}></Route>
 
-          <Route path="/CovidPortal" element={<CovidPortal />}></Route>
-          <Route path="/FindDonors" element={<FindDonors />}></Route>
+          <Route path="/covid-portal" element={<CovidPortal />}></Route>
+          <Route path="/find-donors" element={<FindDonors />}></Route>
 
-          <Route path="/cart" element={<Pharmecy_cart />} />
-          <Route path="/shop" element={<Pharmecy_all_Product />} />
+          <Route path="/cart" element={<PharmacyCart />} />
+          <Route path="/shop" element={<PharmacyAllProduct />} />
 
           <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="dashboarHome" element={<DashboardHome />} />
+            <Route path="dashboard-home" element={<DashboardHome />} />
             <Route path="doctors" element={<AllDoctors />} />
-            <Route path="favdoc" element={<FavoriteDoctors />} />
+            <Route path="favorite-doctor" element={<FavoriteDoctors />} />
             <Route path="admin" element={<Admin />} />
           </Route>
           <Route path="/doctors" element={<Doctors />} />
           <Route
-            path="/premiumMembership"
+            path="/premium-membership"
             element={<PremiumMemberships />}
           ></Route>
           <Route
-            path="/premiumPayment/:id"
+            path="/premium-payment/:id"
             element={<PremiumPayment />}
           ></Route>
-          <Route path="/appointmentDoctors" element={<AppointmentDoctors />} />
+          <Route path="/appointment-doctors" element={<AppointmentDoctors />} />
           <Route
-            path="/getAppointmentForm/:id"
+            path="/get-appointment-form/:id"
             element={<GetAppointmentForm />}
           ></Route>
           <Route
-            path="/payAppointmentFee/:id"
+            path="/pay-appointment-fee/:id"
             element={<PayAppointmentFee />}
           ></Route>
         </Routes>

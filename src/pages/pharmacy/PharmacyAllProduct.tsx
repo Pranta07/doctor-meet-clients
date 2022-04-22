@@ -2,22 +2,23 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
-import "./Pharmecy_all_Product.css";
+import "./PharmacyAllProduct.css";
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-import RangeSlider from "../Pharmecy_price_slider/Pharmecy_price_slide";
-import { productsType } from "../PharmecyProducts/Pharmecy_Products";
-import Pharmecy_shop from "../Pharmecy_shop/Pharmecy_shop";
+
+import { PharmacyPriceSlide, PharmacyShop } from "./index";
+import { productsType } from "./PharmacyProducts";
+
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const Pharmecy_all_Product = () => {
+const PharmacyAllProduct = () => {
   let [products, setProducts] = useState<productsType[]>([]);
 
   useEffect(() => {
@@ -68,7 +69,7 @@ const Pharmecy_all_Product = () => {
               <h3> Filter by price </h3>
               <hr className="hr-blue" />
               <div className="my-3">
-                <RangeSlider
+                <PharmacyPriceSlide
                   label="Price Range"
                   formatOptions={{ style: "currency", currency: "USD" }}
                   maxValue={1200}
@@ -134,10 +135,10 @@ const Pharmecy_all_Product = () => {
             </div>
             <div className="row">
               {products.map((product) => (
-                <Pharmecy_shop
+                <PharmacyShop
                   product={product}
                   Key={product._id}
-                ></Pharmecy_shop>
+                ></PharmacyShop>
               ))}
             </div>
             <Stack spacing={2}>
@@ -161,4 +162,4 @@ const Pharmecy_all_Product = () => {
   );
 };
 
-export default Pharmecy_all_Product;
+export default PharmacyAllProduct;

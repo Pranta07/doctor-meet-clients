@@ -11,3 +11,4 @@ export { default as GenderChart } from "./GenderChart";
 export { default as DonorSingle } from "./DonorSingle";
 export { default as JoinUsForm } from "./JoinUsForm";
 export { default as GroupChart } from "./JoinUsForm";
+export { default as SingleRow } from "./SingleRow";

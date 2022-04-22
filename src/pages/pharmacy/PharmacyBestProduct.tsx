@@ -12,7 +12,7 @@ let getData = () => {
   }
 };
 
-const Pharmecy_Best_Product = (props: any) => {
+const PharmacyBestProduct = (props: any) => {
   let [itemData, setItemData] = useState(getData());
 
   let { name, price, rating, img1, img2, _id } = props.products;
@@ -86,4 +86,4 @@ const Pharmecy_Best_Product = (props: any) => {
   );
 };
 
-export default Pharmecy_Best_Product;
+export default PharmacyBestProduct;

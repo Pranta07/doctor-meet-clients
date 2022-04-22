@@ -2,8 +2,8 @@ import { RatingStar } from "rating-star";
 import React, { useState, useEffect } from "react";
 import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
-import "../PharmecyProducts/Pharmecy_product.css";
-import "./Pharmecy_single_product.css";
+import "./PharmacyProduct.css";
+import "./PharmacySingleProduct.css";
 
 let getData = () => {
   let data = localStorage.getItem("item");
@@ -14,7 +14,7 @@ let getData = () => {
   }
 };
 
-const Phamecy_single_product = (props: any) => {
+const PharmacySingleProduct = (props: any) => {
   let [itemData, setItemData] = useState(getData());
 
   let { name, price, rating, img1, img2, _id } = props.products;
@@ -106,4 +106,4 @@ const Phamecy_single_product = (props: any) => {
   );
 };
 
-export default Phamecy_single_product;
+export default PharmacySingleProduct;

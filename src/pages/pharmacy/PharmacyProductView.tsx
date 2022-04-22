@@ -2,10 +2,10 @@ import { RatingStar } from "rating-star";
 import React, { useEffect, useState } from "react";
 import { Cart } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
-import "./Pharmecy_product_view.css";
-import banner_img from "../../../assets/Pharmecy/banner-sidebar.png";
+import "./PharmacyProductView.css";
+import banner_img from "../../assets/pharmacy/banner-sidebar.png";
 
-const Pharmecy_product_view = () => {
+const PharmacyProductView = () => {
   let [products, setProducts] = useState<any>({});
   let [count, setCount] = useState(1);
 
@@ -19,12 +19,12 @@ const Pharmecy_product_view = () => {
       });
   }, [id]);
 
-  let handleOnClikplus = () => {
+  let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
   };
 
-  let handleONClickMinas = () => {
+  let handleOnClickMinus = () => {
     if (count < 1) {
       return;
     } else {
@@ -155,7 +155,7 @@ const Pharmecy_product_view = () => {
             <div className="btn-group btn-style-count me-2 ">
               <button
                 className="btn fw-bold text-size "
-                onClick={handleONClickMinas}
+                onClick={handleOnClickMinus}
               >
                 {" "}
                 -{" "}
@@ -163,7 +163,7 @@ const Pharmecy_product_view = () => {
               <p className="my-auto px-2"> {count} </p>
               <button
                 className="btn fw-bold text-size "
-                onClick={handleOnClikplus}
+                onClick={handleOnClickPlus}
               >
                 {" "}
                 +{" "}
@@ -286,4 +286,4 @@ const Pharmecy_product_view = () => {
   );
 };
 
-export default Pharmecy_product_view;
+export default PharmacyProductView;

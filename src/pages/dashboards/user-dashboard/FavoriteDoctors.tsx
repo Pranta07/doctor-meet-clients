@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import SingleDoctor from "./SingleDoctor/SingleDoctor";
+import SingleDoctor from "./SingleDoctor";
 
 interface doctorData {
   _id: string;

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import user from "../../../assets/Dashboard Images/user.png";
+import user from "../../../assets/dashboard/user.png";
 
 const Header = (props: { drawerTogglerClickHandler: any }) => {
   return (
