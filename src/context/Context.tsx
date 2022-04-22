@@ -6,7 +6,7 @@ const SocketContext = createContext<any>('');
 
 // const socket = io('http://localhost:5000');
 
-const socket: Socket = io('http://localhost:5000');
+const socket: Socket = io('http://localhost:8888');
 
 const ContextProvider = ({ children }: any) => {
   const [callAccepted, setCallAccepted] = useState(false);
