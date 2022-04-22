@@ -29,6 +29,7 @@ import PayAppointmentFee from "./components/GetAppointmentFolder/PayAppointmentF
 import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointments";
 import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
 import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pharmecy_all_Product";
+import NotFound from "./page/NotFound/NotFound";
 
 function App() {
     return (
@@ -91,6 +92,7 @@ function App() {
                         path="/payAppointmentFee/:id"
                         element={<PayAppointmentFee />}
                     ></Route>
+                    <Route path="*" element={<NotFound />}></Route>
                 </Routes>
                 <Footer></Footer>
             </AuthProvider>
