@@ -228,7 +228,9 @@ const DoctorEditModal = (props: {
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
                                         <select
-                                            {...register("experience")}
+                                            {...register("experience", {
+                                                required: true,
+                                            })}
                                             className="form-select border-info"
                                             defaultValue={doctor.experience}
                                         >
@@ -247,6 +249,11 @@ const DoctorEditModal = (props: {
                                             <option value={4.5}>4.5</option>
                                             <option value={5}>5</option>
                                         </select>
+                                        {errors.experience && (
+                                            <span className="fw-bold">
+                                                *Required
+                                            </span>
+                                        )}
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
