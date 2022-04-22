@@ -114,6 +114,9 @@ const DoctorsTable = () => {
                                                 Review
                                             </TableCell>
                                             <TableCell align="left">
+                                                Visit Count
+                                            </TableCell>
+                                            <TableCell align="left">
                                                 Gender
                                             </TableCell>
                                             <TableCell align="left">

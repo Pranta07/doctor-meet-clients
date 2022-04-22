@@ -71,6 +71,7 @@ const SingleRowData = (props: {
                 <TableCell align="left">{doctor?.specialist}</TableCell>
                 <TableCell align="left">{doctor?.experience} Years</TableCell>
                 <TableCell align="left">{doctor?.review}*</TableCell>
+                <TableCell align="left">{doctor?.visit}</TableCell>
                 <TableCell align="left">{doctor?.gender}</TableCell>
                 <TableCell align="left">{doctor?.phone}</TableCell>
                 <TableCell align="left">{doctor?.email}</TableCell>
