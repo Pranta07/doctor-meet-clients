@@ -13,7 +13,8 @@ const AllDoctors = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch("https://immense-beyond-64415.herokuapp.com/doctors/all")
+        const url = `http://localhost:5000/doctors/all?specialist=All&&gender=All&&page=1&&rows=6`;
+        fetch(url)
             .then((res) => res.json())
             .then((data) => setDoctors(data.result))
             .finally(() => setLoading(false));
