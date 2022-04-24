@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
-
+import './PayAppointFeeFrom.css';
 const PayAppointmentFeeFrom = ({appointment}) => {
   
     const stripe = useStripe();
@@ -48,7 +48,7 @@ const PayAppointmentFeeFrom = ({appointment}) => {
 
   };
     return (
-        <form onSubmit={handleSubmit} className="mt-5">
+        <form onSubmit={handleSubmit} className="my-5">
       <CardElement
         options={{
           style: {
@@ -65,7 +65,7 @@ const PayAppointmentFeeFrom = ({appointment}) => {
           },
         }}
       />
-      <button type="submit" disabled={!stripe}  className="btn btn-danger mt-4">
+      <button type="submit" className="appointment-fee-submit-btn" disabled={!stripe}>
         Pay
       </button>
     </form>

@@ -52,7 +52,7 @@ const GetAppointmentForm = () => {
         // naviagte(`/payAppointmentFee/${selectedDoctor?.id}`)
     }
     return (
-        <div>
+        <div className="form-container">
             <h1 className='appointment-title text-center'>Enter Your Information Here</h1>
             <form action="" className="getAppointmentForm" onSubmit={submitTheFormOfPatientsInfo} >
 
