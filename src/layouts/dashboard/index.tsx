@@ -4,18 +4,18 @@ import { Outlet } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
 // hooks
-import useCollapseDrawer from "../../hooks/useCollapseDrawer.tsx";
+import useCollapseDrawer from "../../hooks/useCollapseDrawer";
 // config
-import { HEADER, NAVBAR } from "../../config.tsx";
+import { HEADER, NAVBAR } from "../../config";
 //
-import DashboardHeader from "./header/index.tsx";
-import NavbarVertical from "./navbar/NavbarVertical.tsx";
+import DashboardHeader from "./header/index";
+import NavbarVertical from "./navbar/NavbarVertical";
 
 // ----------------------------------------------------------------------
 
 const MainStyle = styled("main", {
   shouldForwardProp: (prop) => prop !== "collapseClick",
-})(({ collapseClick, theme }) => ({
+})(({ collapseClick, theme }: { collapseClick: any; theme?: any }) => ({
   flexGrow: 1,
   paddingTop: HEADER.MOBILE_HEIGHT + 24,
   paddingBottom: HEADER.MOBILE_HEIGHT + 24,
@@ -37,7 +37,7 @@ const MainStyle = styled("main", {
 // ----------------------------------------------------------------------
 
 export default function DashboardLayout() {
-  const { collapseClick, isCollapse } = useCollapseDrawer();
+  const { collapseClick, isCollapse }: any = useCollapseDrawer();
 
   const [open, setOpen] = useState(false);
 

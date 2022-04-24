@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // @mui
-import IconButton from '@mui/material/IconButton';
-import { Box } from '@mui/material';
+import IconButton from "@mui/material/IconButton";
+import { Box } from "@mui/material";
 // components
 
 // ----------------------------------------------------------------------
@@ -11,18 +11,21 @@ CollapseButton.propTypes = {
   onToggleCollapse: PropTypes.func,
 };
 
-export default function CollapseButton({ onToggleCollapse, collapseClick }) {
+export default function CollapseButton({
+  onToggleCollapse,
+  collapseClick,
+}: any) {
   return (
     <IconButton onClick={onToggleCollapse}>
       <Box
         sx={{
           lineHeight: 0,
           transition: (theme) =>
-            theme.transitions.create('transform', {
+            theme.transitions.create("transform", {
               duration: theme.transitions.duration.shorter,
             }),
           ...(collapseClick && {
-            transform: 'rotate(180deg)',
+            transform: "rotate(180deg)",
           }),
         }}
       >

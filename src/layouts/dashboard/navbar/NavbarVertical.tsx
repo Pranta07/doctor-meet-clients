@@ -1,24 +1,24 @@
-import PropTypes from "prop-types";
+import PropTypes, { any } from "prop-types";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 // @mui
 import { styled, useTheme } from "@mui/material/styles";
 import { Box, Stack, Drawer } from "@mui/material";
 // hooks
-import useResponsive from "../../../hooks/useResponsive.tsx";
-import useCollapseDrawer from "../../../hooks/useCollapseDrawer.tsx";
+import useResponsive from "../../../hooks/useResponsive";
+import useCollapseDrawer from "../../../hooks/useCollapseDrawer";
 // utils
-import cssStyles from "../../../utils/cssStyles.tsx";
+import cssStyles from "../../../utils/cssStyles";
 // config
-import { NAVBAR } from "../../../config.tsx";
+import { NAVBAR } from "../../../config";
 // components
-import Logo from "../../../components/Logo.tsx";
-import Scrollbar from "../../../components/Scrollbar.tsx";
-import { NavSectionVertical } from "../../../components/nav-section/index.tsx";
+import Logo from "../../../components/Logo";
+import Scrollbar from "../../../components/Scrollbar";
+import { NavSectionVertical } from "../../../components/nav-section/index";
 //
-import navConfig from "./NavConfig.tsx";
-import NavbarAccount from "./NavbarAccount.tsx";
-import CollapseButton from "./CollapseButton.tsx";
+import navConfig from "./NavConfig";
+import NavbarAccount from "./NavbarAccount";
+import CollapseButton from "./CollapseButton";
 
 // ----------------------------------------------------------------------
 
@@ -38,7 +38,7 @@ NavbarVertical.propTypes = {
   onCloseSidebar: PropTypes.func,
 };
 
-export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
+export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }: any) {
   const theme = useTheme();
 
   const { pathname } = useLocation();
@@ -52,7 +52,7 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
     onToggleCollapse,
     onHoverEnter,
     onHoverLeave,
-  } = useCollapseDrawer();
+  }: any = useCollapseDrawer();
 
   useEffect(() => {
     if (isOpenSidebar) {
@@ -148,8 +148,8 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
                 width: NAVBAR.DASHBOARD_COLLAPSE_WIDTH,
               }),
               ...(collapseHover && {
-                ...cssStyles(theme).bgBlur(),
-                boxShadow: (theme) => theme.customShadows.z24,
+                ...cssStyles(theme).bgBlur(any),
+                boxShadow: (theme: any) => theme.customShadows.z24,
               }),
             },
           }}

@@ -2,10 +2,10 @@
 import { styled } from "@mui/material/styles";
 import { Container } from "@mui/material";
 // layouts
-import LogoOnlyLayout from "../../layouts/LogoOnlyLayout.tsx";
+import LogoOnlyLayout from "../../layouts/LogoOnlyLayout";
 // routes
 // components
-import Page from "../../components/Page.tsx";
+import Page from "../../components/Page";
 // sections
 // import { ResetPasswordForm } from '../../sections/auth/reset-password';
 // assets

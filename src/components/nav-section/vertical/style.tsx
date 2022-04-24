@@ -1,18 +1,19 @@
 // @mui
-import { alpha, styled } from '@mui/material/styles';
-import { ListItemText, ListItemButton, ListItemIcon } from '@mui/material';
+import { alpha, styled } from "@mui/material/styles";
+import { ListItemText, ListItemButton, ListItemIcon } from "@mui/material";
 // config
-import { ICON, NAVBAR } from '../../../config.tsx';
+import { ICON, NAVBAR } from "../../../config";
 
 // ----------------------------------------------------------------------
 
-export const ListItemStyle = styled(ListItemButton, {
-  shouldForwardProp: (prop) => prop !== 'activeRoot' && prop !== 'activeSub' && prop !== 'subItem',
-})(({ activeRoot, activeSub, subItem, theme }) => ({
+export const ListItemStyle: any = styled(ListItemButton, {
+  shouldForwardProp: (prop) =>
+    prop !== "activeRoot" && prop !== "activeSub" && prop !== "subItem",
+})(({ activeRoot, activeSub, subItem, theme }: any) => ({
   ...theme.typography.body2,
-  position: 'relative',
+  position: "relative",
   height: NAVBAR.DASHBOARD_ITEM_ROOT_HEIGHT,
-  textTransform: 'capitalize',
+  textTransform: "capitalize",
   paddingLeft: theme.spacing(2),
   paddingRight: theme.spacing(1.5),
   marginBottom: theme.spacing(0.5),
@@ -22,7 +23,10 @@ export const ListItemStyle = styled(ListItemButton, {
   ...(activeRoot && {
     ...theme.typography.subtitle2,
     color: theme.palette.primary.main,
-    backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
+    backgroundColor: alpha(
+      theme.palette.primary.main,
+      theme.palette.action.selectedOpacity
+    ),
   }),
   // activeSub
   ...(activeSub && {
@@ -35,11 +39,11 @@ export const ListItemStyle = styled(ListItemButton, {
   }),
 }));
 
-export const ListItemTextStyle = styled(ListItemText, {
-  shouldForwardProp: (prop) => prop !== 'isCollapse',
-})(({ isCollapse, theme }) => ({
-  whiteSpace: 'nowrap',
-  transition: theme.transitions.create(['width', 'opacity'], {
+export const ListItemTextStyle: any = styled(ListItemText, {
+  shouldForwardProp: (prop) => prop !== "isCollapse",
+})(({ isCollapse, theme }: { isCollapse?: boolean; theme: any }) => ({
+  whiteSpace: "nowrap",
+  transition: theme.transitions.create(["width", "opacity"], {
     duration: theme.transitions.duration.shorter,
   }),
   ...(isCollapse && {
@@ -51,8 +55,8 @@ export const ListItemTextStyle = styled(ListItemText, {
 export const ListItemIconStyle = styled(ListItemIcon)({
   width: ICON.NAVBAR_ITEM,
   height: ICON.NAVBAR_ITEM,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  '& svg': { width: '100%', height: '100%' },
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  "& svg": { width: "100%", height: "100%" },
 });

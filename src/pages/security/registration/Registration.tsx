@@ -81,7 +81,7 @@ const Registration = () => {
                 placeholder="Confirm Password"
               />
             </Form.Group>
-            {message ? <p className="text-danger"> {message} </p> : []}
+            {/* {message ? <span className="text-danger"> {message} </span> : []} */}
             <Form.Group
               className="mb-3 d-flex 
     justify-content-between"

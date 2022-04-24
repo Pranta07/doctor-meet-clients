@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // @mui
-import { styled } from '@mui/material/styles';
-import { Box, Link, Typography, Avatar } from '@mui/material';
+import { styled } from "@mui/material/styles";
+import { Box, Link, Typography, Avatar } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
+const RootStyle = styled("div")(({ theme }: any) => ({
+  display: "flex",
+  alignItems: "center",
   padding: theme.spacing(2, 2.5),
   borderRadius: Number(theme.shape.borderRadius) * 1.5,
   backgroundColor: theme.palette.grey[500_12],
-  transition: theme.transitions.create('opacity', {
+  transition: theme.transitions.create("opacity", {
     duration: theme.transitions.duration.shorter,
   }),
 }));
@@ -22,23 +22,26 @@ NavbarAccount.propTypes = {
   isCollapse: PropTypes.bool,
 };
 
-export default function NavbarAccount({ isCollapse }) {
+export default function NavbarAccount({ isCollapse }: any) {
   return (
     <Link underline="none" color="inherit">
       <RootStyle
         sx={{
           ...(isCollapse && {
-            bgcolor: 'transparent',
+            bgcolor: "transparent",
           }),
         }}
       >
-        <Avatar src="https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_5.jpg" alt="Rayan Moran" />
+        <Avatar
+          src="https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_5.jpg"
+          alt="Rayan Moran"
+        />
 
         <Box
           sx={{
             ml: 2,
             transition: (theme) =>
-              theme.transitions.create('width', {
+              theme.transitions.create("width", {
                 duration: theme.transitions.duration.shorter,
               }),
             ...(isCollapse && {
@@ -50,7 +53,7 @@ export default function NavbarAccount({ isCollapse }) {
           <Typography variant="subtitle2" noWrap>
             Rayan Moran
           </Typography>
-          <Typography variant="body2" noWrap sx={{ color: 'text.secondary' }}>
+          <Typography variant="body2" noWrap sx={{ color: "text.secondary" }}>
             Admin
           </Typography>
         </Box>

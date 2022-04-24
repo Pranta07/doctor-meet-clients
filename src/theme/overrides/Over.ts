@@ -1,8 +1,8 @@
-import Lists from "./List.tsx";
-import Paper from "./Paper.tsx";
+import Lists from "./List";
+import Paper from "./Paper";
 
 // ----------------------------------------------------------------------
 
-export default function ComponentsOverrides(theme) {
+export default function ComponentsOverrides(theme: any) {
   return Object.assign(Lists(theme), Paper(theme));
 }

@@ -1,9 +1,9 @@
 //
-import { CloseIcon } from "./CustomIcons.tsx";
+import { CloseIcon } from "./CustomIcons";
 
 // ----------------------------------------------------------------------
 
-export default function Chip(theme) {
+export default function Chip(theme: any) {
   return {
     MuiChip: {
       defaultProps: {

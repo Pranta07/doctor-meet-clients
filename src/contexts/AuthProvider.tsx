@@ -1,6 +1,6 @@
-import { User } from 'firebase/auth';
-import React, { createContext, FC } from 'react';
-import useFirebase from '../firebase/useFirebase/useFirebase';
+import { User } from "firebase/auth";
+import React, { createContext, FC } from "react";
+import useFirebase from "../firebase/useFirebase/useFirebase";
 
 type firebase = {
   user: User | null;
@@ -24,7 +24,7 @@ type firebase = {
 };
 
 export const AuthContext = createContext({} as firebase);
-const AuthProvider: FC = ({ children }) => {
+const AuthProvider: FC = ({ children }: any) => {
   const allContext = useFirebase();
   return (
     <AuthContext.Provider value={allContext}>{children}</AuthContext.Provider>

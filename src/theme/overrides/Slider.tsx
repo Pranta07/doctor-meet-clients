@@ -1,17 +1,17 @@
 // ----------------------------------------------------------------------
 
-export default function Slider(theme) {
-  const isLight = theme.palette.mode === 'light';
+export default function Slider(theme: any) {
+  const isLight = theme.palette.mode === "light";
 
   return {
     MuiSlider: {
       defaultProps: {
-        size: 'small',
+        size: "small",
       },
 
       styleOverrides: {
         root: {
-          '&.Mui-disabled': {
+          "&.Mui-disabled": {
             color: theme.palette.action.disabled,
           },
         },

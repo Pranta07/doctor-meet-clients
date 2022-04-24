@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 // // hooks
 // import useResponsive from '../hooks/useResponsive';
 // components
-import Page from "../components/Page.tsx";
+import Page from "../components/Page";
 // sections
 
 // ----------------------------------------------------------------------

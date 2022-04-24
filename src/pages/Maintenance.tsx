@@ -3,7 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Button, Typography, Container } from "@mui/material";
 // components
-import Page from "../components/Page.tsx";
+import Page from "../components/Page";
 //
 
 // ----------------------------------------------------------------------

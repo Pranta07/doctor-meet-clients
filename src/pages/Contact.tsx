@@ -1,7 +1,7 @@
 // @mui
 import { styled } from "@mui/material/styles";
 // components
-import Page from "../components/Page.tsx";
+import Page from "../components/Page";
 
 // ----------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export default function Tabs(theme) {
+export default function Tabs(theme: any) {
   return {
     MuiTab: {
       styleOverrides: {
@@ -9,27 +9,27 @@ export default function Tabs(theme) {
           fontWeight: theme.typography.fontWeightMedium,
           borderTopLeftRadius: theme.shape.borderRadius,
           borderTopRightRadius: theme.shape.borderRadius,
-          '&.Mui-selected': {
+          "&.Mui-selected": {
             color: theme.palette.text.primary,
           },
-          '&:not(:last-of-type)': {
+          "&:not(:last-of-type)": {
             marginRight: theme.spacing(5),
           },
-          '@media (min-width: 600px)': {
+          "@media (min-width: 600px)": {
             minWidth: 48,
           },
         },
         labelIcon: {
           minHeight: 48,
-          flexDirection: 'row',
-          '& > *:first-of-type': {
+          flexDirection: "row",
+          "& > *:first-of-type": {
             marginBottom: 0,
             marginRight: theme.spacing(1),
           },
         },
         wrapper: {
-          flexDirection: 'row',
-          whiteSpace: 'nowrap',
+          flexDirection: "row",
+          whiteSpace: "nowrap",
         },
         textColorInherit: {
           opacity: 1,
@@ -48,7 +48,7 @@ export default function Tabs(theme) {
       styleOverrides: {
         root: {
           width: 48,
-          borderRadius: '50%',
+          borderRadius: "50%",
         },
       },
     },

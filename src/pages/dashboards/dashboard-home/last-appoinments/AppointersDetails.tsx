@@ -1,35 +1,31 @@
-import React from 'react';
+import React from "react";
 
-export interface apointerData {
-    id: string;
-    name: string;
-    email: string;
-    username: string;
-    address: {
-        city: string;
-
-    };
+export interface IapointerData {
+  id: string;
+  name: string;
+  email: string;
+  username: string;
+  address: {
+    city: string;
+  };
 }
 type Props = {
-    apointerData: apointerData;
+  apointerData: IapointerData;
+  index?: number;
 };
 
 const AppointersDetails: React.FC<Props> = ({ apointerData }) => {
-    const { id, name, email, username, address } = apointerData;
+  const { id, name, email, username, address } = apointerData;
 
-    return (
-
-
-        <tr style={{ textAlign: "start" }}>
-            <td > {id}</td>
-            <td> {name}</td>
-            <td> {username}</td>
-            <td> {email}</td>
-            <td> {address.city}</td>
-        </tr>
-
-
-    );
+  return (
+    <tr style={{ textAlign: "start" }}>
+      <td> {id}</td>
+      <td> {name}</td>
+      <td> {username}</td>
+      <td> {email}</td>
+      <td> {address.city}</td>
+    </tr>
+  );
 };
 
 export default AppointersDetails;

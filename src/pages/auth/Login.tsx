@@ -11,12 +11,12 @@ import {
   Typography,
 } from "@mui/material";
 // routes
-import { PATH_AUTH } from "../../routes/paths.tsx";
+import { PATH_AUTH } from "../../routes/paths";
 // hooks
-import useResponsive from "../../hooks/useResponsive.tsx";
+import useResponsive from "../../hooks/useResponsive";
 // components
-import Page from "../../components/Page.tsx";
-import Logo from "../../components/Logo.tsx";
+import Page from "../../components/Page";
+import Logo from "../../components/Logo";
 // sections
 
 // ----------------------------------------------------------------------

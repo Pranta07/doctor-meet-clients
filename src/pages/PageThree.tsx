@@ -2,7 +2,7 @@
 import { Container, Typography } from "@mui/material";
 // hooks
 // components
-import Page from "../components/Page.tsx";
+import Page from "../components/Page";
 
 // ----------------------------------------------------------------------
 

@@ -3,19 +3,19 @@ import { useLocation } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
 import { Box, Button, AppBar, Toolbar, Container } from "@mui/material";
 // hooks
-import useOffSetTop from "../../hooks/useOffSetTop.tsx";
-import useResponsive from "../../hooks/useResponsive.tsx";
+import useOffSetTop from "../../hooks/useOffSetTop";
+import useResponsive from "../../hooks/useResponsive";
 // utils
-import cssStyles from "../../utils/cssStyles.tsx";
+import cssStyles from "../../utils/cssStyles";
 // config
-import { HEADER } from "../../config.tsx";
+import { HEADER } from "../../config";
 // components
-import Logo from "../../components/Logo.tsx";
+import logo from "../../assets/img/logo.png";
 //
-import MenuDesktop from "./MenuDesktop.tsx";
-import MenuMobile from "./MenuMobile.tsx";
-import navConfig from "./MenuConfig.tsx";
-import ModePopOver from "../dashboard/header/ModePopOver.tsx";
+import MenuDesktop from "./MenuDesktop";
+import MenuMobile from "./MenuMobile";
+import navConfig from "./MenuConfig";
+import ModePopOver from "../dashboard/header/ModePopOver";
 
 import * as React from "react";
 import Typography from "@mui/material/Typography";
@@ -24,7 +24,7 @@ import Slide from "@mui/material/Slide";
 
 // ----------------------------------------------------------------------
 
-function HideOnScroll(props: Props) {
+function HideOnScroll(props: any) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
@@ -50,7 +50,7 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
   },
 }));
 
-const ToolbarShadowStyle = styled("div")(({ theme }) => ({
+const ToolbarShadowStyle = styled("div")(({ theme }: any) => ({
   left: 0,
   right: 0,
   bottom: 0,
@@ -65,7 +65,7 @@ const ToolbarShadowStyle = styled("div")(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function MainHeader(props: Props) {
+export default function MainHeader(props: any) {
   const isOffset = useOffSetTop(HEADER.MAIN_DESKTOP_HEIGHT);
 
   const theme = useTheme();
@@ -84,7 +84,7 @@ export default function MainHeader(props: Props) {
             disableGutters
             sx={{
               ...(isOffset && {
-                ...cssStyles(theme).bgBlur(),
+                ...cssStyles(theme).bgBlur(props),
                 height: { md: HEADER.MAIN_DESKTOP_HEIGHT - 16 },
               }),
             }}
@@ -96,7 +96,7 @@ export default function MainHeader(props: Props) {
                 justifyContent: "space-between",
               }}
             >
-              <Logo />
+              <img src={logo} alt="" />
 
               <Box sx={{ flexGrow: 1 }} />
 
@@ -112,9 +112,9 @@ export default function MainHeader(props: Props) {
                 variant="contained"
                 target="_blank"
                 rel="noopener"
-                href="https://material-ui.com/store/items/minimal-dashboard/"
+                href="/login"
               >
-                Purchase Now
+                Login
               </Button>
               <ModePopOver />
               {!isDesktop && (

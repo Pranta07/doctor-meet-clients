@@ -1,7 +1,7 @@
 // @mui
 import { Container, Typography } from "@mui/material";
 // components
-import Page from "../components/Page.tsx";
+import Page from "../components/Page";
 // ----------------------------------------------------------------------
 
 export default function PageFour() {

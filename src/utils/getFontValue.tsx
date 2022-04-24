@@ -1,17 +1,17 @@
 // @mui
 import { useTheme } from "@mui/material/styles";
 // hooks
-import useResponsive from "../hooks/useResponsive.tsx";
+import useResponsive from "../hooks/useResponsive";
 
 // ----------------------------------------------------------------------
 
-export default function GetFontValue(variant) {
-  const theme = useTheme();
+export default function GetFontValue(variant: any) {
+  const theme: any = useTheme();
   const breakpoints = useWidth();
 
   const key = theme.breakpoints.up(breakpoints === "xl" ? "lg" : breakpoints);
 
-  const hasResponsive =
+  const hasResponsive: any =
     variant === "h1" ||
     variant === "h2" ||
     variant === "h3" ||
@@ -34,15 +34,15 @@ export default function GetFontValue(variant) {
 
 // ----------------------------------------------------------------------
 
-export function remToPx(value) {
+export function remToPx(value: any) {
   return Math.round(parseFloat(value) * 16);
 }
 
-export function pxToRem(value) {
+export function pxToRem(value: any) {
   return `${value / 16}rem`;
 }
 
-export function responsiveFontSizes({ sm, md, lg }) {
+export function responsiveFontSizes({ sm, md, lg }: any) {
   return {
     "@media (min-width:600px)": {
       fontSize: pxToRem(sm),
@@ -62,7 +62,7 @@ function useWidth() {
   const theme = useTheme();
   const keys = [...theme.breakpoints.keys].reverse();
   return (
-    keys.reduce((output, key) => {
+    keys.reduce((output: any, key) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const matches = useResponsive("up", key);
       return !output && matches ? key : output;

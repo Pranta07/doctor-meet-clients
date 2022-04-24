@@ -7,6 +7,7 @@ import { Button, Box, Link, Container, Typography, Stack } from '@mui/material';
 import { PATH_DASHBOARD } from '../../routes/paths.tsx';
 // components
 import Iconify from '../../components/Iconify.tsx';
+import { Banner } from '../../components/banner';
 
 // ----------------------------------------------------------------------
 
@@ -26,7 +27,6 @@ const RootStyle = styled(m.div)(({ theme }) => ({
 
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
   zIndex: 10,
-  maxWidth: 520,
   margin: 'auto',
   textAlign: 'center',
   position: 'relative',
@@ -65,58 +65,22 @@ const HeroImgStyle = styled(m.img)(({ theme }) => ({
 
 export default function HomeHero() {
   return (
-    <>
-      <RootStyle>
-        <HeroOverlayStyle
-          alt="overlay"
-          src="https://minimals.cc/assets/overlay.svg"
+    <ContentStyle>
+    
        
-        />
 
-        <HeroImgStyle
-          alt="hero"
-          src="https://minimal-assets-api.vercel.app/assets/images/home/hero.png"
-          
-        />
+      
 
-        <Container>
-          <ContentStyle>
+       
             
-              <Typography variant="h1" sx={{ color: 'common.white' }}>
-                Start a <br />
-                new project <br /> with
-                <Typography component="span" variant="h1" sx={{ color: 'primary.main' }}>
-                  &nbsp;Minimal
-                </Typography>
-              </Typography>
-           
-
-           
-              <Typography sx={{ color: 'common.white' }}>
-                The starting point for your next project based on easy-to-customize MUI helps you build apps faster and
-                better.
-              </Typography>
-            
-
-   
-
-          
-              <Button
-                size="large"
-                variant="contained"
-                component={RouterLink}
-                to={PATH_DASHBOARD.root}
-                startIcon={<Iconify icon={'eva:flash-fill'} width={20} height={20} />}
-              >
-                Live Preview
-              </Button>
+             <Banner/>
        
 
      
-          </ContentStyle>
-        </Container>
-      </RootStyle>
-      <Box sx={{ height: { md: '100vh' } }} />
-    </>
+       
+       
+    
+    
+    </ContentStyle>
   );
 }

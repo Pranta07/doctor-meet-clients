@@ -1,29 +1,29 @@
-import PropTypes from "prop-types";
+import PropTypes, { any } from "prop-types";
 // @mui
 import { styled } from "@mui/material/styles";
 import { Box, Stack, AppBar, Toolbar } from "@mui/material";
 // hooks
 import IconButton from "@mui/material/IconButton";
-import useOffSetTop from "../../../hooks/useOffSetTop.tsx";
-import useResponsive from "../../../hooks/useResponsive.tsx";
+import useOffSetTop from "../../../hooks/useOffSetTop";
+import useResponsive from "../../../hooks/useResponsive";
 // utils
-import cssStyles from "../../../utils/cssStyles.tsx";
+import cssStyles from "../../../utils/cssStyles";
 // config
-import { HEADER, NAVBAR } from "../../../config.tsx";
+import { HEADER, NAVBAR } from "../../../config";
 // components
-import Logo from "../../../components/Logo.tsx";
-import Iconify from "../../../components/Iconify.tsx";
+import Logo from "../../../components/Logo";
+import Iconify from "../../../components/Iconify";
 //
-import AccountPopover from "./AccountPopover.tsx";
-import ModePopOver from "./ModePopOver.tsx";
+import AccountPopover from "./AccountPopover";
+import ModePopOver from "./ModePopOver";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled(AppBar, {
+const RootStyle: any = styled(AppBar, {
   shouldForwardProp: (prop) =>
     prop !== "isCollapse" && prop !== "isOffset" && prop !== "verticalLayout",
-})(({ isCollapse, isOffset, verticalLayout, theme }) => ({
-  ...cssStyles(theme).bgBlur(),
+})(({ isCollapse, isOffset, verticalLayout, theme }: any) => ({
+  ...cssStyles(theme).bgBlur(any),
   boxShadow: "none",
   height: HEADER.MOBILE_HEIGHT,
   zIndex: theme.zIndex.appBar + 1,
@@ -59,7 +59,7 @@ export default function DashboardHeader({
   onOpenSidebar,
   isCollapse = false,
   verticalLayout = false,
-}) {
+}: any) {
   const isOffset =
     useOffSetTop(HEADER.DASHBOARD_DESKTOP_HEIGHT) && !verticalLayout;
 

@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
 
-export default function Tooltip(theme) {
-  const isLight = theme.palette.mode === 'light';
+export default function Tooltip(theme: any) {
+  const isLight = theme.palette.mode === "light";
 
   return {
     MuiTooltip: {

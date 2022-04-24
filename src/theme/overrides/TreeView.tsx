@@ -2,11 +2,11 @@ import {
   TreeViewCollapseIcon,
   TreeViewExpandIcon,
   TreeViewEndIcon,
-} from "./CustomIcons.tsx";
+} from "./CustomIcons";
 
 // ----------------------------------------------------------------------
 
-export default function TreeView(theme) {
+export default function TreeView(theme: any) {
   return {
     MuiTreeView: {
       defaultProps: {

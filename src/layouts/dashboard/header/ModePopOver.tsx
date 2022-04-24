@@ -3,9 +3,9 @@ import IconButton from "@mui/material/IconButton";
 // @mui
 import { Divider, Stack, Typography } from "@mui/material";
 // components
-import Iconify from "../../../components/Iconify.tsx";
-import MenuPopover from "../../../components/MenuPopover.tsx";
-import SettingMode from "../../../components/settings/SettingMode.tsx";
+import Iconify from "../../../components/Iconify";
+import MenuPopover from "../../../components/MenuPopover";
+import SettingMode from "../../../components/settings/SettingMode";
 // import useSettings from '../../../hooks/useSettings';
 
 // ----------------------------------------------------------------------
@@ -33,7 +33,7 @@ import SettingMode from "../../../components/settings/SettingMode.tsx";
 export default function ModePopOver() {
   const [open, setOpen] = useState(null);
 
-  const handleOpen = (event) => {
+  const handleOpen = (event: any) => {
     setOpen(event.currentTarget);
   };
 
@@ -48,7 +48,6 @@ export default function ModePopOver() {
         sx={{
           width: 40,
           height: 40,
-          ...(open && { bgcolor: "action.selected" }),
         }}
       >
         <Iconify icon="eva:options-2-fill" width={20} height={20} />

@@ -1,16 +1,11 @@
-import {
-  ErrorIcon,
-  InfoIcon,
-  SuccessIcon,
-  WarningIcon,
-} from "./CustomIcons.tsx";
+import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "./CustomIcons";
 
 // ----------------------------------------------------------------------
 
-export default function Alert(theme) {
+export default function Alert(theme: any) {
   const isLight = theme.palette.mode === "light";
 
-  const standardStyle = (color) => ({
+  const standardStyle = (color: any) => ({
     color: theme.palette[color][isLight ? "darker" : "lighter"],
     backgroundColor: theme.palette[color][isLight ? "lighter" : "darker"],
     "& .MuiAlert-icon": {
@@ -18,11 +13,11 @@ export default function Alert(theme) {
     },
   });
 
-  const filledStyle = (color) => ({
+  const filledStyle = (color: any) => ({
     color: theme.palette[color].contrastText,
   });
 
-  const outlinedStyle = (color) => ({
+  const outlinedStyle = (color: any) => ({
     color: theme.palette[color][isLight ? "darker" : "lighter"],
     border: `solid 1px ${theme.palette[color][isLight ? "light" : "dark"]}`,
     backgroundColor: theme.palette[color][isLight ? "lighter" : "darker"],

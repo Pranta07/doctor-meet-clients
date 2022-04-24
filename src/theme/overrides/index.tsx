@@ -1,50 +1,50 @@
 //
-import Fab from "./Fab.tsx";
-import Card from "./Card.tsx";
-import Chip from "./Chip.tsx";
-import Tabs from "./Tabs.tsx";
-import Menu from "./Menu.tsx";
-import Link from "./Link.tsx";
-import Lists from "./List.tsx";
-import Table from "./Table.tsx";
-import Alert from "./Alert.tsx";
-import Badge from "./Badge.tsx";
-import Paper from "./Paper.tsx";
-import Input from "./Input.tsx";
-import Radio from "./Radio.tsx";
-import Drawer from "./Drawer.tsx";
-import Dialog from "./Dialog.tsx";
-import Avatar from "./Avatar.tsx";
-import Rating from "./Rating.tsx";
-import Slider from "./Slider.tsx";
-import Button from "./Button.tsx";
-import Switch from "./Switch.tsx";
-import Select from "./Select.tsx";
-import SvgIcon from "./SvgIcon.tsx";
-import Tooltip from "./Tooltip.tsx";
-import Popover from "./Popover.tsx";
-import Stepper from "./Stepper.tsx";
-import DataGrid from "./DataGrid.tsx";
-import Skeleton from "./Skeleton.tsx";
-import Backdrop from "./Backdrop.tsx";
-import Progress from "./Progress.tsx";
-import Timeline from "./Timeline.tsx";
-import TreeView from "./TreeView.tsx";
-import Checkbox from "./Checkbox.tsx";
-import Accordion from "./Accordion.tsx";
-import Typography from "./Typography.tsx";
-import Pagination from "./Pagination.tsx";
-import Breadcrumbs from "./Breadcrumbs.tsx";
-import ButtonGroup from "./ButtonGroup.tsx";
-import CssBaseline from "./CssBaseline.tsx";
-import Autocomplete from "./Autocomplete.tsx";
-import ToggleButton from "./ToggleButton.tsx";
-import ControlLabel from "./ControlLabel.tsx";
-import LoadingButton from "./LoadingButton.tsx";
+import Fab from "./Fab";
+import Card from "./Card";
+import Chip from "./Chip";
+import Tabs from "./Tabs";
+import Menu from "./Menu";
+import Link from "./Link";
+import Lists from "./List";
+import Table from "./Table";
+import Alert from "./Alert";
+import Badge from "./Badge";
+import Paper from "./Paper";
+import Input from "./Input";
+import Radio from "./Radio";
+import Drawer from "./Drawer";
+import Dialog from "./Dialog";
+import Avatar from "./Avatar";
+import Rating from "./Rating";
+import Slider from "./Slider";
+import Button from "./Button";
+import Switch from "./Switch";
+import Select from "./Select";
+import SvgIcon from "./SvgIcon";
+import Tooltip from "./Tooltip";
+import Popover from "./Popover";
+import Stepper from "./Stepper";
+import DataGrid from "./DataGrid";
+import Skeleton from "./Skeleton";
+import Backdrop from "./Backdrop";
+import Progress from "./Progress";
+import Timeline from "./Timeline";
+import TreeView from "./TreeView";
+import Checkbox from "./Checkbox";
+import Accordion from "./Accordion";
+import Typography from "./Typography";
+import Pagination from "./Pagination";
+import Breadcrumbs from "./Breadcrumbs";
+import ButtonGroup from "./ButtonGroup";
+import CssBaseline from "./CssBaseline";
+import Autocomplete from "./Autocomplete";
+import ToggleButton from "./ToggleButton";
+import ControlLabel from "./ControlLabel";
+import LoadingButton from "./LoadingButton";
 
 // ----------------------------------------------------------------------
 
-export default function ComponentsOverrides(theme) {
+export default function ComponentsOverrides(theme: any) {
   return Object.assign(
     Fab(theme),
     Tabs(theme),

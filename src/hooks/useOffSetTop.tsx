@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 // ----------------------------------------------------------------------
 
-export default function useOffSetTop(top) {
+export default function useOffSetTop(top: any) {
   const [offsetTop, setOffSetTop] = useState(false);
   const isTop = top || 100;
 

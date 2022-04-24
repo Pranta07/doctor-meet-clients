@@ -2,10 +2,11 @@ import { useLocation, Outlet } from "react-router-dom";
 // @mui
 import { Box, Container, Typography, Stack } from "@mui/material";
 // components
-import Logo from "../../components/Logo.tsx";
+import Logo from "../../components/Logo";
 //
-import MainFooter from "./MainFooter.tsx";
-import MainHeader from "./MainHeader.tsx";
+import MainFooter from "./MainFooter";
+import MainHeader from "./MainHeader";
+import Footer from "../../components/footer/Footer";
 
 // ----------------------------------------------------------------------
 
@@ -27,19 +28,12 @@ export default function MainLayout() {
       ) : (
         <Box
           sx={{
-            py: 5,
             textAlign: "center",
             position: "relative",
             bgcolor: "background.default",
           }}
         >
-          <Container>
-            <Logo sx={{ mb: 1, mx: "auto" }} />
-
-            <Typography variant="caption" component="p">
-              © All rights reserved
-            </Typography>
-          </Container>
+          <Footer />
         </Box>
       )}
     </Stack>

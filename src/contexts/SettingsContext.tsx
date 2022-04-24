@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
-import { createContext } from 'react';
+import PropTypes from "prop-types";
+import { createContext } from "react";
 // hooks
-import useLocalStorage from '../hooks/useLocalStorage.tsx';
+import useLocalStorage from "../hooks/useLocalStorage";
 // utils
-import getColorPresets, { colorPresets, defaultPreset } from '../utils/getColorPresets.tsx';
+import getColorPresets, {
+  colorPresets,
+  defaultPreset,
+} from "../utils/getColorPresets.js";
 // config
-import { defaultSettings } from '../config.tsx';
+import { defaultSettings } from "../config";
 
 // ----------------------------------------------------------------------
 
@@ -13,7 +16,15 @@ const initialState = {
   ...defaultSettings,
   onChangeMode: () => {},
   onToggleMode: () => {},
-  setColor: defaultPreset
+  setColor: {
+    name: "blue",
+    lighter: "#D1E9FC",
+    light: "#76B0F1",
+    main: "#2065D1",
+    dark: "#103996",
+    darker: "#061B64",
+    contrastText: "#fff",
+  },
 };
 
 const SettingsContext = createContext(initialState);
@@ -24,12 +35,12 @@ SettingsProvider.propTypes = {
   children: PropTypes.node,
 };
 
-function SettingsProvider({ children }) {
-  const [settings, setSettings] = useLocalStorage('settings', {
+function SettingsProvider({ children }: any) {
+  const [settings, setSettings] = useLocalStorage("settings", {
     themeMode: initialState.themeMode,
   });
 
-  const onChangeMode = (event) => {
+  const onChangeMode = (event: any) => {
     setSettings({
       ...settings,
       themeMode: event.target.value,
@@ -39,19 +50,9 @@ function SettingsProvider({ children }) {
   const onToggleMode = () => {
     setSettings({
       ...settings,
-      themeMode: settings.themeMode === 'light' ? 'dark' : 'light',
+      themeMode: settings.themeMode === "light" ? "dark" : "light",
     });
   };
-
-
-
-
-
-
-
-
-
- 
 
   return (
     <SettingsContext.Provider
@@ -66,8 +67,6 @@ function SettingsProvider({ children }) {
           name: color.name,
           value: color.main,
         })),
-
-
       }}
     >
       {children}

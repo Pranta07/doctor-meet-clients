@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import { createContext, useState, useEffect } from 'react';
+import PropTypes from "prop-types";
+import { createContext, useState, useEffect } from "react";
 // hooks
-import useResponsive from '../hooks/useResponsive.tsx';
+import useResponsive from "../hooks/useResponsive";
 
 // ----------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ const initialState = {
   onHoverLeave: () => {},
 };
 
-const CollapseDrawerContext = createContext(initialState);
+const CollapseDrawerContext: any = createContext(initialState);
 
 // ----------------------------------------------------------------------
 
@@ -21,8 +21,8 @@ CollapseDrawerProvider.propTypes = {
   children: PropTypes.node,
 };
 
-function CollapseDrawerProvider({ children }) {
-  const isDesktop = useResponsive('up', 'lg');
+function CollapseDrawerProvider({ children }: any) {
+  const isDesktop = useResponsive("up", "lg");
 
   const [collapse, setCollapse] = useState({
     click: false,

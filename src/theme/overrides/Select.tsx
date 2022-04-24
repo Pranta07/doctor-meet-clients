@@ -1,9 +1,9 @@
 //
-import { InputSelectIcon } from "./CustomIcons.tsx";
+import { InputSelectIcon } from "./CustomIcons";
 
 // ----------------------------------------------------------------------
 
-export default function Select() {
+export default function Select(theme?: any) {
   return {
     MuiSelect: {
       defaultProps: {

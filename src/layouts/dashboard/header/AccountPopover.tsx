@@ -11,7 +11,7 @@ import {
   Avatar,
 } from "@mui/material";
 // components
-import MenuPopover from "../../../components/MenuPopover.tsx";
+import MenuPopover from "../../../components/MenuPopover";
 
 // ----------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ const MENU_OPTIONS = [
 export default function AccountPopover() {
   const [open, setOpen] = useState(null);
 
-  const handleOpen = (event) => {
+  const handleOpen = (event: any) => {
     setOpen(event.currentTarget);
   };
 
@@ -49,17 +49,6 @@ export default function AccountPopover() {
         onClick={handleOpen}
         sx={{
           p: 0,
-          ...(open && {
-            "&:before": {
-              zIndex: 1,
-              content: "''",
-              width: "100%",
-              height: "100%",
-              borderRadius: "50%",
-              position: "absolute",
-              bgcolor: (theme) => alpha(theme.palette.grey[900], 0.8),
-            },
-          }),
         }}
       >
         <Avatar
@@ -95,13 +84,7 @@ export default function AccountPopover() {
 
         <Stack sx={{ p: 1 }}>
           {MENU_OPTIONS.map((option) => (
-            <MenuItem
-              key={option.label}
-              to={option.linkTo}
-              onClick={handleClose}
-            >
-              {option.label}
-            </MenuItem>
+            <MenuItem>{option.label}</MenuItem>
           ))}
         </Stack>
 

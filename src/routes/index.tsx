@@ -1,14 +1,16 @@
 import { Suspense, lazy } from "react";
 import { Navigate, useRoutes, useLocation } from "react-router-dom";
 // layouts
-import DashboardLayout from "../layouts/dashboard/index.tsx";
-import LogoOnlyLayout from "../layouts/LogoOnlyLayout.tsx";
+import DashboardLayout from "../layouts/dashboard/index";
+import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 // components
-import LoadingScreen from "../components/LoadingScreen.tsx";
-import MainLayout from "../layouts/main/index.tsx";
+import LoadingScreen from "../components/LoadingScreen";
+import MainLayout from "../layouts/main/index";
+import Doctors from "../pages/doctors/Doctors";
+
 // ----------------------------------------------------------------------
 
-const Loadable = (Component) => (props) => {
+const Loadable = (Component: any) => (props: any) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { pathname } = useLocation();
 
@@ -135,7 +137,7 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { element: <Navigate to="/dashboard/home" replace />, index: true },
-        { path: "home", element: <PageOne /> },
+        { path: "last-appointments", element: <LastAppoinments /> },
         { path: "one", element: <PageOne /> },
         { path: "two", element: <PageTwo /> },
         { path: "three", element: <PageThree /> },
@@ -174,6 +176,7 @@ export default function Router() {
       children: [
         { element: <HomePage />, index: true },
         { path: "about-us", element: <About /> },
+        { path: "doctors", element: <Doctors /> },
         { path: "contact-us", element: <Contact /> },
         { path: "faqs", element: <Faqs /> },
       ],
@@ -183,20 +186,28 @@ export default function Router() {
 }
 
 // Dashboard
-const PageOne = Loadable(lazy(() => import("../pages/PageOne.tsx")));
-const PageTwo = Loadable(lazy(() => import("../pages/PageTwo.tsx")));
-const PageThree = Loadable(lazy(() => import("../pages/PageThree.tsx")));
-const PageFour = Loadable(lazy(() => import("../pages/PageFour.tsx")));
-const PageFive = Loadable(lazy(() => import("../pages/PageFive.tsx")));
-const PageSix = Loadable(lazy(() => import("../pages/PageSix.tsx")));
+const PageOne = Loadable(lazy(() => import("../pages/PageOne")));
+const PageTwo = Loadable(lazy(() => import("../pages/PageTwo")));
+const PageThree = Loadable(lazy(() => import("../pages/PageThree")));
+const PageFour = Loadable(lazy(() => import("../pages/PageFour")));
+const PageFive = Loadable(lazy(() => import("../pages/PageFive")));
+const PageSix = Loadable(lazy(() => import("../pages/PageSix")));
 // const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 // AUTHENTICATION
-const Login = Loadable(lazy(() => import("../pages/auth/Login.tsx")));
-const Register = Loadable(lazy(() => import("../pages/auth/Register.tsx")));
+const Login = Loadable(lazy(() => import("../pages/auth/Login")));
+const Register = Loadable(lazy(() => import("../pages/auth/Register")));
 const ResetPassword = Loadable(
-  lazy(() => import("../pages/auth/ResetPassword.tsx"))
+  lazy(() => import("../pages/auth/ResetPassword"))
 );
-const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode.tsx")));
+const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
+const LastAppoinments = Loadable(
+  lazy(
+    () =>
+      import(
+        "../pages/dashboards/dashboard-home/last-appoinments/LastAppoinments"
+      )
+  )
+);
 
 // DASHBOARD
 
@@ -239,12 +250,12 @@ const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode.tsx")));
 // const Kanban = Loadable(lazy(() => import('../pages/dashboard/Kanban')));
 
 // MAIN
-const HomePage = Loadable(lazy(() => import("../pages/Home.tsx")));
-const About = Loadable(lazy(() => import("../pages/About.tsx")));
-const Contact = Loadable(lazy(() => import("../pages/Contact.tsx")));
-const Faqs = Loadable(lazy(() => import("../pages/Faqs.tsx")));
-const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon.tsx")));
-const Maintenance = Loadable(lazy(() => import("../pages/Maintenance.tsx")));
-const Pricing = Loadable(lazy(() => import("../pages/Pricing.tsx")));
-const Payment = Loadable(lazy(() => import("../pages/Payment.tsx")));
-const Page500 = Loadable(lazy(() => import("../pages/Page500.tsx")));
+const HomePage = Loadable(lazy(() => import("../pages/Home")));
+const About = Loadable(lazy(() => import("../pages/About")));
+const Contact = Loadable(lazy(() => import("../pages/Contact")));
+const Faqs = Loadable(lazy(() => import("../pages/Faqs")));
+const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));
+const Maintenance = Loadable(lazy(() => import("../pages/Maintenance")));
+const Pricing = Loadable(lazy(() => import("../pages/Pricing")));
+const Payment = Loadable(lazy(() => import("../pages/Payment")));
+const Page500 = Loadable(lazy(() => import("../pages/Page500")));

@@ -10,16 +10,16 @@ import {
 } from "@mui/material";
 // hooks
 
-import useSettings from "../../hooks/useSettings.tsx";
+import useSettings from "../../hooks/useSettings";
 //
-import Iconify from "../Iconify.tsx";
+import Iconify from "../Iconify";
 // @mui
 
 BoxMask.propTypes = {
   value: PropTypes.string,
 };
 
-export function BoxMask({ value }) {
+export function BoxMask({ value }: any) {
   return (
     <FormControlLabel
       label=""
@@ -39,7 +39,7 @@ export function BoxMask({ value }) {
 
 // ----------------------------------------------------------------------
 
-const BoxStyle = styled(CardActionArea)(({ theme }) => ({
+const BoxStyle = styled(CardActionArea)(({ theme }: any) => ({
   height: 50,
   display: "flex",
   alignItems: "center",
@@ -67,7 +67,7 @@ export default function SettingMode() {
                   bgcolor: mode === "light" ? "common.white" : "grey.800",
                   ...(isSelected && {
                     color: "primary.main",
-                    boxShadow: (theme) => theme.customShadows.z20,
+                    boxShadow: (theme: any) => theme.customShadows.z20,
                   }),
                 }}
               >

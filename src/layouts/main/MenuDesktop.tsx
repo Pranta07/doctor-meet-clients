@@ -12,15 +12,16 @@ import {
   Stack,
   Popover,
   ListItem,
+  MenuItem,
   ListSubheader,
   CardActionArea,
 } from "@mui/material";
 // components
-import Iconify from "../../components/Iconify.tsx";
+import Iconify from "../../components/Iconify";
 
 // ----------------------------------------------------------------------
 
-const LinkStyle = styled(Link)(({ theme }) => ({
+const LinkStyle: any = styled(Link)(({ theme }) => ({
   ...theme.typography.subtitle2,
   color: theme.palette.text.primary,
   marginRight: theme.spacing(5),
@@ -33,16 +34,48 @@ const LinkStyle = styled(Link)(({ theme }) => ({
   },
 }));
 
-const ListItemStyle = styled(ListItem)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: 0,
-  marginTop: theme.spacing(3),
-  color: theme.palette.text.secondary,
-  transition: theme.transitions.create("color"),
-  "&:hover": {
-    color: theme.palette.text.primary,
-  },
-}));
+const ListItemStyle = styled(ListItem)(
+  ({
+    theme,
+    to,
+    component,
+    underline,
+  }: {
+    theme?: any;
+    to: {};
+    component: {};
+    underline: string;
+  }) => ({
+    ...theme.typography.body2,
+    padding: 0,
+    marginTop: theme.spacing(3),
+    color: theme.palette.text.secondary,
+    transition: theme.transitions.create("color"),
+    "&:hover": {
+      color: theme.palette.text.primary,
+    },
+  })
+);
+const MenuItemStyle = styled(MenuItem)(
+  ({
+    theme,
+    to,
+    component,
+    underline,
+  }: {
+    theme?: any;
+    to: {};
+    component: {};
+    underline: string;
+  }) => ({
+    ...theme.typography.body2,
+    color: theme.palette.text.secondary,
+    transition: theme.transitions.create("color"),
+    "&:hover": {
+      color: theme.palette.text.primary,
+    },
+  })
+);
 
 // ----------------------------------------------------------------------
 
@@ -52,7 +85,7 @@ MenuDesktop.propTypes = {
   navConfig: PropTypes.array,
 };
 
-export default function MenuDesktop({ isOffset, isHome, navConfig }) {
+export default function MenuDesktop({ isOffset, isHome, navConfig }: any) {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
 
@@ -73,7 +106,7 @@ export default function MenuDesktop({ isOffset, isHome, navConfig }) {
 
   return (
     <Stack direction="row">
-      {navConfig.map((link) => (
+      {navConfig.map((link: any) => (
         <MenuDesktopItem
           key={link.title}
           item={link}
@@ -132,8 +165,15 @@ MenuDesktopItem.propTypes = {
   }),
 };
 
-function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
-  const { title, path, children } = item;
+function MenuDesktopItem({
+  item,
+  isHome,
+  isOpen,
+  isOffset,
+  onOpen,
+  onClose,
+}: any) {
+  const { title, path, children }: any = item;
 
   if (children) {
     return (
@@ -163,25 +203,22 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
         <Popover
           open={isOpen}
           anchorReference="anchorPosition"
-          anchorPosition={{ top: 80, left: 0 }}
+          anchorPosition={{ top: 80, left: 1035 }}
           anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           transformOrigin={{ vertical: "top", horizontal: "center" }}
           onClose={onClose}
           PaperProps={{
             sx: {
-              px: 3,
-              pt: 5,
-              pb: 3,
-              right: 16,
+              mx: 3,
               m: "auto",
               borderRadius: 2,
-              maxWidth: (theme) => theme.breakpoints.values.lg,
-              boxShadow: (theme) => theme.customShadows.z24,
+              minWidth: "150px",
+              boxShadow: (theme: any) => theme.customShadows.z24,
             },
           }}
         >
-          <Grid container spacing={3}>
-            {children.map((list) => {
+          <Grid spacing={3}>
+            {children.map((list: any) => {
               const { subheader, items } = list;
 
               return (
@@ -191,23 +228,9 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
                   xs={12}
                   md={subheader === "Dashboard" ? 6 : 2}
                 >
-                  <List disablePadding>
-                    <ListSubheader
-                      disableSticky
-                      disableGutters
-                      sx={{
-                        display: "flex",
-                        lineHeight: "unset",
-                        alignItems: "center",
-                        color: "text.primary",
-                        typography: "overline",
-                      }}
-                    >
-                      <IconBullet type="subheader" /> {subheader}
-                    </ListSubheader>
-
-                    {items.map((item) => (
-                      <ListItemStyle
+                  <List>
+                    {items.map((item: any) => (
+                      <MenuItemStyle
                         key={item.title}
                         to={item.path}
                         component={RouterLink}
@@ -228,25 +251,11 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
                               color: "primary.main",
                               bgcolor: "background.neutral",
                             }}
-                          >
-                            <Box
-                              component={m.img}
-                              whileTap="tap"
-                              whileHover="hover"
-                              variants={{
-                                hover: { scale: 1.02 },
-                                tap: { scale: 0.98 },
-                              }}
-                              src="https://minimal-assets-api.vercel.app/assets/illustrations/illustration_dashboard.png"
-                            />
-                          </CardActionArea>
+                          ></CardActionArea>
                         ) : (
-                          <>
-                            <IconBullet />
-                            {item.title}
-                          </>
+                          <>{item.title}</>
                         )}
-                      </ListItemStyle>
+                      </MenuItemStyle>
                     ))}
                   </List>
                 </Grid>
@@ -258,36 +267,22 @@ function MenuDesktopItem({ item, isHome, isOpen, isOffset, onOpen, onClose }) {
     );
   }
 
-  if (title === "Documentation") {
-    return (
+  return (
+    <>
       <LinkStyle
-        href={path}
-        target="_blank"
-        rel="noopener"
+        to={path}
+        component={RouterLink}
+        end={path === "/"}
         sx={{
           ...(isHome && { color: "common.dark" }),
           ...(isOffset && { color: "text.primary" }),
+          "&.active": {
+            color: "primary.main",
+          },
         }}
       >
         {title}
       </LinkStyle>
-    );
-  }
-
-  return (
-    <LinkStyle
-      to={path}
-      component={RouterLink}
-      end={path === "/"}
-      sx={{
-        ...(isHome && { color: "common.white" }),
-        ...(isOffset && { color: "text.primary" }),
-        "&.active": {
-          color: "primary.main",
-        },
-      }}
-    >
-      {title}
-    </LinkStyle>
+    </>
   );
 }

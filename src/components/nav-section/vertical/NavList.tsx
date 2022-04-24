@@ -4,8 +4,8 @@ import { useLocation } from "react-router-dom";
 // @mui
 import { List, Collapse } from "@mui/material";
 //
-import { NavItemRoot, NavItemSub } from "./NavItem.tsx";
-import { getActive } from "../index.tsx";
+import { NavItemRoot, NavItemSub } from "./NavItem";
+import { getActive } from "../index";
 
 // ----------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ NavListRoot.propTypes = {
   list: PropTypes.object,
 };
 
-export function NavListRoot({ list, isCollapse }) {
+export function NavListRoot({ list, isCollapse }: any) {
   const { pathname } = useLocation();
 
   const active = getActive(list.path, pathname);
@@ -37,7 +37,7 @@ export function NavListRoot({ list, isCollapse }) {
         {!isCollapse && (
           <Collapse in={open} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              {(list.children || []).map((item) => (
+              {(list.children || []).map((item: any) => (
                 <NavListSub key={item.title} list={item} />
               ))}
             </List>
@@ -56,7 +56,7 @@ NavListSub.propTypes = {
   list: PropTypes.object,
 };
 
-function NavListSub({ list }) {
+function NavListSub({ list }: any) {
   const { pathname } = useLocation();
 
   const active = getActive(list.path, pathname);
@@ -77,7 +77,7 @@ function NavListSub({ list }) {
 
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding sx={{ pl: 3 }}>
-            {(list.children || []).map((item) => (
+            {(list.children || []).map((item: any) => (
               <NavItemSub
                 key={item.title}
                 item={item}

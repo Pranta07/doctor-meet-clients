@@ -3,11 +3,11 @@ import {
   CheckboxIcon,
   CheckboxCheckedIcon,
   CheckboxIndeterminateIcon,
-} from "./CustomIcons.tsx";
+} from "./CustomIcons";
 
 // ----------------------------------------------------------------------
 
-export default function Checkbox(theme) {
+export default function Checkbox(theme: any) {
   return {
     MuiCheckbox: {
       defaultProps: {

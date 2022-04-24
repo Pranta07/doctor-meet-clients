@@ -3,12 +3,12 @@ import { Link as RouterLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Box, Button, Link, Container, Typography } from "@mui/material";
 // layouts
-import LogoOnlyLayout from "../../layouts/LogoOnlyLayout.tsx";
+import LogoOnlyLayout from "../../layouts/LogoOnlyLayout";
 // routes
-import { PATH_AUTH } from "../../routes/paths.tsx";
+import { PATH_AUTH } from "../../routes/paths";
 // components
-import Page from "../../components/Page.tsx";
-import Iconify from "../../components/Iconify.tsx";
+import Page from "../../components/Page";
+import Iconify from "../../components/Iconify";
 // sections
 // import { VerifyCodeForm } from '../../sections/auth/verify-code';
 

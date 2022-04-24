@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export default function Popover(theme) {
+export default function Popover(theme: any) {
   return {
     MuiPopover: {
       styleOverrides: {

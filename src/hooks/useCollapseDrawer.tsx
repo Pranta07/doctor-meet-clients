@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CollapseDrawerContext } from "../contexts/CollapseDrawerContext.tsx";
+import { CollapseDrawerContext } from "../contexts/CollapseDrawerContext";
 
 // ----------------------------------------------------------------------
 

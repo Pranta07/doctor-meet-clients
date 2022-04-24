@@ -1,24 +1,24 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // @mui
-import { styled } from '@mui/material/styles';
-import { List, Box, ListSubheader } from '@mui/material';
+import { styled } from "@mui/material/styles";
+import { List, Box, ListSubheader } from "@mui/material";
 //
-import { NavListRoot } from './NavList.tsx';
+import { NavListRoot } from "./NavList";
 
 // ----------------------------------------------------------------------
 
-export const ListSubheaderStyle = styled((props) => <ListSubheader disableSticky disableGutters {...props} />)(
-  ({ theme }) => ({
-    ...theme.typography.overline,
-    paddingTop: theme.spacing(3),
-    paddingLeft: theme.spacing(2),
-    paddingBottom: theme.spacing(1),
-    color: theme.palette.text.primary,
-    transition: theme.transitions.create('opacity', {
-      duration: theme.transitions.duration.shorter,
-    }),
-  })
-);
+export const ListSubheaderStyle: any = styled((props) => (
+  <ListSubheader disableSticky disableGutters {...props} />
+))(({ theme }) => ({
+  ...theme.typography.overline,
+  paddingTop: theme.spacing(3),
+  paddingLeft: theme.spacing(2),
+  paddingBottom: theme.spacing(1),
+  color: theme.palette.text.primary,
+  transition: theme.transitions.create("opacity", {
+    duration: theme.transitions.duration.shorter,
+  }),
+}));
 
 // ----------------------------------------------------------------------
 
@@ -27,10 +27,19 @@ NavSectionVertical.propTypes = {
   navConfig: PropTypes.array,
 };
 
-export default function NavSectionVertical({ navConfig, isCollapse = false, ...other }) {
+export default function NavSectionVertical({
+  navConfig,
+  sx,
+  isCollapse = false,
+  ...other
+}: {
+  navConfig?: any;
+  sx?: any;
+  isCollapse?: boolean;
+}) {
   return (
     <Box {...other}>
-      {navConfig.map((group) => (
+      {navConfig.map((group: any) => (
         <List key={group.subheader} disablePadding sx={{ px: 2 }}>
           <ListSubheaderStyle
             sx={{
@@ -42,7 +51,7 @@ export default function NavSectionVertical({ navConfig, isCollapse = false, ...o
             {group.subheader}
           </ListSubheaderStyle>
 
-          {group.items.map((list) => (
+          {group.items.map((list: any) => (
             <NavListRoot key={list.title} list={list} isCollapse={isCollapse} />
           ))}
         </List>

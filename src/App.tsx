@@ -90,19 +90,57 @@
 
 // export default App;
 // routes
-import Router from "./routes/index.tsx";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
+import Doctors from "./pages/doctors/Doctors";
+import Footer from "./components/footer/Footer";
+import Nav from "./components/nav/Nav";
+import {
+  PremiumMemberships,
+  PremiumPayment,
+} from "./components/premium-membership/index";
+import {
+  PharmacyProductView,
+  PharmacyHome,
+  PharmacyCart,
+  PharmacyAllProduct,
+} from "./pages/pharmacy/index";
+import Login from "./pages/security/login/Login";
+import Registration from "./pages/security/registration/Registration";
+import {
+  AllDoctors,
+  FavoriteDoctors,
+} from "./pages/dashboards/user-dashboard/index";
+import VideoChatRoute from "./components/video-chat-client/VideoChatRoute";
+import AuthProvider from "./contexts/AuthProvider";
+import ContactUs from "./pages/contact-us/ContactUs";
+import CovidPortal from "./pages/covid-portal/CovidPortal";
+import Admin from "./pages/dashboards/admin-dashboard/AdminDashboard";
+import Dashboard from "./pages/dashboards/dashboard/Dashboard";
+import DashboardHome from "./pages/dashboards/dashboard-home/DashboardHome";
+import FindDonors from "./pages/find-donors/FindDonors";
+import Home from "./pages/home/Home";
+import Profile from "./pages/profile/Profile";
+import {
+  AppointmentDoctors,
+  GetAppointmentForm,
+  PayAppointmentFee,
+} from "./components/appointment/index";
+import MyAppointments from "./pages/dashboards/user-dashboard/MyAppointments";
+import Router from "./routes/index";
 // theme
-import ThemeProvider from "./theme/index.tsx";
+import ThemeProvider from "./theme/index";
 // components
-import ScrollToTop from "./components/ScrollToTop.tsx";
-import ThemeColorPresets from "./components/ThemeColorPresets.tsx";
+import ScrollToTop from "./components/ScrollToTop";
+import ThemeColorPresets from "./components/ThemeColorPresets";
 
 // ----------------------------------------------------------------------
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <ThemeColorPresets>
+    <>
+      <ThemeProvider>
+        {/* <ThemeColorPresets> */}
         {/* <RtlLayout> */}
 
         {/* <Settings /> */}
@@ -110,7 +148,8 @@ export default function App() {
         <Router />
 
         {/* </RtlLayout> */}
-      </ThemeColorPresets>
-    </ThemeProvider>
+        {/* </ThemeColorPresets> */}
+      </ThemeProvider>
+    </>
   );
 }

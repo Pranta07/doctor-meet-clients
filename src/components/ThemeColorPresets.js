@@ -1,11 +1,16 @@
-import PropTypes from 'prop-types';
-import { useMemo } from 'react';
+import PropTypes from "prop-types";
+import { useMemo } from "react";
 // @mui
-import { alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
+import {
+  alpha,
+  ThemeProvider,
+  createTheme,
+  useTheme,
+} from "@mui/material/styles";
 // hooks
-import useSettings from '../hooks/useSettings.tsx';
+import useSettings from "../hooks/useSettings";
 //
-import componentsOverride from '../theme/overrides/index.tsx';
+import componentsOverride from "../theme/overrides/index";
 
 // ----------------------------------------------------------------------
 

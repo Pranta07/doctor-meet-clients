@@ -4,12 +4,12 @@ import { styled } from "@mui/material/styles";
 import { Box, Card, Link, Container, Typography } from "@mui/material";
 // hooks
 // import useAuth from '../../hooks/useAuth';
-import useResponsive from "../../hooks/useResponsive.tsx";
+import useResponsive from "../../hooks/useResponsive";
 // routes
-import { PATH_AUTH } from "../../routes/paths.tsx";
+import { PATH_AUTH } from "../../routes/paths";
 // components
-import Page from "../../components/Page.tsx";
-import Logo from "../../components/Logo.tsx";
+import Page from "../../components/Page";
+import Logo from "../../components/Logo";
 // sections
 // import { RegisterForm } from '../../sections/auth/register';
 

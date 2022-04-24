@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 // _mock_
 
 // components
-import Page from "../components/Page.tsx";
+import Page from "../components/Page";
 
 // ----------------------------------------------------------------------
 

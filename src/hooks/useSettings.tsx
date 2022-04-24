@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SettingsContext } from "../contexts/SettingsContext.tsx";
+import { SettingsContext } from "../contexts/SettingsContext";
 
 // ----------------------------------------------------------------------
 

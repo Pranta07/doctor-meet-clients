@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export default function Breadcrumbs(theme) {
+export default function Breadcrumbs(theme: any) {
   return {
     MuiBreadcrumbs: {
       styleOverrides: {

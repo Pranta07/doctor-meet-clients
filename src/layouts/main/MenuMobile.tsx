@@ -15,16 +15,16 @@ import {
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 // config
-import { NAVBAR } from "../../config.tsx";
+import { NAVBAR } from "../../config";
 // components
-import Logo from "../../components/Logo.tsx";
-import Iconify from "../../components/Iconify.tsx";
-import Scrollbar from "../../components/Scrollbar.tsx";
-import { NavSectionVertical } from "../../components/nav-section/index.tsx";
+import Logo from "../../components/Logo";
+import Iconify from "../../components/Iconify";
+import Scrollbar from "../../components/Scrollbar";
+import { NavSectionVertical } from "../../components/nav-section/index";
 
 // ----------------------------------------------------------------------
 
-const ListItemStyle = styled(ListItemButton)(({ theme }) => ({
+const ListItemStyle: any = styled(ListItemButton)(({ theme }) => ({
   ...theme.typography.body2,
   height: NAVBAR.DASHBOARD_ITEM_ROOT_HEIGHT,
   textTransform: "capitalize",
@@ -39,7 +39,7 @@ MenuMobile.propTypes = {
   navConfig: PropTypes.array,
 };
 
-export default function MenuMobile({ isOffset, isHome, navConfig }) {
+export default function MenuMobile({ isOffset, isHome, navConfig }: any) {
   const { pathname } = useLocation();
 
   const [open, setOpen] = useState(false);
@@ -88,7 +88,7 @@ export default function MenuMobile({ isOffset, isHome, navConfig }) {
           <Logo sx={{ mx: 2.5, my: 3 }} />
 
           <List disablePadding>
-            {navConfig.map((link) => (
+            {navConfig.map((link: any) => (
               <MenuMobileItem
                 key={link.title}
                 item={link}
@@ -116,7 +116,7 @@ MenuMobileItem.propTypes = {
   onOpen: PropTypes.func,
 };
 
-function MenuMobileItem({ item, isOpen, onOpen }) {
+function MenuMobileItem({ item, isOpen, onOpen }: any) {
   const { title, path, icon, children } = item;
 
   if (children) {
@@ -181,7 +181,7 @@ function MenuMobileItem({ item, isOpen, onOpen }) {
         "&.active": {
           color: "primary.main",
           fontWeight: "fontWeightMedium",
-          bgcolor: (theme) =>
+          bgcolor: (theme: any) =>
             alpha(
               theme.palette.primary.main,
               theme.palette.action.selectedOpacity
