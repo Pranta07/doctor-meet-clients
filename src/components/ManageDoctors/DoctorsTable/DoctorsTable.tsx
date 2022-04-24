@@ -110,8 +110,8 @@ const DoctorsTable = () => {
                                             <TableCell align="left">
                                                 Experience
                                             </TableCell>
-                                            <TableCell align="left">
-                                                Review
+                                            <TableCell align="center">
+                                                Rating
                                             </TableCell>
                                             <TableCell align="left">
                                                 Visit Count

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import { Delete, Edit } from "@mui/icons-material";
-import { Avatar, IconButton, Tooltip } from "@mui/material";
+import { Avatar, IconButton, Rating, Tooltip } from "@mui/material";
 import Swal from "sweetalert2";
 import DoctorEditModal from "../DoctorEditModal/DoctorEditModal";
 import { Idoctor } from "../../UserDashboard/FavoriteDoctors/FavoriteDoctors";
@@ -70,7 +70,14 @@ const SingleRowData = (props: {
                 <TableCell>{doctor?.name}</TableCell>
                 <TableCell align="left">{doctor?.specialist}</TableCell>
                 <TableCell align="left">{doctor?.experience} Years</TableCell>
-                <TableCell align="left">{doctor?.review}*</TableCell>
+                <TableCell align="left">
+                    <Rating
+                        name="read-only"
+                        value={doctor?.review}
+                        readOnly
+                        size="small"
+                    />
+                </TableCell>
                 <TableCell align="left">{doctor?.visit}</TableCell>
                 <TableCell align="left">{doctor?.gender}</TableCell>
                 <TableCell align="left">{doctor?.phone}</TableCell>
