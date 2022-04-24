@@ -89,7 +89,14 @@ const DoctorEditModal = (props: {
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6">
+                                        <label
+                                            className="all-label"
+                                            htmlFor="nameId"
+                                        >
+                                            Name*
+                                        </label>
                                         <input
+                                            id="nameId"
                                             className="form-control border-info mb-3"
                                             defaultValue={doctor.name}
                                             {...register("name", {
@@ -104,7 +111,14 @@ const DoctorEditModal = (props: {
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className="all-label"
+                                            htmlFor="emailId"
+                                        >
+                                            Email*
+                                        </label>
                                         <input
+                                            id="emailId"
                                             className="form-control border-info"
                                             defaultValue={doctor.email}
                                             {...register("email", {
@@ -121,7 +135,14 @@ const DoctorEditModal = (props: {
 
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className="all-label"
+                                            htmlFor="phoneId"
+                                        >
+                                            Phone*
+                                        </label>
                                         <input
+                                            id="phoneId"
                                             className="form-control border-info"
                                             {...register("phone", {
                                                 required: true,
@@ -137,7 +158,14 @@ const DoctorEditModal = (props: {
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className="all-label"
+                                            htmlFor="deptId"
+                                        >
+                                            Department*
+                                        </label>
                                         <select
+                                            id="deptId"
                                             {...register("specialist", {
                                                 required: true,
                                             })}
@@ -179,7 +207,14 @@ const DoctorEditModal = (props: {
                                 </div>
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className="all-label"
+                                            htmlFor="ratId"
+                                        >
+                                            Rating
+                                        </label>
                                         <select
+                                            id="ratId"
                                             {...register("review")}
                                             className="form-select border-info"
                                             defaultValue={doctor.review}
@@ -202,7 +237,14 @@ const DoctorEditModal = (props: {
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className="all-label"
+                                            htmlFor="genId"
+                                        >
+                                            Gender*
+                                        </label>
                                         <select
+                                            id="genId"
                                             className="form-select border-info"
                                             {...register("gender", {
                                                 required: true,
@@ -227,7 +269,14 @@ const DoctorEditModal = (props: {
                                 </div>
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className="all-label"
+                                            htmlFor="expId"
+                                        >
+                                            Experience*
+                                        </label>
                                         <select
+                                            id="expId"
                                             {...register("experience", {
                                                 required: true,
                                             })}
@@ -257,7 +306,14 @@ const DoctorEditModal = (props: {
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className="all-label"
+                                            htmlFor="visId"
+                                        >
+                                            Visit Count*
+                                        </label>
                                         <input
+                                            id="visId"
                                             type="number"
                                             className="form-control border-info mb-3"
                                             {...register("visit", {
@@ -273,7 +329,11 @@ const DoctorEditModal = (props: {
                                         )}
                                     </div>
                                 </div>
+                                <label className="all-label" htmlFor="imgId">
+                                    Image URL*
+                                </label>
                                 <input
+                                    id="imgId"
                                     className="form-control border-info mb-3"
                                     {...register("img", {
                                         required: true,
