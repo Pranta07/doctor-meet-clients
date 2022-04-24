@@ -5,3 +5,24 @@
 .getAppointmentForm .form-control,.form-select{
     margin-bottom: 10px;
 }
+
+.btn-appointmen-submit {background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%)}
+.btn-appointmen-submit {
+   margin: 20px auto;
+   padding: 10px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 40px;
+   border:0px;
+   display: block;
+ }
+
+ .btn-appointmen-submit:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }

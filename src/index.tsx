@@ -17,11 +17,11 @@ import reportWebVitals from "./reportWebVitals";
 ReactDOM.render(
   <React.StrictMode>
       {/* <CartProvider> */}
-        <ContextProvider>
+        {/* <ContextProvider> */}
           <BrowserRouter>
             <App />
           </BrowserRouter>
-        </ContextProvider>
+        {/* </ContextProvider> */}
       {/* </CartProvider> */}
   </React.StrictMode>,
   document.getElementById("root")

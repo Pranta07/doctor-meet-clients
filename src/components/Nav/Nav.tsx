@@ -123,7 +123,7 @@ const Nav = () => {
                             {user ? (
                                 <div className="dropdown ms-auto">
                                     <Avatar
-                                        src={user.photoURL || ""}
+                                        src={user?.photoURL || ""}
                                         alt="user-img"
                                         sx={{
                                             backgroundColor: "skyblue",

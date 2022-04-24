@@ -8,7 +8,8 @@ const MyAppointment = ({appointment}) => {
       <td>{appointment.doctorInfo.name}</td>
       <td>{appointment.doctorInfo.timeSlot}</td>
       <td>{appointment.status}</td>
-      <td>{appointment.doctorInfo.visit}</td>
+      <td>{appointment.doctorInfo.visit} $</td>
+      <td>{appointment?.date}</td>
       <td>
           <Link to={`/payAppointmentFee/${appointment._id}`}>
           <button className='btn btn-warning'>Pay</button>

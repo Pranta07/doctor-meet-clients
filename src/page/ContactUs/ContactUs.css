@@ -1,39 +1,43 @@
-.contact-color{
-    color: rgb(59, 138, 249);
+.contact-color {
+    color: rgb(91, 154, 243);
 }
-.all-label{
+.all-label {
     font-size: 13px;
     color: gray;
 }
-.p-style-con{
+.p-style-con {
     font-size: 20px;
     line-height: 1.55;
     color: gray;
 }
-.h1-hight{
+.h1-hight {
     font-size: 60px;
 }
-.form-control{
+.form-control {
     transition: all 300ms ease !important;
     box-shadow: 0 0 0 2px transparent inset !important;
-    background: transparent !important; 
+    background: transparent !important;
 }
-.btn-outline-info:hover{
+.btn-outline-info:hover {
     color: white !important;
 }
 
-.bg-style-for-contact{
-    background: linear-gradient(183.41deg, #67c3f3 -8.57%, #5a98f2 82.96%) !important;
+.bg-style-for-contact {
+    background: linear-gradient(
+        183.41deg,
+        #67c3f3 -8.57%,
+        #5a98f2 82.96%
+    ) !important;
 
     margin-top: 150px !important;
 }
-.contact-us-btn span{
+.contact-us-btn span {
     font-size: 40px;
     padding: 18px;
-    color: rgba(0, 0, 0, 0.807);   
+    color: rgba(0, 0, 0, 0.807);
 }
 
-.contact-us-btn{
+.contact-us-btn {
     background-color: white;
     border-radius: 100px;
     width: 80px;
@@ -41,21 +45,21 @@
     border: 3px solid white;
 }
 
-.contact-us-btn:hover{
+.contact-us-btn:hover {
     background-color: transparent;
 }
 
-.contact-us-btn:hover span{
+.contact-us-btn:hover span {
     color: white !important;
     transition: ease-in-out 300ms;
 }
-.contact-us-btn-write span{
+.contact-us-btn-write span {
     font-size: 40px;
     padding: 20px;
-    color: rgba(0, 0, 0, 0.807); 
+    color: rgba(0, 0, 0, 0.807);
 }
 
-.contact-us-btn-write{
+.contact-us-btn-write {
     background-color: white;
     border-radius: 100px;
     width: 80px;
@@ -63,10 +67,10 @@
     border: 3px solid white;
 }
 
-.contact-us-btn-write:hover{
+.contact-us-btn-write:hover {
     background-color: transparent;
     transition: ease-in-out 300ms;
 }
-.contact-us-btn-write:hover span{
+.contact-us-btn-write:hover span {
     color: white;
 }

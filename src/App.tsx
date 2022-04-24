@@ -49,7 +49,6 @@ function App() {
 
           <Route path="/CovidPortal" element={<CovidPortal />}></Route>
           <Route path="/FindDonors" element={<FindDonors />}></Route>
-         
 
           <Route path="/cart" element={<Pharmecy_cart />} />
           <Route path="/shop" element={<Pharmecy_all_Product />} />
