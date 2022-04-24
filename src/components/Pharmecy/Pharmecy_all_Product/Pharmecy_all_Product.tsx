@@ -135,7 +135,7 @@ const Pharmecy_all_Product = () => {
             <div className="row">
               {products.map((product) => (
                 <Pharmecy_shop
-                  product={product}
+                  products={product}
                   Key={product._id}
                 ></Pharmecy_shop>
               ))}

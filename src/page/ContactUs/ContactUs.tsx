@@ -2,7 +2,6 @@ import emailjs from "emailjs-com";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import Maps from "../../components/maps/Maps";
 import "./ContactUs.css";
 import { Icon } from "@iconify/react";
 import MapDirection from "../../components/MapDirection/MapDirection";
@@ -70,7 +69,6 @@ const ContactUs = () => {
                 <form onSubmit={sendEmail}>
                     <div className="row d-flex flex-sm-row-reverse">
                         <div className="col-lg-6">
-                            {/* <Maps></Maps> */}
                             <MapDirection></MapDirection>
                         </div>
                         <div className="col-lg-6">

@@ -1,8 +1,8 @@
+import { Box, Modal } from "@mui/material";
 import { RatingStar } from "rating-star";
 import React, { useEffect, useState } from "react";
 import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
-
 
 let getData = () => {
   let data = localStorage.getItem("item");
@@ -13,10 +13,38 @@ let getData = () => {
   }
 };
 
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width:"60%",
+  height:' 60%',
+  p: 4,
+};
+
+
 const Pharmecy_shop = (props: any) => {
   let [itemData, setItemData] = useState(getData());
+  let [count, setCount] = useState(1);
 
-  let { name, price, rating, img1, img2, _id } = props.product;
+  let {
+    name,
+    img1,
+    img2,
+    img3,
+    rating,
+    img4,
+    price,
+    description,
+    Sku,
+    category,
+    inStock,
+    power,
+    shopAddress,
+    weight,
+    _id,
+  } = props.products;
 
   useEffect(() => {
     const ItemList = localStorage.getItem("item");
@@ -27,22 +55,42 @@ const Pharmecy_shop = (props: any) => {
     }
   }, [_id]);
 
-  const addDoctor = (id: string) => {
-    //save the doctor to local storage
-    const doctor = localStorage.getItem("item");
+  const addmedicine = (id: string) => {
+    //save the medicine to local storage
+    const medicine = localStorage.getItem("item");
 
     let items;
-    if (doctor) items = JSON.parse(doctor);
+    if (medicine) items = JSON.parse(medicine);
     else items = [];
-
-    const newItems = [...items, props.products];
     // console.log(newItems);
+
+    let newItems = [...items, props.products];
 
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
+  let handleOnClikplus = () => {
+    let total = count + 1;
+    setCount(total);
+  };
+
+  let handleONClickMinas = () => {
+    if (count < 1) {
+      return;
+    } else {
+      let total = count - 1;
+      setCount(total);
+    }
+  };
+  let [allimg, setAllimg] = useState("");
+  const getImage = (image: string) => {
+    setAllimg(image);
+  };
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
-
     <div className="col-lg-4">
       <div className="product mt-3 p-4">
         <div className="product-img">
@@ -61,11 +109,15 @@ const Pharmecy_shop = (props: any) => {
               {" "}
               <Heart></Heart>{" "}
             </button>
-            <button onClick={()=>addDoctor(_id)} className="btn" title="Add to Cart">
+            <button
+              onClick={() => addmedicine(_id)}
+              className="btn"
+              title="Add to Cart"
+            >
               {" "}
               <Cart></Cart>{" "}
             </button>
-            <button className="btn" title="Quick View">
+            <button onClick={handleOpen} className="btn" title="Quick View">
               {" "}
               <Search></Search>{" "}
             </button>
@@ -86,6 +138,109 @@ const Pharmecy_shop = (props: any) => {
             </div>
           </div>
         </NavLink>
+         <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <div className="container" id="modal-modal-title">
+              <div className="product-div-for-quick">
+                <div className="product-div-left">
+                  <div className="img-container">
+                    {allimg === "" ? (
+                      <img src={img1 + ".jpg"} alt="" />
+                    ) : (
+                      <img className="img-fluid" src={allimg} alt="" />
+                    )}
+                  </div>
+                  <div className="hover-container">
+                    <div>
+                      <img
+                        onClick={() => {
+                          getImage(img1 + ".jpg");
+                        }}
+                        className="img-fluid"
+                        src={img1 + ".jpg"}
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <img
+                        onClick={() => {
+                          getImage(img2);
+                        }}
+                        className="img-fluid"
+                        src={img2}
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <img
+                        onClick={() => {
+                          getImage(img3);
+                        }}
+                        className="img-fluid"
+                        src={img3}
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <img
+                        onClick={() => {
+                          getImage(img4);
+                        }}
+                        className="img-fluid"
+                        src={img4}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="product-div-right" id="modal-modal-description">
+                  {inStock === true ? (
+                    <p className="stock-style"> inStock </p>
+                  ) : (
+                    <p className="out-style"> Out Stock </p>
+                  )}
+                  <h2>{name}</h2>
+                  <RatingStar
+                    size={16}
+                    maxScore={5}
+                    colors={{ mask: "#ff7f23" }}
+                    id="123"
+                    rating={rating}
+                  />
+                  <hr />
+                  <h5 className="product-price">${price}</h5>
+                  <h6 className="mt-5"> Quantity </h6>
+                  <div className="btn-group btn-style-count me-2 ">
+                    <button
+                      className="btn fw-bold text-size "
+                      onClick={handleONClickMinas}
+                    >
+                      {" "}
+                      -{" "}
+                    </button>{" "}
+                    <p className="my-auto px-2"> {count} </p>
+                    <button
+                      className="btn fw-bold text-size "
+                      onClick={handleOnClikplus}
+                    >
+                      {" "}
+                      +{" "}
+                    </button>{" "}
+                  </div>
+                  <button onClick={() => addmedicine(_id)} className="btn-style">
+                    {" "}
+                    <Cart></Cart> Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </Box>
+        </Modal>
       </div>
     </div>
   );
