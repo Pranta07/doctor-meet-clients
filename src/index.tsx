@@ -16,15 +16,6 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-<<<<<<< HEAD
-      <CartProvider>
-        {/* <ContextProvider> */}
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        {/* </ContextProvider> */}
-      </CartProvider>
-=======
       {/* <CartProvider> */}
         <ContextProvider>
           <BrowserRouter>
@@ -32,7 +23,6 @@ ReactDOM.render(
           </BrowserRouter>
         </ContextProvider>
       {/* </CartProvider> */}
->>>>>>> fb4802bde80247d465671c8b782174e7477f7003
   </React.StrictMode>,
   document.getElementById("root")
 );
