@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import SingleDoctor from "../SingleDoctor/SingleDoctor";
 
-interface doctorData {
+export interface Idoctor {
     _id: string;
     name: string;
     email: string;
@@ -14,10 +14,16 @@ interface doctorData {
         suite: string;
         street: string;
     };
+    experience: number;
+    gender: string;
+    free: boolean;
+    appointmentDay: string[];
+    phone: string;
+    visit: number;
 }
 
 const FavoriteDoctors = () => {
-    const [favoriteDoctors, setFavoriteDoctors] = useState<doctorData[]>([]);
+    const [favoriteDoctors, setFavoriteDoctors] = useState<Idoctor[]>([]);
     const [loading, setLoading] = useState(true);
     const [remove, setRemove] = useState(false);
 
