@@ -4,7 +4,7 @@ import React from 'react';
 const AllAppointment= ({appointment}) => {
     const deleteAnAppoinment=(e)=>{
       e.preventDefault();
-      fetch(`http://localhost:5000/allAppointments/${appointment._id}`,{
+      fetch(`https://doctor-meet-appointment-server.vercel.app/allAppointments/${appointment._id}`,{
         method:"Delete",
 
       })

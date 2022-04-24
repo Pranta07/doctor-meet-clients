@@ -11,7 +11,7 @@ const PayAppointmentFee = () => {
     const params = useParams();
   console.log(params.id);
   useEffect(()=>{
-    fetch(`http://localhost:5000/allAppointments/${params.id}`)
+    fetch(`https://doctor-meet-appointment-server.vercel.app/allAppointments/${params.id}`)
     .then(res=>res.json())
     .then(data=>setAppointment(data))
   },[params])

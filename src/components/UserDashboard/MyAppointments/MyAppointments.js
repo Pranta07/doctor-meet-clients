@@ -7,7 +7,7 @@ const MyAppointments = () => {
     const {user}=useFirebase();
     const [appointments,setAppointments]=useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/allAppointments/single?patientEmail=${user?.email}`)
+        fetch(`https://doctor-meet-appointment-server.vercel.app/allAppointments/single?patientEmail=${user?.email}`)
         .then(res=>res.json())
         .then(data=>setAppointments(data))
     },[user])
