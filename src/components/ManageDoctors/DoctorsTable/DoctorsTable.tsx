@@ -90,7 +90,7 @@ const DoctorsTable = () => {
 
                     {doctors?.length === 0 && !loading ? (
                         <Typography variant="h3" sx={{ my: 2 }}>
-                            No Orders Done Yet!
+                            No Doctors Added Yet!
                         </Typography>
                     ) : (
                         <>
