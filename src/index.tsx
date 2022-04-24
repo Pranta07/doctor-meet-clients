@@ -17,13 +17,13 @@ import AuthProvider from "./context/AuthProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-      {/* <CartProvider> */}
+      <CartProvider>
         {/* <ContextProvider> */}
           <BrowserRouter>
             <App />
           </BrowserRouter>
         {/* </ContextProvider> */}
-      {/* </CartProvider> */}
+      </CartProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
