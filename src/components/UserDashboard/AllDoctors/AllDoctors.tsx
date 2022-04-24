@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Availability from "../Availability/Availability";
 import Departments from "../Departments/Departments";
+import DoctorsPagination from "../DoctorsPagination/DoctorsPagination";
 import { Idoctor } from "../FavoriteDoctors/FavoriteDoctors";
 import Gender from "../Gender/Gender";
 import SingleDoctor from "../SingleDoctor/SingleDoctor";
@@ -10,15 +11,30 @@ const AllDoctors = () => {
     const [doctors, setDoctors] = useState<Idoctor[]>([]);
     const [remove, setRemove] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [page, setPage] = useState<number>(1);
+    const [total, setTotal] = useState<number>(0);
+    const [query, setQuery] = useState({
+        specialist: "All",
+        gender: "All",
+    });
+
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        setPage(value);
+    };
 
     useEffect(() => {
         setLoading(true);
-        const url = `http://localhost:5000/doctors/all?specialist=All&&gender=All&&page=1&&rows=6`;
+        const url = `http://localhost:5000/doctors/all?specialist=${
+            query.specialist
+        }&&gender=${query.gender}&&page=${page}&&rows=${6}`;
         fetch(url)
             .then((res) => res.json())
-            .then((data) => setDoctors(data.result))
+            .then((data) => {
+                setDoctors(data.result);
+                setTotal(data.total);
+            })
             .finally(() => setLoading(false));
-    }, []);
+    }, [page, query]);
 
     return (
         <Container>
@@ -50,6 +66,11 @@ const AllDoctors = () => {
                             ></SingleDoctor>
                         ))
                     )}
+                    <DoctorsPagination
+                        total={total}
+                        page={page}
+                        handleChange={handleChange}
+                    ></DoctorsPagination>
                 </div>
             </div>
         </Container>
