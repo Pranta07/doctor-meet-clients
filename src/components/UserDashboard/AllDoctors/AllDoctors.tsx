@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import Availability from "../Availability/Availability";
+// import Availability from "../Availability/Availability";
 import Departments from "../Departments/Departments";
 import DoctorsPagination from "../DoctorsPagination/DoctorsPagination";
 import { Idoctor } from "../FavoriteDoctors/FavoriteDoctors";
 import Gender from "../Gender/Gender";
 import SingleDoctor from "../SingleDoctor/SingleDoctor";
-
-interface Iquery {
-    specialist: string;
-    gender: string;
-}
 
 const AllDoctors = () => {
     const [doctors, setDoctors] = useState<Idoctor[]>([]);
@@ -20,6 +15,7 @@ const AllDoctors = () => {
     const [total, setTotal] = useState<number>(0);
     const [dept, setDept] = useState("All");
     const [gender, setGender] = useState("All");
+    // const [av, setAv] = useState(false);
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);
@@ -46,8 +42,16 @@ const AllDoctors = () => {
                         setDept={setDept}
                         setPage={setPage}
                     ></Departments>
-                    {/* <Availability setQuery={setQuery}></Availability> */}
-                    {/* <Gender setQuery={setQuery}></Gender> */}
+                    {/*  <Availability
+                        av={av}
+                        setAv={setAv}
+                        setPage={setPage}
+                    ></Availability> */}
+                    <Gender
+                        gender={gender}
+                        setGender={setGender}
+                        setPage={setPage}
+                    ></Gender>
                 </div>
                 <div className="col-12 col-md-8">
                     {loading ? (
