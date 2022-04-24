@@ -23,7 +23,7 @@ const MapDirection = () => {
         );
     }, []);
     return (
-        <div className="mt-for-home-map">
+        <div className="">
             <div id="map"></div>
         </div>
     );

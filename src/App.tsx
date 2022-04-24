@@ -12,7 +12,6 @@ import Registation from "./components/security/Registation/Registation";
 import AllDoctors from "./components/UserDashboard/AllDoctors/AllDoctors";
 import FavoriteDoctors from "./components/UserDashboard/FavoriteDoctors/FavoriteDoctors";
 import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
-import AuthProvider from "./context/AuthProvider";
 import ContactUs from "./page/ContactUs/ContactUs";
 import CovidPortal from "./page/CovidPortal/CovidPortal";
 import Admin from "./page/Dashboards/AdminDashboard/AdminDashboard";
@@ -34,7 +33,7 @@ import AllAppointments from "./page/Dashboards/AllAppointments/AllAppointments";
 function App() {
   return (
     <>
-      <AuthProvider>
+      
         <Nav></Nav>
         <Routes>
           <Route path="/" element={<Home />}></Route>
@@ -81,7 +80,7 @@ function App() {
           ></Route>
         </Routes>
         <Footer></Footer>
-      </AuthProvider>
+      
     </>
   );
 }
