@@ -31,7 +31,7 @@ const Dashboard = () => {
             ></SideDrawer>
             {backDrop}
             <div>
-            <Header
+                <Header
                     drawerTogglerClickHandler={drawerTogglerClickHandler}
                 ></Header>
                 <div className="container">

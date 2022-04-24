@@ -12,7 +12,8 @@ import "react-lazy-load-image-component/src/effects/black-and-white.css";
 // contexts
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-
+import { CartProvider } from "react-use-cart";
+import AuthProvider from "./context/AuthProvider";
 
 ReactDOM.render(
   <React.StrictMode>

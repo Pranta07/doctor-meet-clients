@@ -9,17 +9,16 @@ import Paper from "@mui/material/Paper";
 import { Box } from "@mui/system";
 import {
     Grid,
-    IconButton,
     LinearProgress,
     TablePagination,
     Typography,
 } from "@mui/material";
-import "./DonorsTable.css";
-import SingleRow from "../SingleRow/SingleRow";
-import { Idonor } from "../../Blood_Dooner/DonorFilter/DonorFilter";
+import "./DoctorsTable.css";
+import SingleRowData from "../SingleRowData/SingleRowData";
+import { Idoctor } from "../../UserDashboard/FavoriteDoctors/FavoriteDoctors";
 
-const DonorsTable = () => {
-    const [donors, setDonors] = useState<Idonor[]>([]);
+const DoctorsTable = () => {
+    const [doctors, setdoctors] = useState<Idoctor[]>([]);
     const [isUpdate, setIsUpdate] = useState(false);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(0);
@@ -39,14 +38,16 @@ const DonorsTable = () => {
 
     useEffect(() => {
         setLoading(true);
-        const url = `http://localhost:5000/donor?group=All&&district=All&&page=${
+
+        const url = `http://localhost:5000/doctors/all?specialist=All&&gender=All&&page=${
             page + 1
         }&&rows=${rowsPerPage}`;
+
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
-                setDonors(data.result);
+                setdoctors(data.result);
                 setCount(data.total);
             })
             .finally(() => setLoading(false));
@@ -60,7 +61,7 @@ const DonorsTable = () => {
                         margin: "26px",
                         border: "1px solid gray",
                         borderRadius: "5px",
-                        backgroundColor: "#FAEEEC",
+                        backgroundColor: "#d7e8f7",
                         opacity: 0.93,
                         overflowX: "scroll",
                         width: {
@@ -78,7 +79,7 @@ const DonorsTable = () => {
                             textAlign: "center",
                         }}
                     >
-                        Manage Donors
+                        Manage Doctors
                     </Typography>
                     <hr />
                     {loading && (
@@ -87,9 +88,9 @@ const DonorsTable = () => {
                         </Box>
                     )}
 
-                    {donors?.length === 0 && !loading ? (
+                    {doctors?.length === 0 && !loading ? (
                         <Typography variant="h3" sx={{ my: 2 }}>
-                            No Donors Added Yet!
+                            No Doctors Added Yet!
                         </Typography>
                     ) : (
                         <>
@@ -104,10 +105,16 @@ const DonorsTable = () => {
                                             <TableCell>Avatar</TableCell>
                                             <TableCell>Name</TableCell>
                                             <TableCell align="left">
-                                                Group
+                                                Specialist
                                             </TableCell>
                                             <TableCell align="left">
-                                                District
+                                                Experience
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                Rating
+                                            </TableCell>
+                                            <TableCell align="left">
+                                                Visit Count
                                             </TableCell>
                                             <TableCell align="left">
                                                 Gender
@@ -124,15 +131,15 @@ const DonorsTable = () => {
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {donors?.map((donor, index) => (
-                                            <SingleRow
-                                                key={donor._id}
-                                                donor={donor}
+                                        {doctors?.map((doctor, index) => (
+                                            <SingleRowData
+                                                key={doctor._id}
+                                                doctor={doctor}
                                                 setIsUpdate={setIsUpdate}
                                                 page={page}
                                                 rowsPerPage={rowsPerPage}
                                                 index={index}
-                                            ></SingleRow>
+                                            ></SingleRowData>
                                         ))}
                                     </TableBody>
                                 </Table>
@@ -154,4 +161,4 @@ const DonorsTable = () => {
     );
 };
 
-export default DonorsTable;
+export default DoctorsTable;

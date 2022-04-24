@@ -2,31 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Availability from "../Availability/Availability";
 import Departments from "../Departments/Departments";
+import { Idoctor } from "../FavoriteDoctors/FavoriteDoctors";
 import Gender from "../Gender/Gender";
 import SingleDoctor from "../SingleDoctor/SingleDoctor";
 
-interface doctorData {
-    _id: string;
-    name: string;
-    email: string;
-    img: string;
-    specialist: string;
-    review: number;
-    address: {
-        city: string;
-        suite: string;
-        street: string;
-    };
-}
-
 const AllDoctors = () => {
-    const [doctors, setDoctors] = useState<doctorData[]>([]);
+    const [doctors, setDoctors] = useState<Idoctor[]>([]);
     const [remove, setRemove] = useState(false);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(true);
-        fetch("https://immense-beyond-64415.herokuapp.com/doctors/all")
+        const url = `http://localhost:5000/doctors/all?specialist=All&&gender=All&&page=1&&rows=6`;
+        fetch(url)
             .then((res) => res.json())
             .then((data) => setDoctors(data.result))
             .finally(() => setLoading(false));
