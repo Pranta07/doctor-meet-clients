@@ -7,16 +7,19 @@ import { Idoctor } from "../FavoriteDoctors/FavoriteDoctors";
 import Gender from "../Gender/Gender";
 import SingleDoctor from "../SingleDoctor/SingleDoctor";
 
+interface Iquery {
+    specialist: string;
+    gender: string;
+}
+
 const AllDoctors = () => {
     const [doctors, setDoctors] = useState<Idoctor[]>([]);
     const [remove, setRemove] = useState(false);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState<number>(1);
     const [total, setTotal] = useState<number>(0);
-    const [query, setQuery] = useState({
-        specialist: "All",
-        gender: "All",
-    });
+    const [dept, setDept] = useState("All");
+    const [gender, setGender] = useState("All");
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);
@@ -24,9 +27,7 @@ const AllDoctors = () => {
 
     useEffect(() => {
         setLoading(true);
-        const url = `http://localhost:5000/doctors/all?specialist=${
-            query.specialist
-        }&&gender=${query.gender}&&page=${page}&&rows=${6}`;
+        const url = `http://localhost:5000/doctors/all?specialist=${dept}&&gender=${gender}&&page=${page}&&rows=${6}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
@@ -34,17 +35,21 @@ const AllDoctors = () => {
                 setTotal(data.total);
             })
             .finally(() => setLoading(false));
-    }, [page, query]);
+    }, [page, dept, gender]);
 
     return (
         <Container>
             <div className="row">
-                <div className="col-md-4">
-                    <Departments></Departments>
-                    <Availability></Availability>
-                    <Gender></Gender>
+                <div className="col-12 col-md-4">
+                    <Departments
+                        dept={dept}
+                        setDept={setDept}
+                        setPage={setPage}
+                    ></Departments>
+                    {/* <Availability setQuery={setQuery}></Availability> */}
+                    {/* <Gender setQuery={setQuery}></Gender> */}
                 </div>
-                <div className="col-md-8">
+                <div className="col-12 col-md-8">
                     {loading ? (
                         <div className="d-flex justify-content-center">
                             <div
