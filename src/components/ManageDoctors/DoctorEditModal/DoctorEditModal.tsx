@@ -90,7 +90,11 @@ const DoctorEditModal = (props: {
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6">
                                         <label
-                                            className="all-label"
+                                            className={
+                                                errors.name
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
                                             htmlFor="nameId"
                                         >
                                             Name*
@@ -103,16 +107,15 @@ const DoctorEditModal = (props: {
                                                 required: true,
                                             })}
                                         />
-                                        {errors.name && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
                                         <label
-                                            className="all-label"
+                                            className={
+                                                errors.email
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
                                             htmlFor="emailId"
                                         >
                                             Email*
@@ -125,18 +128,17 @@ const DoctorEditModal = (props: {
                                                 required: true,
                                             })}
                                         />
-                                        {errors.email && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
                                 </div>
 
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
                                         <label
-                                            className="all-label"
+                                            className={
+                                                errors.phone
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
                                             htmlFor="phoneId"
                                         >
                                             Phone*
@@ -150,16 +152,15 @@ const DoctorEditModal = (props: {
                                             placeholder="Phone Number"
                                             defaultValue={doctor.phone}
                                         />
-                                        {errors.phone && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
                                         <label
-                                            className="all-label"
+                                            className={
+                                                errors.specialist
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
                                             htmlFor="deptId"
                                         >
                                             Department*
@@ -198,11 +199,6 @@ const DoctorEditModal = (props: {
                                                 Others
                                             </option>
                                         </select>
-                                        {errors.specialist && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
                                 </div>
                                 <div className="row gx-2">
@@ -238,7 +234,11 @@ const DoctorEditModal = (props: {
 
                                     <div className="col-12 col-lg-6 mb-3">
                                         <label
-                                            className="all-label"
+                                            className={
+                                                errors.gender
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
                                             htmlFor="genId"
                                         >
                                             Gender*
@@ -260,17 +260,16 @@ const DoctorEditModal = (props: {
                                             </option>
                                             <option value="Other">Other</option>
                                         </select>
-                                        {errors.gender && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
                                 </div>
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
                                         <label
-                                            className="all-label"
+                                            className={
+                                                errors.experience
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
                                             htmlFor="expId"
                                         >
                                             Experience*
@@ -298,16 +297,15 @@ const DoctorEditModal = (props: {
                                             <option value={4.5}>4.5</option>
                                             <option value={5}>5</option>
                                         </select>
-                                        {errors.experience && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
                                         <label
-                                            className="all-label"
+                                            className={
+                                                errors.visit
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
                                             htmlFor="visId"
                                         >
                                             Visit Count*
@@ -322,14 +320,16 @@ const DoctorEditModal = (props: {
                                             placeholder="Total Visit Count"
                                             defaultValue={doctor.visit}
                                         />
-                                        {errors.visit && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
                                 </div>
-                                <label className="all-label" htmlFor="imgId">
+                                <label
+                                    className={
+                                        errors.img
+                                            ? "all-label fw-bold text-danger"
+                                            : "all-label"
+                                    }
+                                    htmlFor="imgId"
+                                >
                                     Image URL*
                                 </label>
                                 <input
@@ -341,9 +341,6 @@ const DoctorEditModal = (props: {
                                     placeholder="Put Your Image URL Here..."
                                     defaultValue={doctor.img}
                                 />
-                                {errors.img && (
-                                    <span className="fw-bold">*Required</span>
-                                )}
                                 <button
                                     className="btn btn-outline-info fw-bold"
                                     type="submit"
