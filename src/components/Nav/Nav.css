@@ -1,3 +1,6 @@
+li {
+    margin-right: 10px;
+}
 .dropbtn {
     color: black;
     font-size: 30px;
@@ -7,15 +10,9 @@
 }
 
 .dropbtn-more {
-    color: rgb(98, 89, 89) !important;
-    border: none;
     cursor: pointer;
-    border-radius: 20px;
 }
 
-.dropbtn-more:hover {
-    color: black !important;
-}
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
@@ -26,8 +23,10 @@
 .dropdown-content {
     display: none;
     position: absolute;
+    top: 40px;
+    right: 0px;
     background-color: #f9f9f9;
-    min-width: 150px;
+    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 100;
 }

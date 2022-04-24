@@ -6,11 +6,14 @@
         #5a98f2 82.96%
     ) !important;
     padding: 15px 10px;
-    height: calc(100vh - 65px);
+    height: calc(100vh - 0px);
     overflow-y: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
     user-select: none;
+    /* position: fixed; */
+    z-index: 10;
+    box-shadow: 0 0 3px #ddd;
 }
 
 .sidebar::-webkit-scrollbar {

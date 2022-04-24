@@ -5,25 +5,28 @@ import Review from "../../components/Review/Review";
 import HomeGallery from "../../components/HomeGallery/HomeGallery";
 import Services from "../../components/Services/Services";
 import Banner from "../../components/Banner/Banner";
+import MapDirection from "../../components/MapDirection/MapDirection";
 
 const Home = () => {
- 
-  return (
-    <>
-      <Banner></Banner>
+    return (
+        <>
+            <Banner></Banner>
 
-      <Services></Services>
+            <Services></Services>
 
-      <HealthCareProvider></HealthCareProvider>
+            <HealthCareProvider></HealthCareProvider>
 
-      <Review></Review>
+            <Review></Review>
 
-      <HomeGallery></HomeGallery>
+            <HomeGallery></HomeGallery>
 
-      <Articles></Articles>
-     
-    </>
-  );
+            <div className="py-5 ">
+                <MapDirection></MapDirection>
+            </div>
+
+            <Articles></Articles>
+        </>
+    );
 };
 
 export default Home;

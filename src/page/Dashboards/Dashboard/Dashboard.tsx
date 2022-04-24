@@ -34,7 +34,7 @@ const Dashboard = () => {
                 <Header
                     drawerTogglerClickHandler={drawerTogglerClickHandler}
                 ></Header>
-                <div className="main-content">
+                <div className="container">
                     <div>
                         <Outlet />
                     </div>

@@ -137,5 +137,7 @@ hr{
     .img-start{
         justify-content: left !important;
     }
-    
+    .hover-container div{
+        display: none;
+    }
 }

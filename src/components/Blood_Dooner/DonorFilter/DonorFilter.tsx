@@ -166,6 +166,5 @@ const DonorFilter = () => {
             </section>
         </>
     );
-};
-
+}
 export default DonorFilter;
