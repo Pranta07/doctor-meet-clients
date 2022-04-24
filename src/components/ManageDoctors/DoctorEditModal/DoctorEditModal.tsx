@@ -89,39 +89,62 @@ const DoctorEditModal = (props: {
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6">
+                                        <label
+                                            className={
+                                                errors.name
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
+                                            htmlFor="nameId"
+                                        >
+                                            Name*
+                                        </label>
                                         <input
+                                            id="nameId"
                                             className="form-control border-info mb-3"
                                             defaultValue={doctor.name}
                                             {...register("name", {
                                                 required: true,
                                             })}
                                         />
-                                        {errors.name && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className={
+                                                errors.email
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
+                                            htmlFor="emailId"
+                                        >
+                                            Email*
+                                        </label>
                                         <input
+                                            id="emailId"
                                             className="form-control border-info"
                                             defaultValue={doctor.email}
                                             {...register("email", {
                                                 required: true,
                                             })}
                                         />
-                                        {errors.email && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
                                 </div>
 
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className={
+                                                errors.phone
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
+                                            htmlFor="phoneId"
+                                        >
+                                            Phone*
+                                        </label>
                                         <input
+                                            id="phoneId"
                                             className="form-control border-info"
                                             {...register("phone", {
                                                 required: true,
@@ -129,15 +152,21 @@ const DoctorEditModal = (props: {
                                             placeholder="Phone Number"
                                             defaultValue={doctor.phone}
                                         />
-                                        {errors.phone && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className={
+                                                errors.specialist
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
+                                            htmlFor="deptId"
+                                        >
+                                            Department*
+                                        </label>
                                         <select
+                                            id="deptId"
                                             {...register("specialist", {
                                                 required: true,
                                             })}
@@ -170,16 +199,18 @@ const DoctorEditModal = (props: {
                                                 Others
                                             </option>
                                         </select>
-                                        {errors.specialist && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
                                 </div>
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className="all-label"
+                                            htmlFor="ratId"
+                                        >
+                                            Rating
+                                        </label>
                                         <select
+                                            id="ratId"
                                             {...register("review")}
                                             className="form-select border-info"
                                             defaultValue={doctor.review}
@@ -202,7 +233,18 @@ const DoctorEditModal = (props: {
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className={
+                                                errors.gender
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
+                                            htmlFor="genId"
+                                        >
+                                            Gender*
+                                        </label>
                                         <select
+                                            id="genId"
                                             className="form-select border-info"
                                             {...register("gender", {
                                                 required: true,
@@ -218,16 +260,22 @@ const DoctorEditModal = (props: {
                                             </option>
                                             <option value="Other">Other</option>
                                         </select>
-                                        {errors.gender && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
                                 </div>
                                 <div className="row gx-2">
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className={
+                                                errors.experience
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
+                                            htmlFor="expId"
+                                        >
+                                            Experience*
+                                        </label>
                                         <select
+                                            id="expId"
                                             {...register("experience", {
                                                 required: true,
                                             })}
@@ -249,15 +297,21 @@ const DoctorEditModal = (props: {
                                             <option value={4.5}>4.5</option>
                                             <option value={5}>5</option>
                                         </select>
-                                        {errors.experience && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
 
                                     <div className="col-12 col-lg-6 mb-3">
+                                        <label
+                                            className={
+                                                errors.visit
+                                                    ? "all-label fw-bold text-danger"
+                                                    : "all-label"
+                                            }
+                                            htmlFor="visId"
+                                        >
+                                            Visit Count*
+                                        </label>
                                         <input
+                                            id="visId"
                                             type="number"
                                             className="form-control border-info mb-3"
                                             {...register("visit", {
@@ -266,14 +320,20 @@ const DoctorEditModal = (props: {
                                             placeholder="Total Visit Count"
                                             defaultValue={doctor.visit}
                                         />
-                                        {errors.visit && (
-                                            <span className="fw-bold">
-                                                *Required
-                                            </span>
-                                        )}
                                     </div>
                                 </div>
+                                <label
+                                    className={
+                                        errors.img
+                                            ? "all-label fw-bold text-danger"
+                                            : "all-label"
+                                    }
+                                    htmlFor="imgId"
+                                >
+                                    Image URL*
+                                </label>
                                 <input
+                                    id="imgId"
                                     className="form-control border-info mb-3"
                                     {...register("img", {
                                         required: true,
@@ -281,9 +341,6 @@ const DoctorEditModal = (props: {
                                     placeholder="Put Your Image URL Here..."
                                     defaultValue={doctor.img}
                                 />
-                                {errors.img && (
-                                    <span className="fw-bold">*Required</span>
-                                )}
                                 <button
                                     className="btn btn-outline-info fw-bold"
                                     type="submit"

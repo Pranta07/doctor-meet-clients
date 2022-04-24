@@ -76,6 +76,7 @@ const SingleRowData = (props: {
                         value={doctor?.review}
                         readOnly
                         size="small"
+                        precision={0.5}
                     />
                 </TableCell>
                 <TableCell align="left">{doctor?.visit}</TableCell>
