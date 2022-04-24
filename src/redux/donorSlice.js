@@ -39,6 +39,5 @@ const donorSlice = createSlice({
 });
 
 export const { addDonor, removeDonor } = donorSlice.actions;
-
 export default donorSlice.reducer;
 

@@ -19,7 +19,7 @@ import pharma_text_7 from "../../../Assets/Pharmecy/banner-11-text.png";
 import pharma_text_8 from "../../../Assets/Pharmecy/banner-12-text.png";
 import Phamecy_Card_slider from "../Pharmecy_Card_Slider/Pharmecy_Card_Slider";
 import Pharmecy_Best_Product from "../Pharmecy_Best_Product/Pharmecy_Best_Product";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export interface productsType {
   Sku: string;
@@ -69,7 +69,7 @@ const Pharmecy_Products = () => {
       </div>
       <div className="row">
         <div className="col-lg-4 mt-4 col-md-6 ">
-          <NavLink to="/shop">
+          <Link to="/shop">
             <div className="ts-banner-image left-center ">
               <div className="image-link img-hover-zoom">
                 <img className="img-fluid img bg-img" src={Pharma_3} alt="" />
@@ -80,10 +80,10 @@ const Pharmecy_Products = () => {
                 />
               </div>
             </div>
-          </NavLink>
+          </Link>
         </div>
         <div className="col-lg-4 mt-4 col-md-6">
-          <NavLink to="/shop">
+          <Link to="/shop">
             <div className="ts-banner-image left-center ">
               <div className="image-link img-hover-zoom">
                 <img className="img-fluid img bg-img" src={Pharma_4} alt="" />
@@ -94,10 +94,10 @@ const Pharmecy_Products = () => {
                 />
               </div>
             </div>
-          </NavLink>
+          </Link>
         </div>
         <div className="col-lg-4 mt-4 col-md-12 ">
-          <NavLink to="/shop">
+          <Link to="/shop">
             <div className="ts-banner-image left-center ">
               <div className="image-link img-hover-zoom">
                 <img className="img-fluid img bg-img" src={Pharma_5} alt="" />
@@ -108,12 +108,12 @@ const Pharmecy_Products = () => {
                 />
               </div>
             </div>
-          </NavLink>
+          </Link>
         </div>
       </div>
       <div className="row">
         <div className="col-lg-3 mt-4 col-md-6 ">
-          <NavLink to="/shop">
+          <Link to="/shop">
             <div className="ts-banner-image left-center ">
               <div className="image-link img-hover-zoom">
                 <img className="img-fluid img bg-img" src={Pharma_6} alt="" />
@@ -124,10 +124,10 @@ const Pharmecy_Products = () => {
                 />
               </div>
             </div>
-          </NavLink>
+          </Link>
         </div>
         <div className="col-lg-3 mt-4  col-md-6">
-          <NavLink to="/shop">
+          <Link to="/shop">
             <div className="ts-banner-image left-center ">
               <div className="image-link img-hover-zoom">
                 <img className="img-fluid img bg-img" src={Pharma_7} alt="" />
@@ -138,10 +138,10 @@ const Pharmecy_Products = () => {
                 />
               </div>
             </div>
-          </NavLink>
+          </Link>
         </div>
         <div className="col-lg-3 mt-4 col-md-6 ">
-          <NavLink to="/shop">
+          <Link to="/shop">
             <div className="ts-banner-image left-center ">
               <div className="image-link img-hover-zoom">
                 <img className="img-fluid img bg-img" src={Pharma_8} alt="" />
@@ -152,10 +152,10 @@ const Pharmecy_Products = () => {
                 />
               </div>
             </div>
-          </NavLink>
+          </Link>
         </div>
         <div className="col-lg-3 mt-4 col-md-6 ">
-          <NavLink to="/shop">
+          <Link to="/shop">
             <div className="ts-banner-image left-center ">
               <div className="image-link img-hover-zoom">
                 <img className="img-fluid img bg-img" src={Pharma_9} alt="" />
@@ -166,7 +166,7 @@ const Pharmecy_Products = () => {
                 />
               </div>
             </div>
-          </NavLink>
+          </Link>
         </div>
       </div>
       <div>

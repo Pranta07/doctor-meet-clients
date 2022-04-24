@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import useFirebase from '../../../firebase/useFirebase/useFirebase';
 import './GetAppointmentForm.css'
 const GetAppointmentForm = () => {
     const {user}=useFirebase();
     const params = useParams();
-    const naviagte=useNavigate();
+    
     const [selectedDoctor, setSelectedDoctor] = useState({});
     const [data,setData]=useState({});
     useEffect(() => {

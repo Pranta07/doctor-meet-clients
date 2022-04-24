@@ -71,9 +71,6 @@ const DashboardHome = () => {
                 <div className="col-lg-6">
                     <PateintGenderDemoGraphic></PateintGenderDemoGraphic>
                 </div>
-
-
-
             </div>
         </div>
     );
