@@ -9,20 +9,22 @@ import "simplebar/src/simplebar.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "react-lazy-load-image-component/src/effects/opacity.css";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
-
 // contexts
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { CartProvider } from "react-use-cart";
+import AuthProvider from "./context/AuthProvider";
 
 ReactDOM.render(
   <React.StrictMode>
       <CartProvider>
-        <ContextProvider>
+      <AuthProvider>
+        {/* <ContextProvider> */}
           <BrowserRouter>
             <App />
           </BrowserRouter>
-        </ContextProvider>
+        {/* </ContextProvider> */}
+        </AuthProvider>
       </CartProvider>
   </React.StrictMode>,
   document.getElementById("root")
