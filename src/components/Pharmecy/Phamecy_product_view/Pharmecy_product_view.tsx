@@ -89,7 +89,7 @@ const Pharmecy_product_view = () => {
       <div className="container">
         <div className="product-div">
           <div className="product-div-left">
-            <div className="img-container">
+            <div className="img-containers">
               {allimg === "" ? (
                 <img src={img1 + ".jpg"} alt="" />
               ) : (

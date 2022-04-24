@@ -58,9 +58,10 @@ function App() {
             <Route path="admin" element={<Admin />} />
             <Route path="allAppointments" element={<AllAppointments />} />
             <Route path="myappointments" element={<MyAppointments />} />
+            <Route path="manageDoctors" element={<ManageDoctors />} />
+            <Route path="manageDonors" element={<ManageDonors />} />
           </Route>
-          <Route path="manageDoctors" element={<ManageDoctors />} />
-          <Route path="manageDonors" element={<ManageDonors />} />
+
           <Route path="/doctors" element={<Doctors />} />
           <Route
             path="/premiumMembership"

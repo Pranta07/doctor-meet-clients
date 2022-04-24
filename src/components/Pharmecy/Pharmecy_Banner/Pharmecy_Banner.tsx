@@ -13,7 +13,7 @@ import pro_3 from "../../../Assets/Pharmecy/herbs.png";
 import pro_4 from "../../../Assets/Pharmecy/capsules.png";
 import pro_5 from "../../../Assets/Pharmecy/prescription.png";
 import pro_6 from "../../../Assets/Pharmecy/drops.png";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Pharmecy_Banner = () => {
   return (
@@ -32,9 +32,9 @@ const Pharmecy_Banner = () => {
                 <del> $29.99 </del>{" "}
               </span>
             </h2>
-            <NavLink style={{textDecoration:'none'}} to="/shop">
+            <Link style={{textDecoration:'none'}} to="/shop">
             <button className=" btn-style mt-3"> Shop Now </button>
-            </NavLink>
+            </Link>
           </div>
         </div>
         <div className="col-lg-4 col-md-5 ">
@@ -50,15 +50,15 @@ const Pharmecy_Banner = () => {
                 <img className="img-fluid" src={pharma_Txt_1} alt="" />
               </span>
             </h2>
-            <NavLink style={{textDecoration:'none'}} to="/shop">
+            <Link style={{textDecoration:'none'}} to="/shop">
               <button className="btn-style btn-style-2">Shop now</button>
-            </NavLink>
+            </Link>
           </div>
         </div>
       </div>
       <div className="row">
         <div className="col-lg-4 mt-4 col-md-4 ">
-        <NavLink style={{textDecoration:'none'}} to="/shop">
+        <Link style={{textDecoration:'none'}} to="/shop">
           <div className="ts-banner-image left-center ">
             <div className="image-link img-hover-zoom">
               <img className="img-fluid img bg-img" src={Pharma_3} alt="" />
@@ -69,10 +69,10 @@ const Pharmecy_Banner = () => {
               />
             </div>
           </div>
-          </NavLink>
+          </Link>
         </div>
         <div className="col-lg-4 mt-4  col-md-4">
-        <NavLink style={{textDecoration:'none'}} to="/shop">
+        <Link style={{textDecoration:'none'}} to="/shop">
           <div className="ts-banner-image left-center ">
             <div className="image-link img-hover-zoom">
               <img className="img-fluid img bg-img" src={Pharma_4} alt="" />
@@ -83,10 +83,10 @@ const Pharmecy_Banner = () => {
               />
             </div>
           </div>
-          </NavLink>
+          </Link>
         </div>
         <div className="col-lg-4 mt-4 col-md-4 ">
-        <NavLink style={{textDecoration:'none'}} to="/shop">
+        <Link style={{textDecoration:'none'}} to="/shop">
           <div className="ts-banner-image left-center ">
             <div className="image-link img-hover-zoom">
               <img className="img-fluid img bg-img" src={Pharma_5} alt="" />
@@ -97,7 +97,7 @@ const Pharmecy_Banner = () => {
               />
             </div>
           </div>
-          </NavLink>
+          </Link>
         </div>
       </div>
       <div>
