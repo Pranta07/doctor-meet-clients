@@ -178,7 +178,8 @@ export default function Router() {
         { path: "about-us", element: <About /> },
         { path: "doctors", element: <Doctors /> },
         { path: "contact-us", element: <Contact /> },
-        { path: "faqs", element: <Faqs /> },
+        { path: "pharmacy", element: <PharmacyHome /> },
+        { path: "covid-portal", element: <CovidPortal /> },
       ],
     },
     { path: "*", element: <Navigate to="/404" replace /> },
@@ -187,6 +188,9 @@ export default function Router() {
 
 // Dashboard
 const PageOne = Loadable(lazy(() => import("../pages/PageOne")));
+const PharmacyHome = Loadable(
+  lazy(() => import("../pages/pharmacy/PharmacyHome"))
+);
 const PageTwo = Loadable(lazy(() => import("../pages/PageTwo")));
 const PageThree = Loadable(lazy(() => import("../pages/PageThree")));
 const PageFour = Loadable(lazy(() => import("../pages/PageFour")));
@@ -200,6 +204,9 @@ const ResetPassword = Loadable(
   lazy(() => import("../pages/auth/ResetPassword"))
 );
 const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
+const CovidPortal = Loadable(
+  lazy(() => import("../pages/covid-portal/CovidPortal"))
+);
 const LastAppoinments = Loadable(
   lazy(
     () =>
