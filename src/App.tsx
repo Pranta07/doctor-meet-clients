@@ -20,7 +20,7 @@ import DashboardHome from "./page/Dashboards/DashboardHome/DashboardHome";
 import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import Profile from "./page/Profile/Profile";
-
+import AuthProvider from "./context/AuthProvider";
 import "./App.css";
 import AppointmentDoctors from "./components/GetAppointmentFolder/AppointmentDoctors/AppointmentDoctors";
 import GetAppointmentForm from "./components/GetAppointmentFolder/GetAppointmentForm/GetAppointmentForm";
@@ -36,6 +36,7 @@ import AllAppointments from "./page/Dashboards/AllAppointments/AllAppointments";
 function App() {
   return (
     <>
+    <AuthProvider>
       <Nav></Nav>
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -82,6 +83,7 @@ function App() {
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer></Footer>
+      </AuthProvider>
     </>
   );
 }
