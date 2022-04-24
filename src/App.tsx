@@ -29,6 +29,7 @@ import PayAppointmentFee from "./components/GetAppointmentFolder/PayAppointmentF
 import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointments";
 import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
 import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pharmecy_all_Product";
+import AllAppointments from "./page/Dashboards/AllAppointments/AllAppointments";
 
 function App() {
   return (
@@ -57,6 +58,8 @@ function App() {
             <Route path="doctors" element={<AllDoctors />} />
             <Route path="favdoc" element={<FavoriteDoctors />} />
             <Route path="admin" element={<Admin />} />
+            <Route path="allAppointments" element={<AllAppointments/>} />
+            <Route path="myappointments" element={<MyAppointments/>} />
           </Route>
           <Route path="/doctors" element={<Doctors />} />
           <Route

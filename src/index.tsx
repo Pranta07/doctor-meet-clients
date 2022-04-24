@@ -9,14 +9,14 @@ import "simplebar/src/simplebar.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "react-lazy-load-image-component/src/effects/opacity.css";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
-
 // contexts
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { CartProvider } from "react-use-cart";
+
 
 ReactDOM.render(
   <React.StrictMode>
+<<<<<<< HEAD
       <CartProvider>
         {/* <ContextProvider> */}
           <BrowserRouter>
@@ -24,6 +24,15 @@ ReactDOM.render(
           </BrowserRouter>
         {/* </ContextProvider> */}
       </CartProvider>
+=======
+      {/* <CartProvider> */}
+        <ContextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ContextProvider>
+      {/* </CartProvider> */}
+>>>>>>> fb4802bde80247d465671c8b782174e7477f7003
   </React.StrictMode>,
   document.getElementById("root")
 );

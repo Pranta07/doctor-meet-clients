@@ -6,7 +6,11 @@ const SocketContext = createContext<any>('');
 
 // const socket = io('http://localhost:5000');
 
+<<<<<<< HEAD
 const socket: Socket = io('http://localhost:8888');
+=======
+const socket: Socket = io('https://doctor-meet.herokuapp.com');
+>>>>>>> fb4802bde80247d465671c8b782174e7477f7003
 
 const ContextProvider = ({ children }: any) => {
   const [callAccepted, setCallAccepted] = useState(false);
