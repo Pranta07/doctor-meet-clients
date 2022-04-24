@@ -11,7 +11,7 @@ import cssStyles from "../../../utils/cssStyles";
 // config
 import { HEADER, NAVBAR } from "../../../config";
 // components
-import Logo from "../../../components/Logo";
+import logo from "../../../assets/img/logo.png";
 import Iconify from "../../../components/Iconify";
 //
 import AccountPopover from "./AccountPopover";
@@ -77,7 +77,7 @@ export default function DashboardHeader({
           px: { lg: 5 },
         }}
       >
-        {isDesktop && verticalLayout && <Logo sx={{ mr: 2.5 }} />}
+        {isDesktop && verticalLayout && <img src={logo} alt="" />}
 
         {!isDesktop && (
           <IconButton

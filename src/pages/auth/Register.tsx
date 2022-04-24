@@ -9,7 +9,7 @@ import useResponsive from "../../hooks/useResponsive";
 import { PATH_AUTH } from "../../routes/paths";
 // components
 import Page from "../../components/Page";
-import Logo from "../../components/Logo";
+import logo from "../../assets/img/logo.png";
 // sections
 // import { RegisterForm } from '../../sections/auth/register';
 
@@ -69,7 +69,7 @@ export default function Register() {
     <Page title="Register">
       <RootStyle>
         <HeaderStyle>
-          <Logo />
+          <img src={logo} alt="" />
           {smUp && (
             <Typography variant="body2" sx={{ mt: { md: -2 } }}>
               Already have an account?{" "}

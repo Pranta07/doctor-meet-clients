@@ -16,7 +16,7 @@ import { PATH_AUTH } from "../../routes/paths";
 import useResponsive from "../../hooks/useResponsive";
 // components
 import Page from "../../components/Page";
-import Logo from "../../components/Logo";
+import logo from "../../assets/img/logo.png";
 // sections
 
 // ----------------------------------------------------------------------
@@ -73,7 +73,7 @@ export default function Login() {
     <Page title="Login">
       <RootStyle>
         <HeaderStyle>
-          <Logo />
+          <img src={logo} alt="" />
           {smUp && (
             <Typography variant="body2" sx={{ mt: { md: -2 } }}>
               Don’t have an account? {""}

@@ -4,7 +4,7 @@ import { m } from "framer-motion";
 import { alpha, styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
 //
-import Logo from "./Logo";
+import logo from "../assets/img/logo.png";
 
 // ----------------------------------------------------------------------
 
@@ -42,7 +42,7 @@ export default function LoadingScreen({ isDashboard, ...other }: any) {
               repeat: Infinity,
             }}
           >
-            <Logo disabledLink sx={{ width: 64, height: 64 }} />
+            <img src={logo} alt="" />
           </m.div>
 
           <Box

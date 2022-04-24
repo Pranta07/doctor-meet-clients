@@ -2,7 +2,8 @@ import { Outlet } from "react-router-dom";
 // @mui
 import { styled } from "@mui/material/styles";
 // components
-import Logo from "../components/Logo";
+import logo from "../assets/img/logo.png";
+import Page404 from "../pages/Page404";
 
 // ----------------------------------------------------------------------
 
@@ -24,8 +25,9 @@ export default function LogoOnlyLayout() {
   return (
     <>
       <HeaderStyle>
-        <Logo />
+        <img src={logo} alt="" />
       </HeaderStyle>
+      <Page404 />
       <Outlet />
     </>
   );

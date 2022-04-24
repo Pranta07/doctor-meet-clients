@@ -19,6 +19,7 @@ import { NavSectionVertical } from "../../../components/nav-section/index";
 import navConfig from "./NavConfig";
 import NavbarAccount from "./NavbarAccount";
 import CollapseButton from "./CollapseButton";
+import logo from "../../../assets/img/logo.png";
 
 // ----------------------------------------------------------------------
 
@@ -87,7 +88,7 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }: any) {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Logo />
+          <img src={logo} alt="" />
 
           {isDesktop && !isCollapse && (
             <CollapseButton

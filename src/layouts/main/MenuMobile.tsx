@@ -21,7 +21,7 @@ import Logo from "../../components/Logo";
 import Iconify from "../../components/Iconify";
 import Scrollbar from "../../components/Scrollbar";
 import { NavSectionVertical } from "../../components/nav-section/index";
-
+import logo from "../../assets/img/logo.png";
 // ----------------------------------------------------------------------
 
 const ListItemStyle: any = styled(ListItemButton)(({ theme }) => ({
@@ -85,7 +85,7 @@ export default function MenuMobile({ isOffset, isHome, navConfig }: any) {
         PaperProps={{ sx: { pb: 5, width: 260 } }}
       >
         <Scrollbar>
-          <Logo sx={{ mx: 2.5, my: 3 }} />
+          <img src={logo} alt="" />
 
           <List disablePadding>
             {navConfig.map((link: any) => (

@@ -137,7 +137,7 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { element: <Navigate to="/dashboard/home" replace />, index: true },
-        { path: "last-appointments", element: <LastAppoinments /> },
+        { path: "home", element: <LastAppoinments /> },
         { path: "one", element: <PageOne /> },
         { path: "two", element: <PageTwo /> },
         { path: "three", element: <PageThree /> },
