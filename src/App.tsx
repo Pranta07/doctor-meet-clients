@@ -33,6 +33,9 @@ import AllAppointments from "./page/Dashboards/AllAppointments/AllAppointments";
 import AuthProvider from "./context/AuthProvider";
 
 function App() {
+
+
+
   return (
     <>
       <AuthProvider>
