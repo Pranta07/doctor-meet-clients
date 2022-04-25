@@ -88,7 +88,7 @@ const DoctorEditModal = (props: {
                         <div id="doctor-reg-box" className="p-5">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="row gx-2">
-                                    <div className="col-12 col-lg-6">
+                                    <div className="col-12 col-lg-6 mb-2">
                                         <label
                                             className={
                                                 errors.name
@@ -109,7 +109,7 @@ const DoctorEditModal = (props: {
                                         />
                                     </div>
 
-                                    <div className="col-12 col-lg-6 mb-3">
+                                    <div className="col-12 col-lg-6 mb-2">
                                         <label
                                             className={
                                                 errors.email
@@ -132,7 +132,7 @@ const DoctorEditModal = (props: {
                                 </div>
 
                                 <div className="row gx-2">
-                                    <div className="col-12 col-lg-6 mb-3">
+                                    <div className="col-12 col-lg-6 mb-2">
                                         <label
                                             className={
                                                 errors.phone
@@ -154,7 +154,7 @@ const DoctorEditModal = (props: {
                                         />
                                     </div>
 
-                                    <div className="col-12 col-lg-6 mb-3">
+                                    <div className="col-12 col-lg-6 mb-2">
                                         <label
                                             className={
                                                 errors.specialist
@@ -202,7 +202,7 @@ const DoctorEditModal = (props: {
                                     </div>
                                 </div>
                                 <div className="row gx-2">
-                                    <div className="col-12 col-lg-6 mb-3">
+                                    <div className="col-12 col-lg-6 mb-2">
                                         <label
                                             className="all-label"
                                             htmlFor="ratId"
@@ -232,7 +232,7 @@ const DoctorEditModal = (props: {
                                         </select>
                                     </div>
 
-                                    <div className="col-12 col-lg-6 mb-3">
+                                    <div className="col-12 col-lg-6 mb-2">
                                         <label
                                             className={
                                                 errors.gender
@@ -263,7 +263,7 @@ const DoctorEditModal = (props: {
                                     </div>
                                 </div>
                                 <div className="row gx-2">
-                                    <div className="col-12 col-lg-6 mb-3">
+                                    <div className="col-12 col-lg-6 mb-2">
                                         <label
                                             className={
                                                 errors.experience
@@ -299,7 +299,7 @@ const DoctorEditModal = (props: {
                                         </select>
                                     </div>
 
-                                    <div className="col-12 col-lg-6 mb-3">
+                                    <div className="col-12 col-lg-6 mb-2">
                                         <label
                                             className={
                                                 errors.visit
@@ -334,7 +334,7 @@ const DoctorEditModal = (props: {
                                 </label>
                                 <input
                                     id="imgId"
-                                    className="form-control border-info mb-3"
+                                    className="form-control border-info mb-4"
                                     {...register("img", {
                                         required: true,
                                     })}

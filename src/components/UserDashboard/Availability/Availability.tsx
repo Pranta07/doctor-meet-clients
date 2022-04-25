@@ -1,7 +1,18 @@
 import React from "react";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
 import "./Availability.css";
 
-const Availability = () => {
+const Availability = (props: any) => {
+    const { av, setAv, setPage } = props;
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setAv((event.target as HTMLInputElement).value);
+        setPage(1);
+    };
+
     return (
         <div className="my-5 border rounded-3">
             <h5
@@ -15,9 +26,28 @@ const Availability = () => {
             >
                 Appointment Availability
             </h5>
-            <div className="av p-4">
-                <p>Free doctors only</p>
-                <p>Available doctors only</p>
+            <div className="p-4">
+                <FormControl>
+                    <RadioGroup
+                        aria-labelledby="availability-radio-buttons-group"
+                        name="controlled-radio-buttons-group"
+                        value={av}
+                        onChange={handleChange}
+                    >
+                        <FormControlLabel
+                            className="label"
+                            value={true}
+                            control={<Radio size="small" />}
+                            label="Free doctors only"
+                        />
+                        <FormControlLabel
+                            className="label"
+                            value={false}
+                            control={<Radio size="small" />}
+                            label="Available doctors only"
+                        />
+                    </RadioGroup>
+                </FormControl>
             </div>
         </div>
     );

@@ -86,7 +86,7 @@ const DonorEditModal = (props: {
                         <div id="donor-reg-box" className="p-5">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="row gx-2">
-                                    <div className="col-12 col-lg-6">
+                                    <div className="col-12 col-lg-6 mb-2">
                                         <label
                                             className={
                                                 errors.name
@@ -267,7 +267,7 @@ const DonorEditModal = (props: {
                                 </label>
                                 <input
                                     id="imgId"
-                                    className="form-control border-danger mb-3"
+                                    className="form-control border-danger mb-4"
                                     {...register("img")}
                                     placeholder="Put Your Image URL Here..."
                                     defaultValue={donor.img}
