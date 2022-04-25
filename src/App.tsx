@@ -33,9 +33,6 @@ import AllAppointments from "./page/Dashboards/AllAppointments/AllAppointments";
 import AuthProvider from "./context/AuthProvider";
 
 function App() {
-
-
-
   return (
     <>
       <AuthProvider>
@@ -56,11 +53,11 @@ function App() {
           <Route path="/shop" element={<Pharmecy_all_Product />} />
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="dashboarHome" element={<DashboardHome />} />
-            <Route path="doctors" element={<AllDoctors />} />
-            <Route path="favdoc" element={<FavoriteDoctors />} />
             <Route path="admin" element={<Admin />} />
             <Route path="allAppointments" element={<AllAppointments />} />
             <Route path="myappointments" element={<MyAppointments />} />
+            <Route path="doctorslist" element={<AllDoctors />} />
+            <Route path="favdoc" element={<FavoriteDoctors />} />
             <Route path="manageDoctors" element={<ManageDoctors />} />
             <Route path="manageDonors" element={<ManageDonors />} />
           </Route>
