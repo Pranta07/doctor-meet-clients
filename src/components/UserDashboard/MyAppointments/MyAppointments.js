@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import useFirebase from '../../../firebase/useFirebase/useFirebase';
-import MyAppointment from '../MyAppointment/MyAppointment';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import useFirebase from "../../../firebase/useFirebase/useFirebase";
+import MyAppointment from "../MyAppointment/MyAppointment";
 
 const MyAppointments = () => {
     const {user}=useFirebase();

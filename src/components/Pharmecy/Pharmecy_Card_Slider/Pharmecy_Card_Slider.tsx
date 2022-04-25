@@ -4,6 +4,7 @@ import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import { Box, Modal } from "@mui/material";
 
+
 let getData = () => {
   let data = localStorage.getItem("item");
   if (data) {
@@ -19,8 +20,8 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width:"60%",
-  height:' 60%',
+  width: "60%",
+  height: ' 60%',
   p: 4,
 };
 
@@ -65,7 +66,9 @@ const Phamecy_Card_slider = (props: any) => {
     else items = [];
 
     const newItems = [...items, props.products];
-    // console.log(newItems);
+  
+      
+    
 
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };

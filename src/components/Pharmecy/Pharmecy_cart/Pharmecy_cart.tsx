@@ -2,9 +2,15 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import "./Pharmecy_cart.css";
+import Pharmecy_cart_single from "./Pharmecy_cart_single";
 
 const Pharmecy_cart = () => {
-  let [count, setCount] = useState(1);
+ let cartTotal=1;
+  const handleChildCartData=(cartData:any)=>{
+    cartTotal=cartTotal+cartData;
+  }
+
+
   let [tax, setTax] = useState(0);
   let [itemData, setItemData] = useState<any[]>([]);
 
@@ -31,19 +37,7 @@ const Pharmecy_cart = () => {
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
 
-  let handleOnClikplus = () => {
-    let total = count + 1;
-    setCount(total);
-  };
 
-  let handleONClickMinas = () => {
-    if (count < 1) {
-      return;
-    } else {
-      let total = count - 1;
-      setCount(total);
-    }
-  };
 
   return (
     <>
@@ -56,48 +50,9 @@ const Pharmecy_cart = () => {
       </div>
       <div className="container position-style my-5">
         <div className="row my-all">
-        <h3> Order </h3>
-          {itemData.map((item) => (
-            <div className="col-lg-8">
-              <div className=" p-3">
-                <div className="d-flex justify-content-between p-4 ">
-                  <div className="d-flex ">
-                    <img
-                      className="img-fluid"
-                      width="60px"
-                      height="60px"
-                      src={item.img1+'.jpg'}
-                      alt=""
-                    />
-                    <p className="my-auto d-block"> {item.name}</p>
-                  </div>
-                  <p className="my-auto d-block">Price: {item.price} </p>
-                  <div>
-                    <div className="btn-group me-2">
-                      <button
-                        className="btn fw-bold text-size "
-                        onClick={handleONClickMinas}
-                      >
-                        {" "}
-                        -{" "}
-                      </button>{" "}
-                      <p className="my-auto px-2"> {count} </p>
-                      <button
-                        className="btn fw-bold text-size "
-                        onClick={handleOnClikplus}
-                      >
-                        {" "}
-                        +{" "}
-                      </button>{" "}
-                      <button onClick={()=>removeDoctor(item._id)} className="btn fw-bold text-danger px-4">
-                        {" "}
-                        <FontAwesomeIcon icon={faTrashCan} />{" "}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <h3> Order </h3>
+          {itemData.map((item, index) => (<Pharmecy_cart_single item={item} index={index} removeDoctor={removeDoctor} handleChildCartData={handleChildCartData}></Pharmecy_cart_single>
+
           ))}
           <div className="col-lg-4 position-set">
             <div className="box-shadow p-3">
@@ -111,7 +66,7 @@ const Pharmecy_cart = () => {
                   <p> Total Amount </p>
                 </div>
                 <div className="">
-                  <p> {count} </p>
+                  <p> {cartTotal} </p>
                   <p> $299 </p>
                   <p> ${tax} </p>
                   <p> $309 </p>

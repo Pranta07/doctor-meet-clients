@@ -1,10 +1,10 @@
-.av p {
+.label {
     font-size: 15px;
     color: rgb(97, 97, 97);
     letter-spacing: 1px;
     font-weight: 600;
 }
-.av p:hover {
+.label:hover {
     cursor: pointer;
     color: #40a1be;
     letter-spacing: 1px;

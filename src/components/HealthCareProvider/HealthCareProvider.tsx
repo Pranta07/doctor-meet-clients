@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import HealthCareProviderImg from '../../Assets/HealthCareProvider/HealthCareProvider.png';
+import HealthCareProviderImg from "../../Assets/HealthCareProvider/HealthCareProvider.png";
 import './HealthCareProvider.css';
 
 const HealthCareProvider = () => {
@@ -9,7 +9,7 @@ const HealthCareProvider = () => {
       <Container>
         <div className="row d-flex justify-content-center align-items-center">
           <div className="col-lg-6 col-12 img-container mb-3">
-            <img src={HealthCareProviderImg} alt="" />
+            <img className='img-fluid' src={HealthCareProviderImg} alt="" />
           </div>
           <div className="col-lg-6 col-12 text-start ps-5">
             <div className="d-flex flex-column">

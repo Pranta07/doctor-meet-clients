@@ -18,11 +18,11 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width:"60%",
-  height:' 60%',
+  width: "60%",
+  height: ' 60%',
   p: 4,
 };
-const Pharmecy_Best_Product = (props:any) => {
+const Pharmecy_Best_Product = (props: any) => {
   let [itemData, setItemData] = useState(getData());
   let [count, setCount] = useState(1);
 

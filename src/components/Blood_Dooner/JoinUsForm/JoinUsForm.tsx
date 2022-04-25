@@ -76,8 +76,19 @@ const JoinUsForm = (props: any) => {
                             <div id="donor-reg-box" className="p-5">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="row gx-2">
-                                        <div className="col-12 col-lg-6">
+                                        <div className="col-12 col-lg-6 mb-2">
+                                            <label
+                                                className={
+                                                    errors.name
+                                                        ? "all-label fw-bold text-danger"
+                                                        : "all-label"
+                                                }
+                                                htmlFor="nameId"
+                                            >
+                                                Name*
+                                            </label>
                                             <input
+                                                id="nameId"
                                                 className="form-control border-danger mb-3"
                                                 defaultValue={
                                                     user?.displayName || ""
@@ -86,46 +97,65 @@ const JoinUsForm = (props: any) => {
                                                     required: true,
                                                 })}
                                             />
-                                            {errors.name && (
-                                                <span className="fw-bold">
-                                                    *Required
-                                                </span>
-                                            )}
                                         </div>
 
-                                        <div className="col-12 col-lg-6 mb-3">
+                                        <div className="col-12 col-lg-6 mb-2">
+                                            <label
+                                                className={
+                                                    errors.email
+                                                        ? "all-label fw-bold text-danger"
+                                                        : "all-label"
+                                                }
+                                                htmlFor="emailId"
+                                            >
+                                                Email*
+                                            </label>
                                             <input
+                                                id="emailId"
                                                 className="form-control border-danger"
                                                 defaultValue={user?.email || ""}
                                                 {...register("email", {
                                                     required: true,
                                                 })}
                                             />
-                                            {errors.email && (
-                                                <span className="fw-bold">
-                                                    *Required
-                                                </span>
-                                            )}
                                         </div>
                                     </div>
 
                                     <div className="row gx-2">
-                                        <div className="col-12 col-lg-6 mb-3">
+                                        <div className="col-12 col-lg-6 mb-2">
+                                            <label
+                                                className={
+                                                    errors.phone
+                                                        ? "all-label fw-bold text-danger"
+                                                        : "all-label"
+                                                }
+                                                htmlFor="phoneId"
+                                            >
+                                                Phone*
+                                            </label>
                                             <input
+                                                id="phoneId"
                                                 className="form-control border-danger"
                                                 {...register("phone", {
                                                     required: true,
                                                 })}
                                                 placeholder="Phone Number"
                                             />
-                                            {errors.phone && (
-                                                <span className="fw-bold">
-                                                    *Required
-                                                </span>
-                                            )}
                                         </div>
-                                        <div className="col-12 col-lg-6 mb-3">
+
+                                        <div className="col-12 col-lg-6 mb-2">
+                                            <label
+                                                className={
+                                                    errors.group
+                                                        ? "all-label fw-bold text-danger"
+                                                        : "all-label"
+                                                }
+                                                htmlFor="groupId"
+                                            >
+                                                Blood Group*
+                                            </label>
                                             <select
+                                                id="groupId"
                                                 {...register("group", {
                                                     required: true,
                                                 })}
@@ -143,16 +173,23 @@ const JoinUsForm = (props: any) => {
                                                 <option value="AB+">AB+</option>
                                                 <option value="AB-">AB-</option>
                                             </select>
-                                            {errors.group && (
-                                                <span className="fw-bold">
-                                                    *Required
-                                                </span>
-                                            )}
                                         </div>
                                     </div>
+
                                     <div className="row gx-2">
-                                        <div className="col-12 col-lg-6 mb-3">
+                                        <div className="col-12 col-lg-6 mb-2">
+                                            <label
+                                                className={
+                                                    errors.district
+                                                        ? "all-label fw-bold text-danger"
+                                                        : "all-label"
+                                                }
+                                                htmlFor="disId"
+                                            >
+                                                District*
+                                            </label>
                                             <select
+                                                id="disId"
                                                 {...register("district", {
                                                     required: true,
                                                 })}
@@ -183,14 +220,17 @@ const JoinUsForm = (props: any) => {
                                                     Sylhet
                                                 </option>
                                             </select>
-                                            {errors.district && (
-                                                <span className="fw-bold">
-                                                    *Required
-                                                </span>
-                                            )}
                                         </div>
-                                        <div className="col-12 col-lg-6 mb-3">
+
+                                        <div className="col-12 col-lg-6 mb-2">
+                                            <label
+                                                className="all-label"
+                                                htmlFor="genId"
+                                            >
+                                                Gender
+                                            </label>
                                             <select
+                                                id="genId"
                                                 className="form-select border-danger"
                                                 {...register("gender")}
                                             >
@@ -209,8 +249,14 @@ const JoinUsForm = (props: any) => {
                                             </select>
                                         </div>
                                     </div>
+                                    <label
+                                        className="all-label"
+                                        htmlFor="disId"
+                                    >
+                                        Image URL
+                                    </label>
                                     <input
-                                        className="form-control border-danger mb-3"
+                                        className="form-control border-danger mb-4"
                                         {...register("img")}
                                         placeholder="Put Your Image URL Here..."
                                     />
