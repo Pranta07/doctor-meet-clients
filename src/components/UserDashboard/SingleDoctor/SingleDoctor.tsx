@@ -10,24 +10,11 @@ import { Rating } from "react-simple-star-rating";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "./SingleDoctor.css";
-
-interface doctorData {
-    _id: string;
-    name: string;
-    email: string;
-    img: string;
-    specialist: string;
-    review: number;
-    address: {
-        city: string;
-        suite: string;
-        street: string;
-    };
-}
+import { Idoctor } from "../FavoriteDoctors/FavoriteDoctors";
 
 interface Iprops {
     key: string;
-    doctor: doctorData;
+    doctor: Idoctor;
     remove: boolean;
     setRemove: (value: boolean) => void;
 }

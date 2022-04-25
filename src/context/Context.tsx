@@ -1,12 +1,13 @@
 import React, { createContext, useEffect, useRef, useState } from 'react';
 import Peer from 'simple-peer';
 import { io, Socket } from 'socket.io-client';
-
+// "build": "react-scripts build",
+        // "test": "react-scripts test",
 const SocketContext = createContext<any>('');
 
 // const socket = io('http://localhost:5000');
 
-const socket: Socket = io('https://doctor-meet.herokuapp.com/');
+const socket: Socket = io('https://doctor-meet.herokuapp.com');
 
 const ContextProvider = ({ children }: any) => {
   const [callAccepted, setCallAccepted] = useState(false);
@@ -22,7 +23,7 @@ const ContextProvider = ({ children }: any) => {
 
   useEffect(() => {
     navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
+      ?.getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);
 
@@ -110,3 +111,4 @@ const ContextProvider = ({ children }: any) => {
 };
 
 export { ContextProvider, SocketContext };
+

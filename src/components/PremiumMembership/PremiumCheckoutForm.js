@@ -36,7 +36,11 @@ const PremiumCheckoutForm = ({choosenCategory}) => {
       console.log('[error]', error);
     } else {
       console.log('[PaymentMethod]', paymentMethod);
+      if(paymentMethod.id){
+        console.log("Payment is Successful");
+      }
     }
+
   };
     return (
         <form onSubmit={handleSubmit} className="mt-5">

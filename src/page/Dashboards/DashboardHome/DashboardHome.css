@@ -1,3 +1,7 @@
+.DashboardHome {
+    padding: 0px 20px;
+}
+
 .dashboarCommonDivStyle {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     border-radius: 8px;
@@ -12,6 +16,16 @@
 @media only screen and (max-width: 600px) {
     .dashboarCommonDivStyle {
         margin: 10px auto;
+    }
+
+
+
+}
+
+
+@media (min-width: 601px) and (max-width: 1000px) {
+    .dashboarCommonDivStyle {
+        margin: 20px auto;
     }
 
 

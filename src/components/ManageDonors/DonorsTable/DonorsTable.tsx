@@ -89,7 +89,7 @@ const DonorsTable = () => {
 
                     {donors?.length === 0 && !loading ? (
                         <Typography variant="h3" sx={{ my: 2 }}>
-                            No Orders Done Yet!
+                            No Donors Added Yet!
                         </Typography>
                     ) : (
                         <>

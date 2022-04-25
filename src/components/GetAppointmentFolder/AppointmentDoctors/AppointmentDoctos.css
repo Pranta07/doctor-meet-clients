@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Oswald&family=Source+Sans+Pro&display=swap');
+.appointment-title{
+    font-family: 'Oswald', sans-serif;
+
+}
+.appointment-doctor-info{
+    font-size: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.btn-get-appointment {background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%)}
+.btn-get-appointment {
+   margin: 0px auto;
+   padding: 10px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border:0px;
+   font-family: 'Merriweather', serif;
+   
+   border-radius: 40px;
+   display: block;
+ }
+
+ .btn-get-appointment:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
