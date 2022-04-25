@@ -1,0 +1,13 @@
+.about-img:hover {
+    transform: scale(1.1);
+    transition: all 0.4s ease-in-out;
+}
+.service-item {
+    letter-spacing: 1px;
+}
+.service-item:hover {
+    padding: 10px;
+    color: white;
+    background-color: rgb(99, 198, 231);
+    transition: 0.3s ease-in-out;
+}

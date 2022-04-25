@@ -1,0 +1,24 @@
+.box-shadow{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.hr-style{
+    height: 2px !important;
+}
+.line-h{
+    line-height: 34px;
+}
+
+.position-set{
+    position:absolute;
+    top: 0px;
+    right: 16px;
+    
+}
+.position-style{
+    position: relative;
+}
+
+.my-all{
+    margin-bottom: 350px;
+}

@@ -1,0 +1,143 @@
+.hover-container{
+    display: flex;
+    align-items: center;
+
+}
+.min-wrapper{
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-div-left{
+    padding:20px ;
+}
+.product-div-right{
+    padding: 20px;
+}
+.product-div{
+    margin: 1rem 0;
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    background-color: white;
+    border-radius: 3px;
+    column-gap: 10px;
+}
+.img-containers img{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.hover-container div{
+    border: 2px solid rgb(196, 192, 192);
+    padding: 1rem;
+    border-radius: 3px;
+    margin: 0 4px 8px 4px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hover-container div:hover{
+    border-color: black !important;
+}
+
+.hover-container div:focus{
+    border-color: black !important;
+
+}
+
+.hover-container div img{
+    width: 50px;
+    cursor: pointer;
+}
+
+.product-div-right{
+    display: block;
+
+}
+/* .product-name{
+    font-size: 26px;
+    margin-bottom: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.9;
+} */
+
+.product-price{
+    font-weight: 700;
+    font-size: 24px;
+    opacity: 0.9;
+    font-weight: 500;
+    margin-top: 40px;
+}
+.img-container{
+    opacity: 1;
+    margin-left: 5%;
+    transition: 0.5s ease;
+}
+.btn-style-count{
+    background-color: rgb(216, 210, 210);
+    border-radius: 50px;
+    padding: 3px 15px;
+}
+
+
+.text-size{
+    font-size: 20px;
+}
+.text-color-for-p{
+    color: rgb(151, 143, 143);
+    line-height:30px;
+    width: 80%;
+    padding: 10px;
+}
+.color-h1{
+    color: rgb(92, 87, 87);
+}
+.stock-style {
+    background: #48e477;
+    color: #ffffff;
+    border-radius: 42px;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: bold;
+    width: 60px;
+}
+.out-style{
+    background: #d44c4c;
+    color: #ffffff;
+    border-radius: 42px;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: bold;
+    width: 80px; 
+}
+.fw-for-ul-p{
+    font-weight: 500;
+}
+.border-left-for-ad{
+    border-right: 1px solid rgb(212, 206, 206);
+}
+hr{
+    margin: 0 !important;
+}
+
+@media screen and (max-width:992px) {
+    .product-div{
+        grid-template-columns: 100%;
+    }
+    .product-div-right{
+        text-align: left;
+    }
+    .img-start{
+        justify-content: left !important;
+    }
+    .hover-container div{
+        display: none;
+    }
+}
