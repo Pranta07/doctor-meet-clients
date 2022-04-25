@@ -32,9 +32,9 @@ const About = () => {
                 {" > "} <span> About Us </span>
             </div>
 
-            <div className="container mx-auto">
-                <div className="row g-5">
-                    <div className="col-12 col-lg-8">
+            <div className="container mx-auto text-left">
+                <div className="row">
+                    <div className="col-12 col-lg-8 mt-5">
                         <div className="bg-white border rounded-3 p-4">
                             <div className="overflow-hidden about-img">
                                 <img src={aboutImg} alt="" className="w-100" />
@@ -68,7 +68,7 @@ const About = () => {
                     </div>
 
                     {/* services */}
-                    <div className="col-12 col-lg-4 text-left">
+                    <div className="col-12 col-lg-4 mt-5 px-4">
                         <h1
                             className="fs-3 border-bottom border-2 pb-3 mb-3 rounded"
                             style={{ letterSpacing: "1px" }}
