@@ -47,7 +47,7 @@ const ContactUs = () => {
                     {" "}
                     <NavLink to="/">Home</NavLink>{" "}
                 </span>{" "}
-                <span> {">"} </span> <span> Contact us </span>
+                <span> {">"} </span> <span> Contact Us </span>
             </div>
             <Container>
                 <div className="p-3">
