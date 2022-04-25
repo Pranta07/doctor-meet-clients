@@ -3,12 +3,12 @@ import { Table } from "react-bootstrap";
 import AllAppointment from "../AllAppointment/AllAppointment";
 
 const AllAppointments = () => {
-    const [appointments, setAppointments] = useState([]);
-    useEffect(() => {
-        fetch("http://localhost:5000/allAppointments")
-            .then((res) => res.json())
-            .then((data) => setAppointments(data));
-    }, []);
+    const [appointments,setAppointments]=useState([]);
+    useEffect(()=>{
+        fetch("https://doctor-meet-appointment-server.vercel.app/allAppointments")
+        .then(res=>res.json())
+        .then(data=>setAppointments(data))
+    },[])
     return (
         <div>
             <Table>

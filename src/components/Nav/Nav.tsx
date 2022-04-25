@@ -64,7 +64,7 @@ const Nav = () => {
                                     </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/doctors">
+                                    <NavLink className="nav-link" to="/appointmentDoctors">
                                         Find Doctors
                                     </NavLink>
                                 </li>
@@ -98,7 +98,7 @@ const Nav = () => {
                                 <li className="nav-item">
                                     <NavLink
                                         className="nav-link"
-                                        to="/VideoConsultation"
+                                        to="/videoRoute"
                                     >
                                         Virtual Meet
                                     </NavLink>

@@ -1,8 +1,9 @@
-import React from "react";
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useNavigate } from "react-router-dom";
-
-const PayAppointmentFeeFrom = ({ appointment }) => {
+import React from 'react';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useNavigate } from 'react-router-dom';
+import './PayAppointFeeFrom.css';
+const PayAppointmentFeeFrom = ({appointment}) => {
+  
     const stripe = useStripe();
     const elements = useElements();
 
@@ -30,49 +31,44 @@ const PayAppointmentFeeFrom = ({ appointment }) => {
             card,
         });
 
-        if (error) {
-            console.log("[error]", error);
-        } else {
-            console.log("[PaymentMethod]", paymentMethod);
-            if (paymentMethod.id) {
-                fetch(
-                    `http://localhost:5000/allAppointments/${appointment._id}`,
-                    {
-                        method: "PUT",
-                    }
-                )
-                    .then((res) => res.json())
-                    .then((data) => console.log(data));
-            }
-        }
-    };
+    if (error) {
+      console.log('[error]', error);
+    } else {
+      console.log('[PaymentMethod]', paymentMethod);
+      if(paymentMethod.id){
+        fetch(`https://doctor-meet-appointment-server.vercel.app/allAppointments/${appointment._id}`,{
+          method:"PUT"
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
+       
+      }
+    }
+
+  };
     return (
-        <form onSubmit={handleSubmit} className="mt-5">
-            <CardElement
-                options={{
-                    style: {
-                        base: {
-                            fontSize: "16px",
-                            color: "#424770",
-                            "::placeholder": {
-                                color: "#aab7c4",
-                            },
-                        },
-                        invalid: {
-                            color: "#9e2146",
-                        },
-                    },
-                }}
-            />
-            <button
-                type="submit"
-                disabled={!stripe}
-                className="btn btn-danger mt-4"
-            >
-                Pay
-            </button>
-        </form>
-    );
+        <form onSubmit={handleSubmit} className="my-5">
+      <CardElement
+        options={{
+          style: {
+            base: {
+              fontSize: '16px',
+              color: '#424770',
+              '::placeholder': {
+                color: '#aab7c4',
+              },
+            },
+            invalid: {
+              color: '#9e2146',
+            },
+          },
+        }}
+      />
+      <button type="submit" className="appointment-fee-submit-btn" disabled={!stripe}>
+        Pay
+      </button>
+    </form>
+    ); 
 };
 
 export default PayAppointmentFeeFrom;

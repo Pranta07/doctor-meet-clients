@@ -13,17 +13,14 @@ import "react-lazy-load-image-component/src/effects/black-and-white.css";
 // contexts
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { CartProvider } from "react-use-cart";
 
 ReactDOM.render(
   <React.StrictMode>
-      <CartProvider>
-        <ContextProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ContextProvider>
-      </CartProvider>
+    <ContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
