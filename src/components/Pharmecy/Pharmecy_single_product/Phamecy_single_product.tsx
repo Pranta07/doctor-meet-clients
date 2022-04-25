@@ -5,7 +5,7 @@ import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import "../PharmecyProducts/Pharmecy_product.css";
 import "./Pharmecy_single_product.css";
-
+import Swal from 'sweetalert2';
 let getData = () => {
   let data = localStorage.getItem("item");
   if (data) {
@@ -20,8 +20,8 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width:"60%",
-  height:' 60%',
+  width: "60%",
+  height: ' 60%',
   p: 4,
 };
 
@@ -52,7 +52,7 @@ const Phamecy_single_product = (props: any) => {
 
     if (ItemList) {
       const listItems: any[] = JSON.parse(ItemList);
-      const authorId = listItems.find((author) => author._id === _id);
+      const authorId = listItems.find((author) => parseInt(author._id) === parseInt(_id));
     }
   }, [_id]);
 
@@ -65,7 +65,17 @@ const Phamecy_single_product = (props: any) => {
     else items = [];
 
     const newItems = [...items, props.products];
-    // console.log(newItems);
+    if (newItems) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Product Added to Cart',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      
+    }
+      
 
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
