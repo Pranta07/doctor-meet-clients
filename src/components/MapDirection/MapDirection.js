@@ -11,7 +11,7 @@ const MapDirection = () => {
         const map = new mapboxgl.Map({
             container: "map",
             style: "mapbox://styles/mapbox/streets-v11",
-            center: [91.83263, 22.33037],
+            center: [91.8045554, 22.3357173],
             zoom: 13,
         });
 
@@ -21,6 +21,9 @@ const MapDirection = () => {
             }),
             "top-left"
         );
+        /* const marker = new mapboxgl.Marker({ color: "black" })
+            .setLngLat([91.8045554, 22.3357173])
+            .addTo(map); */
     }, []);
     return (
         <div className="">
