@@ -1,6 +1,9 @@
+.doctorImg {
+    transition: transform 1.2s ease;
+}
+
 .doctorImg:hover {
-    transform: scale(1.06);
-    transition: 0.2s ease-in-out;
+    transform: scale(1.1);
 }
 
 .d-name {
