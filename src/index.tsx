@@ -61,18 +61,21 @@ import { SettingsProvider } from "./contexts/SettingsContext";
 import { CollapseDrawerProvider } from "./contexts/CollapseDrawerContext";
 //
 import App from "./App";
+import AuthProvider from "./contexts/AuthProvider";
 
 // ----------------------------------------------------------------------
 
 ReactDOM.render(
-  <HelmetProvider>
-    <SettingsProvider>
-      <CollapseDrawerProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </CollapseDrawerProvider>
-    </SettingsProvider>
-  </HelmetProvider>,
+  <ContextProvider>
+    <HelmetProvider>
+      <SettingsProvider>
+        <CollapseDrawerProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CollapseDrawerProvider>
+      </SettingsProvider>
+    </HelmetProvider>
+  </ContextProvider>,
   document.getElementById("root")
 );

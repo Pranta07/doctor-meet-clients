@@ -33,17 +33,17 @@ const menuConfig = [
           {
             title: "Covid Portal",
             icon: <Iconify icon={"fa6-solid:virus-covid"} {...ICON_SIZE} />,
-            path: PATH_PAGE.about,
+            path: "covid-portal",
           },
           {
             title: "Blood Donors",
             icon: <Iconify icon={"fontisto:blood-drop"} {...ICON_SIZE} />,
-            path: PATH_PAGE.contact,
+            path: "find-donors",
           },
           {
             title: "Pharmacy",
             icon: <Iconify icon={"healthicons:medicines"} {...ICON_SIZE} />,
-            path: PATH_PAGE.doctors,
+            path: "pharmacy",
           },
           {
             title: "Premium Membership",
@@ -53,16 +53,16 @@ const menuConfig = [
                 {...ICON_SIZE}
               />
             ),
-            path: PATH_PAGE.pricing,
+            path: "premium-membership",
           },
         ],
       },
     ],
   },
   {
-    title: "Testimonials",
-    icon: <Iconify icon={"ic:baseline-reviews"} {...ICON_SIZE} />,
-    path: "/testimonials",
+    title: "Virtual Meet",
+    icon: <Iconify icon={"clarity:video-camera-solid"} {...ICON_SIZE} />,
+    path: "/virtual-meet",
   },
   {
     title: "Contact Us",

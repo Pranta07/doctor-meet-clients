@@ -218,12 +218,12 @@ function MenuDesktopItem({
           }}
         >
           <Grid spacing={3}>
-            {children.map((list: any) => {
+            {children.map((list: any, index: number) => {
               const { subheader, items } = list;
 
               return (
                 <Grid
-                  key={subheader}
+                  key={index}
                   item
                   xs={12}
                   md={subheader === "Dashboard" ? 6 : 2}

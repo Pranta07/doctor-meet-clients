@@ -11,6 +11,7 @@ import HomeGallery from "../components/home-gallery/HomeGallery";
 // sections
 import { HomeHero, HomeCleanInterfaces } from "./home/index";
 import Footer from "../components/footer/Footer";
+import MapDirection from "./marged/MapDirection/MapDirection";
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +29,7 @@ const ContentStyle = styled("div")(({ theme }) => ({
 
 export default function HomePage() {
   return (
-    <Page title="The starting point for your next project">
+    <Page title="Home">
       <RootStyle>
         <ContentStyle>
           <HomeHero />
@@ -40,7 +41,9 @@ export default function HomePage() {
           <Review></Review>
 
           <HomeGallery></HomeGallery>
-
+          <div className="py-5 ">
+            <MapDirection></MapDirection>
+          </div>
           <Articles></Articles>
         </ContentStyle>
       </RootStyle>

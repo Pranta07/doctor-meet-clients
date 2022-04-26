@@ -8,10 +8,10 @@ import Page from "../components/Page";
 
 export default function PageThree() {
   return (
-    <Page title="Page Three">
+    <Page title="Pharmacy">
       <Container>
         <Typography variant="h3" component="h1" paragraph>
-          Page Three
+          Pharmacy
         </Typography>
         <Typography gutterBottom>
           Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis,

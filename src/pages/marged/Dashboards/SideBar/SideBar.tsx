@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./SideBar.css";
-import logo from "../../../Assets/img/logo.png";
+import logo from "../../../../assets/img/logo.png";
 
 const SideBar = () => {
   const { pathname } = useLocation();
@@ -48,7 +48,7 @@ const SideBar = () => {
         >
           All Appointments
         </Link>
-        
+
         <Link to="/">Back To Home</Link>
       </div>
     </div>

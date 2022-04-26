@@ -24,7 +24,7 @@ type firebase = {
 };
 
 export const AuthContext = createContext({} as firebase);
-const AuthProvider: FC = ({ children }: any) => {
+const AuthProvider = ({ children }: any) => {
   const allContext = useFirebase();
   return (
     <AuthContext.Provider value={allContext}>{children}</AuthContext.Provider>

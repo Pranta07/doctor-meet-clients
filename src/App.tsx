@@ -130,6 +130,7 @@ import MyAppointments from "./pages/dashboards/user-dashboard/MyAppointments";
 import Router from "./routes/index";
 // theme
 import ThemeProvider from "./theme/index";
+import { ContextProvider } from "./contexts/Context";
 // components
 import ScrollToTop from "./components/ScrollToTop";
 import ThemeColorPresets from "./components/ThemeColorPresets";
@@ -138,18 +139,18 @@ import ThemeColorPresets from "./components/ThemeColorPresets";
 
 export default function App() {
   return (
-    <>
-      <ThemeProvider>
-        {/* <ThemeColorPresets> */}
-        {/* <RtlLayout> */}
+    <ThemeProvider>
+      {/* <ThemeColorPresets> */}
+      {/* <RtlLayout> */}
 
-        {/* <Settings /> */}
+      {/* <Settings /> */}
+      <AuthProvider>
         <ScrollToTop />
         <Router />
+      </AuthProvider>
 
-        {/* </RtlLayout> */}
-        {/* </ThemeColorPresets> */}
-      </ThemeProvider>
-    </>
+      {/* </RtlLayout> */}
+      {/* </ThemeColorPresets> */}
+    </ThemeProvider>
   );
 }

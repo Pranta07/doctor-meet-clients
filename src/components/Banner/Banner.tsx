@@ -1,6 +1,8 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { NavLink } from "react-router-dom";
 import TextAnimation from "../home-banner/TextAnimation";
+import handDrawnMobile from "../../assets/handdrawn-vector-60-removebg-preview (1).png";
 import "./Banner.css";
 
 const Banner = () => {
@@ -16,7 +18,7 @@ const Banner = () => {
               <img
                 className="d-block mx-auto img-fluid carousel-img"
                 style={{ height: "400px" }}
-                src="https://i.ibb.co/gP4vTSD/handdrawn-vector-60.jpg"
+                src={handDrawnMobile}
                 alt="First slide"
               />
             </div>
@@ -34,7 +36,9 @@ const Banner = () => {
                 consultation to those who are affected with Covid-19 Lorem ipsum
                 dolor sit amet consectetur adipisicing elit. Ipsa, ducimus!
               </h4>
-              <button className="btn-consult-banner">Contact Now</button>
+              <button className="btn-consult-banner">
+                <NavLink to="/covid-portal">Explore</NavLink>
+              </button>
             </div>
             <div className="w-50">
               <img
@@ -60,7 +64,9 @@ const Banner = () => {
                 Premium Member
               </h4>
               <button className="btn-consult-banner">
-                Get Premium Membership
+                <NavLink to="/premium-membership">
+                  Get Premium Membership
+                </NavLink>
               </button>
             </div>
 

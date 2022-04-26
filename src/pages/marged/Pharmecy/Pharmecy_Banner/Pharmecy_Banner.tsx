@@ -1,18 +1,18 @@
 import React from "react";
 import "./Pharmecy_Banner.css";
-import Pharma_3 from "../../../Assets/Pharmecy/banner-3-1.jpg";
-import Pharma_4 from "../../../Assets/Pharmecy/banner-4.jpg";
-import Pharma_5 from "../../../Assets/Pharmecy/banner-5-1.jpg";
-import pharma_Txt_1 from "../../../Assets/Pharmecy/heart-rate.png";
-import pharma_text_2 from "../../../Assets/Pharmecy/banner-3-text.png";
-import pharma_text_3 from "../../../Assets/Pharmecy/banner-4-text.png";
-import pharma_text_4 from "../../../Assets/Pharmecy/banner-5-text.png";
-import pro_1 from "../../../Assets/Pharmecy/creams.png";
-import pro_2 from "../../../Assets/Pharmecy/pills.png";
-import pro_3 from "../../../Assets/Pharmecy/herbs.png";
-import pro_4 from "../../../Assets/Pharmecy/capsules.png";
-import pro_5 from "../../../Assets/Pharmecy/prescription.png";
-import pro_6 from "../../../Assets/Pharmecy/drops.png";
+import Pharma_3 from "../../../../assets/pharmacy/banner-3-1.jpg";
+import Pharma_4 from "../../../../assets/pharmacy/banner-4.jpg";
+import Pharma_5 from "../../../../assets/pharmacy/banner-5-1.jpg";
+import pharma_Txt_1 from "../../../../assets/pharmacy/heart-rate.png";
+import pharma_text_2 from "../../../../assets/pharmacy/banner-3-text.png";
+import pharma_text_3 from "../../../../assets/pharmacy/banner-4-text.png";
+import pharma_text_4 from "../../../../assets/pharmacy/banner-5-text.png";
+import pro_1 from "../../../../assets/pharmacy/creams.png";
+import pro_2 from "../../../../assets/pharmacy/pills.png";
+import pro_3 from "../../../../assets/pharmacy/herbs.png";
+import pro_4 from "../../../../assets/pharmacy/capsules.png";
+import pro_5 from "../../../../assets/pharmacy/prescription.png";
+import pro_6 from "../../../../assets/pharmacy/drops.png";
 import { Link } from "react-router-dom";
 
 const Pharmecy_Banner = () => {
@@ -32,8 +32,8 @@ const Pharmecy_Banner = () => {
                 <del> $29.99 </del>{" "}
               </span>
             </h2>
-            <Link style={{textDecoration:'none'}} to="/shop">
-            <button className=" btn-style mt-3"> Shop Now </button>
+            <Link style={{ textDecoration: "none" }} to="/shop">
+              <button className=" btn-style mt-3"> Shop Now </button>
             </Link>
           </div>
         </div>
@@ -50,7 +50,7 @@ const Pharmecy_Banner = () => {
                 <img className="img-fluid" src={pharma_Txt_1} alt="" />
               </span>
             </h2>
-            <Link style={{textDecoration:'none'}} to="/shop">
+            <Link style={{ textDecoration: "none" }} to="/shop">
               <button className="btn-style btn-style-2">Shop now</button>
             </Link>
           </div>
@@ -58,45 +58,45 @@ const Pharmecy_Banner = () => {
       </div>
       <div className="row">
         <div className="col-lg-4 mt-4 col-md-4 ">
-        <Link style={{textDecoration:'none'}} to="/shop">
-          <div className="ts-banner-image left-center ">
-            <div className="image-link img-hover-zoom">
-              <img className="img-fluid img bg-img" src={Pharma_3} alt="" />
-              <img
-                className=" text-image text-fluid"
-                src={pharma_text_2}
-                alt=""
-              />
+          <Link style={{ textDecoration: "none" }} to="/shop">
+            <div className="ts-banner-image left-center ">
+              <div className="image-link img-hover-zoom">
+                <img className="img-fluid img bg-img" src={Pharma_3} alt="" />
+                <img
+                  className=" text-image text-fluid"
+                  src={pharma_text_2}
+                  alt=""
+                />
+              </div>
             </div>
-          </div>
           </Link>
         </div>
         <div className="col-lg-4 mt-4  col-md-4">
-        <Link style={{textDecoration:'none'}} to="/shop">
-          <div className="ts-banner-image left-center ">
-            <div className="image-link img-hover-zoom">
-              <img className="img-fluid img bg-img" src={Pharma_4} alt="" />
-              <img
-                className=" text-image text-fluid "
-                src={pharma_text_3}
-                alt=""
-              />
+          <Link style={{ textDecoration: "none" }} to="/shop">
+            <div className="ts-banner-image left-center ">
+              <div className="image-link img-hover-zoom">
+                <img className="img-fluid img bg-img" src={Pharma_4} alt="" />
+                <img
+                  className=" text-image text-fluid "
+                  src={pharma_text_3}
+                  alt=""
+                />
+              </div>
             </div>
-          </div>
           </Link>
         </div>
         <div className="col-lg-4 mt-4 col-md-4 ">
-        <Link style={{textDecoration:'none'}} to="/shop">
-          <div className="ts-banner-image left-center ">
-            <div className="image-link img-hover-zoom">
-              <img className="img-fluid img bg-img" src={Pharma_5} alt="" />
-              <img
-                className="text-image text-fluid "
-                src={pharma_text_4}
-                alt=""
-              />
+          <Link style={{ textDecoration: "none" }} to="/shop">
+            <div className="ts-banner-image left-center ">
+              <div className="image-link img-hover-zoom">
+                <img className="img-fluid img bg-img" src={Pharma_5} alt="" />
+                <img
+                  className="text-image text-fluid "
+                  src={pharma_text_4}
+                  alt=""
+                />
+              </div>
             </div>
-          </div>
           </Link>
         </div>
       </div>

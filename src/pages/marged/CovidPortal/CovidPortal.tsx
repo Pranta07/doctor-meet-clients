@@ -1,17 +1,33 @@
 import React from "react";
-import Help from "../../components/Covid/CovidHelp/CovidHelp";
-import CovidPreventions from "../../components/Covid/CovidPreventions/CovidPreventions";
-import CovidSymptoms from "../../components/Covid/CovidSymptoms/CovidSymptoms";
-import CovidTop from "../../components/Covid/CovidTop/CovidTop";
+import Help from "../../../components/covid/CovidHelp";
+import CovidPreventions from "../../../components/covid/CovidPreventions";
+import CovidSymptoms from "../../../components/covid/CovidSymptoms";
+import CovidTop from "../../../components/covid/CovidTop";
+// @mui
+import { styled } from "@mui/material/styles";
+// _mock_
+
+// components
+import Page from "../../../components/Page";
+
+// ----------------------------------------------------------------------
+
+const RootStyle = styled("div")(({ theme }) => ({
+  minHeight: "100%",
+  paddingTop: theme.spacing(15),
+  paddingBottom: theme.spacing(10),
+}));
 
 const CovidPortal = () => {
   return (
-    <>
-      <CovidTop></CovidTop>
-      <CovidPreventions></CovidPreventions>
-      <CovidSymptoms></CovidSymptoms>
-      <Help></Help>
-    </>
+    <Page title="Covid Portal">
+      <RootStyle>
+        <CovidTop></CovidTop>
+        <CovidPreventions></CovidPreventions>
+        <CovidSymptoms></CovidSymptoms>
+        <Help></Help>
+      </RootStyle>
+    </Page>
   );
 };
 

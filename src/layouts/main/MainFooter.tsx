@@ -53,9 +53,7 @@ export default function MainFooter() {
   return (
     <RootStyle>
       <Divider />
-      <Container sx={{ pt: 10 }}>
-        <Footer />
-      </Container>
+      <Footer />
     </RootStyle>
   );
 }

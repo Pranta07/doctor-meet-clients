@@ -88,7 +88,7 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }: any) {
           alignItems="center"
           justifyContent="space-between"
         >
-          <img src={logo} alt="" />
+          <Logo />
 
           {isDesktop && !isCollapse && (
             <CollapseButton

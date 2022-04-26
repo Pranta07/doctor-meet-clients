@@ -1,7 +1,7 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 // @mui
 import { styled, useTheme } from "@mui/material/styles";
-import { Box, Button, AppBar, Toolbar, Container } from "@mui/material";
+import { Box, Button, AppBar, Toolbar, Container, Avatar } from "@mui/material";
 // hooks
 import useOffSetTop from "../../hooks/useOffSetTop";
 import useResponsive from "../../hooks/useResponsive";
@@ -16,11 +16,14 @@ import MenuDesktop from "./MenuDesktop";
 import MenuMobile from "./MenuMobile";
 import navConfig from "./MenuConfig";
 import ModePopOver from "../dashboard/header/ModePopOver";
-
+// import login from "../../pages/security/login/Login";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
+import useAuth from "../../hooks/useAuth";
+import AccountPopover from "../dashboard/header/AccountPopover";
+import Logo from "../../components/Logo";
 
 // ----------------------------------------------------------------------
 
@@ -66,6 +69,7 @@ const ToolbarShadowStyle = styled("div")(({ theme }: any) => ({
 // ----------------------------------------------------------------------
 
 export default function MainHeader(props: any) {
+  const { user, logOut } = useAuth();
   const isOffset = useOffSetTop(HEADER.MAIN_DESKTOP_HEIGHT);
 
   const theme = useTheme();
@@ -96,7 +100,7 @@ export default function MainHeader(props: any) {
                 justifyContent: "space-between",
               }}
             >
-              <img src={logo} alt="" />
+              <Logo />
 
               <Box sx={{ flexGrow: 1 }} />
 
@@ -108,14 +112,38 @@ export default function MainHeader(props: any) {
                 />
               )}
 
-              <Button
-                variant="contained"
-                target="_blank"
-                rel="noopener"
-                href="/login"
-              >
-                Login
-              </Button>
+              {user ? (
+                // <div className="dropdown ms-auto">
+                //   <Avatar
+                //     src={user.photoURL || ""}
+                //     alt="user-img"
+                //     sx={{
+                //       backgroundColor: "skyblue",
+                //     }}
+                //   />
+                //   <div className="dropdown-content">
+                //     <p>
+                //       <NavLink to="/profile">Profile</NavLink>
+                //     </p>
+                //     <p>
+                //       <NavLink to="/dashboard/home">Dashboard</NavLink>
+                //     </p>
+                //     <p onClick={logOut}>
+                //       <NavLink to="/">Sign Out </NavLink>
+                //     </p>
+                //   </div>
+                // </div>
+                <AccountPopover />
+              ) : (
+                <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/login">
+                      <Button variant="contained">Login</Button>
+                    </NavLink>
+                  </li>
+                </ul>
+              )}
+
               <ModePopOver />
               {!isDesktop && (
                 <MenuMobile

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import useFirebase from '../../firebase/useFirebase/useFirebase';
 import './GetAppointmentForm.css'
+import Page from "../Page"
 const GetAppointmentForm = () => {
     const {user}=useFirebase();
     const params = useParams();
-    const naviagte = useNavigate();
+    
     const [selectedDoctor, setSelectedDoctor] = useState({});
     const [data,setData]=useState({});
     useEffect(() => {
@@ -52,6 +53,7 @@ const GetAppointmentForm = () => {
         // naviagte(`/payAppointmentFee/${selectedDoctor?.id}`)
     }
     return (
+        <Page title="Get Appointments">
         <div>
             <h1>Enter Your Information Here</h1>
             <form action="" className="getAppointmentForm" onSubmit={submitTheFormOfPatientsInfo} >
@@ -87,6 +89,7 @@ const GetAppointmentForm = () => {
                 <button type="submit" className="btn btn-warning">Submit</button>
             </form>
         </div>
+        </Page>
     );
 };
 

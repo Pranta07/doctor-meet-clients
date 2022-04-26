@@ -12,10 +12,10 @@ import {
   updateProfile,
   User,
   UserCredential,
-} from 'firebase/auth';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import initializationAuth from '../firebase.initialize';
+} from "firebase/auth";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import initializationAuth from "../firebase.initialize";
 
 type firebase = {
   user: User | null;
@@ -41,7 +41,7 @@ type firebase = {
 initializationAuth();
 const useFirebase = (): firebase => {
   const [user, setUser] = useState<User | null>(null);
-  const [message, setMessage] = useState<React.SetStateAction<string>>('');
+  const [message, setMessage] = useState<React.SetStateAction<string>>("");
   const [isLoading, setIsLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
@@ -65,7 +65,7 @@ const useFirebase = (): firebase => {
     updateProfile(auth.currentUser, {
       displayName: Firstname + LastName,
       photoURL:
-        'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
+        "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
     })
       .then(() => {})
       .catch((error) => {
@@ -104,7 +104,7 @@ const useFirebase = (): firebase => {
         setUser(result.user);
         // console.log(history);
         // saveUser(result.user.email, result.user.displayName, "PUT", "customer");
-        nevigate('/');
+        nevigate("/");
       })
       .catch((error) => {
         setMessage(error.message);
@@ -127,8 +127,8 @@ const useFirebase = (): firebase => {
         setUser(result.user);
         // saveUser(email, name, "POST", AccountType);
         setIsLogged(true);
-        nevigate('/');
-        console.log(result, 'jjj');
+        nevigate("/");
+        console.log(result, "jjj");
       })
       .catch((error) => {
         setMessage(error.message);
@@ -143,7 +143,7 @@ const useFirebase = (): firebase => {
         // verification();
         console.log(result);
         setUser(result.user);
-        nevigate('/');
+        nevigate("/");
         setIsLogged(true);
       })
       .catch((error) => {
@@ -157,7 +157,7 @@ const useFirebase = (): firebase => {
   const resetPassword = (email: string) => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        setMessage('check mail.');
+        setMessage("check mail.");
       })
       .catch((error) => {
         setMessage(error.message);
@@ -166,13 +166,13 @@ const useFirebase = (): firebase => {
         setIsLoading(false);
       });
   };
-  
+
   const logOut = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
         setIsLogged(false);
-        setMessage('');
+        setMessage("");
       })
       .catch((error) => {
         setMessage(error.message);

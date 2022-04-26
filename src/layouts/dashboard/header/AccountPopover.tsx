@@ -12,27 +12,28 @@ import {
 } from "@mui/material";
 // components
 import MenuPopover from "../../../components/MenuPopover";
+import useAuth from "../../../hooks/useAuth";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // ----------------------------------------------------------------------
 
 const MENU_OPTIONS = [
   {
-    label: "Home",
-    linkTo: "/",
-  },
-  {
     label: "Profile",
-    linkTo: "/",
+    linkTo: "/profile",
   },
   {
-    label: "Settings",
-    linkTo: "/",
+    label: "Dashboard",
+    linkTo: "/dashboard",
   },
 ];
 
 // ----------------------------------------------------------------------
 
 export default function AccountPopover() {
+  const { user, logOut } = useAuth();
+
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event: any) => {
@@ -51,10 +52,7 @@ export default function AccountPopover() {
           p: 0,
         }}
       >
-        <Avatar
-          src="https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_5.jpg"
-          alt="Rayan Moran"
-        />
+        <Avatar src={user?.photoURL || ""} alt="avatar" />
       </IconButton>
 
       <MenuPopover
@@ -73,24 +71,32 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle2" noWrap>
-            Rayan Moran
+            {user?.displayName}
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
-            rayan.moran@gmail.com
+            {user?.email}
           </Typography>
         </Box>
 
         <Divider sx={{ borderStyle: "dashed" }} />
 
         <Stack sx={{ p: 1 }}>
-          {MENU_OPTIONS.map((option) => (
-            <MenuItem>{option.label}</MenuItem>
+          {MENU_OPTIONS.map((option, index) => (
+            <NavLink
+              key={index}
+              style={{ textDecoration: "none", color: "#637381" }}
+              to={option.linkTo}
+            >
+              <MenuItem>{option.label}</MenuItem>
+            </NavLink>
           ))}
         </Stack>
 
         <Divider sx={{ borderStyle: "dashed" }} />
 
-        <MenuItem sx={{ m: 1 }}>Logout</MenuItem>
+        <MenuItem onClick={logOut} sx={{ m: 1 }}>
+          Logout
+        </MenuItem>
       </MenuPopover>
     </>
   );

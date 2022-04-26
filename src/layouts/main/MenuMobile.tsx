@@ -85,7 +85,7 @@ export default function MenuMobile({ isOffset, isHome, navConfig }: any) {
         PaperProps={{ sx: { pb: 5, width: 260 } }}
       >
         <Scrollbar>
-          <img src={logo} alt="" />
+          <Logo />
 
           <List disablePadding>
             {navConfig.map((link: any) => (
