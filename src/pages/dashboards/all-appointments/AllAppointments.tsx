@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import AllAppointment from "../all-appointment/AllAppointment";
-import Page from "../../Page";
+import Page from "../../../components/Page";
 const AllAppointments = () => {
   const [appointments, setAppointments] = useState([]);
   useEffect(() => {

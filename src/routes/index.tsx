@@ -214,18 +214,15 @@ export default function Router() {
 }
 
 // Dashboard
-const PageOne = Loadable(lazy(() => import("../pages/PageOne")));
+
 const PharmacyHome = Loadable(
   lazy(() => import("../pages/pharmacy-home/PharmacyHome"))
 );
 //const PharmacyHome = Loadable(
-// lazy(() => import("../pages/pharmacy/PharmacyHome")));
-const PageTwo = Loadable(lazy(() => import("../pages/PageTwo")));
+// lazy(() => import("../pages/pharmacy/PharmacyH~ome")));
 
 const PageThree = Loadable(lazy(() => import("../pages/PageThree")));
-const PageFour = Loadable(lazy(() => import("../pages/PageFour")));
-const PageFive = Loadable(lazy(() => import("../pages/PageFive")));
-const PageSix = Loadable(lazy(() => import("../pages/PageSix")));
+
 // const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 // AUTHENTICATION
 const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
@@ -238,7 +235,7 @@ const CovidPortal = Loadable(
   lazy(() => import("../pages/covid-portal/CovidPortal"))
 );
 const DashboardHome = Loadable(
-  lazy(() => import("../components/dashboards/dashboard-home/DashboardHome"))
+  lazy(() => import("../pages/dashboards/dashboard-home/DashboardHome"))
 );
 const AllDoctors = Loadable(
   lazy(() => import("../components/all-doctors/AllDoctors"))
@@ -261,9 +258,7 @@ const GetAppointmentForm = Loadable(
   lazy(() => import("../components/appointment/GetAppointmentForm"))
 );
 const AllAppointments = Loadable(
-  lazy(
-    () => import("../components/dashboards/all-appointments/AllAppointments")
-  )
+  lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
 );
 const FindDonors = Loadable(
   lazy(() => import("../pages/find-donors/FindDonors"))
@@ -356,7 +351,6 @@ const ContactUs = Loadable(
 const Faqs = Loadable(lazy(() => import("../pages/Faqs")));
 const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));
 const Maintenance = Loadable(lazy(() => import("../pages/Maintenance")));
-const Pricing = Loadable(lazy(() => import("../pages/Pricing")));
-const Payment = Loadable(lazy(() => import("../pages/Payment")));
+
 const Page500 = Loadable(lazy(() => import("../pages/Page500")));
 const About = Loadable(lazy(() => import("../pages/about/About")));
