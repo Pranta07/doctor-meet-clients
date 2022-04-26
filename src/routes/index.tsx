@@ -190,13 +190,22 @@ export default function Router() {
         { path: "about-us", element: <About /> },
         { path: "doctors", element: <Doctors /> },
         { path: "contact-us", element: <ContactUs /> },
-        { path: "pharmacy", element: <PharmecyHome /> },
+        { path: "pharmacy", element: <PharmacyHome /> },
         { path: "covid-portal", element: <CovidPortal /> },
         { path: "find-donors", element: <FindDonors /> },
         { path: "premium-membership", element: <PremiumMemberships /> },
         { path: "virtual-meet", element: <VideoChatRoute /> },
         { path: "login", element: <Login /> },
         { path: "profile", element: <Profile /> },
+        { path: "sign-up", element: <Registration /> },
+        { path: "medicine/:id", element: <PharmacyProductView /> },
+        { path: "cart", element: <PharmacyCart /> },
+        { path: "shop", element: <PharmacyAllProduct /> },
+        { path: "premium-payment/:id", element: <PremiumPayment /> },
+        { path: "premium-payment/:id", element: <PremiumPayment /> },
+        { path: "appointment-doctors", element: <AppointmentDoctors /> },
+        { path: "get-appointment-form/:id", element: <GetAppointmentForm /> },
+        { path: "pay-appointment-fee/:id", element: <PayAppointmentFee /> },
         // { path: "virtual-meet#loaded", element: <VideoChatRoute /> },
       ],
     },
@@ -206,8 +215,8 @@ export default function Router() {
 
 // Dashboard
 const PageOne = Loadable(lazy(() => import("../pages/PageOne")));
-const PharmecyHome = Loadable(
-  lazy(() => import("../pages/marged/pharmacy/pharmacy-home/PharmacyHome"))
+const PharmacyHome = Loadable(
+  lazy(() => import("../pages/pharmacy-home/PharmacyHome"))
 );
 //const PharmacyHome = Loadable(
 // lazy(() => import("../pages/pharmacy/PharmacyHome")));
@@ -226,24 +235,24 @@ const ResetPassword = Loadable(
 );
 const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
 const CovidPortal = Loadable(
-  lazy(() => import("../pages/marged/covid-portal/CovidPortal"))
+  lazy(() => import("../pages/covid-portal/CovidPortal"))
 );
 const DashboardHome = Loadable(
-  lazy(() => import("../pages/marged/dashboards/dashboard-home/DashboardHome"))
+  lazy(() => import("../components/dashboards/dashboard-home/DashboardHome"))
 );
 const AllDoctors = Loadable(
-  lazy(() => import("../pages/marged/all-doctors/AllDoctors"))
+  lazy(() => import("../components/all-doctors/AllDoctors"))
 );
 const FavoriteDoctors = Loadable(
-  lazy(() => import("../pages/marged/favourite-doctors/FavoriteDoctors"))
+  lazy(() => import("../components/favourite-doctors/FavoriteDoctors"))
 );
 const ManageDoctors = Loadable(
   lazy(
-    () => import("../pages/marged/manage-doctors/manage-doctors/ManageDoctors")
+    () => import("../components/manage-doctors/manage-doctors/ManageDoctors")
   )
 );
 const ManageDonors = Loadable(
-  lazy(() => import("../pages/marged/manage-donors/manage-donors/ManageDonors"))
+  lazy(() => import("../components/manage-donors/manage-donors/ManageDonors"))
 );
 const MyAppointments = Loadable(
   lazy(() => import("../components/appointment/MyAppointments"))
@@ -253,23 +262,51 @@ const GetAppointmentForm = Loadable(
 );
 const AllAppointments = Loadable(
   lazy(
-    () => import("../pages/marged/dashboards/all-appointments/AllAppointments")
+    () => import("../components/dashboards/all-appointments/AllAppointments")
   )
 );
 const FindDonors = Loadable(
-  lazy(() => import("../pages/marged/find-donors/FindDonors"))
+  lazy(() => import("../pages/find-donors/FindDonors"))
 );
 const PremiumMemberships = Loadable(
-  lazy(() => import("../pages/marged/premium-membership/PremiumMemberships"))
+  lazy(() => import("../pages/premium-membership/PremiumMemberships"))
 );
 const Doctors = Loadable(lazy(() => import("../pages/doctors/Doctors")));
 const NotFound = Loadable(
-  lazy(() => import("../pages/marged/not-found/NotFound"))
+  lazy(() => import("../components/not-found/NotFound"))
 );
 const VideoChatRoute = Loadable(
-  lazy(() => import("../components/video-chat-client/VideoChatRoute"))
+  lazy(() => import("../pages/video-chat-client/VideoChatRoute"))
 );
 const Profile = Loadable(lazy(() => import("../pages/profile/Profile")));
+
+const Registration = Loadable(
+  lazy(() => import("../pages/security/registration/Registration"))
+);
+const PharmacyProductView = Loadable(
+  lazy(
+    () =>
+      import("../components/pharmacy/pharmacy-product-view/PharmacyProductView")
+  )
+);
+const PharmacyCart = Loadable(
+  lazy(() => import("../components/pharmacy/pharmacy-cart/PharmacyCart"))
+);
+const PharmacyAllProduct = Loadable(
+  lazy(
+    () =>
+      import("../components/pharmacy/pharmacy-all-product/PharmacyAllProduct")
+  )
+);
+const PremiumPayment = Loadable(
+  lazy(() => import("../pages/premium-membership/PremiumPayment"))
+);
+const AppointmentDoctors = Loadable(
+  lazy(() => import("../components/appointment/AppointmentDoctors"))
+);
+const PayAppointmentFee = Loadable(
+  lazy(() => import("../components/appointment/PayAppointmentFee"))
+);
 
 // DASHBOARD
 
@@ -312,9 +349,9 @@ const Profile = Loadable(lazy(() => import("../pages/profile/Profile")));
 // const Kanban = Loadable(lazy(() => import('../pages/dashboard/Kanban')));
 
 // MAIN
-const HomePage = Loadable(lazy(() => import("../pages/Home")));
+const HomePage = Loadable(lazy(() => import("../pages/home/Home")));
 const ContactUs = Loadable(
-  lazy(() => import("../pages/marged/contact-us/ContactUs"))
+  lazy(() => import("../components/contact-us/ContactUs"))
 );
 const Faqs = Loadable(lazy(() => import("../pages/Faqs")));
 const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));

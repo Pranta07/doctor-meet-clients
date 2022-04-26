@@ -1,0 +1,194 @@
+.back-img-1 {
+  margin-bottom: 0px !important;
+  padding-top: 8% !important;
+  padding-right: 8% !important;
+  padding-bottom: 20% !important;
+  padding-left: 8% !important;
+  background-image: url("../../../assets/pharmacy/parma-banner-1.jpg") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border-radius: 4px !important;
+}
+
+.back-img-2 {
+  margin-bottom: 0px !important;
+  padding-top: 8% !important;
+  padding-right: 8% !important;
+  padding-bottom: 20% !important;
+  padding-left: 8% !important;
+  background-image: url("../../../assets/pharmacy/pharma-2.jpg") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border-radius: 4px !important;
+  height: 100%;
+}
+
+.h1-big {
+  font-size: 50px;
+  line-height: 60px;
+}
+
+.p-big {
+  font-size: 21px;
+  line-height: 24px;
+}
+
+.h1-none {
+  font-size: 26px;
+  line-height: normal !important;
+}
+
+.btn-style {
+  border-color: rgba(255, 127, 35, 1);
+  background: rgba(255, 127, 35, 1);
+  color: rgba(255, 255, 255, 1);
+  line-height: 24px;
+  padding: 10px 40px;
+  box-shadow: none;
+  text-shadow: none;
+  border-width: 0;
+  border-radius: 60px;
+  filter: none;
+  cursor: pointer;
+  background-image: none;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  font-weight: bold;
+  max-width: 190px;
+  transition: 350ms ease 0s;
+}
+
+.btn-style:hover {
+  cursor: pointer;
+  background: transparent;
+  transition: 350ms ease 0s;
+  text-decoration: none;
+  color: rgba(255, 127, 35, 1);
+}
+
+.new-style {
+  background: #ffffff;
+  color: #333333;
+  border-radius: 42px;
+  padding: 0 10px;
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: bold;
+}
+
+.power-style {
+  color: #fff;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  border-color: rgba(237, 237, 237, 1);
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: -0.17em;
+  margin-block-end: 0.5em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  -webkit-tap-highlight-color: #4a474700 !important;
+}
+
+.btn-style-2 {
+  background: #00605a;
+  border-color: #00605a;
+  color: #ffffff;
+  margin-top: 30px;
+}
+
+.btn-style-2:hover {
+  cursor: pointer;
+  background: transparent;
+  transition: 350ms ease 0s;
+  text-decoration: none;
+  color: white;
+  border-color: white;
+}
+
+.ts-banner-image {
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  border-radius: 4px;
+  border-color: rgba(237, 237, 237, 1) !important;
+}
+
+.ts-banner-image.left-center img.text-image {
+  left: 40px;
+  right: auto;
+  top: 50%;
+  bottom: auto;
+  transform: translate(0, -50%) !important;
+}
+
+.ts-banner-image img.text-image {
+  position: absolute;
+  z-index: 2;
+}
+
+.image-link:hover {
+  cursor: pointer;
+}
+
+.img-hover-zoom {
+  /* [1.1] Set it as per your need */
+  overflow: hidden;
+  /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  transition: transform 1.2s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.2);
+}
+
+.img {
+  width: 100%;
+}
+.text-h4 {
+  margin: 0;
+  position: relative;
+  color: rgba(51, 51, 51, 1);
+  font-size: 19px;
+  line-height: 26px;
+}
+
+.product-style {
+  border: 1px solid gainsboro;
+  color: rgba(51, 51, 51, 1);
+  padding: 18px;
+  border-radius: 2px;
+}
+
+.product-style:hover {
+  color: #458ff6;
+  filter: opacity(0.4) drop-shadow(0 0 0 #458ff6);
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .text-fluid {
+    max-width: 40%;
+  }
+}
+
+@media (min-width: 280px) and (max-width: 653px) {
+  .text-fluid {
+    max-width: 40%;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 590px) {
+  .grid-res {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr;
+  }
+}

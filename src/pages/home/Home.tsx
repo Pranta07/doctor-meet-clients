@@ -1,27 +1,52 @@
-import React, { useContext } from "react";
-import Articles from "../articles/Articles";
+// @mui
+import { styled } from "@mui/material/styles";
+import { Banner } from "../../components/banner";
 import HealthCareProvider from "../../components/health-care-provider/HealthCareProvider";
+// components
+import Page from "../../components/Page";
 import Review from "../../components/review/Review";
+import { Services } from "../../components/services";
+import { Articles } from "../../components/articles";
 import HomeGallery from "../../components/home-gallery/HomeGallery";
-import Services from "../../components/services/Services";
-import Banner from "../../components/banner/Banner";
+// sections
+import HomeHero from "./HomeHero";
+import Footer from "../../components/footer/Footer";
+import MapDirection from "../../components/map-ditrection/MapDirection";
 
-const Home = () => {
+// ----------------------------------------------------------------------
+
+const RootStyle = styled("div")(() => ({
+  height: "100%",
+}));
+
+const ContentStyle = styled("div")(({ theme }) => ({
+  overflow: "hidden",
+  position: "relative",
+  backgroundColor: theme.palette.background.default,
+}));
+
+// ----------------------------------------------------------------------
+
+export default function HomePage() {
   return (
-    <>
-      <Banner></Banner>
+    <Page title="Home">
+      <RootStyle>
+        <ContentStyle>
+          <HomeHero />
 
-      <Services></Services>
+          <Services></Services>
 
-      <HealthCareProvider></HealthCareProvider>
+          <HealthCareProvider></HealthCareProvider>
 
-      <Review></Review>
+          <Review></Review>
 
-      <HomeGallery></HomeGallery>
-
-      <Articles></Articles>
-    </>
+          <HomeGallery></HomeGallery>
+          <div className="py-5 ">
+            <MapDirection></MapDirection>
+          </div>
+          <Articles></Articles>
+        </ContentStyle>
+      </RootStyle>
+    </Page>
   );
-};
-
-export default Home;
+}
