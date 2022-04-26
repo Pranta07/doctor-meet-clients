@@ -27,9 +27,9 @@ const PremiumMemberships = () => {
       <RootStyle>
         <Container>
           <CardGroup>
-            {premiumMemberships.map((premiumMembership: any, id) => (
+            {premiumMemberships.map((premiumMembership: any, index: number) => (
               <PremiumMembership
-                key={id}
+                key={index}
                 premiumMembership={premiumMembership}
               ></PremiumMembership>
             ))}

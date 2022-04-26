@@ -217,7 +217,7 @@ function MenuDesktopItem({
             },
           }}
         >
-          <Grid spacing={3}>
+          <Grid>
             {children.map((list: any, index: number) => {
               const { subheader, items } = list;
 
