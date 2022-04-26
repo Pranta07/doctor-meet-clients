@@ -2,7 +2,7 @@ import React from "react";
 import brand from "./../../assets/img/logo.png";
 import "./Footer.css";
 import { useLocation } from "react-router-dom";
-//
+
 const Footer = () => {
   const { pathname } = useLocation();
   if (pathname === "/dashboard/dashboarHome") return null;
