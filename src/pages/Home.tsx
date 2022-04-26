@@ -11,7 +11,7 @@ import HomeGallery from "../components/home-gallery/HomeGallery";
 // sections
 import { HomeHero, HomeCleanInterfaces } from "./home/index";
 import Footer from "../components/footer/Footer";
-import MapDirection from "./marged/MapDirection/MapDirection";
+import MapDirection from "./marged/map-ditrection/MapDirection";
 
 // ----------------------------------------------------------------------
 

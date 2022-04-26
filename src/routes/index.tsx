@@ -207,7 +207,7 @@ export default function Router() {
 // Dashboard
 const PageOne = Loadable(lazy(() => import("../pages/PageOne")));
 const PharmecyHome = Loadable(
-  lazy(() => import("../pages/marged/Pharmecy/PharmecyHome/PharmecyHome"))
+  lazy(() => import("../pages/marged/pharmacy/pharmacy-home/PharmacyHome"))
 );
 //const PharmacyHome = Loadable(
 // lazy(() => import("../pages/pharmacy/PharmacyHome")));
@@ -226,24 +226,24 @@ const ResetPassword = Loadable(
 );
 const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
 const CovidPortal = Loadable(
-  lazy(() => import("../pages/marged/CovidPortal/CovidPortal"))
+  lazy(() => import("../pages/marged/covid-portal/CovidPortal"))
 );
 const DashboardHome = Loadable(
-  lazy(() => import("../pages/marged/Dashboards/DashboardHome/DashboardHome"))
+  lazy(() => import("../pages/marged/dashboards/dashboard-home/DashboardHome"))
 );
 const AllDoctors = Loadable(
-  lazy(() => import("../pages/marged/AllDoctors/AllDoctors"))
+  lazy(() => import("../pages/marged/all-doctors/AllDoctors"))
 );
 const FavoriteDoctors = Loadable(
-  lazy(() => import("../pages/marged/FavoriteDoctors/FavoriteDoctors"))
+  lazy(() => import("../pages/marged/favourite-doctors/FavoriteDoctors"))
 );
 const ManageDoctors = Loadable(
   lazy(
-    () => import("../pages/marged/ManageDoctors/ManageDoctors/ManageDoctors")
+    () => import("../pages/marged/manage-doctors/manage-doctors/ManageDoctors")
   )
 );
 const ManageDonors = Loadable(
-  lazy(() => import("../pages/marged/ManageDonors/ManageDonors/ManageDonors"))
+  lazy(() => import("../pages/marged/manage-donors/manage-donors/ManageDonors"))
 );
 const MyAppointments = Loadable(
   lazy(() => import("../components/appointment/MyAppointments"))
@@ -253,18 +253,18 @@ const GetAppointmentForm = Loadable(
 );
 const AllAppointments = Loadable(
   lazy(
-    () => import("../pages/marged/Dashboards/AllAppointments/AllAppointments")
+    () => import("../pages/marged/dashboards/all-appointments/AllAppointments")
   )
 );
 const FindDonors = Loadable(
-  lazy(() => import("../pages/marged/FindDonors/FindDonors"))
+  lazy(() => import("../pages/marged/find-donors/FindDonors"))
 );
 const PremiumMemberships = Loadable(
-  lazy(() => import("../pages/marged/PremiumMembership/PremiumMemberships"))
+  lazy(() => import("../pages/marged/premium-membership/PremiumMemberships"))
 );
 const Doctors = Loadable(lazy(() => import("../pages/doctors/Doctors")));
 const NotFound = Loadable(
-  lazy(() => import("../pages/marged/NotFound/NotFound"))
+  lazy(() => import("../pages/marged/not-found/NotFound"))
 );
 const VideoChatRoute = Loadable(
   lazy(() => import("../components/video-chat-client/VideoChatRoute"))
@@ -314,7 +314,7 @@ const Profile = Loadable(lazy(() => import("../pages/profile/Profile")));
 // MAIN
 const HomePage = Loadable(lazy(() => import("../pages/Home")));
 const ContactUs = Loadable(
-  lazy(() => import("../pages/marged/ContactUs/ContactUs"))
+  lazy(() => import("../pages/marged/contact-us/ContactUs"))
 );
 const Faqs = Loadable(lazy(() => import("../pages/Faqs")));
 const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));

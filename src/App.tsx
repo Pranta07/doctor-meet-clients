@@ -99,12 +99,7 @@ import {
   PremiumMemberships,
   PremiumPayment,
 } from "./components/premium-membership/index";
-import {
-  PharmacyProductView,
-  PharmacyHome,
-  PharmacyCart,
-  PharmacyAllProduct,
-} from "./pages/pharmacy/index";
+
 import Login from "./pages/security/login/Login";
 import Registration from "./pages/security/registration/Registration";
 import {
