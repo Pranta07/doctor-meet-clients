@@ -10,7 +10,7 @@ import reports from "../../assets/services/reports.png";
 import search from "../../assets/services/search.png";
 import Service from "./Service";
 import "./Services.css";
-
+//
 interface service_if {
   id: number;
   img: string;

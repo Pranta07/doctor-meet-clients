@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import TextAnimation from "../home-banner/TextAnimation";
 import handDrawnMobile from "../../assets/handdrawn-vector-60-removebg-preview (1).png";
 import "./Banner.css";
-
+//
 const Banner = () => {
   return (
     <div>

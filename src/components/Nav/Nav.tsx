@@ -10,6 +10,7 @@ import {
   BoxArrowRight,
   CaretDownFill,
 } from "react-bootstrap-icons";
+//
 const Nav = () => {
   const [offset, setOffset] = useState(0);
   let { user, logOut } = useAuth();
