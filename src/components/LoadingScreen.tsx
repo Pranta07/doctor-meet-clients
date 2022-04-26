@@ -29,8 +29,8 @@ LoadingScreen.propTypes = {
 
 export default function LoadingScreen({ isDashboard, ...other }: any) {
   return (
-    <>
-      {!isDashboard && (
+    <RootStyle>
+      {/* {!isDashboard && (
         <RootStyle {...other}>
           <m.div
             initial={{ rotateY: 0 }}
@@ -41,9 +41,9 @@ export default function LoadingScreen({ isDashboard, ...other }: any) {
               repeatDelay: 1,
               repeat: Infinity,
             }}
-          >
-            <img src={logo} alt="" />
-          </m.div>
+          > */}
+      <img src={logo} alt="" />
+      {/* </m.div>
 
           <Box
             component={m.div}
@@ -85,9 +85,8 @@ export default function LoadingScreen({ isDashboard, ...other }: any) {
               border: (theme) =>
                 `solid 8px ${alpha(theme.palette.primary.dark, 0.24)}`,
             }}
-          />
-        </RootStyle>
-      )}
-    </>
+          /> */}
+    </RootStyle>
+    // )}
   );
 }
