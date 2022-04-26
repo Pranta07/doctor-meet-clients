@@ -13,7 +13,10 @@ const ICONS = {
   analytics: getIcon("ic_analytics"),
   dashboard: getIcon("ic_dashboard"),
 };
-
+const ICON_SIZE = {
+  width: 22,
+  height: 22,
+};
 const sidebarConfig = [
   // GENERAL
   // ----------------------------------------------------------------------
@@ -25,7 +28,11 @@ const sidebarConfig = [
       //   path: "/dashboard/doctors",
       //   icon: <Iconify icon={"fa6-solid:user-doctor"} />,
       // },
-      { title: "Pharmacy", path: "/dashboard/three", icon: ICONS.analytics },
+      {
+        title: "Pharmacy",
+        path: "/dashboard/three",
+        icon: <Iconify icon={"fluent:more-circle-20-filled"} {...ICON_SIZE} />,
+      },
     ],
   },
 
@@ -41,7 +48,9 @@ const sidebarConfig = [
           {
             title: "Doctors",
             path: "/dashboard/user/doctors",
-            icon: ICONS.analytics,
+            icon: (
+              <Iconify icon={"fluent:more-circle-20-filled"} {...ICON_SIZE} />
+            ),
           },
           {
             title: "Favorite",

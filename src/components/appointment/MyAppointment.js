@@ -10,7 +10,7 @@ const MyAppointment = ({appointment}) => {
       <td>{appointment.status}</td>
       <td>{appointment.doctorInfo.visit}</td>
       <td>
-          <Link to={`/payAppointmentFee/${appointment._id}`}>
+          <Link to={`/pay-appointment-fee/${appointment._id}`}>
           <button className='btn btn-warning'>Pay</button>
           </Link>
         </td>

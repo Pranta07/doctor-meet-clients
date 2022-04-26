@@ -35,7 +35,8 @@ const GetAppointmentForm = () => {
         const patientInfo={patientName:user?.displayName,patientEmail:user?.email,...data,doctorInfo:selectedDoctor,status:"unpaid"};
         // "patientInfo" will be post in http://localhost:5000/allAppointments
         console.log(patientInfo);
-        fetch(`http://localhost:5000/allAppointments`, {
+        fetch(`
+        https://doctor-meet-appointment-server.vercel.app/allAppointments`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

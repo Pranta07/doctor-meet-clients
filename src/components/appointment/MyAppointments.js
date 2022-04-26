@@ -8,7 +8,7 @@ const MyAppointments = () => {
     const [appointments, setAppointments] = useState([]);
     useEffect(() => {
         fetch(
-            `http://localhost:5000/allAppointments/single?patientEmail=${user?.email}`
+            `https://doctor-meet-appointment-server.vercel.app/allAppointments/single?patientEmail=${user?.email}`
         )
             .then((res) => res.json())
             .then((data) => setAppointments(data));
@@ -28,8 +28,9 @@ const MyAppointments = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {appointments.map((appointment) => (
+                    {appointments?.map((appointment,index) => (
                         <MyAppointment
+                        key={index}
                             appointment={appointment}
                         ></MyAppointment>
                     ))}

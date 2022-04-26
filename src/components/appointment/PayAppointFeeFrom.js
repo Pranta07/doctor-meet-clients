@@ -36,7 +36,7 @@ const PayAppointmentFeeFrom = ({ appointment }) => {
             console.log("[PaymentMethod]", paymentMethod);
             if (paymentMethod.id) {
                 fetch(
-                    `http://localhost:5000/allAppointments/${appointment._id}`,
+                    `https://doctor-meet-appointment-server.vercel.app/allAppointments/${appointment._id}`,
                     {
                         method: "PUT",
                     }
