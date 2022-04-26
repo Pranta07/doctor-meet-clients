@@ -7,7 +7,7 @@ import { Button, Box, Link, Container, Typography, Stack } from '@mui/material';
 import { PATH_DASHBOARD } from '../../routes/paths.tsx';
 // components
 import Iconify from '../../components/Iconify.tsx';
-import { Banner } from '../../components/bbanner';
+import { Banner } from '../../components/banner';
 
 // ----------------------------------------------------------------------
 

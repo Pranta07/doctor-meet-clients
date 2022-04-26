@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import Doctors from "./pages/doctors/Doctors";
-import Footer from "./components/ffooter/Footer";
+import Footer from "./components/footer/Footer";
 
 import Login from "./pages/security/login/Login";
 import Registration from "./pages/security/registration/Registration";
