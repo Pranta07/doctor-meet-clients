@@ -89,7 +89,10 @@ const DoctorsTable = () => {
                     )}
 
                     {doctors?.length === 0 && !loading ? (
-                        <Typography variant="h3" sx={{ my: 2 }}>
+                        <Typography
+                            variant="h4"
+                            sx={{ my: 2, textAlign: "center" }}
+                        >
                             No Doctors Added Yet!
                         </Typography>
                     ) : (
