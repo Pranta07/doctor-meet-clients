@@ -42,7 +42,7 @@ const DonorFilter = () => {
 
     useEffect(() => {
         setLoading(true);
-        const url = `http://localhost:5000/donor?group=${
+        const url = `http://localhost:5000/api/v1/donor?group=${
             query.group
         }&&district=${query.district}&&page=${page}&&rows=${6}`;
         // console.log(url);
@@ -166,5 +166,5 @@ const DonorFilter = () => {
             </section>
         </>
     );
-}
+};
 export default DonorFilter;

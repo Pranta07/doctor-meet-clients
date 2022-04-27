@@ -35,7 +35,7 @@ const DoctorEditModal = (props: {
     const onSubmit: SubmitHandler<IFormInputs> = (data) => {
         setIsUpdate(false);
         // send data to server and update in database
-        const url = `http://localhost:5000/doctors/${doctor._id}`;
+        const url = `http://localhost:5000/api/v1/doctors/${doctor._id}`;
         fetch(url, {
             method: "PUT",
             headers: {

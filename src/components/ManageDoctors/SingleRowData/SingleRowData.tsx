@@ -38,7 +38,7 @@ const SingleRowData = (props: {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/doctors/${id}`, {
+                fetch(`http://localhost:5000/api/v1/doctors/${id}`, {
                     method: "DELETE",
                 }).then((res) => {
                     if (res.status === 200) {

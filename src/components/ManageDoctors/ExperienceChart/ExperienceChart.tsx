@@ -102,7 +102,7 @@ const ExperienceChart = () => {
     );
 
     useEffect(() => {
-        fetch("http://localhost:5000/doctors/statistics")
+        fetch("http://localhost:5000/api/v1/doctors/statistics")
             .then((res) => res.json())
             .then((data) => setData(data.result.experienceData));
     }, []);

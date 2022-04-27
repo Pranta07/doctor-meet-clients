@@ -97,9 +97,11 @@ const DonorChart = () => {
     );
 
     useEffect(() => {
-        fetch("http://localhost:5000/donor/statistics")
+        fetch("http://localhost:5000/api/v1/donor/statistics")
             .then((res) => res.json())
-            .then((data) => setData(data.result.groupData));
+            .then((data) => {
+                setData(data.result.groupData);
+            });
     }, []);
 
     return (

@@ -39,7 +39,7 @@ const DoctorsTable = () => {
     useEffect(() => {
         setLoading(true);
 
-        const url = `http://localhost:5000/doctors/all?specialist=All&&gender=All&&page=${
+        const url = `http://localhost:5000/api/v1/doctors/all?specialist=All&&gender=All&&page=${
             page + 1
         }&&rows=${rowsPerPage}`;
 
