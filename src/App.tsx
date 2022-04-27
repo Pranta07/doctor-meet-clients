@@ -11,9 +11,9 @@ import ContactUs from "./pages/contact-us/ContactUs";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 import {
-  AppointmentDoctors,
-  GetAppointmentForm,
-  PayAppointmentFee,
+    AppointmentDoctors,
+    GetAppointmentForm,
+    PayAppointmentFee,
 } from "./components/appointment/index";
 import Router from "./routes/index";
 // theme
@@ -26,19 +26,19 @@ import ThemeColorPresets from "./components/ThemeColorPresets";
 // ----------------------------------------------------------------------
 
 export default function App() {
-  return (
-    <ThemeProvider>
-      {/* <ThemeColorPresets> */}
-      {/* <RtlLayout> */}
+    return (
+        <ThemeProvider>
+            {/* <ThemeColorPresets> */}
+            {/* <RtlLayout> */}
 
-      {/* <Settings /> */}
-      <AuthProvider>
-        <ScrollToTop />
-        <Router />
-      </AuthProvider>
+            {/* <Settings /> */}
+            <AuthProvider>
+                <ScrollToTop />
+                <Router />
+            </AuthProvider>
 
-      {/* </RtlLayout> */}
-      {/* </ThemeColorPresets> */}
-    </ThemeProvider>
-  );
+            {/* </RtlLayout> */}
+            {/* </ThemeColorPresets> */}
+        </ThemeProvider>
+    );
 }
