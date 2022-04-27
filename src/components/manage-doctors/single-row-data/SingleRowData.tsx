@@ -6,6 +6,9 @@ import { Avatar, IconButton, Rating, Tooltip } from "@mui/material";
 import Swal from "sweetalert2";
 import DoctorEditModal from "../doctor-edit-modal/DoctorEditModal";
 import { Idoctor } from "../../favourite-doctors/FavoriteDoctors";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const SingleRowData = (props: {
     key: string;
@@ -17,6 +20,16 @@ const SingleRowData = (props: {
 }) => {
     const { doctor, setIsUpdate, page, rowsPerPage, index } = props;
     const [show, setShow] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleMenu = () => {
+        setAnchorEl(null);
+    };
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -84,16 +97,44 @@ const SingleRowData = (props: {
                 <TableCell align="left">{doctor?.phone}</TableCell>
                 <TableCell align="left">{doctor?.email}</TableCell>
                 <TableCell align="left">
-                    <Tooltip title="Edit">
-                        <IconButton onClick={() => handleEdit(doctor._id)}>
-                            <Edit></Edit>
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Delete">
-                        <IconButton onClick={() => handleDelete(doctor._id)}>
-                            <Delete></Delete>
-                        </IconButton>
-                    </Tooltip>
+                    <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                    >
+                        <MoreVertIcon />
+                    </IconButton>
+                    <Menu
+                        id="long-menu"
+                        MenuListProps={{
+                            "aria-labelledby": "long-button",
+                        }}
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleMenu}
+                    >
+                        <MenuItem>
+                            <Tooltip title="Edit" placement="left-start">
+                                <IconButton
+                                    onClick={() => handleEdit(doctor._id)}
+                                >
+                                    <Edit></Edit>
+                                </IconButton>
+                            </Tooltip>
+                        </MenuItem>
+                        <MenuItem>
+                            <Tooltip title="Delete" placement="left-start">
+                                <IconButton
+                                    onClick={() => handleDelete(doctor._id)}
+                                >
+                                    <Delete></Delete>
+                                </IconButton>
+                            </Tooltip>
+                        </MenuItem>
+                    </Menu>
                 </TableCell>
             </TableRow>
             <DoctorEditModal
