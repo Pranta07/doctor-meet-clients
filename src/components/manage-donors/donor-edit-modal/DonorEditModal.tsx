@@ -99,7 +99,7 @@ const DonorEditModal = (props: {
                                         </label>
                                         <input
                                             id="nameId"
-                                            className="form-control border-danger mb-2"
+                                            className="form-control border-danger"
                                             defaultValue={donor.name}
                                             {...register("name", {
                                                 required: true,

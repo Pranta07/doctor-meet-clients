@@ -89,7 +89,7 @@ const JoinUsForm = (props: any) => {
                                             </label>
                                             <input
                                                 id="nameId"
-                                                className="form-control border-danger mb-3"
+                                                className="form-control border-danger"
                                                 defaultValue={
                                                     user?.displayName || ""
                                                 }

@@ -101,7 +101,7 @@ const DoctorEditModal = (props: {
                                         </label>
                                         <input
                                             id="nameId"
-                                            className="form-control border-info mb-3"
+                                            className="form-control border-info"
                                             defaultValue={doctor.name}
                                             {...register("name", {
                                                 required: true,
@@ -313,7 +313,7 @@ const DoctorEditModal = (props: {
                                         <input
                                             id="visId"
                                             type="number"
-                                            className="form-control border-info mb-3"
+                                            className="form-control border-info"
                                             {...register("visit", {
                                                 required: true,
                                             })}
