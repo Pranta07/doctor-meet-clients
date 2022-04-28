@@ -18,9 +18,9 @@ const Article = ({ article }: any) => {
         <Card.Body>
           <Card.Title>{article.title}</Card.Title>
           <Card.Text>{article.description}</Card.Text>
-          <button className="btn btn-color">
+          {/* <button className="btn btn-color">
             Read more <FontAwesomeIcon className="mx-1" icon={faArrowRight} />
-          </button>
+          </button> */}
         </Card.Body>
       </Card>
     </div>
