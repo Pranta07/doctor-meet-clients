@@ -5,11 +5,6 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Donors from "../donors/Donors";
 
-interface IFormInput {
-    group: string;
-    district: string;
-}
-
 export interface Idonor {
     _id: string;
     img: string;
