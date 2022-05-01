@@ -25,6 +25,8 @@ const services = [
     "Blood Donors",
     "Pharmacy",
     "Premium Membership",
+    "Diagnostic Center",
+    "Report Review",
 ];
 
 const About = () => {
@@ -41,7 +43,9 @@ const About = () => {
                 >
                     <h1> About Us </h1>
                     <span>
-                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/" style={{ textDecoration: "none" }}>
+                            Home
+                        </NavLink>
                     </span>
                     {" > "} <span> About Us </span>
                 </div>
