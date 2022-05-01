@@ -1,7 +1,8 @@
-import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Donors from "../donors/Donors";
 
 interface IFormInput {
@@ -25,26 +26,27 @@ const DonorFilter = () => {
     const [page, setPage] = useState<number>(1);
     const [total, setTotal] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(true);
-    const [query, setQuery] = useState({
-        group: "All",
-        district: "All",
-    });
+
+    const [group, setGroup] = useState("All");
+    const [district, setDistrict] = useState("All");
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);
     };
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<IFormInput>();
+    const handleGroup = (event: SelectChangeEvent) => {
+        setPage(1);
+        setGroup(event.target.value as string);
+    };
+
+    const handleDistrict = (event: SelectChangeEvent) => {
+        setPage(1);
+        setDistrict(event.target.value as string);
+    };
 
     useEffect(() => {
         setLoading(true);
-        const url = `http://localhost:5000/api/v1/donor?group=${
-            query.group
-        }&&district=${query.district}&&page=${page}&&rows=${6}`;
+        const url = `http://localhost:5000/api/v1/donor?group=${group}&&district=${district}&&page=${page}&&rows=${6}`;
         // console.log(url);
         fetch(url)
             .then((res) => res.json())
@@ -54,14 +56,7 @@ const DonorFilter = () => {
                 setTotal(data.total);
             })
             .finally(() => setLoading(false));
-    }, [page, query]);
-
-    const onSubmit: SubmitHandler<IFormInput> = (data) => {
-        const { group, district } = data;
-
-        setPage(1);
-        setQuery({ group, district });
-    };
+    }, [page, group, district]);
 
     return (
         <>
@@ -76,76 +71,83 @@ const DonorFilter = () => {
                         text-danger
                         border border-2 border-danger
                         rounded
-                        my-3
+                        my-5
                     "
                 />
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="row justify-content-center gy-2">
-                        <div className="col-10 col-md-4">
-                            <h5 className="text-danger fw-bold">
-                                Blood group:
-                            </h5>
-                            <select
-                                {...register("group", { required: true })}
-                                className="form-select"
-                                aria-label="Default select example"
+
+                <div className="row justify-content-center gy-4">
+                    <div className="col-10 col-md-4">
+                        <FormControl fullWidth required>
+                            <InputLabel
+                                id="group"
+                                className="text-danger fw-bold"
                             >
-                                <option value="">Select Blood Group</option>
-                                <option value="All">All Group</option>
-                                <option value="A%2B">A+</option>
-                                <option value="A-">A-</option>
-                                <option value="B%2B">B+</option>
-                                <option value="B-">B-</option>
-                                <option value="O%2B">O+</option>
-                                <option value="O-">O-</option>
-                                <option value="AB%2B">AB+</option>
-                                <option value="AB-">AB-</option>
-                            </select>
-                            {errors.group && (
-                                <p className="alert alert-danger p-1 mt-2">
-                                    <FontAwesomeIcon
-                                        icon={faExclamationCircle}
-                                    ></FontAwesomeIcon>{" "}
-                                    This field is required
-                                </p>
-                            )}
-                        </div>
-                        <div className="col-10 col-md-4">
-                            <h5 className="text-danger fw-bold">District:</h5>
-                            <select
-                                {...register("district", { required: true })}
-                                className="form-select"
-                                aria-label="Default select example"
+                                Blood Group
+                            </InputLabel>
+                            <Select
+                                labelId="group"
+                                value={group}
+                                label="Blood Group"
+                                onChange={handleGroup}
                             >
-                                <option value="">Select District</option>
-                                <option value="All">All District</option>
-                                <option value="Dhaka">Dhaka</option>
-                                <option value="Chittagong">Chittagong</option>
-                                <option value="Comilla">Comilla</option>
-                                <option value="Rajshahi">Rajshahi</option>
-                                <option value="Khulna">Khulna</option>
-                                <option value="Jessore">Jessore</option>
-                                <option value="Sylhet">Sylhet</option>
-                            </select>
-                            {errors.district && (
-                                <p className="alert alert-danger p-1 mt-2">
-                                    <FontAwesomeIcon
-                                        icon={faExclamationCircle}
-                                    ></FontAwesomeIcon>{" "}
-                                    This field is required
-                                </p>
-                            )}
-                        </div>
+                                <MenuItem value="All" className="text-danger">
+                                    All Group
+                                </MenuItem>
+                                <MenuItem value="A%2B" className="text-danger">
+                                    A+
+                                </MenuItem>
+                                <MenuItem value="A-" className="text-danger">
+                                    A-
+                                </MenuItem>
+                                <MenuItem value="B%2B" className="text-danger">
+                                    B+
+                                </MenuItem>
+                                <MenuItem value="B-" className="text-danger">
+                                    B-
+                                </MenuItem>
+                                <MenuItem value="O%2B" className="text-danger">
+                                    O+
+                                </MenuItem>
+                                <MenuItem value="O-" className="text-danger">
+                                    O-
+                                </MenuItem>
+                                <MenuItem value="AB%2B" className="text-danger">
+                                    AB+
+                                </MenuItem>
+                                <MenuItem value="AB-" className="text-danger">
+                                    AB-
+                                </MenuItem>
+                            </Select>
+                        </FormControl>
                     </div>
-                    <div className="d-flex justify-content-center">
-                        <button
-                            type="submit"
-                            className="btn btn-danger mt-4 px-4"
-                        >
-                            Search
-                        </button>
+                    <div className="col-10 col-md-4">
+                        <FormControl fullWidth required>
+                            <InputLabel
+                                id="district"
+                                className="text-danger fw-bold"
+                            >
+                                District
+                            </InputLabel>
+                            <Select
+                                labelId="district"
+                                value={district}
+                                label="District"
+                                onChange={handleDistrict}
+                            >
+                                <MenuItem value="All">All District</MenuItem>
+                                <MenuItem value="Dhaka">Dhaka</MenuItem>
+                                <MenuItem value="Chittagong">
+                                    Chittagong
+                                </MenuItem>
+                                <MenuItem value="Comilla">Comilla</MenuItem>
+                                <MenuItem value="Rajshahi">Rajshahi</MenuItem>
+                                <MenuItem value="Khulna">Khulna</MenuItem>
+                                <MenuItem value="Jessore">Jessore</MenuItem>
+                                <MenuItem value="Sylhet">Sylhet</MenuItem>
+                            </Select>
+                        </FormControl>
                     </div>
-                </form>
+                </div>
                 {!loading ? (
                     <Donors
                         donors={displayDonors}
