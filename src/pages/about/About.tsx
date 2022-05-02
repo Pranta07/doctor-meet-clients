@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import aboutImg from "../../assets/Doctors-pana.svg";
-import { Icon } from "@iconify/react";
 import "./About.css";
 // @mui
 import { styled } from "@mui/material/styles";

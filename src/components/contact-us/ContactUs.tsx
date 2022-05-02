@@ -154,10 +154,10 @@ const ContactUs = () => {
                             </Box>
                             <hr />
                             <p className="fw-bold">FOLLOW US ON</p>
-                            <FacebookIcon sx={{ mr: 2 }} />
-                            <TwitterIcon sx={{ mr: 2 }} />
-                            <InstagramIcon sx={{ mr: 2 }} />
-                            <LinkedInIcon sx={{ mr: 2 }} />
+                            <FacebookIcon className="icon" />
+                            <TwitterIcon className="icon" />
+                            <InstagramIcon className="icon" />
+                            <LinkedInIcon className="icon" />
                         </div>
                         <div className="col-lg-6 mt-3">
                             <MapDirection></MapDirection>

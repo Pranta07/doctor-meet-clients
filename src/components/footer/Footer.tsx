@@ -2,6 +2,10 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import brand from "./../../assets/img/logo.png";
 import ContactInfo from "../contact-info/ContactInfo";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import "./Footer.css";
 
 const Footer = () => {
@@ -11,7 +15,7 @@ const Footer = () => {
     else if (pathname === "/dashboard/admin") return null;
 
     return (
-        <div className="footer-bc-color">
+        <div className="footer-bg-color">
             {window.location.pathname === "/dashboard/dashboarHome" ||
             window.location.pathname === "/dashboard/doctors" ||
             window.location.pathname === "/dashboard/admin" ||
@@ -22,14 +26,13 @@ const Footer = () => {
                     <ContactInfo></ContactInfo>
                     <footer>
                         <section className="container text-white text-start">
-                            <div className=" row row-cols-1 row-cols-md-4 row-cols-lg-4 mx-auto pt-5">
-                                <div className="col">
+                            <div className="row mx-auto py-5">
+                                <div className="col-12 col-lg-3">
                                     <img
                                         src={brand}
                                         alt=""
                                         className="img-fluid"
                                     />
-                                    {/* <span className="fw-bold ps-2">Doctors Meet Up</span> */}
                                     <p className="mt-2">
                                         <small>
                                             Doctors Meet Up provides
@@ -38,9 +41,18 @@ const Footer = () => {
                                             online for everyone.
                                         </small>
                                     </p>
+                                    <div>
+                                        <h5 className="fw-bold">
+                                            FOLLOW US ON
+                                        </h5>
+                                        <FacebookIcon className="icon" />
+                                        <TwitterIcon className="icon" />
+                                        <InstagramIcon className="icon" />
+                                        <LinkedInIcon className="icon" />
+                                    </div>
                                 </div>
-                                <div className="col">
-                                    <span className="fw-bold">Company</span>
+                                <div className="col-12 col-md-4 col-lg-3 px-5 pt-3">
+                                    <h5 className="fw-bold">Company</h5>
                                     <ul className="list mt-2">
                                         <li>About</li>
                                         <li>Reports</li>
@@ -50,8 +62,8 @@ const Footer = () => {
                                         <li>Apps</li>
                                     </ul>
                                 </div>
-                                <div className="col">
-                                    <span className="fw-bold">District</span>
+                                <div className="col-12 col-md-4 col-lg-3 px-5 pt-3">
+                                    <h5 className="fw-bold">District</h5>
                                     <ul className="list mt-2">
                                         <li>Chittagong</li>
                                         <li>Dhaka</li>
@@ -60,8 +72,8 @@ const Footer = () => {
                                         <li>Comilla</li>
                                     </ul>
                                 </div>
-                                <div className="col">
-                                    <span className="fw-bold">Help</span>
+                                <div className="col-12 col-md-4 col-lg-3 px-5 pt-3">
+                                    <h5 className="fw-bold">Help</h5>
                                     <ul className="list mt-2">
                                         <li>Help Center</li>
                                         <li>Contact support</li>
@@ -70,21 +82,15 @@ const Footer = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="media-icon footer-dot ">
-                                <h5>Follow us on</h5>
-                                <div className="icons">
-                                    <i className="fab fa-facebook pe-2"></i>
-                                    <i className="fab fa-instagram pe-2"></i>
-                                    <i className="fab fa-twitter"></i>
-                                </div>
-                                <p className="text-center mb-0 pb-2">
-                                    <small>
-                                        All rights reserved ©Doctors Meet
-                                        up,2022 | NERMX Developers
-                                    </small>
-                                </p>
-                            </div>
                         </section>
+                        <hr className="bg-white" style={{ height: "2px" }} />
+                        <p
+                            className="text-center text-white mb-0 pt-2 pb-4"
+                            style={{ fontSize: "16px" }}
+                        >
+                            All rights reserved ©Doctors Meet, 2022 | NERMX
+                            Developers
+                        </p>
                     </footer>
                 </div>
             )}
