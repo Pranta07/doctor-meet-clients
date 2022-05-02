@@ -98,7 +98,7 @@ const ContactUs = () => {
                                     my: 2,
                                 }}
                             >
-                                <EmailIcon sx={{ mr: 2, color: "lightblue" }} />
+                                <EmailIcon sx={{ mr: 2, color: "#526ff3" }} />
                                 <div>
                                     <p
                                         style={{
@@ -118,7 +118,7 @@ const ContactUs = () => {
                                     my: 2,
                                 }}
                             >
-                                <PhoneIcon sx={{ mr: 2, color: "lightblue" }} />
+                                <PhoneIcon sx={{ mr: 2, color: "#526ff3" }} />
                                 <div>
                                     <p
                                         style={{
@@ -139,7 +139,7 @@ const ContactUs = () => {
                                     my: 2,
                                 }}
                             >
-                                <RoomIcon sx={{ mr: 2, color: "lightblue" }} />
+                                <RoomIcon sx={{ mr: 2, color: "#526ff3" }} />
                                 <div>
                                     <p
                                         style={{
