@@ -35,7 +35,7 @@ footer {
     transition: transform 0.5s ease-in-out;
 }
 
-.icon {
+.social-icon {
     font-size: 40px;
     padding: 6px;
     margin-right: 10px;
@@ -44,7 +44,7 @@ footer {
     border-radius: 50%;
 }
 
-.icon:hover {
+.social-icon:hover {
     cursor: pointer;
     background-color: white;
     color: #526ff3;

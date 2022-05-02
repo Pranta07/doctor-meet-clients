@@ -2,6 +2,8 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import TextAnimation from "./TextAnimation";
 import VM from "../../assets/handdrawn-vector-60-removebg-preview (1).png";
+import FD from "../../assets/carousel/doctors.svg";
+import Medicine from "../../assets/carousel/undraw_monitoring.svg";
 import "./Banner.css";
 
 const bannerData = [
@@ -29,25 +31,41 @@ const bannerData = [
         imgSrc: "https://i.ibb.co/ZzsNLrc/4162622-1-removebg-preview.png",
         to: "/premium-membership",
     },
+    {
+        text1: "Find",
+        text2: "Doctors",
+        desc: "Choose your doctor from thousands of specialist, general, and trusted hospitals.",
+        btnText: "Find Now",
+        imgSrc: FD,
+        to: "/doctors",
+    },
+    {
+        text1: "Online",
+        text2: "Pharmacy",
+        desc: "Buy your medicines prescribed by the doctor from our online pharmacy. Within 24 hours delivery.",
+        btnText: "Buy Now",
+        imgSrc: Medicine,
+        to: "/pharmacy",
+    },
 ];
 
 const Banner = () => {
     return (
         <div className="mt-4">
-            <Carousel fade={true} controls={true} indicators={true}>
+            <Carousel fade={true} controls={true} indicators={false}>
                 {bannerData.map((item, index) => (
                     <Carousel.Item key={index} interval={2000}>
-                        <div className="d-flex justify-content-between align-items-center container">
-                            <div className="w-50">
-                                <TextAnimation item={item}></TextAnimation>
-                            </div>
-                            <div className="w-50">
+                        <div className="container mx-auto row g-3 d-flex align-items-center flex-sm-row-reverse flex-row">
+                            <div className="col-12 col-lg-6">
                                 <img
                                     className="d-block mx-auto img-fluid carousel-img"
                                     style={{ height: "400px" }}
                                     src={item.imgSrc}
                                     alt="..."
                                 />
+                            </div>
+                            <div className="col-12 col-lg-6">
+                                <TextAnimation item={item}></TextAnimation>
                             </div>
                         </div>
                     </Carousel.Item>

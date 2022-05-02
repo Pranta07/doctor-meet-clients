@@ -45,10 +45,10 @@ const Footer = () => {
                                         <h5 className="fw-bold">
                                             FOLLOW US ON
                                         </h5>
-                                        <FacebookIcon className="icon" />
-                                        <TwitterIcon className="icon" />
-                                        <InstagramIcon className="icon" />
-                                        <LinkedInIcon className="icon" />
+                                        <FacebookIcon className="social-icon" />
+                                        <TwitterIcon className="social-icon" />
+                                        <InstagramIcon className="social-icon" />
+                                        <LinkedInIcon className="social-icon" />
                                     </div>
                                 </div>
                                 <div className="col-12 col-md-4 col-lg-3 px-4 pt-3">
@@ -82,8 +82,11 @@ const Footer = () => {
                                     </ul>
                                 </div>
                             </div>
+                            <hr
+                                className="bg-white"
+                                style={{ height: "2px" }}
+                            />
                         </section>
-                        <hr className="bg-white" style={{ height: "2px" }} />
                         <p
                             className="text-center text-white mb-0 pt-2 pb-4"
                             style={{ fontSize: "16px" }}
