@@ -86,7 +86,7 @@ const DonorEditModal = (props: {
                     >
                         <div id="donor-reg-box" className="p-5">
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <div className="row g-3 mb-3">
+                                <div className="row gx-3 gy-4 mb-4">
                                     <div className="col-12 col-lg-6">
                                         <TextField
                                             fullWidth
@@ -112,7 +112,7 @@ const DonorEditModal = (props: {
                                     </div>
                                 </div>
 
-                                <div className="row g-3 mb-3">
+                                <div className="row gx-3 gy-4 mb-4">
                                     <div className="col-12 col-lg-6">
                                         <TextField
                                             fullWidth
@@ -197,7 +197,7 @@ const DonorEditModal = (props: {
                                     </div>
                                 </div>
 
-                                <div className="row g-3 mb-3">
+                                <div className="row gx-3 gy-4 mb-4">
                                     <div className="col-12 col-lg-6">
                                         <FormControl fullWidth required>
                                             <InputLabel id="district">
