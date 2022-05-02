@@ -178,7 +178,7 @@ const ContactUs = () => {
                                             We normally respond within 24 hours.
                                         </small>
                                     </p>
-                                    <div className="col-10 form-group ">
+                                    <div className="col-12 col-md-10 form-group">
                                         <label
                                             className="all-label"
                                             htmlFor="nameId"
@@ -192,7 +192,7 @@ const ContactUs = () => {
                                             id="nameId"
                                         />
                                     </div>
-                                    <div className="col-10 form-group pt-3">
+                                    <div className="col-12 col-md-10 form-group pt-3">
                                         <label
                                             className="all-label"
                                             htmlFor="emailId"
@@ -205,7 +205,7 @@ const ContactUs = () => {
                                             id="emailId"
                                         />
                                     </div>
-                                    <div className="col-10 form-group pt-3 ">
+                                    <div className="col-12 col-md-10 form-group pt-3 ">
                                         <label
                                             className="all-label"
                                             htmlFor="subjectId"
@@ -219,7 +219,7 @@ const ContactUs = () => {
                                             id="subjectId"
                                         />
                                     </div>
-                                    <div className="col-10 form-group pt-3 ">
+                                    <div className="col-12 col-md-10 form-group pt-3 ">
                                         <label
                                             className="all-label"
                                             htmlFor="messageID"
@@ -234,7 +234,7 @@ const ContactUs = () => {
                                             rows={5}
                                         ></textarea>
                                     </div>
-                                    <div className="col-10 form-group pt-3">
+                                    <div className="pt-3">
                                         <Button
                                             type="submit"
                                             variant="contained"
@@ -250,7 +250,7 @@ const ContactUs = () => {
 
                 <div className="bg-style-for-contact">
                     <div className="container">
-                        <div className="row p-5 my-auto d-flex align-items-center">
+                        <div className="row g-3 p-5 my-auto d-flex align-items-center">
                             <div className="col-lg-3 text-light">
                                 <div className="d-flex align-items-center">
                                     <div className="contact-us-btn mx-3">
