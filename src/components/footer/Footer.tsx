@@ -27,7 +27,7 @@ const Footer = () => {
                     <footer>
                         <section className="container text-white text-start">
                             <div className="row mx-auto py-5">
-                                <div className="col-12 col-lg-3">
+                                <div className="col-12 col-lg-3 px-4">
                                     <img
                                         src={brand}
                                         alt=""
@@ -51,7 +51,7 @@ const Footer = () => {
                                         <LinkedInIcon className="icon" />
                                     </div>
                                 </div>
-                                <div className="col-12 col-md-4 col-lg-3 px-5 pt-3">
+                                <div className="col-12 col-md-4 col-lg-3 px-4 pt-3">
                                     <h5 className="fw-bold">Company</h5>
                                     <ul className="list mt-2">
                                         <li>About</li>
@@ -62,7 +62,7 @@ const Footer = () => {
                                         <li>Apps</li>
                                     </ul>
                                 </div>
-                                <div className="col-12 col-md-4 col-lg-3 px-5 pt-3">
+                                <div className="col-12 col-md-4 col-lg-3 px-4 pt-3">
                                     <h5 className="fw-bold">District</h5>
                                     <ul className="list mt-2">
                                         <li>Chittagong</li>
@@ -72,7 +72,7 @@ const Footer = () => {
                                         <li>Comilla</li>
                                     </ul>
                                 </div>
-                                <div className="col-12 col-md-4 col-lg-3 px-5 pt-3">
+                                <div className="col-12 col-md-4 col-lg-3 px-4 pt-3">
                                     <h5 className="fw-bold">Help</h5>
                                     <ul className="list mt-2">
                                         <li>Help Center</li>
