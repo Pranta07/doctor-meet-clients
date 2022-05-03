@@ -14,11 +14,14 @@ const TopDoctors = () => {
 
     return (
         <div>
-            <h1
-                className="fw-bold text-center"
-                style={{ color: "rgb(69, 142, 167)" }}
+            <p
+                className="text-center fw-bold mt-5"
+                style={{ color: "#00acb1" }}
             >
-                Meet Our Experts
+                Meet Our Team
+            </p>
+            <h1 className="fw-bold text-center" style={{ color: "#005963" }}>
+                Our Creative Experts
             </h1>
             <hr className="hr-w mx-auto" />
             <div className="container mx-auto row g-3">
