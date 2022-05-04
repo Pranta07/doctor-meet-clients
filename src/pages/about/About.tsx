@@ -6,7 +6,7 @@ import "./About.css";
 import { styled } from "@mui/material/styles";
 // components
 import Page from "../../components/Page";
-
+import FAQ from "../../components/faq/FAQ";
 // ----------------------------------------------------------------------
 
 const RootStyle = styled("div")(({ theme }) => ({
@@ -110,6 +110,23 @@ const About = () => {
                             ))}
                         </div>
                     </div>
+                </div>
+
+                <p
+                    className="text-center fw-bold mt-5"
+                    style={{ color: "#00acb1" }}
+                >
+                    Questions
+                </p>
+                <h1
+                    className="fw-bold text-center"
+                    style={{ color: "#005963" }}
+                >
+                    Frequently Asked Questions
+                </h1>
+                <hr className="hr-w mx-auto" />
+                <div className="container mx-auto my-5">
+                    <FAQ></FAQ>
                 </div>
             </RootStyle>
         </Page>
