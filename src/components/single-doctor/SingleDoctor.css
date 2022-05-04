@@ -1,13 +1,16 @@
+.doctorImg {
+    transition: transform 1.2s ease;
+}
+
 .doctorImg:hover {
-    transform: scale(1.06);
-    transition: 0.2s ease-in-out;
+    transform: scale(1.1);
 }
 
 .d-name {
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 1px;
-    color: rgb(69, 142, 167);
+    color: #005963;
 }
 
 .d-spec {
@@ -15,7 +18,7 @@
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: rgb(69, 142, 167);
+    color: #005963;
 }
 
 .d-add {
@@ -73,7 +76,7 @@
     color: rgb(83, 83, 83);
 }
 
-.info .icon {
+.icon {
     padding-right: 8px;
     color: rgb(69, 142, 167);
 }

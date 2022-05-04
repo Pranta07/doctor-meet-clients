@@ -1,0 +1,53 @@
+.bg-style-for-contact {
+    background: linear-gradient(
+        183.41deg,
+        #67c3f3 -8.57%,
+        #5a98f2 82.96%
+    ) !important;
+
+    /* margin-top: 150px !important; */
+    text-align: left !important;
+}
+.contact-us-btn span {
+    font-size: 40px;
+    padding: 18px;
+    color: rgba(0, 0, 0, 0.807);
+}
+
+.contact-us-btn {
+    background-color: white;
+    border-radius: 100px;
+    width: 80px;
+    height: 80px;
+    border: 3px solid white;
+}
+
+.contact-us-btn:hover {
+    background-color: transparent;
+}
+
+.contact-us-btn:hover span {
+    color: white !important;
+    transition: ease-in-out 300ms;
+}
+.contact-us-btn-write span {
+    font-size: 40px;
+    padding: 20px;
+    color: rgba(0, 0, 0, 0.807);
+}
+
+.contact-us-btn-write {
+    background-color: white;
+    border-radius: 100px;
+    width: 80px;
+    height: 80px;
+    border: 3px solid white;
+}
+
+.contact-us-btn-write:hover {
+    background-color: transparent;
+    transition: ease-in-out 300ms;
+}
+.contact-us-btn-write:hover span {
+    color: white;
+}
