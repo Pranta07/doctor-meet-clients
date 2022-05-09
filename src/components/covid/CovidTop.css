@@ -1,0 +1,8 @@
+.item:hover {
+  transform: scale(1.05);
+  transition: 0.4s ease-in-out;
+}
+
+.covid-header {
+  background: url("../../assets/img/right-corona-bg.png") no-repeat right;
+}

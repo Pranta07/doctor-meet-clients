@@ -1,43 +1,52 @@
 /* ----------footer styles------------ */
 footer {
-    background: url("../../Assets/img/elementdot.png") no-repeat bottom left;
-
+    background: url("../../assets/img/elementdot.png") no-repeat bottom left;
 }
 
-.footer-bc-color {
-    background: linear-gradient(183.41deg, #67c3f3 -8.57%, #5a98f2 82.96%) !important;
-
+.footer-bg-color {
+    background: linear-gradient(
+        183.41deg,
+        #67c3f3 -8.57%,
+        #5a98f2 82.96%
+    ) !important;
 }
 
 .list {
-  font-size: 13px;
-  list-style: none;
-  padding: 0;
+    font-size: 15px;
+    list-style: none;
+    padding: 0;
 }
 
 .list li {
-  line-height: 2;
+    line-height: 2;
 }
 
 .list li:hover {
-  color: black;
-  cursor: pointer;
+    color: black;
+    cursor: pointer;
 }
 
 .radius {
-  border-radius: 10px;
+    border-radius: 10px;
 }
 
 .case:hover {
-  transform: scale(1.05);
-  transition: transform 0.5s ease-in-out;
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out;
 }
 
-.icons i {
-  font-size: 24px;
-  padding: 4px 8px;
+.social-icon {
+    font-size: 40px;
+    padding: 6px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    border-radius: 50%;
 }
 
-/* .footer-dot{
-    background: url("../../Assets/img/elementdot.png") no-repeat left;
-} */
+.social-icon:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #526ff3;
+    transition: 0.3s ease-in-out;
+}
