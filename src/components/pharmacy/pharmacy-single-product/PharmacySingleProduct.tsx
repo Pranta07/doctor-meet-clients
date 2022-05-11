@@ -3,7 +3,7 @@ import { RatingStar } from "rating-star";
 import React, { useState, useEffect } from "react";
 import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
-
+import "../pharmacy-product-view/PharmacyProductView.css";
 import "./PharmacySingleProduct.css";
 import Swal from "sweetalert2";
 let getData = () => {

@@ -6,7 +6,7 @@ import Logo from "../../components/Logo";
 //
 import MainFooter from "./MainFooter";
 import MainHeader from "./MainHeader";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
 // ----------------------------------------------------------------------
 

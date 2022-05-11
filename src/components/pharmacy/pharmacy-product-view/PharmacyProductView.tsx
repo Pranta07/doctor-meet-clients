@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Cart } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 import "./PharmacyProductView.css";
-import banner_img from "../../../assets/pharmacy/banner-sidebar.png";
+import "../pharmacy-banner/PharmacyBanner.css";
+import banner_img from "../../../Assets/pharmacy/banner-sidebar.png";
 
 const PharmacyProductView = () => {
   let [products, setProducts] = useState<any>({});
