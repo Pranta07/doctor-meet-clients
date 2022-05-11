@@ -1,6 +1,6 @@
 import React from "react";
 import "./PharmacySubscribe.css";
-import blog_img from "../../../assets/pharmacy/blog13.jpg";
+import blog_img from "../../../Assets/pharmacy/blog13.jpg";
 
 const PharmacySubscribe = () => {
   return (

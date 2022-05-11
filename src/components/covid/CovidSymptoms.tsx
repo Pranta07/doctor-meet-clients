@@ -1,5 +1,5 @@
 import React from "react";
-import symptoms from "../../assets/img/Symptoms-main.svg";
+import symptoms from "../../Assets/img/Symptoms-main.svg";
 import "./CovidSymptoms.css";
 
 const CovidSymptoms = () => {

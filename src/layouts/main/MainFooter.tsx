@@ -13,7 +13,7 @@ import {
 import { PATH_PAGE } from "../../routes/paths";
 // components
 import Logo from "../../components/Logo";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
 // ----------------------------------------------------------------------
 
