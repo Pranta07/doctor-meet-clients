@@ -20,7 +20,7 @@ const SimpleProcess = () => {
                         <Col lg={3} md={3} sm={12}>
                             <div className='simple-process-card text-center'>
                                 <div className='simple-process-img-container mb-4 d-flex justify-content-center flex-column align-items-center'>
-                                    <img src="https://cdn-icons.flaticon.com/png/128/2721/premium/2721688.png?token=exp=1651262311~hmac=afc3dd866acabbb3c764416721e1ff92" alt="website-demo" style={{width:"50px",height:"50px"}} />
+                                    <img src="https://cdn-icons.flaticon.com/png/512/2721/premium/2721688.png?token=exp=1652349722~hmac=641d3570b067c0220f43feabcf575ead" alt="website-demo" style={{width:"50px",height:"50px"}} />
                                 </div>
                                 <hr className="simple-process-hr mb-2"/>
                                 <div className='simple-process-content'>
@@ -44,7 +44,7 @@ const SimpleProcess = () => {
                         <Col lg={3} md={3} sm={12}>
                             <div className='simple-process-card text-center'>
                                 <div className='simple-process-img-container mb-4 d-flex justify-content-center flex-column align-items-center'>
-                                    <img src="https://cdn-icons.flaticon.com/png/128/3214/premium/3214020.png?token=exp=1651263500~hmac=1d274afbdc13449fccadec12289a82f8" alt="website-demo" style={{width:"50px",height:"50px"}} />
+                                    <img src="https://cdn-icons-png.flaticon.com/512/4192/4192068.png" alt="website-demo" style={{width:"50px",height:"50px"}} />
                                 </div>
                                 <hr className="simple-process-hr mb-2"/>
                                 <div className='simple-process-content'>

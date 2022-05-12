@@ -9,7 +9,7 @@ const CovidAwarnessBar = () => {
                 <Grid item xs={12} md={6} lg={4}>
                     <div className='d-lg-flex d-md-flex justify-content-between align-items-center'>
                         <div className="awarness-logo-container d-flex justify-content-center align-items-center flex-column">
-                        <img src="https://cdn-icons.flaticon.com/png/512/5948/premium/5948902.png?token=exp=1651236147~hmac=619568bf69f8d3356ed2900b6402e11a" alt="" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/2949/2949973.png" alt="" />
                       
                         </div>
                         <div className="awarness-content-container ms-5">
@@ -18,10 +18,11 @@ const CovidAwarnessBar = () => {
                         </div>
                     </div>
                 </Grid>
+              
                 <Grid item xs={12} md={6} lg={4}>
                 <div className='d-flex justify-content-between align-items-center'>
                         <div className="awarness-logo-container d-flex justify-content-center align-items-center flex-column">
-                        <img src="https://cdn-icons.flaticon.com/png/512/3341/premium/3341426.png?token=exp=1651237675~hmac=93a5dbbc5e6762d4758e777c74bc8f86" alt="" />
+                        <img src="  https://cdn-icons.flaticon.com/png/128/3150/premium/3150895.png?token=exp=1652349631~hmac=11ab3f53561a74159b9400bf8a37cf29" alt="" />
                       
                         </div>
                         <div className="awarness-content-container ms-5">

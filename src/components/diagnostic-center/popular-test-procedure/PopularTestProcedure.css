@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Radio+Canada&display=swap');
-.popular-test-procedures .card{
-    
-}
+
 .popular-test-procedures .card .card-title{
     color: red;
     text-align: left !important;
@@ -16,6 +14,10 @@ color: #222f3e;
 }
 .popular-test-procedures .card{
     text-align: left  !important;
+}
+.popular-test-procedures .card:hover{
+    cursor: pointer;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 .font-radio-canada{
     font-family: 'Radio Canada', sans-serif;

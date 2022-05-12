@@ -18,7 +18,7 @@ const DiagnosticPathologies = () => {
         <Row className='d-flex align-items-center justify-content-between'>
             <Col item xs={12} md={4} lg={2}>
                <div className="imaging-icon-holder d-flex justify-content-center align-items-center flex-column">
-                    <img src="https://cdn-icons.flaticon.com/png/512/3974/premium/3974825.png?token=exp=1651264159~hmac=ae190ee6cd827b79c6ae708a26c94cab" alt="pathology-icon"/>
+                    <img src="https://cdn-icons.flaticon.com/png/512/4118/premium/4118864.png?token=exp=1652349424~hmac=bde5b80003f55e881ef0d435c95e6180" alt="pathology-icon"/>
                </div>
             </Col>
             <Col item xs={12} md={8} lg={9} className="ms-5">
