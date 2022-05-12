@@ -7,6 +7,7 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 // components
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
+import UserReview from "../components/user-review/UserReview";
 
 // ----------------------------------------------------------------------
 
@@ -169,6 +170,10 @@ export default function Router() {
                         {
                             path: "get-appointments",
                             element: <GetAppointmentForm />,
+                        },
+                        {
+                            path: "add-review",
+                            element: <UserReview />,
                         },
                     ],
                 },
