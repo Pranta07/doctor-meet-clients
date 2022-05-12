@@ -1,0 +1,39 @@
+.choose-diagnotocs-card-container .card{
+    margin-bottom: 35px;
+}
+.choose-diagnotocs-card-container .card .card-img-top{
+    height: 250px;
+}
+.choose-diagnotocs-card-container .card .card-text{
+    color: #8395a7;
+    font-family: 'Radio Canada', sans-serif;
+}
+.choose-diagnotocs-card-container .card .card-text h6{
+    color: #222f3e;
+    margin:15px 0px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-choose-diagnostic-book-now {background-image: linear-gradient(to right, #24C6DC 0%, #514A9D  51%, #24C6DC  100%)}
+.btn-choose-diagnostic-book-now {
+   margin: 20px auto 10px auto;
+   padding: 10px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 40px;
+   display: block;
+   border: 0px;
+   font-family: 'Lato', sans-serif;
+ }
+
+ .btn-choose-diagnostic-book-now:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }

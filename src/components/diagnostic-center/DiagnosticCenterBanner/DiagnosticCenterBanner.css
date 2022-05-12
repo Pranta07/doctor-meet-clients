@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada&family=Work+Sans&display=swap');
+.diagnostic-banner-img{
+    height: 600px;
+    
+}
+.diagnostic-carousel-title{
+    font-size: 32px;
+    font-family: 'Radio Canada', sans-serif;
+    color: #222f3e;
+    font-weight: 700;
+} 
+.diagnostic-carousel-para{
+    color:white;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+
+}
