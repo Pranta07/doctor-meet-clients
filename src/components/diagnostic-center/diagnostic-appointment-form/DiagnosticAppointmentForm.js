@@ -57,7 +57,7 @@ const DiagnosticAppointmentForm = () => {
                 .then(data => {
                     if (data.insertedId) {
                         alert("Appointment is booked successfully. Now go to dashboard to pay");
-                        navigate("/dashboard/my-diagnosis");
+                        navigate("/dashboard/user/my-diagnosises");
                     }
                 })
     }

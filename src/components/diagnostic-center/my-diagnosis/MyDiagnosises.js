@@ -27,7 +27,7 @@ const MyDiagnosises = () => {
         
     },[user])
     return (
-      <TableContainer component={Paper} className="mt-5 ms-5">
+      <TableContainer component={Paper} className="mt-5">
          <Table sx={{ minWidth: 700 }} aria-label="customized table">
          <TableHead>
           <TableRow>
@@ -36,7 +36,7 @@ const MyDiagnosises = () => {
             <StyledTableCell align="right">Diagnosis Date</StyledTableCell>
             <StyledTableCell align="right">Total Cost</StyledTableCell>
             <StyledTableCell align="right">Payment Status</StyledTableCell>
-            <StyledTableCell align="right">Action</StyledTableCell>
+            <StyledTableCell align="center">Action</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>

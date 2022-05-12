@@ -67,6 +67,11 @@ const sidebarConfig = [
             path: "/dashboard/user/get-appointments",
             icon: ICONS.analytics,
           },
+          {
+            title: "Diagnosis",
+            path: "/dashboard/user/my-diagnosises",
+            icon: ICONS.analytics,
+          },
         ],
       },
     ],
@@ -91,6 +96,11 @@ const sidebarConfig = [
           {
             title: "Appointments",
             path: "/dashboard/admin/all-appointments",
+            icon: ICONS.analytics,
+          },
+          {
+            title: "Diagnosis",
+            path: "/dashboard/admin/all-diagnosis",
             icon: ICONS.analytics,
           },
         ],

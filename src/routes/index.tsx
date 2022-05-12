@@ -8,7 +8,7 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
 import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
-import { DiagnosicPay,  DiagnosticAppointmentForm,  MyDiagnosises } from "../components/diagnostic-center";
+import { DiagnosicPay,  DiagnosticAppointmentForm } from "../components/diagnostic-center";
 
 
 
@@ -175,7 +175,7 @@ export default function Router() {
                             element: <GetAppointmentForm />,
                         },
                         {
-                            path:"my-diagnosis/:category/:id",
+                            path:"my-diagnosises",
                             element:<MyDiagnosises />,
                         }
                         
@@ -199,10 +199,10 @@ export default function Router() {
                             path: "all-appointments",
                             element: <AllAppointments />
                         },
-                        //  {
-                        //      path: "all-diagnosis",
-                        //      element: <AllDiagnosis/>,
-                        //  }
+                         {
+                             path: "all-diagnosis",
+                             element: <AllDiagnosis/>,
+                         }
                     ],
                 },
             ],
@@ -267,6 +267,7 @@ export default function Router() {
                     path:"/diagnostic-pay/:id",
                     element:<DiagnosicPay />,
                 },
+               
                 
             ],
         },
@@ -322,6 +323,9 @@ const GetAppointmentForm = Loadable(
 const AllAppointments = Loadable(
     lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
 );
+const AllDiagnosis = Loadable(
+    lazy(() => import("../pages/dashboards/all-diagnosis/AllDiagnosis"))
+);
 const FindDonors = Loadable(
     lazy(() => import("../pages/find-donors/FindDonors"))
 );
@@ -368,7 +372,9 @@ const AppointmentDoctors = Loadable(
 const PayAppointmentFee = Loadable(
     lazy(() => import("../components/appointment/PayAppointmentFee"))
 );
-
+const MyDiagnosises = Loadable(
+    lazy(() => import("../components/diagnostic-center/my-diagnosis/MyDiagnosises"))
+);
 
 
 // DASHBOARD

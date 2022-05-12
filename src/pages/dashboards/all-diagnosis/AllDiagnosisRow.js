@@ -59,7 +59,7 @@ const deleteBookedDiagnosisAppointment=(e)=>{
               <StyledTableCell align="right">{diagnos.bookingDate}</StyledTableCell>
               <StyledTableCell align="right">{floatPrice} $</StyledTableCell>
               <StyledTableCell align="right">{diagnos?.paymentStatus}</StyledTableCell>
-              <StyledTableCell align="right">
+              <StyledTableCell className="mx-auto">
             <button className='btn-diagnosis-pay' onClick={deleteBookedDiagnosisAppointment}>Delete</button>
              
               </StyledTableCell>

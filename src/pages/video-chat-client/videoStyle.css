@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Radio+Canada&display=swap');
 .call-notification-title{
     font-weight: 500;
     font-family: 'Radio Canada', sans-serif;
@@ -45,7 +46,7 @@
     color: #fff;
     text-decoration: none;
   }
-  @import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Radio+Canada&display=swap');
+  
   .video-chat-sidebar{
       margin: 30px auto;
       width: 50%;

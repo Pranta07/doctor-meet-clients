@@ -1,7 +1,9 @@
-
+a{
+  text-decoration: none;
+}
          .btn-diagnosis-pay {background-image: linear-gradient(to right, #41295a 0%, #2F0743  51%, #41295a  100%)}
          .btn-diagnosis-pay {
-            margin: 0px;
+            margin: 0px auto;
             padding: 10px 30px;
             text-align: center;
             text-transform: uppercase;
