@@ -7,6 +7,10 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 // components
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
+import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
+import { DiagnosicPay,  DiagnosticAppointmentForm,  MyDiagnosises } from "../components/diagnostic-center";
+
+
 
 // ----------------------------------------------------------------------
 
@@ -170,6 +174,11 @@ export default function Router() {
                             path: "get-appointments",
                             element: <GetAppointmentForm />,
                         },
+                        {
+                            path:"my-diagnosis/:category/:id",
+                            element:<MyDiagnosises />,
+                        }
+                        
                     ],
                 },
                 {
@@ -188,8 +197,12 @@ export default function Router() {
                         { path: "manage-donors", element: <ManageDonors /> },
                         {
                             path: "all-appointments",
-                            element: <AllAppointments />,
+                            element: <AllAppointments />
                         },
+                        //  {
+                        //      path: "all-diagnosis",
+                        //      element: <AllDiagnosis/>,
+                        //  }
                     ],
                 },
             ],
@@ -242,7 +255,19 @@ export default function Router() {
                     path: "pay-appointment-fee/:id",
                     element: <PayAppointmentFee />,
                 },
-                // { path: "virtual-meet#loaded", element: <VideoChatRoute /> },
+                {
+                    path: "diagnostic-center",
+                    element: <DiagnosticCenter/>,
+                },
+                {
+                    path: "/diagnostic-appointment-form/:category/:id",
+                    element: <DiagnosticAppointmentForm/>,
+                },
+                {
+                    path:"/diagnostic-pay/:id",
+                    element:<DiagnosicPay />,
+                },
+                
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
@@ -343,6 +368,8 @@ const AppointmentDoctors = Loadable(
 const PayAppointmentFee = Loadable(
     lazy(() => import("../components/appointment/PayAppointmentFee"))
 );
+
+
 
 // DASHBOARD
 

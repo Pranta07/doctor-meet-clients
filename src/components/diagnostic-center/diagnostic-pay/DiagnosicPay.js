@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useParams } from "react-router-dom";
-import DiagnosticPaymentForm from "../DiagnosticPaymentForm/DiagnosticPaymentForm";
+import DiagnosticPaymentForm from "../diagnostic-payment-form/DiagnosticPaymentForm";
 import './DiagnosicPay.css';
 
 const stripePromise = loadStripe(

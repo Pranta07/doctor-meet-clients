@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box,  Button,  Modal, Typography } from '@mui/material';
+import { Box,  Modal } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const DiagnosticPathology = ({pathology}) => {

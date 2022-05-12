@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import ChooseDiagnostic from '../ChooseDiagnostic/ChooseDiagnostic';
+import ChooseDiagnostic from '../choose-diagnostic/ChooseDiagnostic';
 import './ChooseDiagnostics.css';
 const ChooseDiagnostics = () => {
     const [sections,setSections]=useState([]);

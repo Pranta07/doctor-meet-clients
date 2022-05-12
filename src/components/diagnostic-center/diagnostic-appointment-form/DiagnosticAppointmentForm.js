@@ -62,7 +62,7 @@ const DiagnosticAppointmentForm = () => {
                 })
     }
     return (
-        <div className='diagnostic-form-container'>
+        <div className='diagnostic-form-container mt-5'>
             <Container>
                 <Row>
                     <Form onSubmit={handleOnSubmit}>

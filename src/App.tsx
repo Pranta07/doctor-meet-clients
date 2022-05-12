@@ -2,7 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import Doctors from "./pages/doctors/Doctors";
 import Footer from "./components/footer/Footer";
-
 import Login from "./pages/security/login/Login";
 import Registration from "./pages/security/registration/Registration";
 import VideoChatRoute from "./pages/video-chat-client/VideoChatRoute";
@@ -18,11 +17,10 @@ import {
 import Router from "./routes/index";
 // theme
 import ThemeProvider from "./theme/index";
-import { ContextProvider } from "./contexts/Context";
 // components
 import ScrollToTop from "./components/ScrollToTop";
 import ThemeColorPresets from "./components/ThemeColorPresets";
-
+import './App.css';
 // ----------------------------------------------------------------------
 
 export default function App() {

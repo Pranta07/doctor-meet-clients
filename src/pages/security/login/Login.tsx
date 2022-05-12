@@ -54,7 +54,7 @@ const Login = () => {
                             controlId="formBasicCheckbox"
                         >
                             <Form.Check type="checkbox" label="Remember me" />{" "}
-                            <a href=""> Forgot password? </a>
+                            <a href="/"> Forgot password? </a>
                         </Form.Group>
                         <Button
                             onClick={handelSubmit}

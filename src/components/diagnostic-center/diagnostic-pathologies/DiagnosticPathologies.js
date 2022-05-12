@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import DiagnosticPathology from '../DiagnosticPathology/DiagnosticPathology';
+import DiagnosticPathology from '../diagnostic-pathology/DiagnosticPathology';
 
 const DiagnosticPathologies = () => {
     const [pathologies,setPathologies]=useState([]);

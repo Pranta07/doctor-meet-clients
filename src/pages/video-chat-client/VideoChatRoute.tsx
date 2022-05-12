@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ContextProvider } from "../../contexts/Context";
 import Notifications from "./Notifications";
 import Sidebar from "./Sidebar";
@@ -19,12 +19,7 @@ const RootStyle = styled("div")(({ theme }) => ({
 }));
 
 const VideoChatRoute = () => {
-  useEffect(() => {
-    if (!window.location.hash) {
-      window.location.href = window.location + "#loaded";
-      window.location.reload();
-    }
-  }, []);
+ 
 
   return (
     <ContextProvider>

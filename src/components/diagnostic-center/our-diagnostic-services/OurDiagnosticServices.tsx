@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import DiagnosticImagings from '../DiagnosticImagings/DiagnosticImagings';
-import DiagnosticPathologies from '../DiagnosticPathologies/DiagnosticPathologies';
+import DiagnosticImagings from '../diagnostic-imagings/DiagnosticImagings';
+import DiagnosticPathologies from '../diagnostic-pathologies/DiagnosticPathologies';
 
 const OurDiagnosticServices = () => {
     return (

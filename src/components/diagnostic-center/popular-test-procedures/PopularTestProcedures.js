@@ -1,6 +1,7 @@
 import React, {  useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import PopularTestProcedure from '../PopularTestProcedure/PopularTestProcedure';
+
+import PopularTestProcedure from '../popular-test-procedure/PopularTestProcedure';
 import './PopularTestProcedures.css';
 const PopularTestProcedures = () => {
 

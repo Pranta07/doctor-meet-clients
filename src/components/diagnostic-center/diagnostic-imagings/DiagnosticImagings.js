@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import './DiagnosticImagings.css';
-import DiagnosticImaging from './DiagnosticImaging/DiagnosticImaging';
+import DiagnosticImaging from './diagnostic-imaging/DiagnosticImaging';
 import { Col, Row } from 'react-bootstrap';
 const DiagnosticImagings = () => {
     const [imagings,setImagings]=useState([]);
