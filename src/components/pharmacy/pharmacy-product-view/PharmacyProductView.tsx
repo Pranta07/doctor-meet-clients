@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Cart } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 import "./PharmacyProductView.css";
+import "../pharmacy-banner/PharmacyBanner.css"
 import banner_img from "../../../assets/pharmacy/banner-sidebar.png";
 
 const PharmacyProductView = () => {
