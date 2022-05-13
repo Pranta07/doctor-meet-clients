@@ -21,7 +21,7 @@ import Logo from "../../components/Logo";
 import Iconify from "../../components/Iconify";
 import Scrollbar from "../../components/Scrollbar";
 import { NavSectionVertical } from "../../components/nav-section/index";
-import logo from "../../Assets/img/logo.png";
+import logo from "../../assets/img/logo.png";
 // ----------------------------------------------------------------------
 
 const ListItemStyle: any = styled(ListItemButton)(({ theme }) => ({

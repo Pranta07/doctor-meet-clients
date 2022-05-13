@@ -14,7 +14,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import ContactImg from "../../Assets/undraw_contact_us.svg";
+import ContactImg from "../../assets/undraw_contact_us.svg";
 import Button from "@mui/material/Button";
 
 const RootStyle = styled("div")(({ theme }) => ({

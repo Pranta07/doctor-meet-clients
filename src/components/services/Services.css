@@ -1,5 +1,9 @@
 .services-section {
+<<<<<<< HEAD
   background: url("../../Assets/services/servicesBG.png") no-repeat left;
+=======
+  background: url("../../assets/services/servicesBG.png") no-repeat left;
+>>>>>>> 8631495aa71c8506c26edfb56891e3621928a574
   margin-bottom: 400px;
   margin-top: 250px;
 }
@@ -12,5 +16,9 @@
   margin-bottom: 33px;
 }
 .service-dot {
+<<<<<<< HEAD
   background: url("../../Assets/img/elementdot.png") no-repeat right;
+=======
+  background: url("../../assets/img/elementdot.png") no-repeat right;
+>>>>>>> 8631495aa71c8506c26edfb56891e3621928a574
 }

@@ -2,7 +2,7 @@ import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
-import helpImg from "../../Assets/img/need-help.svg";
+import helpImg from "../../assets/img/need-help.svg";
 import useAuth from "../../hooks/useAuth";
 import "./CovidHelp.css";
 

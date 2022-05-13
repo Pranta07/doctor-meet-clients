@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+<<<<<<< HEAD
 import blood from "../../Assets/services/blood.jpg";
 import consultation from "../../Assets/services/consultation.png";
 import covid from "../../Assets/services/covid.jpg";
@@ -8,6 +9,16 @@ import info from "../../Assets/services/info.png";
 import medicine from "../../Assets/services/medicine.png";
 import reports from "../../Assets/services/reports.png";
 import search from "../../Assets/services/search.png";
+=======
+import blood from "../../assets/services/blood.jpg";
+import consultation from "../../assets/services/consultation.png";
+import covid from "../../assets/services/covid.jpg";
+import emergency from "../../assets/services/emergency.png";
+import info from "../../assets/services/info.png";
+import medicine from "../../assets/services/medicine.png";
+import reports from "../../assets/services/reports.png";
+import search from "../../assets/services/search.png";
+>>>>>>> 8631495aa71c8506c26edfb56891e3621928a574
 import Service from "./Service";
 import "./Services.css";
 //

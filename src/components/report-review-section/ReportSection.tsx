@@ -16,6 +16,8 @@ const ReportSection = () => {
   let emailRef = useRef<HTMLInputElement | null>(null);
   let disRef = useRef<HTMLInputElement | null>(null);
 
+  let [allValue, setAllValue] = useState<string | undefined>("");
+
   let [url, setUrl] = useState("");
   let [progress, setProgress] = useState(0);
   let storage = getStorage();
@@ -58,10 +60,7 @@ const ReportSection = () => {
     let name = nameRef.current?.value;
     let email = emailRef.current?.value;
     let discription = disRef.current?.value;
-
-    
   };
-  
   return (
     <Box>
       <Container>
@@ -115,7 +114,7 @@ const ReportSection = () => {
                 id="outlined-basic"
                 label="Patient Name"
                 variant="outlined"
-                ref={nameRef}
+                inputRef={nameRef}
                 sx={{
                   my: "15px",
                 }}
@@ -124,7 +123,7 @@ const ReportSection = () => {
                 fullWidth
                 id="outlined-basic"
                 label="Email"
-                ref={emailRef}
+                inputRef={emailRef}
                 variant="outlined"
                 type="email"
                 sx={{
@@ -135,7 +134,7 @@ const ReportSection = () => {
                 id="outlined-multiline-static"
                 label="Say Something"
                 fullWidth
-                ref={disRef}
+                inputRef={disRef}
                 multiline
                 rows={4}
                 sx={{
@@ -160,7 +159,11 @@ const ReportSection = () => {
                   <LinearProgress variant="determinate" value={progress} />
                 </div>
               )}
-              <Button onClick={handlePostToMongo} variant="contained" sx={{ my: "15px" }}>
+              <Button
+                onClick={handlePostToMongo}
+                variant="contained"
+                sx={{ my: "15px" }}
+              >
                 {" "}
                 Post{" "}
               </Button>

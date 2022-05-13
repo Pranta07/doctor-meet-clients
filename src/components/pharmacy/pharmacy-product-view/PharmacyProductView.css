@@ -25,6 +25,11 @@
     border-radius: 3px;
     column-gap: 10px;
 }
+.hover-container img{
+    width: 200px;
+    margin: 0 auto;
+}
+
 .hover-container div{
     border: 2px solid rgb(196, 192, 192);
     padding: 1rem;
