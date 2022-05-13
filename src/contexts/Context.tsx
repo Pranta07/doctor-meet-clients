@@ -6,7 +6,7 @@ const SocketContext = createContext<any>('');
 
 // const socket = io('http://localhost:5000');
 
-const socket: Socket = io('http://localhost:5000');
+const socket: Socket = io('https://doctor-meet.herokuapp.com');
 
 const ContextProvider = ({ children }: any) => {
   const [callAccepted, setCallAccepted] = useState(false);
@@ -34,7 +34,7 @@ const ContextProvider = ({ children }: any) => {
     socket.on('callUser', ({ from, name: callerName, signal }) => {
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
-  }, []);
+  }, [myVideo]);
 
   const answerCall = () => {
     setCallAccepted(true);

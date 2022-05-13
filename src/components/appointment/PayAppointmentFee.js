@@ -13,7 +13,7 @@ const PayAppointmentFee = () => {
     const params = useParams();
     console.log(params.id);
     useEffect(() => {
-        fetch(`https://doctor-meet-appointment-server.vercel.app/allAppointments/${params.id}`)
+        fetch(`https://floating-basin-02241.herokuapp.com/allAppointments/${params.id}`)
             .then((res) => res.json())
             .then((data) => setAppointment(data));
     }, [params]);

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Bodoni:ital@1&family=PT+Sans&family=Radio+Canada&family=Roboto&display=swap');
+.imaging-info-container{
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.imaging-info-container:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.imaging-modal-title{
+    color:#222f3e ;
+    font-weight: 600 ;
+    font-size: 28px ;
+    font-family: 'Inter', sans-serif ;
+}
+.imaging-modal-description{
+    color:#8395a7 ;
+    font-weight: 500 ;
+    font-size: 18px ;
+    font-family: 'Lato', sans-serif ;
+}
+.imaging-modal-code{
+font-size: 28px;
+margin-top: 20px;
+color: #341f97;
+font-family: 'Roboto', sans-serif;
+}
+.imaging-modal-price{
+font-size: 28px;
+margin-top: 20px;
+color: #222f3e;
+font-family: 'Roboto', sans-serif;
+}
+
+.btn-book-now {background-image: linear-gradient(to right, #1c92d2 0%, #f2fcfe  51%, #1c92d2  100%)}
+.btn-book-now {
+   margin: 30px auto 0px auto;
+   padding: 10px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   font-family: 'PT Sans', sans-serif;
+   font-weight: 600;
+   background-size: 200% auto;
+   color: black;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   display: block;
+   border: 0px;
+ }
+
+ .btn-book-now:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: black;
+   text-decoration: none;
+ }

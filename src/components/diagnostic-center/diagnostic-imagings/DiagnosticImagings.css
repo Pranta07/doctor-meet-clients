@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Bodoni:ital@1&family=PT+Sans&family=Radio+Canada&display=swap');
+.imaging-icon-holder{
+    width: 200px;
+    height:200px;
+    background-color: #427CC5;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+}
+.imaging-icon-holder img{
+    width: 90px;
+    height: 90px;
+}
+.services-title{
+    font-family: 'PT Sans', sans-serif;
+    color:#222f3e;
+    font-size: 28px;
+    font-weight: 600;
+}
+.services-hr{
+    border: 1px solid black;
+    margin-bottom: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

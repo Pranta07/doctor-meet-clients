@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Radio+Canada&display=swap');
+.diagnosis-header{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.diagnosis-header .diagnosis-title{
+    color:#222f3e;
+    font-weight: 600;
+    font-family: 'Radio Canada', sans-serif;
+}
+.diagnosis-header .diagnosis-title-content{
+    font-family: 'Inter', sans-serif;
+    color: #8395a7;
+    margin-top: 20px;
+}
+.diagnosis-header hr{
+width: 60px;
+border: 3px solid #427CC5;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+margin: 20px auto !important;
+border-radius: 10px;
+}

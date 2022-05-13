@@ -1,13 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
-
 import AuthProvider from "./contexts/AuthProvider";
 import Router from "./routes/index";
 // theme
 import ThemeProvider from "./theme/index";
 // components
 import ScrollToTop from "./components/ScrollToTop";
-
+import ThemeColorPresets from "./components/ThemeColorPresets";
+import './App.css';
 // ----------------------------------------------------------------------
 
 export default function App() {

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { SocketContext } from "../../contexts/Context";
-
+import './style/hello.css';
 const Sidebar = ({ children }: any) => {
   const { me, callAccepted, setName, callEnded, leaveCall, callUser } =
     useContext(SocketContext);
@@ -12,7 +12,7 @@ const Sidebar = ({ children }: any) => {
   };
   console.log(me);
   return (
-    <div>
+    <div className="video-chat-sidebar">
       <form noValidate autoComplete="off">
         <div>
           <div style={{ width: "600px" }}>
