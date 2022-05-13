@@ -67,6 +67,11 @@ const sidebarConfig = [
             path: "/dashboard/user/get-appointments",
             icon: ICONS.analytics,
           },
+          {
+            title: "Report",
+            path: "/dashboard/user/Report-section",
+            icon: ICONS.analytics,
+          },
         ],
       },
     ],
