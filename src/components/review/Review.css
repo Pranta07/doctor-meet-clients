@@ -16,17 +16,10 @@
 }
 
 .re-dot {
-<<<<<<< HEAD
-  background: url("../../Assets/img/elementdot.png") no-repeat bottom left;
-}
-.dot-rev {
-  background: url("../../Assets/img/elementdot.png") no-repeat right;
-=======
   background: url("../../assets/img/elementdot.png") no-repeat bottom left;
 }
 .dot-rev {
   background: url("../../assets/img/elementdot.png") no-repeat right;
->>>>>>> 8631495aa71c8506c26edfb56891e3621928a574
 }
 
 .mb-for-r {

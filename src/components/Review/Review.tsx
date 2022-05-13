@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-import review_img from "../../Assets/img/review-img.png";
-=======
 import review_img from "../../assets/img/review-img.png";
->>>>>>> 8631495aa71c8506c26edfb56891e3621928a574
 import "./Review.css";
 
 const Review = () => {
