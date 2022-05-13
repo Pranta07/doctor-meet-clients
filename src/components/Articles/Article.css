@@ -1,0 +1,11 @@
+.btn-color {
+  color: #5a98f2 !important;
+  font-weight: 500;
+  background-color: white !important;
+}
+.card {
+  border: none !important;
+}
+.btn-color:hover {
+  color: black !important;
+}
