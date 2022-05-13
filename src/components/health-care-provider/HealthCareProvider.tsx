@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import HealthCareProviderImg from "../../Assets/health-care-provider/HealthCareProvider.png";
+import HealthCareProviderImg from "../../assets/health-care-provider/HealthCareProvider.png";
 import "./HealthCareProvider.css";
 
 const HealthCareProvider = () => {

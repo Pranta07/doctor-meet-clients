@@ -1,5 +1,5 @@
 .services-section {
-  background: url("../../Assets/services/servicesBG.png") no-repeat left;
+  background: url("../../assets/services/servicesBG.png") no-repeat left;
   margin-bottom: 400px;
   margin-top: 250px;
 }
@@ -12,5 +12,5 @@
   margin-bottom: 33px;
 }
 .service-dot {
-  background: url("../../Assets/img/elementdot.png") no-repeat right;
+  background: url("../../assets/img/elementdot.png") no-repeat right;
 }
