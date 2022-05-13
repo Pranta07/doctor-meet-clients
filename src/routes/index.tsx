@@ -170,6 +170,10 @@ export default function Router() {
                             path: "get-appointments",
                             element: <GetAppointmentForm />,
                         },
+                        {
+                            path: "Report-section",
+                            element: <ReportSection/>,
+                        },
                     ],
                 },
                 {
@@ -299,6 +303,9 @@ const AllAppointments = Loadable(
 );
 const FindDonors = Loadable(
     lazy(() => import("../pages/find-donors/FindDonors"))
+);
+const ReportSection = Loadable(
+    lazy(() => import("../components/report-review-section/ReportSection"))
 );
 const PremiumMemberships = Loadable(
     lazy(() => import("../pages/premium-membership/PremiumMemberships"))

@@ -1,12 +1,12 @@
 .about-img {
-    transition: transform 1.2s ease;
+    transition: transform 1.4s ease;
 }
 .about-img:hover {
     transform: scale(1.1);
 }
 .service-item {
     letter-spacing: 1px;
-    transition: 0.3s ease-in-out;
+    transition: 0.4s ease-in-out;
 }
 .service-item:hover {
     cursor: pointer;
