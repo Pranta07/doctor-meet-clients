@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import TextAnimation from "./TextAnimation";
-import VM from "../../assets/handdrawn-vector-60-removebg-preview (1).png";
+import VM from "../../assets/carousel/handdrawn-vector-60-removebg-preview.png";
 import FD from "../../assets/carousel/doctors.svg";
 import Medicine from "../../assets/carousel/undraw_monitoring.svg";
 import "./Banner.css";
