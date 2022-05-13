@@ -2,6 +2,7 @@ import React from "react";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Rating } from "@mui/material";
+import "../single-doctor/SingleDoctor.css";
 
 const TopSingle = (props: any) => {
     const { img, name, specialist, review } = props.top;
