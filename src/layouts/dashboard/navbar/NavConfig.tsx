@@ -80,6 +80,11 @@ const sidebarConfig = [
                         path: "/dashboard/user/add-review",
                         icon: ICONS.analytics,
                     },
+                    {
+                        title: "Add Article",
+                        path: "/dashboard/user/add-article",
+                        icon: ICONS.analytics,
+                    },
                 ],
             },
         ],

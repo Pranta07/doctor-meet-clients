@@ -8,6 +8,7 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
 import UserReview from "../components/user-review/UserReview";
+import AddArticle from "../components/add-article/AddArticle";
 
 // ----------------------------------------------------------------------
 
@@ -174,6 +175,10 @@ export default function Router() {
                         {
                             path: "add-review",
                             element: <UserReview />,
+                        },
+                        {
+                            path: "add-article",
+                            element: <AddArticle />,
                         },
                     ],
                 },
