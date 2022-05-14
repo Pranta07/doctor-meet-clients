@@ -48,6 +48,8 @@ const ReportSection = () => {
           {
             setUrl(url);
             setIsProgress(false);
+            console.log("done");
+            
           }
         });
       }
