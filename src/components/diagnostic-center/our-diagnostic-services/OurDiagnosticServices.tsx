@@ -10,7 +10,6 @@ const OurDiagnosticServices = () => {
         <h1 className="diagnosis-title">
           Our Diagnosis Services
         </h1>
-       
         <hr />
       </div>
         <Container>
