@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Bodoni:ital@1&family=PT+Sans&family=Radio+Canada&display=swap');
+.diagnosis-choose-us-subtitle{
+    font-family: 'Inter', sans-serif;
+    color:#8395a7;
+
+}
+.diagnosis-choose-us-title{
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 600;
+    color: #222f3e;
+}
+.diagnosis-choose-us-content{
+    font-family: 'Radio Canada', sans-serif;
+    color: #576574;
+}

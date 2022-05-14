@@ -36,7 +36,7 @@ const PayAppointmentFeeFrom = ({ appointment }) => {
             console.log("[PaymentMethod]", paymentMethod);
             if (paymentMethod.id) {
                 fetch(
-                    `https://doctor-meet-appointment-server.vercel.app/allAppointments/${appointment._id}`,
+                    `https://floating-basin-02241.herokuapp.com/allAppointments/${appointment._id}`,
                     {
                         method: "PUT",
                     }

@@ -5,7 +5,7 @@ import Page from "../../../components/Page";
 const AllAppointments = () => {
   const [appointments, setAppointments] = useState([]);
   useEffect(() => {
-    fetch("https://doctor-meet-appointment-server.vercel.app/allAppointments")
+    fetch("https://floating-basin-02241.herokuapp.com/allAppointments")
       .then((res) => res.json())
       .then((data) => setAppointments(data));
   }, []);

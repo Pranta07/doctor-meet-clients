@@ -8,7 +8,7 @@ const MyAppointments = () => {
     const [appointments, setAppointments] = useState([]);
     useEffect(() => {
         fetch(
-            `https://doctor-meet-appointment-server.vercel.app/allAppointments/single?patientEmail=${user?.email}`
+            `https://floating-basin-02241.herokuapp.com/allAppointments/single?patientEmail=${user?.email}`
         )
             .then((res) => res.json())
             .then((data) => setAppointments(data));

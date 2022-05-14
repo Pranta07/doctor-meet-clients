@@ -8,6 +8,10 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
 import UserReview from "../components/user-review/UserReview";
+import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
+import { DiagnosicPay,  DiagnosticAppointmentForm } from "../components/diagnostic-center";
+
+
 
 // ----------------------------------------------------------------------
 
@@ -179,8 +183,13 @@ export default function Router() {
                             
                             path: "add-review",
                             element: <UserReview />,
+                        },
+                        {
+                            path:"my-diagnosises",
+                            element:<MyDiagnosises />,
                         }
-                    ]
+                        
+                    ],
                 },
                 {
                     path: "admin",
@@ -198,8 +207,12 @@ export default function Router() {
                         { path: "manage-donors", element: <ManageDonors /> },
                         {
                             path: "all-appointments",
-                            element: <AllAppointments />,
+                            element: <AllAppointments />
                         },
+                         {
+                             path: "all-diagnosis",
+                             element: <AllDiagnosis/>,
+                         }
                     ],
                 },
             ],
@@ -252,7 +265,20 @@ export default function Router() {
                     path: "pay-appointment-fee/:id",
                     element: <PayAppointmentFee />,
                 },
-                // { path: "virtual-meet#loaded", element: <VideoChatRoute /> },
+                {
+                    path: "diagnostic-center",
+                    element: <DiagnosticCenter/>,
+                },
+                {
+                    path: "/diagnostic-appointment-form/:category/:id",
+                    element: <DiagnosticAppointmentForm/>,
+                },
+                {
+                    path:"/diagnostic-pay/:id",
+                    element:<DiagnosicPay />,
+                },
+               
+                
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
@@ -307,6 +333,9 @@ const GetAppointmentForm = Loadable(
 const AllAppointments = Loadable(
     lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
 );
+const AllDiagnosis = Loadable(
+    lazy(() => import("../pages/dashboards/all-diagnosis/AllDiagnosis"))
+);
 const FindDonors = Loadable(
     lazy(() => import("../pages/find-donors/FindDonors"))
 );
@@ -356,6 +385,10 @@ const AppointmentDoctors = Loadable(
 const PayAppointmentFee = Loadable(
     lazy(() => import("../components/appointment/PayAppointmentFee"))
 );
+const MyDiagnosises = Loadable(
+    lazy(() => import("../components/diagnostic-center/my-diagnosis/MyDiagnosises"))
+);
+
 
 // DASHBOARD
 
