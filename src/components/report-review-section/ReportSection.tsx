@@ -10,13 +10,13 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import LinearProgress from "@mui/material/LinearProgress";
+import Swal from "sweetalert2";
 
 const ReportSection = () => {
-  let nameRef = useRef<HTMLInputElement | null>(null);
-  let emailRef = useRef<HTMLInputElement | null>(null);
-  let disRef = useRef<HTMLInputElement | null>(null);
-
-  let [allValue, setAllValue] = useState<string | undefined>("");
+  let nameRef = useRef<HTMLInputElement>(null!);
+  let emailRef = useRef<HTMLInputElement>(null!);
+  let disRef = useRef<HTMLInputElement>(null!);
+  let [isprogress,setIsProgress] = useState(false)
 
   let [url, setUrl] = useState("");
   let [progress, setProgress] = useState(0);
@@ -26,6 +26,7 @@ const ReportSection = () => {
     UploadFiles(files);
   };
   const UploadFiles = (file: any) => {
+    setIsProgress(true);
     if (!file) {
       return;
     }
@@ -46,17 +47,43 @@ const ReportSection = () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           {
             setUrl(url);
-            console.log(url);
+            setIsProgress(false);
+            console.log("done");
+            
           }
         });
       }
     );
   };
 
-  let handlePostToMongo = () => {
+  const handleReviewSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     let name = nameRef.current?.value;
     let email = emailRef.current?.value;
-    let discription = disRef.current?.value;
+    let desc = disRef.current?.value;
+    let img = url;
+    const report = { name, email, img, desc };
+    // console.log(review);
+
+    //send review data to server
+    fetch("http://localhost:5000/api/v1/report/add", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(report),
+    }).then((res) => {
+      if (res.status === 200) {
+        Swal.fire({
+          title: "Success",
+          text: "Review Successfully Submitted!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        window.location.reload(); 
+      }
+    });
   };
   return (
     <Box>
@@ -151,13 +178,13 @@ const ReportSection = () => {
                   id="input-file"
                 />
               </label>
-              {url && (
+              {isprogress && (
                 <div>
                   <LinearProgress variant="determinate" value={progress} />
                 </div>
               )}
               <Button
-                onClick={handlePostToMongo}
+                onClick={handleReviewSubmit}
                 variant="contained"
                 sx={{ my: "15px" }}
               >
