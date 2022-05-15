@@ -180,6 +180,10 @@ export default function Router() {
                             element: <ReportSection/>,
                         },
                         {
+                            path:"Report-status",
+                            element:<ReportStatus/>,
+                        },
+                        {
                             
                             path: "add-review",
                             element: <UserReview />,
@@ -388,6 +392,10 @@ const PayAppointmentFee = Loadable(
 const MyDiagnosises = Loadable(
     lazy(() => import("../components/diagnostic-center/my-diagnosis/MyDiagnosises"))
 );
+const ReportStatus = Loadable(
+    lazy(() => import("../components/report-review-section/report-status-section/ReportStatus"))
+);
+
 
 
 // DASHBOARD

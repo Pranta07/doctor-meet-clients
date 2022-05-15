@@ -27,7 +27,7 @@ const SimpleProcess = () => {
                   <h1 className="mb-3 simple-process-content-header">
                     Go to Website
                   </h1>
-                  <h6 className="">
+                  <h6 className="simple-process-content-para">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Iusto officiis esse deleniti vero, reprehenderit dolorem?
                   </h6>
