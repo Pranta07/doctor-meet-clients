@@ -229,6 +229,5 @@ const AddArticle = () => {
 };
 
 export default AddArticle;
-{
-    /* <div className="desc" dangerouslySetInnerHTML={{ __html: text }}></div>; */
-}
+
+/* <div className="desc" dangerouslySetInnerHTML={{ __html: text }}></div>; */

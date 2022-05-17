@@ -16,8 +16,9 @@ const ReportSection = () => {
     let nameRef = useRef<HTMLInputElement>(null!);
     let emailRef = useRef<HTMLInputElement>(null!);
     let disRef = useRef<HTMLInputElement>(null!);
-    let [isprogress, setIsProgress] = useState(false);
+    const [fileName, setFileName] = useState("Click or drop something here...");
 
+    let [isprogress, setIsProgress] = useState(false);
     let [url, setUrl] = useState("");
     let [progress, setProgress] = useState(0);
     let storage = getStorage();
@@ -30,6 +31,7 @@ const ReportSection = () => {
         if (!file) {
             return;
         }
+        setFileName(file.name);
         const storageRef = ref(storage, `/files/${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -45,11 +47,9 @@ const ReportSection = () => {
             (err) => console.log(err),
             () => {
                 getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    {
-                        setUrl(url);
-                        setIsProgress(false);
-                        console.log("done");
-                    }
+                    setUrl(url);
+                    setIsProgress(false);
+                    // console.log("done");
                 });
             }
         );
@@ -165,9 +165,7 @@ const ReportSection = () => {
                                 }}
                             />
                             <label htmlFor="input-file" className="label1">
-                                <div className="input-2">
-                                    Click or drop something here
-                                </div>
+                                <div className="input-2">{fileName}</div>
                                 <input
                                     onChange={getFile}
                                     className="style-file-input"
