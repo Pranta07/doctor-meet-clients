@@ -36,7 +36,7 @@ const GetAppointmentForm = () => {
         // "patientInfo" will be post in http://localhost:5000/allAppointments
         console.log(patientInfo);
         fetch(`
-        https://doctor-meet-appointment-server.vercel.app/allAppointments`, {
+        https://floating-basin-02241.herokuapp.com/allAppointments`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

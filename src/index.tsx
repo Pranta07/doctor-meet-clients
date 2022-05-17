@@ -1,5 +1,4 @@
 import React from "react";
-import { ContextProvider } from "./contexts/Context";
 import "simplebar/src/simplebar.css";
 
 // lazy image
@@ -9,7 +8,6 @@ import "react-lazy-load-image-component/src/effects/black-and-white.css";
 
 // contexts
 import "./index.css";
-import reportWebVitals from "./reportWebVitals";
 import "simplebar/src/simplebar.css";
 
 // lazy image
@@ -25,13 +23,12 @@ import { SettingsProvider } from "./contexts/SettingsContext";
 import { CollapseDrawerProvider } from "./contexts/CollapseDrawerContext";
 //
 import App from "./App";
-import AuthProvider from "./contexts/AuthProvider";
+// import AuthProvider from "./contexts/AuthProvider";
 import { CartProvider } from "react-use-cart";
 // ----------------------------------------------------------------------
 
 ReactDOM.render(
   <CartProvider>
-    <ContextProvider>
       <HelmetProvider>
         <SettingsProvider>
           <CollapseDrawerProvider>
@@ -41,7 +38,6 @@ ReactDOM.render(
           </CollapseDrawerProvider>
         </SettingsProvider>
       </HelmetProvider>
-    </ContextProvider>
   </CartProvider>,
   document.getElementById("root")
 );

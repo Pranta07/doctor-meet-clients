@@ -8,7 +8,14 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
 import UserReview from "../components/user-review/UserReview";
+<<<<<<< HEAD
 import AddArticle from "../components/add-article/AddArticle";
+=======
+import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
+import { DiagnosicPay,  DiagnosticAppointmentForm } from "../components/diagnostic-center";
+
+
+>>>>>>> 910bb914b20bfa9055802e8d1652a4d9a447e86d
 
 // ----------------------------------------------------------------------
 
@@ -173,13 +180,29 @@ export default function Router() {
                             element: <GetAppointmentForm />,
                         },
                         {
+                            path: "Report-section",
+                            element: <ReportSection/>,
+                        },
+                        {
+                            path:"Report-status",
+                            element:<ReportStatus/>,
+                        },
+                        {
+                            
                             path: "add-review",
                             element: <UserReview />,
                         },
                         {
+<<<<<<< HEAD
                             path: "add-article",
                             element: <AddArticle />,
                         },
+=======
+                            path:"my-diagnosises",
+                            element:<MyDiagnosises />,
+                        }
+                        
+>>>>>>> 910bb914b20bfa9055802e8d1652a4d9a447e86d
                     ],
                 },
                 {
@@ -198,8 +221,12 @@ export default function Router() {
                         { path: "manage-donors", element: <ManageDonors /> },
                         {
                             path: "all-appointments",
-                            element: <AllAppointments />,
+                            element: <AllAppointments />
                         },
+                         {
+                             path: "all-diagnosis",
+                             element: <AllDiagnosis/>,
+                         }
                     ],
                 },
             ],
@@ -252,7 +279,20 @@ export default function Router() {
                     path: "pay-appointment-fee/:id",
                     element: <PayAppointmentFee />,
                 },
-                // { path: "virtual-meet#loaded", element: <VideoChatRoute /> },
+                {
+                    path: "diagnostic-center",
+                    element: <DiagnosticCenter/>,
+                },
+                {
+                    path: "/diagnostic-appointment-form/:category/:id",
+                    element: <DiagnosticAppointmentForm/>,
+                },
+                {
+                    path:"/diagnostic-pay/:id",
+                    element:<DiagnosicPay />,
+                },
+               
+                
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
@@ -307,8 +347,14 @@ const GetAppointmentForm = Loadable(
 const AllAppointments = Loadable(
     lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
 );
+const AllDiagnosis = Loadable(
+    lazy(() => import("../pages/dashboards/all-diagnosis/AllDiagnosis"))
+);
 const FindDonors = Loadable(
     lazy(() => import("../pages/find-donors/FindDonors"))
+);
+const ReportSection = Loadable(
+    lazy(() => import("../components/report-review-section/ReportSection"))
 );
 const PremiumMemberships = Loadable(
     lazy(() => import("../pages/premium-membership/PremiumMemberships"))
@@ -353,6 +399,14 @@ const AppointmentDoctors = Loadable(
 const PayAppointmentFee = Loadable(
     lazy(() => import("../components/appointment/PayAppointmentFee"))
 );
+const MyDiagnosises = Loadable(
+    lazy(() => import("../components/diagnostic-center/my-diagnosis/MyDiagnosises"))
+);
+const ReportStatus = Loadable(
+    lazy(() => import("../components/report-review-section/report-status-section/ReportStatus"))
+);
+
+
 
 // DASHBOARD
 

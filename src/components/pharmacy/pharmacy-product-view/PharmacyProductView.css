@@ -25,7 +25,7 @@
     border-radius: 3px;
     column-gap: 10px;
 }
-.img-containers img{
+.hover-container img{
     width: 200px;
     margin: 0 auto;
 }
