@@ -13,6 +13,7 @@ import {
 import { Box } from "@mui/system";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import Page from "../Page";
 
 export interface IReview {
     name: string;
@@ -61,109 +62,111 @@ const UserReview = () => {
         });
     };
     return (
-        <Container>
-            <Box
-                sx={{
-                    height: "500px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
+        <Page title="Add Review">
+            <Container>
                 <Box
                     sx={{
-                        border: "1px solid gray",
-                        borderRadius: "5px",
-                        backgroundColor: "#F4F8FF",
-                        opacity: 0.9,
-                        textAlign: "center",
+                        height: "500px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
                     }}
                 >
-                    <Typography
-                        variant="h4"
-                        sx={{ fontFamily: "Monospace", my: 2 }}
+                    <Box
+                        sx={{
+                            border: "1px solid gray",
+                            borderRadius: "5px",
+                            backgroundColor: "#F4F8FF",
+                            opacity: 0.9,
+                            textAlign: "center",
+                        }}
                     >
-                        Share Your Experience.
-                    </Typography>
-                    <Divider />
-                    <form onSubmit={handleReviewSubmit}>
-                        <TextField
-                            defaultValue={user?.displayName || ""}
-                            label="Name"
-                            name="name"
-                            variant="standard"
-                            InputProps={{
-                                readOnly: true,
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <AccountCircle />
-                                    </InputAdornment>
-                                ),
-                            }}
-                            sx={{
-                                width: {
-                                    xs: "80%",
-                                    md: "60%",
-                                },
-                                my: 2,
-                            }}
-                        />
-                        <TextField
-                            defaultValue={user?.email || ""}
-                            label="Email"
-                            name="email"
-                            variant="standard"
-                            InputProps={{
-                                readOnly: true,
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <MailOutline></MailOutline>
-                                    </InputAdornment>
-                                ),
-                            }}
-                            sx={{
-                                width: {
-                                    xs: "80%",
-                                    md: "60%",
-                                },
-                                mb: 2,
-                            }}
-                        />
-                        <TextField
-                            name="desc"
-                            label="Review"
-                            multiline
-                            rows={4}
-                            sx={{
-                                width: {
-                                    xs: "80%",
-                                    md: "60%",
-                                },
-                                my: 1,
-                            }}
-                        />
-                        <br />
-                        <Typography component="legend">Rate Us</Typography>
-                        <Rating
-                            name="rating"
-                            value={rating}
-                            onChange={(event, newValue) => {
-                                setRating(newValue);
-                            }}
-                        />
-                        <br />
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            sx={{ px: 4, my: 2, width: "20%" }}
-                            endIcon={<SendIcon />}
+                        <Typography
+                            variant="h4"
+                            sx={{ fontFamily: "Monospace", my: 2 }}
                         >
-                            Submit
-                        </Button>
-                    </form>
+                            Share Your Experience.
+                        </Typography>
+                        <Divider />
+                        <form onSubmit={handleReviewSubmit}>
+                            <TextField
+                                defaultValue={user?.displayName || ""}
+                                label="Name"
+                                name="name"
+                                variant="standard"
+                                InputProps={{
+                                    readOnly: true,
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <AccountCircle />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                sx={{
+                                    width: {
+                                        xs: "80%",
+                                        md: "60%",
+                                    },
+                                    my: 2,
+                                }}
+                            />
+                            <TextField
+                                defaultValue={user?.email || ""}
+                                label="Email"
+                                name="email"
+                                variant="standard"
+                                InputProps={{
+                                    readOnly: true,
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <MailOutline></MailOutline>
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                sx={{
+                                    width: {
+                                        xs: "80%",
+                                        md: "60%",
+                                    },
+                                    mb: 2,
+                                }}
+                            />
+                            <TextField
+                                name="desc"
+                                label="Review"
+                                multiline
+                                rows={4}
+                                sx={{
+                                    width: {
+                                        xs: "80%",
+                                        md: "60%",
+                                    },
+                                    my: 1,
+                                }}
+                            />
+                            <br />
+                            <Typography component="legend">Rate Us</Typography>
+                            <Rating
+                                name="rating"
+                                value={rating}
+                                onChange={(event, newValue) => {
+                                    setRating(newValue);
+                                }}
+                            />
+                            <br />
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                sx={{ px: 4, my: 2, width: "20%" }}
+                                endIcon={<SendIcon />}
+                            >
+                                Submit
+                            </Button>
+                        </form>
+                    </Box>
                 </Box>
-            </Box>
-        </Container>
+            </Container>
+        </Page>
     );
 };
 
