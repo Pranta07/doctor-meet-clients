@@ -1,27 +1,75 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { AccountCircle, MailOutline } from "@mui/icons-material";
 import SendIcon from "@mui/icons-material/Send";
 import {
     Button,
     Container,
     Divider,
-    InputAdornment,
+    LinearProgress,
     TextField,
     Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import {
+    getDownloadURL,
+    getStorage,
+    ref,
+    uploadBytesResumable,
+} from "firebase/storage";
 import Page from "../Page";
 import useAuth from "../../hooks/useAuth";
 import "./AddArticle.css";
 
 const AddArticle = () => {
     const { user } = useAuth();
-    const [text, setText] = React.useState("");
+    const [text, setText] = useState("");
+    let nameRef = useRef<HTMLInputElement>(null!);
+
+    let [isprogress, setIsProgress] = useState(false);
+    let [url, setUrl] = useState("");
+    let [progress, setProgress] = useState(0);
+    let storage = getStorage();
+
+    const [fileName, setFileName] = useState("Add a cover image here...");
 
     const handleChange = (value: any) => {
         setText(value);
+    };
+
+    let getFile = (e: any) => {
+        let files = e.currentTarget.files[0];
+        UploadFiles(files);
+    };
+
+    const UploadFiles = (file: any) => {
+        setIsProgress(true);
+        if (!file) {
+            return;
+        }
+        setFileName(file.name);
+        const storageRef = ref(storage, `/files/${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const prog = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+
+                setProgress(prog);
+            },
+            (err) => console.log(err),
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                    // console.log(url);
+                    setUrl(url);
+                    setIsProgress(false);
+                    // console.log("done");
+                });
+            }
+        );
     };
 
     return (
@@ -29,10 +77,6 @@ const AddArticle = () => {
             <Container>
                 <Box
                     sx={{
-                        width: {
-                            xs: "90%",
-                            md: "80%",
-                        },
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
@@ -56,48 +100,39 @@ const AddArticle = () => {
                         </Typography>
                         <Divider />
                         <form onSubmit={() => {}}>
-                            <TextField
-                                defaultValue={user?.displayName || ""}
-                                label="Name"
-                                name="name"
-                                variant="standard"
-                                InputProps={{
-                                    readOnly: true,
-                                    startAdornment: (
-                                        <InputAdornment position="start">
-                                            <AccountCircle />
-                                        </InputAdornment>
-                                    ),
-                                }}
+                            <Box
                                 sx={{
                                     width: {
                                         xs: "80%",
-                                        md: "60%",
+                                        md: "80%",
                                     },
                                     my: 2,
+                                    mx: "auto",
                                 }}
-                            />
-                            <TextField
-                                defaultValue={user?.email || ""}
-                                label="Email"
-                                name="email"
-                                variant="standard"
-                                InputProps={{
-                                    readOnly: true,
-                                    startAdornment: (
-                                        <InputAdornment position="start">
-                                            <MailOutline></MailOutline>
-                                        </InputAdornment>
-                                    ),
-                                }}
-                                sx={{
-                                    width: {
-                                        xs: "80%",
-                                        md: "60%",
-                                    },
-                                    mb: 2,
-                                }}
-                            />
+                            >
+                                <label htmlFor="input-file" className="label1">
+                                    <div className="input-2">{fileName}</div>
+                                    <input
+                                        onChange={getFile}
+                                        className="style-file-input"
+                                        type="file"
+                                        draggable
+                                        multiple
+                                        accept="image/*,application/pdf,application/txt"
+                                        name="file-uploder"
+                                        id="input-file"
+                                    />
+                                </label>
+                                {isprogress && (
+                                    <div>
+                                        <LinearProgress
+                                            variant="determinate"
+                                            value={progress}
+                                        />
+                                    </div>
+                                )}
+                            </Box>
+
                             <TextField
                                 name="title"
                                 label="Title"
@@ -106,7 +141,7 @@ const AddArticle = () => {
                                 sx={{
                                     width: {
                                         xs: "80%",
-                                        md: "60%",
+                                        md: "80%",
                                     },
                                     my: 1,
                                 }}
@@ -122,7 +157,7 @@ const AddArticle = () => {
                                 sx={{
                                     width: {
                                         xs: "80%",
-                                        md: "60%",
+                                        md: "80%",
                                     },
                                     my: 2,
                                     mx: "auto",
@@ -137,11 +172,14 @@ const AddArticle = () => {
                                 </div>
                             </Box>
 
-                            <br />
                             <Button
                                 type="submit"
                                 variant="contained"
-                                sx={{ px: 4, my: 2, width: "20%" }}
+                                sx={{
+                                    px: 4,
+                                    mb: 2,
+                                    width: "25%",
+                                }}
                                 endIcon={<SendIcon />}
                             >
                                 Submit
