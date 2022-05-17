@@ -29,10 +29,14 @@ const AddArticle = () => {
             <Container>
                 <Box
                     sx={{
-                        height: "500px",
+                        width: {
+                            xs: "90%",
+                            md: "80%",
+                        },
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
+                        mx: "auto",
                     }}
                 >
                     <Box
