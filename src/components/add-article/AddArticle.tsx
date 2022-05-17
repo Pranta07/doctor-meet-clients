@@ -20,14 +20,15 @@ import {
 import Page from "../Page";
 import useAuth from "../../hooks/useAuth";
 import "./AddArticle.css";
+import Swal from "sweetalert2";
 
 const AddArticle = () => {
     const { user } = useAuth();
     const [text, setText] = useState("");
-    let nameRef = useRef<HTMLInputElement>(null!);
+    let titleRef = useRef<HTMLInputElement>(null!);
 
-    let [isprogress, setIsProgress] = useState(false);
     let [url, setUrl] = useState("");
+    let [isprogress, setIsProgress] = useState(false);
     let [progress, setProgress] = useState(0);
     let storage = getStorage();
 
@@ -72,6 +73,40 @@ const AddArticle = () => {
         );
     };
 
+    const handleSubmit = (e: React.SyntheticEvent) => {
+        e.preventDefault();
+        let title = titleRef.current?.value;
+        let img = url;
+        const article = {
+            name: user?.displayName || "",
+            email: user?.email || "",
+            img,
+            title,
+            content: text,
+        };
+        // console.log(article);
+
+        //send article data to server
+        fetch("http://localhost:5000/api/v1/article/add", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(article),
+        }).then((res) => {
+            if (res.status === 200) {
+                Swal.fire({
+                    title: "Success",
+                    text: "Article Successfully Submitted!",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 2000,
+                });
+                window.location.reload();
+            }
+        });
+    };
+
     return (
         <Page title="Favorite Doctors">
             <Container>
@@ -99,7 +134,7 @@ const AddArticle = () => {
                             Create Your Article.
                         </Typography>
                         <Divider />
-                        <form onSubmit={() => {}}>
+                        <form onSubmit={handleSubmit}>
                             <Box
                                 sx={{
                                     width: {
@@ -134,6 +169,7 @@ const AddArticle = () => {
                             </Box>
 
                             <TextField
+                                inputRef={titleRef}
                                 name="title"
                                 label="Title"
                                 multiline
