@@ -12,7 +12,7 @@ const AddArticle = () => {
     return (
         <>
             <div>
-                <h1>Article goes here...</h1>
+                <h1>Article goes here....</h1>
                 <ReactQuill value={text} onChange={handleChange} />
             </div>
             <div
