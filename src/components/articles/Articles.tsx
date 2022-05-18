@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Article from "./Article";
 import "./articles.css";
 
 export interface IArticle {
-    id: number;
+    _id: number;
     author: string;
     img: string;
     title: string;
     description: string;
 }
 
-const articles: IArticle[] = [
+/* const articles: IArticle[] = [
     {
         id: 1,
         author: "Rebeca Gilbert",
@@ -35,9 +35,19 @@ const articles: IArticle[] = [
         description:
             "A healthy lifestyle should start from now and also for your skin health.In this case, the role of the health laboratory is very important to",
     },
-];
+]; */
 
 const Articles = () => {
+    const [articles, setArticles] = useState<IArticle[]>([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/api/v1/article")
+            .then((res) => res.json())
+            .then((data) => {
+                setArticles(data.result);
+            });
+    }, []);
+
     return (
         <>
             <div className="dot-b-section">
@@ -60,7 +70,7 @@ const Articles = () => {
                         <div className="row mx-auto gx-4">
                             {articles.map((article) => (
                                 <Article
-                                    key={article.id}
+                                    key={article._id}
                                     article={article}
                                 ></Article>
                             ))}

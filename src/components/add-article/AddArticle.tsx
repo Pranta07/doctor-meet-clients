@@ -78,11 +78,11 @@ const AddArticle = () => {
         let title = titleRef.current?.value;
         let img = url;
         const article = {
-            name: user?.displayName || "",
+            author: user?.displayName || "",
             email: user?.email || "",
             img,
             title,
-            content: text,
+            description: text,
         };
         // console.log(article);
 
