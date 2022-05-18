@@ -14,11 +14,11 @@ import Swal from "sweetalert2";
 
 const ReportSection = () => {
     let nameRef = useRef<HTMLInputElement>(null!);
+    let DrnameRef = useRef<HTMLInputElement>(null!);
     let emailRef = useRef<HTMLInputElement>(null!);
     let disRef = useRef<HTMLInputElement>(null!);
-    const [fileName, setFileName] = useState("Click or drop something here...");
-
     let [isprogress, setIsProgress] = useState(false);
+
     let [url, setUrl] = useState("");
     let [progress, setProgress] = useState(0);
     let storage = getStorage();
@@ -26,12 +26,12 @@ const ReportSection = () => {
         let files = e.currentTarget.files[0];
         UploadFiles(files);
     };
+
     const UploadFiles = (file: any) => {
         setIsProgress(true);
         if (!file) {
             return;
         }
-        setFileName(file.name);
         const storageRef = ref(storage, `/files/${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -47,9 +47,11 @@ const ReportSection = () => {
             (err) => console.log(err),
             () => {
                 getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    setUrl(url);
-                    setIsProgress(false);
-                    // console.log("done");
+                    {
+                        setUrl(url);
+                        setIsProgress(false);
+                        console.log("done");
+                    }
                 });
             }
         );
@@ -58,10 +60,11 @@ const ReportSection = () => {
     const handleReviewSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
         let name = nameRef.current?.value;
+        let DrName = DrnameRef.current?.value;
         let email = emailRef.current?.value;
         let desc = disRef.current?.value;
         let img = url;
-        const report = { name, email, img, desc };
+        const report = { name, DrName, email, img, desc };
         // console.log(review);
 
         //send review data to server
@@ -81,6 +84,14 @@ const ReportSection = () => {
                     timer: 2000,
                 });
                 window.location.reload();
+            } else {
+                Swal.fire({
+                    title: "Error",
+                    text: "Some input is empty",
+                    icon: "error",
+                    showConfirmButton: false,
+                    timer: 2000,
+                });
             }
         });
     };
@@ -135,7 +146,7 @@ const ReportSection = () => {
                             <TextField
                                 fullWidth
                                 id="outlined-basic"
-                                label="Patient Name"
+                                label="Patient Name*"
                                 variant="outlined"
                                 inputRef={nameRef}
                                 sx={{
@@ -145,7 +156,17 @@ const ReportSection = () => {
                             <TextField
                                 fullWidth
                                 id="outlined-basic"
-                                label="Email"
+                                label="Doctor Name*"
+                                variant="outlined"
+                                inputRef={DrnameRef}
+                                sx={{
+                                    my: "15px",
+                                }}
+                            />
+                            <TextField
+                                fullWidth
+                                id="outlined-basic"
+                                label="Email*"
                                 inputRef={emailRef}
                                 variant="outlined"
                                 type="email"
@@ -164,8 +185,10 @@ const ReportSection = () => {
                                     my: "15px",
                                 }}
                             />
-                            <label htmlFor="input-file" className="label1">
-                                <div className="input-2">{fileName}</div>
+                            <label htmlFor="input-file">
+                                <div className="input-2">
+                                    Click or drop something here
+                                </div>
                                 <input
                                     onChange={getFile}
                                     className="style-file-input"

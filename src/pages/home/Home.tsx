@@ -1,8 +1,5 @@
-// @mui
 import { styled } from "@mui/material/styles";
-import { Banner } from "../../components/banner";
 import HealthCareProvider from "../../components/health-care-provider/HealthCareProvider";
-// components
 import Page from "../../components/Page";
 import Review from "../../components/review/Review";
 import { Services } from "../../components/services";

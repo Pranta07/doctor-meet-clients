@@ -20,7 +20,7 @@ export interface IReview {
     email: string;
     img: string;
     rating: number;
-    reviewDesc: string;
+    desc: string;
 }
 
 const UserReview = () => {
