@@ -1,127 +1,144 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Radio+Canada&display=swap');
-.call-notification-title{
-    font-weight: 500;
-    font-family: 'Radio Canada', sans-serif;
+
+.call-notification-title {
+  font-weight: 500;
+  font-family: 'Radio Canada', sans-serif;
 }
 
-.btn-accept-call {background-image: linear-gradient(to right, #3CA55C 0%, #B5AC49  51%, #3CA55C  100%)}
 .btn-accept-call {
-   margin: 10px;
-   padding: 10px 45px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: white;            
-   box-shadow: 0 0 20px #eee;
-   border-radius: 40px;
-   display: block;
-   border: 0px;
- }
+  background-image: linear-gradient(to right, #3CA55C 0%, #B5AC49 51%, #3CA55C 100%)
+}
 
- .btn-accept-call:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
-   text-decoration: none;
- }
+.btn-accept-call {
+  margin: 10px;
+  padding: 10px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 40px;
+  display: block;
+  border: 0px;
+}
 
- 
- .btn-decline-call {background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%)}
- .btn-decline-call{
-    margin: 10px;
-    padding: 10px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;            
-    box-shadow: 0 0 20px #eee;
-    border-radius: 40px;
-    display: block;
-    border: 0px;
-  }
+.btn-accept-call:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
 
-  .btn-decline-call:hover {
-    background-position: right center; /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .video-chat-sidebar{
-      margin: 30px auto;
-      width: 50%;
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-      padding: 40px 20px;
-      border-radius: 15px;
-      position: relative;
-  }
-  .sidebar-title{
-      font-size: 32px;
-      color: black;
-      font-family: 'Radio Canada', sans-serif;
+
+.btn-decline-call {
+  background-image: linear-gradient(to right, #D31027 0%, #EA384D 51%, #D31027 100%)
+}
+
+.btn-decline-call {
+  margin: 10px;
+  padding: 10px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 40px;
+  display: block;
+  border: 0px;
+}
+
+.btn-decline-call:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.video-chat-sidebar {
+  margin: 30px auto;
+  width: 610px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 40px 20px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.sidebar-title {
+  font-size: 32px;
+  color: black;
+  font-family: 'Radio Canada', sans-serif;
   font-weight: 600;
-  }
-  .sidebar-form{
-      width: 60%;
-      font-family: 'Inter', sans-serif;
-      padding-left: 9px;
-      font-size: 18px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-      border-radius: 10px;
-      border: 0px;
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-      background-color: #F2F2F2;
-      transition: 1s;
-      margin-right: 5%;
-  }
-  .sidebar-form:focus{
-      border: 0px;
-      outline-width:0px;
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      /* rgba(240, 46, 170, 0.4) */
-      
-  }
-  .call-icon{
-      width: 40px;
-      height: 40px;
-    
-      cursor: pointer;
-      transition: 0.5s;
-  }
-  
-  
-  
-   .btn-copy-id {background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%)}
-   .btn-copy-id {
-      margin: 10px;
-      padding: 5px 25px;
-      text-align: center;
-      text-transform: uppercase;
-      transition: 0.5s;
-      background-size: 200% auto;
-      color: white;            
-      box-shadow: 0 0 20px #eee;
-      border-radius: 10px;
-      display: block;
-      position: absolute;
-      top: 0px;
-      right: 10px;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      border: 0px;
-    }
-  
-    .btn-copy-id :hover {
-      background-position: right center; /* change the direction of the change here */
-      color: #fff;
-      text-decoration: none;
-    }
-   
-  
-  
-    
-  /* .btn-copy-id {background-image: linear-gradient(to right, #ff6e7f 0%, #bfe9ff  51%, #ff6e7f  100%)}
+}
+
+.sidebar-form {
+  width: 60%;
+  font-family: 'Inter', sans-serif;
+  padding-left: 9px;
+  font-size: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 10px;
+  border: 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #F2F2F2;
+  transition: 1s;
+  margin-right: 5%;
+}
+
+.sidebar-form:focus {
+  border: 0px;
+  outline-width: 0px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* rgba(240, 46, 170, 0.4) */
+
+}
+
+.call-icon {
+  width: 40px;
+  height: 40px;
+
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+
+
+.btn-copy-id {
+  background-image: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%)
+}
+
+.btn-copy-id {
+  margin: 10px;
+  padding: 5px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  border: 0px;
+}
+
+.btn-copy-id :hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+
+/* .btn-copy-id {background-image: linear-gradient(to right, #ff6e7f 0%, #bfe9ff  51%, #ff6e7f  100%)}
   .btn-copy-id {
      margin: 15px 0;
      padding: 10px 25px;
@@ -141,4 +158,18 @@
      color: #fff;
      text-decoration: none;
    } */
-   
+
+   .video-call-width{
+     width: 500px;
+   }
+
+
+@media only screen and (max-width: 760px) {
+  .video-chat-sidebar{
+    width: 300px;
+  }
+  .video-call-width{
+    width: 300px;
+  }
+
+}

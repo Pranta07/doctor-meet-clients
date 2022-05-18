@@ -14,6 +14,7 @@ import Swal from "sweetalert2";
 
 const ReportSection = () => {
   let nameRef = useRef<HTMLInputElement>(null!);
+  let DrnameRef = useRef<HTMLInputElement>(null!);
   let emailRef = useRef<HTMLInputElement>(null!);
   let disRef = useRef<HTMLInputElement>(null!);
   let [isprogress,setIsProgress] = useState(false)
@@ -25,6 +26,7 @@ const ReportSection = () => {
     let files = e.currentTarget.files[0];
     UploadFiles(files);
   };
+  
   const UploadFiles = (file: any) => {
     setIsProgress(true);
     if (!file) {
@@ -59,10 +61,11 @@ const ReportSection = () => {
   const handleReviewSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     let name = nameRef.current?.value;
+    let DrName = DrnameRef.current?.value;
     let email = emailRef.current?.value;
     let desc = disRef.current?.value;
     let img = url;
-    const report = { name, email, img, desc };
+    const report = { name,DrName,email, img, desc };
     // console.log(review);
 
     //send review data to server
@@ -82,6 +85,15 @@ const ReportSection = () => {
           timer: 2000,
         });
         window.location.reload(); 
+      }
+      else{
+        Swal.fire({
+          title: "Error",
+          text: "Some input is empty",
+          icon: "error",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       }
     });
   };
@@ -136,7 +148,7 @@ const ReportSection = () => {
               <TextField
                 fullWidth
                 id="outlined-basic"
-                label="Patient Name"
+                label="Patient Name*"
                 variant="outlined"
                 inputRef={nameRef}
                 sx={{
@@ -146,7 +158,17 @@ const ReportSection = () => {
               <TextField
                 fullWidth
                 id="outlined-basic"
-                label="Email"
+                label="Doctor Name*"
+                variant="outlined"
+                inputRef={DrnameRef}
+                sx={{
+                  my: "15px",
+                }}
+              />
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Email*"
                 inputRef={emailRef}
                 variant="outlined"
                 type="email"
