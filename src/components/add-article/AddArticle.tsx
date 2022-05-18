@@ -78,11 +78,11 @@ const AddArticle = () => {
         let title = titleRef.current?.value;
         let img = url;
         const article = {
-            name: user?.displayName || "",
+            author: user?.displayName || "",
             email: user?.email || "",
             img,
             title,
-            content: text,
+            description: text,
         };
         // console.log(article);
 
@@ -229,6 +229,5 @@ const AddArticle = () => {
 };
 
 export default AddArticle;
-{
-    /* <div className="desc" dangerouslySetInnerHTML={{ __html: text }}></div>; */
-}
+
+/* <div className="desc" dangerouslySetInnerHTML={{ __html: text }}></div>; */
