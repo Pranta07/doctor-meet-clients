@@ -199,12 +199,10 @@ const ReportStatus = () => {
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Doctor Name</StyledTableCell>
-                  <StyledTableCell align="right">Paitant Name</StyledTableCell>
+                  <StyledTableCell align="center">Paitant Name</StyledTableCell>
+                  <StyledTableCell align="center">Date</StyledTableCell>
                   <StyledTableCell align="right">
-                    Date
-                  </StyledTableCell>
-                  <StyledTableCell align="right">
-                    Download
+                     Download 
                   </StyledTableCell>
                 </TableRow>
               </TableHead>
@@ -214,12 +212,12 @@ const ReportStatus = () => {
                     <StyledTableCell component="th" scope="row">
                       {row.name}
                     </StyledTableCell>
-                    <StyledTableCell align="right">
+                    <StyledTableCell align="center">
                       {row.calories}
                     </StyledTableCell>
-                    <StyledTableCell align="right">{row.fat}</StyledTableCell>
+                    <StyledTableCell align="center">{row.fat}</StyledTableCell>
                     <StyledTableCell align="right">
-                      <Button> Download </Button>
+                      <Button variant="text"> Download </Button>
                     </StyledTableCell>
                   </StyledTableRow>
                 ))}

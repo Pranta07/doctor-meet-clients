@@ -12,11 +12,10 @@ const VideoPlayer = () => {
           <div>
             <h1>{name || "Name"}</h1>
             <video
+              className="video-call-width"
               playsInline
-              muted
               ref={myVideo}
               autoPlay
-              style={{ width: "500px" }}
             />
           </div>
         </div>
@@ -26,10 +25,10 @@ const VideoPlayer = () => {
           <div>
             <h1>{call.name || "Name"}</h1>
             <video
+              className="video-call-width"
               playsInline
               ref={userVideo}
               autoPlay
-              style={{ width: "500px" }}
             />
           </div>
         </div>

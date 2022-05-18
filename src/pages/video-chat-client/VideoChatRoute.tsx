@@ -26,7 +26,7 @@ const VideoChatRoute = () => {
       <Page title="Virtual Meet">
         <RootStyle>
           <div className="container">
-            <h1 className="text-center">This is video chat route</h1>
+            <h4 className="text-center">This is video chat route</h4>
             <VideoPlayer />
             <Sidebar>
               <Notifications />
