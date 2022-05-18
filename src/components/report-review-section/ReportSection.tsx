@@ -8,6 +8,7 @@ import {
     getStorage,
     ref,
     uploadBytesResumable,
+    deleteObject,
 } from "firebase/storage";
 import LinearProgress from "@mui/material/LinearProgress";
 import Swal from "sweetalert2";
@@ -18,11 +19,26 @@ const ReportSection = () => {
     let emailRef = useRef<HTMLInputElement>(null!);
     let disRef = useRef<HTMLInputElement>(null!);
     let [isprogress, setIsProgress] = useState(false);
+    const [text, setText] = useState("Click or drop something here...");
 
     let [url, setUrl] = useState("");
     let [progress, setProgress] = useState(0);
     let storage = getStorage();
     let getFile = (e: any) => {
+        // text data delete object
+        if (text !== "Click or drop something here...") {
+            const desertRef = ref(storage, "/files/" + text);
+
+            // Delete the file
+            deleteObject(desertRef)
+                .then(() => {
+                    // console.log("deleted");
+                })
+                .catch((error) => {
+                    // console.log(error);
+                });
+        }
+
         let files = e.currentTarget.files[0];
         UploadFiles(files);
     };
@@ -32,6 +48,7 @@ const ReportSection = () => {
         if (!file) {
             return;
         }
+        setText(file.name);
         const storageRef = ref(storage, `/files/${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -47,11 +64,9 @@ const ReportSection = () => {
             (err) => console.log(err),
             () => {
                 getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    {
-                        setUrl(url);
-                        setIsProgress(false);
-                        console.log("done");
-                    }
+                    setUrl(url);
+                    setIsProgress(false);
+                    // console.log("done");
                 });
             }
         );
@@ -185,10 +200,8 @@ const ReportSection = () => {
                                     my: "15px",
                                 }}
                             />
-                            <label htmlFor="input-file">
-                                <div className="input-2">
-                                    Click or drop something here
-                                </div>
+                            <label htmlFor="input-file" className="label1">
+                                <div className="input-2">{text}</div>
                                 <input
                                     onChange={getFile}
                                     className="style-file-input"
