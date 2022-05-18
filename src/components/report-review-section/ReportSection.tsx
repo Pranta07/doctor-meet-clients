@@ -4,59 +4,59 @@ import React, { useRef, useState } from "react";
 import "./ReportSection.css";
 import Button from "@mui/material/Button";
 import {
-    getDownloadURL,
-    getStorage,
-    ref,
-    uploadBytesResumable,
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
 } from "firebase/storage";
 import LinearProgress from "@mui/material/LinearProgress";
 import Swal from "sweetalert2";
 
 const ReportSection = () => {
-
   let nameRef = useRef<HTMLInputElement>(null!);
   let DrnameRef = useRef<HTMLInputElement>(null!);
-    let nameRef = useRef<HTMLInputElement>(null!);
-    let emailRef = useRef<HTMLInputElement>(null!);
-    let disRef = useRef<HTMLInputElement>(null!);
-    let [isprogress, setIsProgress] = useState(false);
+  let emailRef = useRef<HTMLInputElement>(null!);
+  let disRef = useRef<HTMLInputElement>(null!);
+  let [isprogress,setIsProgress] = useState(false)
 
-    let [url, setUrl] = useState("");
-    let [progress, setProgress] = useState(0);
-    let storage = getStorage();
-    let getFile = (e: any) => {
-        let files = e.currentTarget.files[0];
-        UploadFiles(files);
-    };
-    const UploadFiles = (file: any) => {
-        setIsProgress(true);
-        if (!file) {
-            return;
-        }
-        const storageRef = ref(storage, `/files/${file.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                const prog = Math.round(
-                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                );
+  let [url, setUrl] = useState("");
+  let [progress, setProgress] = useState(0);
+  let storage = getStorage();
+  let getFile = (e: any) => {
+    let files = e.currentTarget.files[0];
+    UploadFiles(files);
+  };
+  
+  const UploadFiles = (file: any) => {
+    setIsProgress(true);
+    if (!file) {
+      return;
+    }
+    const storageRef = ref(storage, `/files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
 
-                setProgress(prog);
-            },
-            (err) => console.log(err),
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    {
-                        setUrl(url);
-                        setIsProgress(false);
-                        console.log("done");
-                    }
-                });
-            }
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-    };
 
+        setProgress(prog);
+      },
+      (err) => console.log(err),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          {
+            setUrl(url);
+            setIsProgress(false);
+            console.log("done");
+            
+          }
+        });
+      }
+    );
+  };
 
   const handleReviewSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -67,24 +67,22 @@ const ReportSection = () => {
     let img = url;
     const report = { name,DrName,email, img, desc };
     // console.log(review);
-        //send review data to server
-        fetch("http://localhost:5000/api/v1/report/add", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(report),
-        }).then((res) => {
-            if (res.status === 200) {
-                Swal.fire({
-                    title: "Success",
-                    text: "Review Successfully Submitted!",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-                window.location.reload();
-            }
+
+    //send review data to server
+    fetch("http://localhost:5000/api/v1/report/add", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(report),
+    }).then((res) => {
+      if (res.status === 200) {
+        Swal.fire({
+          title: "Success",
+          text: "Review Successfully Submitted!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 2000,
         });
         window.location.reload(); 
       }
