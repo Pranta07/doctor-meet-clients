@@ -8,10 +8,12 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
 import UserReview from "../components/user-review/UserReview";
+import AddArticle from "../components/add-article/AddArticle";
 import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
-import { DiagnosicPay,  DiagnosticAppointmentForm } from "../components/diagnostic-center";
-
-
+import {
+    DiagnosicPay,
+    DiagnosticAppointmentForm,
+} from "../components/diagnostic-center";
 
 // ----------------------------------------------------------------------
 
@@ -177,22 +179,24 @@ export default function Router() {
                         },
                         {
                             path: "Report-section",
-                            element: <ReportSection/>,
+                            element: <ReportSection />,
                         },
                         {
-                            path:"Report-status",
-                            element:<ReportStatus/>,
+                            path: "Report-status",
+                            element: <ReportStatus />,
                         },
                         {
-                            
                             path: "add-review",
                             element: <UserReview />,
                         },
                         {
-                            path:"my-diagnosises",
-                            element:<MyDiagnosises />,
-                        }
-                        
+                            path: "add-article",
+                            element: <AddArticle />,
+                        },
+                        {
+                            path: "my-diagnosises",
+                            element: <MyDiagnosises />,
+                        },
                     ],
                 },
                 {
@@ -211,12 +215,12 @@ export default function Router() {
                         { path: "manage-donors", element: <ManageDonors /> },
                         {
                             path: "all-appointments",
-                            element: <AllAppointments />
+                            element: <AllAppointments />,
                         },
-                         {
-                             path: "all-diagnosis",
-                             element: <AllDiagnosis/>,
-                         }
+                        {
+                            path: "all-diagnosis",
+                            element: <AllDiagnosis />,
+                        },
                     ],
                 },
             ],
@@ -271,18 +275,16 @@ export default function Router() {
                 },
                 {
                     path: "diagnostic-center",
-                    element: <DiagnosticCenter/>,
+                    element: <DiagnosticCenter />,
                 },
                 {
                     path: "/diagnostic-appointment-form/:category/:id",
-                    element: <DiagnosticAppointmentForm/>,
+                    element: <DiagnosticAppointmentForm />,
                 },
                 {
-                    path:"/diagnostic-pay/:id",
-                    element:<DiagnosicPay />,
+                    path: "/diagnostic-pay/:id",
+                    element: <DiagnosicPay />,
                 },
-               
-                
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
@@ -390,13 +392,19 @@ const PayAppointmentFee = Loadable(
     lazy(() => import("../components/appointment/PayAppointmentFee"))
 );
 const MyDiagnosises = Loadable(
-    lazy(() => import("../components/diagnostic-center/my-diagnosis/MyDiagnosises"))
+    lazy(
+        () =>
+            import("../components/diagnostic-center/my-diagnosis/MyDiagnosises")
+    )
 );
 const ReportStatus = Loadable(
-    lazy(() => import("../components/report-review-section/report-status-section/ReportStatus"))
+    lazy(
+        () =>
+            import(
+                "../components/report-review-section/report-status-section/ReportStatus"
+            )
+    )
 );
-
-
 
 // DASHBOARD
 
