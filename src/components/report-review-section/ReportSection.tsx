@@ -1,6 +1,6 @@
 import { Container, Box, Grid } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./ReportSection.css";
 import Button from "@mui/material/Button";
 import {
@@ -8,30 +8,60 @@ import {
   getStorage,
   ref,
   uploadBytesResumable,
+  deleteObject,
 } from "firebase/storage";
 import LinearProgress from "@mui/material/LinearProgress";
+import Autocomplete from "@mui/material/Autocomplete";
 import Swal from "sweetalert2";
 
 const ReportSection = () => {
   let nameRef = useRef<HTMLInputElement>(null!);
   let DrnameRef = useRef<HTMLInputElement>(null!);
-  let emailRef = useRef<HTMLInputElement>(null!);
+  // let emailRef = useRef<HTMLInputElement>(null!);
   let disRef = useRef<HTMLInputElement>(null!);
-  let [isprogress,setIsProgress] = useState(false)
+  let [isprogress, setIsProgress] = useState(false);
+  const [text, setText] = useState("Click or drop something here...");
 
   let [url, setUrl] = useState("");
   let [progress, setProgress] = useState(0);
   let storage = getStorage();
+
+  const [doctors, setDoctors] = useState<any>([]);
+
+  useEffect(() => {
+    const url = `http://localhost:5000/api/v1/doctors/all?specialist=All&&gender=All&&page=1&&rows=${1000}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setDoctors(data.result);
+      });
+  }, []);
+
   let getFile = (e: any) => {
+    // text data delete object
+    if (text !== "Click or drop something here...") {
+      const desertRef = ref(storage, "/files/" + text);
+
+      // Delete the file
+      deleteObject(desertRef)
+        .then(() => {
+          // console.log("deleted");
+        })
+        .catch((error) => {
+          // console.log(error);
+        });
+    }
+
     let files = e.currentTarget.files[0];
     UploadFiles(files);
   };
-  
+
   const UploadFiles = (file: any) => {
     setIsProgress(true);
     if (!file) {
       return;
     }
+    setText(file.name);
     const storageRef = ref(storage, `/files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -47,30 +77,27 @@ const ReportSection = () => {
       (err) => console.log(err),
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          {
-            setUrl(url);
-            setIsProgress(false);
-            console.log("done");
-            
-          }
+          setUrl(url);
+          setIsProgress(false);
+          // console.log("done");
         });
       }
     );
   };
 
-  const handleReviewSubmit = (e: React.SyntheticEvent) => {
+  const handleReportSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    let name = nameRef.current?.value;
-    let DrName = DrnameRef.current?.value;
-    let email = emailRef.current?.value;
+    let patientId = nameRef.current?.value;
+    let id = DrnameRef.current?.value.split("#")[1];
+    // let email = emailRef.current?.value;
     let desc = disRef.current?.value;
-    let img = url;
-    const report = { name,DrName,email, img, desc };
-    // console.log(review);
+    let file = url;
+    const report = { file, patientId, desc };
+    // console.log(report);
 
     //send review data to server
-    fetch("http://localhost:5000/api/v1/report/add", {
-      method: "POST",
+    fetch(`http://localhost:5000/api/v1/report/${id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -84,9 +111,8 @@ const ReportSection = () => {
           showConfirmButton: false,
           timer: 2000,
         });
-        window.location.reload(); 
-      }
-      else{
+        window.location.reload();
+      } else {
         Swal.fire({
           title: "Error",
           text: "Some input is empty",
@@ -97,6 +123,12 @@ const ReportSection = () => {
       }
     });
   };
+
+  const defaultProps = {
+    options: doctors,
+    getOptionLabel: (option: any) => option.name + "#" + option._id,
+  };
+
   return (
     <Box>
       <Container>
@@ -146,36 +178,47 @@ const ReportSection = () => {
               }}
             >
               <TextField
+                required
                 fullWidth
                 id="outlined-basic"
-                label="Patient Name*"
+                label="Patient Name"
                 variant="outlined"
                 inputRef={nameRef}
                 sx={{
                   my: "15px",
                 }}
               />
-              <TextField
-                fullWidth
-                id="outlined-basic"
-                label="Doctor Name*"
-                variant="outlined"
-                inputRef={DrnameRef}
-                sx={{
-                  my: "15px",
-                }}
+
+              <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                {...defaultProps}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    required
+                    fullWidth
+                    label="Doctor Name"
+                    variant="outlined"
+                    inputRef={DrnameRef}
+                    sx={{
+                      my: "15px",
+                    }}
+                  />
+                )}
               />
-              <TextField
-                fullWidth
-                id="outlined-basic"
-                label="Email*"
-                inputRef={emailRef}
-                variant="outlined"
-                type="email"
-                sx={{
-                  my: "15px",
-                }}
-              />
+              {/* <TextField
+                                required
+                                fullWidth
+                                id="outlined-basic"
+                                label="Email"
+                                inputRef={emailRef}
+                                variant="outlined"
+                                type="email"
+                                sx={{
+                                    my: "15px",
+                                }}
+                            /> */}
               <TextField
                 id="outlined-multiline-static"
                 label="Say Something"
@@ -187,8 +230,8 @@ const ReportSection = () => {
                   my: "15px",
                 }}
               />
-              <label htmlFor="input-file">
-                <div className="input-2">Click or drop something here</div>
+              <label htmlFor="input-file" className="label1">
+                <div className="input-2">{text}</div>
                 <input
                   onChange={getFile}
                   className="style-file-input"
@@ -206,7 +249,7 @@ const ReportSection = () => {
                 </div>
               )}
               <Button
-                onClick={handleReviewSubmit}
+                onClick={handleReportSubmit}
                 variant="contained"
                 sx={{ my: "15px" }}
               >
