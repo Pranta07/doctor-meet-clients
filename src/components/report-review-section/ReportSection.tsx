@@ -14,20 +14,10 @@ import LinearProgress from "@mui/material/LinearProgress";
 import Autocomplete from "@mui/material/Autocomplete";
 import Swal from "sweetalert2";
 
-const randomData = [
-    { label: "The Shawshank Redemption" },
-    { label: "The Godfather" },
-    { label: "The Godfather: Part II" },
-    { label: "The Dark Knight" },
-    { label: "12 Angry Men" },
-    { label: "Schindler's List" },
-    { label: "Pulp Fiction" },
-];
-
 const ReportSection = () => {
     let nameRef = useRef<HTMLInputElement>(null!);
     let DrnameRef = useRef<HTMLInputElement>(null!);
-    let emailRef = useRef<HTMLInputElement>(null!);
+    // let emailRef = useRef<HTMLInputElement>(null!);
     let disRef = useRef<HTMLInputElement>(null!);
     let [isprogress, setIsProgress] = useState(false);
     const [text, setText] = useState("Click or drop something here...");
