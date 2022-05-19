@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Bodoni:ital@1&family=PT+Sans&family=Radio+Canada&family=Roboto&display=swap');
+.diagnostic-form-container{
+    padding: 45px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.diagnostic-form-container fieldset{
+    /* border: 2px solid black; */
+    margin:15px 0px;
+    padding:25px 10px;
+    border:1px solid #8395a7;
+    border-radius:5px;
+    
+}
+.diagnostic-form-container legend{
+    width: auto;
+}
+.diagnostic-form-container .form-control,option,.form-select,.form-check{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Radio Canada', sans-serif;
+}

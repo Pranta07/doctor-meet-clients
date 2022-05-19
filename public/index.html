@@ -16,13 +16,19 @@
     -->
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
+        <!-- Using Google Font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Using Local Font -->
         <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            type="text/css"
+            href="%PUBLIC_URL%/fonts/index.css"
         />
-        <link rel="stylesheet"
-        href="https://fonts.googleapis.com/icon?family=Material+Icons" /
-
         <link
             href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"
             rel="stylesheet"
@@ -33,6 +39,7 @@
             href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
             type="text/css"
         />
+
         <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -47,7 +54,7 @@
             src="https://kit.fontawesome.com/4b5de4af50.js"
             crossorigin="anonymous"
         ></script>
-        <title>Doctors Meet</title>
+        <title>Doctors Meet Up</title>
     </head>
 
     <body>
@@ -62,5 +69,10 @@
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
-    --></body>
+    -->
+        <script
+            src="//code.tidio.co/p9829rsjdfaq9lkowl5nveqhzktcvpsh.js"
+            async
+        ></script>
+    </body>
 </html>

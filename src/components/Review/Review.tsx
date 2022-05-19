@@ -1,36 +1,81 @@
-import React from 'react';
-import review_img from './../../Assets/img/review-img.png';
-import './Review.css';
+import React, { useEffect, useState } from "react";
+import { Rating, Avatar } from "@mui/material";
+import Slider from "react-slick";
+import { styled } from "@mui/material/styles";
+import { IReview } from "../user-review/UserReview";
+import "./Review.css";
+
+const settings = {
+    dots: true,
+    infinite: true,
+    speed: 2000,
+    autoplay: true,
+
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+};
+
+const StyledRating = styled(Rating)({
+    "& .MuiRating-iconFilled": {
+        color: "white",
+    },
+});
 
 const Review = () => {
-  return (
-    <div className="container mb-for-r">
-      <div className="review-bg">
-        <h3 className="text-center mb-4 "> What our customer are saying </h3>
-        <hr className="hr-re mx-auto " />
-        <div className="row re-dot p-5">
-          <div className="d-flex col-lg-6 col-sm-12 col-md-12 ">
-            <img
-              className="rounded-circle img-fluid border-rev "
-              src={review_img}
-              alt=""
-            />
-            <div className="my-auto mx-4">
-              <h6>Edward Newgate</h6>
-              <p> Founder Circle </p>
+    const [reviews, setReviews] = useState<IReview[]>([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/api/v1/review")
+            .then((res) => res.json())
+            .then((data) => {
+                setReviews(data.result);
+            });
+    }, []);
+
+    return (
+        <div className="container mb-for-r">
+            <div className="review-bg">
+                <p className="text-center fw-bold">Client Testimonials</p>
+                <h3 className="text-center mb-4 ">
+                    What our customers are saying.
+                </h3>
+                <hr className="hr-re mx-auto " />
+
+                <Slider {...settings}>
+                    {reviews.map((review) => (
+                        <div className="row re-dot p-5 d-flex">
+                            <div className="d-flex col-12 col-lg-6">
+                                {review.img ? (
+                                    <img
+                                        className="rounded-circle img-fluid border-rev "
+                                        src={review?.img}
+                                        alt=""
+                                    />
+                                ) : (
+                                    <Avatar sx={{ width: 110, height: 110 }} />
+                                )}
+
+                                <div className="my-auto mx-4">
+                                    <h6>{review?.name}</h6>
+                                    <p> Software Engineer</p>
+                                    <StyledRating
+                                        name="rating"
+                                        value={3}
+                                        readOnly
+                                        size="small"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-12 col-lg-6 mt-4">
+                                <p className=" my-auto">“{review?.desc}”</p>
+                            </div>
+                        </div>
+                    ))}
+                </Slider>
             </div>
-          </div>
-          <div className="col-lg-6 col-sm-12 col-md-12 mt-4">
-            <p className=" my-auto">
-              “Our dedicated patient engagement app and web portal allow you to
-              access information instantaneously (no tedeous form, long calls,
-              or administrative hassle) and securely”
-            </p>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Review;

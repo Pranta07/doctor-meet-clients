@@ -1,0 +1,15 @@
+export { default as BookCovidTest } from "./book-covid-test/BookCovidTest";
+export { default as ChooseDiagnostic } from "./choose-diagnostics/ChooseDiagnostics";
+export { default as CovidAwarnessBar } from "./covid-awarness-bar/CovidAwarnessBar";
+export { default as DiagnosticCenter } from "./DiagnosticCenter";
+export { default as DiagnosticCenterBanner } from "./diagnostic-center-banner/DiagnosticCenterBanner";
+export { default as DiagnosticChooseUs } from "./diagnostic-choose-us/DiagnosticChooseUs";
+export { default as DiagnosticImagings } from "./diagnostic-imagings/DiagnosticImagings";
+export { default as DiagnosticPathologies } from "./diagnostic-pathologies/DiagnosticPathologies";
+export { default as DiagnosicPay } from "./diagnostic-pay/DiagnosicPay";
+export { default as DiagnosticSpecialities } from "./diagnostic-specialities/DiagnosticSpecialities";
+export { default as DiagnosticAppointmentForm } from "./diagnostic-appointment-form/DiagnosticAppointmentForm";
+export { default as OurDiagnosticServices } from "./our-diagnostic-services/OurDiagnosticServices";
+export { default as PopularTestProcedures } from "./popular-test-procedures/PopularTestProcedures";
+export { default as SimpleProcess } from "./simple-process/SimpleProcess";
+export { default as MyDiagnosises } from "./my-diagnosis/MyDiagnosises";
