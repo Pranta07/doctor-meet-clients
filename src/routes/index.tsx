@@ -285,6 +285,11 @@ export default function Router() {
                     path: "/diagnostic-pay/:id",
                     element: <DiagnosicPay />,
                 },
+                {
+                    path: "article/:id",
+                    element: <ViewArticale />,
+                },
+                
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
@@ -405,7 +410,14 @@ const ReportStatus = Loadable(
             )
     )
 );
-
+const ViewArticale = Loadable(
+    lazy(
+        () =>
+            import(
+                "../components/articles/ViewArticale"
+            )
+    )
+);
 // DASHBOARD
 
 // GENERAL
