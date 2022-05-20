@@ -37,11 +37,9 @@ const ReportSection = () => {
     }, []);
 
     let getFile = (e: any) => {
-        // text data delete object
         if (text !== "Click or drop something here...") {
             const desertRef = ref(storage, "/files/" + text);
-            // console.log(desertRef);
-            // Delete the file
+
             deleteObject(desertRef)
                 .then(() => {
                     // console.log("deleted");
@@ -64,11 +62,24 @@ const ReportSection = () => {
         const storageRef = ref(storage, `/files/${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
-        uploadTask.on("state_changed", (snapshot) => {
-            const prog = Math.round(
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-        });
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const prog = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+
+                setProgress(prog);
+            },
+            (err) => console.log(err),
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                    setUrl(url);
+                    setIsProgress(false);
+                    // console.log("done");
+                });
+            }
+        );
     };
 
     const handleReportSubmit = (e: React.SyntheticEvent) => {
@@ -111,6 +122,7 @@ const ReportSection = () => {
             }
         });
     };
+
     const defaultProps = {
         options: doctors,
         getOptionLabel: (option: any) => option.name + "#" + option._id,
@@ -226,13 +238,23 @@ const ReportSection = () => {
                                     />
                                 </div>
                             )}
-                            <Button
-                                onClick={handleReportSubmit}
-                                variant="contained"
-                                sx={{ my: "15px" }}
-                            >
-                                Post
-                            </Button>
+                            {isprogress ? (
+                                <Button
+                                    variant="contained"
+                                    sx={{ my: "15px" }}
+                                    disabled
+                                >
+                                    Post
+                                </Button>
+                            ) : (
+                                <Button
+                                    onClick={handleReportSubmit}
+                                    variant="contained"
+                                    sx={{ my: "15px" }}
+                                >
+                                    Post
+                                </Button>
+                            )}
                         </Box>
                     </Grid>
                 </Grid>
