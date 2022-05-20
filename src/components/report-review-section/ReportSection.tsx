@@ -4,37 +4,40 @@ import React, { useRef, useState, useEffect } from "react";
 import "./ReportSection.css";
 import Button from "@mui/material/Button";
 import {
-    getDownloadURL,
-    getStorage,
-    ref,
-    uploadBytesResumable,
-    deleteObject,
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  deleteObject,
 } from "firebase/storage";
 import LinearProgress from "@mui/material/LinearProgress";
 import Autocomplete from "@mui/material/Autocomplete";
 import Swal from "sweetalert2";
 
 const ReportSection = () => {
+
     let nameRef = useRef<HTMLInputElement>(null!);
     let DrnameRef = useRef<HTMLInputElement>(null!);
     let disRef = useRef<HTMLInputElement>(null!);
     let [isprogress, setIsProgress] = useState(false);
     const [text, setText] = useState("Click or drop something here...");
 
-    let [url, setUrl] = useState("");
-    let [progress, setProgress] = useState(0);
-    let storage = getStorage();
 
-    const [doctors, setDoctors] = useState<any>([]);
+  let [url, setUrl] = useState("");
+  let [progress, setProgress] = useState(0);
+  let storage = getStorage();
 
-    useEffect(() => {
-        const url = `http://localhost:5000/api/v1/doctors/all?specialist=All&&gender=All&&page=1&&rows=${1000}`;
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                setDoctors(data.result);
-            });
-    }, []);
+  const [doctors, setDoctors] = useState<any>([]);
+
+  useEffect(() => {
+    const url = `http://localhost:5000/api/v1/doctors/all?specialist=All&&gender=All&&page=1&&rows=${1000}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setDoctors(data.result);
+      });
+  }, []);
+
 
     let getFile = (e: any) => {
         // text data delete object
@@ -55,34 +58,27 @@ const ReportSection = () => {
         UploadFiles(files);
     };
 
-    const UploadFiles = (file: any) => {
-        setIsProgress(true);
-        if (!file) {
-            return;
-        }
-        setText(file.name);
-        const storageRef = ref(storage, `/files/${file.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
 
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                const prog = Math.round(
-                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                );
+    let files = e.currentTarget.files[0];
+    UploadFiles(files);
+  };
 
-                setProgress(prog);
-            },
-            (err) => console.log(err),
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    setUrl(url);
-                    setIsProgress(false);
-                    // console.log("done");
-                });
-            }
+  const UploadFiles = (file: any) => {
+    setIsProgress(true);
+    if (!file) {
+      return;
+    }
+    setText(file.name);
+    const storageRef = ref(storage, `/files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-    };
+
 
     const handleReportSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
@@ -122,73 +118,77 @@ const ReportSection = () => {
                     timer: 2000,
                 });
             }
+
         });
-    };
+      }
+    });
+  };
 
-    const defaultProps = {
-        options: doctors,
-        getOptionLabel: (option: any) => option.name + "#" + option._id,
-    };
+  const defaultProps = {
+    options: doctors,
+    getOptionLabel: (option: any) => option.name + "#" + option._id,
+  };
 
-    return (
-        <Box>
-            <Container>
-                <h6
-                    style={{
-                        textAlign: "center",
-                        color: "#2c90b9",
-                    }}
-                >
-                    {" "}
-                    Report{" "}
-                </h6>
-                <h1
-                    style={{
-                        textAlign: "center",
-                        color: "#2c90b9",
-                    }}
-                >
-                    {" "}
-                    Report Post Section{" "}
-                </h1>
+  return (
+    <Box>
+      <Container>
+        <h6
+          style={{
+            textAlign: "center",
+            color: "#2c90b9",
+          }}
+        >
+          {" "}
+          Report{" "}
+        </h6>
+        <h1
+          style={{
+            textAlign: "center",
+            color: "#2c90b9",
+          }}
+        >
+          {" "}
+          Report Post Section{" "}
+        </h1>
 
-                <Grid container spacing={2}>
-                    <Grid
-                        sx={{
-                            display: "flex",
-                            alignItems: "center",
-                        }}
-                        item
-                        xs={12}
-                        lg={6}
-                        md={6}
-                    >
-                        <Box>
-                            <img
-                                className="img-fluid"
-                                src="https://i.ibb.co/JrXdmxJ/online-medical-prescription-digital-document-or-online-test-results-report-on-mobile-computer-screen.png"
-                                alt="report-img"
-                            />
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12} lg={6} md={6}>
-                        <Box
-                            sx={{
-                                marginTop: "30px",
-                                padding: "30px",
-                            }}
-                        >
-                            <TextField
-                                required
-                                fullWidth
-                                id="outlined-basic"
-                                label="Patient Name"
-                                variant="outlined"
-                                inputRef={nameRef}
-                                sx={{
-                                    my: "15px",
-                                }}
-                            />
+        <Grid container spacing={2}>
+          <Grid
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+            item
+            xs={12}
+            lg={6}
+            md={6}
+          >
+            <Box>
+              <img
+                className="img-fluid"
+                src="https://i.ibb.co/JrXdmxJ/online-medical-prescription-digital-document-or-online-test-results-report-on-mobile-computer-screen.png"
+                alt="report-img"
+              />
+            </Box>
+          </Grid>
+          <Grid item xs={12} lg={6} md={6}>
+            <Box
+              sx={{
+                marginTop: "30px",
+                padding: "30px",
+              }}
+            >
+              <TextField
+                required
+                fullWidth
+                id="outlined-basic"
+                label="Patient Name"
+                variant="outlined"
+                inputRef={nameRef}
+                sx={{
+                  my: "15px",
+                }}
+              />
+
 
                             <Autocomplete
                                 disablePortal
@@ -254,6 +254,7 @@ const ReportSection = () => {
             </Container>
         </Box>
     );
+
 };
 
 export default ReportSection;
