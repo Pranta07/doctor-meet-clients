@@ -40,10 +40,15 @@
     color: #7c9da1;
 }
 
-.dr-style-con{
+.dr-style-con span{
     font-weight: 600;
-    font-size: 17px;
+    font-size: 25px;
     line-height: 20px;
     color: rgb(54, 159, 200);
     margin-top: 20px;
+}
+.dr-style-con p{
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(98, 98, 98);
 }
