@@ -91,6 +91,16 @@ const sidebarConfig = [
                         icon: ICONS.analytics,
                     },
                     {
+                        title: "Reports Preview",
+                        path: "/dashboard/user/report-pdf",
+                        icon: ICONS.analytics,
+                    },
+                    {
+                        title: "Review Reports",
+                        path: "/dashboard/user/reports",
+                        icon: ICONS.analytics,
+                    },
+                    {
                         title: "Add Article",
                         path: "/dashboard/user/add-article",
                         icon: ICONS.analytics,

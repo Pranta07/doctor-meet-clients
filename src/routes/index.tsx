@@ -14,6 +14,8 @@ import {
     DiagnosicPay,
     DiagnosticAppointmentForm,
 } from "../components/diagnostic-center";
+import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
+import AllReports from "../components/all-reports/AllReports";
 
 // ----------------------------------------------------------------------
 
@@ -184,6 +186,14 @@ export default function Router() {
                         {
                             path: "Report-status",
                             element: <ReportStatus />,
+                        },
+                        {
+                            path: "report-pdf",
+                            element: <ReportPdf />,
+                        },
+                        {
+                            path: "reports",
+                            element: <AllReports />,
                         },
                         {
                             path: "add-review",
