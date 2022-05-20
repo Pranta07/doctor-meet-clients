@@ -1,13 +1,13 @@
 // @mui
 import { styled } from "@mui/material/styles";
-import { Banner } from "../../components/banner";
+import { Banner } from "../../components/bBanner";
 import HealthCareProvider from "../../components/health-care-provider/HealthCareProvider";
 import { CardMedia } from "@mui/material";
 // components
 import Page from "../../components/Page";
-import Review from "../../components/review/Review";
-import { Services } from "../../components/services";
-import { Articles } from "../../components/articles";
+import Review from "../../components/rReview/Review";
+import { Services } from "../../components/sServices";
+import { Articles } from "../../components/aArticles";
 import HomeGallery from "../../components/home-gallery/HomeGallery";
 import HomeHero from "./HomeHero";
 import MapDirection from "../../components/map-ditrection/MapDirection";

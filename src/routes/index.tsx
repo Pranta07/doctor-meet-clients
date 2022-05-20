@@ -393,7 +393,7 @@ const ReportStatus = Loadable(
   )
 );
 const ViewArticale = Loadable(
-  lazy(() => import("../components/articles/ViewArticale"))
+  lazy(() => import("../components/aArticles/ViewArticale"))
 );
 // DASHBOARD
 

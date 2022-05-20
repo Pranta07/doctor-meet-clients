@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 // @mui
 import { styled } from "@mui/material/styles";
 // components
-import logo from "../assets/img/logo.png";
+import logo from "../aAssets/img/logo.png";
 import NotFound from "../components/not-found/NotFound";
 
 // ----------------------------------------------------------------------

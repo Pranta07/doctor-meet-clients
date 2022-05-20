@@ -9,7 +9,7 @@ import useResponsive from "../../hooks/useResponsive";
 import { PATH_AUTH } from "../../routes/paths";
 // components
 import Page from "../../components/Page";
-import logo from "../../assets/img/logo.png";
+import logo from "../../aAssets/img/logo.png";
 // sections
 // import { RegisterForm } from '../../sections/auth/register';
 
