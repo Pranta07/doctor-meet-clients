@@ -33,7 +33,7 @@ const NewBanner = () => {
             <Carousel fade={true} controls={true} indicators={false}>
                 {bannerData.map((item, index) => (
                     <Carousel.Item key={index} interval={2000}>
-                        <div className="container mx-auto row g-3 d-flex align-items-center flex-sm-row-reverse flex-row">
+                        <div className="container mx-auto row g-3 d-flex align-items-center flex-sm-row-reverse flex-row py-5">
                             <div className="col-12 col-lg-6">
                                 <img
                                     className="d-block mx-auto img-fluid carousel-img"
