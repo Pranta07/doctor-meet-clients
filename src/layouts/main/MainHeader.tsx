@@ -10,7 +10,7 @@ import cssStyles from "../../utils/cssStyles";
 // config
 import { HEADER } from "../../config";
 // components
-import logo from "../../aAssets/img/logo.png";
+import logo from "../../assets/img/logo.png";
 //
 import MenuDesktop from "./MenuDesktop";
 import MenuMobile from "./MenuMobile";

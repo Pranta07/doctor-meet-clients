@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import vector1 from "../../../aAssets/blood-donation/vector1.jpg";
+import vector1 from "../../../assets/blood-donation/vector1.jpg";
 import DonorChart from "../donor-chart/DonorChart";
 import JoinUsForm from "../join-us/JoinUsForm";
 

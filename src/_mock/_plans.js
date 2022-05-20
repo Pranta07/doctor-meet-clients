@@ -1,4 +1,4 @@
-import { PlanFreeIcon, PlanStarterIcon, PlanPremiumIcon } from '../aAssets';
+import { PlanFreeIcon, PlanStarterIcon, PlanPremiumIcon } from '../assets';
 
 // ----------------------------------------------------------------------
 

@@ -1,7 +1,7 @@
 import emailjs from "emailjs-com";
 import React from "react";
 import { Container } from "react-bootstrap";
-import ContactUsImg from "../../aAssets/contact-us/ContactUs.jpg";
+import ContactUsImg from "../../assets/contact-us/ContactUs.jpg";
 import Maps from "../../components/maps/Maps";
 
 const ContactUs = () => {

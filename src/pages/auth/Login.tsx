@@ -16,7 +16,7 @@ import { PATH_AUTH } from "../../routes/paths";
 import useResponsive from "../../hooks/useResponsive";
 // components
 import Page from "../../components/Page";
-import logo from "../../aAssets/img/logo.png";
+import logo from "../../assets/img/logo.png";
 // sections
 
 // ----------------------------------------------------------------------

@@ -11,7 +11,7 @@ import cssStyles from "../../../utils/cssStyles";
 // config
 import { HEADER, NAVBAR } from "../../../config";
 // components
-import logo from "../../../aAssets/img/logo.png";
+import logo from "../../../assets/img/logo.png";
 import Iconify from "../../../components/Iconify";
 //
 import AccountPopover from "./AccountPopover";

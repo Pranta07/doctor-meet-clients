@@ -19,7 +19,7 @@ import { NavSectionVertical } from "../../../components/nav-section/index";
 import navConfig from "./NavConfig";
 import NavbarAccount from "./NavbarAccount";
 import CollapseButton from "./CollapseButton";
-import logo from "../../../aAssets/img/logo.png";
+import logo from "../../../assets/img/logo.png";
 
 // ----------------------------------------------------------------------
 

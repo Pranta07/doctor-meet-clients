@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import portalImg from "../../aAssets/undraw_medicine.svg";
-import bdFlag from "../../aAssets/bangladesh-flag.jpg";
+import portalImg from "../../assets/undraw_medicine.svg";
+import bdFlag from "../../assets/bangladesh-flag.jpg";
 import { Spinner } from "react-bootstrap";
 import "./CovidTop.css";
 import CovidChart from "./CovidChart";

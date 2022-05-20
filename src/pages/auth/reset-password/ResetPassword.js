@@ -12,7 +12,7 @@ import Page from '../../../components/Page';
 // sections
 import { ResetPasswordForm } from '../../../sections/auth/reset-password';
 // assets
-import { SentIcon } from '../../../aAssets';
+import { SentIcon } from '../../../assets';
 
 // ----------------------------------------------------------------------
 
