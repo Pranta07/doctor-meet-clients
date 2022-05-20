@@ -41,7 +41,7 @@ const ReportSection = () => {
         // text data delete object
         if (text !== "Click or drop something here...") {
             const desertRef = ref(storage, "/files/" + text);
-
+            // console.log(desertRef);
             // Delete the file
             deleteObject(desertRef)
                 .then(() => {
