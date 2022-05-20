@@ -11,6 +11,7 @@ import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 // Import styles of default layout plugin
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import Button from "@mui/material/Button";
+import { Container } from "@mui/material";
 
 function ReportPdf() {
     // creating new plugin instance
@@ -45,25 +46,30 @@ function ReportPdf() {
     };
 
     return (
-        <div className="container">
-            {/* Upload PDF */}
-            <form>
-                <Button variant="contained">Upload PDF</Button>
-
-                <br></br>
-
-                <input
-                    type="file"
-                    // className="form-control"
-                    onChange={handleFile}
-                ></input>
-
-                {pdfError && <span className="text-danger">{pdfError}</span>}
-            </form>
-
+        <Container>
+            <h6
+                style={{
+                    textAlign: "center",
+                    color: "#2c90b9",
+                }}
+            >
+                Report
+            </h6>
+            <h1
+                style={{
+                    textAlign: "center",
+                    color: "#2c90b9",
+                }}
+            >
+                Preview Report
+            </h1>
+            <Button variant="contained" sx={{ my: 3 }}>
+                Upload PDF
+            </Button>
+            <input type="file" onChange={handleFile}></input>
+            {pdfError && <span className="text-danger">{pdfError}</span>}
             {/* View PDF */}
             <div className="viewer">
-                {/* render this if we have a pdf file */}
                 {pdfFile && (
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
                         <Viewer
@@ -73,10 +79,9 @@ function ReportPdf() {
                     </Worker>
                 )}
 
-                {/* render this if we have pdfFile state null   */}
                 {!pdfFile && <small>No file is selected yet</small>}
             </div>
-        </div>
+        </Container>
     );
 }
 

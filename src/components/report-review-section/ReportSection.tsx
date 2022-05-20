@@ -17,7 +17,6 @@ import Swal from "sweetalert2";
 const ReportSection = () => {
     let nameRef = useRef<HTMLInputElement>(null!);
     let DrnameRef = useRef<HTMLInputElement>(null!);
-    // let emailRef = useRef<HTMLInputElement>(null!);
     let disRef = useRef<HTMLInputElement>(null!);
     let [isprogress, setIsProgress] = useState(false);
     const [text, setText] = useState("Click or drop something here...");
@@ -92,7 +91,9 @@ const ReportSection = () => {
         // let email = emailRef.current?.value;
         let desc = disRef.current?.value;
         let file = url;
-        const report = { file, patientId, desc };
+        let status = false;
+        let review = "";
+        const report = { file, patientId, desc, review, status };
         // console.log(report);
 
         //send review data to server
@@ -106,7 +107,7 @@ const ReportSection = () => {
             if (res.status === 200) {
                 Swal.fire({
                     title: "Success",
-                    text: "Review Successfully Submitted!",
+                    text: "Report Successfully Submitted!",
                     icon: "success",
                     showConfirmButton: false,
                     timer: 2000,
@@ -207,18 +208,6 @@ const ReportSection = () => {
                                     />
                                 )}
                             />
-                            {/* <TextField
-                                required
-                                fullWidth
-                                id="outlined-basic"
-                                label="Email"
-                                inputRef={emailRef}
-                                variant="outlined"
-                                type="email"
-                                sx={{
-                                    my: "15px",
-                                }}
-                            /> */}
                             <TextField
                                 id="outlined-multiline-static"
                                 label="Say Something"
