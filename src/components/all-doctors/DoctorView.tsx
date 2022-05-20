@@ -154,7 +154,7 @@ const DoctorView = () => {
                 <div className="my-5">
                   <MapDirection />
                   <div className="row">
-                    <div className="row" >
+                    <div className="dr-style-con col-lg-4">
                       <p>
                         {" "}
                         <span>
@@ -164,8 +164,7 @@ const DoctorView = () => {
                         {doctor.phone}{" "}
                       </p>
                     </div>
-
-                    <div>
+                    <div className="col-lg-4 dr-style-con">
                       <p>
                         {" "}
                         <span>
@@ -175,7 +174,7 @@ const DoctorView = () => {
                         {doctor.email}{" "}
                       </p>
                     </div>
-                    <div>
+                    <div className="col-lg-4 dr-style-con">
                       <p>
                         {" "}
                         <span>

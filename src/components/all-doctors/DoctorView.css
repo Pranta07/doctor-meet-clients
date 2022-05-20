@@ -39,3 +39,11 @@
     font-size: 17px;
     color: #7c9da1;
 }
+
+.dr-style-con{
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 20px;
+    color: rgb(54, 159, 200);
+    margin-top: 20px;
+}
