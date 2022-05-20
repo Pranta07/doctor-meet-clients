@@ -3,29 +3,35 @@ import React, { useEffect, useState } from "react";
 import { Cart } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 import "./PharmacyProductView.css";
-import "../pharmacy-banner/PharmacyBanner.css"
+import "../pharmacy-banner/PharmacyBanner.css";
 import banner_img from "../../../assets/pharmacy/banner-sidebar.png";
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
+import { getProductDetails } from "../../../redux/actions/productAction";
 
 const PharmacyProductView = () => {
-  let [products, setProducts] = useState<any>({});
+  const dispatch = useAppDispatch();
+  // let [products, setProducts] = useState<any>({});
   let [count, setCount] = useState(1);
+
+  const { product }: any = useAppSelector((state) => state.productDetails);
 
   let { id } = useParams();
   useEffect(() => {
-    fetch(`https://immense-beyond-64415.herokuapp.com/medicine/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.result);
-        setProducts(data.result[0]);
-      });
+    dispatch(getProductDetails(id));
+    // fetch(`https://immense-beyond-64415.herokuapp.com/medicine/${id}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data.result);
+    //     setProducts(data.result[0]);
+    //   });
   }, [id]);
 
-  let handleOnClikplus = () => {
+  let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
   };
 
-  let handleONClickMinas = () => {
+  let handleONClickMinus = () => {
     if (count < 1) {
       return;
     } else {
@@ -38,21 +44,27 @@ const PharmacyProductView = () => {
     img1,
     img2,
     img3,
-    rating,
     img4,
     price,
     description,
-    Sku,
     category,
     inStock,
-    power,
-    shopAddress,
-    weight,
     _id,
-  } = products;
-  let [allimg, setAllimg] = useState("");
+  } = product;
+
+  // -----------------------------------------------------------------
+  //these static data must change later
+  let rating = 4;
+  let Sku = "This is Sku";
+  let power = "20 mg";
+  let shopAddress = "chittagong, Bangladesh";
+  let weight = "200 gm";
+
+  // --------------------------------------------------------------
+
+  let [allImg, setAllImg] = useState("");
   const getImage = (image: string) => {
-    setAllimg(image);
+    setAllImg(image);
   };
   let [rating1, setRating1] = useState(0);
 
@@ -73,7 +85,7 @@ const PharmacyProductView = () => {
     if (doctor) items = JSON.parse(doctor);
     else items = [];
 
-    const newItems = [...items, products];
+    const newItems = [...items, product];
     // console.log(newItems);
 
     localStorage.setItem("item", JSON.stringify([...newItems]));
@@ -87,20 +99,20 @@ const PharmacyProductView = () => {
         <div className="product-div">
           <div className="product-div-left">
             <div className="img-containers">
-              {allimg === "" ? (
-                <img src={img1 + ".jpg"} alt="" />
+              {allImg === "" ? (
+                <img src={img1} alt="" />
               ) : (
-                <img className="img-fluid" src={allimg} alt="" />
+                <img className="img-fluid" src={allImg} alt="" />
               )}
             </div>
             <div className="hover-container">
               <div>
                 <img
                   onClick={() => {
-                    getImage(img1 + ".jpg");
+                    getImage(img1);
                   }}
                   className="img-fluid"
-                  src={img1 + ".jpg"}
+                  src={img1}
                   alt=""
                 />
               </div>
@@ -156,7 +168,7 @@ const PharmacyProductView = () => {
             <div className="btn-group btn-style-count me-2 ">
               <button
                 className="btn fw-bold text-size "
-                onClick={handleONClickMinas}
+                onClick={handleONClickMinus}
               >
                 {" "}
                 -{" "}
@@ -164,7 +176,7 @@ const PharmacyProductView = () => {
               <p className="my-auto px-2"> {count} </p>
               <button
                 className="btn fw-bold text-size "
-                onClick={handleOnClikplus}
+                onClick={handleOnClickPlus}
               >
                 {" "}
                 +{" "}

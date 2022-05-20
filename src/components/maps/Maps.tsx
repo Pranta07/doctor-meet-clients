@@ -15,8 +15,8 @@ const Maps = () => {
   return (
     <>
       <div className="text-center mb-5">
-        <h4>Also Fell Free To Visit Our Head Office.</h4>
-        <h6>Mothijhil Dhaka,Bangladesh.</h6>
+        <h4>Also Feel Free To Visit Our Head Office.</h4>
+        <h6>Motijheel, Dhaka,Bangladesh.</h6>
       </div>
     </>
   );

@@ -11,11 +11,11 @@ export interface apointerData {
 }
 type Props = {
   index: number;
-  apointerData: apointerData;
+  appointerData: apointerData;
 };
 
-const AppointersDetails: React.FC<Props> = ({ apointerData }) => {
-  const { id, name, email, username, address } = apointerData;
+const AppointersDetails: React.FC<Props> = ({ appointerData }) => {
+  const { id, name, email, username, address } = appointerData;
 
   return (
     <tr style={{ textAlign: "start" }}>

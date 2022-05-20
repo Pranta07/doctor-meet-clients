@@ -1,0 +1,36 @@
+a {
+  text-decoration: none;
+}
+
+.btn-diagnosis-pay {
+  background-image: linear-gradient(
+    to right,
+    #41295a 0%,
+    #2f0743 51%,
+    #41295a 100%
+  );
+}
+
+.btn-diagnosis-pay {
+  margin: 0px auto;
+  padding: 10px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 40px;
+  display: block;
+  border: 0px;
+}
+
+.btn-diagnosis-pay:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.MuiTableCell-head {
+  box-shadow: none !important;
+}

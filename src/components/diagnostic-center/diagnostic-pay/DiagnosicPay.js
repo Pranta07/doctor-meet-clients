@@ -3,13 +3,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useParams } from "react-router-dom";
 import DiagnosticPaymentForm from "../diagnostic-payment-form/DiagnosticPaymentForm";
-import './DiagnosicPay.css';
+import './DiagnosisPay.css';
 
 const stripePromise = loadStripe(
     "pk_test_51JvnacKB2JOo4D0XAUdhDzZ6TqtmGp2vpGMIXXSxtPKBJOo1cmcb3SlAga09S4J9nyLpCgs4dEyJ126BbM8sE1mm00BCQsgnSt"
 );
 
-const DiagnosicPay = () => {
+const DiagnosisPay = () => {
     const [diagnostic, setDiagnostic] = useState({});
     const params = useParams();
     
@@ -40,4 +40,4 @@ const DiagnosicPay = () => {
     );
 };
 
-export default DiagnosicPay;
+export default DiagnosisPay;

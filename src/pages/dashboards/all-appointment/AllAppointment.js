@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const AllAppointment= ({appointment}) => {
-    const deleteAnAppoinment=(e)=>{
+    const deleteAnAppointment=(e)=>{
       e.preventDefault();
       fetch(`https://floating-basin-02241.herokuapp.com/allAppointments/${appointment._id}`,{
         method:"Delete",
@@ -20,7 +20,7 @@ const AllAppointment= ({appointment}) => {
       <td>{appointment?.doctorInfo.specialist}</td>
       <td>{appointment?.doctorInfo.timeSlot}</td>
       <td>{appointment?.status}</td>
-      <td><button className="btn btn-danger" onClick={deleteAnAppoinment}>Cancel Appointment</button></td>
+      <td><button className="btn btn-danger" onClick={deleteAnAppointment}>Cancel Appointment</button></td>
       
     </tr>
     );

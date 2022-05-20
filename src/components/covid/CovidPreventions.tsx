@@ -15,7 +15,7 @@ const CovidPreventions = () => {
             <p className="text-secondary w-75 mx-auto">
               <small>
                 Protect yourself and others around you by knowing the facts and
-                taking appropriate precautions. Floow advice provided by your
+                taking appropriate precautions. Follow advice provided by your
                 local health authority.
               </small>
             </p>

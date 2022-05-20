@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "./SingleDoctor.css";
-import { Idoctor } from "../favourite-doctors/FavoriteDoctors";
+import { Idoctor } from "../favorite-doctors/FavoriteDoctors";
 import { Rating } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
@@ -27,7 +27,7 @@ const SingleDoctor = (props: Iprops) => {
   const [favorite, setFavorite] = useState(true);
 
   useEffect(() => {
-    const favoriteList = localStorage.getItem("favdoc");
+    const favoriteList = localStorage.getItem("fav-doc");
 
     if (favoriteList) {
       const listItems: any[] = JSON.parse(favoriteList);
@@ -47,7 +47,7 @@ const SingleDoctor = (props: Iprops) => {
     setFavorite(false);
 
     //save the doctor to local storage
-    const favorite = localStorage.getItem("favdoc");
+    const favorite = localStorage.getItem("fav-doc");
 
     let items;
     if (favorite) items = JSON.parse(favorite);
@@ -56,7 +56,7 @@ const SingleDoctor = (props: Iprops) => {
     const newItems = [...items, props.doctor];
     // console.log(newItems);
 
-    localStorage.setItem("favdoc", JSON.stringify([...newItems]));
+    localStorage.setItem("fav-doc", JSON.stringify([...newItems]));
   };
 
   const removeFavorite = (id: string) => {
@@ -75,7 +75,7 @@ const SingleDoctor = (props: Iprops) => {
         setRemove(!remove);
 
         //remove the doctor from local storage
-        const favorite = localStorage.getItem("favdoc");
+        const favorite = localStorage.getItem("fav-doc");
 
         let items: any[];
         if (favorite) items = JSON.parse(favorite);
@@ -84,7 +84,7 @@ const SingleDoctor = (props: Iprops) => {
         const newItems = items.filter((author) => author._id !== id);
         // console.log(newItems);
 
-        localStorage.setItem("favdoc", JSON.stringify([...newItems]));
+        localStorage.setItem("fav-doc", JSON.stringify([...newItems]));
       }
     });
   };
@@ -109,7 +109,7 @@ const SingleDoctor = (props: Iprops) => {
             University of California San Francisco Parnassus Campus
           </p>
           <div className="d-flex">
-            <NavLink style={{textDecoration:'none'}} to={`/doctor/${_id}`}>
+            <NavLink style={{ textDecoration: "none" }} to={`/doctor/${_id}`}>
               <button className="btn-grad1">VIEW MORE</button>
             </NavLink>
             {favorite ? (

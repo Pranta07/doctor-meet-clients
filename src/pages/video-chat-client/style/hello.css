@@ -1,12 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Radio+Canada&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Radio+Canada&display=swap");
 
 .call-notification-title {
   font-weight: 500;
-  font-family: 'Radio Canada', sans-serif;
+  font-family: "Radio Canada", sans-serif;
 }
 
 .btn-accept-call {
-  background-image: linear-gradient(to right, #3CA55C 0%, #B5AC49 51%, #3CA55C 100%)
+  background-image: linear-gradient(
+    to right,
+    #3ca55c 0%,
+    #b5ac49 51%,
+    #3ca55c 100%
+  );
 }
 
 .btn-accept-call {
@@ -30,9 +35,13 @@
   text-decoration: none;
 }
 
-
 .btn-decline-call {
-  background-image: linear-gradient(to right, #D31027 0%, #EA384D 51%, #D31027 100%)
+  background-image: linear-gradient(
+    to right,
+    #d31027 0%,
+    #ea384d 51%,
+    #d31027 100%
+  );
 }
 
 .btn-decline-call {
@@ -68,13 +77,13 @@
 .sidebar-title {
   font-size: 32px;
   color: black;
-  font-family: 'Radio Canada', sans-serif;
+  font-family: "Radio Canada", sans-serif;
   font-weight: 600;
 }
 
 .sidebar-form {
   width: 60%;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   padding-left: 9px;
   font-size: 18px;
   padding-top: 8px;
@@ -82,7 +91,7 @@
   border-radius: 10px;
   border: 0px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   transition: 1s;
   margin-right: 5%;
 }
@@ -92,7 +101,6 @@
   outline-width: 0px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   /* rgba(240, 46, 170, 0.4) */
-
 }
 
 .call-icon {
@@ -103,10 +111,13 @@
   transition: 0.5s;
 }
 
-
-
 .btn-copy-id {
-  background-image: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%)
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
 }
 
 .btn-copy-id {
@@ -124,7 +135,7 @@
   top: 0px;
   right: 10px;
   font-weight: 600;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   border: 0px;
 }
 
@@ -134,9 +145,6 @@
   color: #fff;
   text-decoration: none;
 }
-
-
-
 
 /* .btn-copy-id {background-image: linear-gradient(to right, #ff6e7f 0%, #bfe9ff  51%, #ff6e7f  100%)}
   .btn-copy-id {
@@ -159,17 +167,15 @@
      text-decoration: none;
    } */
 
-   .video-call-width{
-     width: 500px;
-   }
-
+.video-call-width {
+  width: 500px;
+}
 
 @media only screen and (max-width: 760px) {
-  .video-chat-sidebar{
+  .video-chat-sidebar {
     width: 300px;
   }
-  .video-call-width{
+  .video-call-width {
     width: 300px;
   }
-
 }

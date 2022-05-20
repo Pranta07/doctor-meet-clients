@@ -27,23 +27,8 @@ const PharmacyCardSlider = (props: any) => {
   let [itemData, setItemData] = useState(getData());
   let [count, setCount] = useState(1);
 
-  let {
-    name,
-    img1,
-    img2,
-    img3,
-    rating,
-    img4,
-    price,
-    description,
-    Sku,
-    category,
-    inStock,
-    power,
-    shopAddress,
-    weight,
-    _id,
-  } = props.products;
+  let { name, img1, img2, img3, img4, price, inStock, _id } = props.product;
+  let rating = 4.5;
 
   useEffect(() => {
     const ItemList = localStorage.getItem("item");
@@ -54,7 +39,7 @@ const PharmacyCardSlider = (props: any) => {
     }
   }, [_id]);
 
-  const addmedicine = (id: string) => {
+  const addMedicine = (id: string) => {
     //save the medicine to local storage
     const medicine = localStorage.getItem("item");
 
@@ -66,12 +51,12 @@ const PharmacyCardSlider = (props: any) => {
 
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
-  let handleOnClikplus = () => {
+  let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
   };
 
-  let handleONClickMinas = () => {
+  let handleONClickMinus = () => {
     if (count < 1) {
       return;
     } else {
@@ -79,9 +64,9 @@ const PharmacyCardSlider = (props: any) => {
       setCount(total);
     }
   };
-  let [allimg, setAllimg] = useState("");
+  let [allImg, setAllImg] = useState("");
   const getImage = (image: string) => {
-    setAllimg(image);
+    setAllImg(image);
   };
 
   const [open, setOpen] = React.useState(false);
@@ -91,23 +76,15 @@ const PharmacyCardSlider = (props: any) => {
     <div className="col-lg-2 col-md-3 col-sm-6 p-0">
       <div className="product p-4">
         <div className="product-img">
-          <img
-            className="img-fluid"
-            src={img1 + ".jpg"}
-            alt="front product image"
-          />
-          <img
-            src={img2}
-            alt="rear product image"
-            className="rear-img img-fluid "
-          />
+          <img className="img-fluid" src={img1} alt="front product" />
+          <img src={img2} alt="rear product" className="rear-img img-fluid " />
           <div className="overlay">
             <button className="btn" title="Wishlit">
               {" "}
               <Heart></Heart>{" "}
             </button>
             <button
-              onClick={() => addmedicine(_id)}
+              onClick={() => addMedicine(_id)}
               className="btn"
               title="Add to Cart"
             >
@@ -152,20 +129,20 @@ const PharmacyCardSlider = (props: any) => {
               <div className="product-div-for-quick">
                 <div className="product-div-left">
                   <div className="img-container">
-                    {allimg === "" ? (
-                      <img src={img1 + ".jpg"} alt="" />
+                    {allImg === "" ? (
+                      <img src={img1} alt="" />
                     ) : (
-                      <img className="img-fluid" src={allimg} alt="" />
+                      <img className="img-fluid" src={allImg} alt="" />
                     )}
                   </div>
                   <div className="hover-container">
                     <div>
                       <img
                         onClick={() => {
-                          getImage(img1 + ".jpg");
+                          getImage(img1);
                         }}
                         className="img-fluid"
-                        src={img1 + ".jpg"}
+                        src={img1}
                         alt=""
                       />
                     </div>
@@ -221,7 +198,7 @@ const PharmacyCardSlider = (props: any) => {
                   <div className="btn-group btn-style-count me-2 ">
                     <button
                       className="btn fw-bold text-size "
-                      onClick={handleONClickMinas}
+                      onClick={handleONClickMinus}
                     >
                       {" "}
                       -{" "}
@@ -229,14 +206,14 @@ const PharmacyCardSlider = (props: any) => {
                     <p className="my-auto px-2"> {count} </p>
                     <button
                       className="btn fw-bold text-size "
-                      onClick={handleOnClikplus}
+                      onClick={handleOnClickPlus}
                     >
                       {" "}
                       +{" "}
                     </button>{" "}
                   </div>
                   <button
-                    onClick={() => addmedicine(_id)}
+                    onClick={() => addMedicine(_id)}
                     className="btn-style"
                   >
                     {" "}

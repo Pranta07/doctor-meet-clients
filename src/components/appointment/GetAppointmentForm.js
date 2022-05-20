@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
-import {  useParams } from 'react-router-dom';
+import {  Navigate, useNavigate, useParams } from 'react-router-dom';
 import useFirebase from '../../firebase/useFirebase/useFirebase';
-import './GetAppointmentForm.css'
-import Page from "../Page"
+import Page from '../Page';
+import './GetAppointmentForm.css';
 const GetAppointmentForm = () => {
     const {user}=useFirebase();
     const params = useParams();
@@ -12,11 +12,11 @@ const GetAppointmentForm = () => {
     const [data,setData]=useState({});
     useEffect(() => {
         //Here a specific doctor has to be fetched using params.id
-        fetch("/doctors.json")
+        fetch("https://floating-basin-02241.herokuapp.com/doctors")
             .then(res => res.json())
             .then(data => {
                 for (const d of data) {
-                    if (d.id === Number(params.id)) {
+                    if (d._id === params.id){
                         setSelectedDoctor(d);
                     }
                 }
@@ -35,8 +35,7 @@ const GetAppointmentForm = () => {
         const patientInfo={patientName:user?.displayName,patientEmail:user?.email,...data,doctorInfo:selectedDoctor,status:"unpaid"};
         // "patientInfo" will be post in http://localhost:5000/allAppointments
         console.log(patientInfo);
-        fetch(`
-        https://floating-basin-02241.herokuapp.com/allAppointments`, {
+        fetch(`https://floating-basin-02241.herokuapp.com/allAppointments`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -46,8 +45,8 @@ const GetAppointmentForm = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
-                        alert("Product is purchased succesfully");
-                        
+                        alert("Appointment is booked successfully");
+                        Navigate("/dashboard/user/my-appointments");
                     }
                 })
         
@@ -77,6 +76,14 @@ const GetAppointmentForm = () => {
                     <option value="AB-">AB-</option>
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
+
+                </Form.Select>
+                <Form.Select aria-label="Default select example" name="timeSlot" onChange={handleOnChange}>
+                    <option>Select a Timeslot</option>
+                    <option value={selectedDoctor.timeSlot1}>{selectedDoctor.timeSlot1}</option>
+                    <option value={selectedDoctor.timeSlot2}>{selectedDoctor.timeSlot2}</option>
+                    <option value={selectedDoctor.timeSlot3}>{selectedDoctor.timeSlot3}</option>
+                    
 
                 </Form.Select>
                 <Form.Control type="number" placeholder="High BP"  name="highBP" onChange={handleOnChange} />

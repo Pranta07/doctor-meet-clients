@@ -4,7 +4,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { Rating } from "@mui/material";
 import "./DoctorView.css";
 import { Icon } from "@iconify/react";
-import MapDirection from "../map-ditrection/MapDirection";
+import MapDirection from "../map-direction/MapDirection";
 
 const DoctorView = () => {
   let [doctor, setDoctors] = useState<any>({});
@@ -154,7 +154,7 @@ const DoctorView = () => {
                 <div className="my-5">
                   <MapDirection />
                   <div className="row">
-                    <div className="row" >
+                    <div className="row">
                       <p>
                         {" "}
                         <span>

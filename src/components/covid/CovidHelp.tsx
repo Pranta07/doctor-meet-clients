@@ -1,13 +1,13 @@
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
 import helpImg from "../../assets/img/need-help.svg";
-import useAuth from "../../hooks/useAuth";
+import { useAppSelector } from "../../redux/store";
 import "./CovidHelp.css";
 
 const Help = () => {
-  const { user } = useAuth();
+  const { user }: any = useAppSelector((state) => state.user);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -21,7 +21,7 @@ const Help = () => {
         <p className="text-center text-secondary w-75 my-3 mx-auto">
           <small>
             Protect yourself and others around you by knowing the facts and
-            taking appropriate precautions. Floow advice provided by your local
+            taking appropriate precautions. Follow advice provided by your local
             health authority.
           </small>
         </p>
@@ -66,7 +66,7 @@ const Help = () => {
                     type="text"
                     className="border-0 form-control bg-light rounded-3"
                     id="recipient-name"
-                    placeholder={user?.displayName || ""}
+                    placeholder={user?.name || ""}
                     disabled
                   />
                 </div>

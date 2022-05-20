@@ -22,10 +22,10 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const AllDiagnosisRow = ({diagnos}) => {
+const AllDiagnosisRow = ({diagnosis}) => {
    
-    const intPrice=diagnos.selectedDiagnosis.price;
-    const intDiscount=diagnos.selectedDiagnosis.discount;
+    const intPrice=diagnosis.selectedDiagnosis.price;
+    const intDiscount=diagnosis.selectedDiagnosis.discount;
       const floatDiscount=parseFloat(intDiscount).toFixed(2);
       
       const dd=floatDiscount/100.00;
@@ -35,7 +35,7 @@ const deleteBookedDiagnosisAppointment=(e)=>{
     e.preventDefault();
     const isConfirm=window.confirm("Are you sure want to delete this data?");
     if(isConfirm){
-        fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis/${diagnos._id}`,{
+        fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis/${diagnosis._id}`,{
             method:"Delete"
         })
         .then(res=>res.json())
@@ -53,12 +53,12 @@ const deleteBookedDiagnosisAppointment=(e)=>{
     return (
         <StyledTableRow>
         <StyledTableCell component="th" scope="row">
-        {diagnos.name}
+        {diagnosis.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{diagnos.selectedDiagnosis.code}</StyledTableCell>
-              <StyledTableCell align="right">{diagnos.bookingDate}</StyledTableCell>
+              <StyledTableCell align="right">{diagnosis.selectedDiagnosis.code}</StyledTableCell>
+              <StyledTableCell align="right">{diagnosis.bookingDate}</StyledTableCell>
               <StyledTableCell align="right">{floatPrice} $</StyledTableCell>
-              <StyledTableCell align="right">{diagnos?.paymentStatus}</StyledTableCell>
+              <StyledTableCell align="right">{diagnosis?.paymentStatus}</StyledTableCell>
               <StyledTableCell className="mx-auto">
             <button className='btn-diagnosis-pay' onClick={deleteBookedDiagnosisAppointment}>Delete</button>
              

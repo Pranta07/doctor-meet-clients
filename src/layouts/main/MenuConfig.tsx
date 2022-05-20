@@ -46,6 +46,13 @@ const menuConfig = [
             path: "pharmacy",
           },
           {
+            title: "Diagnostic Center",
+            icon: (
+              <Iconify icon={"clarity:video-camera-solid"} {...ICON_SIZE} />
+            ),
+            path: "/diagnostic-center",
+          },
+          {
             title: "Premium Membership",
             icon: (
               <Iconify
@@ -63,11 +70,6 @@ const menuConfig = [
     title: "Virtual Meet",
     icon: <Iconify icon={"clarity:video-camera-solid"} {...ICON_SIZE} />,
     path: "/virtual-meet",
-  },
-  {
-    title: "Diagnostic Center",
-    icon: <Iconify icon={"clarity:video-camera-solid"} {...ICON_SIZE} />,
-    path: "/diagnostic-center",
   },
   {
     title: "Contact Us",

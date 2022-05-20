@@ -66,21 +66,7 @@ const HeroImgStyle = styled(m.img)(({ theme }) => ({
 export default function HomeHero() {
   return (
     <ContentStyle>
-    
-       
-
-      
-
-       
-            
-             <Banner/>
-       
-
-     
-       
-       
-    
-    
+        <Banner/>
     </ContentStyle>
   );
 }

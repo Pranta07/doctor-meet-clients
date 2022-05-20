@@ -21,7 +21,7 @@ const DiagnosticImagings = () => {
         <Col item xs={12} md={4} lg={2} style={{display:'flex',justifyContent:'center',marginBottom:'15px'}} >
           <div className="imaging-icon-holder d-flex justify-content-center align-items-center flex-column">
             <Icon
-              className="daigos-icon"
+              className="diagnosis"
               icon="medical-icon:i-imaging-root-category"
             />
           </div>

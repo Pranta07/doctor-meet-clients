@@ -9,23 +9,25 @@ const stripePromise = loadStripe(
 );
 
 const PayAppointmentFee = () => {
+   
+
     const [appointment, setAppointment] = useState({});
     const params = useParams();
-    console.log(params.id);
     useEffect(() => {
         fetch(`https://floating-basin-02241.herokuapp.com/allAppointments/${params.id}`)
             .then((res) => res.json())
             .then((data) => setAppointment(data));
     }, [params]);
     return (
-        <div>
-            <div className="container">
-                <h3>Pay : $ {appointment?.doctorInfo?.visit}</h3>
-                <Elements stripe={stripePromise}>
-                    <PayAppointmentFeeFrom appointment={appointment} />
-                </Elements>
-            </div>
+        <div className="payment-box">
+        <div className="container">
+            
+            <h3 className="text-center mt-5">Pay : $ {appointment?.doctorInfo?.visit}</h3>
+            <Elements stripe={stripePromise}>
+                <PayAppointmentFeeFrom  appointment={appointment}></PayAppointmentFeeFrom>
+            </Elements>
         </div>
+    </div>
     );
 };
 

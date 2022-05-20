@@ -15,13 +15,11 @@ import Autocomplete from "@mui/material/Autocomplete";
 import Swal from "sweetalert2";
 
 const ReportSection = () => {
-
-    let nameRef = useRef<HTMLInputElement>(null!);
-    let DrnameRef = useRef<HTMLInputElement>(null!);
-    let disRef = useRef<HTMLInputElement>(null!);
-    let [isprogress, setIsProgress] = useState(false);
-    const [text, setText] = useState("Click or drop something here...");
-
+  let nameRef = useRef<HTMLInputElement>(null!);
+  let DrNameRef = useRef<HTMLInputElement>(null!);
+  let disRef = useRef<HTMLInputElement>(null!);
+  let [isprogress, setIsProgress] = useState(false);
+  const [text, setText] = useState("Click or drop something here...");
 
   let [url, setUrl] = useState("");
   let [progress, setProgress] = useState(0);
@@ -38,26 +36,20 @@ const ReportSection = () => {
       });
   }, []);
 
-
-    let getFile = (e: any) => {
-        // text data delete object
-        if (text !== "Click or drop something here...") {
-            const desertRef = ref(storage, "/files/" + text);
-            // console.log(desertRef);
-            // Delete the file
-            deleteObject(desertRef)
-                .then(() => {
-                    // console.log("deleted");
-                })
-                .catch((error) => {
-                    // console.log(error);
-                });
-        }
-
-        let files = e.currentTarget.files[0];
-        UploadFiles(files);
-    };
-
+  let getFile = (e: any) => {
+    // text data delete object
+    if (text !== "Click or drop something here...") {
+      const desertRef = ref(storage, "/files/" + text);
+      // console.log(desertRef);
+      // Delete the file
+      deleteObject(desertRef)
+        .then(() => {
+          // console.log("deleted");
+        })
+        .catch((error) => {
+          // console.log(error);
+        });
+    }
 
     let files = e.currentTarget.files[0];
     UploadFiles(files);
@@ -72,58 +64,53 @@ const ReportSection = () => {
     const storageRef = ref(storage, `/files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const prog = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
+    uploadTask.on("state_changed", (snapshot) => {
+      const prog = Math.round(
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      );
+    });
+  };
 
+  const handleReportSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    let patientId = nameRef.current?.value;
+    let id = DrNameRef.current?.value.split("#")[1];
+    // let email = emailRef.current?.value;
+    let desc = disRef.current?.value;
+    let file = url;
+    let status = false;
+    let review = "";
+    const report = { file, patientId, desc, review, status };
+    // console.log(report);
 
-    const handleReportSubmit = (e: React.SyntheticEvent) => {
-        e.preventDefault();
-        let patientId = nameRef.current?.value;
-        let id = DrnameRef.current?.value.split("#")[1];
-        // let email = emailRef.current?.value;
-        let desc = disRef.current?.value;
-        let file = url;
-        let status = false;
-        let review = "";
-        const report = { file, patientId, desc, review, status };
-        // console.log(report);
-
-        //send review data to server
-        fetch(`http://localhost:5000/api/v1/report/${id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(report),
-        }).then((res) => {
-            if (res.status === 200) {
-                Swal.fire({
-                    title: "Success",
-                    text: "Report Successfully Submitted!",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-                window.location.reload();
-            } else {
-                Swal.fire({
-                    title: "Error",
-                    text: "Some input is empty",
-                    icon: "error",
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-            }
-
+    //send review data to server
+    fetch(`http://localhost:5000/api/v1/report/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(report),
+    }).then((res) => {
+      if (res.status === 200) {
+        Swal.fire({
+          title: "Success",
+          text: "Report Successfully Submitted!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        window.location.reload();
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: "Some input is empty",
+          icon: "error",
+          showConfirmButton: false,
+          timer: 2000,
         });
       }
     });
   };
-
   const defaultProps = {
     options: doctors,
     getOptionLabel: (option: any) => option.name + "#" + option._id,
@@ -189,72 +176,66 @@ const ReportSection = () => {
                 }}
               />
 
-
-                            <Autocomplete
-                                disablePortal
-                                id="combo-box-demo"
-                                {...defaultProps}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-                                        required
-                                        fullWidth
-                                        label="Doctor Name"
-                                        variant="outlined"
-                                        inputRef={DrnameRef}
-                                        sx={{
-                                            my: "15px",
-                                        }}
-                                    />
-                                )}
-                            />
-                            <TextField
-                                id="outlined-multiline-static"
-                                label="Say Something"
-                                fullWidth
-                                inputRef={disRef}
-                                multiline
-                                rows={4}
-                                sx={{
-                                    my: "15px",
-                                }}
-                            />
-                            <label htmlFor="input-file" className="label1">
-                                <div className="input-2">{text}</div>
-                                <input
-                                    onChange={getFile}
-                                    className="style-file-input"
-                                    type="file"
-                                    draggable
-                                    multiple
-                                    accept="image/*,application/pdf,application/txt"
-                                    name="file-uploder"
-                                    id="input-file"
-                                />
-                            </label>
-                            {isprogress && (
-                                <div>
-                                    <LinearProgress
-                                        variant="determinate"
-                                        value={progress}
-                                    />
-                                </div>
-                            )}
-                            <Button
-                                onClick={handleReportSubmit}
-                                variant="contained"
-                                sx={{ my: "15px" }}
-                            >
-                                {" "}
-                                Post{" "}
-                            </Button>
-                        </Box>
-                    </Grid>
-                </Grid>
-            </Container>
-        </Box>
-    );
-
+              <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                {...defaultProps}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    required
+                    fullWidth
+                    label="Doctor Name"
+                    variant="outlined"
+                    inputRef={DrNameRef}
+                    sx={{
+                      my: "15px",
+                    }}
+                  />
+                )}
+              />
+              <TextField
+                id="outlined-multiline-static"
+                label="Say Something"
+                fullWidth
+                inputRef={disRef}
+                multiline
+                rows={4}
+                sx={{
+                  my: "15px",
+                }}
+              />
+              <label htmlFor="input-file" className="label1">
+                <div className="input-2">{text}</div>
+                <input
+                  onChange={getFile}
+                  className="style-file-input"
+                  type="file"
+                  draggable
+                  multiple
+                  accept="image/*,application/pdf,application/txt"
+                  name="file-uploder"
+                  id="input-file"
+                />
+              </label>
+              {isprogress && (
+                <div>
+                  <LinearProgress variant="determinate" value={progress} />
+                </div>
+              )}
+              <Button
+                onClick={handleReportSubmit}
+                variant="contained"
+                sx={{ my: "15px" }}
+              >
+                Post
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+  );
 };
 
 export default ReportSection;

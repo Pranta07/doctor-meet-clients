@@ -20,7 +20,7 @@ const PharmacySubscribe = () => {
                 </h4>
                 <div className="entry-meta-middle">
                   <span className="data-time"> May 22, 2021 </span>
-                  <span className="name-athor mx-3">Alfredo Austin</span>
+                  <span className="name-author mx-3">Alfredo Austin</span>
                 </div>
               </div>
             </div>

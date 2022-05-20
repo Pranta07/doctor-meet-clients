@@ -1,0 +1,5 @@
+{
+  "javascript.validate.enable": true,
+  "typescript.validate.enable": true,
+  "cSpell.ignoreWords": ["Gynaecology"]
+}

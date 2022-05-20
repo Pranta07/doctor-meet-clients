@@ -1,21 +1,24 @@
 /* eslint-disable react/jsx-no-undef */
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink } from "react-router-dom";
-import "./PharmacyAllProduct.css";
-import React, { useEffect, useState } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-import PharmacyPriceSlide from "../pharmacy-price-slide/PharmacyPriceSlide";
-import { productsType } from "../pharmacy-products/PharmacyProducts";
-import PharmacyShop from "../pharmacy-shop/PharmacyShop";
+
+import "./PharmacyAllProduct.css";
+
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import PharmacyPriceSlide from "../pharmacy-price-slide/PharmacyPriceSlide";
+import { productsType } from "../pharmacy-products/PharmacyProducts";
+import PharmacyShop from "../pharmacy-shop/PharmacyShop";
+import "./PharmacyAllProduct.css";
 
 const PharmacyAllProduct = () => {
   let [products, setProducts] = useState<productsType[]>([]);
@@ -63,7 +66,7 @@ const PharmacyAllProduct = () => {
                 <h5> Pills</h5>
                 <h5> Herbs</h5>
                 <h5> Capsules</h5>
-                <h5> Dorps</h5>
+                <h5> Drops</h5>
               </div>
               <h3> Filter by price </h3>
               <hr className="hr-blue" />
@@ -76,14 +79,14 @@ const PharmacyAllProduct = () => {
                   step={10}
                 />
                 <div className="my-1">
-                  <button className="btn-primary btn"> Filtar </button>{" "}
+                  <button className="btn-primary btn"> Filter </button>{" "}
                 </div>
               </div>
               <div className="my-4">
                 <h3> Product tags </h3>
                 <hr className="hr-blue" />
                 <div className="my-3 row">
-                  <button className="btn col-lg-3"> Cytotoxics </button>
+                  <button className="btn col-lg-3"> Cytotoxic </button>
                   <button className="btn col-lg-4"> Cold Cures </button>
                   <button className="btn col-lg-4"> Expectorant </button>
                   <button className="btn col-lg-3"> Laxatives </button>
@@ -143,7 +146,7 @@ const PharmacyAllProduct = () => {
             <Stack spacing={2}>
               <Pagination
                 count={10}
-                renderItem={(item) => (
+                renderItem={(item: any) => (
                   <PaginationItem
                     components={{
                       previous: ArrowBackIcon,

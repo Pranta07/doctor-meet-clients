@@ -1,5 +1,5 @@
 import { User } from "firebase/auth";
-import React, { createContext, FC } from "react";
+import React, { createContext } from "react";
 import useFirebase from "../firebase/useFirebase/useFirebase";
 
 type firebase = {

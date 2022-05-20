@@ -15,6 +15,8 @@ import MenuPopover from "../../../components/MenuPopover";
 import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "../../../redux/store";
+import { logout } from "../../../redux/actions/userAction";
 
 // ----------------------------------------------------------------------
 
@@ -32,7 +34,8 @@ const MENU_OPTIONS = [
 // ----------------------------------------------------------------------
 
 export default function AccountPopover() {
-  const { user, logOut } = useAuth();
+  const { user }: any = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
 
   const [open, setOpen] = useState(null);
 
@@ -52,7 +55,7 @@ export default function AccountPopover() {
           p: 0,
         }}
       >
-        <Avatar src={user?.photoURL || ""} alt="avatar" />
+        <Avatar src={user?.image || ""} alt="avatar" />
       </IconButton>
 
       <MenuPopover
@@ -71,7 +74,7 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.displayName}
+            {user?.name}
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
             {user?.email}
@@ -94,7 +97,7 @@ export default function AccountPopover() {
 
         <Divider sx={{ borderStyle: "dashed" }} />
 
-        <MenuItem onClick={logOut} sx={{ m: 1 }}>
+        <MenuItem onClick={() => dispatch(logout())} sx={{ m: 1 }}>
           Logout
         </MenuItem>
       </MenuPopover>
