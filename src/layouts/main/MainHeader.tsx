@@ -24,6 +24,7 @@ import Slide from "@mui/material/Slide";
 import useAuth from "../../hooks/useAuth";
 import AccountPopover from "../dashboard/header/AccountPopover";
 import Logo from "../../components/Logo";
+import { useAppSelector } from "../../redux/store";
 
 // ----------------------------------------------------------------------
 
@@ -69,7 +70,7 @@ const ToolbarShadowStyle = styled("div")(({ theme }: any) => ({
 // ----------------------------------------------------------------------
 
 export default function MainHeader(props: any) {
-  const { user, logOut } = useAuth();
+  const { user } = useAppSelector((state) => state.user);
   const isOffset = useOffSetTop(HEADER.MAIN_DESKTOP_HEIGHT);
 
   const theme = useTheme();
@@ -133,10 +134,7 @@ export default function MainHeader(props: any) {
                 //     </p>
                 //   </div>
                 // </div>
-                <>
-                  {" "}
-                  <AccountPopover />
-                </>
+                <AccountPopover />
               ) : (
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li className="nav-item">

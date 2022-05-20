@@ -29,23 +29,21 @@ const PharmacySingleProduct = (props: any) => {
   let [itemData, setItemData] = useState(getData());
   let [count, setCount] = useState(1);
 
+  // let { img } = props.images;
+
   let {
     name,
+    rating,
+    price,
+    description,
+    category,
     img1,
     img2,
     img3,
-    rating,
     img4,
-    price,
-    description,
-    Sku,
-    category,
     inStock,
-    power,
-    shopAddress,
-    weight,
     _id,
-  } = props.products;
+  }: any = props.product;
 
   useEffect(() => {
     const ItemList = localStorage.getItem("item");
@@ -121,7 +119,7 @@ const PharmacySingleProduct = (props: any) => {
         <div className="product-img">
           <img
             className="img-fluid"
-            src={img1 + ".jpg"}
+            src={img1}
             alt="front product image"
           />
           <img
@@ -182,7 +180,7 @@ const PharmacySingleProduct = (props: any) => {
                 <div className="product-div-left">
                   <div className="img-container">
                     {allimg === "" ? (
-                      <img src={img1 + ".jpg"} alt="" />
+                      <img src={img1} alt="" />
                     ) : (
                       <img className="img-fluid" src={allimg} alt="" />
                     )}
@@ -191,10 +189,10 @@ const PharmacySingleProduct = (props: any) => {
                     <div>
                       <img
                         onClick={() => {
-                          getImage(img1 + ".jpg");
+                          getImage(img1);
                         }}
                         className="img-fluid"
-                        src={img1 + ".jpg"}
+                        src={img1}
                         alt=""
                       />
                     </div>

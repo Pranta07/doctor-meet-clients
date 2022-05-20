@@ -1,10 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import { useAppSelector } from "../../redux/store";
 import "./Profile.css";
 
+interface User {
+  name: string;
+  image: string;
+  role: string;
+  _id: string;
+}
+
 const Profile = () => {
-  let { user } = useAuth();
+  // let { user } = useAuth();
+  const { user, loading, isAuthenticated }: any = useAppSelector((state) => state.user);
 
   return (
     <div className="container emp-profile">
@@ -12,10 +20,11 @@ const Profile = () => {
         <div className="row">
           <div className="col-md-4">
             <div className="profile-img">
-              {user?.photoURL ? (
+              {user ? (
                 <img
                   className=""
-                  src={user.photoURL}
+                  //@ts-ignore
+                  src={user?.image}
                   alt=""
                   height="100px"
                   width="100px"
@@ -26,15 +35,15 @@ const Profile = () => {
                   alt=""
                 />
               )}
-              {/* <div className="file btn btn-lg btn-primary">
+              <div className="file btn btn-lg btn-primary">
                 Change Photo
                 <input type="file" name="file" />
-              </div> */}
+              </div>
             </div>
           </div>
           <div className="col-md-6">
             <div className="profile-head">
-              <h5>{user?.displayName}</h5>
+              <h5>{user?.name}</h5>
               <p className="proile-rating">
                 RANKINGS : <span>8/10</span>
               </p>
@@ -121,7 +130,7 @@ const Profile = () => {
                   </div>
                   <div className="col-md-6">
                     <p>
-                      {user?.displayName}#{user?.displayName?.length}
+                      {user?.name}#{user?.name?.length}
                     </p>
                   </div>
                 </div>
@@ -130,7 +139,7 @@ const Profile = () => {
                     <label>Name</label>
                   </div>
                   <div className="col-md-6">
-                    <p>{user?.displayName}</p>
+                    <p>{user?.name}</p>
                   </div>
                 </div>
                 <div className="row">
@@ -145,13 +154,13 @@ const Profile = () => {
                   <div className="col-md-6">
                     <label>Phone</label>
                   </div>
-                  <div className="col-md-6">
+                  {/* <div className="col-md-6">
                     {user?.phoneNumber ? (
                       <p>{user?.phoneNumber}</p>
                     ) : (
                       <p> Add phone number </p>
                     )}
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div

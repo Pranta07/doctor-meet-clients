@@ -2,7 +2,10 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import { productReducer } from "./reducers/productReducer";
+import {
+  productDetailsReducer,
+  productReducer,
+} from "./reducers/productReducer";
 import {
   forgotPasswordReducer,
   profileReducer,
@@ -11,6 +14,7 @@ import {
 
 const reducer = combineReducers({
   products: productReducer,
+  productDetails: productDetailsReducer,
   user: userReducer,
   profile: profileReducer,
   forgotPassword: forgotPasswordReducer,

@@ -1,12 +1,14 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { useAppSelector } from "../redux/store";
 
 const RequireAuth = ({ children }: { children: JSX.Element }) => {
-  const { user, isLoading } = useAuth();
+  const { user, loading }: any = useAppSelector((state) => state.user);
+
   let location = useLocation();
 
-  if (isLoading) {
+  if (loading) {
     return (
       <div className="m-10">
         <svg

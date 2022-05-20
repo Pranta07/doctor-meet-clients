@@ -95,7 +95,7 @@ const PharmacyShop = (props: any) => {
         <div className="product-img">
           <img
             className="img-fluid"
-            src={img1 + ".jpg"}
+            src={img1}
             alt="front product image"
           />
           <img
@@ -149,7 +149,7 @@ const PharmacyShop = (props: any) => {
                 <div className="product-div-left">
                   <div className="img-container">
                     {allimg === "" ? (
-                      <img src={img1 + ".jpg"} alt="" />
+                      <img src={img1} alt="" />
                     ) : (
                       <img className="img-fluid" src={allimg} alt="" />
                     )}
@@ -158,10 +158,10 @@ const PharmacyShop = (props: any) => {
                     <div>
                       <img
                         onClick={() => {
-                          getImage(img1 + ".jpg");
+                          getImage(img1);
                         }}
                         className="img-fluid"
-                        src={img1 + ".jpg"}
+                        src={img1}
                         alt=""
                       />
                     </div>

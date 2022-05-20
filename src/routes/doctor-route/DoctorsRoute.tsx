@@ -2,16 +2,17 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { useAppSelector } from "../../redux/store";
 
 const DoctorsRoute = ({ children }: { children: JSX.Element }) => {
-  const { user, isLoading } = useAuth();
+  const { user, loading }: any = useAppSelector((state) => state.user);
   const [doctor, setdoctor] = useState(false);
   const [done, setDone] = useState(false);
 
   let location = useLocation();
 
   useEffect(() => {
-    if (!isLoading) {
+    if (!loading) {
       setDone(false);
       setdoctor(false);
       fetch(`http://localhost:5000/user/${user?.email}`)
@@ -23,9 +24,9 @@ const DoctorsRoute = ({ children }: { children: JSX.Element }) => {
         })
         .finally(() => setDone(true));
     }
-  }, [isLoading]);
+  }, [loading]);
 
-  if (isLoading || !done) {
+  if (loading || !done) {
     return (
       <div className="m-10">
         <svg

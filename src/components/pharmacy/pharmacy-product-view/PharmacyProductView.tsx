@@ -3,21 +3,28 @@ import React, { useEffect, useState } from "react";
 import { Cart } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 import "./PharmacyProductView.css";
-import "../pharmacy-banner/PharmacyBanner.css";
+import "../pharmacy-banner/PharmacyBanner.css"
 import banner_img from "../../../assets/pharmacy/banner-sidebar.png";
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
+import { getProductDetails } from "../../../redux/actions/productAction";
 
 const PharmacyProductView = () => {
-  let [products, setProducts] = useState<any>({});
+  const dispatch = useAppDispatch();
+  // let [products, setProducts] = useState<any>({});
   let [count, setCount] = useState(1);
+
+  const { product }: any = useAppSelector((state) => state.productDetails)
 
   let { id } = useParams();
   useEffect(() => {
-    fetch(`https://immense-beyond-64415.herokuapp.com/medicine/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.result);
-        setProducts(data.result[0]);
-      });
+
+    dispatch(getProductDetails(id))
+    // fetch(`https://immense-beyond-64415.herokuapp.com/medicine/${id}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data.result);
+    //     setProducts(data.result[0]);
+    //   });
   }, [id]);
 
   let handleOnClikplus = () => {
@@ -38,18 +45,24 @@ const PharmacyProductView = () => {
     img1,
     img2,
     img3,
-    rating,
     img4,
     price,
     description,
-    Sku,
     category,
     inStock,
-    power,
-    shopAddress,
-    weight,
     _id,
-  } = products;
+  } = product;
+
+  // -----------------------------------------------------------------
+  //these static data must change later
+  let rating = 4;
+  let Sku = "This is Sku";
+  let power = "20 mg";
+  let shopAddress = "chittagong, Bangladesh";
+  let weight = "200 gm";
+
+  // --------------------------------------------------------------
+
   let [allimg, setAllimg] = useState("");
   const getImage = (image: string) => {
     setAllimg(image);
@@ -73,13 +86,13 @@ const PharmacyProductView = () => {
     if (doctor) items = JSON.parse(doctor);
     else items = [];
 
-    const newItems = [...items, products];
+    const newItems = [...items, product];
     // console.log(newItems);
 
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
 
-  let onRatingChange = () => {};
+  let onRatingChange = () => { };
 
   return (
     <div className="main-wrapper">
@@ -88,7 +101,7 @@ const PharmacyProductView = () => {
           <div className="product-div-left">
             <div className="img-containers">
               {allimg === "" ? (
-                <img src={img1 + ".jpg"} alt="" />
+                <img src={img1} alt="" />
               ) : (
                 <img className="img-fluid" src={allimg} alt="" />
               )}
@@ -97,10 +110,10 @@ const PharmacyProductView = () => {
               <div>
                 <img
                   onClick={() => {
-                    getImage(img1 + ".jpg");
+                    getImage(img1);
                   }}
                   className="img-fluid"
-                  src={img1 + ".jpg"}
+                  src={img1}
                   alt=""
                 />
               </div>

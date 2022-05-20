@@ -1,9 +1,5 @@
-// @mui
 import { styled } from "@mui/material/styles";
-import { Banner } from "../../components/banner";
 import HealthCareProvider from "../../components/health-care-provider/HealthCareProvider";
-import { CardMedia } from "@mui/material";
-// components
 import Page from "../../components/Page";
 import Review from "../../components/review/Review";
 import { Services } from "../../components/services";
@@ -25,6 +21,7 @@ const RootStyle = styled("div")(({ theme }) => ({
 const ContentStyle = styled("div")(({ theme }) => ({
   overflow: "hidden",
   position: "relative",
+  backgroundColor: theme.palette.background.default,
 }));
 
 // ----------------------------------------------------------------------

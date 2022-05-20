@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import {
   ALL_USERS_FAIL,
   ALL_USERS_REQUEST,
@@ -43,16 +43,23 @@ import { AppDispatch } from "./../store";
 export const login =
   (email: string, password: string) => async (dispatch: AppDispatch) => {
     try {
+      let token = window.localStorage.getItem("token");
+      // if (!token) {
+      //   token = document.cookie.split("=")[1];
+      // }
       dispatch({ type: LOGIN_REQUEST });
 
       const config = { headers: { "Content-Type": "application/json" } };
 
+      // console.log(token);
       const { data } = await axios.post(
-        `/api/v1/login`,
+        `http://localhost:5000/api/v1/login`,
         { email, password },
-        config
+        config,
+        //@ts-ignore
+        token
       );
-
+      localStorage.setItem("token", data.token);
       dispatch({ type: LOGIN_SUCCESS, payload: data.user });
     } catch (error: any) {
       dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
@@ -71,7 +78,10 @@ export const register = (userData: any) => async (dispatch: AppDispatch) => {
       userData,
       config
     );
-
+    window.localStorage.setItem("token", data.token);
+    // const token = window.localStorage.getItem("token");
+    //@ts-ignore
+    // document.cookie = `token=${token}`;
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
   } catch (error: any) {
     dispatch({
@@ -84,9 +94,16 @@ export const register = (userData: any) => async (dispatch: AppDispatch) => {
 // Load User
 export const loadUser = () => async (dispatch: AppDispatch) => {
   try {
+    let token = window.localStorage.getItem("token");
+    // if (!token) {
+    //   token = document.cookie.split("=")[1];
+    // }
     dispatch({ type: LOAD_USER_REQUEST });
-
-    const { data } = await axios.get(`/api/v1/me`);
+    const { data } = await axios.get(
+      `http://localhost:5000/api/v1/me`,
+      //@ts-ignore
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error: any) {
@@ -97,8 +114,8 @@ export const loadUser = () => async (dispatch: AppDispatch) => {
 // Logout User
 export const logout = () => async (dispatch: AppDispatch) => {
   try {
-    await axios.get(`/api/v1/logout`);
-
+    await axios.get(`http://localhost:5000/api/v1/logout`);
+    window.localStorage.removeItem("token");
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error: any) {
     dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });
@@ -113,7 +130,11 @@ export const updateProfile =
 
       const config = { headers: { "Content-Type": "multipart/form-data" } };
 
-      const { data } = await axios.put(`/api/v1/me/update`, userData, config);
+      const { data } = await axios.put(
+        `http://localhost:5000/api/v1/me/update`,
+        userData,
+        config
+      );
 
       dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
     } catch (error: any) {
@@ -133,7 +154,7 @@ export const updatePassword =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.put(
-        `/api/v1/password/update`,
+        `http://localhost:5000/api/v1/password/update`,
         passwords,
         config
       );
@@ -156,7 +177,7 @@ export const forgotPassword =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.post(
-        `/api/v1/password/forgot`,
+        `http://localhost:5000/api/v1/password/forgot`,
         email,
         config
       );
@@ -179,7 +200,7 @@ export const resetPassword =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.put(
-        `/api/v1/password/reset/${token}`,
+        `http://localhost:5000/api/v1/password/reset/${token}`,
         passwords,
         config
       );
@@ -197,7 +218,9 @@ export const resetPassword =
 export const getAllUsers = () => async (dispatch: AppDispatch) => {
   try {
     dispatch({ type: ALL_USERS_REQUEST });
-    const { data } = await axios.get(`/api/v1/admin/users`);
+    const { data } = await axios.get(
+      `http://localhost:5000/api/v1/admin/users`
+    );
 
     dispatch({ type: ALL_USERS_SUCCESS, payload: data.users });
   } catch (error: any) {
@@ -209,7 +232,9 @@ export const getAllUsers = () => async (dispatch: AppDispatch) => {
 export const getUserDetails = (id: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
-    const { data } = await axios.get(`/api/v1/admin/user/${id}`);
+    const { data } = await axios.get(
+      `http://localhost:5000/api/v1/admin/user/${id}`
+    );
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data.user });
   } catch (error: any) {
@@ -226,7 +251,7 @@ export const updateUser =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.put(
-        `/api/v1/admin/user/${id}`,
+        `http://localhost:5000/api/v1/admin/user/${id}`,
         userData,
         config
       );
@@ -245,7 +270,9 @@ export const deleteUser = (id: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch({ type: DELETE_USER_REQUEST });
 
-    const { data } = await axios.delete(`/api/v1/admin/user/${id}`);
+    const { data } = await axios.delete(
+      `http://localhost:5000/api/v1/admin/user/${id}`
+    );
 
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });
   } catch (error: any) {

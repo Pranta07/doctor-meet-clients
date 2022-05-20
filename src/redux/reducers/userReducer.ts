@@ -55,6 +55,7 @@ export const userReducer = (state = { user: {} }, action: any) => {
     case LOAD_USER_SUCCESS:
       return {
         ...state,
+        success: true,
         loading: false,
         isAuthenticated: true,
         user: action.payload,
@@ -62,6 +63,7 @@ export const userReducer = (state = { user: {} }, action: any) => {
 
     case LOGOUT_SUCCESS:
       return {
+        success: true,
         loading: false,
         user: null,
         isAuthenticated: false,
@@ -70,6 +72,7 @@ export const userReducer = (state = { user: {} }, action: any) => {
     case REGISTER_USER_FAIL:
       return {
         ...state,
+        success: false,
         loading: false,
         isAuthenticated: false,
         user: null,
@@ -78,6 +81,7 @@ export const userReducer = (state = { user: {} }, action: any) => {
 
     case LOAD_USER_FAIL:
       return {
+        success: false,
         loading: false,
         isAuthenticated: false,
         user: null,
@@ -87,6 +91,7 @@ export const userReducer = (state = { user: {} }, action: any) => {
     case LOGOUT_FAIL:
       return {
         ...state,
+        success: false,
         loading: false,
         error: action.payload,
       };

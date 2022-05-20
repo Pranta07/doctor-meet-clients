@@ -12,6 +12,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useAppSelector } from "../../../redux/store";
 
 interface IFormInputs {
     name: string;
@@ -25,7 +26,8 @@ interface IFormInputs {
 
 const JoinUsForm = (props: any) => {
     const { show, handleClose } = props;
-    const { user } = useAuth();
+    // const { user } = useAuth();
+    const { user }: any = useAppSelector((state) => state.user);
     const { register, handleSubmit } = useForm<IFormInputs>();
 
     const onSubmit: SubmitHandler<IFormInputs> = (data) => {
@@ -83,7 +85,7 @@ const JoinUsForm = (props: any) => {
                                                 required
                                                 label="Name"
                                                 defaultValue={
-                                                    user?.displayName || ""
+                                                    user?.name || ""
                                                 }
                                                 {...register("name", {
                                                     required: true,
