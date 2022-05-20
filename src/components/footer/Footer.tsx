@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import brand from "../../aAssets/img/logo.png";
+import brand from "../../assets/img/logo.png";
 import ContactInfo from "../contact-info/ContactInfo";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";

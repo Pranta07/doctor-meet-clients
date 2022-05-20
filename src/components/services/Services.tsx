@@ -1,13 +1,13 @@
 import React from "react";
 
-import blood from "../../aAssets/services/blood.jpg";
-import consultation from "../../aAssets/services/consultation.png";
-import covid from "../../aAssets/services/covid.jpg";
-import emergency from "../../aAssets/services/emergency.png";
-import info from "../../aAssets/services/info.png";
-import medicine from "../../aAssets/services/medicine.png";
-import reports from "../../aAssets/services/reports.png";
-import search from "../../aAssets/services/search.png";
+import blood from "../../assets/services/blood.jpg";
+import consultation from "../../assets/services/consultation.png";
+import covid from "../../assets/services/covid.jpg";
+import emergency from "../../assets/services/emergency.png";
+import info from "../../assets/services/info.png";
+import medicine from "../../assets/services/medicine.png";
+import reports from "../../assets/services/reports.png";
+import search from "../../assets/services/search.png";
 import Service from "./Service";
 import "./Services.css";
 import { MotionViewport, varFade } from "../animate";

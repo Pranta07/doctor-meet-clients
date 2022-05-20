@@ -41,8 +41,8 @@ const Review = () => {
         <hr className="hr-re mx-auto " />
 
         <Slider {...settings}>
-          {reviews.map((review) => (
-            <div className="row re-dot p-5 d-flex">
+          {reviews.map((review, index) => (
+            <div key={index} className="row re-dot p-5 d-flex">
               <div className="d-flex col-12 col-lg-6">
                 {review.img ? (
                   <img
