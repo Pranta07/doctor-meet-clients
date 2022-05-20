@@ -16,7 +16,7 @@ import Swal from "sweetalert2";
 
 const ReportSection = () => {
   let nameRef = useRef<HTMLInputElement>(null!);
-  let DrNameRef = useRef<HTMLInputElement>(null!);
+  let DrnameRef = useRef<HTMLInputElement>(null!);
   let disRef = useRef<HTMLInputElement>(null!);
   let [isprogress, setIsProgress] = useState(false);
   const [text, setText] = useState("Click or drop something here...");
@@ -37,11 +37,9 @@ const ReportSection = () => {
   }, []);
 
   let getFile = (e: any) => {
-    // text data delete object
     if (text !== "Click or drop something here...") {
       const desertRef = ref(storage, "/files/" + text);
-      // console.log(desertRef);
-      // Delete the file
+
       deleteObject(desertRef)
         .then(() => {
           // console.log("deleted");
@@ -64,17 +62,30 @@ const ReportSection = () => {
     const storageRef = ref(storage, `/files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
-    uploadTask.on("state_changed", (snapshot) => {
-      const prog = Math.round(
-        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-      );
-    });
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+
+        setProgress(prog);
+      },
+      (err) => console.log(err),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          setUrl(url);
+          setIsProgress(false);
+          // console.log("done");
+        });
+      }
+    );
   };
 
   const handleReportSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     let patientId = nameRef.current?.value;
-    let id = DrNameRef.current?.value.split("#")[1];
+    let id = DrnameRef.current?.value.split("#")[1];
     // let email = emailRef.current?.value;
     let desc = disRef.current?.value;
     let file = url;
@@ -111,6 +122,7 @@ const ReportSection = () => {
       }
     });
   };
+
   const defaultProps = {
     options: doctors,
     getOptionLabel: (option: any) => option.name + "#" + option._id,
@@ -187,7 +199,7 @@ const ReportSection = () => {
                     fullWidth
                     label="Doctor Name"
                     variant="outlined"
-                    inputRef={DrNameRef}
+                    inputRef={DrnameRef}
                     sx={{
                       my: "15px",
                     }}
@@ -223,13 +235,19 @@ const ReportSection = () => {
                   <LinearProgress variant="determinate" value={progress} />
                 </div>
               )}
-              <Button
-                onClick={handleReportSubmit}
-                variant="contained"
-                sx={{ my: "15px" }}
-              >
-                Post
-              </Button>
+              {isprogress ? (
+                <Button variant="contained" sx={{ my: "15px" }} disabled>
+                  Post
+                </Button>
+              ) : (
+                <Button
+                  onClick={handleReportSubmit}
+                  variant="contained"
+                  sx={{ my: "15px" }}
+                >
+                  Post
+                </Button>
+              )}
             </Box>
           </Grid>
         </Grid>
