@@ -49,7 +49,6 @@ function createData(
   return { name, calories, fat, carbs, protein };
 }
 
-
 const rows = [
   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
@@ -58,7 +57,7 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
+const ColorLibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 22,
   },
@@ -83,7 +82,7 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   },
 }));
 
-const ColorlibStepIconRoot = styled("div")<{
+const ColorLibStepIconRoot = styled("div")<{
   ownerState: { completed?: boolean; active?: boolean };
 }>(({ theme, ownerState }) => ({
   backgroundColor:
@@ -107,7 +106,7 @@ const ColorlibStepIconRoot = styled("div")<{
   }),
 }));
 
-function ColorlibStepIcon(props: StepIconProps) {
+function ColorLibStepIcon(props: StepIconProps) {
   const { active, completed, className } = props;
 
   const icons: { [index: string]: React.ReactElement } = {
@@ -119,17 +118,17 @@ function ColorlibStepIcon(props: StepIconProps) {
   };
 
   return (
-    <ColorlibStepIconRoot
+    <ColorLibStepIconRoot
       ownerState={{ completed, active }}
       className={className}
     >
       {icons[String(props.icon)]}
-    </ColorlibStepIconRoot>
+    </ColorLibStepIconRoot>
   );
 }
 
 const steps = [
-  "Recive Report",
+  "Receive Report",
   "Lab Specialist",
   "Doctor Read The Report",
   "Dr. Give Review and Prescription",
@@ -143,10 +142,10 @@ const ReportStatus = () => {
         {" "}
         My Report Status{" "}
       </h5>
-      <div className="report-card-shedow">
+      <div className="report-card-shadow">
         <Grid container spacing={2}>
           <Grid lg={6} md={6} xs={12}>
-            <h3> Paitent Name </h3>
+            <h3> Patient Name </h3>
             <p style={{ fontWeight: "500", lineHeight: "10px" }}> Email </p>
             <p style={{ fontWeight: "500", lineHeight: "10px" }}>
               {" "}
@@ -176,11 +175,11 @@ const ReportStatus = () => {
           <Stepper
             alternativeLabel
             activeStep={1}
-            connector={<ColorlibConnector />}
+            connector={<ColorLibConnector />}
           >
             {steps.map((label) => (
               <Step key={label}>
-                <StepLabel StepIconComponent={ColorlibStepIcon}>
+                <StepLabel StepIconComponent={ColorLibStepIcon}>
                   {label}
                 </StepLabel>
               </Step>
@@ -200,11 +199,9 @@ const ReportStatus = () => {
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Doctor Name</StyledTableCell>
-                  <StyledTableCell align="center">Paitant Name</StyledTableCell>
+                  <StyledTableCell align="center">Patient Name</StyledTableCell>
                   <StyledTableCell align="center">Date</StyledTableCell>
-                  <StyledTableCell align="right">
-                     Download 
-                  </StyledTableCell>
+                  <StyledTableCell align="right">Download</StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

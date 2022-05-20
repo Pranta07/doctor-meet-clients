@@ -10,16 +10,16 @@ import "./Footer.css";
 
 const Footer = () => {
   const { pathname } = useLocation();
-  if (pathname === "/dashboard/dashboarHome") return null;
+  if (pathname === "/dashboard/dashboard-home") return null;
   else if (pathname === "/dashboard/doctor") return null;
   else if (pathname === "/dashboard/admin") return null;
 
   return (
     <div className="footer-bg-color">
-      {window.location.pathname === "/dashboard/dashboarHome" ||
+      {window.location.pathname === "/dashboard/dashboard-home" ||
       window.location.pathname === "/dashboard/doctors" ||
       window.location.pathname === "/dashboard/admin" ||
-      window.location.pathname === "/dashboard/favdoc" ? (
+      window.location.pathname === "/dashboard/favorite-doctors" ? (
         <div></div>
       ) : (
         <div>

@@ -7,7 +7,6 @@ import ThemeProvider from "./theme/index";
 import NotistackProvider from "./components/NotistackProvider";
 // components
 import ScrollToTop from "./components/ScrollToTop";
-import ThemeColorPresets from "./components/ThemeColorPresets";
 import "./App.css";
 import { ChartStyle } from "./components/chart";
 import { MotionLazyContainer } from "./components/animate";

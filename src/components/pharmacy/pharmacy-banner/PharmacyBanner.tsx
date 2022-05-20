@@ -24,7 +24,7 @@ const PharmacyBanner = () => {
             <h1 className="text-light h1-big mb-3">
               Focused <br /> <span> by Fredi</span>{" "}
             </h1>
-            <p className="text-light p-big">Only in this week. Don’t misss!</p>
+            <p className="text-light p-big">Only in this week. Don’t miss!</p>
             <h2 className="h1-big" style={{ color: "#ff7f23" }}>
               $15.99{" "}
               <span className="h1-none mb-auto" style={{ color: "#00a198" }}>

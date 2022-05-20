@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Cart } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 import "./PharmacyProductView.css";
-import "../pharmacy-banner/PharmacyBanner.css"
+import "../pharmacy-banner/PharmacyBanner.css";
 import banner_img from "../../../assets/pharmacy/banner-sidebar.png";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProductDetails } from "../../../redux/actions/productAction";
@@ -13,12 +13,11 @@ const PharmacyProductView = () => {
   // let [products, setProducts] = useState<any>({});
   let [count, setCount] = useState(1);
 
-  const { product }: any = useAppSelector((state) => state.productDetails)
+  const { product }: any = useAppSelector((state) => state.productDetails);
 
   let { id } = useParams();
   useEffect(() => {
-
-    dispatch(getProductDetails(id))
+    dispatch(getProductDetails(id));
     // fetch(`https://immense-beyond-64415.herokuapp.com/medicine/${id}`)
     //   .then((res) => res.json())
     //   .then((data) => {
@@ -27,12 +26,12 @@ const PharmacyProductView = () => {
     //   });
   }, [id]);
 
-  let handleOnClikplus = () => {
+  let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
   };
 
-  let handleONClickMinas = () => {
+  let handleONClickMinus = () => {
     if (count < 1) {
       return;
     } else {
@@ -63,9 +62,9 @@ const PharmacyProductView = () => {
 
   // --------------------------------------------------------------
 
-  let [allimg, setAllimg] = useState("");
+  let [allImg, setAllImg] = useState("");
   const getImage = (image: string) => {
-    setAllimg(image);
+    setAllImg(image);
   };
   let [rating1, setRating1] = useState(0);
 
@@ -92,7 +91,7 @@ const PharmacyProductView = () => {
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
 
-  let onRatingChange = () => { };
+  let onRatingChange = () => {};
 
   return (
     <div className="main-wrapper">
@@ -100,10 +99,10 @@ const PharmacyProductView = () => {
         <div className="product-div">
           <div className="product-div-left">
             <div className="img-containers">
-              {allimg === "" ? (
+              {allImg === "" ? (
                 <img src={img1} alt="" />
               ) : (
-                <img className="img-fluid" src={allimg} alt="" />
+                <img className="img-fluid" src={allImg} alt="" />
               )}
             </div>
             <div className="hover-container">
@@ -169,7 +168,7 @@ const PharmacyProductView = () => {
             <div className="btn-group btn-style-count me-2 ">
               <button
                 className="btn fw-bold text-size "
-                onClick={handleONClickMinas}
+                onClick={handleONClickMinus}
               >
                 {" "}
                 -{" "}
@@ -177,7 +176,7 @@ const PharmacyProductView = () => {
               <p className="my-auto px-2"> {count} </p>
               <button
                 className="btn fw-bold text-size "
-                onClick={handleOnClikplus}
+                onClick={handleOnClickPlus}
               >
                 {" "}
                 +{" "}

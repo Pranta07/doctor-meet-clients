@@ -19,7 +19,7 @@ const AllAppointments = () => {
             <th>Patient Email</th>
             <th>Doctor Name</th>
             <th>Doctor Specialize</th>
-            <th>Timeslot</th>
+            <th>Time Slot</th>
             <th>Status</th>
             <th>Action</th>
           </tr>

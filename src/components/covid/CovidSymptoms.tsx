@@ -37,7 +37,7 @@ const CovidSymptoms = () => {
               <ul className="text-secondary">
                 <li>Aches and pains</li>
                 <li>Sore throat</li>
-                <li>Diarrhoea</li>
+                <li>Diarrhea</li>
                 <li>Conjunctivitis</li>
                 <li>Headache</li>
                 <li>Loss of taste or smell</li>

@@ -87,7 +87,7 @@ const Doctors: React.FC<Props> = () => {
                       <h6 style={fontCol} className="card-title fw-semibold">
                         Cancer Specialist <br /> <br />
                         Nephrologist <br /> <br />
-                        Psychiartist <br /> <br />
+                        Psychiatrist <br /> <br />
                       </h6>
                     </div>
                   </div>
@@ -95,7 +95,7 @@ const Doctors: React.FC<Props> = () => {
                 <div className="col">
                   <div className="card text-dark bg-light mb-3">
                     <div className="card-header" style={borderColFilter}>
-                      Apppointment availability
+                      Appointment availability
                     </div>
                     <div className="card-body" style={bordrCol}>
                       <h6 style={fontCol} className="card-title fw-normal">

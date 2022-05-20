@@ -1,0 +1,46 @@
+.payment-box{
+    width: 300px;
+    margin: 60px auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: #F2F2F2;
+}
+.payment-box:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.payment-box h3{
+    font-family: 'Radio Canada', sans-serif;
+    font-weight: 600;
+    color: #222f3e;
+}
+.payment-box h4{
+    font-family: 'Radio Canada', sans-serif;
+    font-weight: 600;
+    color: #222f3e;
+}
+
+.btn-diagnosis-pay {background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%)}
+.btn-diagnosis-pay {
+   margin: 30px auto 0px auto;
+   padding: 10px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 40px;
+   display: block;
+   border: 0px;
+   font-family: 'Inter', sans-serif;
+ }
+
+ .btn-diagnosis-pay:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }

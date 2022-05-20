@@ -2,10 +2,10 @@ import React from "react";
 import { styled } from "@mui/material/styles";
 import BookCovidTest from "./book-covid-test/BookCovidTest";
 import ChooseDiagnostics from "./choose-diagnostics/ChooseDiagnostics";
-import CovidAwarnessBar from "./covid-awarness-bar/CovidAwarnessBar";
+import CovidAwarenessBar from "./covid-awareness-bar/CovidAwarenessBar";
 import DiagnosticCenterBanner from "./diagnostic-center-banner/DiagnosticCenterBanner";
 import DiagnosticChooseUs from "./diagnostic-choose-us/DiagnosticChooseUs";
-import DiagnosticSpecialities from "./diagnostic-specialities/DiagnosticSpecialities";
+import DiagnosticSpecialties from "./diagnostic-specialties/DiagnosticSpecialties";
 import OurDiagnosticServices from "./our-diagnostic-services/OurDiagnosticServices";
 import PopularTestProcedures from "./popular-test-procedures/PopularTestProcedures";
 import SimpleProcess from "./simple-process/SimpleProcess";
@@ -24,26 +24,26 @@ const ContentStyle = styled("div")(({ theme }) => ({
 }));
 
 const DiagnosticCenter = () => {
-    return (
-        <Page title="Diagnostic Center">
-            <RootStyle>
-                <ContentStyle>
-                    <div>
-                        {/* <DiagnosticCenterBanner></DiagnosticCenterBanner> */}
-                        <NewBanner></NewBanner>
-                        <CovidAwarnessBar></CovidAwarnessBar>
-                        <PopularTestProcedures></PopularTestProcedures>
-                        <OurDiagnosticServices></OurDiagnosticServices>
-                        <DiagnosticChooseUs></DiagnosticChooseUs>
-                        <BookCovidTest></BookCovidTest>
-                        <DiagnosticSpecialities></DiagnosticSpecialities>
-                        <ChooseDiagnostics></ChooseDiagnostics>
-                        <SimpleProcess></SimpleProcess>
-                    </div>
-                </ContentStyle>
-            </RootStyle>
-        </Page>
-    );
+  return (
+    <Page title="Diagnostic Center">
+      <RootStyle>
+        <ContentStyle>
+          <div>
+            {/* <DiagnosticCenterBanner></DiagnosticCenterBanner> */}
+            <NewBanner></NewBanner>
+            <CovidAwarenessBar></CovidAwarenessBar>
+            <PopularTestProcedures></PopularTestProcedures>
+            <OurDiagnosticServices></OurDiagnosticServices>
+            <DiagnosticChooseUs></DiagnosticChooseUs>
+            <BookCovidTest></BookCovidTest>
+            <DiagnosticSpecialties></DiagnosticSpecialties>
+            <ChooseDiagnostics></ChooseDiagnostics>
+            <SimpleProcess></SimpleProcess>
+          </div>
+        </ContentStyle>
+      </RootStyle>
+    </Page>
+  );
 };
 
 export default DiagnosticCenter;

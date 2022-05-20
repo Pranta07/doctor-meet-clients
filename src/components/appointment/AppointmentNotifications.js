@@ -21,7 +21,7 @@ class AppointmentNotifications extends React.Component {
           });
           break;
           default:
-              console.log("Hello world this is defautl");
+              console.log("Hello world this is default");
       }
     };
   };

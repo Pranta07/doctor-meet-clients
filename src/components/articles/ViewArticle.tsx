@@ -6,13 +6,13 @@ import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Page from "../Page";
 import Articles from "./Articles";
-import "./ViewArticale.css";
+import "./ViewArticle.css";
 
-const ViewArticale = () => {
-  let [articale, setArticale] = useState<any>({});
+const ViewArticle = () => {
+  let [article, setArticle] = useState<any>({});
   let [dateDecode, setDate] = useState<string | number>(0);
   let [dateDay, setDateDay] = useState<string | number>(0);
-  let [dateMount, setDateMounth] = useState<string | number>(0);
+  let [dateMount, setDateMonth] = useState<string | number>(0);
   let { id } = useParams();
 
   useEffect(() => {
@@ -20,11 +20,11 @@ const ViewArticale = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.Article[0]);
-        setArticale(data.Article[0]);
+        setArticle(data.Article[0]);
         let dateDecode = new Date(data.Article[0].createdAt);
         setDate(dateDecode.getFullYear());
         setDateDay(dateDecode.getDate());
-        setDateMounth(dateDecode.getMonth());
+        setDateMonth(dateDecode.getMonth());
       });
   }, [id]);
 
@@ -45,13 +45,13 @@ const ViewArticale = () => {
             marginBottom: "50px",
           }}
         >
-          <h1> Articale </h1>
+          <h1> Article </h1>
           <span>
             <NavLink to="/" style={{ textDecoration: "none" }}>
               Home
             </NavLink>
           </span>
-          {" > "} <span> Articale </span>
+          {" > "} <span> Article </span>
         </div>
 
         <Container sx={{ marginTop: "120px" }}>
@@ -66,19 +66,19 @@ const ViewArticale = () => {
           >
             <Grid lg={6} md={6} sm={6}>
               <div className="p-5">
-                <h2 style={{ color: "#2c90b9" }}> {articale.title} </h2>
-                <h6 style={{ color: "#e3366d" }}> {articale.author} </h6>
+                <h2 style={{ color: "#2c90b9" }}> {article.title} </h2>
+                <h6 style={{ color: "#e3366d" }}> {article.author} </h6>
                 <div
                   className="desc"
-                  dangerouslySetInnerHTML={{ __html: articale.description }}
+                  dangerouslySetInnerHTML={{ __html: article.description }}
                 ></div>
               </div>
             </Grid>
             <Grid lg={6} md={6} sm={6}>
-              <img className="responsive-img" src={articale.img} alt="" />
+              <img className="responsive-img" src={article.img} alt="" />
             </Grid>
           </Grid>
-          <div className="date-fuild">
+          <div className="date-fluid">
             <p className="my-auto">
               {dateDecode} / {dateDay} / {dateMount}
             </p>
@@ -90,4 +90,4 @@ const ViewArticale = () => {
   );
 };
 
-export default ViewArticale;
+export default ViewArticle;

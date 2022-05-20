@@ -19,7 +19,7 @@ const DiagnosticPathologies = () => {
       <Row className="d-flex align-items-center justify-content-between">
         <Col item xs={12} md={4} lg={2} style={{display:'flex',justifyContent:'center',marginBottom:'15px'}}>
           <div className="imaging-icon-holder d-flex justify-content-center align-items-center flex-column">
-            <Icon className="daigos-icon" icon="medical-icon:i-pathology" />
+            <Icon className="diagnosis" icon="medical-icon:i-pathology" />
           </div>
         </Col>
         <Col item xs={12} md={8} lg={9} className="">

@@ -6,7 +6,7 @@ import { Services } from "../../components/services";
 import { Articles } from "../../components/articles";
 import HomeGallery from "../../components/home-gallery/HomeGallery";
 import HomeHero from "./HomeHero";
-import MapDirection from "../../components/map-ditrection/MapDirection";
+import MapDirection from "../../components/map-direction/MapDirection";
 import TopDoctors from "../../components/top-rated-doctors/TopDoctors";
 
 // ----------------------------------------------------------------------

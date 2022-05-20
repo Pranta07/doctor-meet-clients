@@ -30,7 +30,7 @@ const FavoriteDoctors = () => {
 
   useEffect(() => {
     setLoading(true);
-    const favoriteList = localStorage.getItem("favdoc");
+    const favoriteList = localStorage.getItem("fav-doc");
     if (favoriteList) {
       const authors = JSON.parse(favoriteList);
       setFavoriteDoctors(authors);

@@ -28,7 +28,7 @@ type firebase = {
   createUsingEmail: (
     email: string,
     password: string,
-    Firstname: string,
+    FirstName: string,
     LastName: string
   ) => void;
   signUsingEmail: (email: string, password: string) => void;
@@ -45,7 +45,7 @@ const useFirebase = (): firebase => {
   const [isLoading, setIsLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
-  const nevigate = useNavigate();
+  const navigate = useNavigate();
 
   // const saveUser = (email: string | null, displayName: string | null, method: string, AccountType: string): void => {
   //     const user = { email, displayName, AccountType };
@@ -104,7 +104,7 @@ const useFirebase = (): firebase => {
         setUser(result.user);
         // console.log(history);
         // saveUser(result.user.email, result.user.displayName, "PUT", "customer");
-        nevigate("/");
+        navigate("/");
       })
       .catch((error) => {
         setMessage(error.message);
@@ -117,17 +117,17 @@ const useFirebase = (): firebase => {
   const createUsingEmail = (
     email: string,
     password: string,
-    Firstname: string,
+    FirstName: string,
     LastName: string
   ) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        setNewUserName(Firstname, LastName);
+        setNewUserName(FirstName, LastName);
         verification();
         setUser(result.user);
         // saveUser(email, name, "POST", AccountType);
         setIsLogged(true);
-        nevigate("/");
+        navigate("/");
         console.log(result, "jjj");
       })
       .catch((error) => {
@@ -143,7 +143,7 @@ const useFirebase = (): firebase => {
         // verification();
         console.log(result);
         setUser(result.user);
-        nevigate("/");
+        navigate("/");
         setIsLogged(true);
       })
       .catch((error) => {

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
-import {  useNavigate, useParams } from 'react-router-dom';
+import {  Navigate, useNavigate, useParams } from 'react-router-dom';
 import useFirebase from '../../firebase/useFirebase/useFirebase';
+import Page from '../Page';
 import './GetAppointmentForm.css';
 const GetAppointmentForm = () => {
     const {user}=useFirebase();
@@ -45,7 +46,7 @@ const GetAppointmentForm = () => {
                 .then(data => {
                     if (data.insertedId) {
                         alert("Appointment is booked successfully");
-                        navigate("/dashboard/user/my-appointments");
+                        Navigate("/dashboard/user/my-appointments");
                     }
                 })
         

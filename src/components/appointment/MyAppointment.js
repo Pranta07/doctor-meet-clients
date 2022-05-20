@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import useTime from '../../hooks/useTime';
 import enabledIcon from '../../../src/assets/my-appointments-video -enable.png';
 import disabledIcon from '../../../src/assets/my-appointments-video-disable.png';
-import './appointment-style/style.css';
+import './AppointmentStyle.css';
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 

@@ -10,13 +10,13 @@ const PharmacyCartSingle = (props: {
 }) => {
   let [count, setCount] = useState(1);
   let [totalCart, setTotalCart] = useState(1);
-  let handleOnClikplus = () => {
+  let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
     props.handleChildCartData(total);
   };
 
-  let handleONClickMinas = () => {
+  let handleONClickMinus = () => {
     if (count < 1) {
       return;
     } else {
@@ -46,7 +46,7 @@ const PharmacyCartSingle = (props: {
             <div className="btn-group me-2">
               <button
                 className="btn fw-bold text-size "
-                onClick={handleONClickMinas}
+                onClick={handleONClickMinus}
               >
                 {" "}
                 -{" "}
@@ -58,7 +58,7 @@ const PharmacyCartSingle = (props: {
               <button
                 className="btn fw-bold text-size "
                 id={`id-${props.index}`}
-                onClick={handleOnClikplus}
+                onClick={handleOnClickPlus}
               >
                 {" "}
                 +{" "}

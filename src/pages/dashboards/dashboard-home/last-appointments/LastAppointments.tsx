@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import AppointersDetails from "./AppointersDetails";
 type Props = {};
-const LastAppoinments: React.FC<Props> = () => {
-  const [appointers, setAppoinets] = useState([]);
+const LastAppointments: React.FC<Props> = () => {
+  const [appointers, setAppointments] = useState([]);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
-      .then((data) => setAppoinets(data));
+      .then((data) => setAppointments(data));
   }, []);
 
   return (
@@ -28,10 +28,10 @@ const LastAppoinments: React.FC<Props> = () => {
               <span className="visually-hidden">Loading...</span>
             </div>
           ) : (
-            appointers.map((apointerData, index) => (
+            appointers.map((appointerData, index) => (
               <AppointersDetails
                 index={index}
-                apointerData={apointerData}
+                appointerData={appointerData}
               ></AppointersDetails>
             ))
           )}
@@ -41,4 +41,4 @@ const LastAppoinments: React.FC<Props> = () => {
   );
 };
 
-export default LastAppoinments;
+export default LastAppointments;

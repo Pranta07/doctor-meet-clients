@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
-import useFirebase from '../../../firebase/useFirebase/useFirebase';
+
 import { useAppSelector } from '../../../redux/store';
 import './DiagnosticAppointmentForm.css';
 const DiagnosticAppointmentForm = () => {
@@ -10,7 +10,7 @@ const DiagnosticAppointmentForm = () => {
 
     const navigate = useNavigate();
     const [data, setData] = useState({})
-    const { user }: any = useAppSelector((state) => state.user);
+    const { user } = useAppSelector((state) => state.user);
     useEffect(() => {
         fetch(`https://floating-basin-02241.herokuapp.com/${params.category}`)
             .then(res => res.json())

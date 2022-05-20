@@ -1,18 +1,17 @@
-.choose-diagnotocs-card-container .card {
-<<<<<<< HEAD
+.choose-diagnostcs-card-container .card {
   margin-bottom: 35px;
 }
 
-.choose-diagnotocs-card-container .card .card-img-top {
+.choose-diagnostics-card-container .card .card-img-top {
   height: 250px;
 }
 
-.choose-diagnotocs-card-container .card .card-text {
+.choose-diagnostics-card-container .card .card-text {
   color: #8395a7;
   font-family: "Radio Canada", sans-serif;
 }
 
-.choose-diagnotocs-card-container .card .card-text h6 {
+.choose-diagnostics-card-container .card .card-text h6 {
   color: #222f3e;
   margin: 15px 0px;
   font-size: 16px;
@@ -49,54 +48,3 @@
   color: #fff;
   text-decoration: none;
 }
-=======
-    margin-bottom: 35px;
-}
-
-.choose-diagnotocs-card-container .card .card-img-top {
-    height: 250px;
-}
-
-.choose-diagnotocs-card-container .card .card-text {
-    color: #8395a7;
-    font-family: 'Radio Canada', sans-serif;
-}
-
-.choose-diagnotocs-card-container .card .card-text h6 {
-    color: #222f3e;
-    margin: 15px 0px;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-}
-
-.btn-choose-diagnostic-book-now:hover {
-    background: #24C6DC ;
-    transition: 0.5s ease-in-out;
-}
-
-.btn-choose-diagnostic-book-now {
-    margin: 20px auto 10px auto;
-    padding: 10px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: white;
-    transition: 0.5s ease-in-out;
-    background-size: 200% auto;
-    color: #24C6DC;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 40px;
-    display: block;
-    border: 1px solid #24C6DC;
-    font-weight: 500;
-    background-color: transparent;
-    font-family: 'Lato', sans-serif;
-}
-
-.btn-choose-diagnostic-book-now:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-}
->>>>>>> 05a6f53eec71acb2601efe0b4618d20f7946ee91

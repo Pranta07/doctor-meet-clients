@@ -36,7 +36,7 @@ const services: service_if[] = [
     img: consultation,
     name: "Free Consultation",
     description:
-      "Free consultation with our trusted doctors and get the best recomendations.",
+      "Free consultation with our trusted doctors and get the best recommendations.",
     route: "",
   },
   {

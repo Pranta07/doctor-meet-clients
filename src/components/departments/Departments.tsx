@@ -29,7 +29,7 @@ const Departments = (props: any) => {
       <div className="dep p-4">
         <FormControl>
           <RadioGroup
-            aria-labelledby="departmnets-radio-buttons-group"
+            aria-labelledby="departments-radio-buttons-group"
             name="controlled-radio-buttons-group"
             value={dept}
             onChange={handleChange}

@@ -3,20 +3,19 @@ import { Suspense, lazy } from "react";
 import { Navigate, useRoutes, useLocation } from "react-router-dom";
 // layouts
 import DashboardLayout from "../layouts/dashboard/index";
-import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 // components
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
 
 import {
-  DiagnosicPay,
+  DiagnosisPay,
   DiagnosticAppointmentForm,
 } from "../components/diagnostic-center";
 
 import UserReview from "../components/user-review/UserReview";
 import { DiagnosticCenter } from "../components/diagnostic-center";
-import ControlDoctors from "../adminDatabase/ControlDoctors";
-import EditSingleDoctor from "../adminDatabase/EditSingleDoctor";
+import ControlDoctors from "../components/admin-database/ControlDoctors";
+import EditSingleDoctor from "../components/admin-database/EditSingleDoctor";
 import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
 
@@ -153,8 +152,6 @@ export default function Router() {
           index: true,
         },
         { path: "home", element: <DashboardHome /> },
-
-        { path: "three", element: <PageThree /> },
         {
           path: "user",
           children: [
@@ -288,11 +285,11 @@ export default function Router() {
         },
         {
           path: "/diagnostic-pay/:id",
-          element: <DiagnosicPay />,
+          element: <DiagnosisPay />,
         },
         {
           path: "/diagnostic-pay/:id",
-          element: <DiagnosicPay />,
+          element: <DiagnosisPay />,
         },
         {
           path: "article/:id",
@@ -312,8 +309,6 @@ const PharmacyHome = Loadable(
 //const PharmacyHome = Loadable(
 // lazy(() => import("../pages/pharmacy/PharmacyH~ome")));
 
-const PageThree = Loadable(lazy(() => import("../pages/PageThree")));
-
 // const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 // AUTHENTICATION
 const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
@@ -332,7 +327,7 @@ const AllDoctors = Loadable(
   lazy(() => import("../components/all-doctors/AllDoctors"))
 );
 const FavoriteDoctors = Loadable(
-  lazy(() => import("../components/favourite-doctors/FavoriteDoctors"))
+  lazy(() => import("../components/favorite-doctors/FavoriteDoctors"))
 );
 const ManageDoctors = Loadable(
   lazy(
@@ -400,9 +395,7 @@ const PayAppointmentFee = Loadable(
   lazy(() => import("../components/appointment/PayAppointmentFee"))
 );
 const MyDiagnosises = Loadable(
-  lazy(
-    () => import("../components/diagnostic-center/my-diagnosis/MyDiagnosises")
-  )
+  lazy(() => import("../components/diagnostic-center/my-diagnoses/MyDiagnoses"))
 );
 const ReportStatus = Loadable(
   lazy(
@@ -413,7 +406,7 @@ const ReportStatus = Loadable(
   )
 );
 const ViewArticale = Loadable(
-  lazy(() => import("../components/articles/ViewArticale"))
+  lazy(() => import("../components/articles/ViewArticle"))
 );
 
 // DASHBOARD

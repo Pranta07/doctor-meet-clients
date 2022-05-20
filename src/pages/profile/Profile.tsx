@@ -12,7 +12,9 @@ interface User {
 
 const Profile = () => {
   // let { user } = useAuth();
-  const { user, loading, isAuthenticated }: any = useAppSelector((state) => state.user);
+  const { user, loading, isAuthenticated }: any = useAppSelector(
+    (state) => state.user
+  );
 
   return (
     <div className="container emp-profile">
@@ -44,7 +46,7 @@ const Profile = () => {
           <div className="col-md-6">
             <div className="profile-head">
               <h5>{user?.name}</h5>
-              <p className="proile-rating">
+              <p className="profile-rating">
                 RANKINGS : <span>8/10</span>
               </p>
               <ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -90,27 +92,27 @@ const Profile = () => {
           <div className="col-md-4">
             <div className="profile-work">
               <p>Option</p>
-              <a href="">
+              <a href="/">
                 <NavLink to="/deshboard">Deshboard</NavLink>
               </a>
               <br />
-              <a href="">
+              <a href="/">
                 <NavLink to="/timeTable">Time Table</NavLink>
               </a>
               <br />
-              <a href="">
+              <a href="/">
                 <NavLink to="/Blood_Dooner">Blood Doner Info</NavLink>
               </a>
               <br />
-              <a href="">
+              <a href="/">
                 <NavLink to="/delivery">Delivery Tracking</NavLink>
               </a>
               <br />
-              <a href="">
+              <a href="/">
                 <NavLink to="/fev-doctor">Personal Doctor</NavLink>
               </a>
               <br />
-              <a href="">
+              <a href="/">
                 <NavLink to="/report">My Report</NavLink>
               </a>
               <br />

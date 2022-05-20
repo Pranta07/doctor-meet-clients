@@ -22,7 +22,7 @@ const DiagnosticPathology = ({ pathology }) => {
     transform: "translate(-50%, -50%)",
     width: 336,
     border: "none",
-    bgcolor: "background.paper",
+    backgroundColor: "background.paper",
     boxShadow: 24,
     p: 4,
   };
@@ -35,7 +35,7 @@ const DiagnosticPathology = ({ pathology }) => {
         <img
           src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
           alt=""
-          style={{ width: "30px", height: "30px" }}
+          style={{ width: "30px", height: "30px", }}
         />
         <h5 className="ms-2">{pathology.title}</h5>
       </div>

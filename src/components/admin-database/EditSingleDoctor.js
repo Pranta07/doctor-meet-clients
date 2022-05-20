@@ -113,15 +113,15 @@ const EditSingleDoctor = () => {
                 <input className="edit-doctor-input" type="text" onChange={(e)=>setSpecialist(e.target.value)} value={specialist} />
             </div>
             <div className='edit-doctor-input-container'>
-                <span className="doctor-key-name">First Timeslot : </span>
+                <span className="doctor-key-name">First Time Slot : </span>
                 <input className="edit-doctor-input" type="text" onChange={(e)=>setTimeSlot1(e.target.value)} value={timeSlot1} />
             </div>
             <div className='edit-doctor-input-container'>
-                <span className="doctor-key-name">Second Timeslot : </span>
+                <span className="doctor-key-name">Second Time Slot : </span>
                 <input className="edit-doctor-input" type="text" onChange={(e)=>setTimeSlot2(e.target.value)} value={timeSlot2} />
             </div>
             <div className='edit-doctor-input-container'>
-                <span className="doctor-key-name">Third Timeslot : </span>
+                <span className="doctor-key-name">Third Time Slot : </span>
                 <input className="edit-doctor-input" type="text" onChange={(e)=>setTimeSlot3(e.target.value)} value={timeSlot3} />
             </div>
             <div className='edit-doctor-input-container'>

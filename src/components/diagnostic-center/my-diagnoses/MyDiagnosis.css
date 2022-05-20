@@ -3,16 +3,12 @@ a {
 }
 
 .btn-diagnosis-pay {
-<<<<<<< HEAD
   background-image: linear-gradient(
     to right,
     #41295a 0%,
     #2f0743 51%,
     #41295a 100%
   );
-=======
-  background-image: linear-gradient(to right, #41295a 0%, #2F0743 51%, #41295a 100%)
->>>>>>> 05a6f53eec71acb2601efe0b4618d20f7946ee91
 }
 
 .btn-diagnosis-pay {
@@ -35,12 +31,6 @@ a {
   color: #fff;
   text-decoration: none;
 }
-<<<<<<< HEAD
 .MuiTableCell-head {
   box-shadow: none !important;
 }
-=======
-.MuiTableCell-head{
-  box-shadow: none !important;
-}
->>>>>>> 05a6f53eec71acb2601efe0b4618d20f7946ee91

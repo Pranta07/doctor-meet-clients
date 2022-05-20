@@ -9,12 +9,6 @@ import MenuItem from "@mui/material/MenuItem";
 
 import "./PharmacyAllProduct.css";
 
-
-
-
-
-
-
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
@@ -72,7 +66,7 @@ const PharmacyAllProduct = () => {
                 <h5> Pills</h5>
                 <h5> Herbs</h5>
                 <h5> Capsules</h5>
-                <h5> Dorps</h5>
+                <h5> Drops</h5>
               </div>
               <h3> Filter by price </h3>
               <hr className="hr-blue" />
@@ -85,14 +79,14 @@ const PharmacyAllProduct = () => {
                   step={10}
                 />
                 <div className="my-1">
-                  <button className="btn-primary btn"> Filtar </button>{" "}
+                  <button className="btn-primary btn"> Filter </button>{" "}
                 </div>
               </div>
               <div className="my-4">
                 <h3> Product tags </h3>
                 <hr className="hr-blue" />
                 <div className="my-3 row">
-                  <button className="btn col-lg-3"> Cytotoxics </button>
+                  <button className="btn col-lg-3"> Cytotoxic </button>
                   <button className="btn col-lg-4"> Cold Cures </button>
                   <button className="btn col-lg-4"> Expectorant </button>
                   <button className="btn col-lg-3"> Laxatives </button>

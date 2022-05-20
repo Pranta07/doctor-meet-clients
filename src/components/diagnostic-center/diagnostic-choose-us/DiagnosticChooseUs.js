@@ -18,10 +18,7 @@ const DiagnosticChooseUs = () => {
                   Why patients choose our center
                 </h1>
                 <p className="diagnosis-choose-us-content">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-                  harum nisi magni voluptate fuga ducimus consequuntur excepturi
-                  molestias impedit corrupti exercitationem, eveniet dolorem
-                  dolor amet modi in perferendis! Possimus, sint.
+                  We provide the best care according to the value. And make sure everyone gets the same, we also care for our patients in and out with our heart content.
                 </p>
               </div>
             </Col>

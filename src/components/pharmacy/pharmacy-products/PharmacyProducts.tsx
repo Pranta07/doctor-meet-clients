@@ -20,7 +20,7 @@ import PharmacyCardSlider from "../pharmacy-card-slider/PharmacyCardSlider";
 import PharmacySingleProduct from "../pharmacy-single-product/PharmacySingleProduct";
 import PharmacyTimer from "../pharmacy-timer/PharmacyTimer";
 import "./PharmacyProducts.css";
-import { useAppDispatch, useAppSelector } from "../../../redux/store"
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProduct } from "../../../redux/actions/productAction";
 
 export interface productsType {
@@ -41,12 +41,11 @@ export interface productsType {
   _id: string;
 }
 
-
 const PharmacyProducts = () => {
   // let [images, setImages] = useState<productsType[]>([]);
   // console.log(productsP)
   const dispatch = useAppDispatch();
-  const { products }: any = useAppSelector((state) => state.products)
+  const { products }: any = useAppSelector((state) => state.products);
   // const { products } = productArray;
   // console.log(products)
   // const { images } = products;
@@ -60,7 +59,6 @@ const PharmacyProducts = () => {
   time.setSeconds(time.getMonth() + 19890);
 
   useEffect(() => {
-
     //@ts-ignore
     dispatch(getProduct());
 
@@ -72,20 +70,20 @@ const PharmacyProducts = () => {
   }, []);
 
   if (!products) {
-    return <h1>Loading...</h1>
+    return <h1>Loading...</h1>;
   }
-
 
   return (
     <div className="container">
       <h1 className=" text-center my-5"> Latest products </h1>
       <div className="row">
-        {products.length && products.map((product: any) => (
-          <PharmacySingleProduct
-            key={product._id}
-            product={product}
-          ></PharmacySingleProduct>
-        ))}
+        {products.length &&
+          products.map((product: any) => (
+            <PharmacySingleProduct
+              key={product._id}
+              product={product}
+            ></PharmacySingleProduct>
+          ))}
       </div>
       <div>
         <h1 className="text-center mt-5"> This week deals </h1>
@@ -196,23 +194,27 @@ const PharmacyProducts = () => {
         <PharmacyTimer expiryTimestamp={time}></PharmacyTimer>
       </div>
       <div className="row">
-        {products.length && products.map((product: any) => (
-          <PharmacyCardSlider
-            key={product._id}
-            product={product}
-          ></PharmacyCardSlider>
-        ))}
+        {products.length &&
+          products.map((product: any) => (
+            <PharmacyCardSlider
+              key={product._id}
+              product={product}
+            ></PharmacyCardSlider>
+          ))}
       </div>
       <div>
         <h1 className="text-center my-5"> Bestsellers </h1>
       </div>
       <div className="row">
-        {products.length && products.slice(0, 6).map((product: any) => (
-          <PharmacyBestProduct
-            key={product._id}
-            product={product}
-          ></PharmacyBestProduct>
-        ))}
+        {products.length &&
+          products
+            .slice(0, 6)
+            .map((product: any) => (
+              <PharmacyBestProduct
+                key={product._id}
+                product={product}
+              ></PharmacyBestProduct>
+            ))}
       </div>
     </div>
   );

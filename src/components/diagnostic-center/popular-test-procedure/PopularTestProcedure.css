@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Radio+Canada&display=swap");
 
 .popular-test-procedures .card .card-title {
@@ -23,7 +22,7 @@
 .font-radio-canada {
   font-family: "Radio Canada", sans-serif;
 }
-.undiscounted-price {
+.un-discounted-price {
   font-size: 18px;
   color: #8395a7;
   font-weight: 500;
@@ -49,56 +48,3 @@
   margin-top: 8px;
   margin-bottom: -10px;
 }
-=======
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Radio+Canada&display=swap');
-
-.popular-test-procedures .card .card-title{
-    color: red;
-    text-align: left !important;
-    font-family: 'Radio Canada', sans-serif;
-    font-weight: 600;
-color: #222f3e;
-
-}
-
-.popular-test-procedures .card .card-sub-title{
-    color: #8395a7;
-}
-.popular-test-procedures .card{
-    text-align: left  !important;
-    padding: 20px;
-}
-.popular-test-procedures .card:hover{
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-}
-.font-radio-canada{
-    font-family: 'Radio Canada', sans-serif;
-}
-.undiscounted-price{
-    font-size: 18px;
-    color: #8395a7;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
-}
-.discounted-price{
-    font-size: 24px;
-    color: #222f3e;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
-}
-.discount-amount-holder{
-    display: flex;
-    justify-content: end;
-    position: absolute;
-    color: rgb(66, 124, 197);
-    top: 8px;
-    right: 20px;
-}
-.discount-amount-holder p{
-    color: white;
-    font-family: 'Radio Canada', sans-serif;
-    margin-top:8px;
-    margin-bottom: -10px;
-}
->>>>>>> 05a6f53eec71acb2601efe0b4618d20f7946ee91

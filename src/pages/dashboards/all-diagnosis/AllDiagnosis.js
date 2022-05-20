@@ -38,7 +38,7 @@ const AllDiagnosis = () => {
         <TableBody>
         
           {
-            diagnosis.map(diagnos=><AllDiagnosisRow diagnos={diagnos}></AllDiagnosisRow>)
+            diagnosis.map(diagnosis=><AllDiagnosisRow diagnosis={diagnosis}></AllDiagnosisRow>)
           }
        
         </TableBody>

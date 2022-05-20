@@ -3,6 +3,9 @@ import React from "react";
 import { Card} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./ChooseDiagnostic.css";
+
+
+
 const ChooseDiagnostic = ({ section }) => {
   const intPrice = section.price;
   const intDiscount = section.discount;

@@ -21,7 +21,7 @@ const ChooseDiagnostics = () => {
             </h6>
             <hr />
           </div>
-          <div className="choose-diagnotocs-card-container">
+          <div className="choose-diagnostics-card-container">
             <Grid spacing={2} sx={{justifyContent:'center'}} container>
               {sections.map((section) => (
                 <ChooseDiagnostic section={section}></ChooseDiagnostic>

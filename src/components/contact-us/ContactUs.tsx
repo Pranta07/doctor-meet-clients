@@ -4,7 +4,7 @@ import emailjs from "emailjs-com";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./ContactUs.css";
-import MapDirection from "../map-ditrection/MapDirection";
+import MapDirection from "../map-direction/MapDirection";
 import { styled } from "@mui/material/styles";
 import Page from "../Page";
 import { Box } from "@mui/system";

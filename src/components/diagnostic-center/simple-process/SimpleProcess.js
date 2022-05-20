@@ -28,8 +28,7 @@ const SimpleProcess = () => {
                     Go to Website
                   </h1>
                   <h6 className="simple-process-content-para">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Iusto officiis esse deleniti vero, reprehenderit dolorem?
+                    For anything on anytime just visit our site to get your expected help.
                   </h6>
                 </div>
               </div>
@@ -45,8 +44,7 @@ const SimpleProcess = () => {
                     Book a Test
                   </h1>
                   <h6 className="simple-process-content-para">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Iusto officiis esse deleniti vero, reprehenderit dolorem?
+                   If you want to have a test just knock us and we will contact with you.
                   </h6>
                 </div>
               </div>
@@ -62,8 +60,7 @@ const SimpleProcess = () => {
                     Collect Sample
                   </h1>
                   <h6 className="simple-process-content-para">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Iusto officiis esse deleniti vero, reprehenderit dolorem?
+                    Our experts will contact you in no time and collect your same with a great care.
                   </h6>
                 </div>
               </div>
@@ -79,8 +76,7 @@ const SimpleProcess = () => {
                     Download Report
                   </h1>
                   <h6 className="simple-process-content-para">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Iusto officiis esse deleniti vero, reprehenderit dolorem?
+                    Whenever wherever you want to see you report just download it or view it.
                   </h6>
                 </div>
               </div>
