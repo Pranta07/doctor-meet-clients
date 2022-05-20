@@ -13,10 +13,7 @@ import {
 import { Box } from "@mui/system";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
-<<<<<<< HEAD
 import { useAppSelector } from "../../redux/store";
-=======
->>>>>>> 05a6f53eec71acb2601efe0b4618d20f7946ee91
 import Page from "../Page";
 
 export interface IReview {
