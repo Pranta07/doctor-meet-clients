@@ -7,13 +7,17 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 // components
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
-import UserReview from "../components/user-review/UserReview";
-import AddArticle from "../components/add-article/AddArticle";
-import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
+
 import {
   DiagnosicPay,
   DiagnosticAppointmentForm,
 } from "../components/diagnostic-center";
+
+import UserReview from "../components/user-review/UserReview";
+import { DiagnosticCenter } from "../components/diagnostic-center";
+import ControlDoctors from "../components/adminDatabase/ControlDoctors";
+import EditSingleDoctor from "../components/adminDatabase/EditSingleDoctor";
+import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
 
 // ----------------------------------------------------------------------
@@ -33,31 +37,31 @@ const Loadable = (Component: any) => (props: any) => {
 
 export default function Router() {
   return useRoutes([
-    // {
-    //   path: "auth",
-    //   children: [
-    //     {
-    //       path: "login",
-    //       element: (
-    //         // <GuestGuard>
-    //         <Login />
-    //         // </GuestGuard>
-    //       ),
-    //     },
-    //     {
-    //       path: "register",
-    //       element: (
-    //         // <GuestGuard>
-    //         <Register />
-    //         // </GuestGuard>
-    //       ),
-    //     },
-    //     { path: "login-unprotected", element: <Login /> },
-    //     { path: "register-unprotected", element: <Register /> },
-    //     { path: "reset-password", element: <ResetPassword /> },
-    //     { path: "verify", element: <VerifyCode /> },
-    //   ],
-    // },
+    {
+      path: "auth",
+      children: [
+        {
+          path: "login",
+          element: (
+            // <GuestGuard>
+            <Login />
+            // </GuestGuard>
+          ),
+        },
+        {
+          path: "register",
+          element: (
+            // <GuestGuard>
+            <Register />
+            // </GuestGuard>
+          ),
+        },
+        { path: "login-unprotected", element: <Login /> },
+        { path: "register-unprotected", element: <Register /> },
+        { path: "reset-password", element: <ResetPassword /> },
+        { path: "verify", element: <VerifyCode /> },
+      ],
+    },
     // // Dashboard Routes
     // {
     //   path: 'dashboard',
@@ -172,6 +176,10 @@ export default function Router() {
               element: <GetAppointmentForm />,
             },
             {
+              path: "my-diagnosises",
+              element: <MyDiagnosises />,
+            },
+            {
               path: "Report-section",
               element: <ReportSection />,
             },
@@ -209,6 +217,14 @@ export default function Router() {
             {
               path: "all-diagnosis",
               element: <AllDiagnosis />,
+            },
+            {
+              path: "edit-doctors",
+              element: <ControlDoctors />,
+            },
+            {
+              path: "edit-doctors/edit-single-doctor/:id",
+              element: <EditSingleDoctor />,
             },
           ],
         },
@@ -263,12 +279,16 @@ export default function Router() {
           element: <PayAppointmentFee />,
         },
         {
-          path: "diagnostic-center",
+          path: "/diagnostic-center",
           element: <DiagnosticCenter />,
         },
         {
           path: "/diagnostic-appointment-form/:category/:id",
           element: <DiagnosticAppointmentForm />,
+        },
+        {
+          path: "/diagnostic-pay/:id",
+          element: <DiagnosicPay />,
         },
         {
           path: "/diagnostic-pay/:id",
@@ -395,6 +415,7 @@ const ReportStatus = Loadable(
 const ViewArticale = Loadable(
   lazy(() => import("../components/articles/ViewArticale"))
 );
+
 // DASHBOARD
 
 // GENERAL

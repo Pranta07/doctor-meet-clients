@@ -1,7 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.form-container{
+  background-color: #48dbfb;
+  padding: 100px 0px;
+}
 .getAppointmentForm{
     width: 50%;
     margin: 50px auto;
+    
 }
-.getAppointmentForm .form-control,.form-select{
-    margin-bottom: 10px;
+.getAppointmentForm .form-control{
+
+    transition: all 300ms ease !important;
+    /* box-shadow: 0 0 0 2px transparent inset !important; */
+    background: black !important;
+    border:1px solid white;
+  margin-bottom: 10px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
 }
+
+.getAppointmentForm .form-select{
+  transition: all 300ms ease !important;
+  /* box-shadow: 0 0 0 2px transparent inset !important; */
+  background: black !important;
+  border:1px solid white;
+margin-bottom: 10px;
+color: white;
+font-family: 'Lato', sans-serif;
+font-size: 18px;
+}
+.getAppointmentForm .form-label{
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+.btn-appointmen-submit {background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%)}
+.btn-appointmen-submit {
+   margin: 20px auto;
+   padding: 10px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 40px;
+   border:0px;
+   display: block;
+ }
+
+ .btn-appointmen-submit:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }

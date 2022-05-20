@@ -1,45 +1,72 @@
-import React from "react";
-import { Card, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
+import {  Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './appointment-style/style.css'
 export interface doctor {
-  id: string;
-  name: string;
-  img: string;
-  specialist: string;
-  phone: string;
-  website: string;
-  email: string;
-  timeSlot: string;
-}
-type Props = {
-  doctor: doctor;
-};
-const AppointmentDoctor: React.FC<Props> = ({ doctor }) => {
-  const { id, name, img, specialist, phone, website, email, timeSlot } = doctor;
+    _id: string;
+   name:string;
+   img:string;
+   specialist:string;
+   phone:string;
+   website:string;
+   email:string;
+   timeSlot:string;
+   visit:string;
+   availableDays:string;
+   experience:string;
+   review:string;
+  }
+  type Props = {
+    doctor: doctor;
+    
+  };
+const AppointmentDoctor: React.FC<Props>  = ({doctor}) => {
+    const {_id,name,img,specialist,phone,website,email,availableDays,visit,experience,review}=doctor;
+    const rating=Number(review);
+    return (
+      <Grid item xs={12} md={6} lg={4}>
+      
 
-  return (
-    <Col lg={4} md={6} sm={12} xs={12}>
-      <Card>
-        <Card.Img variant="top" src={img} />
-        <Card.Body>
-          <Card.Title>{name} </Card.Title>
-          <h3>{specialist}</h3>
-          <Card.Text>
-            <h4>Available Hours : {timeSlot}</h4>
-            <h4>Phone : {phone}</h4>
-            <h4>Website : {website}</h4>
-            <h4>Email : {email}</h4>
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <Link to={`/get-appointment-form/${id}`}>
-            <button className="btn btn-success">Get Appointment</button>
-          </Link>
-        </Card.Footer>
-      </Card>
-    </Col>
-  );
+
+    <Card sx={{ maxWidth: 345 }} style={{height:780}}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="300"
+          image={img}
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+          {name}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="div">
+          {specialist}
+          </Typography>
+          <hr className="my-3"/>
+          {/* <Typography variant="body2" color="text.secondary"> */}
+          <h4 className="appointment-doctor-info">Available Days : {availableDays}</h4>
+          <h4 className="appointment-doctor-info">Experience : {experience} years</h4>
+          
+          <h4 className="appointment-doctor-info">Visit : {visit} $</h4>
+          <h4 className="appointment-doctor-info">Phone : {phone}</h4>
+          <h4 className="appointment-doctor-info">Website : {website}</h4>
+          <h4 className="appointment-doctor-info">Email : {email}</h4>
+          <Rating name="read-only" value={rating} readOnly />
+          {/* </Typography> */}
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Link to={`/get-appointment-form/${_id}`}>
+        <button className="btn-get-appointment" >
+          Book Now
+        </button>
+        </Link>
+      </CardActions>
+    </Card>
+      </Grid>
+      
+    );
 };
 
-export default AppointmentDoctor;
+export default AppointmentDoctor ;
