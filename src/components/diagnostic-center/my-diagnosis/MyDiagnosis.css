@@ -3,7 +3,12 @@ a {
 }
 
 .btn-diagnosis-pay {
-  background-image: linear-gradient(to right, #41295a 0%, #2F0743 51%, #41295a 100%)
+  background-image: linear-gradient(
+    to right,
+    #41295a 0%,
+    #2f0743 51%,
+    #41295a 100%
+  );
 }
 
 .btn-diagnosis-pay {
@@ -26,6 +31,6 @@ a {
   color: #fff;
   text-decoration: none;
 }
-.MuiTableCell-head{
+.MuiTableCell-head {
   box-shadow: none !important;
 }

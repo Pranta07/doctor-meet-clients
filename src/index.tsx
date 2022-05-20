@@ -9,7 +9,8 @@ import "react-lazy-load-image-component/src/effects/black-and-white.css";
 // contexts
 import "./index.css";
 import "simplebar/src/simplebar.css";
-
+import { Provider } from "react-redux";
+import store from "../src/redux/store";
 // lazy image
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "react-lazy-load-image-component/src/effects/opacity.css";
@@ -28,7 +29,8 @@ import { CartProvider } from "react-use-cart";
 // ----------------------------------------------------------------------
 
 ReactDOM.render(
-  <CartProvider>
+  <Provider store={store}>
+    <CartProvider>
       <HelmetProvider>
         <SettingsProvider>
           <CollapseDrawerProvider>
@@ -38,6 +40,7 @@ ReactDOM.render(
           </CollapseDrawerProvider>
         </SettingsProvider>
       </HelmetProvider>
-  </CartProvider>,
+    </CartProvider>
+  </Provider>,
   document.getElementById("root")
 );

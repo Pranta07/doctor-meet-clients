@@ -1,5 +1,9 @@
+// @mui
 import { styled } from "@mui/material/styles";
+import { Banner } from "../../components/banner";
 import HealthCareProvider from "../../components/health-care-provider/HealthCareProvider";
+import { CardMedia } from "@mui/material";
+// components
 import Page from "../../components/Page";
 import Review from "../../components/review/Review";
 import { Services } from "../../components/services";
@@ -11,41 +15,43 @@ import TopDoctors from "../../components/top-rated-doctors/TopDoctors";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(() => ({
-    height: "100%",
+const RootStyle = styled("div")(({ theme }) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+  paddingTop: theme.spacing(15),
+  paddingBottom: theme.spacing(10),
 }));
 
 const ContentStyle = styled("div")(({ theme }) => ({
-    overflow: "hidden",
-    position: "relative",
-    backgroundColor: theme.palette.background.default,
+  overflow: "hidden",
+  position: "relative",
 }));
 
 // ----------------------------------------------------------------------
 
 export default function HomePage() {
-    return (
-        <Page title="Home">
-            <RootStyle>
-                <ContentStyle>
-                    <HomeHero />
+  return (
+    <Page title="Home">
+      <RootStyle>
+        <ContentStyle>
+          <HomeHero />
 
-                    <Services></Services>
+          <Services></Services>
 
-                    <HealthCareProvider></HealthCareProvider>
+          <HealthCareProvider></HealthCareProvider>
 
-                    <TopDoctors></TopDoctors>
+          <TopDoctors></TopDoctors>
 
-                    <Articles></Articles>
+          <Articles></Articles>
 
-                    <Review></Review>
+          <Review></Review>
 
-                    <HomeGallery></HomeGallery>
-                    <div className="py-5 ">
-                        <MapDirection></MapDirection>
-                    </div>
-                </ContentStyle>
-            </RootStyle>
-        </Page>
-    );
+          <HomeGallery></HomeGallery>
+          <div className="py-5 ">
+            <MapDirection></MapDirection>
+          </div>
+        </ContentStyle>
+      </RootStyle>
+    </Page>
+  );
 }

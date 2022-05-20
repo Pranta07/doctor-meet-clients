@@ -4,20 +4,29 @@ import AuthProvider from "./contexts/AuthProvider";
 import Router from "./routes/index";
 // theme
 import ThemeProvider from "./theme/index";
+import NotistackProvider from "./components/NotistackProvider";
 // components
 import ScrollToTop from "./components/ScrollToTop";
 import ThemeColorPresets from "./components/ThemeColorPresets";
-import './App.css';
+import "./App.css";
+import { ChartStyle } from "./components/chart";
+import { MotionLazyContainer } from "./components/animate";
+import { ProgressBarStyle } from "./components/ProgressBar";
 // ----------------------------------------------------------------------
 
 export default function App() {
-    return (
-        <ThemeProvider>
-          
-            <AuthProvider>
-                <ScrollToTop />
-                <Router />
-            </AuthProvider>
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider>
+      <NotistackProvider>
+        <MotionLazyContainer>
+          <AuthProvider>
+            <ProgressBarStyle />
+            <ChartStyle />
+            <ScrollToTop />
+            <Router />
+          </AuthProvider>
+        </MotionLazyContainer>
+      </NotistackProvider>
+    </ThemeProvider>
+  );
 }

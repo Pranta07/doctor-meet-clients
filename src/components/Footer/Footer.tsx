@@ -14,8 +14,6 @@ const Footer = () => {
     else if (pathname === "/dashboard/doctor") return null;
     else if (pathname === "/dashboard/admin") return null;
 
-    console.log("h1");
-    
     return (
         <div className="footer-bg-color">
             {window.location.pathname === "/dashboard/dashboarHome" ||

@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import DonorFilter from "../../components/blood-donor/donor-filter/DonorFilter";
 import DonorHeader from "../../components/blood-donor/donor-header/DonorHeader";
-import { store } from "../../redux/store";
+
 // @mui
 import { styled } from "@mui/material/styles";
 // _mock_
@@ -20,14 +20,12 @@ const RootStyle = styled("div")(({ theme }) => ({
 
 const FindDonors = () => {
   return (
-    <Provider store={store}>
-      <Page title="Find Donors">
-        <RootStyle>
-          <DonorHeader></DonorHeader>
-          <DonorFilter></DonorFilter>
-        </RootStyle>
-      </Page>
-    </Provider>
+    <Page title="Find Donors">
+      <RootStyle>
+        <DonorHeader></DonorHeader>
+        <DonorFilter></DonorFilter>
+      </RootStyle>
+    </Page>
   );
 };
 

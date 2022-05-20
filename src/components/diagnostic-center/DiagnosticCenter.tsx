@@ -1,4 +1,5 @@
 import React from "react";
+import { styled } from "@mui/material/styles";
 import BookCovidTest from "./book-covid-test/BookCovidTest";
 import ChooseDiagnostics from "./choose-diagnostics/ChooseDiagnostics";
 import CovidAwarnessBar from "./covid-awarness-bar/CovidAwarnessBar";
@@ -9,17 +10,16 @@ import OurDiagnosticServices from "./our-diagnostic-services/OurDiagnosticServic
 import PopularTestProcedures from "./popular-test-procedures/PopularTestProcedures";
 import SimpleProcess from "./simple-process/SimpleProcess";
 import Page from "../../components/Page";
-import styled from "@emotion/styled";
-
-const RootStyle = styled("div")(() => ({
+const RootStyle = styled("div")(({ theme }) => ({
   height: "100%",
+  backgroundColor: theme.palette.background.default,
+  paddingTop: theme.spacing(10),
+  paddingBottom: theme.spacing(10),
 }));
-
 const ContentStyle = styled("div")(({ theme }) => ({
   overflow: "hidden",
   position: "relative",
 }));
-
 const DiagnosticCenter = () => {
   return (
     <Page title="Diagnostic Center">
