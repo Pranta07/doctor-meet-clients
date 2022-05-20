@@ -9,6 +9,8 @@ const RootStyle = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
   paddingTop: theme.spacing(15),
   paddingBottom: theme.spacing(10),
+  paddingLeft: theme.spacing(25),
+  paddingRight: theme.spacing(25),
 }));
 
 class VideoApp extends Component {
@@ -36,8 +38,8 @@ class VideoApp extends Component {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          identity:"Mahadi",
-          roomSid:"Cool",
+          identity:this.state.identity,
+          roomSid:"cool-room",
         }),
       });
 
@@ -78,7 +80,7 @@ console.log(room);
 
     return (
       <RootStyle>
-      <div id="video-app">
+      <div id="video-app" >
         { 
           this.state.room === null
           ? <div style={{width:"100%",margin:"auto"}} className = "lobby">

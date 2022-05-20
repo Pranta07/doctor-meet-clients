@@ -32,18 +32,12 @@ const PharmacyCardSlider = (props: any) => {
     img1,
     img2,
     img3,
-    rating,
     img4,
     price,
-    description,
-    Sku,
-    category,
     inStock,
-    power,
-    shopAddress,
-    weight,
     _id,
-  } = props.products;
+  } = props.product;
+  let rating = 4.5;
 
   useEffect(() => {
     const ItemList = localStorage.getItem("item");
@@ -93,7 +87,7 @@ const PharmacyCardSlider = (props: any) => {
         <div className="product-img">
           <img
             className="img-fluid"
-            src={img1 + ".jpg"}
+            src={img1}
             alt="front product image"
           />
           <img
@@ -153,7 +147,7 @@ const PharmacyCardSlider = (props: any) => {
                 <div className="product-div-left">
                   <div className="img-container">
                     {allimg === "" ? (
-                      <img src={img1 + ".jpg"} alt="" />
+                      <img src={img1} alt="" />
                     ) : (
                       <img className="img-fluid" src={allimg} alt="" />
                     )}
@@ -162,10 +156,10 @@ const PharmacyCardSlider = (props: any) => {
                     <div>
                       <img
                         onClick={() => {
-                          getImage(img1 + ".jpg");
+                          getImage(img1);
                         }}
                         className="img-fluid"
-                        src={img1 + ".jpg"}
+                        src={img1}
                         alt=""
                       />
                     </div>

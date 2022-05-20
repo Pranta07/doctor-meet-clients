@@ -1,21 +1,21 @@
 /* eslint-disable react/jsx-no-undef */
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink } from "react-router-dom";
-import "./PharmacyAllProduct.css";
-import React, { useEffect, useState } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-import PharmacyPriceSlide from "../pharmacy-price-slide/PharmacyPriceSlide";
-import { productsType } from "../pharmacy-products/PharmacyProducts";
-import PharmacyShop from "../pharmacy-shop/PharmacyShop";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import PharmacyPriceSlide from "../pharmacy-price-slide/PharmacyPriceSlide";
+import { productsType } from "../pharmacy-products/PharmacyProducts";
+import PharmacyShop from "../pharmacy-shop/PharmacyShop";
+import "./PharmacyAllProduct.css";
 
 const PharmacyAllProduct = () => {
   let [products, setProducts] = useState<productsType[]>([]);
@@ -143,7 +143,7 @@ const PharmacyAllProduct = () => {
             <Stack spacing={2}>
               <Pagination
                 count={10}
-                renderItem={(item) => (
+                renderItem={(item: any) => (
                   <PaginationItem
                     components={{
                       previous: ArrowBackIcon,
