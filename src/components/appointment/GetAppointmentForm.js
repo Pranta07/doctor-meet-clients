@@ -6,7 +6,7 @@ import './GetAppointmentForm.css';
 const GetAppointmentForm = () => {
     const {user}=useFirebase();
     const params = useParams();
-    const navigate=useNavigate();
+    
     const [selectedDoctor, setSelectedDoctor] = useState({});
     const [data,setData]=useState({});
     useEffect(() => {
@@ -52,13 +52,12 @@ const GetAppointmentForm = () => {
         // naviagte(`/payAppointmentFee/${selectedDoctor?.id}`)
     }
     return (
-        <div className="form-container">
-            <h1 className='appointment-title text-center'>Enter Your Information Here</h1>
+        <Page title="Get Appointments">
+        <div>
+            <h1>Enter Your Information Here</h1>
             <form action="" className="getAppointmentForm" onSubmit={submitTheFormOfPatientsInfo} >
 
                 <Form.Control type="text" disabled placeholder={user?.displayName}/>
-                <Form.Control type="text" disabled placeholder={selectedDoctor.name}/>
-                <Form.Control type="text" disabled placeholder={selectedDoctor.specialist}/>
                 <Form.Control type="text" placeholder="Age" name="age" onChange={handleOnChange} required/>
                 <Form.Select name="gender" onChange={handleOnChange} required>
                     <option>Select Your Gender</option>
@@ -66,8 +65,7 @@ const GetAppointmentForm = () => {
                     <option value="female">Female</option>
                     <option value="others">Others</option>
                 </Form.Select>
-                <Form.Control type="date" placeholder="Date" name="date" onChange={handleOnChange} required/>
-                <Form.Select aria-label="Default select example" name="bloodGroup" onChange={handleOnChange}>
+                <Form.Select aria-label="Default select example" name="bloodGroup" onChange={handleOnChange} required>
                     <option>Select Your Blood Group</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -92,12 +90,13 @@ const GetAppointmentForm = () => {
                 <Form.Control type="number" placeholder="Weight"  name="weight" onChange={handleOnChange}/>
                 <Form.Control type="number" placeholder="Height"  name="height" onChange={handleOnChange}/>
                 <Form.Label>Present Health Condition : </Form.Label>
-                <Form.Control as="textarea" rows={3}  name="healthIssues" onChange={handleOnChange}/>
+                <Form.Control as="textarea" rows={3}  name="healthIssues" onChange={handleOnChange} required/>
                 <Form.Label>Previous Health Story : </Form.Label>
                 <Form.Control as="textarea" rows={3}  name="pastHealthIssues" onChange={handleOnChange}/>
-                <button type="submit" className="btn-appointmen-submit">Submit</button>
+                <button type="submit" className="btn btn-warning">Submit</button>
             </form>
         </div>
+        </Page>
     );
 };
 

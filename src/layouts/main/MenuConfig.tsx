@@ -71,7 +71,11 @@ const menuConfig = [
     icon: <Iconify icon={"clarity:video-camera-solid"} {...ICON_SIZE} />,
     path: "/virtual-meet",
   },
-
+  {
+    title: "Diagnostic Center",
+    icon: <Iconify icon={"clarity:video-camera-solid"} {...ICON_SIZE} />,
+    path: "/diagnostic-center",
+  },
   {
     title: "Contact Us",
     icon: <Iconify icon={"fluent:contact-card-20-filled"} {...ICON_SIZE} />,

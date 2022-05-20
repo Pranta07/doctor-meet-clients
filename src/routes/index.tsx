@@ -15,8 +15,8 @@ import {
 
 import UserReview from "../components/user-review/UserReview";
 import { DiagnosticCenter } from "../components/diagnostic-center";
-import ControlDoctors from "../components/adminDatabase/ControlDoctors";
-import EditSingleDoctor from "../components/adminDatabase/EditSingleDoctor";
+import ControlDoctors from "../adminDatabase/ControlDoctors";
+import EditSingleDoctor from "../adminDatabase/EditSingleDoctor";
 import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
 

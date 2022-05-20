@@ -72,16 +72,8 @@ const sidebarConfig = [
             path: "/dashboard/user/add-review",
             icon: ICONS.analytics,
           },
-          {
-            title: "Report",
-            path: "/dashboard/user/Report-section",
-            icon: ICONS.analytics,
-          },
-          {
-            title: "Post Report",
-            path: "/dashboard/user/Report-section",
-            icon: ICONS.analytics,
-          },
+
+
           {
             title: "Report Status",
             path: "/dashboard/user/Report-status",

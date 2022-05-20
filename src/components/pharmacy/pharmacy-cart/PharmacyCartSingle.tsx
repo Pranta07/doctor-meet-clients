@@ -36,7 +36,7 @@ const PharmacyCartSingle = (props: {
               className="img-fluid"
               width="60px"
               height="60px"
-              src={props.item.img1}
+              src={props.item.img1 + ".jpg"}
               alt=""
             />
             <p className="my-auto d-block"> {props.item.name}</p>

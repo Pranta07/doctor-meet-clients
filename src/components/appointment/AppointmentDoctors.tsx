@@ -1,4 +1,3 @@
-import { Container, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import AppointmentDoctor from './AppointmentDoctor';
 import './appointment-style/style.css';
@@ -20,8 +19,8 @@ const AppointmentDoctors = () => {
                 doctors.map((doctor:any,_id)=>(<AppointmentDoctor key={_id} doctor={doctor}/>
                 ))
             }
-            </Grid>  
-            </Container>
+            </Row>
+            
         </div>
     );
 };

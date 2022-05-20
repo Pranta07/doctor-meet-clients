@@ -1,5 +1,4 @@
 import React from "react";
-
 import blood from "../../assets/services/blood.jpg";
 import consultation from "../../assets/services/consultation.png";
 import covid from "../../assets/services/covid.jpg";

@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { faArrowRight, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@mui/material";
@@ -8,7 +9,8 @@ import { IArticle } from "./Articles";
 import { NavLink } from "react-router-dom";
 
 const Article = (props: { key: number; article: IArticle }) => {
-  const { img, author, title, _id, description } = props.article;
+  const { img, author, title, _id } = props.article;
+
 
   return (
     <Card
