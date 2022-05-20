@@ -289,6 +289,10 @@ export default function Router() {
                     path: "article/:id",
                     element: <ViewArticale />,
                 },
+                {
+                    path: "doctor/:id",
+                    element: <DoctorView />,
+                },
                 
             ],
         },
@@ -400,6 +404,12 @@ const MyDiagnosises = Loadable(
     lazy(
         () =>
             import("../components/diagnostic-center/my-diagnosis/MyDiagnosises")
+    )
+);
+const DoctorView = Loadable(
+    lazy(
+        () =>
+            import("../components/all-doctors/DoctorView")
     )
 );
 const ReportStatus = Loadable(
