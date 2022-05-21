@@ -18,7 +18,7 @@ const ReportSection = () => {
   let nameRef = useRef<HTMLInputElement>(null!);
   let DrNameRef = useRef<HTMLInputElement>(null!);
   let disRef = useRef<HTMLInputElement>(null!);
-  let [isprogress, setIsProgress] = useState(false);
+  let [isProgress, setIsProgress] = useState(false);
   const [text, setText] = useState("Click or drop something here...");
 
   let [url, setUrl] = useState("");
@@ -218,7 +218,7 @@ const ReportSection = () => {
                   id="input-file"
                 />
               </label>
-              {isprogress && (
+              {isProgress && (
                 <div>
                   <LinearProgress variant="determinate" value={progress} />
                 </div>
