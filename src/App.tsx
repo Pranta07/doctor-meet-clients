@@ -11,9 +11,20 @@ import "./App.css";
 import { ChartStyle } from "./components/chart";
 import { MotionLazyContainer } from "./components/animate";
 import { ProgressBarStyle } from "./components/ProgressBar";
+import { useEffect } from "react";
+import { loadUser } from "./redux/actions/userAction";
+import store from "./redux/store";
 // ----------------------------------------------------------------------
 
+
+
 export default function App() {
+  const token = window.localStorage.getItem("token");
+
+  useEffect(() => {
+
+      store.dispatch(loadUser());
+  }, [token]);
   return (
     <ThemeProvider>
       <NotistackProvider>
