@@ -309,7 +309,7 @@ export default function Router() {
                 { path: "virtual-meet", element: <VideoApp /> },
                 { path: "login", element: <Login /> },
                 { path: "profile", element: <Profile /> },
-                { path: "sign-up", element: <Registration /> },
+                { path: "signUp", element: <Registration /> },
                 { path: "medicine/:id", element: <PharmacyProductView /> },
                 { path: "cart", element: <PharmacyCart /> },
                 { path: "shop", element: <PharmacyAllProduct /> },

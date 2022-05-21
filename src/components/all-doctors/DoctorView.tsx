@@ -208,6 +208,8 @@ const DoctorView = () => {
               </div>
             </div>
             <div className="container">
+              <h3> Patient Review </h3> 
+              <hr />
               <div className="container">
                 <div className="mb-3 row">
                   <div className="col">
@@ -235,7 +237,7 @@ const DoctorView = () => {
                     style={{ height: "100px" }}
                   ></textarea>
                 </div>
-                <button className="btn-style">Send</button>
+                <button className="btn-style-doc">Send</button>
               </div>
             </div>
           </div>

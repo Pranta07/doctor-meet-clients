@@ -70,7 +70,7 @@ const ToolbarShadowStyle = styled("div")(({ theme }: any) => ({
 // ----------------------------------------------------------------------
 
 export default function MainHeader(props: any) {
-  const { user } = useAppSelector((state) => state.user);
+  const { user }:any = useAppSelector((state) => state.user);
   const isOffset = useOffSetTop(HEADER.MAIN_DESKTOP_HEIGHT);
 
   const theme = useTheme();
@@ -113,7 +113,7 @@ export default function MainHeader(props: any) {
                 />
               )}
 
-              {user ? (
+              {user?.email ? (
                 // <div className="dropdown ms-auto">
                 //   <Avatar
                 //     src={user.photoURL || ""}

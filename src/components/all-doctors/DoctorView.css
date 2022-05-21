@@ -56,3 +56,20 @@
     align-items: center;
     color: #636363;
 }
+
+.btn-style-doc{
+    background-color: #0783b5;
+    border: 1px solid #0783b5;
+    padding: 10px;
+    font-weight: 500;
+    color: white;
+    width: 60px;
+    transition: 0.4 ease-in-out;
+
+}
+
+.btn-style-doc:hover{
+    background-color: white;
+    color: #0783b5;
+    transition: 0.4 ease-in-out;
+}
