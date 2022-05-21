@@ -7,46 +7,47 @@ import Medicine from "../../assets/carousel/undraw_monitoring.svg";
 import "./Banner.css";
 
 const bannerData = [
-    {
-        text1: "Virtual Healthcare",
-        text2: "For You",
-        desc: "Doctor-meet provides progressive, and affordable healthcare, accessible on mobile and online for everyone.",
-        btnText: "Consult Today",
-        imgSrc: VM,
-        to: "/virtual-meet",
-    },
-    {
-        text1: "Fight",
-        text2: "Covid-19",
-        desc: "From 2020 we start a mission to provide free medical consultation to those who are affected with Covid-19",
-        btnText: "Explore Now",
-        imgSrc: "https://i.ibb.co/Wg8LFP0/istockphoto-1215660193-170667a-removebg-preview.png",
-        to: "/covid-portal",
-    },
-    {
-        text1: "Emergency",
-        text2: "Consultant",
-        desc: "Doctor Meet Provide An Emergency Health Consultant Within 1 Hour to Our Premium Members.",
-        btnText: "Get Premium Membership",
-        imgSrc: "https://i.ibb.co/ZzsNLrc/4162622-1-removebg-preview.png",
-        to: "/premium-membership",
-    },
-    {
-        text1: "Find",
-        text2: "Doctors",
-        desc: "Choose your doctor from thousands of specialist, general, and trusted hospitals.",
-        btnText: "Find Now",
-        imgSrc: FD,
-        to: "/doctors",
-    },
-    {
-        text1: "Online",
-        text2: "Pharmacy",
-        desc: "Buy your medicines prescribed by the doctor from our online pharmacy. Within 24 hours delivery.",
-        btnText: "Buy Now",
-        imgSrc: Medicine,
-        to: "/pharmacy",
-    },
+  {
+    text1: "Virtual Healthcare",
+    text2: "For You",
+    desc: "Doctor-meet provides progressive, and affordable healthcare, accessible on mobile and online for everyone.",
+    btnText: "Consult Today",
+    imgSrc: VM,
+    to: "/virtual-meet",
+  },
+  {
+    text1: "Fight",
+    text2: "Covid-19",
+    desc: "From 2020 we start a mission to provide free medical consultation to those who are affected with Covid-19",
+    btnText: "Explore Now",
+    imgSrc:
+      "https://i.ibb.co/Wg8LFP0/istockphoto-1215660193-170667a-removebg-preview.png",
+    to: "/covid-portal",
+  },
+  {
+    text1: "Emergency",
+    text2: "Consultant",
+    desc: "Doctor Meet Provide An Emergency Health Consultant Within 1 Hour to Our Premium Members.",
+    btnText: "Get Premium Membership",
+    imgSrc: "https://i.ibb.co/ZzsNLrc/4162622-1-removebg-preview.png",
+    to: "/premium-membership",
+  },
+  {
+    text1: "Find",
+    text2: "Doctors",
+    desc: "Choose your doctor from thousands of specialist, general, and trusted hospitals.",
+    btnText: "Find Now",
+    imgSrc: FD,
+    to: "/doctors",
+  },
+  {
+    text1: "Online",
+    text2: "Pharmacy",
+    desc: "Buy your medicines prescribed by the doctor from our online pharmacy. Within 24 hours delivery.",
+    btnText: "Buy Now",
+    imgSrc: Medicine,
+    to: "/pharmacy",
+  },
 ];
 
 const Banner = () => {

@@ -64,12 +64,12 @@
     font-weight: 500;
     color: white;
     width: 60px;
-    transition: 0.4 ease-in-out;
+    transition: 1 ease;
 
 }
 
 .btn-style-doc:hover{
+    transition: 1 ease;
     background-color: white;
     color: #0783b5;
-    transition: 0.4 ease-in-out;
 }

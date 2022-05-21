@@ -11,61 +11,57 @@ import MenuItem from "@mui/material/MenuItem";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const SingleRowData = (props: {
-    key: string;
-    doctor: Idoctor;
-    setIsUpdate: any;
-    page: number;
-    rowsPerPage: number;
-    index: number;
+  key: string;
+  doctor: Idoctor;
+  setIsUpdate: any;
+  page: number;
+  rowsPerPage: number;
+  index: number;
 }) => {
-    const { doctor, setIsUpdate, page, rowsPerPage, index } = props;
-    const [show, setShow] = useState(false);
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
+  const { doctor, setIsUpdate, page, rowsPerPage, index } = props;
+  const [show, setShow] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
 
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-    const handleMenu = () => {
-        setAnchorEl(null);
-    };
+  const handleMenu = () => {
+    setAnchorEl(null);
+  };
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    const handleEdit = (id: string) => {
-        handleShow();
-    };
+  const handleEdit = (id: string) => {
+    handleShow();
+  };
 
-    const handleDelete = (id: string) => {
-        // console.log(id);
-        setIsUpdate(false);
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/v1/doctors/${id}`, {
-                    method: "DELETE",
-                }).then((res) => {
-                    if (res.status === 200) {
-                        setIsUpdate(true);
-                        Swal.fire(
-                            "Deleted!",
-                            "The doctor has been deleted.",
-                            "success"
-                        );
-                    }
-                });
-            }
+  const handleDelete = (id: string) => {
+    // console.log(id);
+    setIsUpdate(false);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/api/v1/doctors/${id}`, {
+          method: "DELETE",
+        }).then((res) => {
+          if (res.status === 200) {
+            setIsUpdate(true);
+            Swal.fire("Deleted!", "The doctor has been deleted.", "success");
+          }
         });
-    };
+      }
+    });
+  };
 
     return (
         <>
