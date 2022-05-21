@@ -14,26 +14,6 @@ import {
 import Box from "@mui/material/Box";
 import { useAppSelector } from "../../redux/store";
 
-const style = {
-    position: "absolute" as "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: {
-        xs: "90%",
-        md: "80%",
-        lg: "70%",
-        xl: "60%",
-    },
-    height: "90vh",
-    backgroundColor: "background.paper",
-    border: "1px solid white",
-    borderRadius: "10px",
-    boxShadow: 24,
-    p: 2,
-    overflowY: "scroll",
-};
-
 interface IFormInputs {
     name: string;
     email: string;
