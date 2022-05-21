@@ -33,13 +33,13 @@ const style = {
 };
 
 interface IFormInputs {
-    name: string;
-    email: string;
-    phone: string;
-    group: string;
-    district: string;
-    gender: string;
-    img: string;
+  name: string;
+  email: string;
+  phone: string;
+  group: string;
+  district: string;
+  gender: string;
+  img: string;
 }
 
 const JoinUsForm = (props: any) => {
@@ -48,27 +48,27 @@ const JoinUsForm = (props: any) => {
     const { user }: any = useAppSelector((state) => state.user);
     const { register, handleSubmit } = useForm<IFormInputs>();
 
-    const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-        console.log(data);
-        // send data to server and store in database
-        fetch("http://localhost:5000/api/v1/donor/add", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(data),
-        }).then((res) => {
-            // console.log(res.status);
-            if (res.status === 200) {
-                handleClose();
-                Swal.fire(
-                    "Congratulations!",
-                    "Welcome to Blood Donors Community!",
-                    "success"
-                );
-            }
-        });
-    };
+  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
+    console.log(data);
+    // send data to server and store in database
+    fetch("http://localhost:5000/api/v1/donor/add", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      // console.log(res.status);
+      if (res.status === 200) {
+        handleClose();
+        Swal.fire(
+          "Congratulations!",
+          "Welcome to Blood Donors Community!",
+          "success"
+        );
+      }
+    });
+  };
 
     return (
         <>
