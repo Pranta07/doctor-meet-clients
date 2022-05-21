@@ -1,16 +1,37 @@
 import React from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Modal, Button } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
-import { TextField } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
 import { Idonor } from "../../blood-donor/donor-filter/DonorFilter";
 import "./DonorEditModal.css";
+
+const style = {
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: {
+        xs: "90%",
+        md: "80%",
+        lg: "70%",
+        xl: "60%",
+    },
+    height: "90vh",
+    backgroundColor: "background.paper",
+    border: "1px solid white",
+    borderRadius: "10px",
+    boxShadow: 24,
+    p: 2,
+    overflowY: "scroll",
+};
 
 interface IFormInputs {
     name: string;
@@ -63,16 +84,18 @@ const DonorEditModal = (props: {
     };
 
     return (
-        <Modal size="lg" show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>
-                    <h4 className="text-center fw-bold">
-                        Edit <span className="text-danger">Blood </span>
-                        Donor Information
-                    </h4>
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
+        <Modal
+            open={show}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <Box sx={style}>
+                <h4 className="text-center fw-bold">
+                    Edit <span className="text-danger">Blood </span>
+                    Donor Information
+                </h4>
+
                 <div className="row">
                     <div
                         className="
@@ -270,23 +293,20 @@ const DonorEditModal = (props: {
                                     defaultValue={donor.img}
                                     placeholder="Put Your Image URL Here..."
                                 />
-                                <button
-                                    className="btn btn-outline-danger fw-bold mt-4"
+                                <Button
+                                    variant="outlined"
+                                    color="error"
+                                    className="fw-bold mt-4"
                                     type="submit"
                                 >
                                     Save Changes{" "}
                                     <FontAwesomeIcon icon={faArrowRight} />
-                                </button>
+                                </Button>
                             </form>
                         </div>
                     </div>
                 </div>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-            </Modal.Footer>
+            </Box>
         </Modal>
     );
 };

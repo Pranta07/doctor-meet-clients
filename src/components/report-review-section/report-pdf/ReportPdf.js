@@ -71,7 +71,7 @@ function ReportPdf() {
             {/* View PDF */}
             <div className="viewer">
                 {pdfFile && (
-                    <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
+                    <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.14.305/build/pdf.worker.min.js">
                         <Viewer
                             fileUrl={pdfFile}
                             plugins={[defaultLayoutPluginInstance]}
