@@ -29,6 +29,7 @@ const ReviewModal = (props: any) => {
     };
 
     const handleReview = (id: string) => {
+        setIsUpdate(false);
         const newReport = report;
         newReport.review = text;
         newReport.status = true;
@@ -53,7 +54,6 @@ const ReviewModal = (props: any) => {
                     showConfirmButton: false,
                     timer: 2000,
                 });
-                // window.location.reload();
             }
         });
     };
@@ -85,7 +85,7 @@ const ReviewModal = (props: any) => {
                     >
                         <div>
                             <ReactQuill
-                                value={report?.review}
+                                value={text}
                                 onChange={handleChange}
                                 placeholder="Write your review content here..."
                             />
