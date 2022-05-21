@@ -89,7 +89,7 @@ const AllReports = () => {
                                     <TableHead>
                                         <TableRow>
                                             <TableCell>#ID</TableCell>
-                                            <TableCell>Patient Name</TableCell>
+                                            <TableCell>Patient</TableCell>
                                             <TableCell align="left">
                                                 Comments
                                             </TableCell>
