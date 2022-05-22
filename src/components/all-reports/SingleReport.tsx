@@ -28,12 +28,9 @@ const SingleReport = (props: any) => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(
-                    `http://localhost:5000/api/v1/report/${idr}/62604bc2ad329b3fee220aab`,
-                    {
-                        method: "DELETE",
-                    }
-                ).then((res) => {
+                fetch(`http://localhost:5000/api/v1/report/${report?._id}`, {
+                    method: "DELETE",
+                }).then((res) => {
                     if (res.status === 200) {
                         setIsUpdate(true);
                         Swal.fire(
@@ -57,7 +54,8 @@ const SingleReport = (props: any) => {
                 }}
             >
                 <TableCell>{report?._id.slice(0, 5)}...</TableCell>
-                <TableCell>{report?.patientId.slice(0, 5)}...</TableCell>
+                <TableCell>{report?.drName}</TableCell>
+                <TableCell>{report?.patientName}</TableCell>
 
                 <TableCell align="left">
                     {report?.desc.slice(0, 10)}...
@@ -75,7 +73,10 @@ const SingleReport = (props: any) => {
 
                 <TableCell align="center">
                     <Tooltip title="Review" placement="left-start">
-                        <IconButton onClick={handleOpen}>
+                        <IconButton
+                            onClick={handleOpen}
+                            color={report?.review ? "success" : "inherit"}
+                        >
                             <PostAddIcon></PostAddIcon>
                         </IconButton>
                     </Tooltip>
