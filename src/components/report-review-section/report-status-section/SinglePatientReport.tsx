@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Modal,
     Typography,
@@ -50,6 +50,14 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const SinglePatientReport = (props: { report: IReport }) => {
     const { report } = props;
+    // const [date, setDate] = useState("dd/mm/yy");
+    let dateDecode = new Date(report.createdAt);
+    let dates =
+        dateDecode.getDate() +
+        "/" +
+        dateDecode.getMonth() +
+        "/" +
+        dateDecode.getFullYear();
 
     const [modalOpen, setmOpen] = React.useState(false);
     const handleOpen = () => setmOpen(true);
@@ -68,6 +76,7 @@ const SinglePatientReport = (props: { report: IReport }) => {
             <StyledTableCell align="left">
                 {report?.patientName}
             </StyledTableCell>
+            <StyledTableCell align="center">{dates}</StyledTableCell>
             <StyledTableCell align="center">
                 <Tooltip title="See Review" placement="left-start">
                     <IconButton

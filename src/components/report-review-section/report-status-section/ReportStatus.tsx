@@ -70,6 +70,9 @@ const ReportStatus = () => {
                                         Patient Name
                                     </StyledTableCell>
                                     <StyledTableCell align="center">
+                                        Date
+                                    </StyledTableCell>
+                                    <StyledTableCell align="center">
                                         Comments
                                     </StyledTableCell>
                                     <StyledTableCell align="center">
