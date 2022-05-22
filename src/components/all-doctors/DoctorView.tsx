@@ -514,54 +514,57 @@ const DoctorView = () => {
               <Box sx={style}>
                 <h4> Your Information </h4>
                 <div className="row">
-                  <div className="col-lg-6 my-3">
-                    <TextField
-                      id="outlined-basic"
-                      label="Patient Name"
-                      variant="outlined"
-                      fullWidth
-                    />
-                  </div>
-                  <div className="col-lg-6 my-3">
-                    <TextField
-                      id="outlined-basic"
-                      label="Email"
-                      variant="outlined"
-                      fullWidth
-                      required
-                    />
-                  </div>
-                  <div className="col-lg-4 my-3">
-                    <TextField
-                      id="outlined-basic"
-                      label="hight"
-                      variant="outlined"
-                      fullWidth
-                      required
-                    />
-                  </div>
-                  <div className="col-lg-4 my-3">
-                    <TextField
-                      id="outlined-basic"
-                      label="width"
-                      variant="outlined"
-                      fullWidth
-                      required
-                    />
-                  </div>
-                  <div className="my-3 col-lg-4 ">
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      <MobileDatePicker
-                        label="Enter your birth Date"
-                        value={newDate}
-                        onChange={(newValue) => {
-                          setNewDate(newValue);
-                        }}
-                        renderInput={(params) => <TextField {...params} />}
-                        className="my-3"
+                  <form>
+                    <div className="col-lg-6 my-3">
+                      <TextField
+                        id="outlined-basic"
+                        label="Patient Name"
+                        name=""
+                        variant="outlined"
+                        fullWidth
                       />
-                    </LocalizationProvider>
-                  </div>
+                    </div>
+                    <div className="col-lg-6 my-3">
+                      <TextField
+                        id="outlined-basic"
+                        label="Email"
+                        variant="outlined"
+                        fullWidth
+                        required
+                      />
+                    </div>
+                    <div className="col-lg-4 my-3">
+                      <TextField
+                        id="outlined-basic"
+                        label="hight"
+                        variant="outlined"
+                        fullWidth
+                        required
+                      />
+                    </div>
+                    <div className="col-lg-4 my-3">
+                      <TextField
+                        id="outlined-basic"
+                        label="width"
+                        variant="outlined"
+                        fullWidth
+                        required
+                      />
+                    </div>
+                    <div className="my-3 col-lg-4 ">
+                      <LocalizationProvider dateAdapter={AdapterDateFns}>
+                        <MobileDatePicker
+                          label="Enter your birth Date"
+                          value={newDate}
+                          onChange={(newValue) => {
+                            setNewDate(newValue);
+                          }}
+                          renderInput={(params) => <TextField {...params} />}
+                          className="my-3"
+                        />
+                      </LocalizationProvider>
+                    </div>
+                  </form>
                 </div>
               </Box>
             </Modal>
