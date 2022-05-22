@@ -148,7 +148,7 @@ const PharmacySingleProduct = (props: any) => {
                 maxScore={5}
                 colors={{ mask: "#ff7f23" }}
                 id="123"
-                rating={rating}
+                rating={parseInt(rating)}
               />
             </div>
           </div>
@@ -232,7 +232,7 @@ const PharmacySingleProduct = (props: any) => {
                     maxScore={5}
                     colors={{ mask: "#ff7f23" }}
                     id="123"
-                    rating={rating}
+                    rating={parseInt(rating)}
                   />
                   <hr />
                   <h5 className="product-price">${price}</h5>

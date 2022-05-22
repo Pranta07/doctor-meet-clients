@@ -28,6 +28,7 @@ const UserReview = () => {
 
   const [rating, setRating] = React.useState<number | null>(5);
 
+  
   const handleReviewSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
@@ -62,6 +63,8 @@ const UserReview = () => {
       }
     });
   };
+
+
   return (
     <Page title="Add Review">
       <Container>

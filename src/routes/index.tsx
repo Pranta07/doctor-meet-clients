@@ -340,10 +340,6 @@ export default function Router() {
                     element: <DiagnosisPay />,
                 },
                 {
-                    path: "/diagnostic-pay/:id",
-                    element: <DiagnosisPay />,
-                },
-                {
                     path: "article/:id",
                     element: <ViewArticale />,
                 },

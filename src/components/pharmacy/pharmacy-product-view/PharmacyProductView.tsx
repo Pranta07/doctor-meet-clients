@@ -7,11 +7,14 @@ import "../pharmacy-banner/PharmacyBanner.css";
 import banner_img from "../../../assets/pharmacy/banner-sidebar.png";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProductDetails } from "../../../redux/actions/productAction";
+import { Rating } from "@mui/material";
 
 const PharmacyProductView = () => {
   const dispatch = useAppDispatch();
   // let [products, setProducts] = useState<any>({});
   let [count, setCount] = useState(1);
+  const [rating1, setRating1] = React.useState<number | null>(5);
+
 
   const { product }: any = useAppSelector((state) => state.productDetails);
 
@@ -66,7 +69,6 @@ const PharmacyProductView = () => {
   const getImage = (image: string) => {
     setAllImg(image);
   };
-  let [rating1, setRating1] = useState(0);
 
   useEffect(() => {
     const ItemList = localStorage.getItem("item");
@@ -250,15 +252,17 @@ const PharmacyProductView = () => {
               Your email address will not be published. Required fields are
               marked *
             </p>
-            <p className="text-color-for-p fw-for-ul-p">
-              {" "}
+            <p style={{
+              display: "flex",
+              fontWeight:" 600",
+            }} className="my-3" >
               Your Rating:{" "}
-              <RatingStar
-                clickable
-                maxScore={5}
-                id="123"
-                rating={rating1}
-                onRatingChange={onRatingChange}
+              <Rating
+                name="rating"
+                value={rating1}
+                onChange={(event, newValue) => {
+                  setRating1(newValue);
+                }}
               />
             </p>
             <div className="container">
