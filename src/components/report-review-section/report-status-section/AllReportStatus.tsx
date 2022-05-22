@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import "./ReportStatus.css";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
@@ -12,6 +11,7 @@ import { useAppSelector } from "../../../redux/store";
 import { IReport } from "../../all-reports/AllReports";
 import SinglePatientReport from "./SinglePatientReport";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import "./ReportStatus.css";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -23,13 +23,13 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const ReportStatus = () => {
+const AllReportStatus = () => {
     const [reports, setReports] = useState<IReport[]>([]);
     const { user }: any = useAppSelector((state) => state.user);
 
     useEffect(() => {
         // setLoading(true);
-        const url = `http://localhost:5000/api/v1/report/patient/${user?.email}`;
+        const url = `http://localhost:5000/api/v1/report`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
@@ -98,4 +98,4 @@ const ReportStatus = () => {
     );
 };
 
-export default ReportStatus;
+export default AllReportStatus;

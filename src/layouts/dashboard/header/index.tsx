@@ -15,6 +15,7 @@ import logo from "../../../assets/img/logo.png";
 import Iconify from "../../../components/Iconify";
 //
 import AccountPopover from "./AccountPopover";
+import NotificationsPopover from "./NotificationsPopover";
 import ModePopOver from "./ModePopOver";
 
 // ----------------------------------------------------------------------
@@ -97,7 +98,7 @@ export default function DashboardHeader({
         >
           <ModePopOver />
           {/* <Settings /> */}
-
+          <NotificationsPopover />
           <AccountPopover />
         </Stack>
       </Toolbar>

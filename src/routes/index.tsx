@@ -21,6 +21,7 @@ import VideoApp from "../pages/virtual-meet/VideoApp";
 import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
 import AllReports from "../components/all-reports/AllReports";
 import AddDoctor from "../components/add-doctor/AddDoctor";
+import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
 
 // ----------------------------------------------------------------------
 
@@ -236,7 +237,7 @@ export default function Router() {
                         },
                         {
                             path: "Report-status",
-                            element: <ReportStatus />,
+                            element: <AllReportStatus />,
                         },
                         {
                             path: "report-pdf",
@@ -339,10 +340,6 @@ export default function Router() {
                 {
                     path: "/diagnostic-appointment-form/:category/:id",
                     element: <DiagnosticAppointmentForm />,
-                },
-                {
-                    path: "/diagnostic-pay/:id",
-                    element: <DiagnosisPay />,
                 },
                 {
                     path: "/diagnostic-pay/:id",

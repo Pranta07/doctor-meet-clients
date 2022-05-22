@@ -21,6 +21,7 @@ export interface IReport {
     desc: string;
     status: boolean;
     review: string;
+    createdAt: string;
 }
 
 const AllReports = () => {
