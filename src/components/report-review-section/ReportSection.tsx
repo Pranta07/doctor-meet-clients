@@ -91,19 +91,31 @@ const ReportSection = () => {
 
     const handleReportSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        let patientId = patientRef.current?.value.split("#")[1];
-        let id = DrnameRef.current?.value.split("#")[1];
-        // let email = emailRef.current?.value;
+        let patientEmail = patientRef.current?.value.split("#")[1];
+        let drEmail = DrnameRef.current?.value.split("#")[1];
+
+        let patientName = patientRef.current?.value.split("#")[0];
+        let drName = DrnameRef.current?.value.split("#")[0];
+
         let desc = disRef.current?.value;
         let file = url;
         let status = false;
         let review = "";
-        const report = { file, patientId, desc, review, status };
+        const report = {
+            file,
+            patientName,
+            patientEmail,
+            drName,
+            drEmail,
+            desc,
+            review,
+            status,
+        };
         // console.log(report);
 
-        //send review data to server
-        fetch(`http://localhost:5000/api/v1/report/${id}`, {
-            method: "PUT",
+        //send report data to server
+        fetch(`http://localhost:5000/api/v1/report`, {
+            method: "POST",
             headers: {
                 "content-type": "application/json",
             },
@@ -132,11 +144,11 @@ const ReportSection = () => {
 
     const defaultProps = {
         options: doctors,
-        getOptionLabel: (option: any) => option.name + "#" + option._id,
+        getOptionLabel: (option: any) => option.name + "#" + option.email,
     };
     const defaultProps1 = {
         options: users,
-        getOptionLabel: (option: any) => option.name + "#" + option._id,
+        getOptionLabel: (option: any) => option.name + "#" + option.email,
     };
 
     return (
