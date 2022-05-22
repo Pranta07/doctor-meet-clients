@@ -14,9 +14,13 @@ import { useAppSelector } from "../../redux/store";
 export interface IReport {
     _id: string;
     file: string;
-    patientId: string;
+    patientName: string;
+    patientEmail: string;
+    drEmail: string;
+    drName: string;
     desc: string;
     status: boolean;
+    review: string;
 }
 
 const AllReports = () => {
@@ -28,13 +32,12 @@ const AllReports = () => {
     useEffect(() => {
         setLoading(true);
 
-        const url = `http://localhost:5000/api/v1//doctors/email/${user?.email}`;
+        const url = `http://localhost:5000/api/v1/report/doctor/${user?.email}`;
 
         fetch(url)
             .then((res) => res.json())
-            .then((result) => {
-                setReports(result.data[0].reports);
-                // setCount(data.total);
+            .then((data) => {
+                setReports(data.result);
             })
             .finally(() => setLoading(false));
     }, [isUpdate, user?.email]);
@@ -91,6 +94,7 @@ const AllReports = () => {
                                     <TableHead>
                                         <TableRow>
                                             <TableCell>#ID</TableCell>
+                                            <TableCell>Doctor</TableCell>
                                             <TableCell>Patient</TableCell>
                                             <TableCell align="left">
                                                 Comments
