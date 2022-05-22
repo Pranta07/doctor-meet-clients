@@ -1,15 +1,57 @@
-import { Container, Grid } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { Alert, Button, Container, Grid, Snackbar } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { Rating } from "@mui/material";
 import "./DoctorView.css";
-import { Icon } from "@iconify/react";
 import MapDirection from "../map-direction/MapDirection";
+import TextField from "@mui/material/TextField";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import Stack from "@mui/material/Stack";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { MobileTimePicker } from "@mui/x-date-pickers/MobileTimePicker";
+import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
+import { Icon } from "@iconify/react";
+import emailjs from "emailjs-com";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const DoctorView = () => {
   let [doctor, setDoctors] = useState<any>({});
   let [address, setAddress] = useState<any>({});
   let { id } = useParams();
+  const [rating, setRating] = React.useState<number | null>(5);
+
+  const [apGender, setApGender] = React.useState("");
+  const [apbloodGruop, setApBloodGruop] = React.useState("");
+
+  const handleGenderChange = (event: SelectChangeEvent) => {
+    setApGender(event.target.value as string);
+  };
+  const handleBloodGruopChange = (event: SelectChangeEvent) => {
+    setApBloodGruop(event.target.value as string);
+  };
+  const [date, setDate] = React.useState<Date | string | number>(new Date());
+  const [time, setTime] = React.useState<Date | string | number >(new Date(date));
+
+  const form = useRef(null);
+  const [open, setOpen] = React.useState(false);
+  const [openModal, setOpenModal] = React.useState(false);
+
+  const style = {
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "80%",
+    bgcolor: "background.paper",
+    border: "none",
+    boxShadow: 24,
+    p: 4,
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/doctors/single/${id}`)
@@ -19,6 +61,140 @@ const DoctorView = () => {
         setAddress(data.data[0].address[0]);
       });
   }, [id]);
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_at6a56q",
+        "template_bg4eths",
+        e.target,
+        "user_NRf7diQwuUv2Bb08KfTHH"
+      )
+      .then(
+        (result: any) => {
+          if (result.text === "OK") {
+            handleClick();
+          }
+        },
+        (error: any) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+  const handleClickModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => setOpenModal(false);
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const handleReviewSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const target = e.target as typeof e.target & {
+      Name: { value: string };
+      email: { value: string };
+      feedback: { value: string };
+    };
+    const name = target.Name?.value;
+    const email = target.email?.value;
+    const feedback = target.feedback?.value;
+    const UserReview = { name, email, rating, feedback };
+    // console.log(review);
+
+    //send review data to server
+    fetch(`http://localhost:5000/api/v1/UserReview/single/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(UserReview),
+    }).then((res) => {
+      if (res.status === 200) {
+        target.feedback.value = "";
+        console.log("succe");
+      }
+    });
+  };
+
+  const handleBookSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const target = e.target as typeof e.target & {
+      patientName: { value: string };
+      patientEmail: { value: string };
+      height: { value: string };
+      weight: { value: string };
+      healthIssues: { value: string };
+      age:{value:string}
+    };
+
+    const patientName = target.patientName?.value;
+    const patientEmail = target.patientEmail?.value;
+    const age = target.age?.value;
+    const height = target.height?.value;
+    const weight = target.weight?.value;
+    const healthIssues = target.healthIssues.value;
+    const appointmentTime = time;
+    const appointmentDate = date;
+    const gender = apGender;
+    const bloodGroup = apbloodGruop;
+    const doctorInfo = {
+      id: doctor._id,
+      name: doctor.name,
+      username: doctor.username,
+      email: doctor.email,
+      img: doctor.img,
+      specialist: doctor.specialist,
+      timeSlot: doctor.appointmentDay,
+      visit: doctor.visit,
+    };
+
+    const addapointment = {
+      patientName,
+      patientEmail,
+      age,
+      height,
+      weight,
+      healthIssues,
+      appointmentTime,
+      appointmentDate,
+      gender,
+      bloodGroup,
+      doctorInfo,
+    };
+
+    console.log(addapointment);
+
+    // console.log(review);
+
+    //send review data to server
+    fetch(`http://localhost:5000/api/v1/appointment/add`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addapointment),
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("success");
+      }
+    });
+  };
 
   return (
     <>
@@ -63,7 +239,7 @@ const DoctorView = () => {
                   <p>
                     <Rating
                       name="read-only"
-                      value={doctor.review}
+                      value={parseInt(doctor.review)}
                       readOnly
                       size="small"
                       precision={0.5}
@@ -207,41 +383,335 @@ const DoctorView = () => {
                 </div>
               </div>
             </div>
-            <div className="container">
-              <h3> Patient Review </h3> 
-              <hr />
-              <div className="container">
-                <div className="mb-3 row">
-                  <div className="col">
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Name *"
-                      aria-label="First name"
-                    />
+            <h3 style={{ color: "#0783b5" }}> Patient Experience </h3>
+            <hr />
+            <div className="mt-5" style={{ color: "#0783b5" }}>
+              <div className="row border">
+                <div className="col-lg-3 ps-0">
+                  <img
+                    className="img-fluid"
+                    src="https://metropolitanhost.com/themes/themeforest/react/docfind/assets/img/doctors-grid/348x350-0.jpg"
+                    alt=""
+                    width="150px"
+                    height="150px"
+                  />
+                </div>
+                <div className="col-lg-9  all-doc-rev ">
+                  <div className="d-flex justify-content-between">
+                    <div className="d-flex align-items-center">
+                      <h5 className="me-3"> Matthew Reyes </h5>
+                      <Rating
+                        name="read-only"
+                        value={parseInt(doctor.review)}
+                        readOnly
+                        size="small"
+                        precision={0.5}
+                      />
+                    </div>
+                    <p> 18 March </p>
                   </div>
-                  <div className="col">
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Email *"
-                      aria-label=""
-                    />
+                  <div>
+                    <p className="my-auto">
+                      It is a long established fact that a reader will be
+                      distracted by the readable content of a page when looking
+                      at its layout.
+                    </p>
                   </div>
                 </div>
-                <div className="mb-3">
-                  <textarea
-                    className="form-control"
-                    id="exampleFormControlTextarea1"
-                    placeholder="Your Reviw *"
-                    style={{ height: "100px" }}
-                  ></textarea>
-                </div>
-                <button className="btn-style-doc">Send</button>
               </div>
             </div>
+            <h3 className="mt-5" style={{ color: "#0783b5" }}>
+              {" "}
+              Patient Review{" "}
+            </h3>
+            <hr />
+
+            <p
+              style={{
+                display: "flex",
+                fontWeight: " 600",
+                color: "#0783b5",
+              }}
+              className="my-3"
+            >
+              Your Rating:{" "}
+              <Rating
+                name="rating"
+                value={rating}
+                onChange={(event, newValue) => {
+                  setRating(newValue);
+                }}
+              />
+            </p>
+
+            <form onSubmit={handleReviewSubmit}>
+              <div className="mb-3 row">
+                <div className="col">
+                  <input
+                    type="text"
+                    name="Name"
+                    required
+                    className="form-control"
+                    placeholder="Name *"
+                    aria-label="First name"
+                  />
+                </div>
+                <div className="col">
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="form-control"
+                    placeholder="Email *"
+                    aria-label=""
+                  />
+                </div>
+              </div>
+              <div className="mb-3">
+                <textarea
+                  name="feedback"
+                  required
+                  className="form-control"
+                  id="exampleFormControlTextarea1"
+                  placeholder="Your Reviw *"
+                  style={{ height: "100px" }}
+                ></textarea>
+              </div>
+              <button className="btn btn-style-doc">Send</button>
+            </form>
           </div>
-          <div className="col-lg-4"></div>
+          <div className="col-lg-4 my-5">
+            <div className="container">
+              <div
+                className="p-4"
+                style={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
+              >
+                <h3 className="my-4 " style={{ color: "#0783b5" }}>
+                  {" "}
+                  Booking Summary{" "}
+                </h3>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <Stack spacing={3}>
+                    <MobileDatePicker
+                      label="Date"
+                      value={date}
+                      onChange={(newValue) => {
+                        if (newValue === null) {
+                          return;
+                        } else {
+                          setDate(newValue);
+                        }
+                      }}
+                      renderInput={(params) => <TextField {...params} />}
+                      className="my-3"
+                    />
+                    <MobileTimePicker
+                      label="Time"
+                      value={time}
+                      onChange={(newValue) => {
+                        if (newValue === null) {
+                          return;
+                        } else {
+                          setTime(newValue);
+                        }
+                      }}
+                      renderInput={(params) => <TextField {...params} />}
+                      className="my-3"
+                    />
+                  </Stack>
+                </LocalizationProvider>
+                <div className="my-3">
+                  <Button onClick={handleClickModal} variant="contained">
+                    Book Appointment
+                  </Button>
+                </div>
+              </div>
+              <div
+                style={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
+                className=" my-5 p-4"
+              >
+                <h3 style={{ color: "#0783b5" }} className="my-3">
+                  {" "}
+                  Get in Touch{" "}
+                </h3>
+                <div>
+                  <form ref={form} onSubmit={sendEmail}>
+                    <TextField
+                      id="outlined-basic"
+                      label="Name"
+                      variant="outlined"
+                      className="my-2"
+                      fullWidth
+                      required
+                      name="from_name"
+                    />
+                    <TextField
+                      id="outlined-basic"
+                      label="Email"
+                      variant="outlined"
+                      type="email"
+                      className="my-2"
+                      fullWidth
+                      name="user_email"
+                      required
+                    />
+                    <TextField
+                      id="outlined-basic"
+                      label="Message"
+                      variant="outlined"
+                      multiline
+                      rows={4}
+                      className="my-2"
+                      fullWidth
+                      name="message"
+                      required
+                    />
+                    <Snackbar
+                      open={open}
+                      autoHideDuration={6000}
+                      onClose={handleClose}
+                    >
+                      <Alert
+                        onClose={handleClose}
+                        severity="success"
+                        sx={{ width: "100%", fontWeight: "500" }}
+                      >
+                        message is Successfully sended
+                      </Alert>
+                    </Snackbar>
+                    <Button type="submit" variant="contained">
+                      {" "}
+                      Send <Icon icon="fluent:send-24-filled" />
+                    </Button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <Modal
+              open={openModal}
+              onClose={handleCloseModal}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <h4> Your Information </h4>
+                <div className="container">
+                  <form className="row all-input" onSubmit={handleBookSubmit}>
+                    <div className="col-lg-6 col-md-6 col-sm-6 my-1">
+                      <TextField
+                        id="outlined-basic"
+                        label="Patient Name"
+                        name="patientName"
+                        variant="outlined"
+                        fullWidth
+                        required
+                      />
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-sm-6 my-1">
+                      <TextField
+                        id="outlined-basic"
+                        label="Patient Email"
+                        name="patientEmail"
+                        variant="outlined"
+                        fullWidth
+                        required
+                      />
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-4 my-1">
+                      <TextField
+                        id="outlined-basic"
+                        label="height"
+                        variant="outlined"
+                        name="height"
+                        fullWidth
+                        required
+                      />
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-4 my-1">
+                      <TextField
+                        id="outlined-basic"
+                        label="weight"
+                        name="weight"
+                        variant="outlined"
+                        fullWidth
+                        required
+                      />
+                    </div>
+                    <div className="my-1 col-lg-4 col-md-4 col-sm-4 ">
+                    <TextField
+                        id="outlined-basic"
+                        label="Age"
+                        name="age"
+                        type="number"
+                        variant="outlined"
+                        fullWidth
+                        required
+                      />
+                    </div>
+                    <div className="my-1 col-lg-6 col-md-6 col-sm-6 ">
+                      <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">
+                          Gender
+                        </InputLabel>
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={apGender}
+                          label="Gender"
+                          required
+                          onChange={handleGenderChange}
+                        >
+                          <MenuItem value={"male"}>Male</MenuItem>
+                          <MenuItem value={"female"}>Female</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
+                    <div className="my-1 col-lg-6 col-md-6 col-sm-6">
+                      <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">
+                          Blood Group
+                        </InputLabel>
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={apbloodGruop}
+                          required
+                          label="Blood Group"
+                          onChange={handleBloodGruopChange}
+                        >
+                          <MenuItem value={"A+"}>A+</MenuItem>
+                          <MenuItem value={"A-"}>A-</MenuItem>
+                          <MenuItem value={"B+"}>B+</MenuItem>
+                          <MenuItem value={"B-"}>B-</MenuItem>
+                          <MenuItem value={"O+"}>O+</MenuItem>
+                          <MenuItem value={"O-"}>O-</MenuItem>
+                          <MenuItem value={"AB+"}>AB+</MenuItem>
+                          <MenuItem value={"AB-"}>AB-</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
+                    <div className="my-1 col-lg-12">
+                      <TextField
+                        id="outlined-basic"
+                        label="health Issues"
+                        variant="outlined"
+                        multiline
+                        rows={4}
+                        className="my-2"
+                        fullWidth
+                        name="healthIssues"
+                        required
+                      />
+                    </div>
+                    <Button type="submit" variant="contained">
+                      {" "}
+                      Book Appointment{" "}
+                    </Button>
+                  </form>
+                </div>
+              </Box>
+            </Modal>
+          </div>
         </div>
       </Container>
     </>

@@ -102,6 +102,11 @@ const sidebarConfig = [
                 icon: ICONS.user,
                 children: [
                     {
+                        title: "Join Us",
+                        path: "/dashboard/doctor/join-us",
+                        icon: ICONS.analytics,
+                    },
+                    {
                         title: "Review Reports",
                         path: "/dashboard/doctor/reports",
                         icon: ICONS.analytics,

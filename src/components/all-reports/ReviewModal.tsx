@@ -6,6 +6,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Button } from "@mui/material";
 import Swal from "sweetalert2";
+import { useAppSelector } from "../../redux/store";
 
 const style = {
     position: "absolute" as "absolute",
@@ -21,6 +22,7 @@ const style = {
 };
 
 const ReviewModal = (props: any) => {
+    const { user }: any = useAppSelector((state) => state.user);
     const { modalOpen, handleClose, report, setIsUpdate } = props;
 
     const [text, setText] = React.useState("");
@@ -29,13 +31,14 @@ const ReviewModal = (props: any) => {
     };
 
     const handleReview = (id: string) => {
+        setIsUpdate(false);
         const newReport = report;
         newReport.review = text;
         newReport.status = true;
         // console.log(newReport);
         //send review data to server
         fetch(
-            `http://localhost:5000/api/v1/reportReview/${id}/62604bc2ad329b3fee220aab`,
+            `http://localhost:5000/api/v1/reportReview/${id}/${user?.email}`,
             {
                 method: "PUT",
                 headers: {
@@ -53,7 +56,6 @@ const ReviewModal = (props: any) => {
                     showConfirmButton: false,
                     timer: 2000,
                 });
-                // window.location.reload();
             }
         });
     };
@@ -85,7 +87,7 @@ const ReviewModal = (props: any) => {
                     >
                         <div>
                             <ReactQuill
-                                value={report?.review}
+                                value={text}
                                 onChange={handleChange}
                                 placeholder="Write your review content here..."
                             />

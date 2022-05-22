@@ -1,7 +1,7 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 @import 'react-calendar/dist/Calendar.css';
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Bodoni:ital@1&family=PT+Sans&family=Radio+Canada&family=Roboto&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Bodoni:ital@1&family=PT+Sans&family=Radio+Canada&family=Roboto&display=swap'); */
 .App {
   text-align: center;
 }
