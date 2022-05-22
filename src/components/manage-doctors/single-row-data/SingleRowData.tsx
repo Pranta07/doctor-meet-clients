@@ -67,6 +67,39 @@ const SingleRowData = (props: {
         });
     };
 
+    const handleApproval = () => {
+        const newDoctor = doctor;
+        newDoctor.approved = true;
+        // console.log(newDoctor);
+        setIsUpdate(false);
+        const url = `http://localhost:5000/api/v1/doctors/${doctor._id}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(newDoctor),
+        }).then((res) => {
+            if (res.status === 200) {
+                setIsUpdate(true);
+                handleClose();
+                Swal.fire({
+                    title: "Well done!",
+                    text: "Approved Successfully!",
+                    icon: "success",
+                    timer: 1500,
+                });
+            } else {
+                Swal.fire({
+                    title: "Warning!",
+                    text: "Already up to date!",
+                    icon: "warning",
+                    timer: 2000,
+                });
+            }
+        });
+    };
+
     return (
         <>
             <TableRow
@@ -100,7 +133,11 @@ const SingleRowData = (props: {
                     {doctor?.approved ? (
                         <Button color="success">Approved</Button>
                     ) : (
-                        <Button color="error">Pending</Button>
+                        <Tooltip title="Approved" placement="left-start">
+                            <Button color="error" onClick={handleApproval}>
+                                Pending
+                            </Button>
+                        </Tooltip>
                     )}
                 </TableCell>
                 <TableCell align="center">

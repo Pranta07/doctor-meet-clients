@@ -85,6 +85,7 @@ const AddDoctor = () => {
                                             required: true,
                                         })}
                                         defaultValue={user?.name || ""}
+                                        disabled
                                     />
                                 </div>
 
@@ -97,6 +98,7 @@ const AddDoctor = () => {
                                             required: true,
                                         })}
                                         defaultValue={user?.email || ""}
+                                        disabled
                                     />
                                 </div>
                             </div>
