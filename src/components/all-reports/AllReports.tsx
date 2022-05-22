@@ -9,6 +9,7 @@ import Paper from "@mui/material/Paper";
 import { Box } from "@mui/system";
 import { Grid, LinearProgress, Typography } from "@mui/material";
 import SingleReport from "./SingleReport";
+import { useAppSelector } from "../../redux/store";
 
 export interface IReport {
     _id: string;
@@ -19,6 +20,7 @@ export interface IReport {
 }
 
 const AllReports = () => {
+    const { user }: any = useAppSelector((state) => state.user);
     const [reports, setReports] = useState<IReport[]>([]);
     const [isUpdate, setIsUpdate] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -26,7 +28,7 @@ const AllReports = () => {
     useEffect(() => {
         setLoading(true);
 
-        const url = `http://localhost:5000/api/v1/doctors/single/62604bc2ad329b3fee220aab`;
+        const url = `http://localhost:5000/api/v1//doctors/email/${user?.email}`;
 
         fetch(url)
             .then((res) => res.json())
@@ -35,7 +37,7 @@ const AllReports = () => {
                 // setCount(data.total);
             })
             .finally(() => setLoading(false));
-    }, [isUpdate]);
+    }, [isUpdate, user?.email]);
 
     return (
         <>
