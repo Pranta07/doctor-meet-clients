@@ -63,80 +63,85 @@ const SingleRowData = (props: {
     });
   };
 
-  return (
-    <>
-      <TableRow
-        sx={{
-          "&:last-child td, &:last-child th": {
-            border: 0,
-          },
-        }}
-      >
-        <TableCell>{index + 1 + page * rowsPerPage}</TableCell>
-        <TableCell component="th" scope="row">
-          <Avatar alt="Remy Sharp" src={doctor?.img} />
-        </TableCell>
-        <TableCell>{doctor?.name}</TableCell>
-        <TableCell align="left">{doctor?.specialist}</TableCell>
-        <TableCell align="left">{doctor?.experience} Years</TableCell>
-        <TableCell align="left">
-          <Rating
-            name="read-only"
-            value={doctor?.review}
-            readOnly
-            size="small"
-            precision={0.5}
-          />
-        </TableCell>
-        <TableCell align="left">{doctor?.visit}</TableCell>
-        <TableCell align="left">{doctor?.gender}</TableCell>
-        <TableCell align="left">{doctor?.phone}</TableCell>
-        <TableCell align="left">{doctor?.email}</TableCell>
-        <TableCell align="left">
-          <IconButton
-            aria-label="more"
-            id="long-button"
-            aria-controls={open ? "long-menu" : undefined}
-            aria-expanded={open ? "true" : undefined}
-            aria-haspopup="true"
-            onClick={handleClick}
-          >
-            <MoreVertIcon />
-          </IconButton>
-          <Menu
-            id="long-menu"
-            MenuListProps={{
-              "aria-labelledby": "long-button",
-            }}
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleMenu}
-          >
-            <MenuItem>
-              <Tooltip title="Edit" placement="left-start">
-                <IconButton onClick={() => handleEdit(doctor._id)}>
-                  <Edit></Edit>
-                </IconButton>
-              </Tooltip>
-            </MenuItem>
-            <MenuItem>
-              <Tooltip title="Delete" placement="left-start">
-                <IconButton onClick={() => handleDelete(doctor._id)}>
-                  <Delete></Delete>
-                </IconButton>
-              </Tooltip>
-            </MenuItem>
-          </Menu>
-        </TableCell>
-      </TableRow>
-      <DoctorEditModal
-        show={show}
-        handleClose={handleClose}
-        doctor={doctor}
-        setIsUpdate={setIsUpdate}
-      ></DoctorEditModal>
-    </>
-  );
+    return (
+        <>
+            <TableRow
+                sx={{
+                    "&:last-child td, &:last-child th": {
+                        border: 0,
+                    },
+                }}
+            >
+                <TableCell>{index + 1 + page * rowsPerPage}</TableCell>
+                <TableCell component="th" scope="row">
+                    <Avatar alt="Remy Sharp" src={doctor?.img} />
+                </TableCell>
+                <TableCell>{doctor?.name}</TableCell>
+                <TableCell align="left">{doctor?.specialist}</TableCell>
+                <TableCell align="left">{doctor?.experience} Years</TableCell>
+                <TableCell align="left">
+                    <Rating
+                        name="read-only"
+                        value={doctor?.review}
+                        readOnly
+                        size="small"
+                        precision={0.5}
+                    />
+                </TableCell>
+                <TableCell align="left">{doctor?.visit}</TableCell>
+                <TableCell align="left">{doctor?.gender}</TableCell>
+                <TableCell align="left">{doctor?.phone}</TableCell>
+                <TableCell align="left">{doctor?.email}</TableCell>
+                <TableCell align="left">
+                    <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                    >
+                        <MoreVertIcon />
+                    </IconButton>
+                    <Menu
+                        id="long-menu"
+                        MenuListProps={{
+                            "aria-labelledby": "long-button",
+                        }}
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleMenu}
+                        onClick={handleMenu}
+                    >
+                        <MenuItem>
+                            <Tooltip title="Edit" placement="left-start">
+                                <IconButton
+                                    onClick={() => handleEdit(doctor._id)}
+                                >
+                                    <Edit></Edit>
+                                </IconButton>
+                            </Tooltip>
+                        </MenuItem>
+                        <MenuItem>
+                            <Tooltip title="Delete" placement="left-start">
+                                <IconButton
+                                    onClick={() => handleDelete(doctor._id)}
+                                >
+                                    <Delete></Delete>
+                                </IconButton>
+                            </Tooltip>
+                        </MenuItem>
+                    </Menu>
+                </TableCell>
+            </TableRow>
+            <DoctorEditModal
+                show={show}
+                handleClose={handleClose}
+                doctor={doctor}
+                setIsUpdate={setIsUpdate}
+            ></DoctorEditModal>
+        </>
+    );
 };
 
 export default SingleRowData;

@@ -22,7 +22,7 @@ const Profile = () => {
         <div className="row">
           <div className="col-md-4">
             <div className="profile-img">
-              {user ? (
+              {user.name ? (
                 <img
                   className=""
                   //@ts-ignore

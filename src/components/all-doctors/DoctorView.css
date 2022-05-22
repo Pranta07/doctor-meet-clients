@@ -16,7 +16,7 @@
 }
 .all-btn-style button{
     margin-top: 50px;
-    color: #005963;
+    color: #0783b5;
     padding: 20px;
     font-size: 24px;
     background-color: #e0faff30;
@@ -38,4 +38,38 @@
     font-weight: 600;
     font-size: 17px;
     color: #7c9da1;
+}
+.all-address{
+    display: flex;
+    justify-content: center;
+
+}
+.all-address div span {
+    font-size: 30px;
+    color: #0783b5;
+}
+
+.all-address-content{
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    color: #636363;
+}
+
+.btn-style-doc{
+    background-color: #0783b5;
+    border: 1px solid #0783b5;
+    padding: 10px;
+    font-weight: 500;
+    color: white;
+    width: 60px;
+    transition: 1 ease;
+
+}
+
+.btn-style-doc:hover{
+    transition: 1 ease;
+    background-color: white;
+    color: #0783b5;
 }

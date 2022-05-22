@@ -54,7 +54,7 @@ const DoctorView = () => {
                       fontSize: "22px",
                       fontWeight: " 700",
                       letterSpacing: " 1px",
-                      color: " #005963",
+                      color: " #0783b5",
                     }}
                   >
                     {" "}
@@ -79,7 +79,7 @@ const DoctorView = () => {
                       ({doctor.numberOfReview})
                     </span>
                   </p>
-                  <h6 style={{ color: "#005963", fontWeight: "700" }}>
+                  <h6 style={{ color: "#0783b5", fontWeight: "700" }}>
                     {" "}
                     {doctor.specialist}{" "}
                   </h6>
@@ -113,15 +113,22 @@ const DoctorView = () => {
               </div>
             </div>
             <div className="all-btn-style row ">
-              <button className="col-lg-4 border-0"> Overview </button>
-              <button className="col-lg-4 border-0">
+              <button className="col-lg-4 col-md-4 col-sm-6 border-0">
+                {" "}
+                Overview{" "}
+              </button>
+
+              <button className="col-lg-4 col-md-4 col-sm-6 border-0">
+                {" "}
+                Review{" "}
+              </button>
+              <button className="col-lg-4 col-md-4 col-sm-12 border-0">
                 {" "}
                 Location & Contact{" "}
               </button>
-              <button className="col-lg-4 border-0"> Review </button>
             </div>
             <div className="my-5">
-              <h3 style={{ color: "#005963" }}> Overview Of {doctor.name} </h3>
+              <h3 style={{ color: "#0783b5" }}> Overview Of {doctor.name} </h3>
               <hr />
               <div className="row">
                 <div className="col-lg-6 border-right-style">
@@ -136,57 +143,101 @@ const DoctorView = () => {
                   </ul>
                 </div>
                 <div className="col-lg-6 address-style ">
-                  <h5 style={{ color: "#005963" }}> Address </h5>
+                  <h5 style={{ color: "#0783b5" }}> Address </h5>
                   <p>
                     {address.street} ,{address.suite} , {address.city} ,{" "}
                     {address.zipcode}
                   </p>
-                  <h5 style={{ color: "#005963" }}> Appointment Day</h5>
+                  <h5 style={{ color: "#0783b5" }}> Appointment Day</h5>
                   <p> {doctor.appointmentDay}</p>
                 </div>
               </div>
               <div className="my-5">
-                <h3 style={{ color: "#005963" }}>
+                <h3 style={{ color: "#0783b5" }}>
                   {" "}
                   {doctor.name} Location & Contact Information{" "}
                 </h3>
                 <hr />
                 <div className="my-5">
                   <MapDirection />
-                  <div className="row">
-                    <div className="row">
-                      <p>
-                        {" "}
-                        <span>
-                          {" "}
-                          <Icon icon="arcticons:phone" />{" "}
-                        </span>
-                        {doctor.phone}{" "}
-                      </p>
-                    </div>
 
-                    <div>
-                      <p>
-                        {" "}
-                        <span>
-                          {" "}
-                          <Icon icon="ic:outline-alternate-email" />{" "}
-                        </span>
-                        {doctor.email}{" "}
-                      </p>
-                    </div>
-                    <div>
-                      <p>
-                        {" "}
+                  <h4 className="mt-5" style={{ color: "#0783b5" }}>
+                    {" "}
+                    Hospital Address{" "}
+                  </h4>
+                  <hr />
+                  <div className="row">
+                    <div className="col-lg-4 col-md-4 col-sm-6  all-address">
+                      <div>
                         <span>
                           {" "}
                           <Icon icon="ep:location" />{" "}
                         </span>{" "}
-                        {address.street} , {address.city}
-                      </p>
+                      </div>
+                      <div className="all-address-content">
+                        <p>
+                          {" "}
+                          {address.street} , {address.city}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6  all-address">
+                      <div>
+                        <span>
+                          {" "}
+                          <Icon icon="arcticons:phone" />{" "}
+                        </span>
+                      </div>
+                      <div className="all-address-content">
+                        <p> {doctor.phone} </p>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-12  all-address ">
+                      <div>
+                        <span>
+                          {" "}
+                          <Icon icon="ic:outline-alternate-email" />{" "}
+                        </span>
+                      </div>
+                      <div className="all-address-content">
+                        <p> {doctor.email} </p>
+                      </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div className="container">
+              <h3> Patient Review </h3> 
+              <hr />
+              <div className="container">
+                <div className="mb-3 row">
+                  <div className="col">
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Name *"
+                      aria-label="First name"
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Email *"
+                      aria-label=""
+                    />
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <textarea
+                    className="form-control"
+                    id="exampleFormControlTextarea1"
+                    placeholder="Your Reviw *"
+                    style={{ height: "100px" }}
+                  ></textarea>
+                </div>
+                <button className="btn-style-doc">Send</button>
               </div>
             </div>
           </div>

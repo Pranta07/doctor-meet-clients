@@ -34,7 +34,7 @@ const PharmacyBestProduct = (props: any) => {
 
     if (ItemList) {
       const listItems: any[] = JSON.parse(ItemList);
-      const authorId = listItems.find((author) => author._id === _id);
+      const authorId = listItems.find((author) => author?._id === _id);
     }
   }, [_id]);
 
