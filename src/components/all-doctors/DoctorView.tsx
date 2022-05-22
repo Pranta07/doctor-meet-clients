@@ -13,19 +13,29 @@ import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import { Icon } from "@iconify/react";
 import emailjs from "emailjs-com";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const DoctorView = () => {
   let [doctor, setDoctors] = useState<any>({});
   let [address, setAddress] = useState<any>({});
   let { id } = useParams();
   const [rating, setRating] = React.useState<number | null>(5);
-  const [time, setTime] = React.useState<Date | null>(
-    new Date("2018-01-01T00:00:00.000Z")
-  );
-  const [newDate, setNewDate] = React.useState<Date | null>(new Date());
-  const [date, setDate] = React.useState<Date | null>(new Date());
+
+  const [apGender, setApGender] = React.useState("");
+  const [apbloodGruop, setApBloodGruop] = React.useState("");
+
+  const handleGenderChange = (event: SelectChangeEvent) => {
+    setApGender(event.target.value as string);
+  };
+  const handleBloodGruopChange = (event: SelectChangeEvent) => {
+    setApBloodGruop(event.target.value as string);
+  };
+  const [date, setDate] = React.useState<Date | string | number>(new Date());
+  const [time, setTime] = React.useState<Date | null>(new Date(date));
 
   const form = useRef(null);
   const [open, setOpen] = React.useState(false);
@@ -36,7 +46,7 @@ const DoctorView = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "60%",
+    width: "80%",
     bgcolor: "background.paper",
     border: "none",
     boxShadow: 24,
@@ -51,9 +61,9 @@ const DoctorView = () => {
         setAddress(data.data[0].address[0]);
       });
   }, [id]);
+
   const sendEmail = (e: any) => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         "service_at6a56q",
@@ -108,8 +118,8 @@ const DoctorView = () => {
     // console.log(review);
 
     //send review data to server
-    fetch(`http://localhost:5000/api/v1/UserReview/${id}`, {
-      method: "POST",
+    fetch(`http://localhost:5000/api/v1/UserReview/single/${id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -118,6 +128,70 @@ const DoctorView = () => {
       if (res.status === 200) {
         target.feedback.value = "";
         console.log("succe");
+      }
+    });
+  };
+
+  const handleBookSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const target = e.target as typeof e.target & {
+      patientName: { value: string };
+      patientEmail: { value: string };
+      height: { value: string };
+      weight: { value: string };
+      healthIssues: { value: string };
+      age:{value:string}
+    };
+
+    const patientName = target.patientName?.value;
+    const patientEmail = target.patientEmail?.value;
+    const age = target.age?.value;
+    const height = target.height?.value;
+    const weight = target.weight?.value;
+    const healthIssues = target.healthIssues.value;
+    const appointmentTime = time;
+    const appointmentDate = date;
+    const gender = apGender;
+    const bloodGroup = apbloodGruop;
+    const doctorInfo = {
+      id: doctor._id,
+      name: doctor.name,
+      username: doctor.username,
+      email: doctor.email,
+      img: doctor.img,
+      specialist: doctor.specialist,
+      timeSlot: doctor.appointmentDay,
+      visit: doctor.visit,
+    };
+
+    const addapointment = {
+      patientName,
+      patientEmail,
+      age,
+      height,
+      weight,
+      healthIssues,
+      appointmentTime,
+      appointmentDate,
+      gender,
+      bloodGroup,
+      doctorInfo,
+    };
+
+    console.log(addapointment);
+
+    // console.log(review);
+
+    //send review data to server
+    fetch(`http://localhost:5000/api/v1/appointment/add`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addapointment),
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("success");
       }
     });
   };
@@ -418,20 +492,24 @@ const DoctorView = () => {
                 </h3>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <Stack spacing={3}>
+                    <MobileDatePicker
+                      label="Date"
+                      value={date}
+                      onChange={(newValue) => {
+                        if (newValue === null) {
+                          return;
+                        } else {
+                          setDate(newValue);
+                        }
+                      }}
+                      renderInput={(params) => <TextField {...params} />}
+                      className="my-3"
+                    />
                     <MobileTimePicker
                       label="Time"
                       value={time}
                       onChange={(newValue) => {
                         setTime(newValue);
-                      }}
-                      renderInput={(params) => <TextField {...params} />}
-                      className="my-3"
-                    />
-                    <MobileDatePicker
-                      label="Date"
-                      value={date}
-                      onChange={(newValue) => {
-                        setDate(newValue);
                       }}
                       renderInput={(params) => <TextField {...params} />}
                       className="my-3"
@@ -513,57 +591,118 @@ const DoctorView = () => {
             >
               <Box sx={style}>
                 <h4> Your Information </h4>
-                <div className="row">
-                  <form>
-                    <div className="col-lg-6 my-3">
+                <div className="container">
+                  <form className="row all-input" onSubmit={handleBookSubmit}>
+                    <div className="col-lg-6 col-md-6 col-sm-6 my-1">
                       <TextField
                         id="outlined-basic"
                         label="Patient Name"
-                        name=""
-                        variant="outlined"
-                        fullWidth
-                      />
-                    </div>
-                    <div className="col-lg-6 my-3">
-                      <TextField
-                        id="outlined-basic"
-                        label="Email"
+                        name="patientName"
                         variant="outlined"
                         fullWidth
                         required
                       />
                     </div>
-                    <div className="col-lg-4 my-3">
+                    <div className="col-lg-6 col-md-6 col-sm-6 my-1">
                       <TextField
                         id="outlined-basic"
-                        label="hight"
+                        label="Patient Email"
+                        name="patientEmail"
                         variant="outlined"
                         fullWidth
                         required
                       />
                     </div>
-                    <div className="col-lg-4 my-3">
+                    <div className="col-lg-4 col-md-4 col-sm-4 my-1">
                       <TextField
                         id="outlined-basic"
-                        label="width"
+                        label="height"
+                        variant="outlined"
+                        name="height"
+                        fullWidth
+                        required
+                      />
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-4 my-1">
+                      <TextField
+                        id="outlined-basic"
+                        label="weight"
+                        name="weight"
                         variant="outlined"
                         fullWidth
                         required
                       />
                     </div>
-                    <div className="my-3 col-lg-4 ">
-                      <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <MobileDatePicker
-                          label="Enter your birth Date"
-                          value={newDate}
-                          onChange={(newValue) => {
-                            setNewDate(newValue);
-                          }}
-                          renderInput={(params) => <TextField {...params} />}
-                          className="my-3"
-                        />
-                      </LocalizationProvider>
+                    <div className="my-1 col-lg-4 col-md-4 col-sm-4 ">
+                    <TextField
+                        id="outlined-basic"
+                        label="Age"
+                        name="age"
+                        type="number"
+                        variant="outlined"
+                        fullWidth
+                        required
+                      />
                     </div>
+                    <div className="my-1 col-lg-6 col-md-6 col-sm-6 ">
+                      <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">
+                          Gender
+                        </InputLabel>
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={apGender}
+                          label="Gender"
+                          required
+                          onChange={handleGenderChange}
+                        >
+                          <MenuItem value={"male"}>Male</MenuItem>
+                          <MenuItem value={"female"}>Female</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
+                    <div className="my-1 col-lg-6 col-md-6 col-sm-6">
+                      <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">
+                          Blood Group
+                        </InputLabel>
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={apbloodGruop}
+                          required
+                          label="Blood Group"
+                          onChange={handleBloodGruopChange}
+                        >
+                          <MenuItem value={"A+"}>A+</MenuItem>
+                          <MenuItem value={"A-"}>A-</MenuItem>
+                          <MenuItem value={"B+"}>B+</MenuItem>
+                          <MenuItem value={"B-"}>B-</MenuItem>
+                          <MenuItem value={"O+"}>O+</MenuItem>
+                          <MenuItem value={"O-"}>O-</MenuItem>
+                          <MenuItem value={"AB+"}>AB+</MenuItem>
+                          <MenuItem value={"AB-"}>AB-</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
+                    <div className="my-1 col-lg-12">
+                      <TextField
+                        id="outlined-basic"
+                        label="health Issues"
+                        variant="outlined"
+                        multiline
+                        rows={4}
+                        className="my-2"
+                        fullWidth
+                        name="healthIssues"
+                        required
+                      />
+                    </div>
+                    <Button type="submit" variant="contained">
+                      {" "}
+                      Book Appointment{" "}
+                    </Button>
                   </form>
                 </div>
               </Box>
