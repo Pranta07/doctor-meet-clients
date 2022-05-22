@@ -11,10 +11,10 @@ import { Rating } from "@mui/material";
 
 const PharmacyProductView = () => {
   const dispatch = useAppDispatch();
+  const { user }: any = useAppSelector((state) => state.user);
   // let [products, setProducts] = useState<any>({});
   let [count, setCount] = useState(1);
   const [rating1, setRating1] = React.useState<number | null>(5);
-
 
   const { product }: any = useAppSelector((state) => state.productDetails);
 
@@ -95,6 +95,42 @@ const PharmacyProductView = () => {
 
   let onRatingChange = () => {};
 
+  const handleOrderReviewSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const target = e.target as typeof e.target & {
+      name: { value: string };
+      email: { value: string };
+      comment: { value: string };
+    };
+
+    const User = user?._id;
+    const name = target.name?.value;
+    const email = target.email?.value;
+    const comment = target.comment?.value;
+    const rating = rating1;
+    const img =
+      user?.image !== ""
+        ? user?.image
+        : "https://walldeco.id/themes/walldeco/assets/images/avatar-default.jpg";
+    // const img = "";
+
+    const OrderReview = { User, name, email, comment, rating, img };
+    console.log(OrderReview);
+
+    //send review data to server
+    fetch(`http://localhost:5000/api/v1/review`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(OrderReview),
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("success");
+      }
+    });
+  };
+
   return (
     <div className="main-wrapper">
       <div className="container">
@@ -157,13 +193,7 @@ const PharmacyProductView = () => {
               <p className="out-style"> Out Stock </p>
             )}
             <h2>{name}</h2>
-            <RatingStar
-              size={16}
-              maxScore={5}
-              colors={{ mask: "#ff7f23" }}
-              id="123"
-              rating={rating}
-            />
+            <Rating name="rating" value={4} />
             <hr />
             <h5 className="product-price">${price}</h5>
             <h6 className="mt-5"> Quantity </h6>
@@ -252,10 +282,13 @@ const PharmacyProductView = () => {
               Your email address will not be published. Required fields are
               marked *
             </p>
-            <p style={{
-              display: "flex",
-              fontWeight:" 600",
-            }} className="my-3" >
+            <p
+              style={{
+                display: "flex",
+                fontWeight: " 600",
+              }}
+              className="my-3"
+            >
               Your Rating:{" "}
               <Rating
                 name="rating"
@@ -267,33 +300,45 @@ const PharmacyProductView = () => {
             </p>
             <div className="container">
               <div className="container">
-                <div className="mb-3 row">
-                  <div className="col">
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Name *"
-                      aria-label="First name"
-                    />
+                <form onSubmit={handleOrderReviewSubmit}>
+                  <div className="mb-3 row">
+                    <div className="col">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Name *"
+                        required
+                        name="name"
+                        readOnly
+                        defaultValue={user?.name}
+                        aria-label="First name"
+                      />
+                    </div>
+                    <div className="col">
+                      <input
+                        type="email"
+                        className="form-control"
+                        placeholder="Email *"
+                        aria-label=""
+                        readOnly
+                        defaultValue={user?.email}
+                        name="email"
+                      />
+                    </div>
                   </div>
-                  <div className="col">
-                    <input
-                      type="email"
+                  <div className="mb-3">
+                    <textarea
                       className="form-control"
-                      placeholder="Email *"
-                      aria-label=""
-                    />
+                      name="comment"
+                      id="exampleFormControlTextarea1"
+                      placeholder="Your Reviw *"
+                      style={{ height: "100px" }}
+                    ></textarea>
                   </div>
-                </div>
-                <div className="mb-3">
-                  <textarea
-                    className="form-control"
-                    id="exampleFormControlTextarea1"
-                    placeholder="Your Reviw *"
-                    style={{ height: "100px" }}
-                  ></textarea>
-                </div>
-                <button className="btn-style">Send</button>
+                  <button type="submit" className="btn-style">
+                    Send
+                  </button>
+                </form>
               </div>
             </div>
           </div>

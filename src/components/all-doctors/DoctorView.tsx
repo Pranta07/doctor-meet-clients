@@ -35,7 +35,7 @@ const DoctorView = () => {
     setApBloodGruop(event.target.value as string);
   };
   const [date, setDate] = React.useState<Date | string | number>(new Date());
-  const [time, setTime] = React.useState<Date | null>(new Date(date));
+  const [time, setTime] = React.useState<Date | string | number >(new Date(date));
 
   const form = useRef(null);
   const [open, setOpen] = React.useState(false);
@@ -509,7 +509,11 @@ const DoctorView = () => {
                       label="Time"
                       value={time}
                       onChange={(newValue) => {
-                        setTime(newValue);
+                        if (newValue === null) {
+                          return;
+                        } else {
+                          setTime(newValue);
+                        }
                       }}
                       renderInput={(params) => <TextField {...params} />}
                       className="my-3"
