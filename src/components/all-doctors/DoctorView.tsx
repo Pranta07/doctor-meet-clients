@@ -18,8 +18,12 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useAppSelector } from "../../redux/store";
+import Swal from "sweetalert2";
 
 const DoctorView = () => {
+    const { user }: any = useAppSelector((state) => state.user);
+
     let [doctor, setDoctors] = useState<any>({});
     let [address, setAddress] = useState<any>({});
     let { id } = useParams();
@@ -48,7 +52,11 @@ const DoctorView = () => {
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
-        width: "80%",
+        width: {
+            xs: "95%",
+            sm: "80%",
+            md: "70%",
+        },
         bgcolor: "background.paper",
         border: "none",
         boxShadow: 24,
@@ -129,7 +137,7 @@ const DoctorView = () => {
         }).then((res) => {
             if (res.status === 200) {
                 target.feedback.value = "";
-                console.log("succe");
+                Swal.fire("Success!", "Review added!", "success");
             }
         });
     };
@@ -180,7 +188,7 @@ const DoctorView = () => {
             doctorInfo,
         };
 
-        console.log(addapointment);
+        // console.log(addapointment);
 
         // console.log(review);
 
@@ -193,7 +201,8 @@ const DoctorView = () => {
             body: JSON.stringify(addapointment),
         }).then((res) => {
             if (res.status === 200) {
-                console.log("success");
+                handleCloseModal();
+                Swal.fire("Success!", "Appointment booked!", "success");
             }
         });
     };
@@ -664,14 +673,16 @@ const DoctorView = () => {
                             aria-labelledby="modal-modal-title"
                             aria-describedby="modal-modal-description"
                         >
-                            <Box sx={style}>
-                                <h4> Your Information </h4>
+                            <Box sx={style} style={{ borderRadius: "10px" }}>
+                                <h4 className="fw-bold text-info my-5 mx-3">
+                                    Provide Your Detailed Information
+                                </h4>
                                 <div className="container">
                                     <form
                                         className="row all-input"
                                         onSubmit={handleBookSubmit}
                                     >
-                                        <div className="col-lg-6 col-md-6 col-sm-6 my-1">
+                                        <div className="col-lg-6 col-md-6 col-sm-6 my-2">
                                             <TextField
                                                 id="outlined-basic"
                                                 label="Patient Name"
@@ -679,9 +690,11 @@ const DoctorView = () => {
                                                 variant="outlined"
                                                 fullWidth
                                                 required
+                                                defaultValue={user.name}
+                                                disabled
                                             />
                                         </div>
-                                        <div className="col-lg-6 col-md-6 col-sm-6 my-1">
+                                        <div className="col-lg-6 col-md-6 col-sm-6 my-2">
                                             <TextField
                                                 id="outlined-basic"
                                                 label="Patient Email"
@@ -689,9 +702,11 @@ const DoctorView = () => {
                                                 variant="outlined"
                                                 fullWidth
                                                 required
+                                                defaultValue={user.email}
+                                                disabled
                                             />
                                         </div>
-                                        <div className="col-lg-4 col-md-4 col-sm-4 my-1">
+                                        <div className="col-lg-4 col-md-4 col-sm-4 my-2">
                                             <TextField
                                                 id="outlined-basic"
                                                 label="height"
@@ -701,7 +716,7 @@ const DoctorView = () => {
                                                 required
                                             />
                                         </div>
-                                        <div className="col-lg-4 col-md-4 col-sm-4 my-1">
+                                        <div className="col-lg-4 col-md-4 col-sm-4 my-2">
                                             <TextField
                                                 id="outlined-basic"
                                                 label="weight"
@@ -711,7 +726,7 @@ const DoctorView = () => {
                                                 required
                                             />
                                         </div>
-                                        <div className="my-1 col-lg-4 col-md-4 col-sm-4 ">
+                                        <div className="my-2 col-lg-4 col-md-4 col-sm-4 ">
                                             <TextField
                                                 id="outlined-basic"
                                                 label="Age"
@@ -722,7 +737,7 @@ const DoctorView = () => {
                                                 required
                                             />
                                         </div>
-                                        <div className="my-1 col-lg-6 col-md-6 col-sm-6 ">
+                                        <div className="my-2 col-lg-6 col-md-6 col-sm-6 ">
                                             <FormControl fullWidth>
                                                 <InputLabel id="demo-simple-select-label">
                                                     Gender
@@ -746,7 +761,7 @@ const DoctorView = () => {
                                                 </Select>
                                             </FormControl>
                                         </div>
-                                        <div className="my-1 col-lg-6 col-md-6 col-sm-6">
+                                        <div className="my-2 col-lg-6 col-md-6 col-sm-6">
                                             <FormControl fullWidth>
                                                 <InputLabel id="demo-simple-select-label">
                                                     Blood Group
@@ -788,7 +803,7 @@ const DoctorView = () => {
                                                 </Select>
                                             </FormControl>
                                         </div>
-                                        <div className="my-1 col-lg-12">
+                                        <div className="my-2 col-lg-12">
                                             <TextField
                                                 id="outlined-basic"
                                                 label="health Issues"
@@ -801,13 +816,14 @@ const DoctorView = () => {
                                                 required
                                             />
                                         </div>
-                                        <Button
-                                            type="submit"
-                                            variant="contained"
-                                        >
-                                            {" "}
-                                            Book Appointment{" "}
-                                        </Button>
+                                        <Box sx={{ my: 2 }}>
+                                            <Button
+                                                type="submit"
+                                                variant="contained"
+                                            >
+                                                Book Appointment
+                                            </Button>
+                                        </Box>
                                     </form>
                                 </div>
                             </Box>

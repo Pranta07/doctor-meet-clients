@@ -8,8 +8,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import SingleAppointment from "./SingleAppointment";
-import "./Appointments.css";
+import { useAppSelector } from "../../redux/store";
+import UserAppointment from "./UserAppointment";
+import "../all-appointments/Appointments.css";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -21,25 +22,26 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const AllAppointments = () => {
+const UserAppointments = () => {
     const [appointments, setAppointments] = useState<any>([]);
     const [update, setUpdate] = useState(false);
+    const { user }: any = useAppSelector((state) => state.user);
 
     useEffect(() => {
         // setLoading(true);
-        const url = `http://localhost:5000/api/v1/appointment`;
+        const url = `http://localhost:5000/api/v1/appointments/${user?.email}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
                 setAppointments(data.result);
             });
         // .finally(() => setLoading(false));
-    }, [update]);
+    }, [update, user?.email]);
 
     return (
         <Container>
             <h5 style={{ marginBottom: "30px", color: "gray" }}>
-                Appointments Management
+                My Appointments
             </h5>
             <div className="appointment-card-shadow">
                 <div>
@@ -81,18 +83,15 @@ const AllAppointments = () => {
                                     <StyledTableCell align="center">
                                         Meet
                                     </StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        Delete
-                                    </StyledTableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {appointments.map((appointment: any) => (
-                                    <SingleAppointment
+                                    <UserAppointment
                                         key={appointment._id}
                                         appointment={appointment}
                                         setUpdate={setUpdate}
-                                    ></SingleAppointment>
+                                    ></UserAppointment>
                                 ))}
                             </TableBody>
                         </Table>
@@ -103,4 +102,4 @@ const AllAppointments = () => {
     );
 };
 
-export default AllAppointments;
+export default UserAppointments;
