@@ -23,6 +23,7 @@ import AllReports from "../components/all-reports/AllReports";
 import AddDoctor from "../components/add-doctor/AddDoctor";
 import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
 import UserAppointments from "../components/all-appointments-user/UserAppointments";
+import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
 
 // ----------------------------------------------------------------------
 
@@ -220,6 +221,10 @@ export default function Router() {
                         {
                             path: "reports",
                             element: <AllReports />,
+                        },
+                        {
+                            path: "doctor-appointments",
+                            element: <DoctorAppointments />,
                         },
                         {
                             path: "add-article",

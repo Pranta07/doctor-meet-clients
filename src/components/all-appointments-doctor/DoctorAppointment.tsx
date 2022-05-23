@@ -60,8 +60,8 @@ const style = {
     p: 4,
 };
 
-const UserAppointment = (props: any) => {
-    const { appointment, setUpdate } = props;
+const DoctorAppointment = (props: any) => {
+    const { appointment } = props;
 
     const time = formatAMPM(new Date(appointment?.appointmentTime));
 
@@ -132,30 +132,20 @@ const UserAppointment = (props: any) => {
                 {appointment?.payment ? (
                     <Button>Paid</Button>
                 ) : (
-                    <Tooltip title="Pay Now!" placement="left-start">
-                        <Button color="warning">Unpaid</Button>
-                    </Tooltip>
+                    <Button color="warning">Unpaid</Button>
                 )}
             </StyledTableCell>
             <StyledTableCell align="center">
-                {appointment?.payment ? (
-                    <Tooltip title="Meet Now!" placement="left-start">
-                        <NavLink to="/virtual-meet">
-                            <IconButton color="primary" disabled>
-                                <VideocamOutlinedIcon />
-                            </IconButton>
-                        </NavLink>
-                    </Tooltip>
-                ) : (
-                    <Tooltip title="Pay First!" placement="left-start">
-                        <IconButton>
+                <Tooltip title="Meet Now!" placement="left-start">
+                    <NavLink to="/virtual-meet">
+                        <IconButton color="primary">
                             <VideocamOutlinedIcon />
                         </IconButton>
-                    </Tooltip>
-                )}
+                    </NavLink>
+                </Tooltip>
             </StyledTableCell>
         </StyledTableRow>
     );
 };
 
-export default UserAppointment;
+export default DoctorAppointment;
