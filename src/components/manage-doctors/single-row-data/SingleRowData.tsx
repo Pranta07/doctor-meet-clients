@@ -38,7 +38,7 @@ const SingleRowData = (props: {
         handleShow();
     };
 
-    const handleDelete = (id: string) => {
+    const handleDelete = (email: string) => {
         // console.log(id);
         setIsUpdate(false);
         Swal.fire({
@@ -51,7 +51,7 @@ const SingleRowData = (props: {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/v1/doctors/${id}`, {
+                fetch(`http://localhost:5000/api/v1/doctors/${email}`, {
                     method: "DELETE",
                 }).then((res) => {
                     if (res.status === 200) {
@@ -72,7 +72,7 @@ const SingleRowData = (props: {
         newDoctor.approved = true;
         // console.log(newDoctor);
         setIsUpdate(false);
-        const url = `http://localhost:5000/api/v1/doctors/${doctor._id}`;
+        const url = `http://localhost:5000/api/v1/doctors/${doctor?.email}`;
         fetch(url, {
             method: "PUT",
             headers: {

@@ -37,56 +37,56 @@ const style = {
 };
 
 interface IFormInputs {
-  name: string;
-  email: string;
-  phone: string;
-  specialist: string;
-  review: number;
-  gender: string;
-  img: string;
-  experience: number;
-  visit: number;
+    name: string;
+    email: string;
+    phone: string;
+    specialist: string;
+    review: number;
+    gender: string;
+    img: string;
+    experience: number;
+    visit: number;
 }
 
 const DoctorEditModal = (props: {
-  show: boolean;
-  handleClose: any;
-  doctor: Idoctor;
-  setIsUpdate: any;
+    show: boolean;
+    handleClose: any;
+    doctor: Idoctor;
+    setIsUpdate: any;
 }) => {
-  const { show, handleClose, doctor, setIsUpdate } = props;
-  const { register, handleSubmit } = useForm<IFormInputs>();
+    const { show, handleClose, doctor, setIsUpdate } = props;
+    const { register, handleSubmit } = useForm<IFormInputs>();
 
-  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-    setIsUpdate(false);
-    // send data to server and update in database
-    const url = `http://localhost:5000/api/v1/doctors/${doctor._id}`;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }).then((res) => {
-      if (res.status === 200) {
-        setIsUpdate(true);
-        handleClose();
-        Swal.fire({
-          title: "Well done!",
-          text: "Doctor Information Updated Successfully!",
-          icon: "success",
-          timer: 1500,
+    const onSubmit: SubmitHandler<IFormInputs> = (data) => {
+        setIsUpdate(false);
+        // send data to server and update in database
+        const url = `http://localhost:5000/api/v1/doctors/${doctor.email}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+        }).then((res) => {
+            if (res.status === 200) {
+                setIsUpdate(true);
+                handleClose();
+                Swal.fire({
+                    title: "Well done!",
+                    text: "Doctor Information Updated Successfully!",
+                    icon: "success",
+                    timer: 1500,
+                });
+            } else {
+                Swal.fire({
+                    title: "Warning!",
+                    text: "Already up to date!",
+                    icon: "warning",
+                    timer: 2000,
+                });
+            }
         });
-      } else {
-        Swal.fire({
-          title: "Warning!",
-          text: "Already up to date!",
-          icon: "warning",
-          timer: 2000,
-        });
-      }
-    });
-  };
+    };
 
     return (
         <Modal
@@ -110,21 +110,21 @@ const DoctorEditModal = (props: {
                             my-3
                             alert-info
                         "
-          >
-            <div id="doctor-reg-box" className="p-5">
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="row gx-3 gy-4 mb-4">
-                  <div className="col-12 col-lg-6">
-                    <TextField
-                      fullWidth
-                      required
-                      label="Name"
-                      defaultValue={doctor.name}
-                      {...register("name", {
-                        required: true,
-                      })}
-                    />
-                  </div>
+                    >
+                        <div id="doctor-reg-box" className="p-5">
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <div className="row gx-3 gy-4 mb-4">
+                                    <div className="col-12 col-lg-6">
+                                        <TextField
+                                            fullWidth
+                                            required
+                                            label="Name"
+                                            defaultValue={doctor.name}
+                                            {...register("name", {
+                                                required: true,
+                                            })}
+                                        />
+                                    </div>
 
                                     <div className="col-12 col-lg-6">
                                         <TextField
