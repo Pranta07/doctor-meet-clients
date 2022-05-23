@@ -3,6 +3,7 @@ import { RatingStar } from "rating-star";
 import React, { useEffect, useState } from "react";
 import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
+import '../pharmacy-single-product/PharmacySingleProduct.css'
 
 let getData = () => {
   let data = localStorage.getItem("item");
@@ -35,13 +36,7 @@ const PharmacyShop = (props: any) => {
     rating,
     img4,
     price,
-    description,
-    Sku,
-    category,
     inStock,
-    power,
-    shopAddress,
-    weight,
     _id,
   } = props.products;
 
@@ -93,7 +88,7 @@ const PharmacyShop = (props: any) => {
     <div className="col-lg-4">
       <div className="product mt-3 p-4">
         <div className="product-img">
-          <img className="img-fluid" src={img1} alt="front product" />
+          <img className="img-fluid" src={img1+".jpg"} alt="front product" />
           <img src={img2} alt="rear product" className="rear-img img-fluid " />
           <div className="overlay">
             <button className="btn" title="Wishlit">

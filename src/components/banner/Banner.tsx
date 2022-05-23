@@ -51,29 +51,29 @@ const bannerData = [
 ];
 
 const Banner = () => {
-  return (
-    <div className="mt-4">
-      <Carousel fade={true} controls={true} indicators={false}>
-        {bannerData.map((item, index) => (
-          <Carousel.Item key={index} interval={2000}>
-            <div className="container mx-auto row g-3 d-flex align-items-center flex-sm-row-reverse flex-row">
-              <div className="col-12 col-lg-6">
-                <img
-                  className="d-block mx-auto img-fluid carousel-img"
-                  style={{ height: "400px" }}
-                  src={item.imgSrc}
-                  alt="..."
-                />
-              </div>
-              <div className="col-12 col-lg-6">
-                <TextAnimation item={item}></TextAnimation>
-              </div>
-            </div>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-    </div>
-  );
+    return (
+        <div>
+            <Carousel fade={true} controls={true} indicators={false}>
+                {bannerData.map((item, index) => (
+                    <Carousel.Item key={index} interval={2000}>
+                        <div className="container mx-auto row g-3 d-flex align-items-center flex-sm-row-reverse flex-row">
+                            <div className="col-12 col-lg-6">
+                                <img
+                                    className="d-block mx-auto img-fluid carousel-img"
+                                    style={{ height: "400px" }}
+                                    src={item.imgSrc}
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="col-12 col-lg-6">
+                                <TextAnimation item={item}></TextAnimation>
+                            </div>
+                        </div>
+                    </Carousel.Item>
+                ))}
+            </Carousel>
+        </div>
+    );
 };
 
 export default Banner;
