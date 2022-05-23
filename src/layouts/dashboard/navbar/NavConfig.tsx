@@ -188,6 +188,16 @@ const sidebarConfig = [
                         path: "/dashboard/admin/all-diagnosis",
                         icon: ICONS.analytics,
                     },
+                    {
+                        title: "Notify",
+                        path: "/dashboard/admin/notify",
+                        icon: ICONS.analytics,
+                    },
+                    {
+                        title: "Make Moderador",
+                        path: "/dashboard/admin/makeModerador",
+                        icon: ICONS.analytics,
+                    },
                 ],
             },
         ],

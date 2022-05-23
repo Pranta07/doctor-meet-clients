@@ -22,6 +22,7 @@ import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf"
 import AllReports from "../components/all-reports/AllReports";
 import AddDoctor from "../components/add-doctor/AddDoctor";
 
+
 // ----------------------------------------------------------------------
 
 const Loadable = (Component: any) => (props: any) => {
@@ -280,6 +281,14 @@ export default function Router() {
                             path: "edit-doctors/edit-single-doctor/:id",
                             element: <EditSingleDoctor />,
                         },
+                        {
+                            path: "/dashboard/admin/notify",
+                            element: <Notify />,
+                        },
+                        {
+                            path: "/dashboard/admin/makeModerador",
+                            element: <MakeModaretor />,
+                        },
                     ],
                 },
             ],
@@ -392,9 +401,20 @@ const ManageDoctors = Loadable(
             import("../components/manage-doctors/manage-doctors/ManageDoctors")
     )
 );
+const Notify = Loadable(
+    lazy(
+        () =>
+            import("../components/notify/Notify")
+    )
+);
 const ManageDonors = Loadable(
     lazy(() => import("../components/manage-donors/manage-donors/ManageDonors"))
 );
+
+const MakeModaretor = Loadable(
+    lazy(() => import("../pages/makeModarator/MakeModaretor"))
+);
+
 const MyAppointments = Loadable(
     lazy(() => import("../components/appointment/MyAppointments"))
 );
