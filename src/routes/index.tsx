@@ -244,6 +244,10 @@ export default function Router() {
                             element: <ReportPdf />,
                         },
                         {
+                            path: "all-appointments",
+                            element: <AllAppointments />,
+                        },
+                        {
                             path: "all-diagnosis",
                             element: <AllDiagnosis />,
                         },
@@ -403,7 +407,7 @@ const GetAppointmentForm = Loadable(
     lazy(() => import("../components/appointment/GetAppointmentForm"))
 );
 const AllAppointments = Loadable(
-    lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
+    lazy(() => import("../components/all-appointments/AllAppointments"))
 );
 const AllDiagnosis = Loadable(
     lazy(() => import("../pages/dashboards/all-diagnosis/AllDiagnosis"))

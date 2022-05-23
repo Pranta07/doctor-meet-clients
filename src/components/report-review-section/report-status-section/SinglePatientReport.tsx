@@ -69,9 +69,6 @@ const SinglePatientReport = (props: { report: IReport }) => {
 
     return (
         <StyledTableRow key={report._id}>
-            <StyledTableCell component="th" scope="row">
-                {report?._id.slice(0, 5)}...
-            </StyledTableCell>
             <StyledTableCell align="left">{report?.drName}</StyledTableCell>
             <StyledTableCell align="left">
                 {report?.patientName}

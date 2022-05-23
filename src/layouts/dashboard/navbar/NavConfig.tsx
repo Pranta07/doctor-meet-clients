@@ -151,6 +151,11 @@ const sidebarConfig = [
                         icon: ICONS.analytics,
                     },
                     {
+                        title: "Appointments",
+                        path: "/dashboard/moderator/all-appointments",
+                        icon: ICONS.analytics,
+                    },
+                    {
                         title: "Diagnosis",
                         path: "/dashboard/moderator/all-diagnosis",
                         icon: ICONS.analytics,
