@@ -44,7 +44,7 @@ const AllAppointments = () => {
                 Appointments Management
             </h5>
             <div className="appointment-card-shadow">
-                <div className="">
+                <div>
                     <h6
                         style={{
                             fontWeight: "500",
