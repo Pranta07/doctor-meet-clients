@@ -62,7 +62,6 @@ const ReportStatus = () => {
                         >
                             <TableHead>
                                 <TableRow>
-                                    <StyledTableCell>Report Id</StyledTableCell>
                                     <StyledTableCell align="left">
                                         Doctor Name
                                     </StyledTableCell>
@@ -86,6 +85,7 @@ const ReportStatus = () => {
                             <TableBody>
                                 {reports.map((report) => (
                                     <SinglePatientReport
+                                        key={report._id}
                                         report={report}
                                     ></SinglePatientReport>
                                 ))}

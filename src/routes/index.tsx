@@ -22,6 +22,8 @@ import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf"
 import AllReports from "../components/all-reports/AllReports";
 import AddDoctor from "../components/add-doctor/AddDoctor";
 import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
+import UserAppointments from "../components/all-appointments-user/UserAppointments";
+import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
 
 // ----------------------------------------------------------------------
 
@@ -179,7 +181,7 @@ export default function Router() {
                         },
                         {
                             path: "my-appointments",
-                            element: <MyAppointments />,
+                            element: <UserAppointments />,
                         },
                         {
                             path: "get-appointments",
@@ -221,6 +223,10 @@ export default function Router() {
                             element: <AllReports />,
                         },
                         {
+                            path: "doctor-appointments",
+                            element: <DoctorAppointments />,
+                        },
+                        {
                             path: "add-article",
                             element: <AddArticle />,
                         },
@@ -242,6 +248,10 @@ export default function Router() {
                         {
                             path: "report-pdf",
                             element: <ReportPdf />,
+                        },
+                        {
+                            path: "all-appointments",
+                            element: <AllAppointments />,
                         },
                         {
                             path: "all-diagnosis",
@@ -403,7 +413,7 @@ const GetAppointmentForm = Loadable(
     lazy(() => import("../components/appointment/GetAppointmentForm"))
 );
 const AllAppointments = Loadable(
-    lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
+    lazy(() => import("../components/all-appointments/AllAppointments"))
 );
 const AllDiagnosis = Loadable(
     lazy(() => import("../pages/dashboards/all-diagnosis/AllDiagnosis"))

@@ -64,11 +64,6 @@ const sidebarConfig = [
                         icon: ICONS.analytics,
                     },
                     {
-                        title: "Get Appointments",
-                        path: "/dashboard/user/get-appointments",
-                        icon: ICONS.analytics,
-                    },
-                    {
                         title: "Preview Reports",
                         path: "/dashboard/user/report-pdf",
                         icon: ICONS.analytics,
@@ -116,7 +111,11 @@ const sidebarConfig = [
                         path: "/dashboard/doctor/report-pdf",
                         icon: ICONS.analytics,
                     },
-
+                    {
+                        title: "Appointments",
+                        path: "/dashboard/doctor/doctor-appointments",
+                        icon: ICONS.analytics,
+                    },
                     {
                         title: "Add Article",
                         path: "/dashboard/doctor/add-article",
@@ -148,6 +147,11 @@ const sidebarConfig = [
                     {
                         title: "Reports Preview",
                         path: "/dashboard/moderator/report-pdf",
+                        icon: ICONS.analytics,
+                    },
+                    {
+                        title: "Appointments",
+                        path: "/dashboard/moderator/all-appointments",
                         icon: ICONS.analytics,
                     },
                     {
