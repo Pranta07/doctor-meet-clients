@@ -7,6 +7,7 @@ import "../pharmacy-banner/PharmacyBanner.css";
 import banner_img from "../../../assets/pharmacy/banner-sidebar.png";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProductDetails } from "../../../redux/actions/productAction";
+import { addItemsToCart } from "../../../redux/actions/cartAction";
 
 const PharmacyProductView = () => {
   const dispatch = useAppDispatch();
@@ -18,12 +19,6 @@ const PharmacyProductView = () => {
   let { id } = useParams();
   useEffect(() => {
     dispatch(getProductDetails(id));
-    // fetch(`https://immense-beyond-64415.herokuapp.com/medicine/${id}`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data.result);
-    //     setProducts(data.result[0]);
-    //   });
   }, [id]);
 
   let handleOnClickPlus = () => {
@@ -91,7 +86,7 @@ const PharmacyProductView = () => {
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
 
-  let onRatingChange = () => {};
+  let onRatingChange = () => { };
 
   return (
     <div className="main-wrapper">
@@ -182,7 +177,7 @@ const PharmacyProductView = () => {
                 +{" "}
               </button>{" "}
             </div>
-            <button onClick={() => addDoctor(_id)} className="btn-style">
+            <button onClick={() => dispatch(addItemsToCart(_id, count))} className="btn-style">
               {" "}
               <Cart></Cart> Add to cart
             </button>

@@ -3,15 +3,9 @@ import { RatingStar } from "rating-star";
 import React, { useState, useEffect } from "react";
 import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
+import { addItemsToCart } from "../../../redux/actions/cartAction";
+import { useAppDispatch } from "../../../redux/store";
 
-let getData = () => {
-  let data = localStorage.getItem("item");
-  if (data) {
-    return JSON.parse(data);
-  } else {
-    return [];
-  }
-};
 
 const style = {
   position: "absolute" as "absolute",
@@ -23,34 +17,16 @@ const style = {
   p: 4,
 };
 const PharmacyBestProduct = (props: any) => {
-  let [itemData, setItemData] = useState(getData());
+  const dispatch = useAppDispatch();
   let [count, setCount] = useState(1);
 
   let { name, img1, img2, img3, rating, img4, price, inStock, _id } =
     props.product;
 
   useEffect(() => {
-    const ItemList = localStorage.getItem("item");
 
-    if (ItemList) {
-      const listItems: any[] = JSON.parse(ItemList);
-      const authorId = listItems.find((author) => author?._id === _id);
-    }
   }, [_id]);
 
-  const addMedicine = (id: string) => {
-    //save the medicine to local storage
-    const medicine = localStorage.getItem("item");
-
-    let items;
-    if (medicine) items = JSON.parse(medicine);
-    else items = [];
-
-    const newItems = [...items, props.products];
-    // console.log(newItems);
-
-    localStorage.setItem("item", JSON.stringify([...newItems]));
-  };
   let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
@@ -84,7 +60,7 @@ const PharmacyBestProduct = (props: any) => {
               <Heart></Heart>{" "}
             </button>
             <button
-              onClick={() => addMedicine(_id)}
+              onClick={() => dispatch(addItemsToCart(_id, count))}
               className="btn"
               title="Add to Cart"
             >
@@ -213,7 +189,7 @@ const PharmacyBestProduct = (props: any) => {
                     </button>{" "}
                   </div>
                   <button
-                    onClick={() => addMedicine(_id)}
+                    onClick={() => dispatch(addItemsToCart(_id, count))}
                     className="btn-style"
                   >
                     {" "}
