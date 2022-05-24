@@ -19,30 +19,30 @@ function MyVerticallyCenteredModal(props) {
           <h3>User Info</h3>
           <hr />
           <p>
-            Name : {props.invoice.category.name}
+            Name : {props.invoice.category?.name}
           </p>
           <p>
-            Email : {props.invoice.category.email}
+            Email : {props.invoice.category?.email}
           </p>
           <p>
-            Contact Info : {props.invoice?.category.mobileNumber}
+            Contact Info : {props.invoice?.category?.mobileNumber}
           </p>
           <p>
-            Category Id : {props.invoice.category._id}
+            Category Id : {props.invoice.category?._id}
           </p>
           <h3>Payment Info</h3>
           <hr />
           <p>
-            Payment Method : {props.invoice.paymentMethod.type}
+            Payment Method : {props.invoice.paymentMethod?.type}
           </p>
           <p>
-            Payment Id : {props.invoice.paymentMethod.id}
+            Payment Id : {props.invoice.paymentMethod?.id}
           </p>
           <p>
             Purchased Date : {props.invoice?.purchasedDate}
           </p>
           <p>
-            Amount : {props.invoice.amount}
+            Amount : {props.invoice?.amount}
           </p>
           
         </Modal.Body>
