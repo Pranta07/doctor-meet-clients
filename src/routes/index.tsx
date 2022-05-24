@@ -25,6 +25,7 @@ import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/Doct
 import AddDoctor from "../components/add-doctor/AddDoctor";
 import PharmacyPay from "../components/pharmacy/PharmacyPay";
 
+
 // ----------------------------------------------------------------------
 
 const Loadable = (Component: any) => (props: any) => {
@@ -288,8 +289,17 @@ export default function Router() {
                             element: <EditSingleDoctor />,
                         },
                         {
+<<<<<<< HEAD
                             path: "all-invoices",
                             element: <AllInvoices />,
+=======
+                            path: "/dashboard/admin/notify",
+                            element: <Notify />,
+                        },
+                        {
+                            path: "/dashboard/admin/makeModerador",
+                            element: <MakeModaretor />,
+>>>>>>> c277f97145becdf7f8e635763d4166dd55e02094
                         },
                     ],
                 },
@@ -404,9 +414,20 @@ const ManageDoctors = Loadable(
             import("../components/manage-doctors/manage-doctors/ManageDoctors")
     )
 );
+const Notify = Loadable(
+    lazy(
+        () =>
+            import("../components/notify/Notify")
+    )
+);
 const ManageDonors = Loadable(
     lazy(() => import("../components/manage-donors/manage-donors/ManageDonors"))
 );
+
+const MakeModaretor = Loadable(
+    lazy(() => import("../pages/makeModarator/MakeModaretor"))
+);
+
 const MyAppointments = Loadable(
     lazy(() => import("../components/appointment/MyAppointments"))
 );

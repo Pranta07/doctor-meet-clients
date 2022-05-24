@@ -195,8 +195,18 @@ const sidebarConfig = [
                         icon: ICONS.analytics,
                     },
                     {
+<<<<<<< HEAD
                         title: "Invoices",
                         path: "/dashboard/admin/all-invoices",
+=======
+                        title: "Notify",
+                        path: "/dashboard/admin/notify",
+                        icon: ICONS.analytics,
+                    },
+                    {
+                        title: "Make Moderador",
+                        path: "/dashboard/admin/makeModerador",
+>>>>>>> c277f97145becdf7f8e635763d4166dd55e02094
                         icon: ICONS.analytics,
                     },
                 ],
