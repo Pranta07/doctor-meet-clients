@@ -22,11 +22,6 @@ const sidebarConfig = [
   {
     items: [
       { title: "Home", path: "/dashboard/home", icon: ICONS.dashboard },
-      {
-        title: "Pharmacy",
-        path: "/dashboard/three",
-        icon: <Iconify icon={"fluent:more-circle-20-filled"} {...ICON_SIZE} />,
-      },
     ],
   },
 

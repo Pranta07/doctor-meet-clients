@@ -19,6 +19,7 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
       </div>
     );
   }
+console.log(loading);
 
   if (user?.email) {
     return children;
