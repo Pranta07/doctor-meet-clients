@@ -5,7 +5,11 @@ import { NavLink } from "react-router-dom";
 import { Box, Modal } from "@mui/material";
 import { useAppDispatch } from "../../../redux/store";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 // let getData = () => {
 //   let data = localStorage.getItem("item");
 //   if (data) {
@@ -38,7 +42,6 @@ const PharmacyCardSlider = (props: any) => {
 
   useEffect(() => {
     // const ItemList = localStorage.getItem("item");
-
     // if (ItemList) {
     //   const listItems: any[] = JSON.parse(ItemList);
     //   const authorId = listItems.find((author) => author._id === _id);
@@ -79,7 +82,7 @@ const PharmacyCardSlider = (props: any) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <div className="col-lg-2 col-md-3 col-sm-6 p-0">
+    <RootStyle className="col-lg-2 col-md-3 col-sm-6 p-0">
       <div className="product p-4">
         <div className="product-img">
           <img className="img-fluid" src={img1} alt="front product" />
@@ -231,7 +234,7 @@ const PharmacyCardSlider = (props: any) => {
           </Box>
         </Modal>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

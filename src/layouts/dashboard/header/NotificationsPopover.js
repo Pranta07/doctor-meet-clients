@@ -24,7 +24,7 @@ import { _notifications } from '../../../_mock';
 import Iconify from '../../../components/Iconify';
 import Scrollbar from '../../../components/Scrollbar';
 import MenuPopover from '../../../components/MenuPopover';
-import { IconButtonAnimate } from '../../../components/animate';
+import  IconButtonAnimate  from '../../../components/animate/IconButtonAnimate';
 
 // ----------------------------------------------------------------------
 

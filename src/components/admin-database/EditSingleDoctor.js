@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './EditSingleDoctor.css'
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }) => ({
+
+  backgroundColor: theme.palette.background.default,
+}));
 
 const EditSingleDoctor = () => {
     const params=useParams();
@@ -79,7 +85,8 @@ const EditSingleDoctor = () => {
     }
 
     return (
-        <div className='d-lg-flex d-md-flex justify-content-between align-items-center'>
+        
+        <RootStyle className='d-lg-flex d-md-flex justify-content-between align-items-center'>
         <div className='edit-single-doctor-form-container'>
             
         <form onSubmit={changeDoctorInfo}>
@@ -147,7 +154,8 @@ const EditSingleDoctor = () => {
         <div className='edit-doctor-bg-image-container'>
     <img src="https://img.freepik.com/free-vector/data-extraction-concept-illustration_114360-4876.jpg?w=740&t=st=1652989249~exp=1652989849~hmac=1c17bc90c0eec59e3d9e8162d9b9d322c1df32ea05c48778fec4974b3cbcdb82" alt="" className='edit-doctor-bg-image'/>
 </div>
-        </div>
+        </RootStyle>
+    
     );
 };
 

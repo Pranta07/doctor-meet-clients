@@ -6,6 +6,12 @@ import { useParams } from "react-router-dom";
 import PayAppointmentFeeFrom from "./PayAppointFeeFrom";
 import usePremiumMembershipStatus from "../../hooks/usePremiumMembersipStatus";
 import './style/style.css';
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+
+  backgroundColor: theme.palette.background.default,
+}));
 
 const stripePromise = loadStripe(
     "pk_test_51JvnacKB2JOo4D0XAUdhDzZ6TqtmGp2vpGMIXXSxtPKBJOo1cmcb3SlAga09S4J9nyLpCgs4dEyJ126BbM8sE1mm00BCQsgnSt"
@@ -45,7 +51,7 @@ const PayAppointmentFee = () => {
 
 
     return (
-        <div className="payment-box-background">
+        <RootStyle className="payment-box-background">
             <div className="payment-box">
                 <div className="container">
 
@@ -90,7 +96,7 @@ const PayAppointmentFee = () => {
                     </Elements>
                 </div>
             </div>
-        </div>
+        </RootStyle>
 
     );
 };

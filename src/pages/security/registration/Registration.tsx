@@ -9,10 +9,16 @@ import { register } from "../../../redux/actions/userAction";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 
 import { createBrowserHistory } from "history";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 
 const history = createBrowserHistory({ window });
 
-const Registation = () => {
+const Registration = () => {
   const { user }: any = useAppSelector((state) => state);
   useEffect(() => {}, [user]);
   const [message, setMessage] = useState("");
@@ -48,7 +54,7 @@ const Registation = () => {
     }
   };
   return (
-    <div className="container">
+    <RootStyle className="container">
       <div className="row">
         <div className="col-lg-6">
           <img
@@ -111,8 +117,8 @@ const Registation = () => {
           </Form>
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 
-export default Registation;
+export default Registration;

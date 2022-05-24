@@ -12,6 +12,11 @@ import "./SingleDoctor.css";
 import { Idoctor } from "../favorite-doctors/FavoriteDoctors";
 import { Rating } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 
 interface Iprops {
   key: string;
@@ -90,7 +95,7 @@ const SingleDoctor = (props: Iprops) => {
   };
 
   return (
-    <div
+    <RootStyle
       className="mx-auto border overflow-hidden shadow-sm rounded-3 m-5"
       style={{ maxWidth: "740px" }}
     >
@@ -187,7 +192,7 @@ const SingleDoctor = (props: Iprops) => {
           />
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

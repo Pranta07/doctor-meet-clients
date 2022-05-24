@@ -6,7 +6,11 @@ import { NavLink } from "react-router-dom";
 import "../pharmacy-single-product/PharmacySingleProduct.css";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
 import { useAppDispatch } from "../../../redux/store";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 // let getData = () => {
 //   let data = localStorage.getItem("item");
 //   if (data) {
@@ -78,7 +82,7 @@ const PharmacyShop = (props: any) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="col-lg-4">
+    <RootStyle className="col-lg-4">
       <div className="product mt-3 p-4">
         <div className="product-img">
           <img className="img-fluid" src={img1 + ".jpg"} alt="front product" />
@@ -224,7 +228,7 @@ const PharmacyShop = (props: any) => {
           </Box>
         </Modal>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

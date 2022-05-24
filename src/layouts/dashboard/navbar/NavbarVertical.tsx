@@ -23,7 +23,7 @@ import logo from "../../../assets/img/logo.png";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   [theme.breakpoints.up("lg")]: {
     flexShrink: 0,
     transition: theme.transitions.create("width", {

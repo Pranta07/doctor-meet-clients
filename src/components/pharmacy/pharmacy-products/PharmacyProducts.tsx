@@ -22,7 +22,11 @@ import PharmacyTimer from "../pharmacy-timer/PharmacyTimer";
 import "./PharmacyProducts.css";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProduct } from "../../../redux/actions/productAction";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 export interface productsType {
   Sku: string;
   category: string;
@@ -74,7 +78,7 @@ const PharmacyProducts = () => {
   }
 
   return (
-    <div className="container">
+    <RootStyle className="container">
       <h1 className=" text-center my-5"> Latest products </h1>
       <div className="row">
         {products.length &&
@@ -216,7 +220,7 @@ const PharmacyProducts = () => {
               ></PharmacyBestProduct>
             ))}
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

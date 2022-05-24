@@ -2,10 +2,15 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import HealthCareProviderImg from "../../assets/health-care-provider/HealthCareProvider.png";
 import "./HealthCareProvider.css";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 const HealthCareProvider = () => {
   return (
-    <div className="health-care-provider-section">
+    <RootStyle className="health-care-provider-section">
       <Container>
         <div className="row d-flex justify-content-center align-items-center">
           <div className="col-lg-6 col-12 img-container mb-3">
@@ -35,7 +40,7 @@ const HealthCareProvider = () => {
           </div>
         </div>
       </Container>
-    </div>
+    </RootStyle>
   );
 };
 

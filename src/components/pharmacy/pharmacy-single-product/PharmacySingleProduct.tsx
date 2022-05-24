@@ -16,7 +16,11 @@ import { addItemsToCart } from "../../../redux/actions/cartAction";
 //     return [];
 //   }
 // };
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -50,7 +54,6 @@ const PharmacySingleProduct = (props: any) => {
 
   useEffect(() => {
     // const ItemList = localStorage.getItem("item");
-
     // if (ItemList) {
     //   const listItems: any[] = JSON.parse(ItemList);
     //   const authorId = listItems.find(
@@ -117,7 +120,7 @@ const PharmacySingleProduct = (props: any) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="col-lg-2 col-md-3 col-sm-6 p-0">
+    <RootStyle className="col-lg-2 col-md-3 col-sm-6 p-0">
       <div className="product p-4">
         <div className="product-img">
           <img className="img-fluid" src={img1} alt="front product" />
@@ -129,7 +132,6 @@ const PharmacySingleProduct = (props: any) => {
             </button>
             <button
               onClick={() => dispatch(addItemsToCart(_id, count))}
-
               className="btn"
               title="Add to Cart"
             >
@@ -260,7 +262,8 @@ const PharmacySingleProduct = (props: any) => {
                   </div>
                   <button
                     onClick={() => dispatch(addItemsToCart(_id, count))}
-                    className="btn-style">
+                    className="btn-style"
+                  >
                     {" "}
                     <Cart></Cart> Add to cart
                   </button>
@@ -270,7 +273,7 @@ const PharmacySingleProduct = (props: any) => {
           </Box>
         </Modal>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

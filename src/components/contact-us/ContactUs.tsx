@@ -18,8 +18,10 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import ContactImg from "../../assets/undraw_contact_us.svg";
 import Button from "@mui/material/Button";
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   minHeight: "100%",
+  backgroundColor: theme.palette.background.default,
+
   paddingTop: theme.spacing(15),
 }));
 

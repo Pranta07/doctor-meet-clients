@@ -3,7 +3,11 @@ import { useSliderState } from "@react-stately/slider";
 import { useNumberFormatter } from "@react-aria/i18n";
 import React from "react";
 import Thumb from "../Thumb";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 function PharmacyPriceSlide(props: any) {
   let trackRef = React.useRef(null);
   // console.log(trackRef)
@@ -18,7 +22,7 @@ function PharmacyPriceSlide(props: any) {
   props.setUpperPrice(state.getThumbValue(1));
 
   return (
-    <div
+    <RootStyle
       {...groupProps}
       style={{
         position: "relative",
@@ -58,7 +62,7 @@ function PharmacyPriceSlide(props: any) {
         <Thumb index={0} state={state} trackRef={trackRef} />
         <Thumb index={1} state={state} trackRef={trackRef} />
       </div>
-    </div>
+    </RootStyle>
   );
 }
 

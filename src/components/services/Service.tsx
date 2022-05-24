@@ -2,8 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Service.css";
 import { m } from "framer-motion";
-import { MotionViewport, varFade } from "../animate";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 interface service_if {
   id: number;
   img: string;
@@ -16,7 +20,7 @@ const Service = (props: { key: number; service: service_if }) => {
   const { service } = props;
 
   return (
-    <m.div variants={varFade().inUp} className="col-10">
+    <m.div className="col-10">
       <NavLink className="text-d" to={service.route}>
         <div className="card h-100 border-0 p-4">
           <img src={service.img} className="mx-auto mt-3" alt="..." />

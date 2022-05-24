@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import TopSingle from "./TopSingle";
 import { Idoctor } from "../favorite-doctors/FavoriteDoctors";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const TopDoctors = () => {
   const [tops, setTops] = useState<Idoctor[]>([]);
 
@@ -13,7 +17,7 @@ const TopDoctors = () => {
   }, []);
 
   return (
-    <div>
+    <RootStyle>
       <p className="text-center fw-bold mt-5" style={{ color: "#00acb1" }}>
         Meet Our Team
       </p>
@@ -26,7 +30,7 @@ const TopDoctors = () => {
           <TopSingle key={top._id} top={top}></TopSingle>
         ))}
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

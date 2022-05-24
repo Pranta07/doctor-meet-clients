@@ -1,5 +1,4 @@
 // theme
-
 import palette from "../theme/palette";
 
 // ----------------------------------------------------------------------
@@ -8,12 +7,7 @@ export const colorPresets = [
   // DEFAULT
   {
     name: "default",
-    lighter: "#D1E9FC",
-    light: "#76B0F1",
-    main: "#2065D1",
-    dark: "#103996",
-    darker: "#061B64",
-    contrastText: "#fff",
+    ...palette.light.primary,
   },
   // PURPLE
   {
@@ -74,7 +68,8 @@ export const bluePreset = colorPresets[3];
 export const orangePreset = colorPresets[4];
 export const redPreset = colorPresets[5];
 
-export default function getColorPresets(presetsKey){
+export default function getColorPresets(presetsKey) {
+  //@ts-ignore
   return {
     purple: purplePreset,
     cyan: cyanPreset,

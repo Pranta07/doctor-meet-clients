@@ -1,5 +1,11 @@
 import React from 'react';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }) => ({
+
+  backgroundColor: theme.palette.background.default,
+}));
 
 class AppointmentNotifications extends React.Component {
      
@@ -28,7 +34,8 @@ class AppointmentNotifications extends React.Component {
 
   render() {
     return (
-      <div>
+      
+      <RootStyle>
         <button className='btn btn-info'
           onClick={this.createNotification('info')}>Info
         </button>
@@ -46,7 +53,8 @@ class AppointmentNotifications extends React.Component {
         </button>
 
         <NotificationContainer/>
-      </div>
+      </RootStyle>
+      
     );
   }
 }

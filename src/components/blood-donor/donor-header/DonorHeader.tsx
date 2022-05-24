@@ -4,7 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import vector1 from "../../../assets/blood-donation/vector1.jpg";
 import DonorChart from "../donor-chart/DonorChart";
 import JoinUsForm from "../join-us/JoinUsForm";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 const DonorHeader = () => {
   const [show, setShow] = useState(false);
 

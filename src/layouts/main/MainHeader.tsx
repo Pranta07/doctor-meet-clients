@@ -43,7 +43,7 @@ function HideOnScroll(props: any) {
     </Slide>
   );
 }
-const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
+const ToolbarStyle = styled(Toolbar)(({ theme }: any) => ({
   height: HEADER.MOBILE_HEIGHT,
   transition: theme.transitions.create(["height", "background-color"], {
     easing: theme.transitions.easing.easeInOut,
@@ -70,7 +70,7 @@ const ToolbarShadowStyle = styled("div")(({ theme }: any) => ({
 // ----------------------------------------------------------------------
 
 export default function MainHeader(props: any) {
-  const { user }:any = useAppSelector((state) => state.user);
+  const { user }: any = useAppSelector((state) => state.user);
   const isOffset = useOffSetTop(HEADER.MAIN_DESKTOP_HEIGHT);
 
   const theme = useTheme();

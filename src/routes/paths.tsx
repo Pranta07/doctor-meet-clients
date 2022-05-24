@@ -26,7 +26,7 @@ export const PATH_PAGE = {
   payment: "/payment",
   about: "/about-us",
   contact: "/contact-us",
-  doctors: "/doctors",
+  faqs: "/faqs",
   page404: "/404",
   page500: "/500",
   components: "/components",

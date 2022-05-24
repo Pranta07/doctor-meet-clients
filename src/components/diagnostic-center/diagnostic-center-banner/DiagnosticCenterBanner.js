@@ -1,13 +1,15 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import "./DiagnosticCenterBanner.css";
 
-const RootStyle = styled("div")(() => ({
+
+const RootStyle = styled("div")(({ theme }) => ({
   flexGrow: 1,
   height: "100%",
   overflow: "hidden",
-}));
+  backgroundColor: theme.palette.background.default,
+}))
 
 const DiagnosticCenterBanner = () => {
   return (

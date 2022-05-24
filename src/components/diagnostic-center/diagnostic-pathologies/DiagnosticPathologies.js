@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import DiagnosticPathology from "../diagnostic-pathology/DiagnosticPathology";
 import { Icon } from "@iconify/react";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+
+  backgroundColor: theme.palette.background.default,
+}))
 const DiagnosticPathologies = () => {
   const [pathologies, setPathologies] = useState([]);
   useEffect(() => {
@@ -11,7 +16,7 @@ const DiagnosticPathologies = () => {
       .then((data) => setPathologies(data));
   }, []);
   return (
-    <div>
+    <RootStyle>
       <div className="mb-3 mt-5">
         <h3 className="services-title">Pathology</h3>
         <hr className="services-hr" />
@@ -33,7 +38,7 @@ const DiagnosticPathologies = () => {
           </div>
         </Col>
       </Row>
-    </div>
+    </RootStyle>
   );
 };
 

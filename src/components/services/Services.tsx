@@ -9,11 +9,10 @@ import reports from "../../assets/services/reports.png";
 import search from "../../assets/services/search.png";
 import Service from "./Service";
 import "./Services.css";
-import { MotionViewport, varFade } from "../animate";
 import { alpha, useTheme, styled } from "@mui/material/styles";
 import { Box, Container } from "@mui/material";
 import { m } from "framer-motion";
-//
+
 interface service_if {
   id: number;
   img: string;
@@ -86,19 +85,22 @@ const services: service_if[] = [
     route: "",
   },
 ];
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   paddingTop: theme.spacing(15),
   [theme.breakpoints.up("md")]: {
     paddingBottom: theme.spacing(15),
   },
+
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
 }));
 
 const Services = () => {
   return (
     <RootStyle>
-      <Box component={MotionViewport} className="services-section">
+      <Box className="services-section">
         <Container className="my-4 text-center service-dot">
-          <m.div variants={varFade().inUp}>
+          <m.div>
             <p
               className="text-center fw-bold mt-5"
               style={{ color: "#00acb1" }}
@@ -107,7 +109,7 @@ const Services = () => {
             </p>
           </m.div>
 
-          <m.div variants={varFade().inDown}>
+          <m.div>
             <h1 className="fw-bold" style={{ color: "#005963" }}>
               Our Services
             </h1>
@@ -115,7 +117,7 @@ const Services = () => {
           <hr className="hr-w mx-auto" />
           <p className="text-secondary w-75 mx-auto pt-2 pb-4">
             <small>
-              We provide to you the best choiches for you. Adjust it to your
+              We provide to you the best choices for you. Adjust it to your
               health needs and make sure your undergo treatment with our highly
               qualified doctors you can consult with us which type of service is
               suitable for your health.

@@ -11,14 +11,14 @@ import TopDoctors from "../../components/top-rated-doctors/TopDoctors";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   height: "100%",
   backgroundColor: theme.palette.background.default,
   paddingTop: theme.spacing(15),
   paddingBottom: theme.spacing(10),
 }));
 
-const ContentStyle = styled("div")(({ theme }) => ({
+const ContentStyle = styled("div")(({ theme }: any) => ({
   overflow: "hidden",
   position: "relative",
   backgroundColor: theme.palette.background.default,

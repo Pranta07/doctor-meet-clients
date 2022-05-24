@@ -5,7 +5,12 @@ import { Link } from "react-router-dom";
 import { useAppSelector } from "../../../redux/store";
 import "./PharmacyCart.css";
 import PharmacyCartSingle from "./PharmacyCartSingle";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacyCart = () => {
   let cartTotal = 1;
   const handleChildCartData = (cartData: any) => {

@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import Article from "./Article";
 import "./articles.css";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 
 export interface IArticle {
   _id: number;
@@ -60,27 +65,25 @@ const Articles = () => {
   }, []);
 
   return (
-    <>
-      <div className="dot-b-section">
-        <div className="artical-section">
-          <p className="text-center fw-bold mt-5" style={{ color: "#00acb1" }}>
-            Latest News
-          </p>
-          <h1 className="text-center fw-bold" style={{ color: "#005963" }}>
-            Our Insights & Articles
-          </h1>
-          <hr className="hr-w mx-auto" />
+    <RootStyle className="dot-b-section">
+      <div className="artical-section">
+        <p className="text-center fw-bold mt-5" style={{ color: "#00acb1" }}>
+          Latest News
+        </p>
+        <h1 className="text-center fw-bold" style={{ color: "#005963" }}>
+          Our Insights & Articles
+        </h1>
+        <hr className="hr-w mx-auto" />
 
-          <div className="container my-5 dot-section p-3">
-            <Slider {...settings}>
-              {articles.map((article) => (
-                <Article key={article._id} article={article}></Article>
-              ))}
-            </Slider>
-          </div>
+        <div className="container my-5 dot-section p-3">
+          <Slider {...settings}>
+            {articles.map((article) => (
+              <Article key={article._id} article={article}></Article>
+            ))}
+          </Slider>
         </div>
       </div>
-    </>
+    </RootStyle>
   );
 };
 

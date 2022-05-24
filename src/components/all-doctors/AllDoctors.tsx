@@ -9,7 +9,7 @@ import SingleDoctor from "../single-doctor/SingleDoctor";
 import Page from "../Page";
 import { styled } from "@mui/material/styles";
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   minHeight: "100%",
   paddingTop: theme.spacing(15),
   paddingBottom: theme.spacing(10),

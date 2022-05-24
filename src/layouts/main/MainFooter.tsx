@@ -23,7 +23,6 @@ const LINKS = [
     children: [
       { name: "About us", href: PATH_PAGE.about },
       { name: "Contact us", href: PATH_PAGE.contact },
-      { name: "FAQs", href: PATH_PAGE.doctors },
     ],
   },
   {
@@ -42,7 +41,7 @@ const LINKS = [
   },
 ];
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   position: "relative",
   backgroundColor: theme.palette.background.default,
 }));

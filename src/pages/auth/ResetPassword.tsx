@@ -12,7 +12,7 @@ import Page from "../../components/Page";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   display: "flex",
   minHeight: "100%",
   alignItems: "center",

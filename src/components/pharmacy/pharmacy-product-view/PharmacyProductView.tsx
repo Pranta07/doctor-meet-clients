@@ -9,7 +9,11 @@ import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProductDetails } from "../../../redux/actions/productAction";
 import { Rating } from "@mui/material";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacyProductView = () => {
   const dispatch = useAppDispatch();
   const { user }: any = useAppSelector((state) => state.user);
@@ -127,7 +131,7 @@ const PharmacyProductView = () => {
   };
 
   return (
-    <div className="main-wrapper">
+    <RootStyle className="main-wrapper">
       <div className="container">
         <div className="product-div">
           <div className="product-div-left">
@@ -342,7 +346,7 @@ const PharmacyProductView = () => {
           </div>
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

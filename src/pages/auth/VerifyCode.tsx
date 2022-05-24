@@ -14,7 +14,7 @@ import Iconify from "../../components/Iconify";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   display: "flex",
   height: "100%",
   alignItems: "center",

@@ -5,7 +5,11 @@ import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
 import { useAppDispatch } from "../../../redux/store";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 
 const style = {
   position: "absolute" as "absolute",
@@ -23,9 +27,7 @@ const PharmacyBestProduct = (props: any) => {
   let { name, img1, img2, img3, rating, img4, price, inStock, _id } =
     props.product;
 
-  useEffect(() => {
-
-  }, [_id]);
+  useEffect(() => {}, [_id]);
 
   let handleOnClickPlus = () => {
     let total = count + 1;
@@ -49,7 +51,7 @@ const PharmacyBestProduct = (props: any) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <div className="col-lg-2 col-md-3 col-sm-6 p-0">
+    <RootStyle className="col-lg-2 col-md-3 col-sm-6 p-0">
       <div className="product p-4">
         <div className="product-img">
           <img className="img-fluid" src={img1} alt="front product" />
@@ -201,7 +203,7 @@ const PharmacyBestProduct = (props: any) => {
           </Box>
         </Modal>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

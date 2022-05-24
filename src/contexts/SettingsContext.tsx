@@ -6,7 +6,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import getColorPresets, {
   colorPresets,
   defaultPreset,
-} from "../utils/getColorPresets.js";
+} from "../utils/getColorPresets";
 // config
 import { defaultSettings } from "../config";
 

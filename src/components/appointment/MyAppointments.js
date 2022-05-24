@@ -4,7 +4,12 @@ import MyAppointment from "./MyAppointment";
 import Page from "../Page";
 import { useAppSelector } from "../../redux/store";
 
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+
+  backgroundColor: theme.palette.background.default,
+}));
 const MyAppointments = () => {
 
     const { user } = useAppSelector((state) => state.user);
@@ -23,7 +28,7 @@ const MyAppointments = () => {
     return (
         <Page title="All Appointments">
 {/* <AppointmentNotifications></AppointmentNotifications> */}
-        <div>
+        <RootStyle>
            
             
             <Table className="appointment-table w-100" >
@@ -48,7 +53,7 @@ const MyAppointments = () => {
                     ))}
                 </tbody>
             </Table>
-        </div>
+        </RootStyle>
         </Page>
     );
 };

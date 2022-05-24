@@ -3,7 +3,11 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppDispatch } from "../../../redux/store";
 import { removeItemsFromCart } from "../../../redux/actions/cartAction";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacyCartSingle = (props: {
   item: any;
   key: any;
@@ -13,8 +17,8 @@ const PharmacyCartSingle = (props: {
   let [count, setCount] = useState(1);
   let [totalCart, setTotalCart] = useState(1);
   const dispatch = useAppDispatch();
-  console.log(props.item)
-  useEffect(() => { }, [props.item])
+  console.log(props.item);
+  useEffect(() => {}, [props.item]);
 
   let handleOnClickPlus = () => {
     let total = count + 1;
@@ -34,7 +38,7 @@ const PharmacyCartSingle = (props: {
   props.handleChildCartData(count);
 
   return (
-    <div className="col-lg-8">
+    <RootStyle className="col-lg-8">
       <div className=" p-3">
         <div className="d-flex justify-content-between p-4 ">
           <div className="d-flex ">
@@ -70,7 +74,9 @@ const PharmacyCartSingle = (props: {
                 +{" "}
               </button>{" "}
               <button
-                onClick={() => dispatch(removeItemsFromCart(props.item.productId))}
+                onClick={() =>
+                  dispatch(removeItemsFromCart(props.item.productId))
+                }
                 className="btn fw-bold text-danger px-4"
               >
                 {" "}
@@ -80,7 +86,7 @@ const PharmacyCartSingle = (props: {
           </div>
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

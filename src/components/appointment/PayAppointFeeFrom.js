@@ -1,34 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
-import useTime from "../../hooks/useTime";
-import usePremiumMembershipStatus from "../../hooks/usePremiumMembersipStatus";
-import './style/style.css';
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 const PayAppointmentFeeFrom = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
-    const {date}=useTime();
+    const [paymentMethod,setPaymentMethod]=useState({});
     const [error,setError]=useState("");
-    const [price,setPrice]=useState(0);
 const navigate=useNavigate();
-const {premiumMemberDetails,premiumMembershipStatus}=usePremiumMembershipStatus();
-
-useEffect(()=>{
-    
-    const fetchData=async()=>{
-
-        await setPrice(parseFloat(appointment?.doctorInfo.visit).toFixed(2));
-       
-       if(premiumMembershipStatus){
-        const membershipDiscountPercentage=await premiumMemberDetails?.categoryDetails.appointmentDiscount;
-         setPrice(price-(price*parseFloat(membershipDiscountPercentage/100)).toFixed(2));
-       }
-    }
-    fetchData().catch(console.error);
-    
-},[premiumMembershipStatus,premiumMemberDetails,appointment,price])
-
-
     const handleSubmit = async (event) => {
         // Block native form submission.
         event.preventDefault();
@@ -52,19 +36,14 @@ useEffect(()=>{
             type: "card",
             card,
         });
-        const invoice={
-            invoiceName:"Appointment Fee",
-            category:{...appointment},
-            paymentMethod,
-            amount:price,
-            purchasedDate:date
-          }
+
         if (error) {
-           
+            console.log("[error]", error);
             setError(error.message);
         } else {
             
-            
+            setPaymentMethod(paymentMethod);
+            if (paymentMethod.id) {
                 fetch(
                     `https://floating-basin-02241.herokuapp.com/allAppointments/${appointment._id}`,
                     {
@@ -74,54 +53,39 @@ useEffect(()=>{
                     .then((res) =>res.json())
                     .then((data) =>{
                         if(data.acknowledged){
-                            if(data.acknowledged){
-                                fetch(`https://floating-basin-02241.herokuapp.com/allInvoices`, {
-                                  method: "POST",
-                                  headers: {
-                                      "content-type": "application/json"
-                                  },
-                                  body: JSON.stringify(invoice)
-                              })
-                                  .then(res=>res.json())
-                                  .then(data=>{
-                                    
-                                    if(data.insertedId){
-                                        alert("Payment is successful");
-                                         navigate("/dashboard/user/my-appointments")
-                                    }
-                                  })
-                              }
-                            
+                            alert("Payment is successful");
+                            navigate("/dashboard/user/my-appointments")
                         }
                     });
-            
+            }
         }
     };
     return (
+        <RootStyle>
         <form onSubmit={handleSubmit} className="mt-5">
             <CardElement
                 options={{
                     style: {
                         base: {
                             fontSize: "16px",
-                            color: "white",
+                            color: "#424770",
                             "::placeholder": {
                                 color: "#aab7c4",
                             },
                         },
                         invalid: {
-                            color: "#c8d6e5",
+                            color: "#9e2146",
                         },
                     },
                 }}
             />
-            {error&&<p className="my-3">{error}</p>}
             <button
-                 type="submit" className="btn-diagnosis-pay" disabled={!stripe}
+                 type="submit" className="btn-diagnosis-pay my-5" disabled={!stripe}
             >
                 Pay
             </button>
         </form>
+        </RootStyle>
     );
 };
 

@@ -14,10 +14,14 @@ import pro_4 from "../../../assets/pharmacy/capsules.png";
 import pro_5 from "../../../assets/pharmacy/prescription.png";
 import pro_6 from "../../../assets/pharmacy/drops.png";
 import { Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacyBanner = () => {
   return (
-    <div className="container">
+    <RootStyle className="container">
       <div className="row">
         <div className="col-lg-8 col-md-7 ">
           <div className="back-img-1">
@@ -140,7 +144,7 @@ const PharmacyBanner = () => {
           </h6>
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 
