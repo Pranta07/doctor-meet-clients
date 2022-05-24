@@ -8,7 +8,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import LastSingle from "./LastSingle";
+import { useAppSelector } from "../../redux/store";
+import DoctorAppointment from "./DoctorAppointment";
+import "../all-appointments/Appointments.css";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -20,33 +22,27 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const LastAppointments = () => {
+const DoctorAppointments = () => {
     const [appointments, setAppointments] = useState<any>([]);
     const [update, setUpdate] = useState(false);
-    // const { user }: any = useAppSelector((state) => state.user);
+    const { user }: any = useAppSelector((state) => state.user);
 
     useEffect(() => {
         // setLoading(true);
-        const url = `http://localhost:5000/api/v1/appointment`;
+        const url = `http://localhost:5000/api/v1/appointments-doctor/${user?.email}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
                 setAppointments(data.result);
             });
         // .finally(() => setLoading(false));
-    }, [update]);
+    }, [update, user?.email]);
 
     return (
         <Container>
-            <h3
-                style={{
-                    marginBottom: "30px",
-                    color: "gray",
-                    textAlign: "center",
-                }}
-            >
-                Last Appointments
-            </h3>
+            <h5 style={{ marginBottom: "30px", color: "gray" }}>
+                My Appointments
+            </h5>
             <div className="appointment-card-shadow">
                 <div>
                     <h6
@@ -81,15 +77,21 @@ const LastAppointments = () => {
                                     <StyledTableCell align="center">
                                         Time
                                     </StyledTableCell>
+                                    <StyledTableCell align="center">
+                                        Payment Status
+                                    </StyledTableCell>
+                                    <StyledTableCell align="center">
+                                        Meet
+                                    </StyledTableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {appointments.map((appointment: any) => (
-                                    <LastSingle
+                                    <DoctorAppointment
                                         key={appointment._id}
                                         appointment={appointment}
                                         setUpdate={setUpdate}
-                                    ></LastSingle>
+                                    ></DoctorAppointment>
                                 ))}
                             </TableBody>
                         </Table>
@@ -100,4 +102,4 @@ const LastAppointments = () => {
     );
 };
 
-export default LastAppointments;
+export default DoctorAppointments;

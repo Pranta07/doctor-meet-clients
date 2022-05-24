@@ -9,24 +9,12 @@ import {
     Alert,
 } from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import PostAddIcon from "@mui/icons-material/PostAdd";
-import { styled } from "@mui/material/styles";
 import TableRow from "@mui/material/TableRow";
-import { IReport } from "../../all-reports/AllReports";
-import StatusModal from "./StatusModal";
-
-const style = {
-    position: "absolute" as "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    backgroundColor: "background.paper",
-    border: "1px solid white",
-    borderRadius: "10px",
-    boxShadow: 24,
-    p: 4,
-};
+import VideocamOutlinedIcon from "@mui/icons-material/VideocamOutlined";
+import PostAddIcon from "@mui/icons-material/PostAdd";
+import { NavLink } from "react-router-dom";
+import { styled } from "@mui/material/styles";
+import Swal from "sweetalert2";
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     "&:nth-of-type(odd)": {
@@ -48,37 +36,54 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const SinglePatientReport = (props: { report: IReport }) => {
-    const { report } = props;
-    // const [date, setDate] = useState("dd/mm/yy");
-    let dateDecode = new Date(report.createdAt);
-    let dates =
-        dateDecode.getDate() +
-        "/" +
-        dateDecode.getMonth() +
-        "/" +
-        dateDecode.getFullYear();
+const formatAMPM = (date: any) => {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes.toString().padStart(2, "0");
+    let strTime = hours + ":" + minutes + " " + ampm;
+    return strTime;
+};
+
+const style = {
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    backgroundColor: "background.paper",
+    border: "1px solid white",
+    borderRadius: "10px",
+    boxShadow: 24,
+    p: 4,
+};
+
+const DoctorAppointment = (props: any) => {
+    const { appointment } = props;
+
+    const time = formatAMPM(new Date(appointment?.appointmentTime));
 
     const [modalOpen, setmOpen] = React.useState(false);
     const handleOpen = () => setmOpen(true);
     const handleClose = () => setmOpen(false);
 
-    const [smOpen, setsmOpen] = React.useState(false);
-    const handlesOpen = () => setsmOpen(true);
-    const handlesClose = () => setsmOpen(false);
-
     return (
-        <StyledTableRow key={report._id}>
-            <StyledTableCell align="left">{report?.drName}</StyledTableCell>
-            <StyledTableCell align="left">
-                {report?.patientName}
-            </StyledTableCell>
-            <StyledTableCell align="center">{dates}</StyledTableCell>
+        <StyledTableRow>
             <StyledTableCell align="center">
-                <Tooltip title="See Review" placement="left-start">
+                {appointment?.doctorInfo?.name}
+            </StyledTableCell>
+            <StyledTableCell align="center">
+                {appointment?.patientName}
+            </StyledTableCell>
+            <StyledTableCell align="center">
+                <Tooltip title="View!" placement="left-start">
                     <IconButton
                         onClick={handleOpen}
-                        color={report?.review ? "success" : "inherit"}
+                        color={
+                            appointment?.healthIssues ? "primary" : "secondary"
+                        }
                     >
                         <PostAddIcon></PostAddIcon>
                     </IconButton>
@@ -98,20 +103,17 @@ const SinglePatientReport = (props: { report: IReport }) => {
                                 textAlign: "center",
                             }}
                         >
-                            Report Review
+                            Patient Health Condition
                         </Typography>
                         <Typography sx={{ mt: 2 }}>
                             <small>
-                                {report.review ? (
-                                    <div
-                                        className="text-center"
-                                        dangerouslySetInnerHTML={{
-                                            __html: report.review,
-                                        }}
-                                    ></div>
+                                {appointment?.healthIssues ? (
+                                    <div className="text-center">
+                                        {appointment?.healthIssues}
+                                    </div>
                                 ) : (
                                     <Alert severity="info">
-                                        Not review yet.
+                                        Not added yet.
                                     </Alert>
                                 )}
                             </small>
@@ -123,22 +125,27 @@ const SinglePatientReport = (props: { report: IReport }) => {
                 </Modal>
             </StyledTableCell>
             <StyledTableCell align="center">
-                <Button variant="text" color="info" onClick={handlesOpen}>
-                    Track
-                </Button>
-                <StatusModal
-                    report={report}
-                    smOpen={smOpen}
-                    handlesClose={handlesClose}
-                ></StatusModal>
+                {appointment?.appointmentDate?.split("T")[0]}
             </StyledTableCell>
-            <StyledTableCell align="right">
-                <a href={report?.file} rel="noreferrer" target="_blank">
-                    <Button variant="text">Download</Button>
-                </a>
+            <StyledTableCell align="center">{time}</StyledTableCell>
+            <StyledTableCell align="center">
+                {appointment?.payment ? (
+                    <Button>Paid</Button>
+                ) : (
+                    <Button color="warning">Unpaid</Button>
+                )}
+            </StyledTableCell>
+            <StyledTableCell align="center">
+                <Tooltip title="Meet Now!" placement="left-start">
+                    <NavLink to="/virtual-meet">
+                        <IconButton color="primary">
+                            <VideocamOutlinedIcon />
+                        </IconButton>
+                    </NavLink>
+                </Tooltip>
             </StyledTableCell>
         </StyledTableRow>
     );
 };
 
-export default SinglePatientReport;
+export default DoctorAppointment;

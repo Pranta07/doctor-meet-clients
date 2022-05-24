@@ -7,8 +7,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { useAppSelector } from "../../../redux/store";
+import { IReport } from "../../all-reports/AllReports";
+import SinglePatientReport from "./SinglePatientReport";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import LastSingle from "./LastSingle";
+import "./ReportStatus.css";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -20,35 +23,28 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const LastAppointments = () => {
-    const [appointments, setAppointments] = useState<any>([]);
-    const [update, setUpdate] = useState(false);
-    // const { user }: any = useAppSelector((state) => state.user);
+const AllReportStatus = () => {
+    const [reports, setReports] = useState<IReport[]>([]);
+    const { user }: any = useAppSelector((state) => state.user);
 
     useEffect(() => {
         // setLoading(true);
-        const url = `http://localhost:5000/api/v1/appointment`;
+        const url = `http://localhost:5000/api/v1/report`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
-                setAppointments(data.result);
+                setReports(data.result);
             });
         // .finally(() => setLoading(false));
-    }, [update]);
+    }, [user?.email]);
 
     return (
         <Container>
-            <h3
-                style={{
-                    marginBottom: "30px",
-                    color: "gray",
-                    textAlign: "center",
-                }}
-            >
-                Last Appointments
-            </h3>
-            <div className="appointment-card-shadow">
-                <div>
+            <h5 style={{ marginBottom: "30px", color: "gray" }}>
+                Reports Status Tracking
+            </h5>
+            <div className="report-card-shadow">
+                <div className="">
                     <h6
                         style={{
                             fontWeight: "500",
@@ -56,7 +52,7 @@ const LastAppointments = () => {
                             marginTop: "40px",
                         }}
                     >
-                        Appointments
+                        Reports
                     </h6>
                     <hr />
                     <TableContainer component={Paper}>
@@ -66,30 +62,32 @@ const LastAppointments = () => {
                         >
                             <TableHead>
                                 <TableRow>
-                                    <StyledTableCell align="center">
+                                    <StyledTableCell align="left">
                                         Doctor Name
                                     </StyledTableCell>
-                                    <StyledTableCell align="center">
+                                    <StyledTableCell align="left">
                                         Patient Name
-                                    </StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        Health Condition
                                     </StyledTableCell>
                                     <StyledTableCell align="center">
                                         Date
                                     </StyledTableCell>
                                     <StyledTableCell align="center">
-                                        Time
+                                        Comments
+                                    </StyledTableCell>
+                                    <StyledTableCell align="center">
+                                        Status
+                                    </StyledTableCell>
+                                    <StyledTableCell align="right">
+                                        Download
                                     </StyledTableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {appointments.map((appointment: any) => (
-                                    <LastSingle
-                                        key={appointment._id}
-                                        appointment={appointment}
-                                        setUpdate={setUpdate}
-                                    ></LastSingle>
+                                {reports.map((report) => (
+                                    <SinglePatientReport
+                                        key={report._id}
+                                        report={report}
+                                    ></SinglePatientReport>
                                 ))}
                             </TableBody>
                         </Table>
@@ -100,4 +98,4 @@ const LastAppointments = () => {
     );
 };
 
-export default LastAppointments;
+export default AllReportStatus;
