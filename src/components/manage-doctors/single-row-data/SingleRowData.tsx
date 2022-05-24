@@ -38,7 +38,7 @@ const SingleRowData = (props: {
         handleShow();
     };
 
-    const handleDelete = (email: string) => {
+    const handleDelete = (id: string) => {
         // console.log(id);
         setIsUpdate(false);
         Swal.fire({
@@ -51,7 +51,7 @@ const SingleRowData = (props: {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/v1/doctors/${email}`, {
+                fetch(`http://localhost:5000/api/v1/doctors/${id}`, {
                     method: "DELETE",
                 }).then((res) => {
                     if (res.status === 200) {
@@ -67,12 +67,12 @@ const SingleRowData = (props: {
         });
     };
 
-    const handleApproval = () => {
+    const handleApproval = (email: string) => {
         const newDoctor = doctor;
         newDoctor.approved = true;
         // console.log(newDoctor);
         setIsUpdate(false);
-        const url = `http://localhost:5000/api/v1/doctors/${doctor?.email}`;
+        const url = `http://localhost:5000/api/v1/doctors-approval/${email}`;
         fetch(url, {
             method: "PUT",
             headers: {
@@ -134,7 +134,10 @@ const SingleRowData = (props: {
                         <Button color="success">Approved</Button>
                     ) : (
                         <Tooltip title="Approved" placement="left-start">
-                            <Button color="error" onClick={handleApproval}>
+                            <Button
+                                color="error"
+                                onClick={() => handleApproval(doctor?.email)}
+                            >
                                 Pending
                             </Button>
                         </Tooltip>

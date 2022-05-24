@@ -1,35 +1,63 @@
 import React from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
 import {
     FormControl,
     InputLabel,
     MenuItem,
-    Select,
     TextField,
     Button,
 } from "@mui/material";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Box from "@mui/material/Box";
 import { useAppSelector } from "../../redux/store";
 
-interface IFormInputs {
-    name: string;
-    email: string;
-    phone: string;
-    specialist: string;
-    gender: string;
-    img: string;
-    experience: number;
-}
-
 const AddDoctor = () => {
     const { user }: any = useAppSelector((state) => state.user);
-    const { register, handleSubmit } = useForm<IFormInputs>();
 
-    const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-        // send data to server
+    const [spec, setSpec] = React.useState("");
+    const [gen, setGen] = React.useState("");
+    const [exp, setExp] = React.useState("0");
+
+    const handleSpec = (event: SelectChangeEvent) => {
+        setSpec(event.target.value as string);
+    };
+    const handleGen = (event: SelectChangeEvent) => {
+        setGen(event.target.value as string);
+    };
+    const handleExp = (event: SelectChangeEvent) => {
+        setExp(event.target.value as string);
+    };
+
+    const handleSubmit = (e: React.SyntheticEvent) => {
+        e.preventDefault();
+        const target = e.target as typeof e.target & {
+            name: { value: string };
+            email: { value: string };
+            phone: { value: string };
+            specialist: { value: string };
+            gender: { value: string };
+            img: { value: string };
+            experience: { value: string };
+        };
+        const name = target.name?.value;
+        const email = target.email?.value;
+        const phone = target.phone?.value;
+        const specialist = target.specialist?.value;
+        const gender = target.gender?.value;
+        const img = target.img?.value;
+        const experience = parseFloat(target.experience?.value);
+        const data = {
+            name,
+            email,
+            phone,
+            specialist,
+            gender,
+            img,
+            experience,
+        };
+        // console.log(data);
         const url = `http://localhost:5000/api/v1/doctors/add`;
         fetch(url, {
             method: "POST",
@@ -74,16 +102,14 @@ const AddDoctor = () => {
                         "
                 >
                     <div id="doctor-reg-box" className="p-5">
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit}>
                             <div className="row gx-3 gy-4 mb-4">
                                 <div className="col-12 col-lg-6">
                                     <TextField
                                         fullWidth
                                         required
                                         label="Name"
-                                        {...register("name", {
-                                            required: true,
-                                        })}
+                                        name="name"
                                         defaultValue={user?.name || ""}
                                         disabled
                                     />
@@ -94,9 +120,7 @@ const AddDoctor = () => {
                                         fullWidth
                                         required
                                         label="Email"
-                                        {...register("email", {
-                                            required: true,
-                                        })}
+                                        name="email"
                                         defaultValue={user?.email || ""}
                                         disabled
                                     />
@@ -109,23 +133,23 @@ const AddDoctor = () => {
                                         fullWidth
                                         required
                                         label="Phone"
-                                        {...register("phone", {
-                                            required: true,
-                                        })}
+                                        name="phone"
                                     />
                                 </div>
 
                                 <div className="col-12 col-lg-6">
-                                    <FormControl fullWidth required>
+                                    <FormControl fullWidth>
                                         <InputLabel id="dept">
                                             Department
                                         </InputLabel>
                                         <Select
+                                            value={spec}
+                                            required
                                             labelId="dept"
                                             label="Department"
-                                            {...register("specialist", {
-                                                required: true,
-                                            })}
+                                            name="specialist"
+                                            defaultValue=""
+                                            onChange={handleSpec}
                                         >
                                             <MenuItem value="Orthopedics">
                                                 Orthopedics
@@ -156,14 +180,17 @@ const AddDoctor = () => {
 
                             <div className="row gx-3 gy-4 mb-4">
                                 <div className="col-12 col-lg-6">
-                                    <FormControl fullWidth required>
+                                    <FormControl fullWidth>
                                         <InputLabel id="gender">
                                             Gender
                                         </InputLabel>
                                         <Select
+                                            value={gen}
+                                            required
                                             labelId="gender"
                                             label="Gender"
-                                            {...register("gender")}
+                                            name="gender"
+                                            onChange={handleGen}
                                         >
                                             <MenuItem value="Male">
                                                 Male
@@ -183,11 +210,11 @@ const AddDoctor = () => {
                                             Experience
                                         </InputLabel>
                                         <Select
+                                            value={exp}
                                             labelId="exp"
                                             label="Experience"
-                                            {...register("experience", {
-                                                required: true,
-                                            })}
+                                            name="experience"
+                                            onChange={handleExp}
                                         >
                                             <MenuItem value={0}>0</MenuItem>
                                             <MenuItem value={0.5}>0.5</MenuItem>
@@ -209,9 +236,7 @@ const AddDoctor = () => {
                                 fullWidth
                                 required
                                 label="Image URL"
-                                {...register("img", {
-                                    required: true,
-                                })}
+                                name="img"
                                 placeholder="Put Your Image URL Here..."
                             />
                             <Button
@@ -219,6 +244,7 @@ const AddDoctor = () => {
                                 color="info"
                                 className="fw-bold mt-4"
                                 type="submit"
+                                // onClick={handleClick}
                             >
                                 Join
                                 <FontAwesomeIcon icon={faArrowRight} />
