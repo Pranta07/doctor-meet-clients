@@ -26,6 +26,10 @@ import AddDoctor from "../components/add-doctor/AddDoctor";
 import PharmacyPay from "../components/pharmacy/PharmacyPay";
 import PrivateRoute from "./private-route/PrivateRoute";
 import DoctorsRoute from "./doctor-route/DoctorsRoute";
+import ModeratorRoute from "./modaretor-route/ModeratorRoute";
+import AdminRoute from "./admin-route/AdminRoute";
+import DoctorAppointment from "../components/all-appointments-doctor/DoctorAppointment";
+import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
 
 // ----------------------------------------------------------------------
 
@@ -158,7 +162,14 @@ export default function Router() {
           element: <Navigate to="/dashboard/home" replace />,
           index: true,
         },
-        { path: "home", element: <DashboardHome /> },
+        {
+          path: "home",
+          element: (
+            <PrivateRoute>
+              <DashboardHome />
+            </PrivateRoute>
+          ),
+        },
 
         // user
         {
@@ -171,31 +182,59 @@ export default function Router() {
             { path: "doctors", element: <AllDoctors /> },
             {
               path: "favorite-doctors",
-              element: <FavoriteDoctors />,
+              element: (
+                <PrivateRoute>
+                  <FavoriteDoctors />
+                </PrivateRoute>
+              ),
             },
             {
               path: "my-appointments",
-              element: <MyAppointments />,
+              element: (
+                <PrivateRoute>
+                  <MyAppointments />
+                </PrivateRoute>
+              ),
             },
             {
               path: "get-appointments",
-              element: <GetAppointmentForm />,
+              element: (
+                <PrivateRoute>
+                  <GetAppointmentForm />
+                </PrivateRoute>
+              ),
             },
             {
               path: "my-diagnosises",
-              element: <MyDiagnosises />,
+              element: (
+                <PrivateRoute>
+                  <MyDiagnosises />
+                </PrivateRoute>
+              ),
             },
             {
               path: "Report-status",
-              element: <ReportStatus />,
+              element: (
+                <PrivateRoute>
+                  <ReportStatus />
+                </PrivateRoute>
+              ),
             },
             {
               path: "report-pdf",
-              element: <ReportPdf />,
+              element: (
+                <PrivateRoute>
+                  <ReportPdf />
+                </PrivateRoute>
+              ),
             },
             {
               path: "add-review",
-              element: <UserReview />,
+              element: (
+                <PrivateRoute>
+                  <UserReview />
+                </PrivateRoute>
+              ),
             },
           ],
         },
@@ -241,6 +280,14 @@ export default function Router() {
               path: "my-schedule-doctor",
               element: (
                 <DoctorsRoute>
+                  <DoctorAppointments />
+                </DoctorsRoute>
+              ),
+            },
+            {
+              path: "my-schedule-doctor",
+              element: (
+                <DoctorsRoute>
                   <DoctorsSchedules />
                 </DoctorsRoute>
               ),
@@ -254,19 +301,43 @@ export default function Router() {
           children: [
             {
               path: "Report-section",
-              element:( <ReportSection />),
+              element: (
+                <ModeratorRoute>
+                  <ReportSection />
+                </ModeratorRoute>
+              ),
             },
             {
               path: "Report-status",
-              element: <ReportStatus />,
+              element: (
+                <ModeratorRoute>
+                  <ReportStatus />
+                </ModeratorRoute>
+              ),
             },
             {
               path: "report-pdf",
-              element: <ReportPdf />,
+              element: (
+                <ModeratorRoute>
+                  <ReportPdf />
+                </ModeratorRoute>
+              ),
             },
             {
               path: "all-diagnosis",
-              element: <AllDiagnosis />,
+              element: (
+                <ModeratorRoute>
+                  <AllDiagnosis />
+                </ModeratorRoute>
+              ),
+            },
+            {
+              path: "all-diagnosis",
+              element: (
+                <ModeratorRoute>
+                  <AllDiagnosis />
+                </ModeratorRoute>
+              ),
             },
           ],
         },
@@ -279,35 +350,85 @@ export default function Router() {
               element: <Navigate to="/dashboard/admin/doctors" replace />,
               index: true,
             },
-            { path: "manage-doctors", element: <ManageDoctors /> },
-            { path: "manage-donors", element: <ManageDonors /> },
+            {
+              path: "manage-doctors",
+              element: (
+                <AdminRoute>
+                  <ManageDoctors />
+                </AdminRoute>
+              ),
+            },
+            {
+              path: "manage-donors",
+              element: (
+                <AdminRoute>
+                  <ManageDonors />
+                </AdminRoute>
+              ),
+            },
             {
               path: "all-appointments",
-              element: <AllAppointments />,
+              element: (
+                <AdminRoute>
+                  <AllAppointments />
+                </AdminRoute>
+              ),
             },
             {
               path: "all-diagnosis",
-              element: <AllDiagnosis />,
+              element: (
+                <AdminRoute>
+                  <AllDiagnosis />
+                </AdminRoute>
+              ),
             },
             {
               path: "edit-doctors",
-              element: <ControlDoctors />,
+              element: (
+                <AdminRoute>
+                  <ControlDoctors />
+                </AdminRoute>
+              ),
             },
             {
               path: "edit-doctors/edit-single-doctor/:id",
-              element: <EditSingleDoctor />,
+              element: (
+                <AdminRoute>
+                  <EditSingleDoctor />
+                </AdminRoute>
+              ),
             },
             {
               path: "/dashboard/admin/notify",
-              element: <Notify />,
+              element: (
+                <AdminRoute>
+                  <Notify />
+                </AdminRoute>
+              ),
             },
             {
               path: "/dashboard/admin/makeModerador",
-              element: <MakeModaretor />,
+              element: (
+                <AdminRoute>
+                  <MakeModaretor />
+                </AdminRoute>
+              ),
             },
             {
               path: "all-invoices",
-              element: <AllInvoices />,
+              element: (
+                <AdminRoute>
+                  <AllInvoices />
+                </AdminRoute>
+              ),
+            },
+            {
+              path: "add-order",
+              element: (
+                <AdminRoute>
+                  <AddOrder />
+                </AdminRoute>
+              ),
             },
           ],
         },
@@ -334,31 +455,84 @@ export default function Router() {
       children: [
         { element: <HomePage />, index: true },
         { path: "about-us", element: <About /> },
-        { path: "doctors", element: <AllDoctors /> },
+        {
+          path: "doctors",
+          element: <AllDoctors />,
+        },
         { path: "contact-us", element: <ContactUs /> },
-        { path: "pharmacy", element: <PharmacyHome /> },
+        {
+          path: "pharmacy",
+          element: <PharmacyHome />,
+        },
         { path: "covid-portal", element: <CovidPortal /> },
         { path: "find-donors", element: <FindDonors /> },
         { path: "premium-membership", element: <PremiumMemberships /> },
-        { path: "virtual-meet", element: <VideoApp /> },
+        {
+          path: "virtual-meet",
+          element: (
+            <PrivateRoute>
+              <VideoApp />
+            </PrivateRoute>
+          ),
+        },
         { path: "login", element: <Login /> },
-        { path: "profile", element: <ProfileSection /> },
+        {
+          path: "profile",
+          element: (
+            <PrivateRoute>
+              <ProfileSection />
+            </PrivateRoute>
+          ),
+        },
         { path: "signUp", element: <Registration /> },
-        { path: "medicine/:id", element: <PharmacyProductView /> },
-        { path: "cart", element: <PharmacyCart /> },
+        {
+          path: "medicine/:id",
+          element: (
+            <PrivateRoute>
+              <PharmacyProductView />
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: "cart",
+          element: (
+            <PrivateRoute>
+              <PharmacyCart />
+            </PrivateRoute>
+          ),
+        },
         { path: "shop", element: <PharmacyAllProduct /> },
-        { path: "premium-payment/:id", element: <PremiumPayment /> },
+        {
+          path: "premium-payment/:id",
+          element: (
+            <PrivateRoute>
+              <PremiumPayment />
+            </PrivateRoute>
+          ),
+        },
         {
           path: "appointment-doctors",
-          element: <AppointmentDoctors />,
+          element: (
+            <PrivateRoute>
+              <AppointmentDoctors />
+            </PrivateRoute>
+          ),
         },
         {
           path: "get-appointment-form/:id",
-          element: <GetAppointmentForm />,
+          element: (
+            <PrivateRoute>
+              <GetAppointmentForm />
+            </PrivateRoute>
+          ),
         },
         {
           path: "pay-appointment-fee/:id",
-          element: <PayAppointmentFee />,
+          element: (
+            <PrivateRoute>
+              <PayAppointmentFee />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/diagnostic-center",
@@ -366,11 +540,19 @@ export default function Router() {
         },
         {
           path: "/diagnostic-appointment-form/:category/:id",
-          element: <DiagnosticAppointmentForm />,
+          element: (
+            <PrivateRoute>
+              <DiagnosticAppointmentForm />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/diagnostic-pay/:id",
-          element: <DiagnosisPay />,
+          element: (
+            <PrivateRoute>
+              <DiagnosisPay />
+            </PrivateRoute>
+          ),
         },
         {
           path: "article/:id",

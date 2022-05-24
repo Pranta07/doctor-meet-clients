@@ -39,13 +39,6 @@ const sidebarConfig = [
         icon: ICONS.user,
         children: [
           {
-            title: "Doctors",
-            path: "/dashboard/user/doctors",
-            icon: (
-              <Iconify icon={"fluent:more-circle-20-filled"} {...ICON_SIZE} />
-            ),
-          },
-          {
             title: "Favorite Doctors",
             path: "/dashboard/user/favorite-doctors",
             icon: ICONS.analytics,
@@ -108,7 +101,6 @@ const sidebarConfig = [
             path: "/dashboard/doctor/report-pdf",
             icon: ICONS.analytics,
           },
-
           {
             title: "Add Article",
             path: "/dashboard/doctor/add-article",
@@ -145,6 +137,11 @@ const sidebarConfig = [
           {
             title: "Reports Preview",
             path: "/dashboard/moderator/report-pdf",
+            icon: ICONS.analytics,
+          },
+          {
+            title: "Appointments",
+            path: "/dashboard/moderator/all-appointments",
             icon: ICONS.analytics,
           },
           {
