@@ -6,7 +6,6 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { Button } from "@mui/material";
 import Swal from "sweetalert2";
-import { useAppSelector } from "../../redux/store";
 
 const style = {
     position: "absolute" as "absolute",
@@ -17,15 +16,14 @@ const style = {
     backgroundColor: "background.paper",
     border: "1px solid white",
     borderRadius: "10px",
-    boxShadow: 24,
+    boxShadow: 10,
     p: 4,
 };
 
 const ReviewModal = (props: any) => {
-    const { user }: any = useAppSelector((state) => state.user);
     const { modalOpen, handleClose, report, setIsUpdate } = props;
 
-    const [text, setText] = React.useState("");
+    const [text, setText] = React.useState(report?.review || "");
     const handleChange = (value: any) => {
         setText(value);
     };
@@ -37,16 +35,13 @@ const ReviewModal = (props: any) => {
         newReport.status = true;
         // console.log(newReport);
         //send review data to server
-        fetch(
-            `http://localhost:5000/api/v1/reportReview/${id}/${user?.email}`,
-            {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(newReport),
-            }
-        ).then((res) => {
+        fetch(`http://localhost:5000/api/v1/report/${report?._id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(newReport),
+        }).then((res) => {
             if (res.status === 200) {
                 setIsUpdate(true);
                 Swal.fire({
