@@ -289,6 +289,10 @@ export default function Router() {
                             path: "/dashboard/admin/makeModerador",
                             element: <MakeModaretor />,
                         },
+                        {
+                            path: "/dashboard/admin/add-order",
+                            element: <AddOrder />,
+                        },
                     ],
                 },
             ],
@@ -322,7 +326,7 @@ export default function Router() {
                 { path: "premium-membership", element: <PremiumMemberships /> },
                 { path: "virtual-meet", element: <VideoApp /> },
                 { path: "login", element: <Login /> },
-                { path: "profile", element: <Profile /> },
+                { path: "profile", element: <ProfileSection /> },
                 { path: "signUp", element: <Registration /> },
                 { path: "medicine/:id", element: <PharmacyProductView /> },
                 { path: "cart", element: <PharmacyCart /> },
@@ -443,7 +447,7 @@ const NotFound = Loadable(
 const VideoChatRoute = Loadable(
     lazy(() => import("../pages/video-chat-client/VideoChatRoute"))
 );
-const Profile = Loadable(lazy(() => import("../pages/profile/Profile")));
+const ProfileSection = Loadable(lazy(() => import("../pages/profile/ProfileSection")));
 
 const Registration = Loadable(
     lazy(() => import("../pages/security/registration/Registration"))
@@ -491,6 +495,9 @@ const ReportStatus = Loadable(
 );
 const ViewArticale = Loadable(
     lazy(() => import("../components/articles/ViewArticle"))
+);
+const AddOrder = Loadable(
+    lazy(() => import("../components/addOrder/AddOrder"))
 );
 
 // DASHBOARD

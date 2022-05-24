@@ -198,6 +198,11 @@ const sidebarConfig = [
                         path: "/dashboard/admin/makeModerador",
                         icon: ICONS.analytics,
                     },
+                    {
+                        title: "Add Order",
+                        path: "/dashboard/admin/add-order",
+                        icon: ICONS.analytics,
+                    },
                 ],
             },
         ],
