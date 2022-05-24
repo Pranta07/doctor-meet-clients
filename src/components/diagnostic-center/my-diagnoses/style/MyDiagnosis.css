@@ -1,0 +1,30 @@
+a {
+  text-decoration: none;
+}
+
+         
+.btn-my-diagnosis-pay {
+  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA  51%, #1FA2FF  100%);
+  margin: 10px auto;
+  padding: 10px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  border:0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-my-diagnosis-pay:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.MuiTableCell-head {
+  box-shadow: none !important;
+}

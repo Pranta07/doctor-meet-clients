@@ -13,22 +13,60 @@ import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
 import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import PharmacyPriceSlide from "../pharmacy-price-slide/PharmacyPriceSlide";
 import { productsType } from "../pharmacy-products/PharmacyProducts";
 import PharmacyShop from "../pharmacy-shop/PharmacyShop";
 import "./PharmacyAllProduct.css";
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
+import { getProduct } from "../../../redux/actions/productAction";
 
 const PharmacyAllProduct = () => {
-  let [products, setProducts] = useState<productsType[]>([]);
+  let [upperPrice, setUpperPrice] = useState(0);
+  let [lowerPrice, setLowerPrice] = useState(0);
+  let price = [lowerPrice, upperPrice]
+  let keyword = '';
+  let currentPage = 1;
+  let category = "";
+
+
+  const dispatch = useAppDispatch();
+  const { products, productsCount }: any = useAppSelector((state) => state.products);
+  console.log(products);
+  // let [count, setCount] = useState(1);
+  // if (products.length) {
+  //   setCount(Math.ceil(productsCount / products?.length));
+
+  // }
+  let count = Math.ceil(productsCount / products?.length);
+
+
+  const [page, setPage] = useState(1);
+
+  // let inputRef = useRef("");
+  let [searchValue, setSearchValue] = useState('');
+
+
+  //@ts-ignore
+  const handleOnChange = (e) => {
+    setSearchValue(e.target.value);
+
+  }
+
+  //@ts-ignore
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    console.log("clicked");
+    //@ts-ignore
+    let filteredProducts = products?.filter((product): any => product.name.toLowerCase() === searchValue.toLowerCase());
+    console.log(filteredProducts)
+  }
 
   useEffect(() => {
-    fetch("https://immense-beyond-64415.herokuapp.com/medicine/all")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.result);
-      });
+    //@ts-ignore
+    dispatch(getProduct())
+
   }, []);
 
   return (
@@ -53,11 +91,21 @@ const PharmacyAllProduct = () => {
                   className="form-control w-75"
                   type="text"
                   placeholder="Search...."
+                  // ref={inputRef}
+                  // setSearchValue={(e: any) => e.target.value}
+                  onChange={(e) => handleOnChange(e)}
                 />{" "}
-                <button className="btn btn-outline-primary mx-2">
-                  {" "}
-                  <FontAwesomeIcon icon={faSearch} />{" "}
-                </button>
+                {
+                  products.length > 0 &&
+                  <button
+                    onClick={(e) => handleSearch(e)}
+                    className="btn btn-outline-primary mx-2">
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={faSearch}
+                    />{" "}
+                  </button>
+                }
               </div>
               <h3> Product categories </h3>
               <hr className="hr-blue" />
@@ -74,12 +122,19 @@ const PharmacyAllProduct = () => {
                 <PharmacyPriceSlide
                   label="Price Range"
                   formatOptions={{ style: "currency", currency: "USD" }}
-                  maxValue={1200}
-                  defaultValue={[0, 1200]}
-                  step={10}
+                  maxValue={100}
+                  minValue={0}
+                  defaultValue={[0, 100]}
+                  step={2}
+                  setUpperPrice={setUpperPrice}
+                  setLowerPrice={setLowerPrice}
                 />
                 <div className="my-1">
-                  <button className="btn-primary btn"> Filter </button>{" "}
+                  <button className="btn-primary btn"
+                    onClick={
+                      //@ts-ignore
+                      () => dispatch(getProduct(keyword, currentPage, price))}
+                  > Filter </button>{" "}
                 </div>
               </div>
               <div className="my-4">
@@ -136,16 +191,20 @@ const PharmacyAllProduct = () => {
               </div>
             </div>
             <div className="row">
-              {products.map((product) => (
-                <PharmacyShop
-                  products={product}
-                  Key={product._id}
-                ></PharmacyShop>
-              ))}
+
+              {
+                //@ts-ignore
+                products.map((product) => (
+                  <PharmacyShop
+                    products={product}
+                    Key={product._id}
+                  ></PharmacyShop>
+                ))}
             </div>
             <Stack spacing={2}>
               <Pagination
-                count={10}
+                count={count}
+                color="primary"
                 renderItem={(item: any) => (
                   <PaginationItem
                     components={{

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
-import useFirebase from "../../firebase/useFirebase/useFirebase";
 import MyAppointment from "./MyAppointment";
 import Page from "../Page";
+import { useAppSelector } from "../../redux/store";
 
 
 const MyAppointments = () => {
-    const { user } = useFirebase();
+
+    const { user } = useAppSelector((state) => state.user);
     const [appointments, setAppointments] = useState([]);
-  
     useEffect(() => {
         
 
@@ -18,7 +18,7 @@ const MyAppointments = () => {
             .then((res) => res.json())
             .then((data) => setAppointments(data));
            
-    }, [user]);
+    }, [user,appointments]);
 
     return (
         <Page title="All Appointments">
@@ -26,11 +26,13 @@ const MyAppointments = () => {
         <div>
            
             
-            <Table className="appointment-table">
+            <Table className="appointment-table w-100" >
                 <thead>
                     <tr style={{backgroundColor:"#c8d6e5"}} className="appointment-table-header-container">
+                        
                         <th className="appointment-table-header">Doctor's Name</th>
                         <th className="appointment-table-header">Time Slot</th>
+                        <th className="appointment-table-header">Date</th>
                         <th className="appointment-table-header">Payment Status</th>
                         <th className="appointment-table-header">Payment Fee</th>
                         <th className="appointment-table-header">Call</th>

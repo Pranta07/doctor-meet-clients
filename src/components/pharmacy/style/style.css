@@ -1,0 +1,52 @@
+.payment-box {
+    width: 50%;
+    height: 100%;
+    margin: 120px auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    background: url("https://img.freepik.com/free-vector/abstract-network-communications-background-with-low-poly-design_1048-12906.jpg?size=626&ext=jpg&uid=R54822369&ga=GA1.2.1630049320.1649838161");
+  }
+  
+  .payment-box:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  .payment-box h3 {
+    font-family: 'Radio Canada', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .payment-box h4 {
+    font-family: 'Radio Canada', sans-serif;
+    font-weight: 600;
+    color: #222f3e;
+  }
+  
+  .btn-diagnosis-pay {
+    background-image: linear-gradient(to right, #2BC0E4 0%, #EAECC6 51%, #2BC0E4 100%);
+    margin: 50px auto;
+    padding: 10px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    font-family: 'Inter', sans-serif;
+    border: 0px;
+    border-radius: 10px;
+    display: block;
+  }
+  
+  .btn-diagnosis-pay:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }

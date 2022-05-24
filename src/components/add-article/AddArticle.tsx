@@ -18,14 +18,14 @@ import {
     uploadBytesResumable,
 } from "firebase/storage";
 import Page from "../Page";
+import "./AddArticle.css";
 import Swal from "sweetalert2";
 import { useAppSelector } from "../../redux/store";
-import "./AddArticle.css";
 
 const AddArticle = () => {
-    const { user }: any = useAppSelector((state) => state.user);
-    const [text, setText] = useState("");
-    let titleRef = useRef<HTMLInputElement>(null!);
+  const { user }: any = useAppSelector((state) => state.user);
+  const [text, setText] = useState("");
+  let titleRef = useRef<HTMLInputElement>(null!);
 
     let [url, setUrl] = useState("");
     let [isProgress, setIsProgress] = useState(false);
@@ -78,7 +78,7 @@ const AddArticle = () => {
         let title = titleRef.current?.value;
         let img = url;
         const article = {
-            author: user?.displayName || "",
+            author: user?.name || "",
             email: user?.email || "",
             img,
             title,

@@ -20,7 +20,6 @@ const DiagnosticAppointmentForm = () => {
 
                     if (d._id === params.id) {
                         // setCategory(d);
-                        console.log(d);
 
                         setCategory(d);
 
@@ -39,14 +38,13 @@ const DiagnosticAppointmentForm = () => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        if (!data.name) {
+        
             data.name = user.name;
-        }
-        if (!data.email) {
             data.email = user.email;
-        }
+        
         data.selectedDiagnosis = category;
         data.paymentStatus = "unpaid";
+        console.log(data)
         fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis`, {
             method: "POST",
             headers: {
@@ -71,12 +69,12 @@ const DiagnosticAppointmentForm = () => {
 
                             <Form.Group as={Col} controlId="formGridName">
 
-                                <Form.Control onChange={handleOnChange} type="text" placeholder="Enter Your Name" name="name" value={user?.name} required />
+                                <Form.Control onChange={handleOnChange} type="text" placeholder="Enter Your Name" name="name" value={user?.name} disabled />
                             </Form.Group>
 
                             <Form.Group as={Col} controlId="formGridEmail">
 
-                                <Form.Control onChange={handleOnChange} type="email" name="email" placeholder="Enter Your Email" value={user?.email} required />
+                                <Form.Control onChange={handleOnChange} type="email" name="email" placeholder="Enter Your Email" value={user?.email} disabled />
                             </Form.Group>
                         </Row>
 

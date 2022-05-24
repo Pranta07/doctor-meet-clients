@@ -1,0 +1,12 @@
+.appointment-table-header-container .appointment-table-header{
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color:#222f3e;
+    font-weight: 600;
+  }
+  .appointment-table-row-data{
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 16px;
+    color:#222f3e;
+    font-weight: 500;
+  }

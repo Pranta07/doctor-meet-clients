@@ -7,27 +7,10 @@ import { useAppSelector } from "../../redux/store";
 const AdminRoute = ({ children }: { children: JSX.Element }) => {
   const { user, loading }: any = useAppSelector((state) => state.user);
 
-  const [admin, setAdmin] = useState(false);
-  const [done, setDone] = useState(false);
 
   let location = useLocation();
 
-  useEffect(() => {
-    if (!loading) {
-      setDone(false);
-      setAdmin(false);
-      fetch(`http://localhost:5000/user/${user?.email}`)
-        .then((res) => res.json())
-        .then((user) => {
-          if (user?.role === "admin") {
-            setAdmin(true);
-          }
-        })
-        .finally(() => setDone(true));
-    }
-  }, [loading]);
-
-  if (loading || !done) {
+  if (loading) {
     return (
       <div className="m-10">
         <svg
@@ -38,7 +21,7 @@ const AdminRoute = ({ children }: { children: JSX.Element }) => {
     );
   }
 
-  if (user?.email && admin) {
+  if (user?.email && user.role === "admin") {
     return children;
   } else {
     return <Navigate to="/" state={{ from: location }} replace />;
