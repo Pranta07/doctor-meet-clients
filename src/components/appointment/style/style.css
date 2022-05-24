@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Oswald&family=Source+Sans+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+.appointment-title{
+    font-family: 'Oswald', sans-serif;
+
+}
+.appointment-doctor-info{
+    font-size: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.appointment-info-title{
+    font-size: 20px;font-weight: bold;
+
+}
+.appointment-doctor-image{
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  margin: 20px auto;
+
+}
+.appointment-table-header-container .appointment-table-header{
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color:#222f3e;
+  font-weight: 600;
+}
+.appointment-table-row-data{
+  font-family: 'Radio Canada', sans-serif;
+  font-size: 16px;
+  color:#222f3e;
+  font-weight: 500;
+}
+
+.btn-get-appointment {background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%)}
+.btn-get-appointment {
+   margin: 0px auto !important;
+   padding: 10px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border:0px;
+   font-family: 'Merriweather', serif;
+   
+   border-radius: 40px;
+   display: block;
+ }
+
+ .btn-get-appointment:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+.hover-cursor:hover{
+cursor: pointer;
+}
+
+         
+.btn-appointment-pay {
+  background-image: linear-gradient(to right, #780206 0%, #061161  51%, #780206  100%);
+  margin: 0px;
+  padding: 10px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-family: 'Radio Canada', sans-serif;
+  display: block;
+}
+
+.btn-appointment-pay:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.form-container {
+  background-color: #48dbfb;
+  padding: 100px 0px;
+}
+
+.btn-appointment-submit {
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+}
+.btn-appointment-submit {
+  margin: 20px auto;
+  padding: 10px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 40px;
+  border: 0px;
+  display: block;
+}
+
+.btn-appointment-submit:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.appointment-doctor-info-card{
+  margin: 20px auto;
+}
+.appointment-doctor-info-card .card{
+ border: 0px;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+ margin: 40px auto;
+}
+.appointment-doctor-info-card .card-img-top{
+  border-radius: 50%;
+  margin: 20px auto;
+  width: 50%;
+  height: 50%;
+}
+.appointment-doctor-info-card .appointment-doctor-info{
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Radio Canada', sans-serif;
+  color: #222f3e;
+  text-align: center;
+}
+
+.book-appointment-form-container{
+  width: 80%;
+  padding: 50px 50px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 100px auto;
+}
+.book-appointment-form .form-control{
+  width:60%;
+  color: #576574;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.book-appointment-form .form-group{
+  margin-top: 30px;
+}
+.book-appointment-form .form-label{
+  color:#222f3e;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+.book-appointment-form .form-select{
+  color:#222f3e;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+         
+.btn-appointment-book {
+  background-image: linear-gradient(to right, #414d0b 0%, #727a17  51%, #414d0b  100%);
+  margin: 50px auto;
+  padding: 10px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  border: 0px;
+  display: block;
+}
+
+.btn-appointment-book:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1200px){
+  /*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px){
+/*Big smartphones [426px -> 600px]*/
+.book-appointment-form .form-control{
+  width:60%;
+  color: #576574;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.book-appointment-form .form-group{
+  margin-top: 20px;
+}
+.book-appointment-form .form-label{
+  color:#222f3e;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+}
+@media only screen and (max-width: 425px){
+/*Small smartphones [325px -> 425px]*/
+.book-appointment-form .form-control{
+  width:60%;
+  color: #576574;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+.book-appointment-form .form-group{
+  margin-top: 15px;
+}
+.book-appointment-form .form-label{
+  color:#222f3e;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+.book-appointment-form .form-select{
+  color:#222f3e;
+  font-size: 12px;
+  font-weight: 500;
+}
+}
+.payment-box {
+  width: 50%;
+  height: 100%;
+  margin: 120px auto;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 20px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+  background: url("https://img.freepik.com/free-vector/abstract-network-communications-background-with-low-poly-design_1048-12906.jpg?size=626&ext=jpg&uid=R54822369&ga=GA1.2.1630049320.1649838161");
+}
+
+.payment-box:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.payment-box h3 {
+  font-family: 'Radio Canada', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+}
+
+.payment-box h4 {
+  font-family: 'Radio Canada', sans-serif;
+  font-weight: 600;
+  color: #222f3e;
+}
+
+.btn-diagnosis-pay {
+  background-image: linear-gradient(to right, #2BC0E4 0%, #EAECC6 51%, #2BC0E4 100%);
+  margin: 50px auto;
+  padding: 10px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  font-family: 'Inter', sans-serif;
+  border: 0px;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-diagnosis-pay:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+

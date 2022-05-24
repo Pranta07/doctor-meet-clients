@@ -20,10 +20,10 @@ import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
 import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
 import AllReports from "../components/all-reports/AllReports";
+import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
+import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/DoctorsSchedules";
 import AddDoctor from "../components/add-doctor/AddDoctor";
-import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
-import UserAppointments from "../components/all-appointments-user/UserAppointments";
-import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
+import PharmacyPay from "../components/pharmacy/PharmacyPay";
 
 // ----------------------------------------------------------------------
 
@@ -181,7 +181,7 @@ export default function Router() {
                         },
                         {
                             path: "my-appointments",
-                            element: <UserAppointments />,
+                            element: <MyAppointments />,
                         },
                         {
                             path: "get-appointments",
@@ -223,12 +223,12 @@ export default function Router() {
                             element: <AllReports />,
                         },
                         {
-                            path: "doctor-appointments",
-                            element: <DoctorAppointments />,
-                        },
-                        {
                             path: "add-article",
                             element: <AddArticle />,
+                        },
+                        {
+                            path: "my-schedule-doctor",
+                            element: <DoctorsSchedules />,
                         },
                     ],
                 },
@@ -243,15 +243,11 @@ export default function Router() {
                         },
                         {
                             path: "Report-status",
-                            element: <AllReportStatus />,
+                            element: <ReportStatus />,
                         },
                         {
                             path: "report-pdf",
                             element: <ReportPdf />,
-                        },
-                        {
-                            path: "all-appointments",
-                            element: <AllAppointments />,
                         },
                         {
                             path: "all-diagnosis",
@@ -290,6 +286,10 @@ export default function Router() {
                         {
                             path: "edit-doctors/edit-single-doctor/:id",
                             element: <EditSingleDoctor />,
+                        },
+                        {
+                            path: "all-invoices",
+                            element: <AllInvoices />,
                         },
                     ],
                 },
@@ -330,7 +330,6 @@ export default function Router() {
                 { path: "cart", element: <PharmacyCart /> },
                 { path: "shop", element: <PharmacyAllProduct /> },
                 { path: "premium-payment/:id", element: <PremiumPayment /> },
-                { path: "premium-payment/:id", element: <PremiumPayment /> },
                 {
                     path: "appointment-doctors",
                     element: <AppointmentDoctors />,
@@ -363,6 +362,8 @@ export default function Router() {
                     path: "doctor/:id",
                     element: <DoctorView />,
                 },
+                // { path: "pharmacy-payment/:id", element: <PharmacyPay /> },//It is dynamic route
+                { path: "/pharmacy-payment", element: <PharmacyPay /> },//It is static route
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
@@ -413,7 +414,7 @@ const GetAppointmentForm = Loadable(
     lazy(() => import("../components/appointment/GetAppointmentForm"))
 );
 const AllAppointments = Loadable(
-    lazy(() => import("../components/all-appointments/AllAppointments"))
+    lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
 );
 const AllDiagnosis = Loadable(
     lazy(() => import("../pages/dashboards/all-diagnosis/AllDiagnosis"))

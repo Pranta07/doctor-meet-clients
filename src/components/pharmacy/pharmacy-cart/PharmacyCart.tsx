@@ -1,6 +1,7 @@
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./PharmacyCart.css";
 import PharmacyCartSingle from "./PharmacyCartSingle";
 
@@ -76,12 +77,15 @@ const PharmacyCart = () => {
               </div>
               <hr className="hr-style" />
               <div className=" d-flex mt-3 p-2">
-                <input
-                  className="form-control"
-                  type="text"
-                  placeholder="Coupon Code"
-                />{" "}
-                <button className="btn btn-outline-primary mx-2"> Apply</button>
+                {/* When data is static */}
+                <Link to="/pharmacy-payment">
+                  <button className="btn btn-outline-primary mx-2">
+                    Proceed Pay
+                  </button>
+                </Link>
+
+                {/* When data is dynamic */}
+                {/* <Link to=`/pharmacy-payment/${orderid}`><button className="btn btn-outline-primary mx-2"> Pay</button></Link> */}
               </div>
             </div>
           </div>

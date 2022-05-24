@@ -1,10 +1,10 @@
 import React from "react";
-import { Card, CardGroup, Container } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./PremiumMembership.css";
 
 export interface premiumMembership {
-  id: string;
+  _id: string;
   amount: string;
   duration: string;
   category: string;
@@ -18,48 +18,54 @@ type Props = {
 };
 
 const PremiumMembership: React.FC<Props> = ({ premiumMembership }) => {
+  
   const {
-    id,
+    _id,
     amount,
     duration,
-    category,
+   
     pharmacyDiscount,
     appointmentDiscount,
     labTestDiscount,
-    img,
   } = premiumMembership;
+  
   return (
-    <Card>
-      <Card.Img variant="top" src={img} className="premium-membership-images" />
+    <Card className="premium-membership-card">
       <Card.Body>
-        <Card.Title>{category}</Card.Title>
-        <Card.Text>
-          <p>
-            <i className="fa fa-check"></i> Get Appointment Within an Hour
-          </p>
+        <Card.Title className="premium-membership-card-title text-center mb-5">{duration} months plan</Card.Title>
+        <Card.Text className="text-center premium-member-card-text">
           <p>
             <i className="fa fa-check"></i> 24X7 Services
+            <hr className="w-50 mx-auto"/>
+          </p>
+          <p>
+            <i className="fa fa-check"></i> Get Appointment Within an Hour
+            <hr className="w-50 mx-auto"/>
           </p>
           <p>
             <i className="fa fa-check"></i> {pharmacyDiscount}% Discount on
             Pharmacy
+            <hr className="w-50 mx-auto"/>
           </p>
           <p>
             <i className="fa fa-check"></i> {appointmentDiscount}% Discount on
             an Appointment
+            <hr className="w-50 mx-auto"/>
           </p>
           <p>
             <i className="fa fa-check"></i> {labTestDiscount}% Discount on Lab
             Test
+            <hr className="w-50 mx-auto"/>
           </p>
           <h3 className="membership-amount">
-            $ {amount} for {duration} months
+            Only at <i className="fas fa-dollar-sign"></i> {amount}
           </h3>
         </Card.Text>
+      
       </Card.Body>
-      <Card.Footer>
-        <Link to={`/premiumPayment/${id}`}>
-          <button className="btn-premium-member">Get Membership Now</button>
+      <Card.Footer className="premium-member-card-footer">
+        <Link to={`/premium-payment/${_id}`}>
+          <button className="btn-premium-member">Bill Now</button>
         </Link>
       </Card.Footer>
     </Card>

@@ -24,7 +24,7 @@ const AllDiagnosis = () => {
     },[])
     return (
         <TableContainer component={Paper} className="mt-5">
-         <Table sx={{ minWidth: 700 }} aria-label="customized table">
+         <Table className='w-100' aria-label="customized table">
          <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
@@ -38,7 +38,7 @@ const AllDiagnosis = () => {
         <TableBody>
         
           {
-            diagnosis.map(diagnosis=><AllDiagnosisRow diagnosis={diagnosis}></AllDiagnosisRow>)
+            diagnosis.map(diagnosis=><AllDiagnosisRow diagnosis={diagnosis} key={diagnosis._id}></AllDiagnosisRow>)
           }
        
         </TableBody>

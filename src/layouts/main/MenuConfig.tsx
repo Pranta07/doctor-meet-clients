@@ -62,6 +62,13 @@ const menuConfig = [
             ),
             path: "premium-membership",
           },
+          {
+            title: "Book Appointment",
+            icon: (
+              <Iconify icon={"clarity:video-camera-solid"} {...ICON_SIZE} />
+            ),
+            path: "/appointment-doctors",
+          }
         ],
       },
     ],

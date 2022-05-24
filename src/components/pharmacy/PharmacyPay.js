@@ -1,47 +1,45 @@
 import React, { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-
 import { useParams } from "react-router-dom";
-import PayAppointmentFeeFrom from "./PayAppointFeeFrom";
 import usePremiumMembershipStatus from "../../hooks/usePremiumMembersipStatus";
 import './style/style.css';
+import PharmacyPayForm from "./PharmacyPayForm";
+
 
 const stripePromise = loadStripe(
     "pk_test_51JvnacKB2JOo4D0XAUdhDzZ6TqtmGp2vpGMIXXSxtPKBJOo1cmcb3SlAga09S4J9nyLpCgs4dEyJ126BbM8sE1mm00BCQsgnSt"
 );
 
-const PayAppointmentFee = () => {
+const PharmacyPay = () => {
 
-
-    const [appointment, setAppointment] = useState({});
-    const [price, setPrice] = useState(0);
-    const [lastPrice, setLastPrice] = useState(0);
+const [orderDetails,setOrderDetails]=useState({});
+    const [floatPrice, setFloatPrice] = useState(0);
     const [membershipDiscountPrice, seteMembershipDiscountPrice] = useState(0);
+    const [lastPrice, setLastPrice] = useState(0);
     const params = useParams();
     const { premiumMemberDetails, premiumMembershipStatus } = usePremiumMembershipStatus();
 
     useEffect(() => {
-        const fetchData = async () => {
-            await fetch(`https://floating-basin-02241.herokuapp.com/allAppointments/${params?.id}`)
-                .then((res) => res.json())
-                .then((data) => {
+        const fechData=async()=>{
+            // fetch orderDetails from database or localStorage and setOrderDetails and thenthe sent it to PharmacyPayForm
 
-                    setAppointment(data)
-                    setPrice(parseFloat(data?.doctorInfo?.visit).toFixed(2));
-                    if (price && premiumMembershipStatus) {
-                        const membershipDiscountPercentage = premiumMemberDetails.categoryDetails.appointmentDiscount;
-                        setLastPrice((price - (price * parseFloat(membershipDiscountPercentage / 100))).toFixed(2));
-                        seteMembershipDiscountPrice((price * parseFloat(membershipDiscountPercentage / 100)).toFixed(2));
-                    }
-
-
-
-                });
+            const intPrice = 20;//orderDetails.price
+            const intDiscount = 5;//orderDetails.discount
+  
+            
+  
+            setFloatPrice(intPrice - (intPrice * ((parseFloat(intDiscount).toFixed(2))/100.00)));
+            if (premiumMembershipStatus) {
+  
+              const membershipDiscountPercentage =await premiumMemberDetails?.categoryDetails.pharmacyDiscount;
+              setLastPrice((floatPrice - (floatPrice * parseFloat(membershipDiscountPercentage / 100))).toFixed(2));
+              seteMembershipDiscountPrice(((floatPrice * parseFloat(membershipDiscountPercentage / 100))).toFixed(2));
+            }
         }
-        fetchData().catch(console.error);
-
-    }, [params, premiumMemberDetails, price, premiumMembershipStatus]);
+    
+        fechData().catch(console.error);
+    }, [params, premiumMemberDetails, premiumMembershipStatus,floatPrice]);
 
 
     return (
@@ -56,7 +54,7 @@ const PayAppointmentFee = () => {
 
                                     <h3 className="text-left">Total</h3>
                                     <hr className="w-50 mx-auto" style={{ border: "1px solid white" }} />
-                                    <h3 className="text-right">$ {price}</h3>
+                                    <h3 className="text-right">$ {floatPrice}</h3>
                                 </div>
 
 
@@ -82,11 +80,15 @@ const PayAppointmentFee = () => {
 
                                 <h3 className="text-left">Subtotal</h3>
                                 <hr className="w-50 mx-auto" style={{ border: "1px solid white" }} />
-                                <h3 className="text-right">$ {price}</h3>
+                                <h3 className="text-right">$ {lastPrice}</h3>
                             </div>
 
-                    }            <Elements stripe={stripePromise}>
-                        <PayAppointmentFeeFrom appointment={appointment}></PayAppointmentFeeFrom>
+                    } 
+                    <Elements stripe={stripePromise}>
+                    {/* Have to sent pharmacy details */}
+                        {/* <PharmacyPayForm orderDetails={orderDetails}/> */}
+
+                        <PharmacyPayForm/>
                     </Elements>
                 </div>
             </div>
@@ -95,4 +97,4 @@ const PayAppointmentFee = () => {
     );
 };
 
-export default PayAppointmentFee;
+export default PharmacyPay;
