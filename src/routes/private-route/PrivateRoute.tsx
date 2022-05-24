@@ -1,16 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
 import { useAppSelector } from "../../redux/store";
 
-const AdminRoute = ({ children }: { children: JSX.Element }) => {
+const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const { user, loading }: any = useAppSelector((state) => state.user);
-
+ 
 
   let location = useLocation();
 
-  if (loading) {
+  if (loading ) {
     return (
       <div className="m-10">
         <svg
@@ -20,12 +19,13 @@ const AdminRoute = ({ children }: { children: JSX.Element }) => {
       </div>
     );
   }
+console.log(loading);
 
-  if (user?.email && user.role === "admin") {
+  if (user?.email) {
     return children;
   } else {
-    return <Navigate to="/" state={{ from: location }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 };
 
-export default AdminRoute;
+export default PrivateRoute;
