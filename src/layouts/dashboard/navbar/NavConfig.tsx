@@ -188,13 +188,15 @@ const sidebarConfig = [
           {
             title: "Invoices",
             path: "/dashboard/admin/all-invoices",
+          },
+          {
             title: "Notify",
             path: "/dashboard/admin/notify",
             icon: ICONS.analytics,
           },
           {
-            title: "Make Moderador",
-            path: "/dashboard/admin/makeModerador",
+            title: "Make Moderator",
+            path: "/dashboard/admin/make-moderator",
             icon: ICONS.analytics,
           },
         ],

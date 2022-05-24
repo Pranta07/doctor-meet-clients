@@ -278,12 +278,14 @@ export default function Router() {
             {
               path: "all-invoices",
               element: <AllInvoices />,
-              path: "/dashboard/admin/notify",
-              element: <Notify />,
             },
             {
-              path: "/dashboard/admin/makeModerador",
-              element: <MakeModaretor />,
+              path: "/dashboard/admin/make-moderator",
+              element: <MakeModerator />,
+            },
+            {
+              path: "/dashboard/admin/notify",
+              element: <Notify />,
             },
           ],
         },
@@ -402,8 +404,8 @@ const ManageDonors = Loadable(
   lazy(() => import("../components/manage-donors/manage-donors/ManageDonors"))
 );
 
-const MakeModaretor = Loadable(
-  lazy(() => import("../pages/makeModarator/MakeModaretor"))
+const MakeModerator = Loadable(
+  lazy(() => import("../pages/make-moderator/MakeModerator"))
 );
 
 const MyAppointments = Loadable(
