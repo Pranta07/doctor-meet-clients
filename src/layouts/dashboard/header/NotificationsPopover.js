@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { noCase } from 'change-case';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // @mui
 import {
   Box,
@@ -18,6 +18,7 @@ import {
 } from '@mui/material';
 // utils
 import { fToNow } from '../../../utils/formatTime';
+import { useAppSelector } from "../../../redux/store";
 // _mock_
 import { _notifications } from '../../../_mock';
 // components
@@ -29,9 +30,11 @@ import  IconButtonAnimate  from '../../../components/animate/IconButtonAnimate';
 // ----------------------------------------------------------------------
 
 export default function NotificationsPopover() {
-  const [notifications, setNotifications] = useState(_notifications);
-
-  const totalUnRead = notifications.filter((item) => item.isUnRead === true).length;
+  // const [notifications, setNotifications] = useState(_notifications);
+  const { user } = useAppSelector((state) => state?.user);
+  const [notificationsData, setNotificationsData]=useState([])
+console.log(notificationsData);
+  // const totalUnRead = notifications.filter((item) => item.isUnRead === true).length;
 
   const [open, setOpen] = useState(null);
 
@@ -42,20 +45,23 @@ export default function NotificationsPopover() {
   const handleClose = () => {
     setOpen(null);
   };
-
-  const handleMarkAllAsRead = () => {
-    setNotifications(
-      notifications.map((notification) => ({
-        ...notification,
-        isUnRead: false,
-      }))
-    );
-  };
+useEffect(()=>{
+  setNotificationsData(user?.notification)
+},[user])
+console.log(notificationsData);
+  // const handleMarkAllAsRead = () => {
+  //   setNotifications(
+  //     notifications.map((notification) => ({
+  //       ...notification,
+  //       isUnRead: false,
+  //     }))
+  //   );
+  // };
 
   return (
     <>
       <IconButtonAnimate color={open ? 'primary' : 'default'} onClick={handleOpen} sx={{ width: 40, height: 40 }}>
-        <Badge badgeContent={totalUnRead} color="error">
+        <Badge  color="error">
           <Iconify icon="eva:bell-fill" width={20} height={20} />
         </Badge>
       </IconButtonAnimate>
@@ -70,17 +76,11 @@ export default function NotificationsPopover() {
           <Box sx={{ flexGrow: 1 }}>
             <Typography variant="subtitle1">Notifications</Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              You have {totalUnRead} unread messages
+              You have  unread messages
             </Typography>
           </Box>
 
-          {totalUnRead > 0 && (
-            <Tooltip title=" Mark all as read">
-              <IconButtonAnimate color="primary" onClick={handleMarkAllAsRead}>
-                <Iconify icon="eva:done-all-fill" width={20} height={20} />
-              </IconButtonAnimate>
-            </Tooltip>
-          )}
+          
         </Box>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
@@ -94,9 +94,7 @@ export default function NotificationsPopover() {
               </ListSubheader>
             }
           >
-            {notifications.slice(0, 2).map((notification) => (
-              <NotificationItem key={notification.id} notification={notification} />
-            ))}
+          
           </List>
 
           <List
@@ -107,8 +105,8 @@ export default function NotificationsPopover() {
               </ListSubheader>
             }
           >
-            {notifications.slice(2, 5).map((notification) => (
-              <NotificationItem key={notification.id} notification={notification} />
+            {notificationsData?.map((notification,index) => (
+              <NotificationItem key={index} notification={notification} />
             ))}
           </List>
         </Scrollbar>
@@ -140,8 +138,8 @@ NotificationItem.propTypes = {
 };
 
 function NotificationItem({ notification }) {
-  const { avatar, title } = renderContent(notification);
-
+  const { message, date } = notification;
+console.log(notification);
   return (
     <ListItemButton
       sx={{
@@ -154,10 +152,10 @@ function NotificationItem({ notification }) {
       }}
     >
       <ListItemAvatar>
-        <Avatar sx={{ bgcolor: 'background.neutral' }}>{avatar}</Avatar>
+      
       </ListItemAvatar>
       <ListItemText
-        primary={title}
+       
         secondary={
           <Typography
             variant="caption"
@@ -168,6 +166,12 @@ function NotificationItem({ notification }) {
               color: 'text.disabled',
             }}
           >
+            <div
+                  className="desc"
+                  dangerouslySetInnerHTML={{
+                    __html: message,
+                  }}
+                ></div>
             <Iconify icon="eva:clock-outline" sx={{ mr: 0.5, width: 16, height: 16 }} />
             {fToNow(notification.createdAt)}
           </Typography>

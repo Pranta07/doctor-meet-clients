@@ -98,7 +98,7 @@ export default function DashboardHeader({
         >
           <ModePopOver />
           {/* <Settings /> */}
-          <NotificationsPopover />
+          {/* <NotificationsPopover /> */}
           <AccountPopover />
         </Stack>
       </Toolbar>

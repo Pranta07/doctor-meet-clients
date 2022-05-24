@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { useSnackbar } from "notistack";
 import { Button, Form } from "react-bootstrap";
 import {
   NavLink,
@@ -16,6 +17,7 @@ const history = createBrowserHistory({ window });
 
 const Login = () => {
   const { user }: any = useAppSelector((state) => state);
+  const { enqueueSnackbar } = useSnackbar();
   useEffect(() => {}, [user]);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -28,6 +30,7 @@ const Login = () => {
     // signUsingEmail(mailE, passE);
     dispatch(login(email, password));
     if (user.success) {
+      enqueueSnackbar("logged in successfully!");
       //@ts-ignore
       navigate(history.back());
     }

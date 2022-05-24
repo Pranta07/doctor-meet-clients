@@ -20,7 +20,13 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useAppSelector } from "../../redux/store";
 import Swal from "sweetalert2";
-
+import { styled } from "@mui/material/styles";
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+  paddingTop: theme.spacing(15),
+  paddingBottom: theme.spacing(10),
+}));
 const DoctorView = () => {
   const { user }: any = useAppSelector((state) => state.user);
 
@@ -208,7 +214,7 @@ const DoctorView = () => {
   };
 
   return (
-    <>
+    <RootStyle>
       <div
         className="my-5 text-center"
         style={{
@@ -744,7 +750,7 @@ const DoctorView = () => {
           </div>
         </div>
       </Container>
-    </>
+    </RootStyle>
   );
 };
 

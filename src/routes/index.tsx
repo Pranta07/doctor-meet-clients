@@ -18,11 +18,10 @@ import ControlDoctors from "../components/admin-database/ControlDoctors";
 import EditSingleDoctor from "../components/admin-database/EditSingleDoctor";
 import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
-import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
-import AllReports from "../components/all-reports/AllReports";
+
 import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
 import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/DoctorsSchedules";
-import AddDoctor from "../components/add-doctor/AddDoctor";
+
 import PharmacyPay from "../components/pharmacy/PharmacyPay";
 import PrivateRoute from "./private-route/PrivateRoute";
 import DoctorsRoute from "./doctor-route/DoctorsRoute";
@@ -30,6 +29,8 @@ import ModeratorRoute from "./modaretor-route/ModeratorRoute";
 import AdminRoute from "./admin-route/AdminRoute";
 import DoctorAppointment from "../components/all-appointments-doctor/DoctorAppointment";
 import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
+import { MyAppointment } from "../components/appointment";
+import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
 
 // ----------------------------------------------------------------------
 
@@ -164,11 +165,7 @@ export default function Router() {
         },
         {
           path: "home",
-          element: (
-            <PrivateRoute>
-              <DashboardHome />
-            </PrivateRoute>
-          ),
+          element: <DashboardHome />,
         },
 
         // user
@@ -182,59 +179,31 @@ export default function Router() {
             { path: "doctors", element: <AllDoctors /> },
             {
               path: "favorite-doctors",
-              element: (
-                <PrivateRoute>
-                  <FavoriteDoctors />
-                </PrivateRoute>
-              ),
+              element: <FavoriteDoctors />,
             },
             {
               path: "my-appointments",
-              element: (
-                <PrivateRoute>
-                  <MyAppointments />
-                </PrivateRoute>
-              ),
+              element: <MyAppointments />,
             },
             {
               path: "get-appointments",
-              element: (
-                <PrivateRoute>
-                  <GetAppointmentForm />
-                </PrivateRoute>
-              ),
+              element: <GetAppointmentForm />,
             },
             {
               path: "my-diagnosises",
-              element: (
-                <PrivateRoute>
-                  <MyDiagnosises />
-                </PrivateRoute>
-              ),
+              element: <MyDiagnosises />,
             },
             {
               path: "Report-status",
-              element: (
-                <PrivateRoute>
-                  <ReportStatus />
-                </PrivateRoute>
-              ),
+              element: <ReportStatus />,
             },
             {
               path: "report-pdf",
-              element: (
-                <PrivateRoute>
-                  <ReportPdf />
-                </PrivateRoute>
-              ),
+              element: <ReportPdf />,
             },
             {
               path: "add-review",
-              element: (
-                <PrivateRoute>
-                  <UserReview />
-                </PrivateRoute>
-              ),
+              element: <UserReview />,
             },
           ],
         },
@@ -246,51 +215,27 @@ export default function Router() {
             {
               path: "join-us",
 
-              element: (
-                <DoctorsRoute>
-                  <AddDoctor />,
-                </DoctorsRoute>
-              ),
+              element: <AddDoctor />,
             },
             {
               path: "report-pdf",
-              element: (
-                <DoctorsRoute>
-                  <ReportPdf />,
-                </DoctorsRoute>
-              ),
+              element: <ReportPdf />,
             },
             {
               path: "reports",
-              element: (
-                <DoctorsRoute>
-                  <AllReports />,
-                </DoctorsRoute>
-              ),
+              element: <AllReports />,
             },
             {
               path: "add-article",
-              element: (
-                <DoctorsRoute>
-                  <AddArticle />
-                </DoctorsRoute>
-              ),
+              element: <AddArticle />,
+            },
+            {
+              path: "my-appointments",
+              element: <MyAppointments />,
             },
             {
               path: "my-schedule-doctor",
-              element: (
-                <DoctorsRoute>
-                  <DoctorAppointments />
-                </DoctorsRoute>
-              ),
-            },
-            {
-              path: "my-schedule-doctor",
-              element: (
-                <DoctorsRoute>
-                  <DoctorsSchedules />
-                </DoctorsRoute>
-              ),
+              element: <DoctorsSchedules />,
             },
           ],
         },
@@ -469,70 +414,35 @@ export default function Router() {
         { path: "premium-membership", element: <PremiumMemberships /> },
         {
           path: "virtual-meet",
-          element: (
-            <PrivateRoute>
-              <VideoApp />
-            </PrivateRoute>
-          ),
+          element: <VideoApp />,
         },
         { path: "login", element: <Login /> },
-        {
-          path: "profile",
-          element: (
-            <PrivateRoute>
-              <ProfileSection />
-            </PrivateRoute>
-          ),
-        },
+
         { path: "signUp", element: <Registration /> },
         {
           path: "medicine/:id",
-          element: (
-            <PrivateRoute>
-              <PharmacyProductView />
-            </PrivateRoute>
-          ),
+          element: <PharmacyProductView />,
         },
         {
           path: "cart",
-          element: (
-            <PrivateRoute>
-              <PharmacyCart />
-            </PrivateRoute>
-          ),
+          element: <PharmacyCart />,
         },
         { path: "shop", element: <PharmacyAllProduct /> },
         {
           path: "premium-payment/:id",
-          element: (
-            <PrivateRoute>
-              <PremiumPayment />
-            </PrivateRoute>
-          ),
+          element: <PremiumPayment />,
         },
         {
           path: "appointment-doctors",
-          element: (
-            <PrivateRoute>
-              <AppointmentDoctors />
-            </PrivateRoute>
-          ),
+          element: <AppointmentDoctors />,
         },
         {
           path: "get-appointment-form/:id",
-          element: (
-            <PrivateRoute>
-              <GetAppointmentForm />
-            </PrivateRoute>
-          ),
+          element: <GetAppointmentForm />,
         },
         {
           path: "pay-appointment-fee/:id",
-          element: (
-            <PrivateRoute>
-              <PayAppointmentFee />
-            </PrivateRoute>
-          ),
+          element: <PayAppointmentFee />,
         },
         {
           path: "/diagnostic-center",
@@ -540,19 +450,11 @@ export default function Router() {
         },
         {
           path: "/diagnostic-appointment-form/:category/:id",
-          element: (
-            <PrivateRoute>
-              <DiagnosticAppointmentForm />
-            </PrivateRoute>
-          ),
+          element: <DiagnosticAppointmentForm />,
         },
         {
           path: "/diagnostic-pay/:id",
-          element: (
-            <PrivateRoute>
-              <DiagnosisPay />
-            </PrivateRoute>
-          ),
+          element: <DiagnosisPay />,
         },
         {
           path: "article/:id",
@@ -609,7 +511,10 @@ const ManageDonors = Loadable(
 );
 
 const MakeModaretor = Loadable(
-  lazy(() => import("../pages/makeModarator/MakeModaretor"))
+  lazy(() => import("../pages/make-moderator/MakeModerator"))
+);
+const AllReports = Loadable(
+  lazy(() => import("../components/all-reports/AllReports"))
 );
 
 const MyAppointments = Loadable(
@@ -639,9 +544,6 @@ const NotFound = Loadable(
 );
 const VideoChatRoute = Loadable(
   lazy(() => import("../pages/video-chat-client/VideoChatRoute"))
-);
-const ProfileSection = Loadable(
-  lazy(() => import("../pages/profile/ProfileSection"))
 );
 
 const Registration = Loadable(
@@ -686,7 +588,7 @@ const ViewArticale = Loadable(
   lazy(() => import("../components/articles/ViewArticle"))
 );
 const AddOrder = Loadable(
-  lazy(() => import("../components/addOrder/AddOrder"))
+  lazy(() => import("../components/add-order/AddOrder"))
 );
 
 // DASHBOARD
@@ -743,3 +645,6 @@ const Maintenance = Loadable(lazy(() => import("../pages/Maintenance")));
 
 const Page500 = Loadable(lazy(() => import("../pages/Page500")));
 const About = Loadable(lazy(() => import("../pages/about/About")));
+const AddDoctor = Loadable(
+  lazy(() => import("../components/add-doctor/AddDoctor"))
+);

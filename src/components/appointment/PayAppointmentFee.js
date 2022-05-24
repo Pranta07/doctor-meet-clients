@@ -8,7 +8,7 @@ import usePremiumMembershipStatus from "../../hooks/usePremiumMembersipStatus";
 import './style/style.css';
 import { styled } from "@mui/material/styles";
 
-const RootStyle = styled("div")(({ theme }: any) => ({
+const RootStyle = styled("div")(({ theme }) => ({
 
   backgroundColor: theme.palette.background.default,
 }));
@@ -51,8 +51,8 @@ const PayAppointmentFee = () => {
 
 
     return (
-        <RootStyle className="payment-box-background">
-            <div className="payment-box">
+        // <RootStyle className="payment-box">
+            <RootStyle className="payment-box">
                 <div className="container">
 
                     {
@@ -95,8 +95,8 @@ const PayAppointmentFee = () => {
                         <PayAppointmentFeeFrom appointment={appointment}></PayAppointmentFeeFrom>
                     </Elements>
                 </div>
-            </div>
-        </RootStyle>
+            </RootStyle>
+        // </RootStyle>
 
     );
 };

@@ -16,7 +16,7 @@ const DashboardHome = () => {
     <Page title="Dashboard Home">
       <RootStyle>
         <div className="DashboardHome">
-          <div className="row mx-auto ps-2">
+          {/* <div className="row mx-auto ps-2">
             <div className="col-lg-3 col-12 col-md-6">
               <div className="dashboardCommonDivStyle d-flex justify-content-between bg-light p-3  align-items-center">
                 <i className="fas commonIconStyle fa-briefcase-medical"></i>
@@ -53,7 +53,7 @@ const DashboardHome = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div>
             {/* chart section */}

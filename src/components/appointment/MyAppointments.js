@@ -6,7 +6,7 @@ import { useAppSelector } from "../../redux/store";
 
 import { styled } from "@mui/material/styles";
 
-const RootStyle = styled("div")(({ theme }: any) => ({
+const RootStyle = styled("div")(({ theme }) => ({
 
   backgroundColor: theme.palette.background.default,
 }));
