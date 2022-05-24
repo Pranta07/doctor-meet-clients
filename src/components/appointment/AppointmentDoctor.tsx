@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import "./AppointmentStyle.css";
+import './style/style.css';
 export interface doctor {
   _id: string;
   name: string;
@@ -45,41 +45,42 @@ const AppointmentDoctor: React.FC<Props> = ({ doctor }) => {
   const rating = Number(review);
   return (
     <Grid item xs={12} md={6} lg={4}>
-      <Card sx={{ maxWidth: 345 }} style={{ height: 780 }}>
+      <Card sx={{ maxWidth: 345 }} style={{ height: 680 }}>
         <CardActionArea>
           <CardMedia
             component="img"
             height="300"
             image={img}
             alt="green iguana"
+            className="appointment-doctor-image"
           />
           <CardContent>
             <Typography gutterBottom variant="h6" component="div">
-              {name}
+              Dr.{name}
             </Typography>
             <Typography gutterBottom variant="h5" component="div">
               {specialist}
             </Typography>
             <hr className="my-3" />
-            {/* <Typography variant="body2" color="text.secondary"> */}
+            <h4 className="appointment-doctor-info"><span className="appointment-info-title">Phone</span> : {phone}</h4>
+            <h4 className="appointment-doctor-info"><span className="appointment-info-title">Website</span> : {website}</h4>
+            <h4 className="appointment-doctor-info"><span className="appointment-info-title">Email</span> : {email}</h4>
             <h4 className="appointment-doctor-info">
-              Available Days : {availableDays}
+            <span className="appointment-info-title">Experience</span> : {experience} years
             </h4>
-            <h4 className="appointment-doctor-info">
-              Experience : {experience} years
+            <h4 className="appointment-doctor-info">Available in
+            <span className="appointment-info-title"> {availableDays}</span>
             </h4>
+            <h4 className="appointment-doctor-info"><span className="appointment-info-title">Visit</span> : $ {visit} </h4>
 
-            <h4 className="appointment-doctor-info">Visit : {visit} $</h4>
-            <h4 className="appointment-doctor-info">Phone : {phone}</h4>
-            <h4 className="appointment-doctor-info">Website : {website}</h4>
-            <h4 className="appointment-doctor-info">Email : {email}</h4>
             <Rating name="read-only" value={rating} readOnly />
-            {/* </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Link to={`/get-appointment-form/${_id}`}>
-            <button className="btn-get-appointment">Book Now</button>
+            <button className="btn-get-appointment my-auto">
+              Book Now
+            </button>
           </Link>
         </CardActions>
       </Card>

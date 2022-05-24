@@ -4,29 +4,13 @@ import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useAppSelector } from "../../redux/store";
 
-const DoctorsRoute = ({ children }: { children: JSX.Element }) => {
+const DoctorsRoute = ({ children }: { children: any }) => {
   const { user, loading }: any = useAppSelector((state) => state.user);
-  const [doctor, setdoctor] = useState(false);
-  const [done, setDone] = useState(false);
+ 
 
   let location = useLocation();
 
-  useEffect(() => {
-    if (!loading) {
-      setDone(false);
-      setdoctor(false);
-      fetch(`http://localhost:5000/user/${user?.email}`)
-        .then((res) => res.json())
-        .then((user) => {
-          if (user?.role === "doctor") {
-            setdoctor(true);
-          }
-        })
-        .finally(() => setDone(true));
-    }
-  }, [loading]);
-
-  if (loading || !done) {
+  if (loading ) {
     return (
       <div className="m-10">
         <svg
@@ -37,7 +21,7 @@ const DoctorsRoute = ({ children }: { children: JSX.Element }) => {
     );
   }
 
-  if (user?.email && doctor) {
+  if (user?.email && user?.role === "doctor" || user?.role === "admin") {
     return children;
   } else {
     return <Navigate to="/" state={{ from: location }} replace />;

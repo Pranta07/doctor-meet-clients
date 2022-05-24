@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Grid } from "@mui/material";
+import { Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import "./ReportStatus.css";
 import Table from "@mui/material/Table";
@@ -12,7 +12,6 @@ import { useAppSelector } from "../../../redux/store";
 import { IReport } from "../../all-reports/AllReports";
 import SinglePatientReport from "./SinglePatientReport";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import StatusModal from "./StatusModal";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -63,12 +62,14 @@ const ReportStatus = () => {
                         >
                             <TableHead>
                                 <TableRow>
-                                    <StyledTableCell>Report Id</StyledTableCell>
                                     <StyledTableCell align="left">
                                         Doctor Name
                                     </StyledTableCell>
                                     <StyledTableCell align="left">
                                         Patient Name
+                                    </StyledTableCell>
+                                    <StyledTableCell align="center">
+                                        Date
                                     </StyledTableCell>
                                     <StyledTableCell align="center">
                                         Comments
@@ -84,6 +85,7 @@ const ReportStatus = () => {
                             <TableBody>
                                 {reports.map((report) => (
                                     <SinglePatientReport
+                                        key={report._id}
                                         report={report}
                                     ></SinglePatientReport>
                                 ))}

@@ -1,4 +1,4 @@
-import { Alert, Button, Container, Grid, Snackbar } from "@mui/material";
+import { Alert, Button, Container, Snackbar } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { Rating } from "@mui/material";
@@ -18,8 +18,12 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useAppSelector } from "../../redux/store";
+import Swal from "sweetalert2";
 
 const DoctorView = () => {
+  const { user }: any = useAppSelector((state) => state.user);
+
   let [doctor, setDoctors] = useState<any>({});
   let [address, setAddress] = useState<any>({});
   let { id } = useParams();
@@ -35,7 +39,9 @@ const DoctorView = () => {
     setApBloodGruop(event.target.value as string);
   };
   const [date, setDate] = React.useState<Date | string | number>(new Date());
-  const [time, setTime] = React.useState<Date | string | number >(new Date(date));
+  const [time, setTime] = React.useState<Date | string | number>(
+    new Date(date)
+  );
 
   const form = useRef(null);
   const [open, setOpen] = React.useState(false);
@@ -46,7 +52,11 @@ const DoctorView = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "80%",
+    width: {
+      xs: "95%",
+      sm: "80%",
+      md: "70%",
+    },
     bgcolor: "background.paper",
     border: "none",
     boxShadow: 24,
@@ -127,7 +137,7 @@ const DoctorView = () => {
     }).then((res) => {
       if (res.status === 200) {
         target.feedback.value = "";
-        console.log("succe");
+        Swal.fire("Success!", "Review added!", "success");
       }
     });
   };
@@ -140,7 +150,7 @@ const DoctorView = () => {
       height: { value: string };
       weight: { value: string };
       healthIssues: { value: string };
-      age:{value:string}
+      age: { value: string };
     };
 
     const patientName = target.patientName?.value;
@@ -178,7 +188,7 @@ const DoctorView = () => {
       doctorInfo,
     };
 
-    console.log(addapointment);
+    // console.log(addapointment);
 
     // console.log(review);
 
@@ -191,7 +201,8 @@ const DoctorView = () => {
       body: JSON.stringify(addapointment),
     }).then((res) => {
       if (res.status === 200) {
-        console.log("success");
+        handleCloseModal();
+        Swal.fire("Success!", "Appointment booked!", "success");
       }
     });
   };
@@ -234,12 +245,12 @@ const DoctorView = () => {
                     }}
                   >
                     {" "}
-                    {doctor.name}{" "}
+                    {doctor?.name}{" "}
                   </h4>
                   <p>
                     <Rating
                       name="read-only"
-                      value={parseInt(doctor.review)}
+                      value={parseInt(doctor?.review)}
                       readOnly
                       size="small"
                       precision={0.5}
@@ -252,12 +263,17 @@ const DoctorView = () => {
                         textAlign: "center",
                       }}
                     >
-                      ({doctor.numberOfReview})
+                      ({doctor?.numberOfReview})
                     </span>
                   </p>
-                  <h6 style={{ color: "#0783b5", fontWeight: "700" }}>
+                  <h6
+                    style={{
+                      color: "#0783b5",
+                      fontWeight: "700",
+                    }}
+                  >
                     {" "}
-                    {doctor.specialist}{" "}
+                    {doctor?.specialist}{" "}
                   </h6>
                   <div className="dis-text" style={{ lineHeight: "14px" }}>
                     <p>
@@ -266,7 +282,7 @@ const DoctorView = () => {
                         {" "}
                         <Icon icon="arcticons:phone" />{" "}
                       </span>
-                      {doctor.phone}{" "}
+                      {doctor?.phone}{" "}
                     </p>
                     <p>
                       {" "}
@@ -274,7 +290,7 @@ const DoctorView = () => {
                         {" "}
                         <Icon icon="ic:outline-alternate-email" />{" "}
                       </span>
-                      {doctor.email}{" "}
+                      {doctor?.email}{" "}
                     </p>
                     <p>
                       {" "}
@@ -282,7 +298,7 @@ const DoctorView = () => {
                         {" "}
                         <Icon icon="ep:location" />{" "}
                       </span>{" "}
-                      {address.street} , {address.city}
+                      {address?.street} , {address?.city}
                     </p>
                   </div>
                 </div>
@@ -309,29 +325,29 @@ const DoctorView = () => {
               <div className="row">
                 <div className="col-lg-6 border-right-style">
                   <ul className="ul-style-in-view">
-                    <li>Full Name: {doctor.name}</li>
-                    <li>User Name: {doctor.username}</li>
-                    <li>Specialist: {doctor.specialist}</li>
-                    <li>Emai: {doctor.email}</li>
-                    <li> Phone: {doctor.phone} </li>
-                    <li> Website: {doctor.website} </li>
-                    <li> experience: {doctor.experience} year </li>
+                    <li>Full Name: {doctor?.name}</li>
+                    <li>User Name: {doctor?.username}</li>
+                    <li>Specialist: {doctor?.specialist}</li>
+                    <li>Emai: {doctor?.email}</li>
+                    <li> Phone: {doctor?.phone} </li>
+                    <li> Website: {doctor?.website} </li>
+                    <li> experience: {doctor?.experience} year </li>
                   </ul>
                 </div>
                 <div className="col-lg-6 address-style ">
                   <h5 style={{ color: "#0783b5" }}> Address </h5>
                   <p>
-                    {address.street} ,{address.suite} , {address.city} ,{" "}
-                    {address.zipcode}
+                    {address?.street} ,{address?.suite} , {address?.city} ,{" "}
+                    {address?.zipcode}
                   </p>
                   <h5 style={{ color: "#0783b5" }}> Appointment Day</h5>
-                  <p> {doctor.appointmentDay}</p>
+                  <p> {doctor?.appointmentDay}</p>
                 </div>
               </div>
               <div className="my-5">
                 <h3 style={{ color: "#0783b5" }}>
                   {" "}
-                  {doctor.name} Location & Contact Information{" "}
+                  {doctor?.name} Location & Contact Information{" "}
                 </h3>
                 <hr />
                 <div className="my-5">
@@ -353,7 +369,7 @@ const DoctorView = () => {
                       <div className="all-address-content">
                         <p>
                           {" "}
-                          {address.street} , {address.city}
+                          {address?.street} , {address?.city}
                         </p>
                       </div>
                     </div>
@@ -365,7 +381,7 @@ const DoctorView = () => {
                         </span>
                       </div>
                       <div className="all-address-content">
-                        <p> {doctor.phone} </p>
+                        <p> {doctor?.phone} </p>
                       </div>
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-12  all-address ">
@@ -376,7 +392,7 @@ const DoctorView = () => {
                         </span>
                       </div>
                       <div className="all-address-content">
-                        <p> {doctor.email} </p>
+                        <p> {doctor?.email} </p>
                       </div>
                     </div>
                   </div>
@@ -402,7 +418,7 @@ const DoctorView = () => {
                       <h5 className="me-3"> Matthew Reyes </h5>
                       <Rating
                         name="read-only"
-                        value={parseInt(doctor.review)}
+                        value={parseInt(doctor?.review)}
                         readOnly
                         size="small"
                         precision={0.5}
@@ -484,7 +500,9 @@ const DoctorView = () => {
             <div className="container">
               <div
                 className="p-4"
-                style={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
+                style={{
+                  boxShadow: " rgba(0, 0, 0, 0.1) 0px 4px 12px",
+                }}
               >
                 <h3 className="my-4 " style={{ color: "#0783b5" }}>
                   {" "}
@@ -527,7 +545,9 @@ const DoctorView = () => {
                 </div>
               </div>
               <div
-                style={{ boxShadow: " rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
+                style={{
+                  boxShadow: " rgba(0, 0, 0, 0.1) 0px 4px 12px",
+                }}
                 className=" my-5 p-4"
               >
                 <h3 style={{ color: "#0783b5" }} className="my-3">
@@ -574,7 +594,10 @@ const DoctorView = () => {
                       <Alert
                         onClose={handleClose}
                         severity="success"
-                        sx={{ width: "100%", fontWeight: "500" }}
+                        sx={{
+                          width: "100%",
+                          fontWeight: "500",
+                        }}
                       >
                         message is Successfully sended
                       </Alert>
@@ -593,11 +616,13 @@ const DoctorView = () => {
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
-              <Box sx={style}>
-                <h4> Your Information </h4>
+              <Box sx={style} style={{ borderRadius: "10px" }}>
+                <h4 className="fw-bold text-info my-5 mx-3">
+                  Provide Your Detailed Information
+                </h4>
                 <div className="container">
                   <form className="row all-input" onSubmit={handleBookSubmit}>
-                    <div className="col-lg-6 col-md-6 col-sm-6 my-1">
+                    <div className="col-lg-6 col-md-6 col-sm-6 my-2">
                       <TextField
                         id="outlined-basic"
                         label="Patient Name"
@@ -605,9 +630,11 @@ const DoctorView = () => {
                         variant="outlined"
                         fullWidth
                         required
+                        defaultValue={user.name}
+                        disabled
                       />
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-6 my-1">
+                    <div className="col-lg-6 col-md-6 col-sm-6 my-2">
                       <TextField
                         id="outlined-basic"
                         label="Patient Email"
@@ -615,9 +642,11 @@ const DoctorView = () => {
                         variant="outlined"
                         fullWidth
                         required
+                        defaultValue={user.email}
+                        disabled
                       />
                     </div>
-                    <div className="col-lg-4 col-md-4 col-sm-4 my-1">
+                    <div className="col-lg-4 col-md-4 col-sm-4 my-2">
                       <TextField
                         id="outlined-basic"
                         label="height"
@@ -627,7 +656,7 @@ const DoctorView = () => {
                         required
                       />
                     </div>
-                    <div className="col-lg-4 col-md-4 col-sm-4 my-1">
+                    <div className="col-lg-4 col-md-4 col-sm-4 my-2">
                       <TextField
                         id="outlined-basic"
                         label="weight"
@@ -637,8 +666,8 @@ const DoctorView = () => {
                         required
                       />
                     </div>
-                    <div className="my-1 col-lg-4 col-md-4 col-sm-4 ">
-                    <TextField
+                    <div className="my-2 col-lg-4 col-md-4 col-sm-4 ">
+                      <TextField
                         id="outlined-basic"
                         label="Age"
                         name="age"
@@ -648,7 +677,7 @@ const DoctorView = () => {
                         required
                       />
                     </div>
-                    <div className="my-1 col-lg-6 col-md-6 col-sm-6 ">
+                    <div className="my-2 col-lg-6 col-md-6 col-sm-6 ">
                       <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">
                           Gender
@@ -666,7 +695,7 @@ const DoctorView = () => {
                         </Select>
                       </FormControl>
                     </div>
-                    <div className="my-1 col-lg-6 col-md-6 col-sm-6">
+                    <div className="my-2 col-lg-6 col-md-6 col-sm-6">
                       <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">
                           Blood Group
@@ -690,7 +719,7 @@ const DoctorView = () => {
                         </Select>
                       </FormControl>
                     </div>
-                    <div className="my-1 col-lg-12">
+                    <div className="my-2 col-lg-12">
                       <TextField
                         id="outlined-basic"
                         label="health Issues"
@@ -703,10 +732,11 @@ const DoctorView = () => {
                         required
                       />
                     </div>
-                    <Button type="submit" variant="contained">
-                      {" "}
-                      Book Appointment{" "}
-                    </Button>
+                    <Box sx={{ my: 2 }}>
+                      <Button type="submit" variant="contained">
+                        Book Appointment
+                      </Button>
+                    </Box>
                   </form>
                 </div>
               </Box>

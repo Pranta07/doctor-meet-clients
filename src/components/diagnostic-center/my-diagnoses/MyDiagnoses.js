@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import { Paper, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from '@mui/material';
 import { Table } from 'react-bootstrap';
 import MyDiagnosis from './MyDiagnosis';
+
+// import useFirebase from '../../../firebase/useFirebase/useFirebase';
 import { useAppSelector } from '../../../redux/store';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -18,18 +20,23 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 const MyDiagnoses = () => {
   const [myDiagnosis, setMyDiagnosis] = useState([]);
   const { user } = useAppSelector((state) => state.user);
+//const {user}=useFirebase();
 
   useEffect(() => {
-    fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis/single?email=${user?.email}`)
+    
+      fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis/single?email=${user?.email}`)
       .then(res => res.json())
-      .then(data => setMyDiagnosis(data))
+      .then(data => {
+        setMyDiagnosis(data)
+        console.log(data)
+      })
+    
+   
   }, [user])
-  useEffect(() => {
-
-  }, [user])
+ 
   return (
-    <TableContainer component={Paper} className="mt-5">
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+    <TableContainer component={Paper} className="mt-5 my-diagnoses-table-container">
+      <Table aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
@@ -43,7 +50,7 @@ const MyDiagnoses = () => {
         <TableBody>
 
           {
-            myDiagnosis.map(diagnosis => <MyDiagnosis diagnosis={diagnosis}></MyDiagnosis>)
+            myDiagnosis.map((diagnosis) => <MyDiagnosis diagnosis={diagnosis} key={diagnosis._id}></MyDiagnosis>)
           }
 
         </TableBody>

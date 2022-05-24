@@ -3,16 +3,18 @@ import { RatingStar } from "rating-star";
 import React, { useEffect, useState } from "react";
 import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
-import '../pharmacy-single-product/PharmacySingleProduct.css'
+import "../pharmacy-single-product/PharmacySingleProduct.css";
+import { addItemsToCart } from "../../../redux/actions/cartAction";
+import { useAppDispatch } from "../../../redux/store";
 
-let getData = () => {
-  let data = localStorage.getItem("item");
-  if (data) {
-    return JSON.parse(data);
-  } else {
-    return [];
-  }
-};
+// let getData = () => {
+//   let data = localStorage.getItem("item");
+//   if (data) {
+//     return JSON.parse(data);
+//   } else {
+//     return [];
+//   }
+// };
 
 const style = {
   position: "absolute" as "absolute",
@@ -25,43 +27,34 @@ const style = {
 };
 
 const PharmacyShop = (props: any) => {
-  let [itemData, setItemData] = useState(getData());
+  // let [itemData, setItemData] = useState(getData());
   let [count, setCount] = useState(1);
+  const dispatch = useAppDispatch();
 
-  let {
-    name,
-    img1,
-    img2,
-    img3,
-    rating,
-    img4,
-    price,
-    inStock,
-    _id,
-  } = props.products;
-
+  let { name, img1, img2, img3, img4, price, inStock, _id } = props.products;
+  //danger
+  let rating = 3.4;
   useEffect(() => {
-    const ItemList = localStorage.getItem("item");
-
-    if (ItemList) {
-      const listItems: any[] = JSON.parse(ItemList);
-      const authorId = listItems.find((author) => author._id === _id);
-    }
+    // const ItemList = localStorage.getItem("item");
+    // if (ItemList) {
+    //   const listItems: any[] = JSON.parse(ItemList);
+    //   const authorId = listItems.find((author) => author._id === _id);
+    // }
   }, [_id]);
 
-  const addMedicine = (id: string) => {
-    //save the medicine to local storage
-    const medicine = localStorage.getItem("item");
+  // const addMedicine = (id: string) => {
+  //   //save the medicine to local storage
+  //   const medicine = localStorage.getItem("item");
 
-    let items;
-    if (medicine) items = JSON.parse(medicine);
-    else items = [];
-    // console.log(newItems);
+  //   let items;
+  //   if (medicine) items = JSON.parse(medicine);
+  //   else items = [];
+  //   // console.log(newItems);
 
-    let newItems = [...items, props.products];
+  //   let newItems = [...items, props.products];
 
-    localStorage.setItem("item", JSON.stringify([...newItems]));
-  };
+  //   localStorage.setItem("item", JSON.stringify([...newItems]));
+  // };
   let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
@@ -88,7 +81,7 @@ const PharmacyShop = (props: any) => {
     <div className="col-lg-4">
       <div className="product mt-3 p-4">
         <div className="product-img">
-          <img className="img-fluid" src={img1+".jpg"} alt="front product" />
+          <img className="img-fluid" src={img1 + ".jpg"} alt="front product" />
           <img src={img2} alt="rear product" className="rear-img img-fluid " />
           <div className="overlay">
             <button className="btn" title="Wishlit">
@@ -96,7 +89,7 @@ const PharmacyShop = (props: any) => {
               <Heart></Heart>{" "}
             </button>
             <button
-              onClick={() => addMedicine(_id)}
+              onClick={() => dispatch(addItemsToCart(_id, count))}
               className="btn"
               title="Add to Cart"
             >
@@ -219,7 +212,7 @@ const PharmacyShop = (props: any) => {
                     </button>{" "}
                   </div>
                   <button
-                    onClick={() => addMedicine(_id)}
+                    onClick={() => dispatch(addItemsToCart(_id, count))}
                     className="btn-style"
                   >
                     {" "}

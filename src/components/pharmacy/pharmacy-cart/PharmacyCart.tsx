@@ -1,6 +1,8 @@
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../../../redux/store";
 import "./PharmacyCart.css";
 import PharmacyCartSingle from "./PharmacyCartSingle";
 
@@ -9,32 +11,9 @@ const PharmacyCart = () => {
   const handleChildCartData = (cartData: any) => {
     cartTotal = cartTotal + cartData;
   };
+  const { cartItems } = useAppSelector((state) => state.cart);
 
   let [tax, setTax] = useState(0);
-  let [itemData, setItemData] = useState<any[]>([]);
-
-  useEffect(() => {
-    const doctorList = localStorage.getItem("item");
-    if (doctorList) {
-      const data = JSON.parse(doctorList);
-      setItemData(data);
-      console.log(data);
-    }
-  }, []);
-
-  const removeDoctor = (id: string) => {
-    //remove the doctor from local storage
-    const doctor = localStorage.getItem("item");
-
-    let items: any[];
-    if (doctor) items = JSON.parse(doctor);
-    else items = [];
-
-    const newItems = items.filter((author) => author._id !== id);
-    // console.log(newItems);
-    setItemData(newItems);
-    localStorage.setItem("item", JSON.stringify([...newItems]));
-  };
 
   return (
     <>
@@ -48,14 +27,18 @@ const PharmacyCart = () => {
       <div className="container position-style my-5">
         <div className="row my-all">
           <h3> Order </h3>
-          {itemData.map((item, index) => (
-            <PharmacyCartSingle
-              item={item}
-              index={index}
-              removeDoctor={removeDoctor}
-              handleChildCartData={handleChildCartData}
-            ></PharmacyCartSingle>
-          ))}
+          {
+            //@ts-ignore
+            cartItems.map((item, index) => (
+              //@ts-ignore
+              <PharmacyCartSingle
+                item={item}
+                index={index}
+                key={item.productId}
+                handleChildCartData={handleChildCartData}
+              ></PharmacyCartSingle>
+            ))
+          }
           <div className="col-lg-4 position-set">
             <div className="box-shadow p-3">
               <h5 className="line-h"> Payment Summary </h5>
@@ -76,12 +59,15 @@ const PharmacyCart = () => {
               </div>
               <hr className="hr-style" />
               <div className=" d-flex mt-3 p-2">
-                <input
-                  className="form-control"
-                  type="text"
-                  placeholder="Coupon Code"
-                />{" "}
-                <button className="btn btn-outline-primary mx-2"> Apply</button>
+                {/* When data is static */}
+                <Link to="/pharmacy-payment">
+                  <button className="btn btn-outline-primary mx-2">
+                    Proceed Pay
+                  </button>
+                </Link>
+
+                {/* When data is dynamic */}
+                {/* <Link to=`/pharmacy-payment/${orderid}`><button className="btn btn-outline-primary mx-2"> Pay</button></Link> */}
               </div>
             </div>
           </div>

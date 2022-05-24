@@ -7,6 +7,13 @@
     font-size: 20px;
     font-family: 'Source Sans Pro', sans-serif;
 }
+.appointment-doctor-image{
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  margin: 20px auto;
+
+}
 .appointment-table-header-container .appointment-table-header{
   font-family: 'Inter', sans-serif;
   font-size: 18px;
@@ -66,4 +73,33 @@ cursor: pointer;
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+}
+@media only screen and (max-width: 1200px){
+  /*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px){
+/*Big smartphones [426px -> 600px]*/
+.appointment-table-header-container .appointment-table-header{
+  
+  font-size: 14px;
+  
+}
+.appointment-table-row-data{
+
+  font-size: 12px;
+
+}
+}
+@media only screen and (max-width: 425px){
+/*Small smartphones [325px -> 425px]*/
+.appointment-table-header-container .appointment-table-header{
+  
+  font-size: 14px;
+  
+}
+.appointment-table-row-data{
+  
+  font-size: 14px;
+  
+}
 }

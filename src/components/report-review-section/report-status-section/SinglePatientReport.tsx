@@ -50,6 +50,14 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const SinglePatientReport = (props: { report: IReport }) => {
     const { report } = props;
+    // const [date, setDate] = useState("dd/mm/yy");
+    let dateDecode = new Date(report.createdAt);
+    let dates =
+        dateDecode.getDate() +
+        "/" +
+        dateDecode.getMonth() +
+        "/" +
+        dateDecode.getFullYear();
 
     const [modalOpen, setmOpen] = React.useState(false);
     const handleOpen = () => setmOpen(true);
@@ -61,13 +69,11 @@ const SinglePatientReport = (props: { report: IReport }) => {
 
     return (
         <StyledTableRow key={report._id}>
-            <StyledTableCell component="th" scope="row">
-                {report?._id.slice(0, 5)}...
-            </StyledTableCell>
             <StyledTableCell align="left">{report?.drName}</StyledTableCell>
             <StyledTableCell align="left">
                 {report?.patientName}
             </StyledTableCell>
+            <StyledTableCell align="center">{dates}</StyledTableCell>
             <StyledTableCell align="center">
                 <Tooltip title="See Review" placement="left-start">
                     <IconButton

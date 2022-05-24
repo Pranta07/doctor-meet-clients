@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import {  useNavigate } from 'react-router-dom';
-
+import useTime from '../../../hooks/useTime';
+import usePremiumMembershipStatus from '../../../hooks/usePremiumMembersipStatus';
 const DiagnosticPaymentForm = ({diagnostic}) => {
-  
     const stripe = useStripe();
     const elements = useElements();
 const navigate=useNavigate();
+const [error,setError]=useState('');
+const [floatPrice,setFloatPrice]=useState(0);
+const {premiumMemberDetails,premiumMembershipStatus}=usePremiumMembershipStatus();
+const {date}=useTime();
+useEffect(()=>{
+  const fetchData=async()=>{
+      // const floatDiscount=await (parseFloat(diagnostic?.selectedDiagnosis.discount).toFixed(2));    
+      // const dd= (floatDiscount/100.00);
+    await setFloatPrice((diagnostic?.selectedDiagnosis.price)-((diagnostic?.selectedDiagnosis.price)*((parseFloat(diagnostic?.selectedDiagnosis.discount).toFixed(2))/100.00))).toFixed(2);
+    
+    if(premiumMembershipStatus){
+      const membershipDiscountPercentage=premiumMemberDetails?.categoryDetails.labTestDiscount;
+      setFloatPrice(floatPrice-(floatPrice*parseFloat(membershipDiscountPercentage/100))).toFixed(2);
+    }
+    
+  }
+  fetchData().catch(console.error);
+   
+},[premiumMemberDetails,premiumMembershipStatus,diagnostic,floatPrice])
+
     const handleSubmit = async (event) => {
         // Block native form submission.
         event.preventDefault();
@@ -30,11 +50,16 @@ const navigate=useNavigate();
             type: "card",
             card,
         });
-
+        const invoice={
+          invoiceName:"Diagnostic Center",
+          category:{...diagnostic},
+          paymentMethod,
+          amount:floatPrice,
+          purchasedDate:date
+        }
     if (error) {
-      console.log('[error]', error);
+      setError(error.message);
     } else {
-      console.log('[PaymentMethod]', paymentMethod);
       if(paymentMethod.id){
         fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis/${diagnostic._id}`,{
           method:"PUT"
@@ -42,8 +67,25 @@ const navigate=useNavigate();
         .then(res=>res.json())
         .then(data=>{
           console.log(data)
-          alert("Successfully paid");
-          navigate('/')
+          if(data.acknowledged){
+            fetch(`https://floating-basin-02241.herokuapp.com/allInvoices`, {
+              method: "POST",
+              headers: {
+                  "content-type": "application/json"
+              },
+              body: JSON.stringify(invoice)
+          })
+              .then(res=>res.json())
+              .then(data=>{
+                
+                if(data.insertedId){
+                  alert("Successfully paid");
+                  navigate('/dashboard/user/my-diagnosises');
+                }
+              })
+          }
+       
+          
         })
        
       }
@@ -57,9 +99,9 @@ const navigate=useNavigate();
           style: {
             base: {
               fontSize: '16px',
-              color: '#424770',
+              color: 'white',
               '::placeholder': {
-                color: '#aab7c4',
+                color: '#c8d6e5',
               },
             },
             invalid: {
@@ -68,7 +110,8 @@ const navigate=useNavigate();
           },
         }}
       />
-      <button type="submit" className="btn-diagnosis-pay" disabled={!stripe}>
+      {error&&<p className='mt-3'>{error}</p>}
+      <button type="submit" className="btn-diagnosis-pay mt-5" disabled={!stripe}>
         Pay
       </button>
     </form>

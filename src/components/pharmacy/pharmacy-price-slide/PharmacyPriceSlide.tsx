@@ -6,6 +6,7 @@ import Thumb from "../Thumb";
 
 function PharmacyPriceSlide(props: any) {
   let trackRef = React.useRef(null);
+  // console.log(trackRef)
   let numberFormatter = useNumberFormatter(props.formatOptions);
   let state = useSliderState({ ...props, numberFormatter });
   let { groupProps, trackProps, labelProps, outputProps } = useSlider(
@@ -13,6 +14,8 @@ function PharmacyPriceSlide(props: any) {
     state,
     trackRef
   );
+  props.setLowerPrice(state.getThumbValue(0));
+  props.setUpperPrice(state.getThumbValue(1));
 
   return (
     <div
