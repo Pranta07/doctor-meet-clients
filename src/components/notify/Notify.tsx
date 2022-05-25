@@ -10,12 +10,10 @@ const Notify = () => {
   const [users, setUsers] = useState<any>([]);
   let userRef = useRef<HTMLInputElement>(null!);
   let moderatorRef = useRef<HTMLInputElement>(null!);
-  let adminRef = useRef<HTMLInputElement>(null!)
-  const [text, setText] = useState("");
+  let adminRef = useRef<HTMLInputElement>(null!);
+  let DrnameRef = useRef<HTMLInputElement>(null!);
+  let messageRef = useRef<HTMLInputElement>(null!);
 
-  const handleChange = (value: any) => {
-    setText(value);
-  };
 
   useEffect(() => {
     const url1 = `http://localhost:5000/api/v1/admin/users/role?role=user`;
@@ -24,32 +22,34 @@ const Notify = () => {
       .then((data) => {
         setUsers(data.user);
       });
-    // const url2 = `http://localhost:5000/api/v1/admin/users/role?role=doctor`;
-    // fetch(url2)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setDoctors(data.result);
-    //   });
   }, [admin, moderator, users]);
 
-  useEffect(()=>{
+  useEffect(() => {
+    const url2 = `http://localhost:5000/api/v1/admin/users/role?role=doctor`;
+    fetch(url2)
+      .then((res) => res.json())
+      .then((data) => {
+        setDoctors(data.user);
+      });
+  }, []);
+
+  useEffect(() => {
     const url3 = `http://localhost:5000/api/v1/admin/users/role?role=modaretor`;
     fetch(url3)
       .then((res) => res.json())
       .then((data) => {
         setModerator(data.user);
       });
-  },[])
+  }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     const url4 = `http://localhost:5000/api/v1/admin/users/role?role=admin`;
     fetch(url4)
       .then((res) => res.json())
       .then((data) => {
         setAdmin(data.user);
       });
-  },[])
-
+  }, []);
 
   const defaultProps = {
     options: doctors,
@@ -70,12 +70,16 @@ const Notify = () => {
 
   const handleSendNotify = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    let id = userRef.current?.value.split("#")[1] || moderatorRef.current?.value.split("#")[1]  || adminRef.current?.value.split("#")[1] ;
-    let message = text ;
+    let id =
+      userRef.current?.value.split("#")[1] ||
+      moderatorRef.current?.value.split("#")[1] ||
+      adminRef.current?.value.split("#")[1] ||
+      DrnameRef.current?.value.split("#")[1];
+    let message = messageRef.current?.value;
     let date = new Date();
-    let status = 'unRead';
+    let status = "unRead";
 
-    const notify = { message,date,status };
+    const notify = { message, date, status };
 
     //send review data to server
     fetch(`http://localhost:5000/api/v1/admin/users/notify/${id}`, {
@@ -88,7 +92,7 @@ const Notify = () => {
       if (res.status === 200) {
         Swal.fire({
           title: "Success",
-          text: "Admin Or Modaretor Successfully Added",
+          text: "notification send Successfully ",
           icon: "success",
           showConfirmButton: false,
           timer: 2000,
@@ -105,8 +109,6 @@ const Notify = () => {
       }
     });
   };
-
-
 
   return (
     <div className="container">
@@ -149,24 +151,24 @@ const Notify = () => {
                 />
               )}
             />
-            {/* <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            {...defaultProps}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                required
-                fullWidth
-                label="Doctor Name"
-                variant="outlined"
-                inputRef={DrnameRef}
-                sx={{
-                  my: "15px",
-                }}
-              />
-            )}
-          /> */}
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              {...defaultProps}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  required
+                  fullWidth
+                  label="Doctor Email & id"
+                  variant="outlined"
+                  inputRef={DrnameRef}
+                  sx={{
+                    my: "15px",
+                  }}
+                />
+              )}
+            />
             <Autocomplete
               disablePortal
               id="combo-box-demo"
@@ -204,26 +206,23 @@ const Notify = () => {
                 />
               )}
             />
-
-            <Box
+            <TextField
+              required
+              fullWidth
+              label="Send a message"
+              variant="outlined"
+              rows={4}
+              multiline
+              inputRef={messageRef}
               sx={{
-                width: {
-                  xs: "100%",
-                  md: "100%",
-                },
-                my: 2,
-                mx: "auto",
+                my: "15px",
               }}
+            />
+            <Button
+              onClick={handleSendNotify}
+              className="my-3"
+              variant="contained"
             >
-              <div>
-                <ReactQuill
-                  value={text}
-                  onChange={handleChange}
-                  placeholder="Write your article content here..."
-                />
-              </div>
-            </Box>
-            <Button onClick={handleSendNotify} className="my-3" variant="contained">
               Send
             </Button>
           </form>
