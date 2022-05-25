@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import vector1 from "../../../assets/blood-donation/vector1.jpg";
+import vector1 from "../../../assets/img/—Pngtree—love blood donation_5395179.png";
 import DonorChart from "../donor-chart/DonorChart";
 import JoinUsForm from "../join-us/JoinUsForm";
 import { styled } from "@mui/material/styles";
