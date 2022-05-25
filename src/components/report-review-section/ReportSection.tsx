@@ -40,13 +40,18 @@ const ReportSection = () => {
       .then((data) => {
         setDoctors(data.result);
       });
-    const url1 = `http://localhost:5000/api/v1/admin/users`;
+  }, []);
+
+
+  useEffect(()=>{
+    const url1 = `http://localhost:5000/api/v1/admin/users/role?role=user`;
     fetch(url1)
       .then((res) => res.json())
       .then((data) => {
-        setUsers(data.users);
+        setUsers(data.user);
       });
-  }, []);
+  },[])
+
 
   let getFile = (e: any) => {
     if (text !== "Click or drop something here...") {
@@ -213,7 +218,7 @@ const ReportSection = () => {
                     {...params}
                     required
                     fullWidth
-                    label="Patient Name"
+                    label="Patient Name & Email"
                     variant="outlined"
                     inputRef={patientRef}
                     sx={{
@@ -222,7 +227,6 @@ const ReportSection = () => {
                   />
                 )}
               />
-
               <Autocomplete
                 disablePortal
                 id="combo-box-demo"
@@ -232,7 +236,7 @@ const ReportSection = () => {
                     {...params}
                     required
                     fullWidth
-                    label="Doctor Name"
+                    label="Doctor Name & Email"
                     variant="outlined"
                     inputRef={DrnameRef}
                     sx={{
