@@ -34,6 +34,7 @@ import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppo
 import { MyAppointment } from "../components/appointment";
 import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
 import Profile from "../pages/profile/Profile";
+import JoinUsForm from "../components/blood-donor/join-us/JoinUsForm";
 
 // ----------------------------------------------------------------------
 
@@ -207,6 +208,10 @@ export default function Router() {
             {
               path: "add-review",
               element: <UserReview />,
+            },
+            {
+              path: "join-us",
+              element: <JoinUsForm />,
             },
           ],
         },
