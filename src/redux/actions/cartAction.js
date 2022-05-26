@@ -7,7 +7,7 @@ import axios from "axios";
 
 // Add to Cart
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
-    const { data } = await axios.get(`http://localhost:5000/api/v1/product/${id}`);
+    const { data } = await axios.get(`https://ancient-inlet-17554.herokuapp.com/api/v1/product/${id}`);
     // console.log(data)
     dispatch({
         type: ADD_TO_CART,

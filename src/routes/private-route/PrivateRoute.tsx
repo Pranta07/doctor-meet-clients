@@ -5,11 +5,12 @@ import { useAppSelector } from "../../redux/store";
 
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const { user, loading }: any = useAppSelector((state) => state.user);
- 
+  const token = window.localStorage.getItem("token");
+
 
   let location = useLocation();
 
-  if (loading ) {
+  if (loading) {
     return (
       <div className="m-10">
         <svg
@@ -19,9 +20,9 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
       </div>
     );
   }
-console.log(loading);
+  // console.log(loading);
 
-  if (user?.email) {
+  if (token) {
     return children;
   } else {
     return <Navigate to="/login" state={{ from: location }} replace />;

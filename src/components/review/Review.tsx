@@ -26,7 +26,7 @@ const Review = () => {
     const [reviews, setReviews] = useState<IReview[]>([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/v1/review")
+        fetch("https://ancient-inlet-17554.herokuapp.com/api/v1/review")
             .then((res) => res.json())
             .then((data) => {
                 setReviews(data.result);

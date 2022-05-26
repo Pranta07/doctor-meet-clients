@@ -51,7 +51,7 @@ const SingleRowData = (props: {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/v1/doctors/${email}`, {
+                fetch(`https://ancient-inlet-17554.herokuapp.com/api/v1/doctors/${email}`, {
                     method: "DELETE",
                 }).then((res) => {
                     if (res.status === 200) {
@@ -72,7 +72,7 @@ const SingleRowData = (props: {
         newDoctor.approved = true;
         // console.log(newDoctor);
         setIsUpdate(false);
-        const url = `http://localhost:5000/api/v1/doctors/${doctor?.email}`;
+        const url = `https://ancient-inlet-17554.herokuapp.com/api/v1/doctors/${doctor?.email}`;
         fetch(url, {
             method: "PUT",
             headers: {

@@ -28,7 +28,7 @@ const SingleReport = (props: any) => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/v1/report/${report?._id}`, {
+                fetch(`https://ancient-inlet-17554.herokuapp.com/api/v1/report/${report?._id}`, {
                     method: "DELETE",
                 }).then((res) => {
                     if (res.status === 200) {

@@ -35,7 +35,7 @@ const ReviewModal = (props: any) => {
         newReport.status = true;
         // console.log(newReport);
         //send review data to server
-        fetch(`http://localhost:5000/api/v1/report/${report?._id}`, {
+        fetch(`https://ancient-inlet-17554.herokuapp.com/api/v1/report/${report?._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

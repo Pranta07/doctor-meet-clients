@@ -102,7 +102,7 @@ const GenderChartDoctors = () => {
     );
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/v1/doctors/statistics")
+        fetch("https://ancient-inlet-17554.herokuapp.com/api/v1/doctors/statistics")
             .then((res) => res.json())
             .then((data) => setData(data.result.genderData));
     }, []);

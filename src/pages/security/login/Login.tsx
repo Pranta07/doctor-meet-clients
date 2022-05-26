@@ -1,12 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useSnackbar } from "notistack";
+
 import {
   NavLink,
   useLocation,
   useNavigate,
   unstable_HistoryRouter as HistoryRouter,
+  Link,
 } from "react-router-dom";
-import { login } from "../../../redux/actions/userAction";
+import { clearErrors, login } from "../../../redux/actions/userAction";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import "./Login.css";
 
@@ -16,8 +19,12 @@ const history = createBrowserHistory({ window });
 
 const Login = () => {
   const { user }: any = useAppSelector((state) => state);
-  useEffect(() => {}, [user]);
   const dispatch = useAppDispatch();
+  // console.log(user.success)
+  const { enqueueSnackbar } = useSnackbar();
+
+  // console.log(user)
+  useEffect(() => { }, [user]);
   const navigate = useNavigate();
   const mail = useRef<HTMLInputElement>(null!);
   const pass = useRef<HTMLInputElement>(null!);
@@ -27,9 +34,16 @@ const Login = () => {
     const password: string = pass.current.value;
     // signUsingEmail(mailE, passE);
     dispatch(login(email, password));
-    if (user.success) {
+    // console.log(user)
+    if (user.error) {
       //@ts-ignore
-      navigate(history.back());
+      enqueueSnackbar(user.error);
+      dispatch(clearErrors())
+      // navigate("/");
+    } else if (user?.success) {
+      dispatch(clearErrors())
+      enqueueSnackbar("Login success.");
+      navigate("/");
     }
   };
   return (
@@ -57,8 +71,8 @@ const Login = () => {
     justify-content-between"
               controlId="formBasicCheckbox"
             >
-              <Form.Check type="checkbox" label="Remember me" />{" "}
-              <a href="/"> Forgot password? </a>
+
+              <Link to="/password/forgot"> Forgot password? </Link>
             </Form.Group>
             <Button onClick={handelSubmit} variant="primary px-4" type="submit">
               Login

@@ -28,17 +28,17 @@ const AddOrder = () => {
     let category = target.Pcategory?.value;
 
     // console.log(review);
-    let newProduct = {name,price,description,img1,img2,img3,img4,inStock,category}
+    let newProduct = { name, price, description, img1, img2, img3, img4, inStock, category }
 
     console.log(newProduct);
-    
+
     //send review data to server
-    fetch("http://localhost:5000/api/v1/product/add", {
+    fetch("https://ancient-inlet-17554.herokuapp.com/api/v1/product/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-        body: JSON.stringify(newProduct),
+      body: JSON.stringify(newProduct),
     }).then((res) => {
       if (res.status === 200) {
         Swal.fire({

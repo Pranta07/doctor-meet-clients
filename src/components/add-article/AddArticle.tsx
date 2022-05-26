@@ -23,9 +23,9 @@ import Swal from "sweetalert2";
 import { useAppSelector } from "../../redux/store";
 
 const AddArticle = () => {
-  const { user }: any = useAppSelector((state) => state.user);
-  const [text, setText] = useState("");
-  let titleRef = useRef<HTMLInputElement>(null!);
+    const { user }: any = useAppSelector((state) => state.user);
+    const [text, setText] = useState("");
+    let titleRef = useRef<HTMLInputElement>(null!);
 
     let [url, setUrl] = useState("");
     let [isProgress, setIsProgress] = useState(false);
@@ -87,7 +87,7 @@ const AddArticle = () => {
         // console.log(article);
 
         //send article data to server
-        fetch("http://localhost:5000/api/v1/article/add", {
+        fetch("https://ancient-inlet-17554.herokuapp.com/api/v1/article/add", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

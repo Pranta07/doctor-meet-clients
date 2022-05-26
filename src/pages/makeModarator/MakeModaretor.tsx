@@ -8,7 +8,7 @@ const MakeModaretor = () => {
   let roleRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
-    const url1 = `http://localhost:5000/api/v1/admin/users`;
+    const url1 = `https://ancient-inlet-17554.herokuapp.com/api/v1/admin/users`;
     fetch(url1)
       .then((res) => res.json())
       .then((data) => {
@@ -18,7 +18,7 @@ const MakeModaretor = () => {
 
   const defaultProps1 = {
     options: users,
-    getOptionLabel: (option: any) => option.email +" # " + option._id ,
+    getOptionLabel: (option: any) => option.email + " # " + option._id,
   };
 
   const roles = [{ role: "admin" }, { role: "modaretor" }];
@@ -35,7 +35,7 @@ const MakeModaretor = () => {
     const roles = { role };
 
     //send review data to server
-    fetch(`http://localhost:5000/api/v1/admin/user/${id}`, {
+    fetch(`https://ancient-inlet-17554.herokuapp.com/api/v1/admin/user/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -85,46 +85,46 @@ const MakeModaretor = () => {
           }}
         >
 
-        <form onSubmit={handleMakeAdmin}>
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            {...defaultProps1}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                required
-                label="Make admin or Modaretor"
-                variant="outlined"
-                inputRef={userRef}
-                sx={{
-                  my: "15px",
-                }}
-              />
-            )}
-          />
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            {...defaultProps3}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                required
-                label="Role"
-                variant="outlined"
-                inputRef={roleRef}
-                sx={{
-                  my: "15px",
-                }}
-              />
-            )}
-          />
-          <Button type="submit" variant="contained">
-            {" "}
-            Send{" "}
-          </Button>
-        </form>
+          <form onSubmit={handleMakeAdmin}>
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              {...defaultProps1}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  required
+                  label="Make admin or Modaretor"
+                  variant="outlined"
+                  inputRef={userRef}
+                  sx={{
+                    my: "15px",
+                  }}
+                />
+              )}
+            />
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              {...defaultProps3}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  required
+                  label="Role"
+                  variant="outlined"
+                  inputRef={roleRef}
+                  sx={{
+                    my: "15px",
+                  }}
+                />
+              )}
+            />
+            <Button type="submit" variant="contained">
+              {" "}
+              Send{" "}
+            </Button>
+          </form>
         </div>
       </div>
     </div>
