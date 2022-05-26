@@ -205,6 +205,11 @@ export default function Router() {
               path: "add-review",
               element: <UserReview />,
             },
+            {
+              path: "join-us",
+
+              element: <AddDoctor />,
+            },
           ],
         },
 
@@ -212,11 +217,6 @@ export default function Router() {
         {
           path: "doctor",
           children: [
-            {
-              path: "join-us",
-
-              element: <AddDoctor />,
-            },
             {
               path: "report-pdf",
               element: <ReportPdf />,

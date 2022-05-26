@@ -29,7 +29,7 @@ const UserAppointments = () => {
 
     useEffect(() => {
         // setLoading(true);
-        const url = `http://localhost:5000/api/v1/appointments/${user?.email}`;
+        const url = `https://doctor-meet-server.herokuapp.com/api/v1/appointments/${user?.email}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {

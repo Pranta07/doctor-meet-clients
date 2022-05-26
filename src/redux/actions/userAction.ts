@@ -53,7 +53,7 @@ export const login =
 
       // console.log(token);
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/login`,
+        `https://doctor-meet-server.herokuapp.com/api/v1/login`,
         { email, password },
         config,
         //@ts-ignore
@@ -75,7 +75,7 @@ export const register = (userData: any) => async (dispatch: AppDispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `http://localhost:5000/api/v1/register`,
+      `https://doctor-meet-server.herokuapp.com/api/v1/register`,
       userData,
       config
     );
@@ -101,7 +101,7 @@ export const loadUser = () => async (dispatch: AppDispatch) => {
     // }
     dispatch({ type: LOAD_USER_REQUEST });
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/me`,
+      `https://doctor-meet-server.herokuapp.com/api/v1/me`,
       //@ts-ignore
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -115,7 +115,7 @@ export const loadUser = () => async (dispatch: AppDispatch) => {
 // Logout User
 export const logout = () => async (dispatch: AppDispatch) => {
   try {
-    await axios.get(`http://localhost:5000/api/v1/logout`);
+    await axios.get(`https://doctor-meet-server.herokuapp.com/api/v1/logout`);
     window.localStorage.removeItem("token");
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error: any) {
@@ -132,7 +132,7 @@ export const updateProfile =
       const config = { headers: { "Content-Type": "multipart/form-data" } };
 
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/me/update`,
+        `https://doctor-meet-server.herokuapp.com/api/v1/me/update`,
         userData,
         config
       );
@@ -155,7 +155,7 @@ export const updatePassword =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/password/update`,
+        `https://doctor-meet-server.herokuapp.com/api/v1/password/update`,
         passwords,
         config
       );
@@ -178,7 +178,7 @@ export const forgotPassword =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/password/forgot`,
+        `https://doctor-meet-server.herokuapp.com/api/v1/password/forgot`,
         email,
         config
       );
@@ -201,7 +201,7 @@ export const resetPassword =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/password/reset/${token}`,
+        `https://doctor-meet-server.herokuapp.com/api/v1/password/reset/${token}`,
         passwords,
         config
       );
@@ -220,7 +220,7 @@ export const getAllUsers = () => async (dispatch: AppDispatch) => {
   try {
     dispatch({ type: ALL_USERS_REQUEST });
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/admin/users`
+      `https://doctor-meet-server.herokuapp.com/api/v1/admin/users`
     );
 
     dispatch({ type: ALL_USERS_SUCCESS, payload: data.users });
@@ -234,7 +234,7 @@ export const getUserDetails = (id: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/admin/user/${id}`
+      `https://doctor-meet-server.herokuapp.com/api/v1/admin/user/${id}`
     );
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data.user });
@@ -252,7 +252,7 @@ export const updateUser =
       const config = { headers: { "Content-Type": "application/json" } };
 
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/admin/user/${id}`,
+        `https://doctor-meet-server.herokuapp.com/api/v1/admin/user/${id}`,
         userData,
         config
       );
@@ -272,7 +272,7 @@ export const deleteUser = (id: string) => async (dispatch: AppDispatch) => {
     dispatch({ type: DELETE_USER_REQUEST });
 
     const { data } = await axios.delete(
-      `http://localhost:5000/api/v1/admin/user/${id}`
+      `https://doctor-meet-server.herokuapp.com/api/v1/admin/user/${id}`
     );
 
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });

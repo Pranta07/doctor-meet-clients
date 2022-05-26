@@ -38,7 +38,7 @@ const DonorsTable = () => {
 
   useEffect(() => {
     setLoading(true);
-    const url = `http://localhost:5000/api/v1/donor?group=All&&district=All&&page=${
+    const url = `https://doctor-meet-server.herokuapp.com/api/v1/donor?group=All&&district=All&&page=${
       page + 1
     }&&rows=${rowsPerPage}`;
     fetch(url)

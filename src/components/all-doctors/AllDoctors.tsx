@@ -31,7 +31,7 @@ const AllDoctors = () => {
 
   useEffect(() => {
     setLoading(true);
-    const url = `http://localhost:5000/api/v1/doctors/all?specialist=${dept}&&gender=${gender}&&page=${page}&&rows=${6}`;
+    const url = `https://doctor-meet-server.herokuapp.com/api/v1/doctors/all?specialist=${dept}&&gender=${gender}&&page=${page}&&rows=${6}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
