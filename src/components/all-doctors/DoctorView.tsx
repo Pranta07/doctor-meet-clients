@@ -70,7 +70,9 @@ const DoctorView = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/doctors/single/${id}`)
+    fetch(
+      `https://doctor-meet-server.herokuapp.com/api/v1/doctors/single/${id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data.data[0]);
@@ -134,13 +136,16 @@ const DoctorView = () => {
     // console.log(review);
 
     //send review data to server
-    fetch(`http://localhost:5000/api/v1/UserReview/single/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(UserReview),
-    }).then((res) => {
+    fetch(
+      `https://doctor-meet-server.herokuapp.com/api/v1/UserReview/single/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(UserReview),
+      }
+    ).then((res) => {
       if (res.status === 200) {
         target.feedback.value = "";
         Swal.fire("Success!", "Review added!", "success");
@@ -199,7 +204,7 @@ const DoctorView = () => {
     // console.log(review);
 
     //send review data to server
-    fetch(`http://localhost:5000/api/v1/appointment/add`, {
+    fetch(`https://doctor-meet-server.herokuapp.com/api/v1/appointment/add`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

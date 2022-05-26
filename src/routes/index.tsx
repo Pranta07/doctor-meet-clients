@@ -6,7 +6,9 @@ import DashboardLayout from "../layouts/dashboard/index";
 // components
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
-
+import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
+import ResetPassword from "../pages/security/resetPassword/ResetPassword";
+import UpdateProfile from "../pages/profile/UpdateProfile";
 import {
   DiagnosisPay,
   DiagnosticAppointmentForm,
@@ -31,6 +33,7 @@ import DoctorAppointment from "../components/all-appointments-doctor/DoctorAppoi
 import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
 import { MyAppointment } from "../components/appointment";
 import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
+import Profile from "../pages/profile/Profile";
 
 // ----------------------------------------------------------------------
 
@@ -461,6 +464,14 @@ export default function Router() {
           element: <ViewArticale />,
         },
         {
+          path: "profile",
+          element: (
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          ),
+        },
+        {
           path: "doctor/:id",
           element: <DoctorView />,
         },
@@ -484,9 +495,9 @@ const PharmacyHome = Loadable(
 // AUTHENTICATION
 const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
 const Register = Loadable(lazy(() => import("../pages/auth/Register")));
-const ResetPassword = Loadable(
-  lazy(() => import("../pages/auth/ResetPassword"))
-);
+// const ResetPassword = Loadable(
+//   lazy(() => import("../pages/auth/ResetPassword"))
+// );
 const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
 const CovidPortal = Loadable(
   lazy(() => import("../pages/covid-portal/CovidPortal"))

@@ -102,7 +102,7 @@ const SpecialistChart = () => {
   );
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/doctors/statistics")
+    fetch("https://doctor-meet-server.herokuapp.com/api/v1/doctors/statistics")
       .then((res) => res.json())
       .then((data) => setData(data.result.specialistData));
   }, []);

@@ -57,7 +57,7 @@ const Articles = () => {
   const [articles, setArticles] = useState<IArticle[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/article")
+    fetch("https://doctor-meet-server.herokuapp.com/api/v1/article")
       .then((res) => res.json())
       .then((data) => {
         setArticles(data.result);

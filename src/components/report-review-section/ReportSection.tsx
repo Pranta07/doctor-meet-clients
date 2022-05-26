@@ -34,7 +34,7 @@ const ReportSection = () => {
   const [users, setUsers] = useState<any>([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/api/v1/doctors/all?specialist=All&&gender=All&&page=1&&rows=${1000}`;
+    const url = `https://doctor-meet-server.herokuapp.com/api/v1/doctors/all?specialist=All&&gender=All&&page=1&&rows=${1000}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -42,16 +42,14 @@ const ReportSection = () => {
       });
   }, []);
 
-
-  useEffect(()=>{
-    const url1 = `http://localhost:5000/api/v1/admin/users/role?role=user`;
+  useEffect(() => {
+    const url1 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=user`;
     fetch(url1)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.user);
       });
-  },[])
-
+  }, []);
 
   let getFile = (e: any) => {
     if (text !== "Click or drop something here...") {
@@ -124,7 +122,7 @@ const ReportSection = () => {
     // console.log(report);
 
     //send report data to server
-    fetch(`http://localhost:5000/api/v1/report`, {
+    fetch(`https://doctor-meet-server.herokuapp.com/api/v1/report`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

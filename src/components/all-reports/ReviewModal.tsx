@@ -39,13 +39,16 @@ const ReviewModal = (props: any) => {
     newReport.status = true;
     // console.log(newReport);
     //send review data to server
-    fetch(`http://localhost:5000/api/v1/report/${report?._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newReport),
-    }).then((res) => {
+    fetch(
+      `https://doctor-meet-server.herokuapp.com/api/v1/report/${report?._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newReport),
+      }
+    ).then((res) => {
       if (res.status === 200) {
         setIsUpdate(true);
         Swal.fire({

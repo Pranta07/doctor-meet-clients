@@ -14,9 +14,8 @@ const Notify = () => {
   let DrnameRef = useRef<HTMLInputElement>(null!);
   let messageRef = useRef<HTMLInputElement>(null!);
 
-
   useEffect(() => {
-    const url1 = `http://localhost:5000/api/v1/admin/users/role?role=user`;
+    const url1 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=user`;
     fetch(url1)
       .then((res) => res.json())
       .then((data) => {
@@ -25,7 +24,7 @@ const Notify = () => {
   }, [admin, moderator, users]);
 
   useEffect(() => {
-    const url2 = `http://localhost:5000/api/v1/admin/users/role?role=doctor`;
+    const url2 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=doctor`;
     fetch(url2)
       .then((res) => res.json())
       .then((data) => {
@@ -34,7 +33,7 @@ const Notify = () => {
   }, []);
 
   useEffect(() => {
-    const url3 = `http://localhost:5000/api/v1/admin/users/role?role=modaretor`;
+    const url3 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=modaretor`;
     fetch(url3)
       .then((res) => res.json())
       .then((data) => {
@@ -43,7 +42,7 @@ const Notify = () => {
   }, []);
 
   useEffect(() => {
-    const url4 = `http://localhost:5000/api/v1/admin/users/role?role=admin`;
+    const url4 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=admin`;
     fetch(url4)
       .then((res) => res.json())
       .then((data) => {
@@ -82,13 +81,16 @@ const Notify = () => {
     const notify = { message, date, status };
 
     //send review data to server
-    fetch(`http://localhost:5000/api/v1/admin/users/notify/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(notify),
-    }).then((res) => {
+    fetch(
+      `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/notify/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(notify),
+      }
+    ).then((res) => {
       if (res.status === 200) {
         Swal.fire({
           title: "Success",

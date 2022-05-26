@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { Button, Form } from "react-bootstrap";
 import {
   NavLink,
   useNavigate,
@@ -8,23 +9,12 @@ import { register } from "../../../redux/actions/userAction";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 
 import { createBrowserHistory } from "history";
-import { styled } from "@mui/material/styles";
-import { Button, TextField } from "@mui/material";
-import signUp from "../../../assets/img/undraw_my_password_re_ydq7.svg";
-import { useSnackbar } from "notistack";
-
-const RootStyle = styled("div")(({ theme }: any) => ({
-  height: "100%",
-  backgroundColor: theme.palette.background.default,
-}));
 
 const history = createBrowserHistory({ window });
 
-
-const Registration = () => {
+const Registation = () => {
   const { user }: any = useAppSelector((state) => state);
-  const { enqueueSnackbar } = useSnackbar();
-  useEffect(() => {}, [user]);
+  useEffect(() => { }, [user]);
   const [message, setMessage] = useState("");
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -50,105 +40,76 @@ const Registration = () => {
         })
       );
       if (user.success) {
-        console.log(user.success);
-        enqueueSnackbar("Registration complete successfully!");
-        navigate('/');
+        navigate("/")
       }
     }
   };
   return (
-    <RootStyle className="container my-5">
-      <div className="row my-5 py-5">
+    <div className="container">
+      <div className="row">
         <div className="col-lg-6">
-          <img className="my-5 py-5 img-fluid" src={signUp} alt="" />
-        </div>
-        <div className="col-lg-6 my-auto py-5">
-          <h3
-            style={{
-              color: "#0074ff",
-            }}
-          >
-            {" "}
-            Registration{" "}
-          </h3>
-          <hr
-            style={{
-              width: "100px",
-              border: `1px solid rgb(0 116 255)`,
-              boxShadow: "rgb(99 99 99 / 20%) 0px 2px 8px 0px",
-              margin: " 20px auto !important",
-              borderRadius: "10px",
-            }}
+          <img
+            className="img-fluid"
+            src="https://media.istockphoto.com/vectors/register-account-submit-access-login-password-username-internet-vector-id1281150061?b=1&k=20&m=1281150061&s=612x612&w=0&h=Wlus0AvwwVksa9X5w1RUyp1pu8_vbpVOdw25FLBEG_s="
+            alt=""
           />
-          <form onSubmit={handelSubmit}>
-            <TextField
-              id="outlined-basic"
-              label="Name"
-              variant="outlined"
-              fullWidth
-              required
-              inputRef={Name}
-              type="text"
-              sx={{
-                marginY: "10px",
-              }}
-            />
-            <TextField
-              fullWidth
-              id="outlined-basic"
-              label="Email"
-              type="email"
-              required
-              inputRef={Email}
-              variant="outlined"
-              sx={{
-                marginY: "10px",
-              }}
-            />
-            <TextField
-              fullWidth
-              id="outlined-basic"
-              label="Password"
-              type="password"
-              required
-              inputRef={pass}
-              sx={{
-                marginY: "10px",
-              }}
-              variant="outlined"
-            />
-            <TextField
-              fullWidth
-              id="outlined-basic"
-              label="Confirm Password"
-              type="password"
-              required
-              inputRef={Cpass}
-              sx={{
-                marginY: "10px",
-              }}
-              variant="outlined"
-            />
-            <Button type="submit" sx={{ marginY: "10px" }} variant="contained">
-              {" "}
-              Sign up{" "}
+        </div>
+        <div className="col-lg-6 my-auto">
+          <Form className="container">
+            <div className="form-row row my-3">
+              <Form.Label>Name</Form.Label>
+              <div className="col-lg-12">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Name"
+                  ref={Name}
+                />
+              </div>
+            </div>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                ref={Email}
+                type="email"
+                placeholder="Enter email"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control ref={pass} type="password" placeholder="Password" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword1">
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control
+                ref={Cpass}
+                type="password"
+                placeholder="Confirm Password"
+              />
+            </Form.Group>
+            {message ? <p className="text-danger"> {message} </p> : []}
+            <Form.Group
+              className="mb-3 d-flex 
+    justify-content-between"
+              controlId="formBasicCheckbox"
+            ></Form.Group>
+            <Button onClick={handelSubmit} variant="primary px-4" type="submit">
+              SignUp
             </Button>
-
-            <p>
+            <div className="row my-3">
               {" "}
-              <span style={{ fontWeight: "600", color: "gray" }}>
-                Already have an account?
-              </span>
-              <NavLink to='/login'>
-
-              <Button variant="text">Log in </Button>{" "}
-              </NavLink>
-            </p>
-          </form>
+              <small className="font-weight-bold">
+                Already have an account?{" "}
+                <span className="text-danger ">
+                  <NavLink to="/login">Login</NavLink>
+                </span>
+              </small>{" "}
+            </div>
+          </Form>
         </div>
       </div>
-    </RootStyle>
+    </div>
   );
 };
 
-export default Registration;
+export default Registation;

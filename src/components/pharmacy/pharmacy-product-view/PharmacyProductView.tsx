@@ -117,7 +117,7 @@ const PharmacyProductView = () => {
     console.log(OrderReview);
 
     //send review data to server
-    fetch(`http://localhost:5000/api/v1/review/${id}`, {
+    fetch(`https://doctor-meet-server.herokuapp.com/api/v1/review/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
