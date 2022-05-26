@@ -32,6 +32,9 @@ import DoctorAppointment from "../components/all-appointments-doctor/DoctorAppoi
 import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
 import Login from "../pages/security/login/Login";
 import Registation from "../pages/security/registration/Registration";
+import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
+import ResetPassword from "../pages/security/resetPassword/ResetPassword";
+import UpdateProfile from "../pages/profile/UpdateProfile";
 
 // ----------------------------------------------------------------------
 
@@ -482,7 +485,7 @@ export default function Router() {
           path: "profile",
           element: (
             <PrivateRoute>
-              <ProfileSection />
+              <Profile />
             </PrivateRoute>
           ),
         },
@@ -564,6 +567,18 @@ export default function Router() {
           path: "doctor/:id",
           element: <DoctorView />,
         },
+        {
+          path: "password/forgot",
+          element: <ForgotPassword />,
+        },
+        {
+          path: "password/reset/:token",
+          element: <ResetPassword />,
+        },
+        {
+          path: "me/update",
+          element: <UpdateProfile />,
+        },
         // { path: "pharmacy-payment/:id", element: <PharmacyPay /> },//It is dynamic route
         // { path: "/pharmacy-payment", element: <PharmacyPay /> }, //It is static route
 
@@ -643,9 +658,8 @@ const NotFound = Loadable(
 const VideoChatRoute = Loadable(
   lazy(() => import("../pages/video-chat-client/VideoChatRoute"))
 );
-const ProfileSection = Loadable(
-  lazy(() => import("../pages/profile/ProfileSection"))
-);
+const Profile = Loadable(
+  lazy(() => import("../pages/profile/Profile")));
 
 const Registration = Loadable(
   lazy(() => import("../pages/security/registration/Registration"))
