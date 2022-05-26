@@ -7,15 +7,12 @@ import "../pharmacy-banner/PharmacyBanner.css";
 import banner_img from "../../../assets/pharmacy/banner-sidebar.png";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProductDetails } from "../../../redux/actions/productAction";
-import { Rating } from "@mui/material";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
 
 const PharmacyProductView = () => {
   const dispatch = useAppDispatch();
-  const { user }: any = useAppSelector((state) => state.user);
   // let [products, setProducts] = useState<any>({});
   let [count, setCount] = useState(1);
-  const [rating1, setRating1] = React.useState<number | null>(5);
 
   const { product }: any = useAppSelector((state) => state.productDetails);
 
@@ -64,6 +61,7 @@ const PharmacyProductView = () => {
   const getImage = (image: string) => {
     setAllImg(image);
   };
+  let [rating1, setRating1] = useState(0);
 
   useEffect(() => {
     const ItemList = localStorage.getItem("item");
@@ -88,43 +86,7 @@ const PharmacyProductView = () => {
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };
 
-  let onRatingChange = () => {};
-
-  const handleOrderReviewSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    const target = e.target as typeof e.target & {
-      name: { value: string };
-      email: { value: string };
-      comment: { value: string };
-    };
-
-    const User = user?._id;
-    const name = target.name?.value;
-    const email = target.email?.value;
-    const comment = target.comment?.value;
-    const rating = rating1;
-    const img =
-      user?.image !== ""
-        ? user?.image
-        : "https://walldeco.id/themes/walldeco/assets/images/avatar-default.jpg";
-    // const img = "";
-
-    const OrderReview = { User, name, email, comment, rating, img };
-    console.log(OrderReview);
-
-    //send review data to server
-    fetch(`http://localhost:5000/api/v1/review`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(OrderReview),
-    }).then((res) => {
-      if (res.status === 200) {
-        console.log("success");
-      }
-    });
-  };
+  let onRatingChange = () => { };
 
   return (
     <div className="main-wrapper">
@@ -188,7 +150,13 @@ const PharmacyProductView = () => {
               <p className="out-style"> Out Stock </p>
             )}
             <h2>{name}</h2>
-            <Rating name="rating" value={4} />
+            <RatingStar
+              size={16}
+              maxScore={5}
+              colors={{ mask: "#ff7f23" }}
+              id="123"
+              rating={rating}
+            />
             <hr />
             <h5 className="product-price">${price}</h5>
             <h6 className="mt-5"> Quantity </h6>
@@ -209,10 +177,7 @@ const PharmacyProductView = () => {
                 +{" "}
               </button>{" "}
             </div>
-            <button
-              onClick={() => dispatch(addItemsToCart(_id, count))}
-              className="btn-style"
-            >
+            <button onClick={() => dispatch(addItemsToCart(_id, count))} className="btn-style">
               {" "}
               <Cart></Cart> Add to cart
             </button>
@@ -280,63 +245,46 @@ const PharmacyProductView = () => {
               Your email address will not be published. Required fields are
               marked *
             </p>
-            <p
-              style={{
-                display: "flex",
-                fontWeight: " 600",
-              }}
-              className="my-3"
-            >
+            <p className="text-color-for-p fw-for-ul-p">
+              {" "}
               Your Rating:{" "}
-              <Rating
-                name="rating"
-                value={rating1}
-                onChange={(event, newValue) => {
-                  setRating1(newValue);
-                }}
+              <RatingStar
+                clickable
+                maxScore={5}
+                id="123"
+                rating={rating1}
+                onRatingChange={onRatingChange}
               />
             </p>
             <div className="container">
               <div className="container">
-                <form onSubmit={handleOrderReviewSubmit}>
-                  <div className="mb-3 row">
-                    <div className="col">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Name *"
-                        required
-                        name="name"
-                        readOnly
-                        defaultValue={user?.name}
-                        aria-label="First name"
-                      />
-                    </div>
-                    <div className="col">
-                      <input
-                        type="email"
-                        className="form-control"
-                        placeholder="Email *"
-                        aria-label=""
-                        readOnly
-                        defaultValue={user?.email}
-                        name="email"
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-3">
-                    <textarea
+                <div className="mb-3 row">
+                  <div className="col">
+                    <input
+                      type="email"
                       className="form-control"
-                      name="comment"
-                      id="exampleFormControlTextarea1"
-                      placeholder="Your Reviw *"
-                      style={{ height: "100px" }}
-                    ></textarea>
+                      placeholder="Name *"
+                      aria-label="First name"
+                    />
                   </div>
-                  <button type="submit" className="btn-style">
-                    Send
-                  </button>
-                </form>
+                  <div className="col">
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Email *"
+                      aria-label=""
+                    />
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <textarea
+                    className="form-control"
+                    id="exampleFormControlTextarea1"
+                    placeholder="Your Reviw *"
+                    style={{ height: "100px" }}
+                  ></textarea>
+                </div>
+                <button className="btn-style">Send</button>
               </div>
             </div>
           </div>

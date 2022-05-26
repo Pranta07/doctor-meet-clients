@@ -29,7 +29,7 @@ const AllReportStatus = () => {
 
     useEffect(() => {
         // setLoading(true);
-        const url = `http://localhost:5000/api/v1/report`;
+        const url = `https://ancient-inlet-17554.herokuapp.com/api/v1/report`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {

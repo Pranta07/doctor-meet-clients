@@ -23,13 +23,15 @@ import AllReports from "../components/all-reports/AllReports";
 import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
 import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/DoctorsSchedules";
 import AddDoctor from "../components/add-doctor/AddDoctor";
-import PharmacyPay from "../components/pharmacy/PharmacyPay";
+// import PharmacyPay from "../components/pharmacy/PharmacyPay";
 import PrivateRoute from "./private-route/PrivateRoute";
 import DoctorsRoute from "./doctor-route/DoctorsRoute";
 import ModeratorRoute from "./modaretor-route/ModeratorRoute";
 import AdminRoute from "./admin-route/AdminRoute";
 import DoctorAppointment from "../components/all-appointments-doctor/DoctorAppointment";
 import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
+import Login from "../pages/security/login/Login";
+import Registation from "../pages/security/registration/Registration";
 
 // ----------------------------------------------------------------------
 
@@ -63,14 +65,14 @@ export default function Router() {
           path: "register",
           element: (
             // <GuestGuard>
-            <Register />
+            <Registation />
             // </GuestGuard>
           ),
         },
         { path: "login-unprotected", element: <Login /> },
-        { path: "register-unprotected", element: <Register /> },
-        { path: "reset-password", element: <ResetPassword /> },
-        { path: "verify", element: <VerifyCode /> },
+        // { path: "register-unprotected", element: <Register /> },
+        // { path: "reset-password", element: <ResetPassword /> },
+        // { path: "verify", element: <VerifyCode /> },
       ],
     },
     // // Dashboard Routes
@@ -563,7 +565,8 @@ export default function Router() {
           element: <DoctorView />,
         },
         // { path: "pharmacy-payment/:id", element: <PharmacyPay /> },//It is dynamic route
-        { path: "/pharmacy-payment", element: <PharmacyPay /> }, //It is static route
+        // { path: "/pharmacy-payment", element: <PharmacyPay /> }, //It is static route
+
       ],
     },
     // { path: "*", element: <Navigate to="/404" replace /> },
@@ -580,12 +583,12 @@ const PharmacyHome = Loadable(
 
 // const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 // AUTHENTICATION
-const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
-const Register = Loadable(lazy(() => import("../pages/auth/Register")));
-const ResetPassword = Loadable(
-  lazy(() => import("../pages/auth/ResetPassword"))
-);
-const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
+// const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
+// const Register = Loadable(lazy(() => import("../pages/auth/Register")));
+// const ResetPassword = Loadable(
+//   lazy(() => import("../pages/auth/ResetPassword"))
+// );
+// const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
 const CovidPortal = Loadable(
   lazy(() => import("../pages/covid-portal/CovidPortal"))
 );

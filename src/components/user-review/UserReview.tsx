@@ -28,7 +28,7 @@ const UserReview = () => {
 
   const [rating, setRating] = React.useState<number | null>(5);
 
-  
+
   const handleReviewSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
@@ -44,7 +44,7 @@ const UserReview = () => {
     // console.log(review);
 
     //send review data to server
-    fetch("http://localhost:5000/api/v1/review/add", {
+    fetch("https://ancient-inlet-17554.herokuapp.com/api/v1/review/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",

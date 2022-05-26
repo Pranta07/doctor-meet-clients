@@ -79,7 +79,7 @@ const SingleAppointment = (props: any) => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/v1/appointment/${id}`, {
+                fetch(`https://ancient-inlet-17554.herokuapp.com/api/v1/appointment/${id}`, {
                     method: "DELETE",
                 }).then((res) => {
                     if (res.status === 200) {

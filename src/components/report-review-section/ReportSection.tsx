@@ -29,13 +29,13 @@ const ReportSection = () => {
     const [users, setUsers] = useState<any>([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/api/v1/doctors/all?specialist=All&&gender=All&&page=1&&rows=${1000}`;
+        const url = `https://ancient-inlet-17554.herokuapp.com/api/v1/doctors/all?specialist=All&&gender=All&&page=1&&rows=${1000}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
                 setDoctors(data.result);
             });
-        const url1 = `http://localhost:5000/api/v1/admin/users`;
+        const url1 = `https://ancient-inlet-17554.herokuapp.com/api/v1/admin/users`;
         fetch(url1)
             .then((res) => res.json())
             .then((data) => {
@@ -114,7 +114,7 @@ const ReportSection = () => {
         // console.log(report);
 
         //send report data to server
-        fetch(`http://localhost:5000/api/v1/report`, {
+        fetch(`https://ancient-inlet-17554.herokuapp.com/api/v1/report`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",

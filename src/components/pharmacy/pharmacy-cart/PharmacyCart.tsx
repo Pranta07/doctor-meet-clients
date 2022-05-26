@@ -1,19 +1,25 @@
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useAppSelector } from "../../../redux/store";
 import "./PharmacyCart.css";
 import PharmacyCartSingle from "./PharmacyCartSingle";
 
 const PharmacyCart = () => {
-  let cartTotal = 1;
+  let [cartTotal, setCartTotal] = useState(1);
   const handleChildCartData = (cartData: any) => {
-    cartTotal = cartTotal + cartData;
+    // let newTotal = cartTotal + cartData;
+    //@ts-ignore
+    setCartTotal(cartData);
+    // setCartTotal((prevState) => prevState + cartData);
+    // console.log(cartTotal)
   };
   const { cartItems } = useAppSelector((state) => state.cart);
 
+
   let [tax, setTax] = useState(0);
+
+  useEffect(() => { }, [cartTotal])
 
   return (
     <>
@@ -36,15 +42,18 @@ const PharmacyCart = () => {
                 index={index}
                 key={item.productId}
                 handleChildCartData={handleChildCartData}
-              ></PharmacyCartSingle>
-            ))
-          }
+              >
+              </PharmacyCartSingle>
+            ))}
           <div className="col-lg-4 position-set">
             <div className="box-shadow p-3">
               <h5 className="line-h"> Payment Summary </h5>
               <hr className="hr-style" />
               <div className=" d-flex justify-content-between my-3 p-1">
-                <div className=" ">
+
+                <h1>Payment System,Order Preview and Others Functionality Coming Soon </h1>
+
+                {/* <div className=" ">
                   <p> Quantity </p>
                   <p> Order Summary </p>
                   <p> Tax </p>
@@ -55,19 +64,16 @@ const PharmacyCart = () => {
                   <p> $299 </p>
                   <p> ${tax} </p>
                   <p> $309 </p>
-                </div>
+                </div> */}
               </div>
               <hr className="hr-style" />
               <div className=" d-flex mt-3 p-2">
-                {/* When data is static */}
-                <Link to="/pharmacy-payment">
-                  <button className="btn btn-outline-primary mx-2">
-                    Proceed Pay
-                  </button>
-                </Link>
-
-                {/* When data is dynamic */}
-                {/* <Link to=`/pharmacy-payment/${orderid}`><button className="btn btn-outline-primary mx-2"> Pay</button></Link> */}
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Coupon Code"
+                />{" "}
+                <button className="btn btn-outline-primary mx-2"> Apply</button>
               </div>
             </div>
           </div>

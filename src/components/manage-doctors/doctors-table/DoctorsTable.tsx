@@ -39,9 +39,8 @@ const DoctorsTable = () => {
     useEffect(() => {
         setLoading(true);
 
-        const url = `http://localhost:5000/api/v1/doctors/all?specialist=All&&gender=All&&page=${
-            page + 1
-        }&&rows=${rowsPerPage}`;
+        const url = `https://ancient-inlet-17554.herokuapp.com/api/v1/doctors/all?specialist=All&&gender=All&&page=${page + 1
+            }&&rows=${rowsPerPage}`;
 
         fetch(url)
             .then((res) => res.json())

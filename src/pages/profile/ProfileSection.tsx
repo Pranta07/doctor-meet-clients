@@ -40,35 +40,35 @@ const ProfileSection = () => {
   const handleEditProfile = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
-      name:{value:string};
-      userId:{value:string};
-      about:{value:string}
-      phoneNumber:{value:number}
-      email:{value:string}
+      name: { value: string };
+      userId: { value: string };
+      about: { value: string }
+      phoneNumber: { value: number }
+      email: { value: string }
     };
 
 
     // console.log(newProduct);
-    
-//     //send review data to server
-//     fetch("http://localhost:5000/api/v1/product/add", {
-//       method: "POST",
-//       headers: {
-//         "content-type": "application/json",
-//       },
-//         body: JSON.stringify(newProduct),
-//     }).then((res) => {
-//       if (res.status === 200) {
-//         Swal.fire({
-//           title: "Success",
-//           text: "Review Successfully Submitted!",
-//           icon: "success",
-//           showConfirmButton: false,
-//           timer: 2000,
-//         });
-//         window.location.reload();
-//       }
-//     });
+
+    //     //send review data to server
+    //     fetch("https://ancient-inlet-17554.herokuapp.com/api/v1/product/add", {
+    //       method: "POST",
+    //       headers: {
+    //         "content-type": "application/json",
+    //       },
+    //         body: JSON.stringify(newProduct),
+    //     }).then((res) => {
+    //       if (res.status === 200) {
+    //         Swal.fire({
+    //           title: "Success",
+    //           text: "Review Successfully Submitted!",
+    //           icon: "success",
+    //           showConfirmButton: false,
+    //           timer: 2000,
+    //         });
+    //         window.location.reload();
+    //       }
+    //     });
   };
 
 
@@ -165,7 +165,7 @@ const ProfileSection = () => {
           </div>
           <div className="col-md-2">
             <Button
-             variant="text"
+              variant="text"
               onClick={handleOpen}
               className="profile-edit-btn"
               name="btnAddMore"
@@ -247,10 +247,10 @@ const ProfileSection = () => {
                   </div>
                 </div>
                 <div className="row my-4">
-                    <h4> About Me </h4>
-                    <div>
-                        <p>{user?.about}</p>
-                    </div>
+                  <h4> About Me </h4>
+                  <div>
+                    <p>{user?.about}</p>
+                  </div>
                 </div>
               </div>
               <Modal
@@ -260,7 +260,7 @@ const ProfileSection = () => {
                 aria-describedby="modal-modal-description"
               >
                 <Box sx={style} >
-                  <form className="row"  onSubmit={handleEditProfile}>
+                  <form className="row" onSubmit={handleEditProfile}>
                     <div className="col-lg-6 my-2">
                       <TextField
                         id="outlined-basic"
@@ -308,7 +308,7 @@ const ProfileSection = () => {
                         variant="outlined"
                       />
                     </div>
-                  <Button type="submit" variant="contained"> Save </Button>
+                    <Button type="submit" variant="contained"> Save </Button>
                   </form>
                 </Box>
               </Modal>

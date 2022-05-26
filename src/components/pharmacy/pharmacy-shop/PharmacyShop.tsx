@@ -3,7 +3,6 @@ import { RatingStar } from "rating-star";
 import React, { useEffect, useState } from "react";
 import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
-import "../pharmacy-single-product/PharmacySingleProduct.css";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
 import { useAppDispatch } from "../../../redux/store";
 
@@ -31,11 +30,21 @@ const PharmacyShop = (props: any) => {
   let [count, setCount] = useState(1);
   const dispatch = useAppDispatch();
 
-  let { name, img1, img2, img3, img4, price, inStock, _id } = props.products;
+  let {
+    name,
+    img1,
+    img2,
+    img3,
+    img4,
+    price,
+    inStock,
+    _id,
+  } = props.products;
   //danger
   let rating = 3.4;
   useEffect(() => {
     // const ItemList = localStorage.getItem("item");
+
     // if (ItemList) {
     //   const listItems: any[] = JSON.parse(ItemList);
     //   const authorId = listItems.find((author) => author._id === _id);
@@ -81,7 +90,7 @@ const PharmacyShop = (props: any) => {
     <div className="col-lg-4">
       <div className="product mt-3 p-4">
         <div className="product-img">
-          <img className="img-fluid" src={img1 + ".jpg"} alt="front product" />
+          <img className="img-fluid" src={img1} alt="front product" />
           <img src={img2} alt="rear product" className="rear-img img-fluid " />
           <div className="overlay">
             <button className="btn" title="Wishlit">
@@ -90,6 +99,7 @@ const PharmacyShop = (props: any) => {
             </button>
             <button
               onClick={() => dispatch(addItemsToCart(_id, count))}
+
               className="btn"
               title="Add to Cart"
             >

@@ -14,7 +14,7 @@ const history = createBrowserHistory({ window });
 
 const Registation = () => {
   const { user }: any = useAppSelector((state) => state);
-  useEffect(() => {}, [user]);
+  useEffect(() => { }, [user]);
   const [message, setMessage] = useState("");
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -40,10 +40,7 @@ const Registation = () => {
         })
       );
       if (user.success) {
-        for (let i = 1; i <= 2; i++) {
-          //@ts-ignore
-          navigate(history.back());
-        }
+        navigate("/")
       }
     }
   };

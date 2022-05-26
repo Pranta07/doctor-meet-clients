@@ -41,7 +41,7 @@ const DonorFilter = () => {
 
   useEffect(() => {
     setLoading(true);
-    const url = `http://localhost:5000/api/v1/donor?group=${group}&&district=${district}&&page=${page}&&rows=${6}`;
+    const url = `https://ancient-inlet-17554.herokuapp.com/api/v1/donor?group=${group}&&district=${district}&&page=${page}&&rows=${6}`;
     // console.log(url);
     fetch(url)
       .then((res) => res.json())

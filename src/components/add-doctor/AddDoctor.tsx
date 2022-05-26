@@ -30,7 +30,7 @@ const AddDoctor = () => {
 
     const onSubmit: SubmitHandler<IFormInputs> = (data) => {
         // send data to server
-        const url = `http://localhost:5000/api/v1/doctors/add`;
+        const url = `https://ancient-inlet-17554.herokuapp.com/api/v1/doctors/add`;
         fetch(url, {
             method: "POST",
             headers: {
