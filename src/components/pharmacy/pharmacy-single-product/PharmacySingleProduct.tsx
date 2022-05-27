@@ -1,11 +1,9 @@
-import { Box, Modal, Typography } from "@mui/material";
-import { RatingStar } from "rating-star";
+import { Box, Modal, Rating } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { Cart, Heart, Search } from "react-bootstrap-icons";
+import { Cart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import "../pharmacy-product-view/PharmacyProductView.css";
 import "./PharmacySingleProduct.css";
-import Swal from "sweetalert2";
 import { useAppDispatch } from "../../../redux/store";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
 
@@ -94,13 +92,8 @@ const PharmacySingleProduct = (props: any) => {
             <div>
               <p className="product-name">{name}</p>
               <h5 className="product-price">${price}</h5>
-              <RatingStar
-                size={16}
-                maxScore={5}
-                colors={{ mask: "#ff7f23" }}
-                id="123"
-                rating={parseInt(rating)}
-              />
+              <Rating name="rating" value={4} />
+
             </div>
           </div>
         </NavLink>
@@ -178,13 +171,8 @@ const PharmacySingleProduct = (props: any) => {
                     <p className="out-style"> Out Stock </p>
                   )}
                   <h2>{name}</h2>
-                  <RatingStar
-                    size={16}
-                    maxScore={5}
-                    colors={{ mask: "#ff7f23" }}
-                    id="123"
-                    rating={parseInt(rating)}
-                  />
+                  <Rating name="rating" value={parseInt(rating)} />
+
                   <hr />
                   <h5 className="product-price">${price}</h5>
                   <h6 className="mt-5"> Quantity </h6>

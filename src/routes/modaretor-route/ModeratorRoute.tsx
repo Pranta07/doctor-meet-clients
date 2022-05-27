@@ -21,7 +21,7 @@ const ModeratorRoute = ({ children }: { children: JSX.Element }) => {
     if ((user?.email && user?.role === "modaretor") || user?.role === "admin") {
         return children;
     } else {
-        return <Navigate to="/" state={{ from: location }} replace />;
+        return <Navigate to="/login" state={{ from: location }} replace />;
     }
 };
 
