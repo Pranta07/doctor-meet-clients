@@ -22,20 +22,17 @@ import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
 
 import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
-import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/DoctorsSchedules";
 
 import PharmacyPay from "../components/pharmacy/PharmacyPay";
 import PrivateRoute from "./private-route/PrivateRoute";
 import DoctorsRoute from "./doctor-route/DoctorsRoute";
 import ModeratorRoute from "./modaretor-route/ModeratorRoute";
 import AdminRoute from "./admin-route/AdminRoute";
-import DoctorAppointment from "../components/all-appointments-doctor/DoctorAppointment";
 import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
-import { MyAppointment } from "../components/appointment";
 import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
 import Profile from "../pages/profile/Profile";
-import JoinUsForm from "../components/blood-donor/join-us/JoinUsForm";
 import UserAppointments from "../components/all-appointments-user/UserAppointments";
+import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
 
 // ----------------------------------------------------------------------
 
@@ -219,7 +216,7 @@ export default function Router() {
               path: "Report-status",
               element: (
                 <ModeratorRoute>
-                  <ReportStatus />
+                  <AllReportStatus />
                 </ModeratorRoute>
               ),
             },
@@ -228,14 +225,6 @@ export default function Router() {
               element: (
                 <ModeratorRoute>
                   <ReportPdf />
-                </ModeratorRoute>
-              ),
-            },
-            {
-              path: "all-diagnosis",
-              element: (
-                <ModeratorRoute>
-                  <AllDiagnosis />
                 </ModeratorRoute>
               ),
             },

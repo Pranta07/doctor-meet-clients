@@ -20,18 +20,35 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useAppSelector } from "../../redux/store";
 import Swal from "sweetalert2";
+import Slider from "react-slick";
 import { styled } from "@mui/material/styles";
+import DoctorReview from "./DoctorReview";
 const RootStyle = styled("div")(({ theme }: any) => ({
   height: "100%",
   backgroundColor: theme.palette.background.default,
   paddingTop: theme.spacing(15),
   paddingBottom: theme.spacing(10),
 }));
+
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 2000,
+  autoplay: true,
+
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  initialSlide: 0,
+};
+
+
 const DoctorView = () => {
   const { user }: any = useAppSelector((state) => state.user);
 
   let [doctor, setDoctors] = useState<any>({});
   let [address, setAddress] = useState<any>({});
+  let [userReview, setUserReview] = useState<any[]>([]);
   let { id } = useParams();
   const [rating, setRating] = React.useState<number | null>(5);
 
@@ -77,6 +94,7 @@ const DoctorView = () => {
       .then((data) => {
         setDoctors(data.data[0]);
         setAddress(data.data[0].address[0]);
+        setUserReview(data.data[0].UserReview)
       });
   }, [id]);
 
@@ -413,39 +431,14 @@ const DoctorView = () => {
             <h3 style={{ color: "#0783b5" }}> Patient Experience </h3>
             <hr />
             <div className="mt-5" style={{ color: "#0783b5" }}>
-              <div className="row border">
-                <div className="col-lg-3 ps-0">
-                  <img
-                    className="img-fluid"
-                    src="https://metropolitanhost.com/themes/themeforest/react/docfind/assets/img/doctors-grid/348x350-0.jpg"
-                    alt=""
-                    width="150px"
-                    height="150px"
-                  />
-                </div>
-                <div className="col-lg-9  all-doc-rev ">
-                  <div className="d-flex justify-content-between">
-                    <div className="d-flex align-items-center">
-                      <h5 className="me-3"> Matthew Reyes </h5>
-                      <Rating
-                        name="read-only"
-                        value={parseInt(doctor?.review)}
-                        readOnly
-                        size="small"
-                        precision={0.5}
-                      />
-                    </div>
-                    <p> 18 March </p>
-                  </div>
-                  <div>
-                    <p className="my-auto">
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <Slider {...settings}>
+                {userReview.map((review: any) => (
+                  <DoctorReview
+                    key={review._id}
+                    review={review}
+                  ></DoctorReview>
+                ))}
+              </Slider>
             </div>
             <h3 className="mt-5" style={{ color: "#0783b5" }}>
               {" "}
