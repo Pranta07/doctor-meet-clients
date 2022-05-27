@@ -3,7 +3,12 @@ import "./DiagnosticImagings.css";
 import DiagnosticImaging from "./diagnostic-imaging/DiagnosticImaging";
 import { Col, Row } from "react-bootstrap";
 import { Icon } from "@iconify/react";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+
+  backgroundColor: theme.palette.background.default,
+}))
 const DiagnosticImagings = () => {
   const [imagings, setImagings] = useState([]);
   useEffect(() => {
@@ -12,7 +17,7 @@ const DiagnosticImagings = () => {
       .then((data) => setImagings(data));
   }, []);
   return (
-    <div>
+    <RootStyle>
       <div className="mb-3">
         <h3 className="services-title">Imaging</h3>
         <hr className="services-hr" />
@@ -34,7 +39,7 @@ const DiagnosticImagings = () => {
           </div>
         </Col>
       </Row>
-    </div>
+    </RootStyle>
   );
 };
 

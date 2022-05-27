@@ -12,13 +12,13 @@ import SimpleProcess from "./simple-process/SimpleProcess";
 import Page from "../../components/Page";
 import NewBanner from "./new-banner/NewBanner";
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   height: "100%",
   backgroundColor: theme.palette.background.default,
   paddingTop: theme.spacing(10),
   paddingBottom: theme.spacing(10),
 }));
-const ContentStyle = styled("div")(({ theme }) => ({
+const ContentStyle = styled("div")(({ theme }: any) => ({
   overflow: "hidden",
   position: "relative",
 }));

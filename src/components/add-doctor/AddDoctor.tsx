@@ -58,7 +58,7 @@ const AddDoctor = () => {
             experience,
         };
         // console.log(data);
-        const url = `http://localhost:5000/api/v1/doctors/add`;
+        const url = `https://doctor-meet-server.herokuapp.com/api/v1/doctors/add`;
         fetch(url, {
             method: "POST",
             headers: {

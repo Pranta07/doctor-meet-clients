@@ -2,6 +2,12 @@ import React, { useEffect } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
 import "./MapDirection.css";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }) => ({
+
+  backgroundColor: theme.palette.background.default,
+}));
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass =
@@ -10,6 +16,7 @@ mapboxgl.workerClass =
 
 mapboxgl.accessToken =
     "pk.eyJ1IjoicHJhbnRhMDciLCJhIjoiY2t1eWoxYmVlNzJwZDMxbno2YnRnbDJlciJ9.3VqwO0pl0edXtxrUbeMYBw";
+
 
 const MapDirection = () => {
     useEffect(() => {
@@ -31,9 +38,11 @@ const MapDirection = () => {
             .addTo(map); */
     }, []);
     return (
-        <div className="">
+     
+        <RootStyle className="">
             <div id="map"></div>
-        </div>
+        </RootStyle>
+     
     );
 };
 

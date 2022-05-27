@@ -8,7 +8,12 @@ import banner_img from "../../../assets/pharmacy/banner-sidebar.png";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProductDetails } from "../../../redux/actions/productAction";
 import { Rating } from "@mui/material";
+import { addItemsToCart } from "../../../redux/actions/cartAction";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacyProductView = () => {
   const dispatch = useAppDispatch();
   const { user }: any = useAppSelector((state) => state.user);
@@ -21,12 +26,6 @@ const PharmacyProductView = () => {
   let { id } = useParams();
   useEffect(() => {
     dispatch(getProductDetails(id));
-    // fetch(`https://immense-beyond-64415.herokuapp.com/medicine/${id}`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data.result);
-    //     setProducts(data.result[0]);
-    //   });
   }, [id]);
 
   let handleOnClickPlus = () => {
@@ -118,7 +117,7 @@ const PharmacyProductView = () => {
     console.log(OrderReview);
 
     //send review data to server
-    fetch(`http://localhost:5000/api/v1/review`, {
+    fetch(`https://doctor-meet-server.herokuapp.com/api/v1/review/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -132,7 +131,7 @@ const PharmacyProductView = () => {
   };
 
   return (
-    <div className="main-wrapper">
+    <RootStyle className="main-wrapper">
       <div className="container">
         <div className="product-div">
           <div className="product-div-left">
@@ -214,7 +213,10 @@ const PharmacyProductView = () => {
                 +{" "}
               </button>{" "}
             </div>
-            <button onClick={() => addDoctor(_id)} className="btn-style">
+            <button
+              onClick={() => dispatch(addItemsToCart(_id, count))}
+              className="btn-style"
+            >
               {" "}
               <Cart></Cart> Add to cart
             </button>
@@ -344,7 +346,7 @@ const PharmacyProductView = () => {
           </div>
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

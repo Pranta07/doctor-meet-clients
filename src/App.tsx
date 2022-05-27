@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
 import AuthProvider from "./contexts/AuthProvider";
 import Router from "./routes/index";
 // theme
@@ -8,31 +9,35 @@ import NotistackProvider from "./components/NotistackProvider";
 import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 import { ChartStyle } from "./components/chart";
-import { MotionLazyContainer } from "./components/animate";
 import { ProgressBarStyle } from "./components/ProgressBar";
 import { useEffect } from "react";
 import { loadUser } from "./redux/actions/userAction";
 import store from "./redux/store";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 // ----------------------------------------------------------------------
 
 export default function App() {
-    const token = window.localStorage.getItem("token");
+  const token = window.localStorage.getItem("token");
 
-    useEffect(() => {
-        store.dispatch(loadUser());
-    }, [token]);
-    return (
-        <ThemeProvider>
-            <NotistackProvider>
-                <MotionLazyContainer>
-                    <AuthProvider>
-                        <ProgressBarStyle />
-                        <ChartStyle />
-                        <ScrollToTop />
-                        <Router />
-                    </AuthProvider>
-                </MotionLazyContainer>
-            </NotistackProvider>
-        </ThemeProvider>
-    );
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, [token]);
+  return (
+    <ThemeProvider>
+      <NotistackProvider>
+        <AuthProvider>
+          <ProgressBarStyle />
+          <ChartStyle />
+          <ScrollToTop />
+          <RootStyle>
+            <Router />
+          </RootStyle>
+        </AuthProvider>
+      </NotistackProvider>
+    </ThemeProvider>
+  );
 }

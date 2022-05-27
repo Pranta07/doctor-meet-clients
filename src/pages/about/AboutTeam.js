@@ -10,9 +10,9 @@ import { _carouselsMembers } from '../../_mock';
 // components
 
 import Iconify from '../../components/Iconify';
-import { CarouselArrows } from '../../components/carousel';
+
 import SocialsButton from '../../components/SocialsButton';
-import { MotionViewport, varFade } from '../../components/animate';
+
 
 // ----------------------------------------------------------------------
 
@@ -52,20 +52,20 @@ export default function AboutTeam() {
   };
 
   return (
-    <Container component={MotionViewport} sx={{ pb: 10, textAlign: 'center' }}>
-      <m.div variants={varFade().inDown}>
+    <Container sx={{ pb: 10, textAlign: 'center' }}>
+      <m.div >
         <Typography component="p" variant="overline" sx={{ mb: 2, color: 'text.secondary' }}>
           Dream team
         </Typography>
       </m.div>
 
-      <m.div variants={varFade().inUp}>
+      <m.div >
         <Typography variant="h2" sx={{ mb: 3 }}>
           Great team is the key
         </Typography>
       </m.div>
 
-      <m.div variants={varFade().inUp}>
+      <m.div >
         <Typography
           sx={{
             mx: 'auto',
@@ -79,15 +79,15 @@ export default function AboutTeam() {
       </m.div>
 
       <Box sx={{ position: 'relative' }}>
-        <CarouselArrows filled onNext={handleNext} onPrevious={handlePrevious}>
+        <Box filled onNext={handleNext} onPrevious={handlePrevious}>
           <Slider ref={carouselRef} {...settings}>
             {_carouselsMembers.map((member) => (
-              <Box key={member.id} component={m.div} variants={varFade().in} sx={{ px: 1.5, py: 10 }}>
+              <Box key={member.id} component={m.div} sx={{ px: 1.5, py: 10 }}>
                 <MemberCard member={member} />
               </Box>
             ))}
           </Slider>
-        </CarouselArrows>
+        </Box>
       </Box>
       <Button
         variant="outlined"

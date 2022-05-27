@@ -4,6 +4,11 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import "./Availability.css";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 //
 const Availability = (props: any) => {
   const { av, setAv, setPage } = props;
@@ -14,7 +19,7 @@ const Availability = (props: any) => {
   };
 
   return (
-    <div className="my-5 border rounded-3">
+    <RootStyle className="my-5 border rounded-3">
       <h5
         className="p-4 m-0"
         style={{
@@ -49,7 +54,7 @@ const Availability = (props: any) => {
           </RadioGroup>
         </FormControl>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

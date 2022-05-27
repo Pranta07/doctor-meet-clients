@@ -7,7 +7,7 @@ import NotFound from "../components/not-found/NotFound";
 
 // ----------------------------------------------------------------------
 
-const HeaderStyle = styled("header")(({ theme }) => ({
+const HeaderStyle = styled("header")(({ theme }: any) => ({
   top: 0,
   left: 0,
   lineHeight: 0,

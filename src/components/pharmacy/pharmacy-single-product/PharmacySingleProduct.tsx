@@ -6,15 +6,21 @@ import { NavLink } from "react-router-dom";
 import "../pharmacy-product-view/PharmacyProductView.css";
 import "./PharmacySingleProduct.css";
 import Swal from "sweetalert2";
-let getData = () => {
-  let data = localStorage.getItem("item");
-  if (data) {
-    return JSON.parse(data);
-  } else {
-    return [];
-  }
-};
+import { useAppDispatch } from "../../../redux/store";
+import { addItemsToCart } from "../../../redux/actions/cartAction";
+// let getData = () => {
+//   let data = localStorage.getItem("item");
+//   if (data) {
+//     return JSON.parse(data);
+//   } else {
+//     return [];
+//   }
+// };
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -26,7 +32,8 @@ const style = {
 };
 
 const PharmacySingleProduct = (props: any) => {
-  let [itemData, setItemData] = useState(getData());
+  // let [itemData, setItemData] = useState(getData());
+  const dispatch = useAppDispatch();
   let [count, setCount] = useState(1);
 
   // let { img } = props.images;
@@ -46,51 +53,50 @@ const PharmacySingleProduct = (props: any) => {
   }: any = props.product;
 
   useEffect(() => {
-    const ItemList = localStorage.getItem("item");
-
-    if (ItemList) {
-      const listItems: any[] = JSON.parse(ItemList);
-      const authorId = listItems.find(
-        (author) => parseInt(author._id) === parseInt(_id)
-      );
-    }
+    // const ItemList = localStorage.getItem("item");
+    // if (ItemList) {
+    //   const listItems: any[] = JSON.parse(ItemList);
+    //   const authorId = listItems.find(
+    //     (author) => parseInt(author._id) === parseInt(_id)
+    //   );
+    // }
   }, [_id]);
 
-  const addDoctor = (id: string) => {
-    //save the doctor to local storage
-    const doctor = localStorage.getItem("item");
+  // const addDoctor = (id: string) => {
+  //   save the doctor to local storage
+  //   const doctor = localStorage.getItem("item");
 
-    let items;
-    if (doctor) items = JSON.parse(doctor);
-    else items = [];
+  //   let items;
+  //   if (doctor) items = JSON.parse(doctor);
+  //   else items = [];
 
-    const newItems = [...items, props.products];
-    if (newItems) {
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Product Added to Cart",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    }
+  //   const newItems = [...items, props.products];
+  //   if (newItems) {
+  //     Swal.fire({
+  //       position: "top-end",
+  //       icon: "success",
+  //       title: "Product Added to Cart",
+  //       showConfirmButton: false,
+  //       timer: 1500,
+  //     });
+  //   }
 
-    localStorage.setItem("item", JSON.stringify([...newItems]));
-  };
+  //   localStorage.setItem("item", JSON.stringify([...newItems]));
+  // };
 
-  const removeDoctor = (id: string) => {
-    //remove the doctor from local storage
-    const doctor = localStorage.getItem("item");
+  // const removeDoctor = (id: string) => {
+  //   //remove the doctor from local storage
+  //   const doctor = localStorage.getItem("item");
 
-    let items: any[];
-    if (doctor) items = JSON.parse(doctor);
-    else items = [];
+  //   let items: any[];
+  //   if (doctor) items = JSON.parse(doctor);
+  //   else items = [];
 
-    const newItems = items.filter((author) => author._id !== id);
-    // console.log(newItems);
+  //   const newItems = items.filter((author) => author._id !== id);
+  //   // console.log(newItems);
 
-    localStorage.setItem("fav-doc", JSON.stringify([...newItems]));
-  };
+  //   localStorage.setItem("fav-doc", JSON.stringify([...newItems]));
+  // };
   let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
@@ -114,7 +120,7 @@ const PharmacySingleProduct = (props: any) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="col-lg-2 col-md-3 col-sm-6 p-0">
+    <RootStyle className="col-lg-2 col-md-3 col-sm-6 p-0">
       <div className="product p-4">
         <div className="product-img">
           <img className="img-fluid" src={img1} alt="front product" />
@@ -125,7 +131,7 @@ const PharmacySingleProduct = (props: any) => {
               <Heart></Heart>{" "}
             </button>
             <button
-              onClick={() => addDoctor(_id)}
+              onClick={() => dispatch(addItemsToCart(_id, count))}
               className="btn"
               title="Add to Cart"
             >
@@ -254,7 +260,10 @@ const PharmacySingleProduct = (props: any) => {
                       +{" "}
                     </button>{" "}
                   </div>
-                  <button onClick={() => addDoctor(_id)} className="btn-style">
+                  <button
+                    onClick={() => dispatch(addItemsToCart(_id, count))}
+                    className="btn-style"
+                  >
                     {" "}
                     <Cart></Cart> Add to cart
                   </button>
@@ -264,7 +273,7 @@ const PharmacySingleProduct = (props: any) => {
           </Box>
         </Modal>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

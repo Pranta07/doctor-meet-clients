@@ -12,6 +12,12 @@ import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import Button from "@mui/material/Button";
 import { Container } from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }) => ({
+
+  backgroundColor: theme.palette.background.default,
+}));
 
 function ReportPdf() {
     // creating new plugin instance
@@ -46,6 +52,7 @@ function ReportPdf() {
     };
 
     return (
+        <RootStyle>
         <Container>
             <h6
                 style={{
@@ -82,6 +89,7 @@ function ReportPdf() {
                 {!pdfFile && <small>No file is selected yet</small>}
             </div>
         </Container>
+        </RootStyle>
     );
 }
 

@@ -13,7 +13,7 @@ import useSettings from "../hooks/useSettings";
 import palette from "./palette";
 import typography from "./typography";
 import breakpoints from "./breakpoints";
-import componentsOverride from "./overrides/index";
+import componentsOverride from "./overrides";
 import shadows, { customShadows } from "./shadows";
 
 // ----------------------------------------------------------------------
@@ -26,7 +26,7 @@ export default function ThemeProvider({ children }: any) {
   const { themeMode } = useSettings();
   const isLight = themeMode === "light";
 
-  const themeOptions: any = useMemo(
+  const themeOptions = useMemo(
     () => ({
       palette: isLight ? palette.light : palette.dark,
       typography,
@@ -37,7 +37,7 @@ export default function ThemeProvider({ children }: any) {
     }),
     [isLight]
   );
-
+  //@ts-ignore
   const theme = createTheme(themeOptions);
   theme.components = componentsOverride(theme);
 

@@ -5,7 +5,7 @@ import Page from "../components/Page";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   paddingTop: theme.spacing(8),
   [theme.breakpoints.up("md")]: {
     paddingTop: theme.spacing(11),

@@ -3,7 +3,7 @@ import { m } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 import { Box, Container, Typography } from '@mui/material';
 // components
-import { MotionContainer, TextAnimate, varFade } from '../../components/animate';
+
 
 // ----------------------------------------------------------------------
 
@@ -33,16 +33,16 @@ const ContentStyle = styled('div')(({ theme }) => ({
 export default function AboutHero() {
   return (
     <RootStyle>
-      <Container component={MotionContainer} sx={{ position: 'relative', height: '100%' }}>
+      <Container sx={{ position: 'relative', height: '100%' }}>
         <ContentStyle>
-          <TextAnimate text="Who" sx={{ color: 'primary.main' }} variants={varFade().inRight} />
+          {/* <TextAnimate text="Who" sx={{ color: 'primary.main' }} variants={varFade().inRight} /> */}
           <br />
           <Box sx={{ display: 'inline-flex', color: 'common.white' }}>
-            <TextAnimate text="we" sx={{ mr: 2 }} />
-            <TextAnimate text="are?" />
+            {/* <TextAnimate text="we" sx={{ mr: 2 }} />
+            <TextAnimate text="are?" /> */}
           </Box>
 
-          <m.div variants={varFade().inRight}>
+          <m.div>
             <Typography
               variant="h4"
               sx={{

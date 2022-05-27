@@ -45,13 +45,7 @@ const menuConfig = [
             icon: <Iconify icon={"healthicons:medicines"} {...ICON_SIZE} />,
             path: "pharmacy",
           },
-          {
-            title: "Diagnostic Center",
-            icon: (
-              <Iconify icon={"clarity:video-camera-solid"} {...ICON_SIZE} />
-            ),
-            path: "/diagnostic-center",
-          },
+
           {
             title: "Premium Membership",
             icon: (
@@ -62,14 +56,21 @@ const menuConfig = [
             ),
             path: "premium-membership",
           },
+          {
+            title: "Book Appointment",
+            icon: (
+              <Iconify icon={"clarity:video-camera-solid"} {...ICON_SIZE} />
+            ),
+            path: "/appointment-doctors",
+          },
         ],
       },
     ],
   },
   {
-    title: "Virtual Meet",
+    title: "Diagnostic Center",
     icon: <Iconify icon={"clarity:video-camera-solid"} {...ICON_SIZE} />,
-    path: "/virtual-meet",
+    path: "/diagnostic-center",
   },
   {
     title: "Contact Us",

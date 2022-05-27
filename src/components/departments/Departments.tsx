@@ -4,6 +4,11 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import "./Departments.css";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 //
 const Departments = (props: any) => {
   const { dept, setDept, setPage } = props;
@@ -14,7 +19,7 @@ const Departments = (props: any) => {
   };
 
   return (
-    <div className="my-5 border rounded-3">
+    <RootStyle className="my-5 border rounded-3">
       <h5
         className="p-4 m-0"
         style={{
@@ -79,7 +84,7 @@ const Departments = (props: any) => {
           </RadioGroup>
         </FormControl>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

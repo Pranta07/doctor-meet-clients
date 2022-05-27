@@ -9,7 +9,7 @@ import { NavListRoot } from "./NavList";
 
 export const ListSubheaderStyle: any = styled((props) => (
   <ListSubheader disableSticky disableGutters {...props} />
-))(({ theme }) => ({
+))(({ theme }: any) => ({
   ...theme.typography.overline,
   paddingTop: theme.spacing(3),
   paddingLeft: theme.spacing(2),

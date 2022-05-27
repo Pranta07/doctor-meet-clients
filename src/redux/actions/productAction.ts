@@ -35,22 +35,26 @@ export const getProduct =
   (
     keyword = "",
     currentPage = 1,
-    price = [0, 25000],
-    category: any,
+    price = [0, 500],
+    category: string,
     ratings = 0
   ) =>
   async (dispatch: any) => {
     try {
+      // console.log(price[0]);
+      // console.log(price[1]);
       dispatch({ type: ALL_PRODUCT_REQUEST });
 
-      let link = `http://localhost:5000/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
+      let link = `https://doctor-meet-server.herokuapp.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
+
+      // console.log(link);
 
       if (category) {
-        link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`;
+        link = `https://doctor-meet-server.herokuapp.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`;
       }
 
       const { data } = await axios.get(link);
-      // console.log(data);
+      console.log(data);
       dispatch({
         type: ALL_PRODUCT_SUCCESS,
         payload: data,
@@ -69,7 +73,7 @@ export const getAdminProduct = () => async (dispatch: any) => {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
 
     const { data } = await axios.get(
-      "http://localhost:5000/api/v1/admin/products"
+      "https://doctor-meet-server.herokuapp.com/api/v1/admin/products"
     );
 
     dispatch({
@@ -94,7 +98,7 @@ export const createProduct = (productData: any) => async (dispatch: any) => {
     };
 
     const { data } = await axios.post(
-      `http://localhost:5000/api/v1/admin/product/new`,
+      `https://doctor-meet-server.herokuapp.com/api/v1/admin/product/new`,
       productData,
       config
     );
@@ -122,7 +126,7 @@ export const updateProduct =
       };
 
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/admin/product/${id}`,
+        `https://doctor-meet-server.herokuapp.com/api/v1/admin/product/${id}`,
         productData,
         config
       );
@@ -145,7 +149,7 @@ export const deleteProduct = (id: any) => async (dispatch: any) => {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
 
     const { data } = await axios.delete(
-      `http://localhost:5000/api/v1/admin/product/${id}`
+      `https://doctor-meet-server.herokuapp.com/api/v1/admin/product/${id}`
     );
 
     dispatch({
@@ -166,7 +170,7 @@ export const getProductDetails = (id: any) => async (dispatch: any) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/product/${id}`
+      `https://doctor-meet-server.herokuapp.com/api/v1/product/${id}`
     );
 
     dispatch({
@@ -191,7 +195,7 @@ export const newReview = (reviewData: any) => async (dispatch: any) => {
     };
 
     const { data } = await axios.put(
-      `http://localhost:5000/api/v1/review`,
+      `https://doctor-meet-server.herokuapp.com/api/v1/review`,
       reviewData,
       config
     );
@@ -214,7 +218,7 @@ export const getAllReviews = (id: any) => async (dispatch: any) => {
     dispatch({ type: ALL_REVIEW_REQUEST });
 
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/reviews?id=${id}`
+      `https://doctor-meet-server.herokuapp.com/api/v1/reviews?id=${id}`
     );
 
     dispatch({
@@ -236,7 +240,7 @@ export const deleteReviews =
       dispatch({ type: DELETE_REVIEW_REQUEST });
 
       const { data } = await axios.delete(
-        `http://localhost:5000/api/v1/reviews?id=${reviewId}&productId=${productId}`
+        `https://doctor-meet-server.herokuapp.com/api/v1/reviews?id=${reviewId}&productId=${productId}`
       );
 
       dispatch({

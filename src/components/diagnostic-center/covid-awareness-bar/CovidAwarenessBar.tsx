@@ -1,9 +1,14 @@
 import { Container, Grid } from "@mui/material";
 import React from "react";
 import "./CovidAwarnessBar.css";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const CovidAwarnessBar = () => {
   return (
-    <div className="covid-awareness-bar py-5 mb-5">
+    <RootStyle className="covid-awareness-bar py-5 mb-5">
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} lg={4}>
@@ -57,7 +62,7 @@ const CovidAwarnessBar = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </RootStyle>
   );
 };
 

@@ -4,7 +4,11 @@ import bdFlag from "../../assets/bangladesh-flag.jpg";
 import { Spinner } from "react-bootstrap";
 import "./CovidTop.css";
 import CovidChart from "./CovidChart";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 /* interface HIF {
     "x-rapidapi-host": string;
     "x-rapidapi-key": string;

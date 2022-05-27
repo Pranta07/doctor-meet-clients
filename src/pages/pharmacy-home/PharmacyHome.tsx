@@ -11,10 +11,13 @@ import Page from "../../components/Page";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   minHeight: "100%",
   paddingTop: theme.spacing(15),
   paddingBottom: theme.spacing(10),
+
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
 }));
 
 const PharmacyHome = () => {

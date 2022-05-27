@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
-import AppointmentDoctor from "./AppointmentDoctor";
 import "./AppointmentStyle.css";
 import { Grid } from "@mui/material";
+import AppointmentDoctor from "./AppointmentDoctor";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const AppointmentDoctors = () => {
   const [doctors, setDoctors] = useState([]);
   useEffect(() => {
@@ -11,7 +16,7 @@ const AppointmentDoctors = () => {
   }, []);
 
   return (
-    <div>
+    <RootStyle className="container">
       <h1
         className="appointment-title text-center"
         style={{ marginTop: "100px", marginBottom: "100px" }}
@@ -24,7 +29,7 @@ const AppointmentDoctors = () => {
           <AppointmentDoctor key={_id} doctor={doctor} />
         ))}
       </Grid>
-    </div>
+    </RootStyle>
   );
 };
 

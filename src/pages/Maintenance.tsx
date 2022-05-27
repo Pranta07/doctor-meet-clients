@@ -8,7 +8,7 @@ import Page from "../components/Page";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   height: "100%",
   display: "flex",
   alignItems: "center",

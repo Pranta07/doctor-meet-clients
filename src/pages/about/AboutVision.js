@@ -3,13 +3,11 @@ import { m } from 'framer-motion';
 import { Box,CardMedia, Container, Typography, Grid } from '@mui/material';
 // components
 
-import { MotionViewport, varFade } from '../../components/animate';
-
 // ----------------------------------------------------------------------
 
 export default function AboutVision() {
   return (
-    <Container component={MotionViewport} sx={{ mt: 10 }}>
+    <Container sx={{ mt: 10 }}>
       <Box
         sx={{
           mb: 10,
@@ -36,7 +34,7 @@ export default function AboutVision() {
           }}
         >
           {['logo_amazon', 'logo_hbo', 'logo_ibm', 'logo_lya', 'logo_spotify', 'logo_netflix'].map((logo) => (
-            <m.div key={logo} variants={varFade().in}>
+            <m.div key={logo}>
               <CardMedia component="img"
                 alt={logo}
                 src={`https://minimal-assets-api.vercel.app/assets/images/logos/${logo}.svg`}
@@ -52,7 +50,7 @@ export default function AboutVision() {
 
       <Grid container justifyContent="center">
         <Grid item xs={12} sm={8}>
-          <m.div variants={varFade().inUp}>
+          <m.div >
             <Typography variant="h3" sx={{ textAlign: 'center' }}>
               Our vision offering the best product nulla vehicula tortor scelerisque ultrices malesuada.
             </Typography>

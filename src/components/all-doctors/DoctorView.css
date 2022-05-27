@@ -1,88 +1,97 @@
 .dis-text {
-    line-height: 14px;
-    padding: 17px;
-    padding-left: 0;
-    padding-bottom: 0;
+  line-height: 14px;
+  padding: 17px;
+  padding-left: 0;
+  padding-bottom: 0;
 }
 
 .dis-text p span {
-    color: rgb(54, 159, 200);
-    font-size: 23px;
-    font-weight: 700;
+  color: rgb(54, 159, 200);
+  font-size: 23px;
+  font-weight: 700;
 }
 
 .dis-text p {
-    font-size: 16px;
-    font-weight: 400;
-    color: rgb(98, 98, 98);
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(98, 98, 98);
 }
 
 .all-btn-style button {
-    margin-top: 50px;
-    color: #0783b5;
-    padding: 20px;
-    font-size: 24px;
-    background-color: #e0faff30;
-    border: 1px solid rgb(227, 227, 227);
-
+  margin-top: 50px;
+  color: #0783b5;
+  padding: 20px;
+  font-size: 24px;
+  background-color: #e0faff30;
+  border: 1px solid rgb(227, 227, 227);
 }
 
 .ul-style-in-view li {
-    font-weight: 600;
-    font-size: 17px;
-    line-height: 20px;
-    color: #7c9da1;
-    margin-top: 20px;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 20px;
+  color: #7c9da1;
+  margin-top: 20px;
 }
 
 .border-right-style {
-    border-right: 1px solid rgb(188, 188, 188);
+  border-right: 1px solid rgb(188, 188, 188);
 }
 
 .address-style p {
-    font-weight: 600;
-    font-size: 17px;
-    color: #7c9da1;
+  font-weight: 600;
+  font-size: 17px;
+  color: #7c9da1;
 }
 
 .all-address {
-    display: flex;
-    justify-content: center;
-
+  display: flex;
+  justify-content: center;
 }
 
 .all-address div span {
-    font-size: 30px;
-    color: #0783b5;
+  font-size: 30px;
+  color: #0783b5;
 }
 
 .all-address-content {
-    font-size: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    color: #636363;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: #636363;
 }
 
 .btn-style-doc {
-    background-color: #0783b5;
-    border: 1px solid #0783b5;
-    padding: 10px;
-    font-weight: 500;
-    color: white;
-    width: 80px;
-    transition: 0.5 ease;
-
+  background-color: #0783b5;
+  border: 1px solid #0783b5;
+  padding: 10px;
+  font-weight: 500;
+  color: white;
+  width: 80px;
+  transition: 0.5 ease;
 }
 
 .btn-style-doc:hover {
-    transition: 0.5 ease;
-    background-color: transparent;
-    color: #0783b5;
+  transition: 0.5 ease;
+  background-color: transparent;
+  color: #0783b5;
 }
 
 .all-doc-rev {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dr-style-con span {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 20px;
+  color: rgb(54, 159, 200);
+  margin-top: 20px;
+}
+.dr-style-con p {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(98, 98, 98);
 }

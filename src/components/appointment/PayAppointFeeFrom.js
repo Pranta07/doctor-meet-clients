@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 const PayAppointmentFeeFrom = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
@@ -56,6 +61,7 @@ const navigate=useNavigate();
         }
     };
     return (
+        <RootStyle>
         <form onSubmit={handleSubmit} className="mt-5">
             <CardElement
                 options={{
@@ -79,6 +85,7 @@ const navigate=useNavigate();
                 Pay
             </button>
         </form>
+        </RootStyle>
     );
 };
 

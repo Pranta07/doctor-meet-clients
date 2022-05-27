@@ -8,9 +8,14 @@ import MuiAccordionSummary, {
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
+
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
+))(({ theme }: any) => ({
   border: `1px solid ${theme.palette.divider}`,
   "&:not(:last-child)": {
     borderBottom: 0,
@@ -25,7 +30,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
     expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "20px" }} />}
     {...props}
   />
-))(({ theme }) => ({
+))(({ theme }: any) => ({
   padding: theme.spacing(2),
   backgroundColor:
     theme.palette.mode === "dark" ? "rgba(255, 255, 255, .05)" : "white",
@@ -39,7 +44,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
   },
 }));
 
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }: any) => ({
   padding: theme.spacing(3),
   borderTop: "1px solid rgba(0, 0, 0, .125)",
   color: theme.palette.mode === "dark" ? "white" : "#005963",
@@ -90,7 +95,7 @@ export default function CustomizedAccordions() {
     };
 
   return (
-    <div>
+    <RootStyle>
       {questions.map((ques) => (
         <Accordion
           expanded={expanded === ques.id}
@@ -111,6 +116,6 @@ export default function CustomizedAccordions() {
           </AccordionDetails>
         </Accordion>
       ))}{" "}
-    </div>
+    </RootStyle>
   );
 }
