@@ -162,7 +162,11 @@ export default function Router() {
     // },
     {
       path: "/dashboard",
-      element: <DashboardLayout />,
+      element: (
+        <PrivateRoute>
+          <DashboardLayout />
+        </PrivateRoute>
+      ),
       children: [
         {
           element: <Navigate to="/dashboard/home" replace />,
@@ -170,7 +174,11 @@ export default function Router() {
         },
         {
           path: "home",
-          element: <DashboardHome />,
+          element: (
+            <PrivateRoute>
+              <DashboardHome />
+            </PrivateRoute>
+          ),
         },
 
         // user
@@ -181,10 +189,21 @@ export default function Router() {
               element: <Navigate to="/dashboard/user/doctors" replace />,
               index: true,
             },
-            { path: "doctors", element: <AllDoctors /> },
+            {
+              path: "doctors",
+              element: (
+                <PrivateRoute>
+                  <AllDoctors />
+                </PrivateRoute>
+              ),
+            },
             {
               path: "favorite-doctors",
-              element: <FavoriteDoctors />,
+              element: (
+                <PrivateRoute>
+                  <FavoriteDoctors />
+                </PrivateRoute>
+              ),
             },
             {
               path: "my-appointments",
