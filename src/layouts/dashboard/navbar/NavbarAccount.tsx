@@ -8,57 +8,65 @@ import { useAppSelector } from "../../../redux/store";
 // ----------------------------------------------------------------------
 
 const RootStyle = styled("div")(({ theme }: any) => ({
-  display: "flex",
-  alignItems: "center",
-  padding: theme.spacing(2, 2.5),
-  borderRadius: Number(theme.shape.borderRadius) * 1.5,
-  backgroundColor: theme.palette.grey[500_12],
-  transition: theme.transitions.create("opacity", {
-    duration: theme.transitions.duration.shorter,
-  }),
+    display: "flex",
+    alignItems: "center",
+    padding: theme.spacing(2, 2.5),
+    borderRadius: Number(theme.shape.borderRadius) * 1.5,
+    backgroundColor: theme.palette.grey[500_12],
+    transition: theme.transitions.create("opacity", {
+        duration: theme.transitions.duration.shorter,
+    }),
 }));
 
 // ----------------------------------------------------------------------
 
 NavbarAccount.propTypes = {
-  isCollapse: PropTypes.bool,
+    isCollapse: PropTypes.bool,
 };
 
 export default function NavbarAccount({ isCollapse }: any) {
-  const { user }: any = useAppSelector((state) => state.user);
+    const { user }: any = useAppSelector((state) => state.user);
 
-  return (
-    <Link underline="none" color="inherit">
-      <RootStyle
-        sx={{
-          ...(isCollapse && {
-            bgcolor: "transparent",
-          }),
-        }}
-      >
-        <Avatar src={user?.photoURL || ""} alt="avatar" />
+    return (
+        <Link underline="none" color="inherit">
+            <RootStyle
+                sx={{
+                    ...(isCollapse && {
+                        bgcolor: "transparent",
+                    }),
+                }}
+            >
+                <Avatar
+                    src={user?.name[0]}
+                    alt="avatar"
+                    className="badge-container"
+                />
 
-        <Box
-          sx={{
-            ml: 2,
-            transition: (theme) =>
-              theme.transitions.create("width", {
-                duration: theme.transitions.duration.shorter,
-              }),
-            ...(isCollapse && {
-              ml: 0,
-              width: 0,
-            }),
-          }}
-        >
-          <Typography variant="subtitle2" noWrap>
-            {user?.name}
-          </Typography>
-          <Typography variant="body2" noWrap sx={{ color: "text.secondary" }}>
-            Admin
-          </Typography>
-        </Box>
-      </RootStyle>
-    </Link>
-  );
+                <Box
+                    sx={{
+                        ml: 2,
+                        transition: (theme) =>
+                            theme.transitions.create("width", {
+                                duration: theme.transitions.duration.shorter,
+                            }),
+                        ...(isCollapse && {
+                            ml: 0,
+                            width: 0,
+                        }),
+                    }}
+                >
+                    <Typography variant="subtitle2" noWrap>
+                        {user?.name}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        noWrap
+                        sx={{ color: "text.secondary" }}
+                    >
+                        Admin
+                    </Typography>
+                </Box>
+            </RootStyle>
+        </Link>
+    );
 }
