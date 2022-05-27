@@ -130,19 +130,27 @@ const DoctorAppointment = (props: any) => {
             <StyledTableCell align="center">{time}</StyledTableCell>
             <StyledTableCell align="center">
                 {appointment?.payment ? (
-                    <Button>Paid</Button>
+                    <Button color="success">Paid</Button>
                 ) : (
                     <Button color="warning">Unpaid</Button>
                 )}
             </StyledTableCell>
             <StyledTableCell align="center">
-                <Tooltip title="Meet Now!" placement="left-start">
-                    <NavLink to="/virtual-meet">
-                        <IconButton color="primary">
+                {appointment?.payment ? (
+                    <Tooltip title="Meet Now!" placement="left-start">
+                        <NavLink to={`/virtual-meet/${appointment._id}`}>
+                            <IconButton color="primary">
+                                <VideocamOutlinedIcon />
+                            </IconButton>
+                        </NavLink>
+                    </Tooltip>
+                ) : (
+                    <Tooltip title="Unpaid!" placement="left-start">
+                        <IconButton>
                             <VideocamOutlinedIcon />
                         </IconButton>
-                    </NavLink>
-                </Tooltip>
+                    </Tooltip>
+                )}
             </StyledTableCell>
         </StyledTableRow>
     );

@@ -81,7 +81,6 @@ const sidebarConfig = [
                 path: "/dashboard/doctor",
                 icon: ICONS.user,
                 children: [
-                   
                     {
                         title: "Review Reports",
                         path: "/dashboard/doctor/reports",
@@ -128,6 +127,11 @@ const sidebarConfig = [
                     {
                         title: "Reports Preview",
                         path: "/dashboard/moderator/report-pdf",
+                        icon: ICONS.analytics,
+                    },
+                    {
+                        title: "Appointments",
+                        path: "/dashboard/moderator/all-appointments",
                         icon: ICONS.analytics,
                     },
                     {

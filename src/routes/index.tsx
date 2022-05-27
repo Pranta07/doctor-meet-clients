@@ -7,7 +7,7 @@ import DashboardLayout from "../layouts/dashboard/index";
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
 // import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
-import ResetPassword from "../pages/security/resetPassword/ResetPassword";
+// import ResetPassword from "../pages/security/resetPassword/ResetPassword";
 import {
     DiagnosisPay,
     DiagnosticAppointmentForm,
@@ -208,11 +208,11 @@ export default function Router() {
                             ),
                         },
                         {
-                            path: "all-diagnosis",
+                            path: "all-appointments",
                             element: (
-                                <ModeratorRoute>
-                                    <AllDiagnosis />
-                                </ModeratorRoute>
+                                <AdminRoute>
+                                    <AllAppointments />
+                                </AdminRoute>
                             ),
                         },
                         {
