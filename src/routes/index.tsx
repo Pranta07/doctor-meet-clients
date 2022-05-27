@@ -6,9 +6,8 @@ import DashboardLayout from "../layouts/dashboard/index";
 // components
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
-import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
+// import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
 import ResetPassword from "../pages/security/resetPassword/ResetPassword";
-import UpdateProfile from "../pages/profile/UpdateProfile";
 import {
     DiagnosisPay,
     DiagnosticAppointmentForm,
@@ -22,19 +21,16 @@ import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
 
 import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
-import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/DoctorsSchedules";
 
 import PharmacyPay from "../components/pharmacy/PharmacyPay";
 import PrivateRoute from "./private-route/PrivateRoute";
 import DoctorsRoute from "./doctor-route/DoctorsRoute";
 import ModeratorRoute from "./modaretor-route/ModeratorRoute";
 import AdminRoute from "./admin-route/AdminRoute";
-import DoctorAppointment from "../components/all-appointments-doctor/DoctorAppointment";
 import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
-import { MyAppointment } from "../components/appointment";
 import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
 import Profile from "../pages/profile/Profile";
-import JoinUsForm from "../components/blood-donor/join-us/JoinUsForm";
+import UserAppointments from "../components/all-appointments-user/UserAppointments";
 
 // ----------------------------------------------------------------------
 
@@ -56,112 +52,6 @@ const Loadable = (Component: any) => (props: any) => {
 export default function Router() {
     return useRoutes([
         {
-            path: "auth",
-            children: [
-                {
-                    path: "login",
-                    element: (
-                        // <GuestGuard>
-                        <Login />
-                        // </GuestGuard>
-                    ),
-                },
-                {
-                    path: "register",
-                    element: (
-                        // <GuestGuard>
-                        <Register />
-                        // </GuestGuard>
-                    ),
-                },
-                { path: "login-unprotected", element: <Login /> },
-                { path: "register-unprotected", element: <Register /> },
-                { path: "reset-password", element: <ResetPassword /> },
-                { path: "verify", element: <VerifyCode /> },
-            ],
-        },
-        // // Dashboard Routes
-        // {
-        //   path: 'dashboard',
-        //   element: (
-        //     // <AuthGuard>
-        //       <DashboardLayout />
-        //     // </AuthGuard>
-        //   ),
-        //   children: [
-        //     { element: <avigate to={PATH_AFTER_LOGIN} Nreplace />, index: true },
-        //     { path: 'app', element: <GeneralApp /> },
-        //     { path: 'ecommerce', element: <GeneralEcommerce /> },
-        //     { path: 'analytics', element: <GeneralAnalytics /> },
-        //     { path: 'banking', element: <GeneralBanking /> },
-        //     { path: 'booking', element: <GeneralBooking /> },
-
-        //     {
-        //       path: 'e-commerce',
-        //       children: [
-        //         { element: <Navigate to="/dashboard/e-commerce/shop" replace />, index: true },
-        //         { path: 'shop', element: <EcommerceShop /> },
-        //         { path: 'product/:name', element: <EcommerceProductDetails /> },
-        //         { path: 'list', element: <EcommerceProductList /> },
-        //         { path: 'product/new', element: <EcommerceProductCreate /> },
-        //         { path: 'product/:name/edit', element: <EcommerceProductCreate /> },
-        //         { path: 'checkout', element: <EcommerceCheckout /> },
-        //       ],
-        //     },
-        //     {
-        //       path: 'user',
-        //       children: [
-        //         { element: <Navigate to="/dashboard/user/profile" replace />, index: true },
-        //         { path: 'profile', element: <UserProfile /> },
-        //         { path: 'cards', element: <UserCards /> },
-        //         { path: 'list', element: <UserList /> },
-        //         { path: 'new', element: <UserCreate /> },
-        //         { path: ':name/edit', element: <UserCreate /> },
-        //         { path: 'account', element: <UserAccount /> },
-        //       ],
-        //     },
-        //     {
-        //       path: 'invoice',
-        //       children: [
-        //         { element: <Navigate to="/dashboard/invoice/list" replace />, index: true },
-        //         { path: 'list', element: <InvoiceList /> },
-        //         { path: ':id', element: <InvoiceDetails /> },
-        //         { path: ':id/edit', element: <InvoiceEdit /> },
-        //         { path: 'new', element: <InvoiceCreate /> },
-        //       ],
-        //     },
-        //     {
-        //       path: 'blog',
-        //       children: [
-        //         { element: <Navigate to="/dashboard/blog/posts" replace />, index: true },
-        //         { path: 'posts', element: <BlogPosts /> },
-        //         { path: 'post/:title', element: <BlogPost /> },
-        //         { path: 'new', element: <BlogNewPost /> },
-        //       ],
-        //     },
-        //     {
-        //       path: 'mail',
-        //       children: [
-        //         { element: <Navigate to="/dashboard/mail/all" replace />, index: true },
-        //         { path: 'label/:customLabel', element: <Mail /> },
-        //         { path: 'label/:customLabel/:mailId', element: <Mail /> },
-        //         { path: ':systemLabel', element: <Mail /> },
-        //         { path: ':systemLabel/:mailId', element: <Mail /> },
-        //       ],
-        //     },
-        //     {
-        //       path: 'chat',
-        //       children: [
-        //         { element: <Chat />, index: true },
-        //         { path: 'new', element: <Chat /> },
-        //         { path: ':conversationKey', element: <Chat /> },
-        //       ],
-        //     },
-        //     { path: 'calendar', element: <Calendar /> },
-        //     { path: 'kanban', element: <Kanban /> },
-        //   ],
-        // },
-        {
             path: "/dashboard",
             element: <DashboardLayout />,
             children: [
@@ -171,7 +61,11 @@ export default function Router() {
                 },
                 {
                     path: "home",
-                    element: <DashboardHome />,
+                    element: (
+                        <PrivateRoute>
+                            <DashboardHome />
+                        </PrivateRoute>
+                    ),
                 },
 
                 // user
@@ -187,38 +81,61 @@ export default function Router() {
                             ),
                             index: true,
                         },
-                        { path: "doctors", element: <AllDoctors /> },
                         {
                             path: "favorite-doctors",
-                            element: <FavoriteDoctors />,
+                            element: (
+                                <PrivateRoute>
+                                    <FavoriteDoctors />
+                                </PrivateRoute>
+                            ),
                         },
                         {
                             path: "my-appointments",
-                            element: <MyAppointments />,
-                        },
-                        {
-                            path: "get-appointments",
-                            element: <GetAppointmentForm />,
+                            element: (
+                                <PrivateRoute>
+                                    <UserAppointments />
+                                </PrivateRoute>
+                            ),
                         },
                         {
                             path: "my-diagnosises",
-                            element: <MyDiagnosises />,
+                            element: (
+                                <PrivateRoute>
+                                    <MyDiagnosises />
+                                </PrivateRoute>
+                            ),
                         },
                         {
                             path: "Report-status",
-                            element: <ReportStatus />,
+                            element: (
+                                <PrivateRoute>
+                                    <ReportStatus />
+                                </PrivateRoute>
+                            ),
                         },
                         {
                             path: "report-pdf",
-                            element: <ReportPdf />,
+                            element: (
+                                <PrivateRoute>
+                                    <ReportPdf />
+                                </PrivateRoute>
+                            ),
                         },
                         {
                             path: "add-review",
-                            element: <UserReview />,
+                            element: (
+                                <PrivateRoute>
+                                    <UserReview />
+                                </PrivateRoute>
+                            ),
                         },
                         {
                             path: "join-us",
-                            element: <JoinUsForm />,
+                            element: (
+                                <PrivateRoute>
+                                    <AddDoctor />
+                                </PrivateRoute>
+                            ),
                         },
                     ],
                 },
@@ -228,29 +145,36 @@ export default function Router() {
                     path: "doctor",
                     children: [
                         {
-                            path: "join-us",
-
-                            element: <AddDoctor />,
-                        },
-                        {
                             path: "report-pdf",
-                            element: <ReportPdf />,
+                            element: (
+                                <DoctorsRoute>
+                                    <ReportPdf />
+                                </DoctorsRoute>
+                            ),
                         },
                         {
                             path: "reports",
-                            element: <AllReports />,
+                            element: (
+                                <DoctorsRoute>
+                                    <AllReports />
+                                </DoctorsRoute>
+                            ),
                         },
                         {
                             path: "add-article",
-                            element: <AddArticle />,
-                        },
-                        {
-                            path: "my-appointments",
-                            element: <MyAppointments />,
+                            element: (
+                                <DoctorsRoute>
+                                    <AddArticle />
+                                </DoctorsRoute>
+                            ),
                         },
                         {
                             path: "my-schedule-doctor",
-                            element: <DoctorsSchedules />,
+                            element: (
+                                <DoctorsRoute>
+                                    <DoctorAppointments />
+                                </DoctorsRoute>
+                            ),
                         },
                     ],
                 },
@@ -404,15 +328,6 @@ export default function Router() {
         {
             path: "*",
             element: <NotFound />,
-            // children: [
-            //   { path: "coming-soon", element: <ComingSoon /> },
-            //   { path: "maintenance", element: <Maintenance /> },
-            //   { path: "pricing", element: <Pricing /> },
-            //   { path: "payment", element: <Payment /> },
-            //   { path: "500", element: <Page500 /> },
-            //   { path: "*", element: <NotFound /> },
-            //   // { path: "*", element: <Navigate to="/404" replace /> },
-            // ],
         },
         {
             path: "/",
@@ -433,7 +348,7 @@ export default function Router() {
                 { path: "find-donors", element: <FindDonors /> },
                 { path: "premium-membership", element: <PremiumMemberships /> },
                 {
-                    path: "virtual-meet",
+                    path: "virtual-meet/:id",
                     element: <VideoApp />,
                 },
                 { path: "login", element: <Login /> },
@@ -505,17 +420,8 @@ export default function Router() {
 const PharmacyHome = Loadable(
     lazy(() => import("../pages/pharmacy-home/PharmacyHome"))
 );
-//const PharmacyHome = Loadable(
-// lazy(() => import("../pages/pharmacy/PharmacyH~ome")));
 
-// const NotFound = Loadable(lazy(() => import('../pages/Page404')));
-// AUTHENTICATION
 const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
-const Register = Loadable(lazy(() => import("../pages/auth/Register")));
-// const ResetPassword = Loadable(
-//   lazy(() => import("../pages/auth/ResetPassword"))
-// );
-const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
 const CovidPortal = Loadable(
     lazy(() => import("../pages/covid-portal/CovidPortal"))
 );
@@ -546,14 +452,11 @@ const AllReports = Loadable(
     lazy(() => import("../components/all-reports/AllReports"))
 );
 
-const MyAppointments = Loadable(
-    lazy(() => import("../components/appointment/MyAppointments"))
-);
 const GetAppointmentForm = Loadable(
     lazy(() => import("../components/appointment/GetAppointmentForm"))
 );
 const AllAppointments = Loadable(
-    lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
+    lazy(() => import("../components/all-appointments/AllAppointments"))
 );
 const AllDiagnosis = Loadable(
     lazy(() => import("../pages/dashboards/all-diagnosis/AllDiagnosis"))
@@ -567,12 +470,8 @@ const ReportSection = Loadable(
 const PremiumMemberships = Loadable(
     lazy(() => import("../pages/premium-membership/PremiumMemberships"))
 );
-const Doctors = Loadable(lazy(() => import("../pages/doctors/Doctors")));
 const NotFound = Loadable(
     lazy(() => import("../components/not-found/NotFound"))
-);
-const VideoChatRoute = Loadable(
-    lazy(() => import("../pages/video-chat-client/VideoChatRoute"))
 );
 
 const Registration = Loadable(
@@ -626,47 +525,6 @@ const AddOrder = Loadable(
     lazy(() => import("../components/add-order/AddOrder"))
 );
 
-// DASHBOARD
-
-// GENERAL
-// const GeneralApp = Loadable(lazy(() => import('../pages/dashboard/GeneralApp')));
-// const GeneralEcommerce = Loadable(lazy(() => import('../pages/dashboard/GeneralEcommerce')));
-// const GeneralAnalytics = Loadable(lazy(() => import('../pages/dashboard/GeneralAnalytics')));
-// const GeneralBanking = Loadable(lazy(() => import('../pages/dashboard/GeneralBanking')));
-// const GeneralBooking = Loadable(lazy(() => import('../pages/dashboard/GeneralBooking')));
-
-// // ECOMMERCE
-// const EcommerceShop = Loadable(lazy(() => import('../pages/dashboard/EcommerceShop')));
-// const EcommerceProductDetails = Loadable(lazy(() => import('../pages/dashboard/EcommerceProductDetails')));
-// const EcommerceProductList = Loadable(lazy(() => import('../pages/dashboard/EcommerceProductList')));
-// const EcommerceProductCreate = Loadable(lazy(() => import('../pages/dashboard/EcommerceProductCreate')));
-// const EcommerceCheckout = Loadable(lazy(() => import('../pages/dashboard/EcommerceCheckout')));
-
-// // INVOICE
-// const InvoiceList = Loadable(lazy(() => import('../pages/dashboard/InvoiceList')));
-// const InvoiceDetails = Loadable(lazy(() => import('../pages/dashboard/InvoiceDetails')));
-// const InvoiceCreate = Loadable(lazy(() => import('../pages/dashboard/InvoiceCreate')));
-// const InvoiceEdit = Loadable(lazy(() => import('../pages/dashboard/InvoiceEdit')));
-
-// // BLOG
-// const BlogPosts = Loadable(lazy(() => import('../pages/dashboard/BlogPosts')));
-// const BlogPost = Loadable(lazy(() => import('../pages/dashboard/BlogPost')));
-// const BlogNewPost = Loadable(lazy(() => import('../pages/dashboard/BlogNewPost')));
-
-// // USER
-// const UserProfile = Loadable(lazy(() => import('../pages/dashboard/UserProfile')));
-// const UserCards = Loadable(lazy(() => import('../pages/dashboard/UserCards')));
-// const UserList = Loadable(lazy(() => import('../pages/dashboard/UserList')));
-// const UserAccount = Loadable(lazy(() => import('../pages/dashboard/UserAccount')));
-// const UserCreate = Loadable(lazy(() => import('../pages/dashboard/UserCreate')));
-
-// // APP
-// const Chat = Loadable(lazy(() => import('../pages/dashboard/Chat')));
-// const Mail = Loadable(lazy(() => import('../pages/dashboard/Mail')));
-// const Calendar = Loadable(lazy(() => import('../pages/dashboard/Calendar')));
-// const Kanban = Loadable(lazy(() => import('../pages/dashboard/Kanban')));
-
-// MAIN
 const HomePage = Loadable(lazy(() => import("../pages/home/Home")));
 const ContactUs = Loadable(
     lazy(() => import("../components/contact-us/ContactUs"))
@@ -674,11 +532,7 @@ const ContactUs = Loadable(
 const DoctorView = Loadable(
     lazy(() => import("../components/all-doctors/DoctorView"))
 );
-const Faqs = Loadable(lazy(() => import("../pages/Faqs")));
-const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));
-const Maintenance = Loadable(lazy(() => import("../pages/Maintenance")));
 
-const Page500 = Loadable(lazy(() => import("../pages/Page500")));
 const About = Loadable(lazy(() => import("../pages/about/About")));
 const AddDoctor = Loadable(
     lazy(() => import("../components/add-doctor/AddDoctor"))

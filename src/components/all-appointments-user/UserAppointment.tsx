@@ -14,7 +14,7 @@ import VideocamOutlinedIcon from "@mui/icons-material/VideocamOutlined";
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import { NavLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import Swal from "sweetalert2";
+import PayModal from "./payment/PayModal.js";
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     "&:nth-of-type(odd)": {
@@ -68,6 +68,10 @@ const UserAppointment = (props: any) => {
     const [modalOpen, setmOpen] = React.useState(false);
     const handleOpen = () => setmOpen(true);
     const handleClose = () => setmOpen(false);
+
+    const [smOpen, setsmOpen] = React.useState(false);
+    const handlesOpen = () => setsmOpen(true);
+    const handlesClose = () => setsmOpen(false);
 
     return (
         <StyledTableRow>
@@ -130,18 +134,26 @@ const UserAppointment = (props: any) => {
             <StyledTableCell align="center">{time}</StyledTableCell>
             <StyledTableCell align="center">
                 {appointment?.payment ? (
-                    <Button>Paid</Button>
+                    <Button color="success">Paid</Button>
                 ) : (
                     <Tooltip title="Pay Now!" placement="left-start">
-                        <Button color="warning">Unpaid</Button>
+                        <Button onClick={handlesOpen} color="warning">
+                            Unpaid
+                        </Button>
                     </Tooltip>
                 )}
+                <PayModal
+                    smOpen={smOpen}
+                    handlesClose={handlesClose}
+                    appointment={appointment}
+                    setUpdate={setUpdate}
+                ></PayModal>
             </StyledTableCell>
             <StyledTableCell align="center">
                 {appointment?.payment ? (
                     <Tooltip title="Meet Now!" placement="left-start">
-                        <NavLink to="/virtual-meet">
-                            <IconButton color="primary" disabled>
+                        <NavLink to={`/virtual-meet/${appointment._id}`}>
+                            <IconButton color="primary">
                                 <VideocamOutlinedIcon />
                             </IconButton>
                         </NavLink>

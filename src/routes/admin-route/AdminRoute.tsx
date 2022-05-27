@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
 import { useAppSelector } from "../../redux/store";
 
 const AdminRoute = ({ children }: { children: JSX.Element }) => {

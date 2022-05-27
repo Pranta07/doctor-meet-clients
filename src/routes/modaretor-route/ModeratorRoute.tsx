@@ -10,7 +10,7 @@ const ModeratorRoute = ({ children }: { children: JSX.Element }) => {
 
   let location = useLocation();
 
-  if (loading ) {
+  if (loading) {
     return (
       <div className="m-10">
         <svg

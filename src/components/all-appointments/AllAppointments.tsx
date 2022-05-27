@@ -25,16 +25,16 @@ const AllAppointments = () => {
   const [appointments, setAppointments] = useState<any>([]);
   const [update, setUpdate] = useState(false);
 
-  useEffect(() => {
-    // setLoading(true);
-    const url = `https://doctor-meet-server.herokuapp.com/api/v1/appointment`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setAppointments(data.result);
-      });
-    // .finally(() => setLoading(false));
-  }, [update]);
+    useEffect(() => {
+        // setLoading(true);
+        const url = `https://doctor-meet-server.herokuapp.com/api/v1/appointment`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+                setAppointments(data.result);
+            });
+        // .finally(() => setLoading(false));
+    }, [update]);
 
   return (
     <Container>
