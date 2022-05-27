@@ -372,7 +372,7 @@ export default function Router() {
                             ),
                         },
                         {
-                            path: "/dashboard/admin/makeModerador",
+                            path: "/dashboard/admin/makeModerator",
                             element: (
                                 <AdminRoute>
                                     <MakeModaretor />
