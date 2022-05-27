@@ -1,11 +1,11 @@
 import React from "react";
 import "./DashboardHome.css";
 import LastAppointments from "./last-appointments/LastAppointments";
-import PatientAgeDemoGraphic from "./patient-demographic/PatientAgeDemoGraphic";
-import PatientGenderDemoGraphic from "./patient-demographic/PatientGenderDemoGraphic";
 import Survey from "./survey/Survey";
 import Page from "../../../components/Page";
 import { styled } from "@mui/material/styles";
+import SpecialistChart from "../../../components/manage-doctors/specialist-chart/SpecialistChart";
+import GroupChart from "../../../components/manage-donors/group-chart/GroupChart";
 
 const RootStyle = styled("div")(({ theme }: any) => ({
     height: "100%",
@@ -55,24 +55,20 @@ const DashboardHome = () => {
             </div>
           </div> */}
 
+                    <div className="mb-5 pb-5">
+                        <SpecialistChart></SpecialistChart>
+                    </div>
+
+                    <div className="my-5 py-5">
+                        <GroupChart></GroupChart>
+                    </div>
+
                     <div>
-                        {/* chart section */}
                         <Survey></Survey>
                     </div>
 
-                    <div className="px-4">
-                        {/* Last Appoinments Section */}
+                    <div className="px-4 my-5 py-5">
                         <LastAppointments></LastAppointments>
-                    </div>
-
-                    <div className="row">
-                        {/* Patient Demographic */}
-                        <div className="col-lg-6">
-                            <PatientAgeDemoGraphic></PatientAgeDemoGraphic>
-                        </div>
-                        <div className="col-lg-6">
-                            <PatientGenderDemoGraphic></PatientGenderDemoGraphic>
-                        </div>
                     </div>
                 </div>
             </RootStyle>
