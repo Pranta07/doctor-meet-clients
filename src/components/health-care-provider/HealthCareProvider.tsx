@@ -4,6 +4,7 @@ import HealthCareProviderImg from "../../assets/health-care-provider/HealthCareP
 import "./HealthCareProvider.css";
 import { styled } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const RootStyle = styled("div")(({ theme }: any) => ({
   height: "100%",
@@ -27,18 +28,14 @@ const HealthCareProvider = () => {
               </h1>
               <div className="hr-line my-3 text-justify"></div>
               <p className="health-care-provider-description">
-              Join Doctor Meet network and create your virtual chamber provide medical consultancy via video call and expand the reach of your service.
+                Join Doctor Meet network and create your virtual chamber provide
+                medical consultancy via video call and expand the reach of your
+                service.
               </p>
             </div>
-            <button
-              type="button"
-              className="btn learn-more-button btn-outline-primary rounded-pill px-4"
-            >
-              <NavLink style={{textDecoration:"none"}} to="/dashboard/user/join-us">
-
-              Join Us
-              </NavLink>
-            </button>
+            <NavLink style={{ textDecoration: "none" }} to="/dashboard/user/join-us">
+              <Button variant="contained">Join Us</Button>
+            </NavLink>
           </div>
         </div>
       </Container>

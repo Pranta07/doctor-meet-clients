@@ -6,15 +6,15 @@ import {
   useNavigate,
   unstable_HistoryRouter as HistoryRouter,
 } from "react-router-dom";
-import { login } from "../../../redux/actions/userAction";
+
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import "./Login.css";
-
+import { clearErrors, login } from "../../../redux/actions/userAction";
 import undrow_login from "../../../assets/img/undraw_access_account_re_8spm.svg";
 import { createBrowserHistory } from "history";
 import { Button, TextField } from "@mui/material";
 
-const history = createBrowserHistory({ window });
+const history: any = createBrowserHistory({ window });
 
 const Login = () => {
   const { user }: any = useAppSelector((state) => state);
@@ -30,10 +30,17 @@ const Login = () => {
     const password: string = pass.current?.value;
     // signUsingEmail(mailE, passE);
     dispatch(login(email, password));
-    if (user.success) {
+    if (user.error) {
+      enqueueSnackbar(user.error);
+      dispatch(clearErrors());
+    } else if (user.success) {
+      dispatch(clearErrors());
       enqueueSnackbar("logged in successfully!");
-      //@ts-ignore
-      navigate(history.back());
+      if (history.location.pathname === "/signUp") {
+        navigate("/");
+      } else {
+        navigate(history.back());
+      }
     }
   };
   return (

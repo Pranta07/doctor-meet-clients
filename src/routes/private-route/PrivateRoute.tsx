@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
 
   let location = useLocation();
 
-  if (loading ) {
+  if (!loading) {
     return (
       <div className="m-10">
         <svg
@@ -19,7 +19,6 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
       </div>
     );
   }
-console.log(loading);
 
   if (user?.email) {
     return children;

@@ -14,7 +14,6 @@ const Notify = () => {
   let DrnameRef = useRef<HTMLInputElement>(null!);
   let messageRef = useRef<HTMLInputElement>(null!);
 
-
   useEffect(() => {
     const url1 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=user`;
     fetch(url1)
@@ -82,13 +81,16 @@ const Notify = () => {
     const notify = { message, date, status };
 
     //send review data to server
-    fetch(`https://doctor-meet-server.herokuapp.com/api/v1/admin/users/notify/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(notify),
-    }).then((res) => {
+    fetch(
+      `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/notify/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(notify),
+      }
+    ).then((res) => {
       if (res.status === 200) {
         Swal.fire({
           title: "Success",

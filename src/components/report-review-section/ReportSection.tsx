@@ -42,16 +42,14 @@ const ReportSection = () => {
       });
   }, []);
 
-
-  useEffect(()=>{
+  useEffect(() => {
     const url1 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=user`;
     fetch(url1)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.user);
       });
-  },[])
-
+  }, []);
 
   let getFile = (e: any) => {
     if (text !== "Click or drop something here...") {

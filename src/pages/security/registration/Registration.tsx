@@ -18,8 +18,7 @@ const RootStyle = styled("div")(({ theme }: any) => ({
   backgroundColor: theme.palette.background.default,
 }));
 
-const history = createBrowserHistory({ window });
-
+const history: any = createBrowserHistory({ window });
 
 const Registration = () => {
   const { user }: any = useAppSelector((state) => state);
@@ -52,7 +51,11 @@ const Registration = () => {
       if (user.success) {
         console.log(user.success);
         enqueueSnackbar("Registration complete successfully!");
-        navigate('/');
+        if (history.location.pathname === "/login") {
+          navigate("/");
+        } else {
+          navigate(history.back());
+        }
       }
     }
   };
@@ -139,9 +142,8 @@ const Registration = () => {
               <span style={{ fontWeight: "600", color: "gray" }}>
                 Already have an account?
               </span>
-              <NavLink to='/login'>
-
-              <Button variant="text">Log in </Button>{" "}
+              <NavLink to="/login">
+                <Button variant="text">Log in </Button>{" "}
               </NavLink>
             </p>
           </form>

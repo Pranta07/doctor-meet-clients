@@ -61,6 +61,11 @@ const sidebarConfig = [
             path: "/dashboard/user/add-review",
             icon: ICONS.analytics,
           },
+          {
+            title: "Join Us",
+            path: "/dashboard/user/join-us",
+            icon: ICONS.analytics,
+          },
         ],
       },
     ],
@@ -74,11 +79,6 @@ const sidebarConfig = [
         path: "/dashboard/doctor",
         icon: ICONS.user,
         children: [
-          {
-            title: "Join Us",
-            path: "/dashboard/doctor/join-us",
-            icon: ICONS.analytics,
-          },
           {
             title: "Review Reports",
             path: "/dashboard/doctor/reports",
