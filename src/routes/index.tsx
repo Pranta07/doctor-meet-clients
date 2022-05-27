@@ -24,6 +24,7 @@ import AddDoctor from "../components/add-doctor/AddDoctor";
 import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
 import UserAppointments from "../components/all-appointments-user/UserAppointments";
 import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
+import About from "../pages/about/About";
 
 // ----------------------------------------------------------------------
 
@@ -537,4 +538,4 @@ const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));
 const Maintenance = Loadable(lazy(() => import("../pages/Maintenance")));
 
 const Page500 = Loadable(lazy(() => import("../pages/Page500")));
-const About = Loadable(lazy(() => import("../pages/about/About")));
+// const About = Loadable(lazy(() => import("../")));
