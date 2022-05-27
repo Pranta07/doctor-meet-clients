@@ -331,7 +331,7 @@ const DoctorView = () => {
               </button>
             </div>
             <div className="my-5">
-              <h3 style={{ color: "#0783b5" }}> Overview Of {doctor.name} </h3>
+              <h3 style={{ color: "#0783b5" }}> Overview Of {doctor?.name} </h3>
               <hr />
               <div className="row">
                 <div className="col-lg-6 border-right-style">
@@ -478,6 +478,8 @@ const DoctorView = () => {
                     type="text"
                     name="Name"
                     required
+                    readOnly
+                    defaultValue={user?.name}
                     className="form-control"
                     placeholder="Name *"
                     aria-label="First name"
@@ -488,6 +490,8 @@ const DoctorView = () => {
                     type="email"
                     name="email"
                     required
+                    readOnly
+                    defaultValue={user?.email}
                     className="form-control"
                     placeholder="Email *"
                     aria-label=""
@@ -641,7 +645,7 @@ const DoctorView = () => {
                         variant="outlined"
                         fullWidth
                         required
-                        defaultValue={user.name}
+                        defaultValue={user?.name}
                         disabled
                       />
                     </div>
@@ -653,7 +657,7 @@ const DoctorView = () => {
                         variant="outlined"
                         fullWidth
                         required
-                        defaultValue={user.email}
+                        defaultValue={user?.email}
                         disabled
                       />
                     </div>
