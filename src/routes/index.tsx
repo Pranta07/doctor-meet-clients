@@ -79,94 +79,10 @@ export default function Router() {
         { path: "verify", element: <VerifyCode /> },
       ],
     },
-    // // Dashboard Routes
-    // {
-    //   path: 'dashboard',
-    //   element: (
-    //     // <AuthGuard>
-    //       <DashboardLayout />
-    //     // </AuthGuard>
-    //   ),
-    //   children: [
-    //     { element: <avigate to={PATH_AFTER_LOGIN} Nreplace />, index: true },
-    //     { path: 'app', element: <GeneralApp /> },
-    //     { path: 'ecommerce', element: <GeneralEcommerce /> },
-    //     { path: 'analytics', element: <GeneralAnalytics /> },
-    //     { path: 'banking', element: <GeneralBanking /> },
-    //     { path: 'booking', element: <GeneralBooking /> },
 
-    //     {
-    //       path: 'e-commerce',
-    //       children: [
-    //         { element: <Navigate to="/dashboard/e-commerce/shop" replace />, index: true },
-    //         { path: 'shop', element: <EcommerceShop /> },
-    //         { path: 'product/:name', element: <EcommerceProductDetails /> },
-    //         { path: 'list', element: <EcommerceProductList /> },
-    //         { path: 'product/new', element: <EcommerceProductCreate /> },
-    //         { path: 'product/:name/edit', element: <EcommerceProductCreate /> },
-    //         { path: 'checkout', element: <EcommerceCheckout /> },
-    //       ],
-    //     },
-    //     {
-    //       path: 'user',
-    //       children: [
-    //         { element: <Navigate to="/dashboard/user/profile" replace />, index: true },
-    //         { path: 'profile', element: <UserProfile /> },
-    //         { path: 'cards', element: <UserCards /> },
-    //         { path: 'list', element: <UserList /> },
-    //         { path: 'new', element: <UserCreate /> },
-    //         { path: ':name/edit', element: <UserCreate /> },
-    //         { path: 'account', element: <UserAccount /> },
-    //       ],
-    //     },
-    //     {
-    //       path: 'invoice',
-    //       children: [
-    //         { element: <Navigate to="/dashboard/invoice/list" replace />, index: true },
-    //         { path: 'list', element: <InvoiceList /> },
-    //         { path: ':id', element: <InvoiceDetails /> },
-    //         { path: ':id/edit', element: <InvoiceEdit /> },
-    //         { path: 'new', element: <InvoiceCreate /> },
-    //       ],
-    //     },
-    //     {
-    //       path: 'blog',
-    //       children: [
-    //         { element: <Navigate to="/dashboard/blog/posts" replace />, index: true },
-    //         { path: 'posts', element: <BlogPosts /> },
-    //         { path: 'post/:title', element: <BlogPost /> },
-    //         { path: 'new', element: <BlogNewPost /> },
-    //       ],
-    //     },
-    //     {
-    //       path: 'mail',
-    //       children: [
-    //         { element: <Navigate to="/dashboard/mail/all" replace />, index: true },
-    //         { path: 'label/:customLabel', element: <Mail /> },
-    //         { path: 'label/:customLabel/:mailId', element: <Mail /> },
-    //         { path: ':systemLabel', element: <Mail /> },
-    //         { path: ':systemLabel/:mailId', element: <Mail /> },
-    //       ],
-    //     },
-    //     {
-    //       path: 'chat',
-    //       children: [
-    //         { element: <Chat />, index: true },
-    //         { path: 'new', element: <Chat /> },
-    //         { path: ':conversationKey', element: <Chat /> },
-    //       ],
-    //     },
-    //     { path: 'calendar', element: <Calendar /> },
-    //     { path: 'kanban', element: <Kanban /> },
-    //   ],
-    // },
     {
       path: "/dashboard",
-      element: (
-        <PrivateRoute>
-          <DashboardLayout />
-        </PrivateRoute>
-      ),
+      element: <DashboardLayout />,
       children: [
         {
           element: <Navigate to="/dashboard/home" replace />,
@@ -190,14 +106,6 @@ export default function Router() {
               index: true,
             },
             {
-              path: "doctors",
-              element: (
-                <PrivateRoute>
-                  <AllDoctors />
-                </PrivateRoute>
-              ),
-            },
-            {
               path: "favorite-doctors",
               element: (
                 <PrivateRoute>
@@ -207,31 +115,51 @@ export default function Router() {
             },
             {
               path: "my-appointments",
-              element: <UserAppointments />,
-            },
-            {
-              path: "get-appointments",
-              element: <GetAppointmentForm />,
+              element: (
+                <PrivateRoute>
+                  <UserAppointments />
+                </PrivateRoute>
+              ),
             },
             {
               path: "my-diagnosises",
-              element: <MyDiagnosises />,
+              element: (
+                <PrivateRoute>
+                  <MyDiagnosises />
+                </PrivateRoute>
+              ),
             },
             {
               path: "Report-status",
-              element: <ReportStatus />,
+              element: (
+                <PrivateRoute>
+                  <ReportStatus />
+                </PrivateRoute>
+              ),
             },
             {
               path: "report-pdf",
-              element: <ReportPdf />,
+              element: (
+                <PrivateRoute>
+                  <ReportPdf />
+                </PrivateRoute>
+              ),
             },
             {
               path: "add-review",
-              element: <UserReview />,
+              element: (
+                <PrivateRoute>
+                  <UserReview />
+                </PrivateRoute>
+              ),
             },
             {
               path: "join-us",
-              element: <AddDoctor />,
+              element: (
+                <PrivateRoute>
+                  <AddDoctor />
+                </PrivateRoute>
+              ),
             },
           ],
         },
@@ -242,23 +170,35 @@ export default function Router() {
           children: [
             {
               path: "report-pdf",
-              element: <ReportPdf />,
+              element: (
+                <DoctorsRoute>
+                  <ReportPdf />
+                </DoctorsRoute>
+              ),
             },
             {
               path: "reports",
-              element: <AllReports />,
+              element: (
+                <DoctorsRoute>
+                  <AllReports />
+                </DoctorsRoute>
+              ),
             },
             {
               path: "add-article",
-              element: <AddArticle />,
-            },
-            {
-              path: "my-appointments",
-              element: <MyAppointments />,
+              element: (
+                <DoctorsRoute>
+                  <AddArticle />
+                </DoctorsRoute>
+              ),
             },
             {
               path: "my-schedule-doctor",
-              element: <DoctorsSchedules />,
+              element: (
+                <DoctorsRoute>
+                  <DoctorAppointments />
+                </DoctorsRoute>
+              ),
             },
           ],
         },
@@ -375,7 +315,7 @@ export default function Router() {
               ),
             },
             {
-              path: "/dashboard/admin/makeModerador",
+              path: "/dashboard/admin/makeModerator",
               element: (
                 <AdminRoute>
                   <MakeModaretor />
@@ -555,7 +495,7 @@ const GetAppointmentForm = Loadable(
   lazy(() => import("../components/appointment/GetAppointmentForm"))
 );
 const AllAppointments = Loadable(
-  lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
+  lazy(() => import("../components/all-appointments/AllAppointments"))
 );
 const AllDiagnosis = Loadable(
   lazy(() => import("../pages/dashboards/all-diagnosis/AllDiagnosis"))

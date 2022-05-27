@@ -11,14 +11,7 @@ import { styled } from "@mui/material/styles";
 const RootStyle = styled("div")(({ theme }: any) => ({
   backgroundColor: theme.palette.background.default,
 }));
-// let getData = () => {
-//   let data = localStorage.getItem("item");
-//   if (data) {
-//     return JSON.parse(data);
-//   } else {
-//     return [];
-//   }
-// };
+
 
 const style = {
   position: "absolute" as "absolute",
@@ -31,7 +24,6 @@ const style = {
 };
 
 const PharmacyShop = (props: any) => {
-  // let [itemData, setItemData] = useState(getData());
   let [count, setCount] = useState(1);
   const dispatch = useAppDispatch();
 
@@ -39,26 +31,9 @@ const PharmacyShop = (props: any) => {
   //danger
   let rating = 3.4;
   useEffect(() => {
-    // const ItemList = localStorage.getItem("item");
-    // if (ItemList) {
-    //   const listItems: any[] = JSON.parse(ItemList);
-    //   const authorId = listItems.find((author) => author._id === _id);
-    // }
+  
   }, [_id]);
 
-  // const addMedicine = (id: string) => {
-  //   //save the medicine to local storage
-  //   const medicine = localStorage.getItem("item");
-
-  //   let items;
-  //   if (medicine) items = JSON.parse(medicine);
-  //   else items = [];
-  //   // console.log(newItems);
-
-  //   let newItems = [...items, props.products];
-
-  //   localStorage.setItem("item", JSON.stringify([...newItems]));
-  // };
   let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
