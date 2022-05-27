@@ -8,20 +8,15 @@ import Page from "../../../components/Page";
 import { styled } from "@mui/material/styles";
 
 const RootStyle = styled("div")(({ theme }: any) => ({
-  height: "100%",
-  backgroundColor: theme.palette.background.default,
+    height: "100%",
+    backgroundColor: theme.palette.background.default,
 }));
 const DashboardHome = () => {
-<<<<<<< HEAD
     return (
         <Page title="Dashboard Home">
-            <div className="DashboardHome">
-=======
-  return (
-    <Page title="Dashboard Home">
-      <RootStyle>
-        <div className="DashboardHome">
-          {/* <div className="row mx-auto ps-2">
+            <RootStyle>
+                <div className="DashboardHome">
+                    {/* <div className="row mx-auto ps-2">
             <div className="col-lg-3 col-12 col-md-6">
               <div className="dashboardCommonDivStyle d-flex justify-content-between bg-light p-3  align-items-center">
                 <i className="fas commonIconStyle fa-briefcase-medical"></i>
@@ -34,7 +29,6 @@ const DashboardHome = () => {
             <div className="col-lg-3 col-12 col-md-6">
               <div className="dashboardCommonDivStyle d-flex justify-content-between bg-light p-3  align-items-center">
                 <i className="fas  commonIconStyle fa-bed"></i>
->>>>>>> 2c36ea89cb09f8551b411bf654d631d9a5ec9175
                 <div>
                   <h5>New Patients</h5>
                   <h5 className="text-primary">250</h5>
@@ -61,29 +55,29 @@ const DashboardHome = () => {
             </div>
           </div> */}
 
-          <div>
-            {/* chart section */}
-            <Survey></Survey>
-          </div>
+                    <div>
+                        {/* chart section */}
+                        <Survey></Survey>
+                    </div>
 
-          <div className="px-4">
-            {/* Last Appoinments Section */}
-            <LastAppointments></LastAppointments>
-          </div>
+                    <div className="px-4">
+                        {/* Last Appoinments Section */}
+                        <LastAppointments></LastAppointments>
+                    </div>
 
-          <div className="row">
-            {/* Patient Demographic */}
-            <div className="col-lg-6">
-              <PatientAgeDemoGraphic></PatientAgeDemoGraphic>
-            </div>
-            <div className="col-lg-6">
-              <PatientGenderDemoGraphic></PatientGenderDemoGraphic>
-            </div>
-          </div>
-        </div>
-      </RootStyle>
-    </Page>
-  );
+                    <div className="row">
+                        {/* Patient Demographic */}
+                        <div className="col-lg-6">
+                            <PatientAgeDemoGraphic></PatientAgeDemoGraphic>
+                        </div>
+                        <div className="col-lg-6">
+                            <PatientGenderDemoGraphic></PatientGenderDemoGraphic>
+                        </div>
+                    </div>
+                </div>
+            </RootStyle>
+        </Page>
+    );
 };
 
 export default DashboardHome;
