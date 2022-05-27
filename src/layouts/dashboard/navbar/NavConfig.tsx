@@ -1,8 +1,4 @@
-// components
-import Iconify from "../../../components/Iconify";
 import SvgIconStyle from "../../../components/SvgIconStyle";
-
-// ----------------------------------------------------------------------
 
 const getIcon = (name: any) => (
     <SvgIconStyle src={`/icons/${name}.svg`} sx={{ width: 1, height: 1 }} />
@@ -13,10 +9,7 @@ const ICONS = {
     analytics: getIcon("ic_analytics"),
     dashboard: getIcon("ic_dashboard"),
 };
-const ICON_SIZE = {
-    width: 22,
-    height: 22,
-};
+
 const sidebarConfig = [
     // Pharmacy
     {

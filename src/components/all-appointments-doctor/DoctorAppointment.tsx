@@ -14,7 +14,6 @@ import VideocamOutlinedIcon from "@mui/icons-material/VideocamOutlined";
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import { NavLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import Swal from "sweetalert2";
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     "&:nth-of-type(odd)": {
