@@ -1,5 +1,5 @@
 // routes
-import { PATH_AUTH, PATH_DOCS, PATH_PAGE } from "../../routes/paths";
+// import { PATH_AUTH, PATH_DOCS, PATH_PAGE } from "../../routes/paths";
 // components
 // components
 import Iconify from "../../components/Iconify";
