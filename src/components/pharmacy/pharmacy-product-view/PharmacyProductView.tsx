@@ -1,4 +1,3 @@
-import { RatingStar } from "rating-star";
 import React, { useEffect, useState } from "react";
 import { Cart } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
@@ -10,18 +9,31 @@ import { getProductDetails } from "../../../redux/actions/productAction";
 import { Rating } from "@mui/material";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
 import { styled } from "@mui/material/styles";
+import { useSnackbar } from "notistack";
+import Slider from "react-slick";
+import PharmecyOrderReview from "../pharmacy-order-review/PharmacyOrderReview";
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 2000,
+  autoplay: true,
+
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  initialSlide: 0,
+};
 
 const RootStyle = styled("div")(({ theme }: any) => ({
   backgroundColor: theme.palette.background.default,
 }));
 const PharmacyProductView = () => {
   const dispatch = useAppDispatch();
-  const { user }: any = useAppSelector((state) => state.user);
-  // let [products, setProducts] = useState<any>({});
+  const { user }: any = useAppSelector((state) => state?.user);
   let [count, setCount] = useState(1);
   const [rating1, setRating1] = React.useState<number | null>(5);
 
-  const { product }: any = useAppSelector((state) => state.productDetails);
+  const { product }: any = useAppSelector((state) => state?.productDetails);
 
   let { id } = useParams();
   useEffect(() => {
@@ -41,6 +53,7 @@ const PharmacyProductView = () => {
       setCount(total);
     }
   };
+
   let {
     name,
     img1,
@@ -51,12 +64,15 @@ const PharmacyProductView = () => {
     description,
     category,
     inStock,
+    rating,
     _id,
+    reviews,
   } = product;
+
+  // console.log(reviews);
 
   // -----------------------------------------------------------------
   //these static data must change later
-  let rating = 4;
   let Sku = "This is Sku";
   let power = "20 mg";
   let shopAddress = "chittagong, Bangladesh";
@@ -69,30 +85,7 @@ const PharmacyProductView = () => {
     setAllImg(image);
   };
 
-  useEffect(() => {
-    const ItemList = localStorage.getItem("item");
-
-    if (ItemList) {
-      const listItems: any[] = JSON.parse(ItemList);
-      const authorId = listItems.find((author) => author._id === _id);
-    }
-  }, [_id]);
-
-  const addDoctor = (id: string) => {
-    //save the doctor to local storage
-    const doctor = localStorage.getItem("item");
-
-    let items;
-    if (doctor) items = JSON.parse(doctor);
-    else items = [];
-
-    const newItems = [...items, product];
-    // console.log(newItems);
-
-    localStorage.setItem("item", JSON.stringify([...newItems]));
-  };
-
-  let onRatingChange = () => {};
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleOrderReviewSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -125,7 +118,8 @@ const PharmacyProductView = () => {
       body: JSON.stringify(OrderReview),
     }).then((res) => {
       if (res.status === 200) {
-        console.log("success");
+        enqueueSnackbar("Reviews send successfully!");
+        window.location.reload();
       }
     });
   };
@@ -192,7 +186,7 @@ const PharmacyProductView = () => {
               <p className="out-style"> Out Stock </p>
             )}
             <h2>{name}</h2>
-            <Rating name="rating" value={4} />
+            <Rating name="rating" value={parseInt(rating)} />
             <hr />
             <h5 className="product-price">${price}</h5>
             <h6 className="mt-5"> Quantity </h6>
@@ -269,10 +263,14 @@ const PharmacyProductView = () => {
           <div>
             <h2 className="color-h1"> Reviews </h2>
             <hr />
-            <p className="text-color-for-p fw-for-ul-p">
-              {" "}
-              There are no reviews yet.{" "}
-            </p>
+            <Slider {...settings}>
+              {reviews?.map((review: any) => (
+                <PharmecyOrderReview
+                  key={review._id}
+                  review={review}
+                ></PharmecyOrderReview>
+              ))}
+            </Slider>
           </div>
           <div className="my-5">
             <h5 className="color-h1">

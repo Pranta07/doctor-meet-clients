@@ -6,9 +6,8 @@ import DashboardLayout from "../layouts/dashboard/index";
 // components
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
-import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
-import ResetPassword from "../pages/security/resetPassword/ResetPassword";
-import UpdateProfile from "../pages/profile/UpdateProfile";
+// import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
+// import ResetPassword from "../pages/security/resetPassword/ResetPassword";
 import {
   DiagnosisPay,
   DiagnosticAppointmentForm,
@@ -22,19 +21,15 @@ import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
 
 import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
-import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/DoctorsSchedules";
 
 import PharmacyPay from "../components/pharmacy/PharmacyPay";
 import PrivateRoute from "./private-route/PrivateRoute";
 import DoctorsRoute from "./doctor-route/DoctorsRoute";
 import ModeratorRoute from "./modaretor-route/ModeratorRoute";
 import AdminRoute from "./admin-route/AdminRoute";
-import DoctorAppointment from "../components/all-appointments-doctor/DoctorAppointment";
 import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
-import { MyAppointment } from "../components/appointment";
 import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
 import Profile from "../pages/profile/Profile";
-import JoinUsForm from "../components/blood-donor/join-us/JoinUsForm";
 import UserAppointments from "../components/all-appointments-user/UserAppointments";
 import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
 
@@ -55,32 +50,6 @@ const Loadable = (Component: any) => (props: any) => {
 
 export default function Router() {
   return useRoutes([
-    {
-      path: "auth",
-      children: [
-        {
-          path: "login",
-          element: (
-            // <GuestGuard>
-            <Login />
-            // </GuestGuard>
-          ),
-        },
-        {
-          path: "register",
-          element: (
-            // <GuestGuard>
-            <Register />
-            // </GuestGuard>
-          ),
-        },
-        { path: "login-unprotected", element: <Login /> },
-        { path: "register-unprotected", element: <Register /> },
-        { path: "reset-password", element: <ResetPassword /> },
-        { path: "verify", element: <VerifyCode /> },
-      ],
-    },
-
     {
       path: "/dashboard",
       element: <DashboardLayout />,
@@ -220,7 +189,7 @@ export default function Router() {
               path: "Report-status",
               element: (
                 <ModeratorRoute>
-                  <AllReportStatus />
+                  <ReportStatus />
                 </ModeratorRoute>
               ),
             },
@@ -233,11 +202,11 @@ export default function Router() {
               ),
             },
             {
-              path: "all-diagnosis",
+              path: "all-appointments",
               element: (
-                <ModeratorRoute>
-                  <AllDiagnosis />
-                </ModeratorRoute>
+                <AdminRoute>
+                  <AllAppointments />
+                </AdminRoute>
               ),
             },
             {
@@ -316,7 +285,7 @@ export default function Router() {
               ),
             },
             {
-              path: "/dashboard/admin/make-moderator",
+              path: "/dashboard/admin/makeModerator",
               element: (
                 <AdminRoute>
                   <MakeModaretor />
@@ -348,15 +317,6 @@ export default function Router() {
     {
       path: "*",
       element: <NotFound />,
-      // children: [
-      //   { path: "coming-soon", element: <ComingSoon /> },
-      //   { path: "maintenance", element: <Maintenance /> },
-      //   { path: "pricing", element: <Pricing /> },
-      //   { path: "payment", element: <Payment /> },
-      //   { path: "500", element: <Page500 /> },
-      //   { path: "*", element: <NotFound /> },
-      //   // { path: "*", element: <Navigate to="/404" replace /> },
-      // ],
     },
     {
       path: "/",
@@ -377,7 +337,7 @@ export default function Router() {
         { path: "find-donors", element: <FindDonors /> },
         { path: "premium-membership", element: <PremiumMemberships /> },
         {
-          path: "virtual-meet",
+          path: "virtual-meet/:id",
           element: <VideoApp />,
         },
         { path: "login", element: <Login /> },
@@ -449,17 +409,8 @@ export default function Router() {
 const PharmacyHome = Loadable(
   lazy(() => import("../pages/pharmacy-home/PharmacyHome"))
 );
-//const PharmacyHome = Loadable(
-// lazy(() => import("../pages/pharmacy/PharmacyH~ome")));
 
-// const NotFound = Loadable(lazy(() => import('../pages/Page404')));
-// AUTHENTICATION
 const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
-const Register = Loadable(lazy(() => import("../pages/auth/Register")));
-// const ResetPassword = Loadable(
-//   lazy(() => import("../pages/auth/ResetPassword"))
-// );
-const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
 const CovidPortal = Loadable(
   lazy(() => import("../pages/covid-portal/CovidPortal"))
 );
@@ -489,9 +440,6 @@ const AllReports = Loadable(
   lazy(() => import("../components/all-reports/AllReports"))
 );
 
-const MyAppointments = Loadable(
-  lazy(() => import("../components/appointment/MyAppointments"))
-);
 const GetAppointmentForm = Loadable(
   lazy(() => import("../components/appointment/GetAppointmentForm"))
 );
@@ -510,12 +458,8 @@ const ReportSection = Loadable(
 const PremiumMemberships = Loadable(
   lazy(() => import("../pages/premium-membership/PremiumMemberships"))
 );
-const Doctors = Loadable(lazy(() => import("../pages/doctors/Doctors")));
 const NotFound = Loadable(
   lazy(() => import("../components/not-found/NotFound"))
-);
-const VideoChatRoute = Loadable(
-  lazy(() => import("../pages/video-chat-client/VideoChatRoute"))
 );
 
 const Registration = Loadable(
@@ -563,47 +507,6 @@ const AddOrder = Loadable(
   lazy(() => import("../components/add-order/AddOrder"))
 );
 
-// DASHBOARD
-
-// GENERAL
-// const GeneralApp = Loadable(lazy(() => import('../pages/dashboard/GeneralApp')));
-// const GeneralEcommerce = Loadable(lazy(() => import('../pages/dashboard/GeneralEcommerce')));
-// const GeneralAnalytics = Loadable(lazy(() => import('../pages/dashboard/GeneralAnalytics')));
-// const GeneralBanking = Loadable(lazy(() => import('../pages/dashboard/GeneralBanking')));
-// const GeneralBooking = Loadable(lazy(() => import('../pages/dashboard/GeneralBooking')));
-
-// // ECOMMERCE
-// const EcommerceShop = Loadable(lazy(() => import('../pages/dashboard/EcommerceShop')));
-// const EcommerceProductDetails = Loadable(lazy(() => import('../pages/dashboard/EcommerceProductDetails')));
-// const EcommerceProductList = Loadable(lazy(() => import('../pages/dashboard/EcommerceProductList')));
-// const EcommerceProductCreate = Loadable(lazy(() => import('../pages/dashboard/EcommerceProductCreate')));
-// const EcommerceCheckout = Loadable(lazy(() => import('../pages/dashboard/EcommerceCheckout')));
-
-// // INVOICE
-// const InvoiceList = Loadable(lazy(() => import('../pages/dashboard/InvoiceList')));
-// const InvoiceDetails = Loadable(lazy(() => import('../pages/dashboard/InvoiceDetails')));
-// const InvoiceCreate = Loadable(lazy(() => import('../pages/dashboard/InvoiceCreate')));
-// const InvoiceEdit = Loadable(lazy(() => import('../pages/dashboard/InvoiceEdit')));
-
-// // BLOG
-// const BlogPosts = Loadable(lazy(() => import('../pages/dashboard/BlogPosts')));
-// const BlogPost = Loadable(lazy(() => import('../pages/dashboard/BlogPost')));
-// const BlogNewPost = Loadable(lazy(() => import('../pages/dashboard/BlogNewPost')));
-
-// // USER
-// const UserProfile = Loadable(lazy(() => import('../pages/dashboard/UserProfile')));
-// const UserCards = Loadable(lazy(() => import('../pages/dashboard/UserCards')));
-// const UserList = Loadable(lazy(() => import('../pages/dashboard/UserList')));
-// const UserAccount = Loadable(lazy(() => import('../pages/dashboard/UserAccount')));
-// const UserCreate = Loadable(lazy(() => import('../pages/dashboard/UserCreate')));
-
-// // APP
-// const Chat = Loadable(lazy(() => import('../pages/dashboard/Chat')));
-// const Mail = Loadable(lazy(() => import('../pages/dashboard/Mail')));
-// const Calendar = Loadable(lazy(() => import('../pages/dashboard/Calendar')));
-// const Kanban = Loadable(lazy(() => import('../pages/dashboard/Kanban')));
-
-// MAIN
 const HomePage = Loadable(lazy(() => import("../pages/home/Home")));
 const ContactUs = Loadable(
   lazy(() => import("../components/contact-us/ContactUs"))
@@ -611,11 +514,7 @@ const ContactUs = Loadable(
 const DoctorView = Loadable(
   lazy(() => import("../components/all-doctors/DoctorView"))
 );
-const Faqs = Loadable(lazy(() => import("../pages/Faqs")));
-const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));
-const Maintenance = Loadable(lazy(() => import("../pages/Maintenance")));
 
-const Page500 = Loadable(lazy(() => import("../pages/Page500")));
 const About = Loadable(lazy(() => import("../pages/about/About")));
 const AddDoctor = Loadable(
   lazy(() => import("../components/add-doctor/AddDoctor"))

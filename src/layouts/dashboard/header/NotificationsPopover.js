@@ -30,10 +30,10 @@ import { useAppSelector } from '../../../redux/store';
 // ----------------------------------------------------------------------
 
 export default function NotificationsPopover() {
-  const { user } = useAppSelector((state) => state.user);
+  const { user } = useAppSelector((state) => state?.user);
 
   console.log(user);
-  const [notificationData, setNotificationData]=useState(user.notification);
+  const [notificationData, setNotificationData]=useState(user?.notification);
 
 
 

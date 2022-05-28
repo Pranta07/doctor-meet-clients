@@ -36,7 +36,7 @@ export default function NavbarAccount({ isCollapse }: any) {
           }),
         }}
       >
-        <Avatar src={user?.photoURL || ""} alt="avatar" />
+        <Avatar src={user?.name[0]} alt="avatar" className="badge-container" />
 
         <Box
           sx={{

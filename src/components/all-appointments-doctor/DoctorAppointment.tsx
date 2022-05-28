@@ -14,7 +14,6 @@ import VideocamOutlinedIcon from "@mui/icons-material/VideocamOutlined";
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import { NavLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import Swal from "sweetalert2";
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     "&:nth-of-type(odd)": {
@@ -130,19 +129,27 @@ const DoctorAppointment = (props: any) => {
             <StyledTableCell align="center">{time}</StyledTableCell>
             <StyledTableCell align="center">
                 {appointment?.payment ? (
-                    <Button>Paid</Button>
+                    <Button color="success">Paid</Button>
                 ) : (
                     <Button color="warning">Unpaid</Button>
                 )}
             </StyledTableCell>
             <StyledTableCell align="center">
-                <Tooltip title="Meet Now!" placement="left-start">
-                    <NavLink to="/virtual-meet">
-                        <IconButton color="primary">
+                {appointment?.payment ? (
+                    <Tooltip title="Meet Now!" placement="left-start">
+                        <NavLink to={`/virtual-meet/${appointment._id}`}>
+                            <IconButton color="primary">
+                                <VideocamOutlinedIcon />
+                            </IconButton>
+                        </NavLink>
+                    </Tooltip>
+                ) : (
+                    <Tooltip title="Unpaid!" placement="left-start">
+                        <IconButton>
                             <VideocamOutlinedIcon />
                         </IconButton>
-                    </NavLink>
-                </Tooltip>
+                    </Tooltip>
+                )}
             </StyledTableCell>
         </StyledTableRow>
     );

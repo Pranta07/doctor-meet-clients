@@ -1,8 +1,4 @@
-// components
-import Iconify from "../../../components/Iconify";
 import SvgIconStyle from "../../../components/SvgIconStyle";
-
-// ----------------------------------------------------------------------
 
 const getIcon = (name: any) => (
   <SvgIconStyle src={`/icons/${name}.svg`} sx={{ width: 1, height: 1 }} />
