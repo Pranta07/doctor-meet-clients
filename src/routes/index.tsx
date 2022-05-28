@@ -32,6 +32,8 @@ import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf"
 import Profile from "../pages/profile/Profile";
 import UserAppointments from "../components/all-appointments-user/UserAppointments";
 import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
+import GuestGuard from "../guards/GuestGuard";
+import AuthGuard from "../guards/AuthGuard";
 
 // ----------------------------------------------------------------------
 
@@ -51,8 +53,35 @@ const Loadable = (Component: any) => (props: any) => {
 export default function Router() {
   return useRoutes([
     {
-      path: "/dashboard",
-      element: <DashboardLayout />,
+      path: "*",
+      children: [
+        {
+          path: "login",
+          element: (
+            <GuestGuard>
+              <Login />
+            </GuestGuard>
+          ),
+        },
+        {
+          path: "register",
+          element: (
+            <GuestGuard>
+              <Registration />
+            </GuestGuard>
+          ),
+        },
+      ],
+    },
+
+    {
+      path: "dashboard",
+      element: (
+        <AuthGuard>
+          <DashboardLayout />
+        </AuthGuard>
+      ),
+
       children: [
         {
           element: <Navigate to="/dashboard/home" replace />,
@@ -60,11 +89,7 @@ export default function Router() {
         },
         {
           path: "home",
-          element: (
-            <PrivateRoute>
-              <DashboardHome />
-            </PrivateRoute>
-          ),
+          element: <DashboardHome />,
         },
 
         // user
@@ -77,59 +102,31 @@ export default function Router() {
             },
             {
               path: "favorite-doctors",
-              element: (
-                <PrivateRoute>
-                  <FavoriteDoctors />
-                </PrivateRoute>
-              ),
+              element: <FavoriteDoctors />,
             },
             {
               path: "my-appointments",
-              element: (
-                <PrivateRoute>
-                  <UserAppointments />
-                </PrivateRoute>
-              ),
+              element: <UserAppointments />,
             },
             {
               path: "my-diagnosises",
-              element: (
-                <PrivateRoute>
-                  <MyDiagnosises />
-                </PrivateRoute>
-              ),
+              element: <MyDiagnosises />,
             },
             {
               path: "Report-status",
-              element: (
-                <PrivateRoute>
-                  <ReportStatus />
-                </PrivateRoute>
-              ),
+              element: <ReportStatus />,
             },
             {
               path: "report-pdf",
-              element: (
-                <PrivateRoute>
-                  <ReportPdf />
-                </PrivateRoute>
-              ),
+              element: <ReportPdf />,
             },
             {
               path: "add-review",
-              element: (
-                <PrivateRoute>
-                  <UserReview />
-                </PrivateRoute>
-              ),
+              element: <UserReview />,
             },
             {
               path: "join-us",
-              element: (
-                <PrivateRoute>
-                  <AddDoctor />
-                </PrivateRoute>
-              ),
+              element: <AddDoctor />,
             },
           ],
         },
@@ -140,35 +137,19 @@ export default function Router() {
           children: [
             {
               path: "report-pdf",
-              element: (
-                <DoctorsRoute>
-                  <ReportPdf />
-                </DoctorsRoute>
-              ),
+              element: <ReportPdf />,
             },
             {
               path: "reports",
-              element: (
-                <DoctorsRoute>
-                  <AllReports />
-                </DoctorsRoute>
-              ),
+              element: <AllReports />,
             },
             {
               path: "add-article",
-              element: (
-                <DoctorsRoute>
-                  <AddArticle />
-                </DoctorsRoute>
-              ),
+              element: <AddArticle />,
             },
             {
               path: "my-schedule-doctor",
-              element: (
-                <DoctorsRoute>
-                  <DoctorAppointments />
-                </DoctorsRoute>
-              ),
+              element: <DoctorAppointments />,
             },
           ],
         },
@@ -179,43 +160,23 @@ export default function Router() {
           children: [
             {
               path: "Report-section",
-              element: (
-                <ModeratorRoute>
-                  <ReportSection />
-                </ModeratorRoute>
-              ),
+              element: <ReportSection />,
             },
             {
               path: "Report-status",
-              element: (
-                <ModeratorRoute>
-                  <ReportStatus />
-                </ModeratorRoute>
-              ),
+              element: <ReportStatus />,
             },
             {
               path: "report-pdf",
-              element: (
-                <ModeratorRoute>
-                  <ReportPdf />
-                </ModeratorRoute>
-              ),
+              element: <ReportPdf />,
             },
             {
               path: "all-appointments",
-              element: (
-                <AdminRoute>
-                  <AllAppointments />
-                </AdminRoute>
-              ),
+              element: <AllAppointments />,
             },
             {
               path: "all-diagnosis",
-              element: (
-                <ModeratorRoute>
-                  <AllDiagnosis />
-                </ModeratorRoute>
-              ),
+              element: <AllDiagnosis />,
             },
           ],
         },
@@ -230,83 +191,43 @@ export default function Router() {
             },
             {
               path: "manage-doctors",
-              element: (
-                <AdminRoute>
-                  <ManageDoctors />
-                </AdminRoute>
-              ),
+              element: <ManageDoctors />,
             },
             {
               path: "manage-donors",
-              element: (
-                <AdminRoute>
-                  <ManageDonors />
-                </AdminRoute>
-              ),
+              element: <ManageDonors />,
             },
             {
               path: "all-appointments",
-              element: (
-                <AdminRoute>
-                  <AllAppointments />
-                </AdminRoute>
-              ),
+              element: <AllAppointments />,
             },
             {
               path: "all-diagnosis",
-              element: (
-                <AdminRoute>
-                  <AllDiagnosis />
-                </AdminRoute>
-              ),
+              element: <AllDiagnosis />,
             },
             {
               path: "edit-doctors",
-              element: (
-                <AdminRoute>
-                  <ControlDoctors />
-                </AdminRoute>
-              ),
+              element: <ControlDoctors />,
             },
             {
               path: "edit-doctors/edit-single-doctor/:id",
-              element: (
-                <AdminRoute>
-                  <EditSingleDoctor />
-                </AdminRoute>
-              ),
+              element: <EditSingleDoctor />,
             },
             {
               path: "/dashboard/admin/notify",
-              element: (
-                <AdminRoute>
-                  <Notify />
-                </AdminRoute>
-              ),
+              element: <Notify />,
             },
             {
-              path: "/dashboard/admin/makeModerator",
-              element: (
-                <AdminRoute>
-                  <MakeModaretor />
-                </AdminRoute>
-              ),
+              path: "/dashboard/admin/make-moderator",
+              element: <MakeModaretor />,
             },
             {
               path: "all-invoices",
-              element: (
-                <AdminRoute>
-                  <AllInvoices />
-                </AdminRoute>
-              ),
+              element: <AllInvoices />,
             },
             {
               path: "add-order",
-              element: (
-                <AdminRoute>
-                  <AddOrder />
-                </AdminRoute>
-              ),
+              element: <AddOrder />,
             },
           ],
         },
@@ -386,11 +307,7 @@ export default function Router() {
         },
         {
           path: "profile",
-          element: (
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          ),
+          element: <Profile />,
         },
         {
           path: "doctor/:id",

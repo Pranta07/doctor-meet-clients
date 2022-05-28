@@ -64,7 +64,7 @@ export const sidebarConfigAdmin = [
           },
           {
             title: "Join Us",
-            path: "/dashboard/doctor/join-us",
+            path: "/dashboard/user/join-us",
             icon: ICONS.analytics,
           },
         ],

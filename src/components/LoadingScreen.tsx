@@ -31,8 +31,13 @@ LoadingScreen.propTypes = {
 
 export default function LoadingScreen({ isDashboard, ...other }: any) {
   return (
-    <RootStyle>
-      <img src={loadingGif} alt="" />
-    </RootStyle>
+    <>
+      <ProgressBar />
+      {!isDashboard && (
+        <RootStyle>
+          <img src={loadingGif} alt="" />
+        </RootStyle>
+      )}
+    </>
   );
 }

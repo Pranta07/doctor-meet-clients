@@ -30,17 +30,17 @@ const Login = () => {
     const password: string = pass.current?.value;
     // signUsingEmail(mailE, passE);
     dispatch(login(email, password));
-    if (user.error) {
-      enqueueSnackbar(user.error);
-      dispatch(clearErrors());
-    } else if (user.success) {
+    if (user.success) {
+      navigate("/");
       dispatch(clearErrors());
       enqueueSnackbar("logged in successfully!");
       if (history.location.pathname === "/signUp") {
-        navigate("/");
       } else {
         navigate(history.back());
       }
+    } else if (user.error) {
+      enqueueSnackbar(user.error);
+      dispatch(clearErrors());
     }
   };
   return (
