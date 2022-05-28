@@ -11,7 +11,7 @@ export const ListSubheaderStyle: any = styled((props) => (
   <ListSubheader disableSticky disableGutters {...props} />
 ))(({ theme }: any) => ({
   ...theme.typography.overline,
-  paddingTop: theme.spacing(3),
+  paddingTop: theme.spacing(1),
   paddingLeft: theme.spacing(2),
   paddingBottom: theme.spacing(1),
   color: theme.palette.text.primary,

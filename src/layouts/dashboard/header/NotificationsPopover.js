@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { noCase } from 'change-case';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 // @mui
 import {
   Box,
@@ -18,23 +18,28 @@ import {
 } from '@mui/material';
 // utils
 import { fToNow } from '../../../utils/formatTime';
-import { useAppSelector } from "../../../redux/store";
 // _mock_
 import { _notifications } from '../../../_mock';
 // components
 import Iconify from '../../../components/Iconify';
 import Scrollbar from '../../../components/Scrollbar';
 import MenuPopover from '../../../components/MenuPopover';
-import  IconButtonAnimate  from '../../../components/animate/IconButtonAnimate';
+import { IconButtonAnimate } from '../../../components/animate';
+import { useAppSelector } from '../../../redux/store';
 
 // ----------------------------------------------------------------------
 
 export default function NotificationsPopover() {
-  // const [notifications, setNotifications] = useState(_notifications);
-  const { user } = useAppSelector((state) => state?.user);
-  const [notificationsData, setNotificationsData]=useState([])
-console.log(notificationsData);
-  // const totalUnRead = notifications.filter((item) => item.isUnRead === true).length;
+  const { user } = useAppSelector((state) => state.user);
+
+  console.log(user);
+  const [notificationData, setNotificationData]=useState(user.notification);
+
+
+
+  const [notifications, setNotifications] = useState(_notifications);
+
+  const totalUnRead = notifications.filter((item) => item.isUnRead === true).length;
 
   const [open, setOpen] = useState(null);
 
@@ -45,23 +50,20 @@ console.log(notificationsData);
   const handleClose = () => {
     setOpen(null);
   };
-useEffect(()=>{
-  setNotificationsData(user?.notification)
-},[user])
-console.log(notificationsData);
-  // const handleMarkAllAsRead = () => {
-  //   setNotifications(
-  //     notifications.map((notification) => ({
-  //       ...notification,
-  //       isUnRead: false,
-  //     }))
-  //   );
-  // };
+
+  const handleMarkAllAsRead = () => {
+    setNotifications(
+      notifications.map((notification) => ({
+        ...notification,
+        isUnRead: false,
+      }))
+    );
+  };
 
   return (
     <>
       <IconButtonAnimate color={open ? 'primary' : 'default'} onClick={handleOpen} sx={{ width: 40, height: 40 }}>
-        <Badge  color="error">
+        <Badge badgeContent={totalUnRead} color="error">
           <Iconify icon="eva:bell-fill" width={20} height={20} />
         </Badge>
       </IconButtonAnimate>
@@ -76,11 +78,17 @@ console.log(notificationsData);
           <Box sx={{ flexGrow: 1 }}>
             <Typography variant="subtitle1">Notifications</Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              You have  unread messages
+              You have {totalUnRead} unread messages
             </Typography>
           </Box>
 
-          
+          {totalUnRead > 0 && (
+            <Tooltip title=" Mark all as read">
+              <IconButtonAnimate color="primary" onClick={handleMarkAllAsRead}>
+                <Iconify icon="eva:done-all-fill" width={20} height={20} />
+              </IconButtonAnimate>
+            </Tooltip>
+          )}
         </Box>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
@@ -94,7 +102,9 @@ console.log(notificationsData);
               </ListSubheader>
             }
           >
-          
+            {notifications.slice(0, 2).map((notification) => (
+              <NotificationItem key={notification.id} notification={notification} />
+            ))}
           </List>
 
           <List
@@ -105,8 +115,8 @@ console.log(notificationsData);
               </ListSubheader>
             }
           >
-            {notificationsData?.map((notification,index) => (
-              <NotificationItem key={index} notification={notification} />
+            {notifications.slice(2, 5).map((notification) => (
+              <NotificationItem key={notification.id} notification={notification} />
             ))}
           </List>
         </Scrollbar>
@@ -138,8 +148,8 @@ NotificationItem.propTypes = {
 };
 
 function NotificationItem({ notification }) {
-  const { message, date } = notification;
-console.log(notification);
+  const { avatar, title } = renderContent(notification);
+
   return (
     <ListItemButton
       sx={{
@@ -152,10 +162,10 @@ console.log(notification);
       }}
     >
       <ListItemAvatar>
-      
+        <Avatar sx={{ bgcolor: 'background.neutral' }}>{avatar}</Avatar>
       </ListItemAvatar>
       <ListItemText
-       
+        primary={title}
         secondary={
           <Typography
             variant="caption"
@@ -166,12 +176,6 @@ console.log(notification);
               color: 'text.disabled',
             }}
           >
-            <div
-                  className="desc"
-                  dangerouslySetInnerHTML={{
-                    __html: message,
-                  }}
-                ></div>
             <Iconify icon="eva:clock-outline" sx={{ mr: 0.5, width: 16, height: 16 }} />
             {fToNow(notification.createdAt)}
           </Typography>

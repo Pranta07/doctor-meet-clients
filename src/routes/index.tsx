@@ -36,6 +36,7 @@ import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf"
 import Profile from "../pages/profile/Profile";
 import JoinUsForm from "../components/blood-donor/join-us/JoinUsForm";
 import UserAppointments from "../components/all-appointments-user/UserAppointments";
+import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
 
 // ----------------------------------------------------------------------
 
@@ -219,7 +220,7 @@ export default function Router() {
               path: "Report-status",
               element: (
                 <ModeratorRoute>
-                  <ReportStatus />
+                  <AllReportStatus />
                 </ModeratorRoute>
               ),
             },
@@ -315,7 +316,7 @@ export default function Router() {
               ),
             },
             {
-              path: "/dashboard/admin/makeModerator",
+              path: "/dashboard/admin/make-moderator",
               element: (
                 <AdminRoute>
                   <MakeModaretor />

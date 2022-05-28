@@ -17,7 +17,7 @@ import { Button, TextField } from "@mui/material";
 const history: any = createBrowserHistory({ window });
 
 const Login = () => {
-  const { user }: any = useAppSelector((state) => state);
+  const { user }: any = useAppSelector((state) => state.user);
   const { enqueueSnackbar } = useSnackbar();
   useEffect(() => {}, [user]);
   const dispatch = useAppDispatch();

@@ -16,10 +16,16 @@ import Logo from "../../../components/Logo";
 import Scrollbar from "../../../components/Scrollbar";
 import { NavSectionVertical } from "../../../components/nav-section/index";
 //
-import navConfig from "./NavConfig";
+import {
+  sidebarConfigAdmin,
+  sidebarConfigUser,
+  sidebarConfigModerator,
+  sidebarConfigDoctor,
+} from "./NavConfig";
 import NavbarAccount from "./NavbarAccount";
 import CollapseButton from "./CollapseButton";
 import logo from "../../../assets/img/logo.png";
+import { useAppSelector } from "../../../redux/store";
 
 // ----------------------------------------------------------------------
 
@@ -40,6 +46,9 @@ NavbarVertical.propTypes = {
 };
 
 export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }: any) {
+  const { user }: any = useAppSelector((state) => state?.user);
+  console.log(user);
+
   const theme = useTheme();
 
   const { pathname } = useLocation();
@@ -100,8 +109,27 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }: any) {
 
         <NavbarAccount isCollapse={isCollapse} />
       </Stack>
-
-      <NavSectionVertical navConfig={navConfig} isCollapse={isCollapse} />
+      {user?.role === "admin" ? (
+        <NavSectionVertical
+          navConfig={sidebarConfigAdmin}
+          isCollapse={isCollapse}
+        />
+      ) : user?.role === "modaretor" ? (
+        <NavSectionVertical
+          navConfig={sidebarConfigModerator}
+          isCollapse={isCollapse}
+        />
+      ) : user?.role === "doctor" ? (
+        <NavSectionVertical
+          navConfig={sidebarConfigDoctor}
+          isCollapse={isCollapse}
+        />
+      ) : (
+        <NavSectionVertical
+          navConfig={sidebarConfigUser}
+          isCollapse={isCollapse}
+        />
+      )}
 
       <Box sx={{ flexGrow: 1 }} />
       {!isCollapse && <Box p={2} />}
