@@ -38,8 +38,9 @@ const DonorsTable = () => {
 
   useEffect(() => {
     setLoading(true);
-    const url = `https://ancient-inlet-17554.herokuapp.com/api/v1/donor?group=All&&district=All&&page=${page + 1
-      }&&rows=${rowsPerPage}`;
+    const url = `https://evening-peak-31569.herokuapp.com/api/v1/donor?group=All&&district=All&&page=${
+      page + 1
+    }&&rows=${rowsPerPage}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

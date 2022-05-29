@@ -12,7 +12,7 @@ import { _skills } from '../../_mock';
 // components
 
 import Iconify from '../../components/Iconify';
-import { MotionViewport, varFade } from '../../components/animate';
+
 
 // ----------------------------------------------------------------------
 
@@ -38,13 +38,13 @@ export default function AboutWhat() {
 
   return (
     <RootStyle>
-      <Container component={MotionViewport}>
+      <Container>
         <Grid container spacing={3}>
           {isDesktop && (
             <Grid item xs={12} md={6} lg={7} sx={{ pr: { md: 7 } }}>
               <Grid container spacing={3} alignItems="flex-end">
                 <Grid item xs={6}>
-                  <m.div variants={varFade().inUp}>
+                  <m.div >
                     <CardMedia
                     component="img"
                       alt="our office 1"
@@ -58,7 +58,7 @@ export default function AboutWhat() {
                   </m.div>
                 </Grid>
                 <Grid item xs={6}>
-                  <m.div variants={varFade().inUp}>
+                  <m.div>
                     <CardMedia
                     component="img"
                       alt="our office 2"
@@ -73,13 +73,13 @@ export default function AboutWhat() {
           )}
 
           <Grid item xs={12} md={6} lg={5}>
-            <m.div variants={varFade().inRight}>
+            <m.div>
               <Typography variant="h2" sx={{ mb: 3 }}>
                 What is minimal?
               </Typography>
             </m.div>
 
-            <m.div variants={varFade().inRight}>
+            <m.div>
               <Typography
                 sx={{
                   color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'common.white'),
@@ -94,13 +94,13 @@ export default function AboutWhat() {
 
             <Box sx={{ my: 5 }}>
               {_skills.map((progress) => (
-                <m.div key={progress.label} variants={varFade().inRight}>
+                <m.div key={progress.label} >
                   <ProgressItem progress={progress} />
                 </m.div>
               ))}
             </Box>
 
-            <m.div variants={varFade().inRight}>
+            <m.div>
               <Button
                 variant="outlined"
                 color="inherit"

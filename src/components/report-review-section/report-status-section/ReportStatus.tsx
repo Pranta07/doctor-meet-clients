@@ -14,88 +14,73 @@ import SinglePatientReport from "./SinglePatientReport";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.common.white,
-    },
-    [`&.${tableCellClasses.body}`]: {
-        fontSize: 14,
-    },
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
 }));
 
 const ReportStatus = () => {
-    const [reports, setReports] = useState<IReport[]>([]);
-    const { user }: any = useAppSelector((state) => state.user);
+  const [reports, setReports] = useState<IReport[]>([]);
+  const { user }: any = useAppSelector((state) => state.user);
 
-    useEffect(() => {
-        // setLoading(true);
-        const url = `https://ancient-inlet-17554.herokuapp.com/api/v1/report/patient/${user?.email}`;
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                setReports(data.result);
-            });
-        // .finally(() => setLoading(false));
-    }, [user?.email]);
+  useEffect(() => {
+    // setLoading(true);
+    const url = `https://evening-peak-31569.herokuapp.com/api/v1/report/patient/${user?.email}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setReports(data.result);
+      });
+    // .finally(() => setLoading(false));
+  }, [user?.email]);
 
-    return (
-        <Container>
-            <h5 style={{ marginBottom: "30px", color: "gray" }}>
-                Reports Status Tracking
-            </h5>
-            <div className="report-card-shadow">
-                <div className="">
-                    <h6
-                        style={{
-                            fontWeight: "500",
-                            lineHeight: "10px",
-                            marginTop: "40px",
-                        }}
-                    >
-                        Reports
-                    </h6>
-                    <hr />
-                    <TableContainer component={Paper}>
-                        <Table
-                            sx={{ minWidth: 700 }}
-                            aria-label="customized table"
-                        >
-                            <TableHead>
-                                <TableRow>
-                                    <StyledTableCell align="left">
-                                        Doctor Name
-                                    </StyledTableCell>
-                                    <StyledTableCell align="left">
-                                        Patient Name
-                                    </StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        Date
-                                    </StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        Comments
-                                    </StyledTableCell>
-                                    <StyledTableCell align="center">
-                                        Status
-                                    </StyledTableCell>
-                                    <StyledTableCell align="right">
-                                        Download
-                                    </StyledTableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {reports.map((report) => (
-                                    <SinglePatientReport
-                                        key={report._id}
-                                        report={report}
-                                    ></SinglePatientReport>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </div>
-            </div>
-        </Container>
-    );
+  return (
+    <Container>
+      <h5 style={{ marginBottom: "30px", color: "gray" }}>
+        Reports Status Tracking
+      </h5>
+      <div className="report-card-shadow">
+        <div className="">
+          <h6
+            style={{
+              fontWeight: "500",
+              lineHeight: "10px",
+              marginTop: "40px",
+            }}
+          >
+            Reports
+          </h6>
+          <hr />
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell align="left">Doctor Name</StyledTableCell>
+                  <StyledTableCell align="left">Patient Name</StyledTableCell>
+                  <StyledTableCell align="center">Date</StyledTableCell>
+                  <StyledTableCell align="center">Comments</StyledTableCell>
+                  <StyledTableCell align="center">Status</StyledTableCell>
+                  <StyledTableCell align="right">Download</StyledTableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {reports.map((report) => (
+                  <SinglePatientReport
+                    key={report._id}
+                    report={report}
+                  ></SinglePatientReport>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      </div>
+    </Container>
+  );
 };
 
 export default ReportStatus;

@@ -6,7 +6,8 @@ import DashboardLayout from "../layouts/dashboard/index";
 // components
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
-
+// import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
+// import ResetPassword from "../pages/security/resetPassword/ResetPassword";
 import {
   DiagnosisPay,
   DiagnosticAppointmentForm,
@@ -18,23 +19,22 @@ import ControlDoctors from "../components/admin-database/ControlDoctors";
 import EditSingleDoctor from "../components/admin-database/EditSingleDoctor";
 import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
-import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
-import AllReports from "../components/all-reports/AllReports";
+
 import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
-import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/DoctorsSchedules";
-import AddDoctor from "../components/add-doctor/AddDoctor";
-// import PharmacyPay from "../components/pharmacy/PharmacyPay";
+
+import PharmacyPay from "../components/pharmacy/PharmacyPay";
 import PrivateRoute from "./private-route/PrivateRoute";
 import DoctorsRoute from "./doctor-route/DoctorsRoute";
 import ModeratorRoute from "./modaretor-route/ModeratorRoute";
 import AdminRoute from "./admin-route/AdminRoute";
-import DoctorAppointment from "../components/all-appointments-doctor/DoctorAppointment";
 import DoctorAppointments from "../components/all-appointments-doctor/DoctorAppointments";
-import Login from "../pages/security/login/Login";
-import Registation from "../pages/security/registration/Registration";
-import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
-import ResetPassword from "../pages/security/resetPassword/ResetPassword";
-import UpdateProfile from "../pages/profile/UpdateProfile";
+import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
+import Profile from "../pages/profile/Profile";
+import UserAppointments from "../components/all-appointments-user/UserAppointments";
+import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
+import GuestGuard from "../guards/GuestGuard";
+import AuthGuard from "../guards/AuthGuard";
+import RoleBasedGuard from "../guards/RoleBasedGuard";
 
 // ----------------------------------------------------------------------
 
@@ -54,114 +54,35 @@ const Loadable = (Component: any) => (props: any) => {
 export default function Router() {
   return useRoutes([
     {
-      path: "auth",
+      path: "*",
       children: [
         {
           path: "login",
           element: (
-            // <GuestGuard>
-            <Login />
-            // </GuestGuard>
+            <GuestGuard>
+              <Login />
+            </GuestGuard>
           ),
         },
         {
           path: "register",
           element: (
-            // <GuestGuard>
-            <Registation />
-            // </GuestGuard>
+            <GuestGuard>
+              <Registration />
+            </GuestGuard>
           ),
         },
-        { path: "login-unprotected", element: <Login /> },
-        // { path: "register-unprotected", element: <Register /> },
-        // { path: "reset-password", element: <ResetPassword /> },
-        // { path: "verify", element: <VerifyCode /> },
       ],
     },
-    // // Dashboard Routes
-    // {
-    //   path: 'dashboard',
-    //   element: (
-    //     // <AuthGuard>
-    //       <DashboardLayout />
-    //     // </AuthGuard>
-    //   ),
-    //   children: [
-    //     { element: <avigate to={PATH_AFTER_LOGIN} Nreplace />, index: true },
-    //     { path: 'app', element: <GeneralApp /> },
-    //     { path: 'ecommerce', element: <GeneralEcommerce /> },
-    //     { path: 'analytics', element: <GeneralAnalytics /> },
-    //     { path: 'banking', element: <GeneralBanking /> },
-    //     { path: 'booking', element: <GeneralBooking /> },
 
-    //     {
-    //       path: 'e-commerce',
-    //       children: [
-    //         { element: <Navigate to="/dashboard/e-commerce/shop" replace />, index: true },
-    //         { path: 'shop', element: <EcommerceShop /> },
-    //         { path: 'product/:name', element: <EcommerceProductDetails /> },
-    //         { path: 'list', element: <EcommerceProductList /> },
-    //         { path: 'product/new', element: <EcommerceProductCreate /> },
-    //         { path: 'product/:name/edit', element: <EcommerceProductCreate /> },
-    //         { path: 'checkout', element: <EcommerceCheckout /> },
-    //       ],
-    //     },
-    //     {
-    //       path: 'user',
-    //       children: [
-    //         { element: <Navigate to="/dashboard/user/profile" replace />, index: true },
-    //         { path: 'profile', element: <UserProfile /> },
-    //         { path: 'cards', element: <UserCards /> },
-    //         { path: 'list', element: <UserList /> },
-    //         { path: 'new', element: <UserCreate /> },
-    //         { path: ':name/edit', element: <UserCreate /> },
-    //         { path: 'account', element: <UserAccount /> },
-    //       ],
-    //     },
-    //     {
-    //       path: 'invoice',
-    //       children: [
-    //         { element: <Navigate to="/dashboard/invoice/list" replace />, index: true },
-    //         { path: 'list', element: <InvoiceList /> },
-    //         { path: ':id', element: <InvoiceDetails /> },
-    //         { path: ':id/edit', element: <InvoiceEdit /> },
-    //         { path: 'new', element: <InvoiceCreate /> },
-    //       ],
-    //     },
-    //     {
-    //       path: 'blog',
-    //       children: [
-    //         { element: <Navigate to="/dashboard/blog/posts" replace />, index: true },
-    //         { path: 'posts', element: <BlogPosts /> },
-    //         { path: 'post/:title', element: <BlogPost /> },
-    //         { path: 'new', element: <BlogNewPost /> },
-    //       ],
-    //     },
-    //     {
-    //       path: 'mail',
-    //       children: [
-    //         { element: <Navigate to="/dashboard/mail/all" replace />, index: true },
-    //         { path: 'label/:customLabel', element: <Mail /> },
-    //         { path: 'label/:customLabel/:mailId', element: <Mail /> },
-    //         { path: ':systemLabel', element: <Mail /> },
-    //         { path: ':systemLabel/:mailId', element: <Mail /> },
-    //       ],
-    //     },
-    //     {
-    //       path: 'chat',
-    //       children: [
-    //         { element: <Chat />, index: true },
-    //         { path: 'new', element: <Chat /> },
-    //         { path: ':conversationKey', element: <Chat /> },
-    //       ],
-    //     },
-    //     { path: 'calendar', element: <Calendar /> },
-    //     { path: 'kanban', element: <Kanban /> },
-    //   ],
-    // },
     {
-      path: "/dashboard",
-      element: <DashboardLayout />,
+      path: "dashboard",
+      element: (
+        <AuthGuard>
+          <DashboardLayout />
+        </AuthGuard>
+      ),
+
       children: [
         {
           element: <Navigate to="/dashboard/home" replace />,
@@ -169,11 +90,7 @@ export default function Router() {
         },
         {
           path: "home",
-          element: (
-            <PrivateRoute>
-              <DashboardHome />
-            </PrivateRoute>
-          ),
+          element: <DashboardHome />,
         },
 
         // user
@@ -184,62 +101,33 @@ export default function Router() {
               element: <Navigate to="/dashboard/user/doctors" replace />,
               index: true,
             },
-            { path: "doctors", element: <AllDoctors /> },
             {
               path: "favorite-doctors",
-              element: (
-                <PrivateRoute>
-                  <FavoriteDoctors />
-                </PrivateRoute>
-              ),
+              element: <FavoriteDoctors />,
             },
             {
               path: "my-appointments",
-              element: (
-                <PrivateRoute>
-                  <MyAppointments />
-                </PrivateRoute>
-              ),
-            },
-            {
-              path: "get-appointments",
-              element: (
-                <PrivateRoute>
-                  <GetAppointmentForm />
-                </PrivateRoute>
-              ),
+              element: <UserAppointments />,
             },
             {
               path: "my-diagnosises",
-              element: (
-                <PrivateRoute>
-                  <MyDiagnosises />
-                </PrivateRoute>
-              ),
+              element: <MyDiagnosises />,
             },
             {
               path: "Report-status",
-              element: (
-                <PrivateRoute>
-                  <ReportStatus />
-                </PrivateRoute>
-              ),
+              element: <ReportStatus />,
             },
             {
               path: "report-pdf",
-              element: (
-                <PrivateRoute>
-                  <ReportPdf />
-                </PrivateRoute>
-              ),
+              element: <ReportPdf />,
             },
             {
               path: "add-review",
-              element: (
-                <PrivateRoute>
-                  <UserReview />
-                </PrivateRoute>
-              ),
+              element: <UserReview />,
+            },
+            {
+              path: "join-us",
+              element: <AddDoctor />,
             },
           ],
         },
@@ -249,52 +137,35 @@ export default function Router() {
           path: "doctor",
           children: [
             {
-              path: "join-us",
-
-              element: (
-                <DoctorsRoute>
-                  <AddDoctor />,
-                </DoctorsRoute>
-              ),
-            },
-            {
               path: "report-pdf",
               element: (
-                <DoctorsRoute>
-                  <ReportPdf />,
-                </DoctorsRoute>
+                <RoleBasedGuard accessibleRoles="doctor">
+                  <ReportPdf />
+                </RoleBasedGuard>
               ),
             },
             {
               path: "reports",
               element: (
-                <DoctorsRoute>
-                  <AllReports />,
-                </DoctorsRoute>
+                <RoleBasedGuard accessibleRoles="doctor">
+                  <AllReports />
+                </RoleBasedGuard>
               ),
             },
             {
               path: "add-article",
               element: (
-                <DoctorsRoute>
+                <RoleBasedGuard accessibleRoles="doctor">
                   <AddArticle />
-                </DoctorsRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "my-schedule-doctor",
               element: (
-                <DoctorsRoute>
+                <RoleBasedGuard accessibleRoles="doctor">
                   <DoctorAppointments />
-                </DoctorsRoute>
-              ),
-            },
-            {
-              path: "my-schedule-doctor",
-              element: (
-                <DoctorsRoute>
-                  <DoctorsSchedules />
-                </DoctorsRoute>
+                </RoleBasedGuard>
               ),
             },
           ],
@@ -307,41 +178,41 @@ export default function Router() {
             {
               path: "Report-section",
               element: (
-                <ModeratorRoute>
+                <RoleBasedGuard accessibleRoles="modaretor">
                   <ReportSection />
-                </ModeratorRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "Report-status",
               element: (
-                <ModeratorRoute>
+                <RoleBasedGuard accessibleRoles="modaretor">
                   <ReportStatus />
-                </ModeratorRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "report-pdf",
               element: (
-                <ModeratorRoute>
+                <RoleBasedGuard accessibleRoles="modaretor">
                   <ReportPdf />
-                </ModeratorRoute>
+                </RoleBasedGuard>
+              ),
+            },
+            {
+              path: "all-appointments",
+              element: (
+                <RoleBasedGuard accessibleRoles="modaretor">
+                  <AllAppointments />
+                </RoleBasedGuard>
               ),
             },
             {
               path: "all-diagnosis",
               element: (
-                <ModeratorRoute>
+                <RoleBasedGuard accessibleRoles="modaretor">
                   <AllDiagnosis />
-                </ModeratorRoute>
-              ),
-            },
-            {
-              path: "all-diagnosis",
-              element: (
-                <ModeratorRoute>
-                  <AllDiagnosis />
-                </ModeratorRoute>
+                </RoleBasedGuard>
               ),
             },
           ],
@@ -352,87 +223,87 @@ export default function Router() {
           path: "admin",
           children: [
             {
-              element: <Navigate to="/dashboard/admin/doctors" replace />,
+              element: <Navigate to="/dashboard/home" replace />,
               index: true,
             },
             {
               path: "manage-doctors",
               element: (
-                <AdminRoute>
+                <RoleBasedGuard accessibleRoles="admin">
                   <ManageDoctors />
-                </AdminRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "manage-donors",
               element: (
-                <AdminRoute>
+                <RoleBasedGuard accessibleRoles="admin">
                   <ManageDonors />
-                </AdminRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "all-appointments",
               element: (
-                <AdminRoute>
+                <RoleBasedGuard accessibleRoles="admin">
                   <AllAppointments />
-                </AdminRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "all-diagnosis",
               element: (
-                <AdminRoute>
+                <RoleBasedGuard accessibleRoles="admin">
                   <AllDiagnosis />
-                </AdminRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "edit-doctors",
               element: (
-                <AdminRoute>
+                <RoleBasedGuard accessibleRoles="admin">
                   <ControlDoctors />
-                </AdminRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "edit-doctors/edit-single-doctor/:id",
               element: (
-                <AdminRoute>
+                <RoleBasedGuard accessibleRoles="admin">
                   <EditSingleDoctor />
-                </AdminRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "/dashboard/admin/notify",
               element: (
-                <AdminRoute>
+                <RoleBasedGuard accessibleRoles="admin">
                   <Notify />
-                </AdminRoute>
+                </RoleBasedGuard>
               ),
             },
             {
-              path: "/dashboard/admin/makeModerador",
+              path: "/dashboard/admin/make-moderator",
               element: (
-                <AdminRoute>
+                <RoleBasedGuard accessibleRoles="admin">
                   <MakeModaretor />
-                </AdminRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "all-invoices",
               element: (
-                <AdminRoute>
+                <RoleBasedGuard accessibleRoles="admin">
                   <AllInvoices />
-                </AdminRoute>
+                </RoleBasedGuard>
               ),
             },
             {
               path: "add-order",
               element: (
-                <AdminRoute>
+                <RoleBasedGuard accessibleRoles="admin">
                   <AddOrder />
-                </AdminRoute>
+                </RoleBasedGuard>
               ),
             },
           ],
@@ -444,15 +315,6 @@ export default function Router() {
     {
       path: "*",
       element: <NotFound />,
-      // children: [
-      //   { path: "coming-soon", element: <ComingSoon /> },
-      //   { path: "maintenance", element: <Maintenance /> },
-      //   { path: "pricing", element: <Pricing /> },
-      //   { path: "payment", element: <Payment /> },
-      //   { path: "500", element: <Page500 /> },
-      //   { path: "*", element: <NotFound /> },
-      //   // { path: "*", element: <Navigate to="/404" replace /> },
-      // ],
     },
     {
       path: "/",
@@ -473,71 +335,40 @@ export default function Router() {
         { path: "find-donors", element: <FindDonors /> },
         { path: "premium-membership", element: <PremiumMemberships /> },
         {
-          path: "virtual-meet",
+          path: "virtual-meet/:id",
           element: (
-            <PrivateRoute>
+            <AuthGuard>
               <VideoApp />
-            </PrivateRoute>
+            </AuthGuard>
           ),
         },
         { path: "login", element: <Login /> },
-        {
-          path: "profile",
-          element: (
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          ),
-        },
+
         { path: "signUp", element: <Registration /> },
         {
           path: "medicine/:id",
-          element: (
-            <PrivateRoute>
-              <PharmacyProductView />
-            </PrivateRoute>
-          ),
+          element: <PharmacyProductView />,
         },
         {
           path: "cart",
-          element: (
-            <PrivateRoute>
-              <PharmacyCart />
-            </PrivateRoute>
-          ),
+          element: <PharmacyCart />,
         },
         { path: "shop", element: <PharmacyAllProduct /> },
         {
           path: "premium-payment/:id",
-          element: (
-            <PrivateRoute>
-              <PremiumPayment />
-            </PrivateRoute>
-          ),
+          element: <PremiumPayment />,
         },
         {
           path: "appointment-doctors",
-          element: (
-            <PrivateRoute>
-              <AppointmentDoctors />
-            </PrivateRoute>
-          ),
+          element: <AppointmentDoctors />,
         },
         {
           path: "get-appointment-form/:id",
-          element: (
-            <PrivateRoute>
-              <GetAppointmentForm />
-            </PrivateRoute>
-          ),
+          element: <GetAppointmentForm />,
         },
         {
           path: "pay-appointment-fee/:id",
-          element: (
-            <PrivateRoute>
-              <PayAppointmentFee />
-            </PrivateRoute>
-          ),
+          element: <PayAppointmentFee />,
         },
         {
           path: "/diagnostic-center",
@@ -545,43 +376,26 @@ export default function Router() {
         },
         {
           path: "/diagnostic-appointment-form/:category/:id",
-          element: (
-            <PrivateRoute>
-              <DiagnosticAppointmentForm />
-            </PrivateRoute>
-          ),
+          element: <DiagnosticAppointmentForm />,
         },
         {
           path: "/diagnostic-pay/:id",
-          element: (
-            <PrivateRoute>
-              <DiagnosisPay />
-            </PrivateRoute>
-          ),
+          element: <DiagnosisPay />,
         },
         {
           path: "article/:id",
           element: <ViewArticale />,
         },
         {
+          path: "profile",
+          element: <Profile />,
+        },
+        {
           path: "doctor/:id",
           element: <DoctorView />,
         },
-        {
-          path: "password/forgot",
-          element: <ForgotPassword />,
-        },
-        {
-          path: "password/reset/:token",
-          element: <ResetPassword />,
-        },
-        {
-          path: "me/update",
-          element: <UpdateProfile />,
-        },
         // { path: "pharmacy-payment/:id", element: <PharmacyPay /> },//It is dynamic route
-        // { path: "/pharmacy-payment", element: <PharmacyPay /> }, //It is static route
-
+        { path: "/pharmacy-payment", element: <PharmacyPay /> }, //It is static route
       ],
     },
     // { path: "*", element: <Navigate to="/404" replace /> },
@@ -593,17 +407,8 @@ export default function Router() {
 const PharmacyHome = Loadable(
   lazy(() => import("../pages/pharmacy-home/PharmacyHome"))
 );
-//const PharmacyHome = Loadable(
-// lazy(() => import("../pages/pharmacy/PharmacyH~ome")));
 
-// const NotFound = Loadable(lazy(() => import('../pages/Page404')));
-// AUTHENTICATION
-// const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
-// const Register = Loadable(lazy(() => import("../pages/auth/Register")));
-// const ResetPassword = Loadable(
-//   lazy(() => import("../pages/auth/ResetPassword"))
-// );
-// const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
+const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
 const CovidPortal = Loadable(
   lazy(() => import("../pages/covid-portal/CovidPortal"))
 );
@@ -627,17 +432,17 @@ const ManageDonors = Loadable(
 );
 
 const MakeModaretor = Loadable(
-  lazy(() => import("../pages/makeModarator/MakeModaretor"))
+  lazy(() => import("../pages/make-moderator/MakeModerator"))
+);
+const AllReports = Loadable(
+  lazy(() => import("../components/all-reports/AllReports"))
 );
 
-const MyAppointments = Loadable(
-  lazy(() => import("../components/appointment/MyAppointments"))
-);
 const GetAppointmentForm = Loadable(
   lazy(() => import("../components/appointment/GetAppointmentForm"))
 );
 const AllAppointments = Loadable(
-  lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
+  lazy(() => import("../components/all-appointments/AllAppointments"))
 );
 const AllDiagnosis = Loadable(
   lazy(() => import("../pages/dashboards/all-diagnosis/AllDiagnosis"))
@@ -651,15 +456,9 @@ const ReportSection = Loadable(
 const PremiumMemberships = Loadable(
   lazy(() => import("../pages/premium-membership/PremiumMemberships"))
 );
-const Doctors = Loadable(lazy(() => import("../pages/doctors/Doctors")));
 const NotFound = Loadable(
   lazy(() => import("../components/not-found/NotFound"))
 );
-const VideoChatRoute = Loadable(
-  lazy(() => import("../pages/video-chat-client/VideoChatRoute"))
-);
-const Profile = Loadable(
-  lazy(() => import("../pages/profile/Profile")));
 
 const Registration = Loadable(
   lazy(() => import("../pages/security/registration/Registration"))
@@ -703,50 +502,9 @@ const ViewArticale = Loadable(
   lazy(() => import("../components/articles/ViewArticle"))
 );
 const AddOrder = Loadable(
-  lazy(() => import("../components/addOrder/AddOrder"))
+  lazy(() => import("../components/add-order/AddOrder"))
 );
 
-// DASHBOARD
-
-// GENERAL
-// const GeneralApp = Loadable(lazy(() => import('../pages/dashboard/GeneralApp')));
-// const GeneralEcommerce = Loadable(lazy(() => import('../pages/dashboard/GeneralEcommerce')));
-// const GeneralAnalytics = Loadable(lazy(() => import('../pages/dashboard/GeneralAnalytics')));
-// const GeneralBanking = Loadable(lazy(() => import('../pages/dashboard/GeneralBanking')));
-// const GeneralBooking = Loadable(lazy(() => import('../pages/dashboard/GeneralBooking')));
-
-// // ECOMMERCE
-// const EcommerceShop = Loadable(lazy(() => import('../pages/dashboard/EcommerceShop')));
-// const EcommerceProductDetails = Loadable(lazy(() => import('../pages/dashboard/EcommerceProductDetails')));
-// const EcommerceProductList = Loadable(lazy(() => import('../pages/dashboard/EcommerceProductList')));
-// const EcommerceProductCreate = Loadable(lazy(() => import('../pages/dashboard/EcommerceProductCreate')));
-// const EcommerceCheckout = Loadable(lazy(() => import('../pages/dashboard/EcommerceCheckout')));
-
-// // INVOICE
-// const InvoiceList = Loadable(lazy(() => import('../pages/dashboard/InvoiceList')));
-// const InvoiceDetails = Loadable(lazy(() => import('../pages/dashboard/InvoiceDetails')));
-// const InvoiceCreate = Loadable(lazy(() => import('../pages/dashboard/InvoiceCreate')));
-// const InvoiceEdit = Loadable(lazy(() => import('../pages/dashboard/InvoiceEdit')));
-
-// // BLOG
-// const BlogPosts = Loadable(lazy(() => import('../pages/dashboard/BlogPosts')));
-// const BlogPost = Loadable(lazy(() => import('../pages/dashboard/BlogPost')));
-// const BlogNewPost = Loadable(lazy(() => import('../pages/dashboard/BlogNewPost')));
-
-// // USER
-// const UserProfile = Loadable(lazy(() => import('../pages/dashboard/UserProfile')));
-// const UserCards = Loadable(lazy(() => import('../pages/dashboard/UserCards')));
-// const UserList = Loadable(lazy(() => import('../pages/dashboard/UserList')));
-// const UserAccount = Loadable(lazy(() => import('../pages/dashboard/UserAccount')));
-// const UserCreate = Loadable(lazy(() => import('../pages/dashboard/UserCreate')));
-
-// // APP
-// const Chat = Loadable(lazy(() => import('../pages/dashboard/Chat')));
-// const Mail = Loadable(lazy(() => import('../pages/dashboard/Mail')));
-// const Calendar = Loadable(lazy(() => import('../pages/dashboard/Calendar')));
-// const Kanban = Loadable(lazy(() => import('../pages/dashboard/Kanban')));
-
-// MAIN
 const HomePage = Loadable(lazy(() => import("../pages/home/Home")));
 const ContactUs = Loadable(
   lazy(() => import("../components/contact-us/ContactUs"))
@@ -754,9 +512,8 @@ const ContactUs = Loadable(
 const DoctorView = Loadable(
   lazy(() => import("../components/all-doctors/DoctorView"))
 );
-const Faqs = Loadable(lazy(() => import("../pages/Faqs")));
-const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));
-const Maintenance = Loadable(lazy(() => import("../pages/Maintenance")));
 
-const Page500 = Loadable(lazy(() => import("../pages/Page500")));
 const About = Loadable(lazy(() => import("../pages/about/About")));
+const AddDoctor = Loadable(
+  lazy(() => import("../components/add-doctor/AddDoctor"))
+);

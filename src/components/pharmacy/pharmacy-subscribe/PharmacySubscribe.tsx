@@ -1,10 +1,14 @@
 import React from "react";
 import "./PharmacySubscribe.css";
 import blog_img from "../../../assets/pharmacy/blog13.jpg";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacySubscribe = () => {
   return (
-    <div className="container margin-Y ">
+    <RootStyle className="container margin-Y ">
       <div className="">
         <div className="blogs items row">
           <div className="col-lg-6 item ">
@@ -48,7 +52,7 @@ const PharmacySubscribe = () => {
           </div>
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

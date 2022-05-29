@@ -9,7 +9,7 @@ import useResponsive from '../../hooks/useResponsive';
 import cssStyles from '../../utils/cssStyles';
 // components
 import Iconify from '../../components/Iconify';
-import { MotionViewport, varFade } from '../../components/animate';
+
 
 // ----------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ export default function AboutTestimonials() {
 
   return (
     <RootStyle>
-      <Container component={MotionViewport} sx={{ position: 'relative', height: 1 }}>
+      <Container sx={{ position: 'relative', height: 1 }}>
         <Grid
           container
           spacing={3}
@@ -85,20 +85,20 @@ export default function AboutTestimonials() {
         >
           <Grid item xs={10} md={4}>
             <Box sx={{ maxWidth: { md: 360 } }}>
-              <m.div variants={varFade().inUp}>
+              <m.div >
                 <Typography component="p" variant="overline" sx={{ mb: 2, color: 'text.secondary' }}>
                   Testimonials
                 </Typography>
               </m.div>
 
-              <m.div variants={varFade().inUp}>
+              <m.div>
                 <Typography variant="h2" sx={{ mb: 3, color: 'common.white' }}>
                   Who love <br />
                   my work
                 </Typography>
               </m.div>
 
-              <m.div variants={varFade().inUp}>
+              <m.div>
                 <Typography sx={{ color: 'common.white' }}>
                   Our goal is to create a product and service that you’re satisfied with and use it every day. This is
                   why we’re constantly working on our services to make it better every day and really listen to what our
@@ -108,7 +108,7 @@ export default function AboutTestimonials() {
 
               {!isDesktop && (
                 <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}>
-                  <m.div variants={varFade().inUp}>
+                  <m.div>
                     <TestimonialLink />
                   </m.div>
                 </Box>
@@ -129,7 +129,7 @@ export default function AboutTestimonials() {
             <Grid container spacing={isDesktop ? 3 : 0} alignItems="center">
               <Grid item xs={12} md={6}>
                 {TESTIMONIALS.slice(0, 3).map((testimonial) => (
-                  <m.div key={testimonial.name} variants={varFade().inUp}>
+                  <m.div key={testimonial.name}>
                     <TestimonialCard testimonial={testimonial} />
                   </m.div>
                 ))}
@@ -137,7 +137,7 @@ export default function AboutTestimonials() {
 
               <Grid item xs={12} md={6}>
                 {TESTIMONIALS.slice(3, 6).map((testimonial) => (
-                  <m.div key={testimonial.name} variants={varFade().inUp}>
+                  <m.div key={testimonial.name} >
                     <TestimonialCard testimonial={testimonial} />
                   </m.div>
                 ))}
@@ -148,7 +148,7 @@ export default function AboutTestimonials() {
 
         {isDesktop && (
           <Box sx={{ bottom: 60, position: 'absolute' }}>
-            <m.div variants={varFade().inLeft}>
+            <m.div >
               <TestimonialLink />
             </m.div>
           </Box>

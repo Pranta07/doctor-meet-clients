@@ -71,8 +71,6 @@ const DoctorSchedule = ({ upComingAppointment }) => {
                 
 
 
-
-
             </td> : <td className="appointment-table-row-data">
                 <img src={disabledIcon} alt="meet-icon" style={{ width: "40px", height: "40px" }}
                     disabled={disabled}

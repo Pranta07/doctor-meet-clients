@@ -1,22 +1,17 @@
-import { Box, Modal, Typography } from "@mui/material";
-import { RatingStar } from "rating-star";
+import { Box, Modal, Rating } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { Cart, Heart, Search } from "react-bootstrap-icons";
+import { Cart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import "../pharmacy-product-view/PharmacyProductView.css";
 import "./PharmacySingleProduct.css";
-import Swal from "sweetalert2";
 import { useAppDispatch } from "../../../redux/store";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
-// let getData = () => {
-//   let data = localStorage.getItem("item");
-//   if (data) {
-//     return JSON.parse(data);
-//   } else {
-//     return [];
-//   }
-// };
 
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -28,11 +23,9 @@ const style = {
 };
 
 const PharmacySingleProduct = (props: any) => {
-  // let [itemData, setItemData] = useState(getData());
   const dispatch = useAppDispatch();
   let [count, setCount] = useState(1);
 
-  // let { img } = props.images;
 
   let {
     name,
@@ -49,51 +42,8 @@ const PharmacySingleProduct = (props: any) => {
   }: any = props.product;
 
   useEffect(() => {
-    // const ItemList = localStorage.getItem("item");
-
-    // if (ItemList) {
-    //   const listItems: any[] = JSON.parse(ItemList);
-    //   const authorId = listItems.find(
-    //     (author) => parseInt(author._id) === parseInt(_id)
-    //   );
-    // }
   }, [_id]);
 
-  // const addDoctor = (id: string) => {
-  //   save the doctor to local storage
-  //   const doctor = localStorage.getItem("item");
-
-  //   let items;
-  //   if (doctor) items = JSON.parse(doctor);
-  //   else items = [];
-
-  //   const newItems = [...items, props.products];
-  //   if (newItems) {
-  //     Swal.fire({
-  //       position: "top-end",
-  //       icon: "success",
-  //       title: "Product Added to Cart",
-  //       showConfirmButton: false,
-  //       timer: 1500,
-  //     });
-  //   }
-
-  //   localStorage.setItem("item", JSON.stringify([...newItems]));
-  // };
-
-  // const removeDoctor = (id: string) => {
-  //   //remove the doctor from local storage
-  //   const doctor = localStorage.getItem("item");
-
-  //   let items: any[];
-  //   if (doctor) items = JSON.parse(doctor);
-  //   else items = [];
-
-  //   const newItems = items.filter((author) => author._id !== id);
-  //   // console.log(newItems);
-
-  //   localStorage.setItem("fav-doc", JSON.stringify([...newItems]));
-  // };
   let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
@@ -117,19 +67,14 @@ const PharmacySingleProduct = (props: any) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="col-lg-2 col-md-3 col-sm-6 p-0">
+    <RootStyle className="col-lg-2 col-md-3 col-sm-6 p-0">
       <div className="product p-4">
         <div className="product-img">
           <img className="img-fluid" src={img1} alt="front product" />
           <img src={img2} alt="rear product" className="rear-img img-fluid " />
           <div className="overlay">
-            <button className="btn" title="Wishlit">
-              {" "}
-              <Heart></Heart>{" "}
-            </button>
             <button
               onClick={() => dispatch(addItemsToCart(_id, count))}
-
               className="btn"
               title="Add to Cart"
             >
@@ -147,13 +92,8 @@ const PharmacySingleProduct = (props: any) => {
             <div>
               <p className="product-name">{name}</p>
               <h5 className="product-price">${price}</h5>
-              <RatingStar
-                size={16}
-                maxScore={5}
-                colors={{ mask: "#ff7f23" }}
-                id="123"
-                rating={rating}
-              />
+              <Rating name="rating" value={4} />
+
             </div>
           </div>
         </NavLink>
@@ -231,13 +171,8 @@ const PharmacySingleProduct = (props: any) => {
                     <p className="out-style"> Out Stock </p>
                   )}
                   <h2>{name}</h2>
-                  <RatingStar
-                    size={16}
-                    maxScore={5}
-                    colors={{ mask: "#ff7f23" }}
-                    id="123"
-                    rating={rating}
-                  />
+                  <Rating name="rating" value={parseInt(rating)} />
+
                   <hr />
                   <h5 className="product-price">${price}</h5>
                   <h6 className="mt-5"> Quantity </h6>
@@ -260,7 +195,8 @@ const PharmacySingleProduct = (props: any) => {
                   </div>
                   <button
                     onClick={() => dispatch(addItemsToCart(_id, count))}
-                    className="btn-style">
+                    className="btn-style"
+                  >
                     {" "}
                     <Cart></Cart> Add to cart
                   </button>
@@ -270,7 +206,7 @@ const PharmacySingleProduct = (props: any) => {
           </Box>
         </Modal>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

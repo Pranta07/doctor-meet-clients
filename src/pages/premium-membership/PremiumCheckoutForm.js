@@ -80,7 +80,7 @@ const PremiumCheckoutForm = ({ choosenCategory }) => {
     } else {
 
 
-      fetch(`http://floating-basin-02241.herokuapp.com/premiumMembers`, {
+      fetch(`https://floating-basin-02241.herokuapp.com/premiumMembers`, {
         method: "POST",
         headers: {
           "content-type": "application/json"

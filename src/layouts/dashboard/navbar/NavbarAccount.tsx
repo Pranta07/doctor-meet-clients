@@ -36,7 +36,7 @@ export default function NavbarAccount({ isCollapse }: any) {
           }),
         }}
       >
-        <Avatar src={user?.photoURL || ""} alt="avatar" />
+        <Avatar src={user?.name[0]} alt="avatar" className="badge-container" />
 
         <Box
           sx={{
@@ -55,7 +55,7 @@ export default function NavbarAccount({ isCollapse }: any) {
             {user?.name}
           </Typography>
           <Typography variant="body2" noWrap sx={{ color: "text.secondary" }}>
-            Admin
+            {user?.role}
           </Typography>
         </Box>
       </RootStyle>

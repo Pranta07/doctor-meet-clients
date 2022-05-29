@@ -1,4 +1,3 @@
-import { RatingStar } from "rating-star";
 import React, { useEffect, useState } from "react";
 import { Cart } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
@@ -7,14 +6,34 @@ import "../pharmacy-banner/PharmacyBanner.css";
 import banner_img from "../../../assets/pharmacy/banner-sidebar.png";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProductDetails } from "../../../redux/actions/productAction";
+import { Rating } from "@mui/material";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
+import { styled } from "@mui/material/styles";
+import { useSnackbar } from "notistack";
+import Slider from "react-slick";
+import PharmecyOrderReview from "../pharmacy-order-review/PharmacyOrderReview";
 
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 2000,
+  autoplay: true,
+
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  initialSlide: 0,
+};
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacyProductView = () => {
   const dispatch = useAppDispatch();
-  // let [products, setProducts] = useState<any>({});
+  const { user }: any = useAppSelector((state) => state?.user);
   let [count, setCount] = useState(1);
+  const [rating1, setRating1] = React.useState<number | null>(5);
 
-  const { product }: any = useAppSelector((state) => state.productDetails);
+  const { product }: any = useAppSelector((state) => state?.productDetails);
 
   let { id } = useParams();
   useEffect(() => {
@@ -34,6 +53,7 @@ const PharmacyProductView = () => {
       setCount(total);
     }
   };
+
   let {
     name,
     img1,
@@ -44,12 +64,15 @@ const PharmacyProductView = () => {
     description,
     category,
     inStock,
+    rating,
     _id,
+    reviews,
   } = product;
+
+  // console.log(reviews);
 
   // -----------------------------------------------------------------
   //these static data must change later
-  let rating = 4;
   let Sku = "This is Sku";
   let power = "20 mg";
   let shopAddress = "chittagong, Bangladesh";
@@ -61,35 +84,48 @@ const PharmacyProductView = () => {
   const getImage = (image: string) => {
     setAllImg(image);
   };
-  let [rating1, setRating1] = useState(0);
 
-  useEffect(() => {
-    const ItemList = localStorage.getItem("item");
+  const { enqueueSnackbar } = useSnackbar();
 
-    if (ItemList) {
-      const listItems: any[] = JSON.parse(ItemList);
-      const authorId = listItems.find((author) => author._id === _id);
-    }
-  }, [_id]);
+  const handleOrderReviewSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const target = e.target as typeof e.target & {
+      name: { value: string };
+      email: { value: string };
+      comment: { value: string };
+    };
 
-  const addDoctor = (id: string) => {
-    //save the doctor to local storage
-    const doctor = localStorage.getItem("item");
+    const User = user?._id;
+    const name = target.name?.value;
+    const email = target.email?.value;
+    const comment = target.comment?.value;
+    const rating = rating1;
+    const img =
+      user?.image !== ""
+        ? user?.image
+        : "https://walldeco.id/themes/walldeco/assets/images/avatar-default.jpg";
+    // const img = "";
 
-    let items;
-    if (doctor) items = JSON.parse(doctor);
-    else items = [];
+    const OrderReview = { User, name, email, comment, rating, img };
+    console.log(OrderReview);
 
-    const newItems = [...items, product];
-    // console.log(newItems);
-
-    localStorage.setItem("item", JSON.stringify([...newItems]));
+    //send review data to server
+    fetch(`https://evening-peak-31569.herokuapp.com/api/v1/review/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(OrderReview),
+    }).then((res) => {
+      if (res.status === 200) {
+        enqueueSnackbar("Reviews send successfully!");
+        window.location.reload();
+      }
+    });
   };
 
-  let onRatingChange = () => { };
-
   return (
-    <div className="main-wrapper">
+    <RootStyle className="main-wrapper">
       <div className="container">
         <div className="product-div">
           <div className="product-div-left">
@@ -150,13 +186,7 @@ const PharmacyProductView = () => {
               <p className="out-style"> Out Stock </p>
             )}
             <h2>{name}</h2>
-            <RatingStar
-              size={16}
-              maxScore={5}
-              colors={{ mask: "#ff7f23" }}
-              id="123"
-              rating={rating}
-            />
+            <Rating name="rating" value={parseInt(rating)} />
             <hr />
             <h5 className="product-price">${price}</h5>
             <h6 className="mt-5"> Quantity </h6>
@@ -177,7 +207,10 @@ const PharmacyProductView = () => {
                 +{" "}
               </button>{" "}
             </div>
-            <button onClick={() => dispatch(addItemsToCart(_id, count))} className="btn-style">
+            <button
+              onClick={() => dispatch(addItemsToCart(_id, count))}
+              className="btn-style"
+            >
               {" "}
               <Cart></Cart> Add to cart
             </button>
@@ -230,10 +263,14 @@ const PharmacyProductView = () => {
           <div>
             <h2 className="color-h1"> Reviews </h2>
             <hr />
-            <p className="text-color-for-p fw-for-ul-p">
-              {" "}
-              There are no reviews yet.{" "}
-            </p>
+            <Slider {...settings}>
+              {reviews?.map((review: any) => (
+                <PharmecyOrderReview
+                  key={review._id}
+                  review={review}
+                ></PharmecyOrderReview>
+              ))}
+            </Slider>
           </div>
           <div className="my-5">
             <h5 className="color-h1">
@@ -245,52 +282,69 @@ const PharmacyProductView = () => {
               Your email address will not be published. Required fields are
               marked *
             </p>
-            <p className="text-color-for-p fw-for-ul-p">
-              {" "}
+            <p
+              style={{
+                display: "flex",
+                fontWeight: " 600",
+              }}
+              className="my-3"
+            >
               Your Rating:{" "}
-              <RatingStar
-                clickable
-                maxScore={5}
-                id="123"
-                rating={rating1}
-                onRatingChange={onRatingChange}
+              <Rating
+                name="rating"
+                value={rating1}
+                onChange={(event, newValue) => {
+                  setRating1(newValue);
+                }}
               />
             </p>
             <div className="container">
               <div className="container">
-                <div className="mb-3 row">
-                  <div className="col">
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Name *"
-                      aria-label="First name"
-                    />
+                <form onSubmit={handleOrderReviewSubmit}>
+                  <div className="mb-3 row">
+                    <div className="col">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Name *"
+                        required
+                        name="name"
+                        readOnly
+                        defaultValue={user?.name}
+                        aria-label="First name"
+                      />
+                    </div>
+                    <div className="col">
+                      <input
+                        type="email"
+                        className="form-control"
+                        placeholder="Email *"
+                        aria-label=""
+                        readOnly
+                        defaultValue={user?.email}
+                        name="email"
+                      />
+                    </div>
                   </div>
-                  <div className="col">
-                    <input
-                      type="email"
+                  <div className="mb-3">
+                    <textarea
                       className="form-control"
-                      placeholder="Email *"
-                      aria-label=""
-                    />
+                      name="comment"
+                      id="exampleFormControlTextarea1"
+                      placeholder="Your Reviw *"
+                      style={{ height: "100px" }}
+                    ></textarea>
                   </div>
-                </div>
-                <div className="mb-3">
-                  <textarea
-                    className="form-control"
-                    id="exampleFormControlTextarea1"
-                    placeholder="Your Reviw *"
-                    style={{ height: "100px" }}
-                  ></textarea>
-                </div>
-                <button className="btn-style">Send</button>
+                  <button type="submit" className="btn-style">
+                    Send
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

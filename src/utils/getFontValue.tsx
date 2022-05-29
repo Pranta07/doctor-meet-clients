@@ -6,12 +6,12 @@ import useResponsive from "../hooks/useResponsive";
 // ----------------------------------------------------------------------
 
 export default function GetFontValue(variant: any) {
-  const theme: any = useTheme();
+  const theme = useTheme();
   const breakpoints = useWidth();
 
   const key = theme.breakpoints.up(breakpoints === "xl" ? "lg" : breakpoints);
 
-  const hasResponsive: any =
+  const hasResponsive =
     variant === "h1" ||
     variant === "h2" ||
     variant === "h3" ||
@@ -20,13 +20,19 @@ export default function GetFontValue(variant: any) {
     variant === "h6";
 
   const getFont =
+    //@ts-ignore
     hasResponsive && theme.typography[variant][key]
-      ? theme.typography[variant][key]
-      : theme.typography[variant];
+      ? //@ts-ignore
+        theme.typography[variant][key]
+      : //@ts-ignore
+        theme.typography[variant];
 
   const fontSize = remToPx(getFont.fontSize);
+  //@ts-ignore
   const lineHeight = Number(theme.typography[variant].lineHeight) * fontSize;
+  //@ts-ignore
   const { fontWeight } = theme.typography[variant];
+  //@ts-ignore
   const { letterSpacing } = theme.typography[variant];
 
   return { fontSize, lineHeight, fontWeight, letterSpacing };

@@ -4,6 +4,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import { useAppSelector } from '../../../redux/store';
 import './DiagnosticAppointmentForm.css';
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }) => ({
+
+  backgroundColor: theme.palette.background.default,
+}))
 const DiagnosticAppointmentForm = () => {
     const params = useParams();
     const [category, setCategory] = useState({});
@@ -61,7 +67,7 @@ const DiagnosticAppointmentForm = () => {
             })
     }
     return (
-        <div className='diagnostic-form-container mt-5'>
+        <RootStyle className='diagnostic-form-container mt-5'>
             <Container>
                 <Row>
                     <Form onSubmit={handleOnSubmit}>
@@ -185,7 +191,7 @@ const DiagnosticAppointmentForm = () => {
             </Container>
 
 
-        </div>
+        </RootStyle>
     );
 };
 

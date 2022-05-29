@@ -4,6 +4,12 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import "./Gender.css";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 //
 const Gender = (props: any) => {
   const { gender, setGender, setPage } = props;
@@ -14,7 +20,7 @@ const Gender = (props: any) => {
   };
 
   return (
-    <div className="my-5 border rounded-3">
+    <RootStyle className="my-5 border rounded-3">
       <h5
         className="p-4 m-0"
         style={{
@@ -55,7 +61,7 @@ const Gender = (props: any) => {
           </RadioGroup>
         </FormControl>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

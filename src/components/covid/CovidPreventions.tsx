@@ -3,7 +3,12 @@ import wash from "../../assets/img/hand-wash.svg";
 import distance from "../../assets/img/social-distance.svg";
 import mask from "../../assets/img/using-mask.svg";
 import "./CovidPreventions.css";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 const CovidPreventions = () => {
   return (
     <>

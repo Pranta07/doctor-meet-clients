@@ -3,7 +3,11 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppDispatch } from "../../../redux/store";
 import { removeItemsFromCart } from "../../../redux/actions/cartAction";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacyCartSingle = (props: {
   item: any;
   key: any;
@@ -11,56 +15,30 @@ const PharmacyCartSingle = (props: {
   handleChildCartData: any;
 }) => {
   let [count, setCount] = useState(1);
+  let [totalCart, setTotalCart] = useState(1);
   const dispatch = useAppDispatch();
-  useEffect(() => { }, [props.item])
+  console.log(props.item);
+  useEffect(() => {}, [props.item]);
 
-  //@ts-ignore
-  let handleOnClickPlus = (productId): any => {
-    // console.log(productId)
-    const stringCartItems = window.localStorage.getItem("cartItems");
-    //@ts-ignore
-    const cartItems = JSON.parse(stringCartItems)
-    //@ts-ignore
-    let newItems = cartItems.map((product) => {
-
-      if (product.productId === productId) {
-
-        product.quantity++;
-        setCount(product.quantity)
-      }
-      return product;
-    });
-
-    window.localStorage.setItem("cartItems", JSON.stringify([...newItems]));
+  let handleOnClickPlus = () => {
+    let total = count + 1;
+    setCount(total);
+    props.handleChildCartData(total);
   };
 
-  //@ts-ignore
-  let handleONClickMinus = (productId) => {
-    const stringCartItems = window.localStorage.getItem("cartItems");
-    //@ts-ignore
-    const cartItems = JSON.parse(stringCartItems)
-    //@ts-ignore
-    let newItems = cartItems.map((product) => {
-
-      if (product.productId === productId) {
-
-        if (product.quantity > 1) {
-
-          product.quantity--;
-          setCount(product.quantity)
-        }
-
-      }
-      return product;
-    });
-
-    window.localStorage.setItem("cartItems", JSON.stringify([...newItems]));
+  let handleONClickMinus = () => {
+    if (count < 1) {
+      return;
+    } else {
+      let total = count - 1;
+      setCount(total);
+    }
   };
 
   props.handleChildCartData(count);
 
   return (
-    <div className="col-lg-8">
+    <RootStyle className="col-lg-8">
       <div className=" p-3">
         <div className="d-flex justify-content-between p-4 ">
           <div className="d-flex ">
@@ -78,7 +56,7 @@ const PharmacyCartSingle = (props: {
             <div className="btn-group me-2">
               <button
                 className="btn fw-bold text-size "
-                onClick={() => handleONClickMinus(props.item.productId)}
+                onClick={handleONClickMinus}
               >
                 {" "}
                 -{" "}
@@ -88,17 +66,17 @@ const PharmacyCartSingle = (props: {
                 {count}{" "}
               </p>
               <button
-                name="plus"
                 className="btn fw-bold text-size "
                 id={`id-${props.index}`}
-                onClick={() => handleOnClickPlus(props.item.productId)}
+                onClick={handleOnClickPlus}
               >
                 {" "}
                 +{" "}
               </button>{" "}
               <button
-                name="minus"
-                onClick={() => dispatch(removeItemsFromCart(props.item.productId))}
+                onClick={() =>
+                  dispatch(removeItemsFromCart(props.item.productId))
+                }
                 className="btn fw-bold text-danger px-4"
               >
                 {" "}
@@ -108,7 +86,7 @@ const PharmacyCartSingle = (props: {
           </div>
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

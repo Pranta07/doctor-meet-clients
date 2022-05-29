@@ -1,48 +1,73 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import AllInvoice from './AllInvoice';
-import './AllInvoices.css';
+import React, { useEffect, useState } from "react";
+import AllInvoice from "./AllInvoice";
+import { Container } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import "./AllInvoices.css";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+        fontSize: 14,
+    },
+}));
 
 const AllInvoices = () => {
-    const [invoices,setInvoices]=useState([]);
-    useEffect(()=>{
-        
+    const [invoices, setInvoices] = useState([]);
+    useEffect(() => {
         fetch("https://floating-basin-02241.herokuapp.com/allInvoices")
-        .then(res=>res.json())
-        .then(data=>{
-            setInvoices(data);
-           
-            
-        })
-    
-    },[])
+            .then((res) => res.json())
+            .then((data) => {
+                setInvoices(data);
+            });
+    }, []);
     return (
-        <div>
-           
-            
-            <Table className="appointment-table w-100" >
-                <thead>
-                    <tr style={{backgroundColor:"#c8d6e5"}} className="appointment-table-header-container">
-                        
-                        <th className="appointment-table-header">Invoice Id</th>
-                        <th className="appointment-table-header">Category</th>
-                        <th className="appointment-table-header">Billing Date</th>
-                        <th className="appointment-table-header">Amount</th>
-                        <th className="appointment-table-header"></th>
-                        
-                    </tr>
-                </thead>
-                <tbody className="appointment-table-body">
-                    {invoices?.map((invoice) => (
-                        <AllInvoice
-                        key={invoice._id}
-                        invoice={invoice}
-                        ></AllInvoice>
-                    ))}
-                </tbody>
-            </Table>
-           
-        </div>
+        <Container>
+            <h5 style={{ marginBottom: "30px", color: "gray" }}>
+                All Invoices
+            </h5>
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                    <TableHead>
+                        <TableRow>
+                            <StyledTableCell align="left">
+                                Invoice Id
+                            </StyledTableCell>
+                            <StyledTableCell align="center">
+                                Category
+                            </StyledTableCell>
+                            <StyledTableCell align="center">
+                                Billing Date
+                            </StyledTableCell>
+                            <StyledTableCell align="center">
+                                Amount
+                            </StyledTableCell>
+                            <StyledTableCell align="center">
+                                History
+                            </StyledTableCell>
+                        </TableRow>
+                    </TableHead>
+
+                    <TableBody>
+                        {invoices?.map((invoice) => (
+                            <AllInvoice
+                                key={invoice._id}
+                                invoice={invoice}
+                            ></AllInvoice>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </Container>
     );
 };
 

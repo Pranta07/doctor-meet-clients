@@ -15,14 +15,15 @@ import Pharma_5 from "../../../assets/pharmacy/banner-8-1.jpg";
 import pharma_text_4 from "../../../assets/pharmacy/banner-8-text.png";
 import pharma_text_5 from "../../../assets/pharmacy/banner-9-text.png";
 import Pharma_6 from "../../../assets/pharmacy/banner-9.jpg";
-import PharmacyBestProduct from "../pharmacy-best-product/PharmacyBestProduct";
-import PharmacyCardSlider from "../pharmacy-card-slider/PharmacyCardSlider";
 import PharmacySingleProduct from "../pharmacy-single-product/PharmacySingleProduct";
-import PharmacyTimer from "../pharmacy-timer/PharmacyTimer";
 import "./PharmacyProducts.css";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProduct } from "../../../redux/actions/productAction";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 export interface productsType {
   Sku: string;
   category: string;
@@ -42,19 +43,9 @@ export interface productsType {
 }
 
 const PharmacyProducts = () => {
-  // let [images, setImages] = useState<productsType[]>([]);
-  // console.log(productsP)
+
   const dispatch = useAppDispatch();
   const { products }: any = useAppSelector((state) => state.products);
-  // const { products } = productArray;
-  // console.log(products)
-  // const { images } = products;
-  // console.log(images)
-
-  // if (products) {
-  //   products.map((product: any) => setImages(product.images[0]));
-  // }
-
   const time = new Date();
   time.setSeconds(time.getMonth() + 19890);
 
@@ -62,11 +53,6 @@ const PharmacyProducts = () => {
     //@ts-ignore
     dispatch(getProduct());
 
-    // fetch("https://immense-beyond-64415.herokuapp.com/medicine/all")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setProductsP(data.result);
-    //   });
   }, []);
 
   if (!products) {
@@ -74,7 +60,7 @@ const PharmacyProducts = () => {
   }
 
   return (
-    <div className="container">
+    <RootStyle className="container">
       <h1 className=" text-center my-5"> Latest products </h1>
       <div className="row">
         {products.length &&
@@ -190,33 +176,7 @@ const PharmacyProducts = () => {
           </Link>
         </div>
       </div>
-      <div>
-        <PharmacyTimer expiryTimestamp={time}></PharmacyTimer>
-      </div>
-      <div className="row">
-        {products.length &&
-          products.map((product: any) => (
-            <PharmacyCardSlider
-              key={product._id}
-              product={product}
-            ></PharmacyCardSlider>
-          ))}
-      </div>
-      <div>
-        <h1 className="text-center my-5"> Bestsellers </h1>
-      </div>
-      <div className="row">
-        {products.length &&
-          products
-            .slice(0, 6)
-            .map((product: any) => (
-              <PharmacyBestProduct
-                key={product._id}
-                product={product}
-              ></PharmacyBestProduct>
-            ))}
-      </div>
-    </div>
+    </RootStyle>
   );
 };
 

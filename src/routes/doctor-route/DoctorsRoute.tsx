@@ -6,7 +6,7 @@ import { useAppSelector } from "../../redux/store";
 
 const DoctorsRoute = ({ children }: { children: any }) => {
   const { user, loading }: any = useAppSelector((state) => state.user);
-
+ 
 
   let location = useLocation();
 
@@ -21,7 +21,7 @@ const DoctorsRoute = ({ children }: { children: any }) => {
     );
   }
 
-  if (user?.email && (user?.role === "doctor") || (user?.role === "admin")) {
+  if (user?.email && user?.role === "doctor" || user?.role === "admin" ) {
     return children;
   } else {
     return <Navigate to="/" state={{ from: location }} replace />;

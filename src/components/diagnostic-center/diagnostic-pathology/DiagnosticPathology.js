@@ -2,7 +2,12 @@ import React from "react";
 import { Box, Modal } from "@mui/material";
 import { Link } from "react-router-dom";
 
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+
+  backgroundColor: theme.palette.background.default,
+}))
 
 const DiagnosticPathology = ({ pathology }) => {
   const intPrice = pathology.price;
@@ -27,7 +32,7 @@ const DiagnosticPathology = ({ pathology }) => {
     p: 4,
   };
   return (
-    <div>
+    <RootStyle>
       <div
         className="d-flex align-items-center imaging-info-container"
         onClick={handleOpen}
@@ -74,7 +79,7 @@ const DiagnosticPathology = ({ pathology }) => {
           </Link>
         </Box>
       </Modal>
-    </div>
+    </RootStyle>
   );
 };
 

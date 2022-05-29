@@ -7,7 +7,12 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import "./Footer.css";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 const Footer = () => {
   const { pathname } = useLocation();
   if (pathname === "/dashboard/dashboard-home") return null;
@@ -15,7 +20,7 @@ const Footer = () => {
   else if (pathname === "/dashboard/admin") return null;
 
   return (
-    <div className="footer-bg-color">
+    <RootStyle className="footer-bg-color">
       {window.location.pathname === "/dashboard/dashboard-home" ||
       window.location.pathname === "/dashboard/doctors" ||
       window.location.pathname === "/dashboard/admin" ||
@@ -85,7 +90,7 @@ const Footer = () => {
           </footer>
         </div>
       )}
-    </div>
+    </RootStyle>
   );
 };
 

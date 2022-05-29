@@ -20,7 +20,7 @@ import Iconify from "../../components/Iconify";
 
 // ----------------------------------------------------------------------
 
-const LinkStyle: any = styled(Link)(({ theme }) => ({
+const LinkStyle: any = styled(Link)(({ theme }: any) => ({
   ...theme.typography.subtitle2,
   color: theme.palette.text.primary,
   marginRight: theme.spacing(5),

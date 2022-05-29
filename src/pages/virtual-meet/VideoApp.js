@@ -2,6 +2,8 @@ import './VideoApp.scss';
 import { styled } from "@mui/material/styles";
 import React, {Component} from 'react';
 import Room from './Room';
+import { Button } from '@mui/material';
+import { useAppSelector } from '../../redux/store';
 const { connect } = require('twilio-video');
 
 const RootStyle = styled("div")(({ theme }) => ({
@@ -12,9 +14,11 @@ const RootStyle = styled("div")(({ theme }) => ({
   paddingLeft: theme.spacing(25),
   paddingRight: theme.spacing(25),
 }));
-
 class VideoApp extends Component {
+  
+  
   constructor(props) {
+
     super(props)
 
     this.state = {
@@ -54,7 +58,7 @@ class VideoApp extends Component {
         video: true
       });
 
-console.log(room);
+
       this.setState({ room: room });
     } catch(err) {
       console.log(err);
@@ -75,23 +79,23 @@ console.log(room);
     this.inputRef.current.placeholder = '';
   }
 
+
   render() {
     const disabled = this.state.identity === '' ? true : false;
-
     return (
       <RootStyle>
       <div id="video-app" >
         { 
           this.state.room === null
           ? <div style={{width:"100%",margin:"auto"}} className = "lobby">
-              <input 
+              {/* <input 
               className='video-inp'
                 ref={this.inputRef} 
                 value={this.state.identity} 
                 onClick={this.removePlaceholderText} 
                 onChange={this.updateIdentity} 
-                placeholder="What's your name?"/>
-              <button className='video-btn' disabled={disabled} onClick={this.joinRoom}>Join Room</button>
+                placeholder="What's your name?"/> <br /> <br /> */}
+              <Button variant="contained" onClick={this.joinRoom}>Join Room</Button>
             </div>
           : <Room leaveRoom={this.leaveRoom} room={this.state.room} />
         }

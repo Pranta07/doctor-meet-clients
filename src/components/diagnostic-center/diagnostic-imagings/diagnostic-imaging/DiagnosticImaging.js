@@ -3,7 +3,12 @@ import { Box, Modal } from "@mui/material";
 
 import "./DiagnosticImaging.css";
 import { Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+
+  backgroundColor: theme.palette.background.default,
+}))
 const DiagnosticImaging = ({ imaging }) => {
   const intPrice = imaging.price;
   const intDiscount = imaging.discount;
@@ -27,7 +32,7 @@ const DiagnosticImaging = ({ imaging }) => {
     p: 4,
   };
   return (
-    <div className="imaging-modal-container">
+    <RootStyle className="imaging-modal-container">
       <div
         className="d-flex align-items-center imaging-info-container"
         onClick={handleOpen}
@@ -75,7 +80,7 @@ const DiagnosticImaging = ({ imaging }) => {
           </Link>
         </Box>
       </Modal>
-    </div>
+    </RootStyle>
   );
 };
 

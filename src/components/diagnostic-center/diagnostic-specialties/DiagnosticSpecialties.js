@@ -2,6 +2,13 @@ import { Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Row, Container } from "react-bootstrap";
 import DiagnosticSpecialty from "../diagnostic-specialty/DiagnosticSpecialty";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}))
+
 const DiagnosticSpecialties = () => {
   const [specialties, setSpecialties] = useState([]);
   useEffect(() => {

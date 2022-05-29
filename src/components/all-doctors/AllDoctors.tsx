@@ -9,7 +9,7 @@ import SingleDoctor from "../single-doctor/SingleDoctor";
 import Page from "../Page";
 import { styled } from "@mui/material/styles";
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   minHeight: "100%",
   paddingTop: theme.spacing(15),
   paddingBottom: theme.spacing(10),
@@ -31,7 +31,7 @@ const AllDoctors = () => {
 
   useEffect(() => {
     setLoading(true);
-    const url = `https://ancient-inlet-17554.herokuapp.com/api/v1/doctors/all?specialist=${dept}&&gender=${gender}&&page=${page}&&rows=${6}`;
+    const url = `https://evening-peak-31569.herokuapp.com/api/v1/doctors/all?specialist=${dept}&&gender=${gender}&&page=${page}&&rows=${6}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

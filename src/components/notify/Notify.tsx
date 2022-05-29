@@ -10,46 +10,45 @@ const Notify = () => {
   const [users, setUsers] = useState<any>([]);
   let userRef = useRef<HTMLInputElement>(null!);
   let moderatorRef = useRef<HTMLInputElement>(null!);
-  let adminRef = useRef<HTMLInputElement>(null!)
-  const [text, setText] = useState("");
-
-  const handleChange = (value: any) => {
-    setText(value);
-  };
+  let adminRef = useRef<HTMLInputElement>(null!);
+  let DrnameRef = useRef<HTMLInputElement>(null!);
+  let messageRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
-    const url1 = `https://ancient-inlet-17554.herokuapp.com/api/v1/admin/users/role?role=user`;
+    const url1 = `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/role?role=user`;
     fetch(url1)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.user);
       });
-    // const url2 = `https://ancient-inlet-17554.herokuapp.com/api/v1/admin/users/role?role=doctor`;
-    // fetch(url2)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setDoctors(data.result);
-    //   });
   }, [admin, moderator, users]);
 
   useEffect(() => {
-    const url3 = `https://ancient-inlet-17554.herokuapp.com/api/v1/admin/users/role?role=modaretor`;
+    const url2 = `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/role?role=doctor`;
+    fetch(url2)
+      .then((res) => res.json())
+      .then((data) => {
+        setDoctors(data.user);
+      });
+  }, []);
+
+  useEffect(() => {
+    const url3 = `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/role?role=modaretor`;
     fetch(url3)
       .then((res) => res.json())
       .then((data) => {
         setModerator(data.user);
       });
-  }, [])
+  }, []);
 
   useEffect(() => {
-    const url4 = `https://ancient-inlet-17554.herokuapp.com/api/v1/admin/users/role?role=admin`;
+    const url4 = `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/role?role=admin`;
     fetch(url4)
       .then((res) => res.json())
       .then((data) => {
         setAdmin(data.user);
       });
-  }, [])
-
+  }, []);
 
   const defaultProps = {
     options: doctors,
@@ -70,25 +69,32 @@ const Notify = () => {
 
   const handleSendNotify = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    let id = userRef.current?.value.split("#")[1] || moderatorRef.current?.value.split("#")[1] || adminRef.current?.value.split("#")[1];
-    let message = text;
+    let id =
+      userRef.current?.value.split("#")[1] ||
+      moderatorRef.current?.value.split("#")[1] ||
+      adminRef.current?.value.split("#")[1] ||
+      DrnameRef.current?.value.split("#")[1];
+    let message = messageRef.current?.value;
     let date = new Date();
-    let status = 'unRead';
+    let status = "unRead";
 
     const notify = { message, date, status };
 
     //send review data to server
-    fetch(`https://ancient-inlet-17554.herokuapp.com/api/v1/admin/users/notify/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(notify),
-    }).then((res) => {
+    fetch(
+      `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/notify/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(notify),
+      }
+    ).then((res) => {
       if (res.status === 200) {
         Swal.fire({
           title: "Success",
-          text: "Admin Or Modaretor Successfully Added",
+          text: "notification send Successfully ",
           icon: "success",
           showConfirmButton: false,
           timer: 2000,
@@ -105,8 +111,6 @@ const Notify = () => {
       }
     });
   };
-
-
 
   return (
     <div className="container">
@@ -149,24 +153,24 @@ const Notify = () => {
                 />
               )}
             />
-            {/* <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            {...defaultProps}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                required
-                fullWidth
-                label="Doctor Name"
-                variant="outlined"
-                inputRef={DrnameRef}
-                sx={{
-                  my: "15px",
-                }}
-              />
-            )}
-          /> */}
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              {...defaultProps}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  required
+                  fullWidth
+                  label="Doctor Email & id"
+                  variant="outlined"
+                  inputRef={DrnameRef}
+                  sx={{
+                    my: "15px",
+                  }}
+                />
+              )}
+            />
             <Autocomplete
               disablePortal
               id="combo-box-demo"
@@ -204,26 +208,23 @@ const Notify = () => {
                 />
               )}
             />
-
-            <Box
+            <TextField
+              required
+              fullWidth
+              label="Send a message"
+              variant="outlined"
+              rows={4}
+              multiline
+              inputRef={messageRef}
               sx={{
-                width: {
-                  xs: "100%",
-                  md: "100%",
-                },
-                my: 2,
-                mx: "auto",
+                my: "15px",
               }}
+            />
+            <Button
+              onClick={handleSendNotify}
+              className="my-3"
+              variant="contained"
             >
-              <div>
-                <ReactQuill
-                  value={text}
-                  onChange={handleChange}
-                  placeholder="Write your article content here..."
-                />
-              </div>
-            </Box>
-            <Button onClick={handleSendNotify} className="my-3" variant="contained">
               Send
             </Button>
           </form>

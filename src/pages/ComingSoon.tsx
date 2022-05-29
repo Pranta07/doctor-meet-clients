@@ -8,7 +8,7 @@ import Page from "../components/Page";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   height: "100%",
   display: "flex",
   alignItems: "center",
@@ -21,7 +21,7 @@ const CountdownStyle = styled("div")({
   justifyContent: "center",
 });
 
-const SeparatorStyle = styled(Typography)(({ theme }) => ({
+const SeparatorStyle = styled(Typography)(({ theme }: any) => ({
   margin: theme.spacing(0, 1),
   [theme.breakpoints.up("sm")]: {
     margin: theme.spacing(0, 2.5),

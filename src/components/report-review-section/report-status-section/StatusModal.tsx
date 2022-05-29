@@ -14,7 +14,7 @@ import { Icon } from "@iconify/react";
 import { styled } from "@mui/material/styles";
 
 const style = {
-    position: "absolute" as "absolute",
+    position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
@@ -99,45 +99,41 @@ const StatusModal = (props: any) => {
     const { smOpen, handlesClose, report } = props;
 
     return (
-        <div>
-            <Modal
-                open={smOpen}
-                onClose={handlesClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={style}>
-                    <Stack sx={{ width: "100%" }} spacing={4}>
-                        <Stepper
-                            alternativeLabel
-                            activeStep={report.status ? 1 : 0}
-                            connector={<ColorLibConnector />}
-                        >
-                            {steps.map((label) => (
-                                <Step key={label}>
-                                    <StepLabel
-                                        StepIconComponent={ColorLibStepIcon}
-                                    >
-                                        {label}
-                                    </StepLabel>
-                                </Step>
-                            ))}
-                        </Stepper>
-                    </Stack>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            mt: 3,
-                        }}
+        <Modal
+            open={smOpen}
+            onClose={handlesClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <Box sx={style}>
+                <Stack sx={{ width: "100%" }} spacing={4}>
+                    <Stepper
+                        alternativeLabel
+                        activeStep={report.status ? 1 : 0}
+                        connector={<ColorLibConnector />}
                     >
-                        <Button onClick={handlesClose} variant="contained">
-                            Close
-                        </Button>
-                    </Box>
+                        {steps.map((label) => (
+                            <Step key={label}>
+                                <StepLabel StepIconComponent={ColorLibStepIcon}>
+                                    {label}
+                                </StepLabel>
+                            </Step>
+                        ))}
+                    </Stepper>
+                </Stack>
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        mt: 3,
+                    }}
+                >
+                    <Button onClick={handlesClose} variant="contained">
+                        Close
+                    </Button>
                 </Box>
-            </Modal>
-        </div>
+            </Box>
+        </Modal>
     );
 };
 

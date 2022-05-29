@@ -24,7 +24,7 @@ import { NavSectionVertical } from "../../components/nav-section/index";
 import logo from "../../assets/img/logo.png";
 // ----------------------------------------------------------------------
 
-const ListItemStyle: any = styled(ListItemButton)(({ theme }) => ({
+const ListItemStyle: any = styled(ListItemButton)(({ theme }: any) => ({
   ...theme.typography.body2,
   height: NAVBAR.DASHBOARD_ITEM_ROOT_HEIGHT,
   textTransform: "capitalize",

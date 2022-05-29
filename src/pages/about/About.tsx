@@ -10,6 +10,8 @@ import FAQ from "../../components/faq/FAQ";
 // ----------------------------------------------------------------------
 
 const RootStyle = styled("div")(({ theme }) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
   paddingTop: theme.spacing(8),
   [theme.breakpoints.up("md")]: {
     paddingTop: theme.spacing(11),

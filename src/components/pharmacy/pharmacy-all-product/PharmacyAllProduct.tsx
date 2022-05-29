@@ -21,18 +21,24 @@ import PharmacyShop from "../pharmacy-shop/PharmacyShop";
 import "./PharmacyAllProduct.css";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProduct } from "../../../redux/actions/productAction";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacyAllProduct = () => {
   let [upperPrice, setUpperPrice] = useState(0);
   let [lowerPrice, setLowerPrice] = useState(0);
-  let price = [lowerPrice, upperPrice]
-  let keyword = '';
+  let price = [lowerPrice, upperPrice];
+  let keyword = "";
   let currentPage = 1;
   let category = "";
 
-
   const dispatch = useAppDispatch();
-  const { products, productsCount }: any = useAppSelector((state) => state.products);
+  const { products, productsCount }: any = useAppSelector(
+    (state) => state.products
+  );
   console.log(products);
   // let [count, setCount] = useState(1);
   // if (products.length) {
@@ -41,32 +47,30 @@ const PharmacyAllProduct = () => {
   // }
   let count = Math.ceil(productsCount / products?.length);
 
-
   const [page, setPage] = useState(1);
 
   // let inputRef = useRef("");
-  let [searchValue, setSearchValue] = useState('');
-
+  let [searchValue, setSearchValue] = useState("");
 
   //@ts-ignore
   const handleOnChange = (e) => {
     setSearchValue(e.target.value);
-
-  }
+  };
 
   //@ts-ignore
   const handleSearch = (e: any) => {
     e.preventDefault();
     console.log("clicked");
     //@ts-ignore
-    let filteredProducts = products?.filter((product): any => product.name.toLowerCase() === searchValue.toLowerCase());
-    console.log(filteredProducts)
-  }
+    let filteredProducts = products?.filter(
+      (product: any) => product.name.toLowerCase() === searchValue.toLowerCase()
+    );
+    console.log(filteredProducts);
+  };
 
   useEffect(() => {
     //@ts-ignore
-    dispatch(getProduct())
-
+    dispatch(getProduct());
   }, []);
 
   return (
@@ -95,17 +99,15 @@ const PharmacyAllProduct = () => {
                   // setSearchValue={(e: any) => e.target.value}
                   onChange={(e) => handleOnChange(e)}
                 />{" "}
-                {
-                  products.length > 0 &&
+                {products.length > 0 && (
                   <button
                     onClick={(e) => handleSearch(e)}
-                    className="btn btn-outline-primary mx-2">
+                    className="btn btn-outline-primary mx-2"
+                  >
                     {" "}
-                    <FontAwesomeIcon
-                      icon={faSearch}
-                    />{" "}
+                    <FontAwesomeIcon icon={faSearch} />{" "}
                   </button>
-                }
+                )}
               </div>
               <h3> Product categories </h3>
               <hr className="hr-blue" />
@@ -130,11 +132,16 @@ const PharmacyAllProduct = () => {
                   setLowerPrice={setLowerPrice}
                 />
                 <div className="my-1">
-                  <button className="btn-primary btn"
+                  <button
+                    className="btn-primary btn"
                     onClick={
                       //@ts-ignore
-                      () => dispatch(getProduct(keyword, currentPage, price))}
-                  > Filter </button>{" "}
+                      () => dispatch(getProduct(keyword, currentPage, price))
+                    }
+                  >
+                    {" "}
+                    Filter{" "}
+                  </button>{" "}
                 </div>
               </div>
               <div className="my-4">
@@ -191,7 +198,6 @@ const PharmacyAllProduct = () => {
               </div>
             </div>
             <div className="row">
-
               {
                 //@ts-ignore
                 products.map((product) => (
@@ -199,7 +205,8 @@ const PharmacyAllProduct = () => {
                     products={product}
                     Key={product._id}
                   ></PharmacyShop>
-                ))}
+                ))
+              }
             </div>
             <Stack spacing={2}>
               <Pagination
