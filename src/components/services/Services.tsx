@@ -86,10 +86,7 @@ const services: service_if[] = [
   },
 ];
 const RootStyle = styled("div")(({ theme }: any) => ({
-  paddingTop: theme.spacing(15),
-  [theme.breakpoints.up("md")]: {
-    paddingBottom: theme.spacing(15),
-  },
+  [theme.breakpoints.up("md")]: {},
 
   height: "100%",
   backgroundColor: theme.palette.background.default,
@@ -99,7 +96,7 @@ const Services = () => {
   return (
     <RootStyle>
       <Box className="services-section">
-        <Container className="my-4 text-center service-dot">
+        <Container className="text-center service-dot">
           <m.div>
             <p
               className="text-center fw-bold mt-5"

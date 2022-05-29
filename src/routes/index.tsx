@@ -34,6 +34,7 @@ import UserAppointments from "../components/all-appointments-user/UserAppointmen
 import AllReportStatus from "../components/report-review-section/report-status-section/AllReportStatus";
 import GuestGuard from "../guards/GuestGuard";
 import AuthGuard from "../guards/AuthGuard";
+import RoleBasedGuard from "../guards/RoleBasedGuard";
 
 // ----------------------------------------------------------------------
 
@@ -137,19 +138,35 @@ export default function Router() {
           children: [
             {
               path: "report-pdf",
-              element: <ReportPdf />,
+              element: (
+                <RoleBasedGuard accessibleRoles="doctor">
+                  <ReportPdf />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "reports",
-              element: <AllReports />,
+              element: (
+                <RoleBasedGuard accessibleRoles="doctor">
+                  <AllReports />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "add-article",
-              element: <AddArticle />,
+              element: (
+                <RoleBasedGuard accessibleRoles="doctor">
+                  <AddArticle />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "my-schedule-doctor",
-              element: <DoctorAppointments />,
+              element: (
+                <RoleBasedGuard accessibleRoles="doctor">
+                  <DoctorAppointments />
+                </RoleBasedGuard>
+              ),
             },
           ],
         },
@@ -160,23 +177,43 @@ export default function Router() {
           children: [
             {
               path: "Report-section",
-              element: <ReportSection />,
+              element: (
+                <RoleBasedGuard accessibleRoles="modaretor">
+                  <ReportSection />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "Report-status",
-              element: <ReportStatus />,
+              element: (
+                <RoleBasedGuard accessibleRoles="modaretor">
+                  <ReportStatus />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "report-pdf",
-              element: <ReportPdf />,
+              element: (
+                <RoleBasedGuard accessibleRoles="modaretor">
+                  <ReportPdf />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "all-appointments",
-              element: <AllAppointments />,
+              element: (
+                <RoleBasedGuard accessibleRoles="modaretor">
+                  <AllAppointments />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "all-diagnosis",
-              element: <AllDiagnosis />,
+              element: (
+                <RoleBasedGuard accessibleRoles="modaretor">
+                  <AllDiagnosis />
+                </RoleBasedGuard>
+              ),
             },
           ],
         },
@@ -186,48 +223,88 @@ export default function Router() {
           path: "admin",
           children: [
             {
-              element: <Navigate to="/dashboard/admin/doctors" replace />,
+              element: <Navigate to="/dashboard/home" replace />,
               index: true,
             },
             {
               path: "manage-doctors",
-              element: <ManageDoctors />,
+              element: (
+                <RoleBasedGuard accessibleRoles="admin">
+                  <ManageDoctors />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "manage-donors",
-              element: <ManageDonors />,
+              element: (
+                <RoleBasedGuard accessibleRoles="admin">
+                  <ManageDonors />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "all-appointments",
-              element: <AllAppointments />,
+              element: (
+                <RoleBasedGuard accessibleRoles="admin">
+                  <AllAppointments />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "all-diagnosis",
-              element: <AllDiagnosis />,
+              element: (
+                <RoleBasedGuard accessibleRoles="admin">
+                  <AllDiagnosis />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "edit-doctors",
-              element: <ControlDoctors />,
+              element: (
+                <RoleBasedGuard accessibleRoles="admin">
+                  <ControlDoctors />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "edit-doctors/edit-single-doctor/:id",
-              element: <EditSingleDoctor />,
+              element: (
+                <RoleBasedGuard accessibleRoles="admin">
+                  <EditSingleDoctor />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "/dashboard/admin/notify",
-              element: <Notify />,
+              element: (
+                <RoleBasedGuard accessibleRoles="admin">
+                  <Notify />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "/dashboard/admin/make-moderator",
-              element: <MakeModaretor />,
+              element: (
+                <RoleBasedGuard accessibleRoles="admin">
+                  <MakeModaretor />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "all-invoices",
-              element: <AllInvoices />,
+              element: (
+                <RoleBasedGuard accessibleRoles="admin">
+                  <AllInvoices />
+                </RoleBasedGuard>
+              ),
             },
             {
               path: "add-order",
-              element: <AddOrder />,
+              element: (
+                <RoleBasedGuard accessibleRoles="admin">
+                  <AddOrder />
+                </RoleBasedGuard>
+              ),
             },
           ],
         },
@@ -259,7 +336,11 @@ export default function Router() {
         { path: "premium-membership", element: <PremiumMemberships /> },
         {
           path: "virtual-meet/:id",
-          element: <VideoApp />,
+          element: (
+            <AuthGuard>
+              <VideoApp />
+            </AuthGuard>
+          ),
         },
         { path: "login", element: <Login /> },
 

@@ -13,7 +13,7 @@ import {
 // components
 import MenuPopover from "../../../components/MenuPopover";
 
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../../redux/store";
 import { logout } from "../../../redux/actions/userAction";
 import usePremiumMembershipStatus from "../../../hooks/usePremiumMembersipStatus";
@@ -109,10 +109,11 @@ export default function AccountPopover() {
         </Stack>
 
         <Divider sx={{ borderStyle: "dashed" }} />
-
-        <MenuItem onClick={() => dispatch(logout())} sx={{ m: 1 }}>
-          Logout
-        </MenuItem>
+        <NavLink to="/">
+          <MenuItem onClick={() => dispatch(logout())} sx={{ m: 1 }}>
+            Logout
+          </MenuItem>
+        </NavLink>
       </MenuPopover>
     </>
   );

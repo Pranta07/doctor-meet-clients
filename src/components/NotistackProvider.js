@@ -6,6 +6,7 @@ import { alpha, useTheme } from "@mui/material/styles";
 import { Box, GlobalStyles } from "@mui/material";
 //
 import Iconify from "./Iconify";
+import { IconButtonAnimate } from "./animate";
 
 // ----------------------------------------------------------------------
 
@@ -95,9 +96,9 @@ export default function NotistackProvider({ children }) {
         // With close as default
         action={(key) => (
           //@ts-ignore
-
+          <IconButtonAnimate size="small" onClick={onClose(key)} sx={{ p: 0.5 }}>
             <Iconify icon={"eva:close-fill"} />
-       
+            </IconButtonAnimate>
         )}
       >
         {children}

@@ -109,68 +109,72 @@ export default function NotificationsPopover() {
             disablePadding
            
           >
-            <Stack
-              direction="column"
-              justifyContent="left"
-              alignItems="left" spacing={2}>
-            {notificationData.map((notification, index) => (
-                   
-                      <Paper
-                      
-                      key={index}
-                        sx={{
-                          p:1.5,
-                          alignItems: 'left',
-                          color: 'text.disabled',
-                          boxShadow: 3
-                        }}
-                      >
-                        <Stack
-  direction="row"
+{
+  notificationData.length===0 ? <Typography align='center' py={2}>You don't have notifications.</Typography>: <Stack
+  direction="column"
   justifyContent="left"
-  alignItems="left"
-  spacing={1}
+  alignItems="left" spacing={2}>
+{notificationData.map((notification, index) => (
+       
+          <Paper
+          
+          key={index}
+            sx={{
+              p:1.5,
+              alignItems: 'left',
+              color: 'text.disabled',
+              boxShadow: 3
+            }}
+          >
+            <Stack
+direction="row"
+justifyContent="left"
+alignItems="left"
+spacing={1}
 >
 <Box>
 <Iconify icon="carbon:notification-filled" sx={{ mr: 0.5, width: 16, height: 16 }} />
 </Box>
 <Box
-                        sx={{
-                         
-                          alignItems: 'left',   
-                        }}>{notification?.message}</Box> 
+            sx={{
+             
+              alignItems: 'left',   
+            }}>{notification?.message}</Box> 
 
-  </Stack>
-
-  
+</Stack>
 
 
-                  
-                   
-                       
-                        <Stack
-  direction="row"
-  justifyContent="left"
-  alignItems="left"
-  spacing={1}
+
+
+      
+       
+           
+            <Stack
+direction="row"
+justifyContent="left"
+alignItems="left"
+spacing={1}
 >
 <Box>
 <Iconify icon="eva:clock-outline" sx={{ mr: 0.5, width: 16, height: 16 }} />
 </Box>
-                       <Box>
-                       {fToNow(notification?.date)}
-                       </Box>
+           <Box>
+           {fToNow(notification?.date)}
+           </Box>
 
-  </Stack>
+</Stack>
 
 
-                       
-                      </Paper>
-                    
-              
-             
-            ))}
-            </Stack>
+           
+          </Paper>
+        
+  
+ 
+))}
+</Stack>
+}
+            
+           
           </List>
         </Scrollbar>
 
