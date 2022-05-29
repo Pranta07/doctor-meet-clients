@@ -1,6 +1,14 @@
 import React from "react";
-import { TableCell, tableCellClasses, TableRow, Button } from "@mui/material";
+import {
+    TableCell,
+    tableCellClasses,
+    TableRow,
+    Button,
+    Tooltip,
+    IconButton,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { Delete } from "@mui/icons-material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -71,11 +79,15 @@ const AllDiagnosisRow = ({ diagnosis }) => {
                     <Button color="warning">Unpaid</Button>
                 )}
             </StyledTableCell>
-            <StyledTableCell className="mx-auto text-center text-danger">
-                <i
-                    className="fas fa-trash-alt"
-                    onClick={deleteBookedDiagnosisAppointment}
-                ></i>
+            <StyledTableCell className="mx-auto text-center">
+                <Tooltip title="Delete" placement="left-start">
+                    <IconButton
+                        onClick={deleteBookedDiagnosisAppointment}
+                        color="error"
+                    >
+                        <Delete></Delete>
+                    </IconButton>
+                </Tooltip>
             </StyledTableCell>
         </StyledTableRow>
     );
