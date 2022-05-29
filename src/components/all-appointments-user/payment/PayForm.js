@@ -46,7 +46,7 @@ const PayForm = ({ appointment, setUpdate }) => {
         setProcessing(true); //payment proccessing
 
         // Use your card Element with other Stripe.js APIs/payment method
-        const { error, /* paymentMethod */ } = await stripe.createPaymentMethod({
+        const { error /* paymentMethod */ } = await stripe.createPaymentMethod({
             type: "card",
             card,
         });
@@ -94,7 +94,7 @@ const PayForm = ({ appointment, setUpdate }) => {
             newApp["payInfo"] = payment;
             // console.log(payment);
             fetch(
-                `http://localhost:5000/api/v1/appointment/${appointment._id}`,
+                `https://doctor-meet-server.herokuapp.com/api/v1/appointment/${appointment._id}`,
                 {
                     method: "PUT",
                     headers: {
