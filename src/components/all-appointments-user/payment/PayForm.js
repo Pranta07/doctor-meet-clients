@@ -94,7 +94,7 @@ const PayForm = ({ appointment, setUpdate }) => {
             newApp["payInfo"] = payment;
             // console.log(payment);
             fetch(
-                `https://doctor-meet-server.herokuapp.com/api/v1/appointment/${appointment._id}`,
+                `https://evening-peak-31569.herokuapp.com/api/v1/appointment/${appointment._id}`,
                 {
                     method: "PUT",
                     headers: {

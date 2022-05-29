@@ -49,7 +49,7 @@ const UserReview = () => {
     // console.log(review);
 
     //send review data to server
-    fetch("https://doctor-meet-server.herokuapp.com/api/v1/review/add", {
+    fetch("https://evening-peak-31569.herokuapp.com/api/v1/review/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",

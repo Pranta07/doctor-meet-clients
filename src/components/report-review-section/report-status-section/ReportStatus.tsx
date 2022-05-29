@@ -29,7 +29,7 @@ const ReportStatus = () => {
 
   useEffect(() => {
     // setLoading(true);
-    const url = `https://doctor-meet-server.herokuapp.com/api/v1/report/patient/${user?.email}`;
+    const url = `https://evening-peak-31569.herokuapp.com/api/v1/report/patient/${user?.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

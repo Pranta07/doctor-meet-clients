@@ -8,7 +8,7 @@ const MakeModerator = () => {
   let roleRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
-    const url1 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users`;
+    const url1 = `https://evening-peak-31569.herokuapp.com/api/v1/admin/users`;
     fetch(url1)
       .then((res) => res.json())
       .then((data) => {
@@ -35,7 +35,7 @@ const MakeModerator = () => {
     const roles = { role };
 
     //send review data to server
-    fetch(`https://doctor-meet-server.herokuapp.com/api/v1/admin/user/${id}`, {
+    fetch(`https://evening-peak-31569.herokuapp.com/api/v1/admin/user/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

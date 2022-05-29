@@ -39,7 +39,7 @@ const DoctorsTable = () => {
   useEffect(() => {
     setLoading(true);
 
-    const url = `https://doctor-meet-server.herokuapp.com/api/v1/doctors/all?specialist=All&&gender=All&&page=${
+    const url = `https://evening-peak-31569.herokuapp.com/api/v1/doctors/all?specialist=All&&gender=All&&page=${
       page + 1
     }&&rows=${rowsPerPage}`;
 

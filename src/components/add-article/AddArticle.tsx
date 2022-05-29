@@ -92,7 +92,7 @@ const AddArticle = () => {
     // console.log(article);
 
     //send article data to server
-    fetch("https://doctor-meet-server.herokuapp.com/api/v1/article/add", {
+    fetch("https://evening-peak-31569.herokuapp.com/api/v1/article/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",

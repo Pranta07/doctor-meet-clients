@@ -40,7 +40,7 @@ const ReviewModal = (props: any) => {
     // console.log(newReport);
     //send review data to server
     fetch(
-      `https://doctor-meet-server.herokuapp.com/api/v1/report/${report?._id}`,
+      `https://evening-peak-31569.herokuapp.com/api/v1/report/${report?._id}`,
       {
         method: "PUT",
         headers: {

@@ -34,7 +34,7 @@ const ReportSection = () => {
   const [users, setUsers] = useState<any>([]);
 
   useEffect(() => {
-    const url = `https://doctor-meet-server.herokuapp.com/api/v1/doctors/all?specialist=All&&gender=All&&page=1&&rows=${1000}`;
+    const url = `https://evening-peak-31569.herokuapp.com/api/v1/doctors/all?specialist=All&&gender=All&&page=1&&rows=${1000}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -43,7 +43,7 @@ const ReportSection = () => {
   }, []);
 
   useEffect(() => {
-    const url1 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=user`;
+    const url1 = `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/role?role=user`;
     fetch(url1)
       .then((res) => res.json())
       .then((data) => {
@@ -122,7 +122,7 @@ const ReportSection = () => {
     // console.log(report);
 
     //send report data to server
-    fetch(`https://doctor-meet-server.herokuapp.com/api/v1/report`, {
+    fetch(`https://evening-peak-31569.herokuapp.com/api/v1/report`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

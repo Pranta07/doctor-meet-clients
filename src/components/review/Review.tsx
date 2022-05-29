@@ -29,7 +29,7 @@ const Review = () => {
   const [reviews, setReviews] = useState<IReview[]>([]);
 
   useEffect(() => {
-    fetch("https://doctor-meet-server.herokuapp.com/api/v1/review")
+    fetch("https://evening-peak-31569.herokuapp.com/api/v1/review")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data.result);

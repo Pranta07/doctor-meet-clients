@@ -30,7 +30,6 @@ const RootStyle = styled("div")(({ theme }: any) => ({
   paddingBottom: theme.spacing(10),
 }));
 
-
 const settings = {
   dots: true,
   infinite: true,
@@ -41,7 +40,6 @@ const settings = {
   slidesToScroll: 1,
   initialSlide: 0,
 };
-
 
 const DoctorView = () => {
   const { user }: any = useAppSelector((state) => state.user);
@@ -88,13 +86,13 @@ const DoctorView = () => {
 
   useEffect(() => {
     fetch(
-      `https://doctor-meet-server.herokuapp.com/api/v1/doctors/single/${id}`
+      `https://evening-peak-31569.herokuapp.com/api/v1/doctors/single/${id}`
     )
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data.data[0]);
         setAddress(data.data[0].address[0]);
-        setUserReview(data.data[0].UserReview)
+        setUserReview(data.data[0].UserReview);
       });
   }, [id]);
 
@@ -155,7 +153,7 @@ const DoctorView = () => {
 
     //send review data to server
     fetch(
-      `https://doctor-meet-server.herokuapp.com/api/v1/UserReview/single/${id}`,
+      `https://evening-peak-31569.herokuapp.com/api/v1/UserReview/single/${id}`,
       {
         method: "PUT",
         headers: {
@@ -222,7 +220,7 @@ const DoctorView = () => {
     // console.log(review);
 
     //send review data to server
-    fetch(`https://doctor-meet-server.herokuapp.com/api/v1/appointment/add`, {
+    fetch(`https://evening-peak-31569.herokuapp.com/api/v1/appointment/add`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -433,10 +431,7 @@ const DoctorView = () => {
             <div className="mt-5" style={{ color: "#0783b5" }}>
               <Slider {...settings}>
                 {userReview.map((review: any) => (
-                  <DoctorReview
-                    key={review._id}
-                    review={review}
-                  ></DoctorReview>
+                  <DoctorReview key={review._id} review={review}></DoctorReview>
                 ))}
               </Slider>
             </div>

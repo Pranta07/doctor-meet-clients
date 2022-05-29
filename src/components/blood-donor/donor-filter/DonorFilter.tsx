@@ -46,7 +46,7 @@ const DonorFilter = () => {
 
   useEffect(() => {
     setLoading(true);
-    const url = `https://doctor-meet-server.herokuapp.com/api/v1/donor?group=${group}&&district=${district}&&page=${page}&&rows=${6}`;
+    const url = `https://evening-peak-31569.herokuapp.com/api/v1/donor?group=${group}&&district=${district}&&page=${page}&&rows=${6}`;
     // console.log(url);
     fetch(url)
       .then((res) => res.json())

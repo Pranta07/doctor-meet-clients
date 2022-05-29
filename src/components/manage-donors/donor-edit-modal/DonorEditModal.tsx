@@ -55,7 +55,7 @@ const DonorEditModal = (props: {
   const onSubmit: SubmitHandler<IFormInputs> = (data) => {
     setIsUpdate(false);
     // send data to server and update in database
-    const url = `https://doctor-meet-server.herokuapp.com/api/v1/donor/${donor._id}`;
+    const url = `https://evening-peak-31569.herokuapp.com/api/v1/donor/${donor._id}`;
     fetch(url, {
       method: "PUT",
       headers: {

@@ -4,7 +4,7 @@ import { io, Socket } from "socket.io-client";
 
 const SocketContext = createContext<any>("");
 
-// const socket = io('https://doctor-meet-server.herokuapp.com');
+// const socket = io('https://evening-peak-31569.herokuapp.com');
 
 const socket: Socket = io("https://doctor-meet.herokuapp.com");
 

@@ -51,7 +51,7 @@ const JoinUsForm = (props: any) => {
   const onSubmit: SubmitHandler<IFormInputs> = (data) => {
     console.log(data);
     // send data to server and store in database
-    fetch("https://doctor-meet-server.herokuapp.com/api/v1/donor/add", {
+    fetch("https://evening-peak-31569.herokuapp.com/api/v1/donor/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",

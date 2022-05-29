@@ -43,7 +43,7 @@ const AddOrder = () => {
     console.log(newProduct);
 
     //send review data to server
-    fetch("https://doctor-meet-server.herokuapp.com/api/v1/product/add", {
+    fetch("https://evening-peak-31569.herokuapp.com/api/v1/product/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -15,7 +15,7 @@ const Notify = () => {
   let messageRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
-    const url1 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=user`;
+    const url1 = `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/role?role=user`;
     fetch(url1)
       .then((res) => res.json())
       .then((data) => {
@@ -24,7 +24,7 @@ const Notify = () => {
   }, [admin, moderator, users]);
 
   useEffect(() => {
-    const url2 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=doctor`;
+    const url2 = `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/role?role=doctor`;
     fetch(url2)
       .then((res) => res.json())
       .then((data) => {
@@ -33,7 +33,7 @@ const Notify = () => {
   }, []);
 
   useEffect(() => {
-    const url3 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=modaretor`;
+    const url3 = `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/role?role=modaretor`;
     fetch(url3)
       .then((res) => res.json())
       .then((data) => {
@@ -42,7 +42,7 @@ const Notify = () => {
   }, []);
 
   useEffect(() => {
-    const url4 = `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/role?role=admin`;
+    const url4 = `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/role?role=admin`;
     fetch(url4)
       .then((res) => res.json())
       .then((data) => {
@@ -82,7 +82,7 @@ const Notify = () => {
 
     //send review data to server
     fetch(
-      `https://doctor-meet-server.herokuapp.com/api/v1/admin/users/notify/${id}`,
+      `https://evening-peak-31569.herokuapp.com/api/v1/admin/users/notify/${id}`,
       {
         method: "PUT",
         headers: {

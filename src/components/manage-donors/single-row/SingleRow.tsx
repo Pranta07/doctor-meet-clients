@@ -51,7 +51,7 @@ const SingleRow = (props: {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://doctor-meet-server.herokuapp.com/api/v1/donor/${id}`, {
+        fetch(`https://evening-peak-31569.herokuapp.com/api/v1/donor/${id}`, {
           method: "DELETE",
         }).then((res) => {
           if (res.status === 200) {
