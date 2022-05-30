@@ -106,5 +106,3 @@ export const PATH_DASHBOARD = {
     ),
   },
 };
-
-export const PATH_DOCS = "https://docs-minimals.vercel.app/introduction";
