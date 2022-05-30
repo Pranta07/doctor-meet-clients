@@ -147,7 +147,7 @@ function MenuMobileItem({ item, isOpen, onOpen }: any) {
                   bgcolor: "background.neutral",
                   backgroundRepeat: "no-repeat",
                   backgroundImage:
-                    "url(https://minimal-assets-api.vercel.app/assets/illustrations/illustration_dashboard.png)",
+                    "url(https://doctor-meet.web.app/assets/illustrations/illustration_dashboard.png)",
                   "& > *:not(.MuiTouchRipple-root)": { display: "none" },
                 },
               }}
