@@ -10,7 +10,7 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "./SingleDoctor.css";
 import { Idoctor } from "../favorite-doctors/FavoriteDoctors";
-import { Rating } from "@mui/material";
+import { Button, Rating } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
@@ -115,7 +115,9 @@ const SingleDoctor = (props: Iprops) => {
           </p>
           <div className="d-flex">
             <NavLink style={{ textDecoration: "none" }} to={`/doctor/${_id}`}>
-              <button className="btn-grad1">VIEW MORE</button>
+              <Button sx={{ p: 1.5, mx: 2 }} variant="contained">
+                VIEW MORE
+              </Button>
             </NavLink>
             {favorite ? (
               <OverlayTrigger
@@ -134,7 +136,10 @@ const SingleDoctor = (props: Iprops) => {
                   data-bs-placement="top"
                   title="Tooltip on top"
                 >
-                  <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
+                  <FontAwesomeIcon
+                    style={{ color: "#3db2dc" }}
+                    icon={faHeart}
+                  ></FontAwesomeIcon>
                 </button>
               </OverlayTrigger>
             ) : (
@@ -163,6 +168,7 @@ const SingleDoctor = (props: Iprops) => {
         <div className="col-5 col-md-4 info p-4">
           <p>
             <FontAwesomeIcon
+              style={{ color: "#3db2dc" }}
               className="icon"
               icon={faLocationDot}
             ></FontAwesomeIcon>
@@ -170,6 +176,7 @@ const SingleDoctor = (props: Iprops) => {
           </p>
           <p>
             <FontAwesomeIcon
+              style={{ color: "#3db2dc" }}
               className="icon"
               icon={faCertificate}
             ></FontAwesomeIcon>
@@ -177,6 +184,7 @@ const SingleDoctor = (props: Iprops) => {
           </p>
           <p>
             <FontAwesomeIcon
+              style={{ color: "#3db2dc" }}
               className="icon"
               icon={faCalendar}
             ></FontAwesomeIcon>

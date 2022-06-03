@@ -201,7 +201,7 @@ NotificationItem.propTypes = {
 };
 
 function NotificationItem({ notification }) {
-  const { message } = renderContent(notification);
+  const { message } = notification;
 
   return (
     <ListItemButton

@@ -42,7 +42,7 @@ export default function AboutHero() {
             <TextAnimate text="are?" /> */}
           </Box>
 
-          <m.div>
+          <div>
             <Typography
               variant="h4"
               sx={{

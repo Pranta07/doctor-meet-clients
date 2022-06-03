@@ -110,13 +110,15 @@ const PayForm = ({ appointment, setUpdate }) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form  onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
+                            
                             base: {
                                 fontSize: "16px",
-                                color: "#424770",
+                                color: "#3db2dc",
+                               
                                 "::placeholder": {
                                     color: "#aab7c4",
                                 },

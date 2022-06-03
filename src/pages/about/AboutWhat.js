@@ -58,7 +58,7 @@ export default function AboutWhat() {
                   </m.div>
                 </Grid>
                 <Grid item xs={6}>
-                  <m.div>
+                  <div>
                     <CardMedia
                     component="img"
                       alt="our office 2"
@@ -73,13 +73,13 @@ export default function AboutWhat() {
           )}
 
           <Grid item xs={12} md={6} lg={5}>
-            <m.div>
+            <div>
               <Typography variant="h2" sx={{ mb: 3 }}>
                 What is minimal?
               </Typography>
             </m.div>
 
-            <m.div>
+            <div>
               <Typography
                 sx={{
                   color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'common.white'),
@@ -100,7 +100,7 @@ export default function AboutWhat() {
               ))}
             </Box>
 
-            <m.div>
+            <div>
               <Button
                 variant="outlined"
                 color="inherit"

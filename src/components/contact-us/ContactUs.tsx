@@ -58,7 +58,7 @@ const ContactUs = () => {
           className="my-5 text-center "
           style={{
             backgroundColor: "#f5f5f5",
-            padding: "100px",
+            padding: "25px",
             margin: 0,
           }}
         >
@@ -73,7 +73,7 @@ const ContactUs = () => {
 
         <Container>
           <div className="py-3">
-            <h5> Email us with ease </h5>
+            <h5 style={{ color: "#e64d82" }}> Email us with ease </h5>
             <hr className="hr-blue" />
           </div>
 
@@ -96,7 +96,7 @@ const ContactUs = () => {
                   my: 2,
                 }}
               >
-                <EmailIcon sx={{ mr: 2, color: "#526ff3" }} />
+                <EmailIcon sx={{ mr: 2, color: "#3db2dc" }} />
                 <div>
                   <p
                     style={{
@@ -116,7 +116,7 @@ const ContactUs = () => {
                   my: 2,
                 }}
               >
-                <PhoneIcon sx={{ mr: 2, color: "#526ff3" }} />
+                <PhoneIcon sx={{ mr: 2, color: "#3db2dc" }} />
                 <div>
                   <p
                     style={{
@@ -137,7 +137,7 @@ const ContactUs = () => {
                   my: 2,
                 }}
               >
-                <RoomIcon sx={{ mr: 2, color: "#526ff3" }} />
+                <RoomIcon sx={{ mr: 2, color: "#3db2dc" }} />
                 <div>
                   <p
                     style={{
@@ -151,11 +151,23 @@ const ContactUs = () => {
                 </div>
               </Box>
               <hr />
-              <p className="fw-bold">FOLLOW US ON</p>
-              <FacebookIcon className="social-icon" />
-              <TwitterIcon className="social-icon" />
-              <InstagramIcon className="social-icon" />
-              <LinkedInIcon className="social-icon" />
+              <p>FOLLOW US ON</p>
+              <a style={{ color: "#3db2dc" }} href="https://www.facebook.com/">
+                {" "}
+                <FacebookIcon className="social-icon" />
+              </a>
+              <a style={{ color: "#3db2dc" }} href="https://www.twitter.com/">
+                {" "}
+                <TwitterIcon className="social-icon" />
+              </a>
+              <a style={{ color: "#3db2dc" }} href="https://www.instagram.com/">
+                {" "}
+                <InstagramIcon className="social-icon" />
+              </a>
+              <a style={{ color: "#3db2dc" }} href="https://www.linkedin.com/">
+                {" "}
+                <LinkedInIcon className="social-icon" />
+              </a>
             </div>
             <div className="col-lg-6 mt-3">
               <MapDirection></MapDirection>
@@ -169,7 +181,9 @@ const ContactUs = () => {
             <div className="col-lg-6">
               <form onSubmit={sendEmail}>
                 <div className="row pt-2 mx-auto">
-                  <h4 className="fw-bold">Drop Us A Line</h4>
+                  <h4 style={{ color: "#27a5d8" }} className="fw-bold">
+                    Drop Us A Line
+                  </h4>
                   <p className="text-secondary">
                     <small>We normally respond within 24 hours.</small>
                   </p>
@@ -182,13 +196,19 @@ const ContactUs = () => {
                       type="text"
                       name="name"
                       id="nameId"
+                      required
                     />
                   </div>
                   <div className="col-12 col-md-10 form-group pt-3">
                     <label className="all-label" htmlFor="emailId">
                       Your Email *
                     </label>
-                    <input className="form-control" type="email" id="emailId" />
+                    <input
+                      required
+                      className="form-control"
+                      type="email"
+                      id="emailId"
+                    />
                   </div>
                   <div className="col-12 col-md-10 form-group pt-3 ">
                     <label className="all-label" htmlFor="subjectId">
@@ -203,10 +223,11 @@ const ContactUs = () => {
                   </div>
                   <div className="col-12 col-md-10 form-group pt-3 ">
                     <label className="all-label" htmlFor="messageID">
-                      Your Message
+                      Your Message *
                     </label>
                     <textarea
                       className="form-control"
+                      required
                       name="message"
                       id="messageID"
                       cols={30}

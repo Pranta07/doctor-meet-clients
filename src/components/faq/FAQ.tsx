@@ -34,7 +34,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
   padding: theme.spacing(2),
   backgroundColor:
     theme.palette.mode === "dark" ? "rgba(255, 255, 255, .05)" : "white",
-  color: theme.palette.mode === "dark" ? "white" : "#005963",
+  color: theme.palette.mode === "dark" ? "white" : "#3db2dc",
   flexDirection: "row-reverse",
   "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
     transform: "rotate(90deg)",
@@ -47,7 +47,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }: any) => ({
   padding: theme.spacing(3),
   borderTop: "1px solid rgba(0, 0, 0, .125)",
-  color: theme.palette.mode === "dark" ? "white" : "#005963",
+  color: theme.palette.mode === "dark" ? "white" : "#5abfe0",
 }));
 
 const questions = [

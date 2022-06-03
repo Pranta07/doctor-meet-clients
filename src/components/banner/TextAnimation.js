@@ -17,7 +17,7 @@ const TextAnimation = ({ item }) => {
                 <h1 className="font-open-sens fw-bold">
                     {text1}
                     <br />
-                    <span style={{ color: "#e3376e" }}>{text2}</span>
+                    <span style={{ color: "#e3366d" }}>{text2}</span>
                 </h1>
                 <p className="font-lora my-4">{desc}</p>
                 <NavLink

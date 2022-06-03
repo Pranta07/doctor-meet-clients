@@ -1,0 +1,23 @@
+.health-care-provider-section {
+  margin: 120px 0px;
+}
+.img-container img {
+  width: 90%;
+  height: 100%;
+}
+
+.hr-line {
+  border-bottom: 2px solid black;
+  width: 3.2rem;
+}
+
+.health-care-provider-description {
+  text-align: justify;
+  color: #7d7987;
+  width: 70%;
+}
+
+.learn-more-button {
+  font-weight: 500;
+  color: #458ff6;
+}

@@ -8,6 +8,8 @@ import HomeGallery from "../../components/home-gallery/HomeGallery";
 import HomeHero from "./HomeHero";
 import MapDirection from "../../components/map-direction/MapDirection";
 import TopDoctors from "../../components/top-rated-doctors/TopDoctors";
+import { Container } from "@mui/material";
+import GetPremium from "../../components/get-premium/GetPremium";
 
 // ----------------------------------------------------------------------
 
@@ -38,15 +40,15 @@ export default function HomePage() {
           <HealthCareProvider></HealthCareProvider>
 
           <TopDoctors></TopDoctors>
-
+          <GetPremium />
           <Articles></Articles>
 
           <Review></Review>
 
           <HomeGallery></HomeGallery>
-          <div className="py-5 ">
+          <Container className="py-5">
             <MapDirection></MapDirection>
-          </div>
+          </Container>
         </ContentStyle>
       </RootStyle>
     </Page>

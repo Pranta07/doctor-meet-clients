@@ -21,7 +21,7 @@ const Pay = (props) => {
                 Pay for Price ${appointment?.doctorInfo?.visit}
             </Typography>
             {appointment?.doctorInfo?.visit && (
-                <Elements stripe={stripePromise}>
+                <Elements  stripe={stripePromise}>
                     <PayForm appointment={appointment} />
                 </Elements>
             )}

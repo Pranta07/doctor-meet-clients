@@ -5,7 +5,7 @@ import { Rating } from "@mui/material";
 import "../single-doctor/SingleDoctor.css";
 import { styled } from "@mui/material/styles";
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   backgroundColor: theme.palette.background.default,
 }));
 const TopSingle = (props: any) => {
@@ -27,6 +27,7 @@ const TopSingle = (props: any) => {
           <h5 className="d-spec pb-1">{specialist}</h5>
           <p className="m-0">
             <FontAwesomeIcon
+              style={{ color: "#27a5d8" }}
               className="icon"
               icon={faLocationDot}
             ></FontAwesomeIcon>

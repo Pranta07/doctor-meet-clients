@@ -34,7 +34,7 @@ const Article = (props: { key: number; article: IArticle }) => {
               bottom: "-15px",
               right: "10px",
               borderRadius: "18px",
-              backgroundColor: "#00acb1",
+              backgroundColor: "#3db2dc",
               color: "white",
               fontSize: "12px",
             }}
@@ -44,19 +44,23 @@ const Article = (props: { key: number; article: IArticle }) => {
         </div>
         <Card.Body className="px-0 pt-4 pb-0">
           <p>
-            <FontAwesomeIcon className="mx-1 icon" icon={faUserAlt} />
+            <FontAwesomeIcon
+              style={{ color: "#3db2dc" }}
+              className="mx-1 icon"
+              icon={faUserAlt}
+            />
             <span className="text-secondary">{author}</span>
           </p>
           <h5
             style={{
-              color: "#005963",
+              color: "#27a5d8",
               fontWeight: "bold",
             }}
           >
             {title}
           </h5>
           <Button className="mt-2 mb-0">
-            <NavLink to={`/article/${_id}`}>
+            <NavLink style={{ color: "#84d1e9" }} to={`/article/${_id}`}>
               Read more <FontAwesomeIcon className="mx-1" icon={faArrowRight} />
             </NavLink>
           </Button>

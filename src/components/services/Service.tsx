@@ -25,7 +25,7 @@ const Service = (props: { key: number; service: service_if }) => {
         <div className="card h-100 border-0 p-4">
           <img src={service.img} className="mx-auto mt-3" alt="..." />
           <div className="card-body">
-            <h5 className="card-title" style={{ color: "#005963" }}>
+            <h5 className="card-title" style={{ color: "#27a5d8" }}>
               {service.name}
             </h5>
             <p className="card-text text-muted">

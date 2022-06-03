@@ -91,14 +91,14 @@ export default function AboutTestimonials() {
                 </Typography>
               </m.div>
 
-              <m.div>
+              <div>
                 <Typography variant="h2" sx={{ mb: 3, color: 'common.white' }}>
                   Who love <br />
                   my work
                 </Typography>
               </m.div>
 
-              <m.div>
+              <div>
                 <Typography sx={{ color: 'common.white' }}>
                   Our goal is to create a product and service that you’re satisfied with and use it every day. This is
                   why we’re constantly working on our services to make it better every day and really listen to what our
@@ -108,7 +108,7 @@ export default function AboutTestimonials() {
 
               {!isDesktop && (
                 <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}>
-                  <m.div>
+                  <div>
                     <TestimonialLink />
                   </m.div>
                 </Box>

@@ -3,6 +3,8 @@ import mapboxgl from "mapbox-gl";
 import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
 import "./MapDirection.css";
 import { styled } from "@mui/material/styles";
+import { Container } from "@mui/material";
+import { Box } from "@mui/system";
 
 const RootStyle = styled("div")(({ theme }) => ({
 
@@ -39,8 +41,12 @@ const MapDirection = () => {
     }, []);
     return (
      
-        <RootStyle className="">
+        <RootStyle>
+          
+            <Container>
             <div id="map"></div>
+            </Container>
+            
         </RootStyle>
      
     );

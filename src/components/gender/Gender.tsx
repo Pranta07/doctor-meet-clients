@@ -7,7 +7,6 @@ import "./Gender.css";
 import { styled } from "@mui/material/styles";
 
 const RootStyle = styled("div")(({ theme }: any) => ({
-  height: "100%",
   backgroundColor: theme.palette.background.default,
 }));
 //

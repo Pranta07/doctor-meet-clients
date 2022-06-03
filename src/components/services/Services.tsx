@@ -88,7 +88,6 @@ const services: service_if[] = [
 const RootStyle = styled("div")(({ theme }: any) => ({
   [theme.breakpoints.up("md")]: {},
 
-  height: "100%",
   backgroundColor: theme.palette.background.default,
 }));
 
@@ -97,20 +96,20 @@ const Services = () => {
     <RootStyle>
       <Box className="services-section">
         <Container className="text-center service-dot">
-          <m.div>
+          <div>
             <p
               className="text-center fw-bold mt-5"
-              style={{ color: "#00acb1" }}
+              style={{ color: "#e64d82" }}
             >
               What We do
             </p>
-          </m.div>
+          </div>
 
-          <m.div>
-            <h1 className="fw-bold" style={{ color: "#005963" }}>
+          <div>
+            <h1 className="fw-bold" style={{ color: "#2097ca" }}>
               Our Services
             </h1>
-          </m.div>
+          </div>
           <hr className="hr-w mx-auto" />
           <p className="text-secondary w-75 mx-auto pt-2 pb-4">
             <small>

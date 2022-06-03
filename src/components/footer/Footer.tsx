@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import brand from "../../assets/img/logo.png";
 import ContactInfo from "../contact-info/ContactInfo";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -8,6 +8,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import "./Footer.css";
 import { styled } from "@mui/material/styles";
+import { Divider } from "@mui/material";
 
 const RootStyle = styled("div")(({ theme }: any) => ({
   height: "100%",
@@ -28,35 +29,71 @@ const Footer = () => {
         <div></div>
       ) : (
         <div>
-          <ContactInfo></ContactInfo>
+          <ContactInfo />
+          <Divider
+            sx={{ width: "81%", mx: "auto", color: "#fff", padding: 0.1 }}
+          />
           <footer>
             <section className="container text-white text-start">
               <div className="row mx-auto py-5">
                 <div className="col-12 col-lg-3 px-4">
-                  <img src={brand} alt="" className="img-fluid" />
+                  <h2>Doctor Meet</h2>
                   <p className="mt-2">
                     <small>
                       Doctors Meet Up provides progressive, and affordable
-                      healthcare, accessible on mobile and online for everyone.
+                      healthcare, accessible for everyone.
                     </small>
                   </p>
                   <div>
-                    <h5 className="fw-bold">FOLLOW US ON</h5>
-                    <FacebookIcon className="social-icon" />
-                    <TwitterIcon className="social-icon" />
-                    <InstagramIcon className="social-icon" />
-                    <LinkedInIcon className="social-icon" />
+                    <p>FOLLOW US ON</p>
+                    <a
+                      style={{ color: "#fff" }}
+                      href="https://www.facebook.com/"
+                    >
+                      {" "}
+                      <FacebookIcon className="social-icon" />
+                    </a>
+                    <a
+                      style={{ color: "#fff" }}
+                      href="https://www.twitter.com/"
+                    >
+                      {" "}
+                      <TwitterIcon className="social-icon" />
+                    </a>
+                    <a
+                      style={{ color: "#fff" }}
+                      href="https://www.instagram.com/"
+                    >
+                      {" "}
+                      <InstagramIcon className="social-icon" />
+                    </a>
+                    <a
+                      style={{ color: "#fff" }}
+                      href="https://www.linkedin.com/"
+                    >
+                      {" "}
+                      <LinkedInIcon className="social-icon" />
+                    </a>
                   </div>
                 </div>
                 <div className="col-12 col-md-4 col-lg-3 px-4 pt-3">
                   <h5 className="fw-bold">Company</h5>
                   <ul className="list mt-2">
-                    <li>About</li>
-                    <li>Reports</li>
-                    <li>Top doctors</li>
-                    <li>Donate Blood</li>
-                    <li>Covid Portal</li>
-                    <li>Apps</li>
+                    <NavLink style={{ color: "#fff" }} to="/about-us">
+                      <li>About</li>
+                    </NavLink>{" "}
+                    <NavLink style={{ color: "#fff" }} to="/about-us">
+                      <li>Reports</li>
+                    </NavLink>{" "}
+                    <NavLink style={{ color: "#fff" }} to="/find-doctors">
+                      <li>Top Doctors</li>
+                    </NavLink>{" "}
+                    <NavLink style={{ color: "#fff" }} to="/find-donors">
+                      <li>Donate Blood</li>
+                    </NavLink>{" "}
+                    <NavLink style={{ color: "#fff" }} to="/covid-portal">
+                      <li>Covid Portal</li>
+                    </NavLink>{" "}
                   </ul>
                 </div>
                 <div className="col-12 col-md-4 col-lg-3 px-4 pt-3">
@@ -66,16 +103,24 @@ const Footer = () => {
                     <li>Dhaka</li>
                     <li>Khulna</li>
                     <li>Rajshahi</li>
-                    <li>Comilla</li>
+                    <li>Cumilla</li>
                   </ul>
                 </div>
                 <div className="col-12 col-md-4 col-lg-3 px-4 pt-3">
                   <h5 className="fw-bold">Help</h5>
                   <ul className="list mt-2">
-                    <li>Help Center</li>
-                    <li>Contact support</li>
-                    <li>Instruction</li>
-                    <li>Emergency</li>
+                    <NavLink style={{ color: "#fff" }} to="/contact-us">
+                      <li>Help Center</li>
+                    </NavLink>{" "}
+                    <NavLink style={{ color: "#fff" }} to="/contact-us">
+                      <li>Contact Support</li>
+                    </NavLink>{" "}
+                    <NavLink style={{ color: "#fff" }} to="/contact-us">
+                      <li>Instruction</li>
+                    </NavLink>{" "}
+                    <NavLink style={{ color: "#fff" }} to="/contact-us">
+                      <li>Emergency</li>
+                    </NavLink>{" "}
                   </ul>
                 </div>
               </div>

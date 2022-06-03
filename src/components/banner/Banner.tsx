@@ -2,8 +2,8 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import TextAnimation from "./TextAnimation";
 import VM from "../../assets/carousel/handdrawn-vector-60-removebg-preview.png";
-import FD from "../../assets/carousel/doctors.svg";
-import Medicine from "../../assets/carousel/undraw_monitoring.svg";
+import FD from "../../assets/undraw_doctors_hwty.svg";
+import Medicine from "../../assets/undraw_medical_care_movn.svg";
 import "./Banner.css";
 import { styled } from "@mui/material/styles";
 

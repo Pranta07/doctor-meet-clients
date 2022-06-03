@@ -18,10 +18,10 @@ const TopDoctors = () => {
 
   return (
     <RootStyle>
-      <p className="text-center fw-bold mt-5" style={{ color: "#00acb1" }}>
+      <p className="text-center fw-bold mt-5" style={{ color: "#e64d82" }}>
         Meet Our Team
       </p>
-      <h1 className="fw-bold text-center" style={{ color: "#005963" }}>
+      <h1 className="fw-bold text-center" style={{ color: "#2097ca" }}>
         Our Creative Experts
       </h1>
       <hr className="hr-w mx-auto" />

@@ -67,10 +67,10 @@ const Articles = () => {
   return (
     <RootStyle className="dot-b-section">
       <div className="artical-section">
-        <p className="text-center fw-bold mt-5" style={{ color: "#00acb1" }}>
+        <p className="text-center fw-bold mt-5" style={{ color: "#e64d82" }}>
           Latest News
         </p>
-        <h1 className="text-center fw-bold" style={{ color: "#005963" }}>
+        <h1 className="text-center fw-bold" style={{ color: "#2097ca" }}>
           Our Insights & Articles
         </h1>
         <hr className="hr-w mx-auto" />

@@ -1,11 +1,12 @@
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { Button, Container, Modal } from "react-bootstrap";
+import { Container, Modal } from "react-bootstrap";
 import helpImg from "../../assets/img/need-help.svg";
 import { useAppSelector } from "../../redux/store";
 import "./CovidHelp.css";
 import { styled } from "@mui/material/styles";
+import { Box, Button } from "@mui/material";
 
 const RootStyle = styled("div")(({ theme }: any) => ({
   height: "100%",
@@ -36,7 +37,7 @@ const Help = () => {
               <img src={helpImg} alt="" className=" img-fluid mx-auto" />
             </div>
 
-            <div className="col-lg-6 my-0 p-5">
+            <div className="col-lg-6 text-start my-0 p-5">
               <div>
                 <h2 className="text-start">COVID-19 enquiry form</h2>
                 <p className="text-start py-3">
@@ -48,16 +49,17 @@ const Help = () => {
                   over the phone.
                 </p>
               </div>
-              <Button
-                variant="success"
-                className="d-block"
-                onClick={handleShow}
-              >
-                Fill Form <FontAwesomeIcon icon={faArrowAltCircleRight} />
+
+              <Button variant="contained" onClick={handleShow}>
+                Fill Form{" "}
+                <FontAwesomeIcon
+                  style={{ marginLeft: "8px" }}
+                  icon={faArrowAltCircleRight}
+                />
               </Button>
             </div>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal className=" mt-5" show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>COVID-19 Enquiry Form</Modal.Title>
               </Modal.Header>
@@ -107,11 +109,15 @@ const Help = () => {
                 </form>
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button variant="outlined" onClick={handleClose}>
                   Close
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
-                  Send Message <FontAwesomeIcon icon={faArrowAltCircleRight} />
+                <Button variant="contained" onClick={handleClose}>
+                  Send Message{" "}
+                  <FontAwesomeIcon
+                    style={{ marginLeft: "8px" }}
+                    icon={faArrowAltCircleRight}
+                  />
                 </Button>
               </Modal.Footer>
             </Modal>

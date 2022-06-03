@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 
 const RootStyle = styled("div")(({ theme }: any) => ({
   height: "100%",
-  backgroundColor: theme.palette.background.default,
+  // backgroundColor: theme.palette.background.default,
 }));
 const ContactInfo = () => {
   return (
@@ -77,9 +77,7 @@ const ContactInfo = () => {
                 <div>
                   <h6 className="fw-bold"> BOOK AN APPOINTMENT </h6>
                   <small>
-                    <p className="m-0">
-                      Click here to book an appointment at Medicare.
-                    </p>
+                    <p className="m-0">Find a doctor to book.</p>
                   </small>
                 </div>
               </div>
