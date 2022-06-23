@@ -30,12 +30,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-const AllDiagnosisRow = ({ diagnosis }) => {
-    const intPrice = diagnosis.selectedDiagnosis.price;
-    const intDiscount = diagnosis.selectedDiagnosis.discount;
-    const floatDiscount = parseFloat(intDiscount).toFixed(2);
+const AllDiagnosisRow = ({ diagnosis, setDelete }) => {
+    const intPrice = diagnosis.selectedDiagnosis?.price;
+    const intDiscount = diagnosis.selectedDiagnosis?.discount;
+    const floatDiscount = parseFloat(intDiscount).toFixed(0);
 
-    const dd = floatDiscount / 100.0;
+    const dd = floatDiscount / 100;
     // console.log(intPrice,dd);
     const floatPrice = intPrice - intPrice * dd;
     const deleteBookedDiagnosisAppointment = (e) => {
@@ -44,6 +44,7 @@ const AllDiagnosisRow = ({ diagnosis }) => {
             "Are you sure want to delete this data?"
         );
         if (isConfirm) {
+            setDelete(false);
             fetch(
                 `https://floating-basin-02241.herokuapp.com/bookedDiagnosis/${diagnosis._id}`,
                 {
@@ -52,10 +53,10 @@ const AllDiagnosisRow = ({ diagnosis }) => {
             )
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
+                    // console.log(data);
                     if (data.deletedCount) {
                         alert("Data is deleted successfully");
-                        window.location.reload();
+                        setDelete(true);
                     }
                 });
         }
@@ -71,7 +72,9 @@ const AllDiagnosisRow = ({ diagnosis }) => {
             <StyledTableCell align="center">
                 {diagnosis.bookingDate}
             </StyledTableCell>
-            <StyledTableCell align="center">{floatPrice} $</StyledTableCell>
+            <StyledTableCell align="center">
+                BDT {floatPrice * 100}
+            </StyledTableCell>
             <StyledTableCell align="center">
                 {diagnosis?.paymentStatus === "paid" ? (
                     <Button color="success">Paid</Button>

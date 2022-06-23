@@ -50,7 +50,7 @@ const menuConfig = [
                         ),
                         path: "find-donors",
                     },
-                    {
+                    /* {
                         title: "Pharmacy",
                         icon: (
                             <Iconify
@@ -59,7 +59,7 @@ const menuConfig = [
                             />
                         ),
                         path: "pharmacy",
-                    },
+                    }, */
 
                     {
                         title: "Premium Membership",

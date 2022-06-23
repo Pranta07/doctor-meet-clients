@@ -1,20 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { useSnackbar } from "notistack";
-import {
-    NavLink,
-    useLocation,
-    useNavigate,
-    unstable_HistoryRouter as HistoryRouter,
-} from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
-import "./Login.css";
 import { clearErrors, login } from "../../../redux/actions/userAction";
 import undrow_login from "../../../assets/img/undraw_access_account_re_8spm.svg";
-import { createBrowserHistory } from "history";
 import { Button, TextField } from "@mui/material";
-
-const history: any = createBrowserHistory({ window });
+import "./Login.css";
 
 const Login = () => {
     const { user }: any = useAppSelector((state) => state.user);
@@ -28,7 +19,6 @@ const Login = () => {
         e.preventDefault();
         const email: string = mail.current?.value;
         const password: string = pass.current?.value;
-        // signUsingEmail(mailE, passE);
 
         dispatch(login(email, password));
 
@@ -36,11 +26,7 @@ const Login = () => {
             navigate("/");
             dispatch(clearErrors());
             enqueueSnackbar("logged in successfully!");
-            /* if (history.location.pathname === "/signUp") {
-            } else {
-                navigate(history.back());
-            } */
-        } else if (user.error) {
+        } else if (user?.error) {
             enqueueSnackbar(user.error);
             dispatch(clearErrors());
         }

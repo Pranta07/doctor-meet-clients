@@ -274,6 +274,7 @@ export const sidebarConfigDoctor = [
         ],
     },
 ];
+
 export const sidebarConfigModerator = [
     // Home
     {

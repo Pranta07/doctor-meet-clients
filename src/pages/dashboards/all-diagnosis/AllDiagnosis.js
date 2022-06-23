@@ -34,11 +34,14 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const AllDiagnosis = () => {
     const [diagnosis, setDiagnosis] = useState([]);
+    const [isDelete, setDelete] = useState(false);
+
     useEffect(() => {
         fetch("https://floating-basin-02241.herokuapp.com/bookedDiagnosis")
             .then((res) => res.json())
             .then((data) => setDiagnosis(data));
-    }, []);
+    }, [isDelete]);
+
     return (
         <TableContainer component={Paper} className="mt-5">
             <Table className="w-100" aria-label="customized table">
@@ -66,6 +69,7 @@ const AllDiagnosis = () => {
                         <AllDiagnosisRow
                             diagnosis={diagnosis}
                             key={diagnosis._id}
+                            setDelete={setDelete}
                         ></AllDiagnosisRow>
                     ))}
                 </TableBody>

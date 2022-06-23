@@ -6,9 +6,8 @@ import "./PopularTestProcedures.css";
 import { styled } from "@mui/material/styles";
 
 const RootStyle = styled("div")(({ theme }) => ({
-
-  backgroundColor: theme.palette.background.default,
-}))
+    backgroundColor: theme.palette.background.default,
+}));
 const PopularTestProcedures = () => {
     const [testProcedures, setTestProcedures] = useState([]);
 
@@ -38,7 +37,7 @@ const PopularTestProcedures = () => {
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 800,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,

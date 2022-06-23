@@ -10,6 +10,8 @@ import {
 import InfoIcon from "@mui/icons-material/Info";
 import "./AllInvoices.css";
 import InfoModal from "./InfoModal";
+import Swal from "sweetalert2";
+import { Delete } from "@mui/icons-material";
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     "&:nth-of-type(odd)": {
@@ -31,10 +33,44 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const AllInvoice = ({ invoice }) => {
+const AllInvoice = ({ invoice, setUpdate }) => {
     const [smOpen, setsmOpen] = React.useState(false);
     const handlesOpen = () => setsmOpen(true);
     const handlesClose = () => setsmOpen(false);
+
+    const amount = parseInt(invoice?.amount);
+
+    const handleDelete = (id) => {
+        // console.log(id);
+        setUpdate(false);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(
+                    `https://floating-basin-02241.herokuapp.com/allInvoices/${id}`,
+                    {
+                        method: "DELETE",
+                    }
+                ).then((res) => {
+                    if (res.status === 200) {
+                        setUpdate(true);
+                        Swal.fire(
+                            "Deleted!",
+                            "Invoice has been deleted.",
+                            "success"
+                        );
+                    }
+                });
+            }
+        });
+    };
 
     return (
         <StyledTableRow>
@@ -48,7 +84,10 @@ const AllInvoice = ({ invoice }) => {
                 {invoice?.purchasedDate}
             </StyledTableCell>
             <StyledTableCell align="center">
-                $ {invoice?.amount}
+                BDT{" "}
+                {invoice.invoiceName === "Diagnostic Center"
+                    ? amount * 100
+                    : amount}
             </StyledTableCell>
             <StyledTableCell align="center">
                 <>
@@ -64,6 +103,16 @@ const AllInvoice = ({ invoice }) => {
                         handlesClose={handlesClose}
                     />
                 </>
+            </StyledTableCell>
+            <StyledTableCell align="center">
+                <Tooltip title="Move to Trash!" placement="left-start">
+                    <IconButton
+                        onClick={() => handleDelete(invoice._id)}
+                        color="error"
+                    >
+                        <Delete></Delete>
+                    </IconButton>
+                </Tooltip>
             </StyledTableCell>
         </StyledTableRow>
     );
