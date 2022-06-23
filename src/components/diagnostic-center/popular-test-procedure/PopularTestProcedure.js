@@ -6,9 +6,9 @@ import "./PopularTestProcedure.css";
 const PopularTestProcedure = ({ testProcedure }) => {
     //    console.log(testProcedure)
     const navigate = useNavigate();
-    const intPrice = testProcedure.price;
-    const intDiscount = testProcedure.discount;
-    const floatDiscount = parseFloat(intDiscount).toFixed(2);
+    const intPrice = testProcedure.price?.toFixed(0);
+    const intDiscount = testProcedure.discount?.toFixed(0);
+    const floatDiscount = parseFloat(intDiscount).toFixed(0);
 
     const dd = floatDiscount / 100.0;
     // console.log(intPrice,dd);
@@ -22,7 +22,10 @@ const PopularTestProcedure = ({ testProcedure }) => {
     };
 
     return (
-        <Card style={{ width: "18rem" }} onClick={goToForm}>
+        <Card
+            style={{ maxWidth: "18rem", marginRight: "10px" }}
+            onClick={goToForm}
+        >
             <div className="discount-amount-holder">
                 <p style={{ color: "#427CC5" }}>- {discount}%</p>
             </div>
@@ -33,9 +36,11 @@ const PopularTestProcedure = ({ testProcedure }) => {
                 </Card.Subtitle>
 
                 <div className="d-flex  mt-3">
-                    <p className="mx-2 discounted-price">${floatPrice}</p>
+                    <p className="mx-2 discounted-price">
+                        BDT {floatPrice.toFixed(0) * 100}
+                    </p>
                     <p className="text-decoration-line-through undiscounted-price">
-                        ${price}
+                        BDT {price.toFixed(0) * 100}
                     </p>
                 </div>
             </Card.Body>

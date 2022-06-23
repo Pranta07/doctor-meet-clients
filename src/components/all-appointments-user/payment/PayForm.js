@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { Alert, Button, LinearProgress } from "@mui/material";
 import { useAppSelector } from "../../../redux/store";
+import { useNavigate } from "react-router-dom";
+import useTime from "../../../hooks/useTime";
 
 const PayForm = ({ appointment, setUpdate }) => {
     const [error, setError] = useState();
@@ -13,6 +15,7 @@ const PayForm = ({ appointment, setUpdate }) => {
     const elements = useElements();
     const { visit } = appointment?.doctorInfo;
     const { user } = useAppSelector((state) => state.user);
+    const { date } = useTime();
 
     //geting client secret from server side api
     useEffect(() => {
@@ -46,10 +49,22 @@ const PayForm = ({ appointment, setUpdate }) => {
         setProcessing(true); //payment proccessing
 
         // Use your card Element with other Stripe.js APIs/payment method
-        const { error /* paymentMethod */ } = await stripe.createPaymentMethod({
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: "card",
             card,
         });
+
+        const invoice = {
+            invoiceName: "Appointment Fee",
+            category: {
+                _id: appointment._id,
+                name: appointment.patientName,
+                email: appointment.patientEmail,
+            },
+            paymentMethod,
+            amount: visit,
+            purchasedDate: date,
+        };
 
         if (error) {
             setError(error.message);
@@ -103,22 +118,38 @@ const PayForm = ({ appointment, setUpdate }) => {
                     body: JSON.stringify(newApp),
                 }
             ).then((res) => {
-                // if (res.status === 200) setUpdate(true);
+                if (res.status === 200) {
+                    fetch(
+                        `https://floating-basin-02241.herokuapp.com/allInvoices`,
+                        {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json",
+                            },
+                            body: JSON.stringify(invoice),
+                        }
+                    )
+                        .then((res) => res.json())
+                        .then((data) => {
+                            if (data.insertedId) {
+                                alert("Successfully paid");
+                            }
+                        });
+                }
             });
         }
     };
 
     return (
         <>
-            <form  onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
-                            
                             base: {
                                 fontSize: "16px",
                                 color: "#3db2dc",
-                               
+
                                 "::placeholder": {
                                     color: "#aab7c4",
                                 },
@@ -138,7 +169,7 @@ const PayForm = ({ appointment, setUpdate }) => {
                         type="submit"
                         disabled={!stripe || success.length !== 0}
                     >
-                        Pay ${visit}
+                        Pay BDT {visit}
                     </Button>
                 )}
             </form>

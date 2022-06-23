@@ -23,13 +23,16 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const AllInvoices = () => {
     const [invoices, setInvoices] = useState([]);
+    const [update, setUpdate] = useState(false);
+
     useEffect(() => {
         fetch("https://floating-basin-02241.herokuapp.com/allInvoices")
             .then((res) => res.json())
             .then((data) => {
                 setInvoices(data);
             });
-    }, []);
+    }, [update]);
+
     return (
         <Container>
             <h5 style={{ marginBottom: "30px", color: "gray" }}>
@@ -54,6 +57,9 @@ const AllInvoices = () => {
                             <StyledTableCell align="center">
                                 History
                             </StyledTableCell>
+                            <StyledTableCell align="center">
+                                Action
+                            </StyledTableCell>
                         </TableRow>
                     </TableHead>
 
@@ -62,6 +68,7 @@ const AllInvoices = () => {
                             <AllInvoice
                                 key={invoice._id}
                                 invoice={invoice}
+                                setUpdate={setUpdate}
                             ></AllInvoice>
                         ))}
                     </TableBody>

@@ -18,10 +18,10 @@ const Pay = (props) => {
                 variant="h4"
                 sx={{ fontFamily: "Monospace", py: 3, color: "black" }}
             >
-                Pay for Price ${appointment?.doctorInfo?.visit}
+                Pay for Price BDT {appointment?.doctorInfo?.visit}
             </Typography>
             {appointment?.doctorInfo?.visit && (
-                <Elements  stripe={stripePromise}>
+                <Elements stripe={stripePromise}>
                     <PayForm appointment={appointment} />
                 </Elements>
             )}
