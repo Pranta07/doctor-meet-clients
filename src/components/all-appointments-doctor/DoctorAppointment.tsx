@@ -12,7 +12,7 @@ import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import VideocamOutlinedIcon from "@mui/icons-material/VideocamOutlined";
 import PostAddIcon from "@mui/icons-material/PostAdd";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -137,11 +137,11 @@ const DoctorAppointment = (props: any) => {
             <StyledTableCell align="center">
                 {appointment?.payment ? (
                     <Tooltip title="Meet Now!" placement="left-start">
-                        <NavLink to={`/virtual-meet/${appointment._id}`}>
+                        <a href={`https:/meet.new`} target="_blank">
                             <IconButton color="primary">
                                 <VideocamOutlinedIcon />
                             </IconButton>
-                        </NavLink>
+                        </a>
                     </Tooltip>
                 ) : (
                     <Tooltip title="Unpaid!" placement="left-start">
