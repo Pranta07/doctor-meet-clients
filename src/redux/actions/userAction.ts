@@ -44,9 +44,7 @@ export const login =
     (email: string, password: string) => async (dispatch: AppDispatch) => {
         try {
             let token = window.localStorage.getItem("token");
-            // if (!token) {
-            //   token = document.cookie.split("=")[1];
-            // }
+
             dispatch({ type: LOGIN_REQUEST });
 
             const config = { headers: { "Content-Type": "application/json" } };
