@@ -137,7 +137,7 @@ const DoctorAppointment = (props: any) => {
             <StyledTableCell align="center">
                 {appointment?.payment ? (
                     <Tooltip title="Meet Now!" placement="left-start">
-                        <a href={`https:/meet.new`} target="_blank">
+                        <a href="https://meet.new/" target="_blank">
                             <IconButton color="primary">
                                 <VideocamOutlinedIcon />
                             </IconButton>
