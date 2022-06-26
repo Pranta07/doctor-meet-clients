@@ -7,9 +7,12 @@ import { styled } from "@mui/material/styles";
 // components
 import Page from "../../components/Page";
 import FAQ from "../../components/faq/FAQ";
+import { Button } from "@mui/material";
 // ----------------------------------------------------------------------
 
 const RootStyle = styled("div")(({ theme }) => ({
+    height: "100%",
+    backgroundColor: theme.palette.background.default,
     paddingTop: theme.spacing(8),
     [theme.breakpoints.up("md")]: {
         paddingTop: theme.spacing(11),
@@ -17,15 +20,17 @@ const RootStyle = styled("div")(({ theme }) => ({
 }));
 
 const services = [
-    "Virtual Meet",
+    // "Virtual Meet",
+    "Find Doctors",
     "Book Appointment",
-    "Chat with Doctors",
-    "Covid Portal",
-    "Blood Donors",
-    "Pharmacy",
-    "Premium Membership",
     "Diagnostic Center",
     "Report Review",
+    "Report Status Tracking",
+    // "Chat with Doctors",
+    "Covid Portal",
+    "Find Donors",
+    // "Pharmacy",
+    "Premium Membership",
 ];
 
 const About = () => {
@@ -36,7 +41,7 @@ const About = () => {
                     className="my-5 text-center"
                     style={{
                         backgroundColor: "#f5f5f5",
-                        padding: "100px",
+                        padding: "40px",
                         margin: 0,
                     }}
                 >
@@ -76,7 +81,7 @@ const About = () => {
                                 </h1>
                                 <small>
                                     <p className="text-secondary text-left mt-4 mb-6">
-                                        We provide to you the best choiches for
+                                        We provide to you the best choices for
                                         you. Adjust it to your health needs and
                                         make sure your undergo treatment with
                                         our highly qualified doctors you can
@@ -85,9 +90,9 @@ const About = () => {
                                     </p>
                                 </small>
                                 <Link to="/contact-us">
-                                    <button className="btn btn-outline-info mt-2">
+                                    <Button variant="outlined">
                                         Contact Now
-                                    </button>
+                                    </Button>
                                 </Link>
                             </div>
                         </div>
@@ -96,7 +101,10 @@ const About = () => {
                         <div className="col-12 col-lg-4 mt-5 px-4">
                             <h1
                                 className="fs-3 border-bottom border-2 pb-3 mb-3 rounded"
-                                style={{ letterSpacing: "1px" }}
+                                style={{
+                                    letterSpacing: "1px",
+                                    color: "#2097ca",
+                                }}
                             >
                                 SERVICES
                             </h1>
@@ -114,13 +122,13 @@ const About = () => {
 
                 <p
                     className="text-center fw-bold mt-5"
-                    style={{ color: "#00acb1" }}
+                    style={{ color: "#e64d82" }}
                 >
                     Questions
                 </p>
                 <h1
                     className="fw-bold text-center"
-                    style={{ color: "#005963" }}
+                    style={{ color: "#2097ca" }}
                 >
                     Frequently Asked Questions
                 </h1>

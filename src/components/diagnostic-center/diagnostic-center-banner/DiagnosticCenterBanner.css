@@ -1,21 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Radio+Canada&family=Work+Sans&display=swap');
-.diagnostic-banner-img{
-    height: 600px;
-    
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada&family=Work+Sans&display=swap");
+.diagnostic-banner-img {
+  height: 600px;
 }
-.diagnostic-carousel-title{
-    font-size: 32px;
-    font-family: 'Radio Canada', sans-serif;
-    color: rgba(0, 85, 255, 0.816);
-    font-weight: 700;
-} 
-.diagnostic-carousel-title span{
-    color: #e3366d;
+.diagnostic-carousel-title {
+  font-size: 32px;
+  font-family: "Radio Canada", sans-serif;
+  color: rgba(0, 85, 255, 0.816);
+  font-weight: 700;
 }
-.diagnostic-carousel-para{
-    color:rgba(0, 0, 0, 0.381);
-    font-family: 'Work Sans', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-
+.diagnostic-carousel-title span {
+  color: #e3366d;
+}
+.diagnostic-carousel-para {
+  color: rgba(0, 0, 0, 0.381);
+  font-family: "Work Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
 }

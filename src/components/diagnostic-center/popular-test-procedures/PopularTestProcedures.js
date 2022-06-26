@@ -3,6 +3,11 @@ import Slider from "react-slick";
 
 import PopularTestProcedure from "../popular-test-procedure/PopularTestProcedure";
 import "./PopularTestProcedures.css";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }) => ({
+    backgroundColor: theme.palette.background.default,
+}));
 const PopularTestProcedures = () => {
     const [testProcedures, setTestProcedures] = useState([]);
 
@@ -32,7 +37,7 @@ const PopularTestProcedures = () => {
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 800,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
@@ -50,7 +55,7 @@ const PopularTestProcedures = () => {
     };
 
     return (
-        <div className="container mb-5 popular-test-procedures">
+        <RootStyle className="container mb-5 popular-test-procedures">
             <div className="diagnosis-header">
                 <h1 className="diagnosis-title">Popular Test Procedures</h1>
                 <h6 className="diagnosis-title-content">
@@ -68,7 +73,7 @@ const PopularTestProcedures = () => {
                     ></PopularTestProcedure>
                 ))}
             </Slider>
-        </div>
+        </RootStyle>
     );
 };
 

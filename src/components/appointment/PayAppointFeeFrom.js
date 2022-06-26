@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 const PayAppointmentFeeFrom = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
-
+    const [paymentMethod,setPaymentMethod]=useState({});
+    const [error,setError]=useState("");
+const navigate=useNavigate();
     const handleSubmit = async (event) => {
         // Block native form submission.
         event.preventDefault();
@@ -32,8 +39,10 @@ const PayAppointmentFeeFrom = ({ appointment }) => {
 
         if (error) {
             console.log("[error]", error);
+            setError(error.message);
         } else {
-            console.log("[PaymentMethod]", paymentMethod);
+            
+            setPaymentMethod(paymentMethod);
             if (paymentMethod.id) {
                 fetch(
                     `https://floating-basin-02241.herokuapp.com/allAppointments/${appointment._id}`,
@@ -41,12 +50,18 @@ const PayAppointmentFeeFrom = ({ appointment }) => {
                         method: "PUT",
                     }
                 )
-                    .then((res) => res.json())
-                    .then((data) => console.log(data));
+                    .then((res) =>res.json())
+                    .then((data) =>{
+                        if(data.acknowledged){
+                            alert("Payment is successful");
+                            navigate("/dashboard/user/my-appointments")
+                        }
+                    });
             }
         }
     };
     return (
+        <RootStyle>
         <form onSubmit={handleSubmit} className="mt-5">
             <CardElement
                 options={{
@@ -65,13 +80,12 @@ const PayAppointmentFeeFrom = ({ appointment }) => {
                 }}
             />
             <button
-                type="submit"
-                disabled={!stripe}
-                className="btn btn-danger mt-4"
+                 type="submit" className="btn-diagnosis-pay my-5" disabled={!stripe}
             >
                 Pay
             </button>
         </form>
+        </RootStyle>
     );
 };
 

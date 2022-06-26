@@ -12,7 +12,7 @@ const RootStyle = styled("div")(() => ({
   overflow: "hidden",
 }));
 
-const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
+const SimpleBarStyle = styled(SimpleBarReact)(({ theme }: any) => ({
   maxHeight: "100%",
   "& .simplebar-scrollbar": {
     "&:before": {
@@ -40,7 +40,14 @@ Scrollbar.propTypes = {
   sx: PropTypes.object,
 };
 
-export default function Scrollbar({ children, sx, ...other }: any) {
+export default function Scrollbar({
+  children,
+  sx,
+  ...other
+}: {
+  children: any;
+  sx: any;
+}) {
   const userAgent =
     typeof navigator === "undefined" ? "SSR" : navigator.userAgent;
 

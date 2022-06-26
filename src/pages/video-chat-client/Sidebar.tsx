@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { SocketContext } from "../../contexts/Context";
-import './style/hello.css';
+import "./style/hello.css";
 const Sidebar = ({ children }: any) => {
   const { me, callAccepted, setName, callEnded, leaveCall, callUser } =
     useContext(SocketContext);
@@ -26,15 +26,15 @@ const Sidebar = ({ children }: any) => {
                 onChange={(e) => setName(e.target.value)}
               />
               <CopyToClipboard text={me}>
-                <button onClick={callAUser} className="btn btn-primary">Copy Your ID</button>
+                <button onClick={callAUser} className="btn btn-primary">
+                  Copy Your ID
+                </button>
               </CopyToClipboard>
             </div>
           </div>
-          <div className="col-lg-6 col-md-6" >
+          <div className="col-lg-6 col-md-6">
             <h6>Make a call</h6>
-            <div
-              className="input-group input-group-sm mb-3"
-            >
+            <div className="input-group input-group-sm mb-3">
               <input
                 type="text"
                 className="form-control"

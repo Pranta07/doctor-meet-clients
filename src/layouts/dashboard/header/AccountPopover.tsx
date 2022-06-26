@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // @mui
 import IconButton from "@mui/material/IconButton";
-import { alpha } from "@mui/material/styles";
+import "./style/AccountPopover.css";
 import {
   Box,
   Divider,
@@ -12,17 +12,15 @@ import {
 } from "@mui/material";
 // components
 import MenuPopover from "../../../components/MenuPopover";
-import useAuth from "../../../hooks/useAuth";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+
+import { Navigate, NavLink } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "../../../redux/store";
+import { logout } from "../../../redux/actions/userAction";
+import usePremiumMembershipStatus from "../../../hooks/usePremiumMembersipStatus";
 
 // ----------------------------------------------------------------------
 
 const MENU_OPTIONS = [
-  {
-    label: "Profile",
-    linkTo: "/profile",
-  },
   {
     label: "Dashboard",
     linkTo: "/dashboard",
@@ -32,8 +30,21 @@ const MENU_OPTIONS = [
 // ----------------------------------------------------------------------
 
 export default function AccountPopover() {
-  const { user, logOut } = useAuth();
+  const { user }: any = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+  const [imageUrl, setImageUrl] = useState("");
+  const { premiumMemberCategory, premiumMembershipStatus } =
+    usePremiumMembershipStatus();
 
+  useEffect(() => {
+    if (premiumMemberCategory === "Silver") {
+      setImageUrl("https://i.ibb.co/4FbbqJb/silver-cup.png");
+    } else if (premiumMemberCategory === "Gold") {
+      setImageUrl("https://i.ibb.co/RCL70Y2/ingots.png");
+    } else if (premiumMemberCategory === "Diamond") {
+      setImageUrl("https://i.ibb.co/F0BP5V1/diamond.png");
+    }
+  }, [user, premiumMemberCategory]);
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event: any) => {
@@ -52,7 +63,12 @@ export default function AccountPopover() {
           p: 0,
         }}
       >
-        <Avatar src={user?.photoURL || ""} alt="avatar" />
+        <Avatar src={user?.name[0]} alt="avatar" className="badge-container" />
+        {premiumMembershipStatus && (
+          <div className="badge">
+            <img src={imageUrl} alt="badge" className="badge-image" />
+          </div>
+        )}
       </IconButton>
 
       <MenuPopover
@@ -71,7 +87,7 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.displayName}
+            {user?.name}
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
             {user?.email}
@@ -93,10 +109,11 @@ export default function AccountPopover() {
         </Stack>
 
         <Divider sx={{ borderStyle: "dashed" }} />
-
-        <MenuItem onClick={logOut} sx={{ m: 1 }}>
-          Logout
-        </MenuItem>
+        <NavLink to="/">
+          <MenuItem onClick={() => dispatch(logout())} sx={{ m: 1 }}>
+            Logout
+          </MenuItem>
+        </NavLink>
       </MenuPopover>
     </>
   );

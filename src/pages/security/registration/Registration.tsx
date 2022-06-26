@@ -1,157 +1,156 @@
-import React, { useRef } from "react";
-import { Button, Form } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import useFirebase from "../../../firebase/useFirebase/useFirebase";
-// import useAuth from "../../Hooks/useAuth";
+import React, { useRef, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { register } from "../../../redux/actions/userAction";
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
+
+import { createBrowserHistory } from "history";
+import { styled } from "@mui/material/styles";
+import { Button, TextField } from "@mui/material";
+import signUp from "../../../assets/img/undraw_my_password_re_ydq7.svg";
+import { useSnackbar } from "notistack";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+    height: "100%",
+    backgroundColor: theme.palette.background.default,
+}));
+
+const history: any = createBrowserHistory({ window });
 
 const Registration = () => {
-    let { createUsingEmail, signUsingGoogle, setMessage, message } =
-        useFirebase();
+    const { user }: any = useAppSelector((state) => state);
+    const { enqueueSnackbar } = useSnackbar();
+    useEffect(() => {}, [user]);
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
-    const FirstName = useRef<HTMLInputElement>(null!);
-    const LastName = useRef<HTMLInputElement>(null!);
-    const mail = useRef<HTMLInputElement>(null!);
+    const Name = useRef<HTMLInputElement>(null!);
+    const Email = useRef<HTMLInputElement>(null!);
     const pass = useRef<HTMLInputElement>(null!);
     const Cpass = useRef<HTMLInputElement>(null!);
+
     const handelSubmit = (e: any): void => {
         e.preventDefault();
-        const mailE: string = mail.current.value;
-        const passE: string = pass.current.value;
-        const passC: string = Cpass.current.value;
-        const fName: string = FirstName.current.value;
-        const LName: string = LastName.current.value;
+        const email: string = Email.current.value;
+        const password: string = pass.current.value;
+        const confirmPassword: string = Cpass.current.value;
+        const name: string = Name.current.value;
 
-        if (passE !== passC) {
-            setMessage("Confirm Password doest Matched");
+        if (password !== confirmPassword) {
+            alert("Confirm Password doest Matched");
         } else {
-            createUsingEmail(mailE, passE, fName, LName);
-            console.log(mailE, passE, fName, LName);
-            mail.current.value = "";
-            pass.current.value = "";
-            Cpass.current.value = "";
-            FirstName.current.value = "";
-            LastName.current.value = "";
-            setMessage("");
+            dispatch(
+                register({
+                    name,
+                    email,
+                    password,
+                })
+            );
+            if (user.success) {
+                // console.log(user.success);
+                enqueueSnackbar("Registration complete successfully!");
+                if (history.location.pathname === "/login") {
+                    navigate("/");
+                } else {
+                    navigate(history.back());
+                }
+            }
         }
     };
     return (
-        <div className="container">
-            <div className="row">
+        <RootStyle className="container my-5">
+            <div className="row my-5 py-5">
                 <div className="col-lg-6">
-                    <img
-                        className="img-fluid"
-                        src="https://media.istockphoto.com/vectors/register-account-submit-access-login-password-username-internet-vector-id1281150061?b=1&k=20&m=1281150061&s=612x612&w=0&h=Wlus0AvwwVksa9X5w1RUyp1pu8_vbpVOdw25FLBEG_s="
-                        alt=""
-                    />
+                    <img className="my-5 py-5 img-fluid" src={signUp} alt="" />
                 </div>
-                <div className="col-lg-6 my-auto">
-                    <Form className="container">
-                        <div className="form-row row my-3">
-                            <Form.Label>Name</Form.Label>
-                            <div className="col-lg-6">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="First name"
-                                    ref={FirstName}
-                                />
-                            </div>
-                            <div className="col-lg-6">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Last name"
-                                    ref={LastName}
-                                />
-                            </div>
-                        </div>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control
-                                ref={mail}
-                                type="email"
-                                placeholder="Enter email"
-                            />
-                        </Form.Group>
-                        <Form.Group
-                            className="mb-3"
-                            controlId="formBasicPassword"
-                        >
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                ref={pass}
-                                type="password"
-                                placeholder="Password"
-                            />
-                        </Form.Group>
-                        <Form.Group
-                            className="mb-3"
-                            controlId="formBasicPassword1"
-                        >
-                            <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control
-                                ref={Cpass}
-                                type="password"
-                                placeholder="Confirm Password"
-                            />
-                        </Form.Group>
-                        {/* {message ? <span className="text-danger"> {message} </span> : []} */}
-                        <Form.Group
-                            className="mb-3 d-flex 
-    justify-content-between"
-                            controlId="formBasicCheckbox"
-                        ></Form.Group>
+                <div className="col-lg-6 my-auto py-5">
+                    <h3
+                        style={{
+                            color: "#0074ff",
+                        }}
+                    >
+                        {" "}
+                        Registration{" "}
+                    </h3>
+                    <hr
+                        style={{
+                            width: "100px",
+                            border: `1px solid rgb(0 116 255)`,
+                            boxShadow: "rgb(99 99 99 / 20%) 0px 2px 8px 0px",
+                            margin: " 20px auto !important",
+                            borderRadius: "10px",
+                        }}
+                    />
+                    <form onSubmit={handelSubmit}>
+                        <TextField
+                            id="outlined-basic"
+                            label="Name"
+                            variant="outlined"
+                            fullWidth
+                            required
+                            inputRef={Name}
+                            type="text"
+                            sx={{
+                                marginY: "10px",
+                            }}
+                        />
+                        <TextField
+                            fullWidth
+                            id="outlined-basic"
+                            label="Email"
+                            type="email"
+                            required
+                            inputRef={Email}
+                            variant="outlined"
+                            sx={{
+                                marginY: "10px",
+                            }}
+                        />
+                        <TextField
+                            fullWidth
+                            id="outlined-basic"
+                            label="Password"
+                            type="password"
+                            required
+                            inputRef={pass}
+                            sx={{
+                                marginY: "10px",
+                            }}
+                            variant="outlined"
+                        />
+                        <TextField
+                            fullWidth
+                            id="outlined-basic"
+                            label="Confirm Password"
+                            type="password"
+                            required
+                            inputRef={Cpass}
+                            sx={{
+                                marginY: "10px",
+                            }}
+                            variant="outlined"
+                        />
                         <Button
-                            onClick={handelSubmit}
-                            variant="primary px-4"
                             type="submit"
+                            sx={{ marginY: "10px" }}
+                            variant="contained"
                         >
-                            SignUp
-                        </Button>
-                        <div className="row my-3">
                             {" "}
-                            <small className="font-weight-bold">
-                                Already have an account?{" "}
-                                <span className="text-danger ">
-                                    <NavLink to="/login">Login</NavLink>
-                                </span>
-                            </small>{" "}
-                        </div>
-                    </Form>
-                    <div className="row px-3 mt-4 mb-2 ">
-                        <div className="line"></div>{" "}
-                        <small className="or text-center">Or</small>
-                        <div className="line"></div>
-                    </div>
-                    <div className="mb-4 d-flex px-3">
-                        <h6 className="mb-0 d-flex align-items-center mr-4">
-                            Sign in with:{" "}
-                        </h6>
-                        <div className="d-flex my-2">
-                            {/* <button className="btn p-0">
-                <img
-                  src="https://brandlogos.net/wp-content/uploads/2021/04/facebook-icon.png"
-                  alt="facebook"
-                  width="40px"
-                  height="40px"
-                />
-              </button> */}
-                            <button
-                                onClick={signUsingGoogle}
-                                className="btn p-0"
-                            >
-                                <img
-                                    src="https://i.ibb.co/Bn4NZDd/pngegg.png"
-                                    alt="google"
-                                    width="26px"
-                                    height="26px"
-                                />
-                            </button>
-                        </div>
-                    </div>
+                            Sign up{" "}
+                        </Button>
+
+                        <p>
+                            {" "}
+                            <span style={{ fontWeight: "600", color: "gray" }}>
+                                Already have an account?
+                            </span>
+                            <NavLink to="/login">
+                                <Button variant="text">Log in </Button>{" "}
+                            </NavLink>
+                        </p>
+                    </form>
                 </div>
             </div>
-        </div>
+        </RootStyle>
     );
 };
 

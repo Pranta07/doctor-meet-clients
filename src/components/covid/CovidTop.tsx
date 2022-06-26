@@ -4,7 +4,11 @@ import bdFlag from "../../assets/bangladesh-flag.jpg";
 import { Spinner } from "react-bootstrap";
 import "./CovidTop.css";
 import CovidChart from "./CovidChart";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 /* interface HIF {
     "x-rapidapi-host": string;
     "x-rapidapi-key": string;
@@ -37,7 +41,9 @@ const CovidTop = () => {
   return (
     <>
       <div className="covid-header my-5">
-        <h1 className="text-center fw-bold">Covid Portal</h1>
+        <h1 style={{ color: "#2097ca" }} className="text-center fw-bold">
+          Covid Portal
+        </h1>
         <hr className="mx-auto hr-hight w-25" />
         <p className="text-center text-secondary">
           <small>Be Aware, Stay Healthy!</small>

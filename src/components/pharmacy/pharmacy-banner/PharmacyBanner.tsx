@@ -14,17 +14,21 @@ import pro_4 from "../../../assets/pharmacy/capsules.png";
 import pro_5 from "../../../assets/pharmacy/prescription.png";
 import pro_6 from "../../../assets/pharmacy/drops.png";
 import { Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacyBanner = () => {
   return (
-    <div className="container">
+    <RootStyle className="container">
       <div className="row">
         <div className="col-lg-8 col-md-7 ">
           <div className="back-img-1">
             <h1 className="text-light h1-big mb-3">
               Focused <br /> <span> by Fredi</span>{" "}
             </h1>
-            <p className="text-light p-big">Only in this week. Don’t misss!</p>
+            <p className="text-light p-big">Only in this week. Don’t miss!</p>
             <h2 className="h1-big" style={{ color: "#ff7f23" }}>
               $15.99{" "}
               <span className="h1-none mb-auto" style={{ color: "#00a198" }}>
@@ -140,7 +144,7 @@ const PharmacyBanner = () => {
           </h6>
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

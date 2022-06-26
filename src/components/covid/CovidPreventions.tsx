@@ -3,7 +3,12 @@ import wash from "../../assets/img/hand-wash.svg";
 import distance from "../../assets/img/social-distance.svg";
 import mask from "../../assets/img/using-mask.svg";
 import "./CovidPreventions.css";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+}));
 const CovidPreventions = () => {
   return (
     <>
@@ -15,7 +20,7 @@ const CovidPreventions = () => {
             <p className="text-secondary w-75 mx-auto">
               <small>
                 Protect yourself and others around you by knowing the facts and
-                taking appropriate precautions. Floow advice provided by your
+                taking appropriate precautions. Follow advice provided by your
                 local health authority.
               </small>
             </p>

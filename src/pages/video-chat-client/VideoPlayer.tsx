@@ -14,8 +14,10 @@ const VideoPlayer = () => {
             <video
               className="video-call-width"
               playsInline
+              muted
               ref={myVideo}
               autoPlay
+              style={{ width: "500px" }}
             />
           </div>
         </div>
@@ -29,6 +31,7 @@ const VideoPlayer = () => {
               playsInline
               ref={userVideo}
               autoPlay
+              style={{ width: "500px" }}
             />
           </div>
         </div>

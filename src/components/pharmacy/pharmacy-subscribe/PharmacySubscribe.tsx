@@ -1,10 +1,14 @@
 import React from "react";
 import "./PharmacySubscribe.css";
 import blog_img from "../../../assets/pharmacy/blog13.jpg";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 const PharmacySubscribe = () => {
   return (
-    <div className="container margin-Y ">
+    <RootStyle className="container margin-Y ">
       <div className="">
         <div className="blogs items row">
           <div className="col-lg-6 item ">
@@ -20,7 +24,7 @@ const PharmacySubscribe = () => {
                 </h4>
                 <div className="entry-meta-middle">
                   <span className="data-time"> May 22, 2021 </span>
-                  <span className="name-athor mx-3">Alfredo Austin</span>
+                  <span className="name-author mx-3">Alfredo Austin</span>
                 </div>
               </div>
             </div>
@@ -48,7 +52,7 @@ const PharmacySubscribe = () => {
           </div>
         </div>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

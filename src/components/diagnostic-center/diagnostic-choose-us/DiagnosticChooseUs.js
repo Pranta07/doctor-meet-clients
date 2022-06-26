@@ -1,10 +1,15 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./DiagnosticChooseUs.css";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }) => ({
+
+  backgroundColor: theme.palette.background.default,
+}))
 const DiagnosticChooseUs = () => {
   return (
-    <div className="my-5">
+    <RootStyle className="my-5">
       <Container>
         <div
           style={{ boxShadow: "rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px" }}
@@ -18,10 +23,7 @@ const DiagnosticChooseUs = () => {
                   Why patients choose our center
                 </h1>
                 <p className="diagnosis-choose-us-content">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-                  harum nisi magni voluptate fuga ducimus consequuntur excepturi
-                  molestias impedit corrupti exercitationem, eveniet dolorem
-                  dolor amet modi in perferendis! Possimus, sint.
+                  We provide the best care according to the value. And make sure everyone gets the same, we also care for our patients in and out with our heart content.
                 </p>
               </div>
             </Col>
@@ -77,7 +79,7 @@ const DiagnosticChooseUs = () => {
           </Row>
         </div>
       </Container>
-    </div>
+    </RootStyle>
   );
 };
 

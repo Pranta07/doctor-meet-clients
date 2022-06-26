@@ -2,6 +2,11 @@ import { useState } from "react";
 import { io } from "socket.io-client";
 import "./App.css";
 import Chat from "./Chat";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 
 const socket = io("http://localhost:8888");
 
@@ -21,7 +26,7 @@ function JoinRoom() {
   };
 
   return (
-    <div className="App">
+    <RootStyle className="App">
       {!showChat ? (
         <div className="joinChatContainer">
           <h3>Join A Chat</h3>
@@ -44,7 +49,7 @@ function JoinRoom() {
       ) : (
         <Chat socket={socket} username={username} room={room} />
       )}
-    </div>
+    </RootStyle>
   );
 }
 

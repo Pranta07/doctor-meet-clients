@@ -1,16 +1,18 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import blood from "../../assets/services/blood.jpg";
-import consultation from "../../assets/services/consultation.png";
+import consultation from "../../assets/img/digostinc_Center.png";
 import covid from "../../assets/services/covid.jpg";
-import emergency from "../../assets/services/emergency.png";
+import emergency from "../../assets/img/1-71-512_100x100.webp";
 import info from "../../assets/services/info.png";
 import medicine from "../../assets/services/medicine.png";
 import reports from "../../assets/services/reports.png";
 import search from "../../assets/services/search.png";
 import Service from "./Service";
 import "./Services.css";
-//
+import { alpha, useTheme, styled } from "@mui/material/styles";
+import { Box, Container } from "@mui/material";
+import { m } from "framer-motion";
+
 interface service_if {
     id: number;
     img: string;
@@ -26,31 +28,7 @@ const services: service_if[] = [
         name: "Search Doctor",
         description:
             "Choose your doctor from thousands of specialist, general, and trusted hospitals.",
-        route: "",
-    },
-    {
-        id: 2,
-        img: consultation,
-        name: "Free Consultation",
-        description:
-            "Free consultation with our trusted doctors and get the best recomendations.",
-        route: "",
-    },
-    {
-        id: 3,
-        img: reports,
-        name: "Reports Feedback",
-        description:
-            "Get reports feedback from doctors with prescribed medicine.",
-        route: "",
-    },
-    {
-        id: 4,
-        img: covid,
-        name: "COVID-19 Update",
-        description:
-            "Get update about covid information everyday. Consult Covid Specialist from available doctors.",
-        route: "/CovidPortal",
+        route: "/doctors",
     },
     {
         id: 5,
@@ -58,63 +36,101 @@ const services: service_if[] = [
         name: "Find Blood Donors",
         description:
             "No need to worry for your patients. We will manage blood donors for you.",
-        route: "/FindDonors",
+        route: "/find-donors",
     },
     {
-        id: 6,
-        img: medicine,
-        name: "Online Pharmacy",
+        id: 4,
+        img: covid,
+        name: "COVID-19 Update",
         description:
-            "Buy  your medicines with our mobile application with a simple delivery system",
-        route: "",
+            "Get update about covid information everyday. Consult Covid Specialist from available doctors.",
+        route: "covid-portal",
+    },
+    {
+        id: 2,
+        img: consultation,
+        name: "Diagnostic Center",
+        description:
+            "Free consultation with our trusted doctors and get the best recommendations.",
+        route: "/diagnostic-center",
+    },
+    {
+        id: 3,
+        img: reports,
+        name: "Reports Feedback",
+        description:
+            "Get reports feedback from doctors with prescribed medicine.",
+        route: "/dashboard/user/Report-status",
     },
     {
         id: 7,
         img: info,
         name: "Tracking",
         description: "Track and save your medical history and health data ",
-        route: "",
+        route: "/dashboard/user/Report-status",
     },
     {
         id: 8,
         img: emergency,
-        name: "Emergency Care",
+        name: "Premium Membership",
         description:
             "You can get 24/7 urgent care for yourself or your children and your lovely family.",
-        route: "",
-    },
+        route: "/premium-membership",
+    } /* {
+        id: 6,
+        img: medicine,
+        name: "Online Pharmacy",
+        description:
+          "Buy  your medicines with our mobile application with a simple delivery system",
+        route: "/pharmacy",
+      }, */,
 ];
+const RootStyle = styled("div")(({ theme }: any) => ({
+    [theme.breakpoints.up("md")]: {},
+
+    backgroundColor: theme.palette.background.default,
+}));
 
 const Services = () => {
     return (
-        <div className="services-section">
-            <Container className="my-4 text-center service-dot">
-                <p
-                    className="text-center fw-bold mt-5"
-                    style={{ color: "#00acb1" }}
-                >
-                    What We do
-                </p>
-                <h1 className="fw-bold" style={{ color: "#005963" }}>
-                    Our Services
-                </h1>
-                <hr className="hr-w mx-auto" />
-                <p className="text-secondary w-75 mx-auto pt-2 pb-4">
-                    <small>
-                        We provide to you the best choiches for you. Adjust it
-                        to your health needs and make sure your undergo
-                        treatment with our highly qualified doctors you can
-                        consult with us which type of service is suitable for
-                        your health.
-                    </small>
-                </p>
-                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5 justify-content-center p-4 ">
-                    {services.map((service) => (
-                        <Service key={service.id} service={service}></Service>
-                    ))}
-                </div>
-            </Container>
-        </div>
+        <RootStyle>
+            <Box className="services-section">
+                <Container className="text-center service-dot">
+                    <div>
+                        <p
+                            className="text-center fw-bold mt-5"
+                            style={{ color: "#e64d82" }}
+                        >
+                            What We do
+                        </p>
+                    </div>
+
+                    <div>
+                        <h1 className="fw-bold" style={{ color: "#2097ca" }}>
+                            Our Services
+                        </h1>
+                    </div>
+                    <hr className="hr-w mx-auto" />
+                    <p className="text-secondary w-75 mx-auto pt-2 pb-4">
+                        <small>
+                            We provide to you the best choices for you. Adjust
+                            it to your health needs and make sure your undergo
+                            treatment with our highly qualified doctors you can
+                            consult with us which type of service is suitable
+                            for your health.
+                        </small>
+                    </p>
+                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5 justify-content-center p-4 ">
+                        {services.map((service) => (
+                            <Service
+                                key={service.id}
+                                service={service}
+                            ></Service>
+                        ))}
+                    </div>
+                </Container>
+            </Box>
+        </RootStyle>
     );
 };
 

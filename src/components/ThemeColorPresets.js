@@ -10,7 +10,7 @@ import {
 // hooks
 import useSettings from "../hooks/useSettings";
 //
-import componentsOverride from "../theme/overrides/index";
+import componentsOverride from "../theme/overrides";
 
 // ----------------------------------------------------------------------
 
@@ -30,6 +30,7 @@ export default function ThemeColorPresets({ children }) {
         primary: setColor,
       },
       customShadows: {
+        //@ts-ignore
         ...defaultTheme.customShadows,
         primary: `0 8px 16px 0 ${alpha(setColor.main, 0.24)}`,
       },

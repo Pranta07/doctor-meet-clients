@@ -15,13 +15,13 @@ import logo from "../../assets/img/logo.png";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }: any) => ({
   [theme.breakpoints.up("md")]: {
     display: "flex",
   },
 }));
 
-const HeaderStyle = styled("header")(({ theme }) => ({
+const HeaderStyle = styled("header")(({ theme }: any) => ({
   top: 0,
   zIndex: 9,
   lineHeight: 0,
@@ -37,7 +37,7 @@ const HeaderStyle = styled("header")(({ theme }) => ({
   },
 }));
 
-const SectionStyle = styled(Card)(({ theme }) => ({
+const SectionStyle = styled(Card)(({ theme }: any) => ({
   width: "100%",
   maxWidth: 464,
   display: "flex",
@@ -46,7 +46,7 @@ const SectionStyle = styled(Card)(({ theme }) => ({
   margin: theme.spacing(2, 0, 2, 2),
 }));
 
-const ContentStyle = styled("div")(({ theme }) => ({
+const ContentStyle = styled("div")(({ theme }: any) => ({
   maxWidth: 480,
   margin: "auto",
   display: "flex",

@@ -1,26 +1,29 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useEffect, useState } from "react";
-import PharmacySingleProduct from "../pharmacy-single-product/PharmacySingleProduct";
-import PharmacyTimer from "../pharmacy-timer/PharmacyTimer";
-import "./PharmacyProducts.css";
-import Pharma_3 from "../../../assets/pharmacy/banner-6.png";
-import Pharma_4 from "../../../assets/pharmacy/banner-7-1.jpg";
-import Pharma_5 from "../../../assets/pharmacy/banner-8-1.jpg";
-import Pharma_6 from "../../../assets/pharmacy/banner-9.jpg";
+import { Link } from "react-router-dom";
+import pharma_text_6 from "../../../assets/pharmacy/banner-10-text.png";
 import Pharma_7 from "../../../assets/pharmacy/banner-10.jpg";
+import pharma_text_7 from "../../../assets/pharmacy/banner-11-text.png";
 import Pharma_8 from "../../../assets/pharmacy/banner-11.jpg";
+import pharma_text_8 from "../../../assets/pharmacy/banner-12-text.png";
 import Pharma_9 from "../../../assets/pharmacy/banner-12.jpg";
 import pharma_text_2 from "../../../assets/pharmacy/banner-6-text.png";
+import Pharma_3 from "../../../assets/pharmacy/banner-6.png";
+import Pharma_4 from "../../../assets/pharmacy/banner-7-1.jpg";
 import pharma_text_3 from "../../../assets/pharmacy/banner-7-text.png";
+import Pharma_5 from "../../../assets/pharmacy/banner-8-1.jpg";
 import pharma_text_4 from "../../../assets/pharmacy/banner-8-text.png";
 import pharma_text_5 from "../../../assets/pharmacy/banner-9-text.png";
-import pharma_text_6 from "../../../assets/pharmacy/banner-10-text.png";
-import pharma_text_7 from "../../../assets/pharmacy/banner-11-text.png";
-import pharma_text_8 from "../../../assets/pharmacy/banner-12-text.png";
-import PharmacyCardSlider from "../pharmacy-card-slider/PharmacyCardSlider";
-import PharmacyBestProduct from "../pharmacy-best-product/PharmacyBestProduct";
-import { Link } from "react-router-dom";
+import Pharma_6 from "../../../assets/pharmacy/banner-9.jpg";
+import PharmacySingleProduct from "../pharmacy-single-product/PharmacySingleProduct";
+import "./PharmacyProducts.css";
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
+import { getProduct } from "../../../redux/actions/productAction";
+import { styled } from "@mui/material/styles";
 
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 export interface productsType {
   Sku: string;
   category: string;
@@ -40,29 +43,33 @@ export interface productsType {
 }
 
 const PharmacyProducts = () => {
-  let [products, setProducts] = useState<productsType[]>([]);
+
+  const dispatch = useAppDispatch();
+  const { products }: any = useAppSelector((state) => state.products);
   const time = new Date();
   time.setSeconds(time.getMonth() + 19890);
 
   useEffect(() => {
-    fetch("https://immense-beyond-64415.herokuapp.com/medicine/all")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.result);
-        console.log(data);
-      });
+    //@ts-ignore
+    dispatch(getProduct());
+
   }, []);
 
+  if (!products) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
-    <div className="container">
+    <RootStyle className="container">
       <h1 className=" text-center my-5"> Latest products </h1>
       <div className="row">
-        {products.slice(0, 12).map((product) => (
-          <PharmacySingleProduct
-            key={product._id}
-            products={product}
-          ></PharmacySingleProduct>
-        ))}
+        {products.length &&
+          products.map((product: any) => (
+            <PharmacySingleProduct
+              key={product._id}
+              product={product}
+            ></PharmacySingleProduct>
+          ))}
       </div>
       <div>
         <h1 className="text-center mt-5"> This week deals </h1>
@@ -169,29 +176,7 @@ const PharmacyProducts = () => {
           </Link>
         </div>
       </div>
-      <div>
-        <PharmacyTimer expiryTimestamp={time}></PharmacyTimer>
-      </div>
-      <div className="row">
-        {products.slice(0, 6).map((product) => (
-          <PharmacyCardSlider
-            key={product._id}
-            products={product}
-          ></PharmacyCardSlider>
-        ))}
-      </div>
-      <div>
-        <h1 className="text-center my-5"> Bestsellers </h1>
-      </div>
-      <div className="row">
-        {products.slice(0, 6).map((product) => (
-          <PharmacyBestProduct
-            key={product._id}
-            products={product}
-          ></PharmacyBestProduct>
-        ))}
-      </div>
-    </div>
+    </RootStyle>
   );
 };
 

@@ -1,31 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import { useAppSelector } from "../../redux/store";
 
 const AdminRoute = ({ children }: { children: JSX.Element }) => {
-  const { user, isLoading } = useAuth();
-  const [admin, setAdmin] = useState(false);
-  const [done, setDone] = useState(false);
+  const { user, loading }: any = useAppSelector((state) => state.user);
+
 
   let location = useLocation();
 
-  useEffect(() => {
-    if (!isLoading) {
-      setDone(false);
-      setAdmin(false);
-      fetch(`http://localhost:5000/user/${user?.email}`)
-        .then((res) => res.json())
-        .then((user) => {
-          if (user?.role === "admin") {
-            setAdmin(true);
-          }
-        })
-        .finally(() => setDone(true));
-    }
-  }, [isLoading]);
-
-  if (isLoading || !done) {
+  if (loading) {
     return (
       <div className="m-10">
         <svg
@@ -36,7 +20,7 @@ const AdminRoute = ({ children }: { children: JSX.Element }) => {
     );
   }
 
-  if (user?.email && admin) {
+  if (user?.email && user.role === "admin") {
     return children;
   } else {
     return <Navigate to="/" state={{ from: location }} replace />;

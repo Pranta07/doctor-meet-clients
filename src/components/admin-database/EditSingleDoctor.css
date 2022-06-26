@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Bodoni:ital@1&family=PT+Sans&family=Radio+Canada&family=Roboto&display=swap');
+
+.edit-single-doctor-form-container{
+    background-color: white;
+    padding-left: 40px;
+    padding-top: 50px;
+    
+    padding-right: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* background-image: url("https://img.freepik.com/free-vector/data-extraction-concept-illustration_114360-4876.jpg?w=740&t=st=1652989249~exp=1652989849~hmac=1c17bc90c0eec59e3d9e8162d9b9d322c1df32ea05c48778fec4974b3cbcdb82"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 600px;
+   
+}
+
+.edit-doctor-bg-image{
+padding: 20px;
+width: 70%;
+}
+/* .shadow{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top:0px;
+    left: 0px;
+} */
+
+.edit-single-doctor-form-container .doctor-key-name{
+font-size: 18px;
+font-weight: 500;
+margin-right: 10px;
+margin-top: 14px;
+font-family: 'Libre Bodoni', serif;
+}
+.edit-single-doctor-form-container .edit-doctor-input-container{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.edit-single-doctor-form-container .edit-doctor-input{
+font-size: 16px;
+margin-top:16px;
+width: 200px;
+font-family: 'Radio Canada', sans-serif;
+border-radius:8px;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border: 0px;
+padding-left: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+
+}
+.edit-single-doctor-form-container .edit-doctor-input:focus{
+border: 1px solid #48dbfb;
+outline: 0px;
+
+}
+
+         
+.btn-edit-doctor-submit {
+    background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%);
+    margin: 50px auto;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .btn-edit-doctor-submit:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 

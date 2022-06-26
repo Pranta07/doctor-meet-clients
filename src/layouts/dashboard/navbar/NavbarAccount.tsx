@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import { Box, Link, Typography, Avatar } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
+import { useAppSelector } from "../../../redux/store";
 
 // ----------------------------------------------------------------------
 
@@ -24,7 +25,8 @@ NavbarAccount.propTypes = {
 };
 
 export default function NavbarAccount({ isCollapse }: any) {
-  const { user, logOut } = useAuth();
+  const { user }: any = useAppSelector((state) => state.user);
+
   return (
     <Link underline="none" color="inherit">
       <RootStyle
@@ -34,7 +36,7 @@ export default function NavbarAccount({ isCollapse }: any) {
           }),
         }}
       >
-        <Avatar src={user?.photoURL || ""} alt="avatar" />
+        <Avatar src={user?.name[0]} alt="avatar" className="badge-container" />
 
         <Box
           sx={{
@@ -50,10 +52,10 @@ export default function NavbarAccount({ isCollapse }: any) {
           }}
         >
           <Typography variant="subtitle2" noWrap>
-            {user?.displayName}
+            {user?.name}
           </Typography>
           <Typography variant="body2" noWrap sx={{ color: "text.secondary" }}>
-            Admin
+            {user?.role}
           </Typography>
         </Box>
       </RootStyle>

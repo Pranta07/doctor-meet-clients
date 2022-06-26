@@ -1,9 +1,18 @@
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  Rating,
+  Typography,
+} from "@mui/material";
 import React from "react";
-import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import './style/style.css';
 export interface doctor {
-  id: string;
+  _id: string;
   name: string;
   img: string;
   specialist: string;
@@ -11,34 +20,71 @@ export interface doctor {
   website: string;
   email: string;
   timeSlot: string;
+  visit: string;
+  availableDays: string;
+  experience: string;
+  review: string;
 }
 type Props = {
   doctor: doctor;
 };
 const AppointmentDoctor: React.FC<Props> = ({ doctor }) => {
-  const { id, name, img, specialist, phone, website, email, timeSlot } = doctor;
-
+  const {
+    _id,
+    name,
+    img,
+    specialist,
+    phone,
+    website,
+    email,
+    availableDays,
+    visit,
+    experience,
+    review,
+  } = doctor;
+  const rating = Number(review);
   return (
-    <Col lg={4} md={6} sm={12} xs={12}>
-      <Card>
-        <Card.Img variant="top" src={img} />
-        <Card.Body>
-          <Card.Title>{name} </Card.Title>
-          <h3>{specialist}</h3>
-          <Card.Text>
-            <h4>Available Hours : {timeSlot}</h4>
-            <h4>Phone : {phone}</h4>
-            <h4>Website : {website}</h4>
-            <h4>Email : {email}</h4>
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <Link to={`/get-appointment-form/${id}`}>
-            <button className="btn btn-success">Get Appointment</button>
+    <Grid item xs={12} md={6} lg={4}>
+      <Card sx={{ maxWidth: 345 }} style={{ height: 680 }}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="300"
+            image={img}
+            alt="green iguana"
+            className="appointment-doctor-image"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="div">
+              Dr.{name}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="div">
+              {specialist}
+            </Typography>
+            <hr className="my-3" />
+            <h4 className="appointment-doctor-info"><span className="appointment-info-title">Phone</span> : {phone}</h4>
+            <h4 className="appointment-doctor-info"><span className="appointment-info-title">Website</span> : {website}</h4>
+            <h4 className="appointment-doctor-info"><span className="appointment-info-title">Email</span> : {email}</h4>
+            <h4 className="appointment-doctor-info">
+            <span className="appointment-info-title">Experience</span> : {experience} years
+            </h4>
+            <h4 className="appointment-doctor-info">Available in
+            <span className="appointment-info-title"> {availableDays}</span>
+            </h4>
+            <h4 className="appointment-doctor-info"><span className="appointment-info-title">Visit</span> : $ {visit} </h4>
+
+            <Rating name="read-only" value={rating} readOnly />
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Link to={`/get-appointment-form/${_id}`}>
+            <button className="btn-get-appointment my-auto">
+              Book Now
+            </button>
           </Link>
-        </Card.Footer>
+        </CardActions>
       </Card>
-    </Col>
+    </Grid>
   );
 };
 

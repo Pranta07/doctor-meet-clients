@@ -24,7 +24,7 @@ import { NavSectionVertical } from "../../components/nav-section/index";
 import logo from "../../assets/img/logo.png";
 // ----------------------------------------------------------------------
 
-const ListItemStyle: any = styled(ListItemButton)(({ theme }) => ({
+const ListItemStyle: any = styled(ListItemButton)(({ theme }: any) => ({
   ...theme.typography.body2,
   height: NAVBAR.DASHBOARD_ITEM_ROOT_HEIGHT,
   textTransform: "capitalize",
@@ -147,7 +147,7 @@ function MenuMobileItem({ item, isOpen, onOpen }: any) {
                   bgcolor: "background.neutral",
                   backgroundRepeat: "no-repeat",
                   backgroundImage:
-                    "url(https://minimal-assets-api.vercel.app/assets/illustrations/illustration_dashboard.png)",
+                    "url(https://doctor-meet.web.app/assets/illustrations/illustration_dashboard.png)",
                   "& > *:not(.MuiTouchRipple-root)": { display: "none" },
                 },
               }}

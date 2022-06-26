@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran&family=Hind&display=swap");
+.covid-awareness-bar {
+  background-color: #427cc5;
+}
+
+.awareness-logo-container {
+  width: 130px;
+  height: 100px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.awareness-logo-container:hover {
+  background-color: transparent;
+  border: 3px solid white;
+  transition: 0.3s ease-in-out;
+}
+.awareness-logo-container:hover .covid-aw-icon {
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.awareness-logo-container .covid-aw-icon {
+  font-size: 40px;
+}
+.font-catamaran {
+  font-family: "Catamaran", sans-serif;
+}
+.font-hind {
+  font-family: "Hind", sans-serif;
+}

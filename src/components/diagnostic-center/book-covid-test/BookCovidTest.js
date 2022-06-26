@@ -1,9 +1,16 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import './BookCovidTest.css';
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme } )=> ({
+
+  backgroundColor: theme.palette.background.default,
+}))
 const BookCovidTest = () => {
     return (
-        <div className='book-covid-test-container my-5'>
+      
+        <RootStyle className='book-covid-test-container my-5'>
             <Container>
                 <div className='d-flex flex-column'>
                     <div className="mt-5 book-covid-new-container">
@@ -13,7 +20,8 @@ const BookCovidTest = () => {
                     <button className='btn book-covid-btn'>Book Covid Test</button>
                 </div>
             </Container>
-        </div>
+        </RootStyle>
+  
     );
 };
 

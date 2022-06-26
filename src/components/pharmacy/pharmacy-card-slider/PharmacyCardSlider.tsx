@@ -3,15 +3,21 @@ import { RatingStar } from "rating-star";
 import { Cart, Heart, Search } from "react-bootstrap-icons";
 import { NavLink } from "react-router-dom";
 import { Box, Modal } from "@mui/material";
+import { useAppDispatch } from "../../../redux/store";
+import { addItemsToCart } from "../../../redux/actions/cartAction";
+import { styled } from "@mui/material/styles";
 
-let getData = () => {
-  let data = localStorage.getItem("item");
-  if (data) {
-    return JSON.parse(data);
-  } else {
-    return [];
-  }
-};
+const RootStyle = styled("div")(({ theme }: any) => ({
+  backgroundColor: theme.palette.background.default,
+}));
+// let getData = () => {
+//   let data = localStorage.getItem("item");
+//   if (data) {
+//     return JSON.parse(data);
+//   } else {
+//     return [];
+//   }
+// };
 
 const style = {
   position: "absolute" as "absolute",
@@ -24,54 +30,42 @@ const style = {
 };
 
 const PharmacyCardSlider = (props: any) => {
-  let [itemData, setItemData] = useState(getData());
+  // let [itemData, setItemData] = useState(getData());
+
+  const dispatch = useAppDispatch();
   let [count, setCount] = useState(1);
 
-  let {
-    name,
-    img1,
-    img2,
-    img3,
-    rating,
-    img4,
-    price,
-    description,
-    Sku,
-    category,
-    inStock,
-    power,
-    shopAddress,
-    weight,
-    _id,
-  } = props.products;
+  let { name, img1, img2, img3, img4, price, inStock, _id } = props.product;
+
+  //danger
+  let rating = 4.5;
 
   useEffect(() => {
-    const ItemList = localStorage.getItem("item");
-
-    if (ItemList) {
-      const listItems: any[] = JSON.parse(ItemList);
-      const authorId = listItems.find((author) => author._id === _id);
-    }
+    // const ItemList = localStorage.getItem("item");
+    // if (ItemList) {
+    //   const listItems: any[] = JSON.parse(ItemList);
+    //   const authorId = listItems.find((author) => author._id === _id);
+    // }
   }, [_id]);
 
-  const addmedicine = (id: string) => {
-    //save the medicine to local storage
-    const medicine = localStorage.getItem("item");
+  // const addMedicine = (id: string) => {
+  //   //save the medicine to local storage
+  //   const medicine = localStorage.getItem("item");
 
-    let items;
-    if (medicine) items = JSON.parse(medicine);
-    else items = [];
+  //   let items;
+  //   if (medicine) items = JSON.parse(medicine);
+  //   else items = [];
 
-    const newItems = [...items, props.products];
+  //   const newItems = [...items, props.products];
 
-    localStorage.setItem("item", JSON.stringify([...newItems]));
-  };
-  let handleOnClikplus = () => {
+  //   localStorage.setItem("item", JSON.stringify([...newItems]));
+  // };
+  let handleOnClickPlus = () => {
     let total = count + 1;
     setCount(total);
   };
 
-  let handleONClickMinas = () => {
+  let handleONClickMinus = () => {
     if (count < 1) {
       return;
     } else {
@@ -79,35 +73,27 @@ const PharmacyCardSlider = (props: any) => {
       setCount(total);
     }
   };
-  let [allimg, setAllimg] = useState("");
+  let [allImg, setAllImg] = useState("");
   const getImage = (image: string) => {
-    setAllimg(image);
+    setAllImg(image);
   };
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <div className="col-lg-2 col-md-3 col-sm-6 p-0">
+    <RootStyle className="col-lg-2 col-md-3 col-sm-6 p-0">
       <div className="product p-4">
         <div className="product-img">
-          <img
-            className="img-fluid"
-            src={img1 + ".jpg"}
-            alt="front product image"
-          />
-          <img
-            src={img2}
-            alt="rear product image"
-            className="rear-img img-fluid "
-          />
+          <img className="img-fluid" src={img1} alt="front product" />
+          <img src={img2} alt="rear product" className="rear-img img-fluid " />
           <div className="overlay">
             <button className="btn" title="Wishlit">
               {" "}
               <Heart></Heart>{" "}
             </button>
             <button
-              onClick={() => addmedicine(_id)}
+              onClick={() => dispatch(addItemsToCart(_id, count))}
               className="btn"
               title="Add to Cart"
             >
@@ -152,20 +138,20 @@ const PharmacyCardSlider = (props: any) => {
               <div className="product-div-for-quick">
                 <div className="product-div-left">
                   <div className="img-container">
-                    {allimg === "" ? (
-                      <img src={img1 + ".jpg"} alt="" />
+                    {allImg === "" ? (
+                      <img src={img1} alt="" />
                     ) : (
-                      <img className="img-fluid" src={allimg} alt="" />
+                      <img className="img-fluid" src={allImg} alt="" />
                     )}
                   </div>
                   <div className="hover-container">
                     <div>
                       <img
                         onClick={() => {
-                          getImage(img1 + ".jpg");
+                          getImage(img1);
                         }}
                         className="img-fluid"
-                        src={img1 + ".jpg"}
+                        src={img1}
                         alt=""
                       />
                     </div>
@@ -221,7 +207,7 @@ const PharmacyCardSlider = (props: any) => {
                   <div className="btn-group btn-style-count me-2 ">
                     <button
                       className="btn fw-bold text-size "
-                      onClick={handleONClickMinas}
+                      onClick={handleONClickMinus}
                     >
                       {" "}
                       -{" "}
@@ -229,14 +215,14 @@ const PharmacyCardSlider = (props: any) => {
                     <p className="my-auto px-2"> {count} </p>
                     <button
                       className="btn fw-bold text-size "
-                      onClick={handleOnClikplus}
+                      onClick={handleOnClickPlus}
                     >
                       {" "}
                       +{" "}
                     </button>{" "}
                   </div>
                   <button
-                    onClick={() => addmedicine(_id)}
+                    onClick={() => dispatch(addItemsToCart(_id, count))}
                     className="btn-style"
                   >
                     {" "}
@@ -248,7 +234,7 @@ const PharmacyCardSlider = (props: any) => {
           </Box>
         </Modal>
       </div>
-    </div>
+    </RootStyle>
   );
 };
 

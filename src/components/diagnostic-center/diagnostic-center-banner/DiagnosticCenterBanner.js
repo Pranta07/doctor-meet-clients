@@ -1,13 +1,15 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import "./DiagnosticCenterBanner.css";
 
-const RootStyle = styled("div")(() => ({
+
+const RootStyle = styled("div")(({ theme }) => ({
   flexGrow: 1,
   height: "100%",
   overflow: "hidden",
-}));
+  backgroundColor: theme.palette.background.default,
+}))
 
 const DiagnosticCenterBanner = () => {
   return (
@@ -25,7 +27,7 @@ const DiagnosticCenterBanner = () => {
                 <span> Advance Medical </span> Equipments
               </h3>
               <p className="diagnostic-carousel-para">
-                Nulla vitae elit libero, a pharetra augue mollis interdum.
+                Modern technology based equipments are used here.
               </p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -48,7 +50,7 @@ const DiagnosticCenterBanner = () => {
                 Fast Report <span>  Delivery </span>
               </h3>
               <p className="diagnostic-carousel-para">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Super fast report delivery within seconds.
               </p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -60,9 +62,9 @@ const DiagnosticCenterBanner = () => {
             />
 
             <Carousel.Caption>
-              <h3 className="diagnostic-carousel-title"> <span> Enriched </span>Labratory</h3>
+              <h3 className="diagnostic-carousel-title"> <span> Enriched </span>Laboratory</h3>
               <p className="diagnostic-carousel-para">
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Fully equipped laboratory.
               </p>
             </Carousel.Caption>
           </Carousel.Item>

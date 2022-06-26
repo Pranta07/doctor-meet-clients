@@ -10,9 +10,10 @@ import { styled } from "@mui/material/styles";
 // components
 import Page from "../../components/Page";
 
-// ----------------------------------------------------------------------
-
 const RootStyle = styled("div")(({ theme }) => ({
+  height: "100%",
+  backgroundColor: theme.palette.background.default,
+
   minHeight: "100%",
   paddingTop: theme.spacing(15),
   paddingBottom: theme.spacing(10),

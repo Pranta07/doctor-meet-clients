@@ -1,108 +1,125 @@
-import React, { useRef } from "react";
-import { Button, Form } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import useFirebase from "../../../firebase/useFirebase/useFirebase";
+import React, { useEffect, useRef } from "react";
+import { useSnackbar } from "notistack";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
+import { clearErrors, login } from "../../../redux/actions/userAction";
+import undrow_login from "../../../assets/img/undraw_access_account_re_8spm.svg";
+import { Button, TextField } from "@mui/material";
 import "./Login.css";
 
 const Login = () => {
-    let { signUsingGoogle, signUsingEmail } = useFirebase();
+    const { user }: any = useAppSelector((state) => state.user);
+    const { enqueueSnackbar } = useSnackbar();
+    useEffect(() => {}, [user]);
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
     const mail = useRef<HTMLInputElement>(null!);
     const pass = useRef<HTMLInputElement>(null!);
+
     const handelSubmit = (e: any): void => {
         e.preventDefault();
-        const mailE: string = mail.current.value;
-        const passE: string = pass.current.value;
-        signUsingEmail(mailE, passE);
-        // console.log(mailE,passE);
-        mail.current.value = "";
-        pass.current.value = "";
+        const email: string = mail.current?.value;
+        const password: string = pass.current?.value;
+
+        dispatch(login(email, password));
+
+        if (user?.email) {
+            navigate("/");
+            dispatch(clearErrors());
+            enqueueSnackbar("logged in successfully!");
+        } else if (user?.error) {
+            enqueueSnackbar(user.error);
+            dispatch(clearErrors());
+        }
     };
     return (
-        <div className="container">
-            <div className="row">
+        <div className="container my-5">
+            <div className="row py-5 my-5 ">
                 <div className="col-lg-6">
-                    <img
-                        className="img-fluid"
-                        src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=2000"
-                        alt=""
-                    />
+                    <img className="img-fluid" src={undrow_login} alt="" />
                 </div>
-                <div className="col-lg-6 my-auto">
-                    <Form className="container">
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control
-                                ref={mail}
-                                type="email"
-                                placeholder="Enter email"
-                            />
-                        </Form.Group>
-                        <Form.Group
-                            className="mb-3"
-                            controlId="formBasicPassword"
+                <div className="col-lg-6 my-auto py-5">
+                    <div
+                        style={{
+                            width: "100%",
+                        }}
+                        className="container"
+                    >
+                        <h3
+                            style={{
+                                color: "#0074ff",
+                            }}
                         >
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                ref={pass}
-                                type="password"
-                                placeholder="Password"
-                            />
-                        </Form.Group>
-                        <Form.Group
-                            className="mb-3 d-flex 
-    justify-content-between"
-                            controlId="formBasicCheckbox"
-                        >
-                            <Form.Check type="checkbox" label="Remember me" />{" "}
-                            <a href="/"> Forgot password? </a>
-                        </Form.Group>
-                        <Button
-                            onClick={handelSubmit}
-                            variant="primary px-4"
-                            type="submit"
-                        >
-                            Login
-                        </Button>
-                        <div className="row my-3">
                             {" "}
-                            <small className="font-weight-bold">
-                                Don't have an account?{" "}
-                                <span className="text-danger ">
-                                    <NavLink to="/signUp">Register</NavLink>
-                                </span>
-                            </small>{" "}
-                        </div>
-                    </Form>
-                    <div className="row px-3 mt-4 mb-2 ">
-                        <div className="line"></div>{" "}
-                        <small className="or text-center">Or</small>
-                        <div className="line"></div>
-                    </div>
-                    <div className="mb-4 d-flex px-3">
-                        <h6 className="mb-0 d-flex align-items-center mr-4">
-                            Sign in with:{" "}
-                        </h6>
-                        <div className="d-flex my-2">
-                            {/* <button className="btn p-0">
-                <img
-                  src="https://brandlogos.net/wp-content/uploads/2021/04/facebook-icon.png"
-                  alt="facebook"
-                  width="40px"
-                  height="40px"
-                />
-              </button> */}
-                            <button
-                                onClick={signUsingGoogle}
-                                className="btn p-0"
+                            Sign In{" "}
+                        </h3>
+                        <hr
+                            style={{
+                                width: "100px",
+                                border: `1px solid rgb(0 116 255)`,
+                                boxShadow:
+                                    "rgb(99 99 99 / 20%) 0px 2px 8px 0px",
+                                margin: " 20px auto !important",
+                                borderRadius: "10px",
+                            }}
+                        />
+                        <form onSubmit={handelSubmit}>
+                            <TextField
+                                id="outlined-basic"
+                                label="Email"
+                                variant="outlined"
+                                fullWidth
+                                inputRef={mail}
+                                required
+                                type="email"
+                                sx={{
+                                    marginY: "10px",
+                                }}
+                            />
+                            <TextField
+                                id="outlined-basic"
+                                label="Password"
+                                variant="outlined"
+                                fullWidth
+                                required
+                                inputRef={pass}
+                                type="password"
+                                sx={{
+                                    marginY: "10px",
+                                }}
+                            />
+                            <NavLink to="/password/forgot">
+                                <Button
+                                    variant="text"
+                                    style={{ color: "rgb(0 116 255)" }}
+                                >
+                                    {" "}
+                                    Forget Password?{" "}
+                                </Button>{" "}
+                                <br />
+                            </NavLink>
+                            <Button
+                                type="submit"
+                                sx={{ marginY: "10px" }}
+                                variant="contained"
                             >
-                                <img
-                                    src="https://i.ibb.co/Bn4NZDd/pngegg.png"
-                                    alt="google"
-                                    width="26px"
-                                    height="26px"
-                                />
-                            </button>
-                        </div>
+                                Login
+                            </Button>
+
+                            <p>
+                                {" "}
+                                <span
+                                    style={{ fontWeight: "600", color: "gray" }}
+                                >
+                                    {" "}
+                                    Not registered yet?
+                                </span>
+                                <NavLink to="/signUp">
+                                    <Button> Create an Account </Button>
+                                </NavLink>
+                            </p>
+                        </form>
                     </div>
                 </div>
             </div>
